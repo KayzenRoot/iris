@@ -179,3 +179,49 @@ Rule: candidate proprietary technologies MUST NOT be described as novel/patentab
 **Risk:** stale golden sets.
 **Proof:** periodic corpus refresh + hidden benchmark tranche.
 **Status:** PROPOSED.
+
+
+### IRIS-QX-016 — Gameplay Distance Fidelity
+**Purpose:** judge game assets at actual gameplay distance/angle as well as beauty-closeup distance.
+**How it works:** standardized multi-scale/camera renders evaluate silhouette, identity, equipment/material distinction, pose and VFX clarity.
+**Benefit:** production effort targets quality players can actually perceive.
+**Dependencies:** M31 camera/render, M35 engine delivery, M51 benchmarks.
+**Risk:** camera profiles must represent real gameplay.
+**Proof:** correlation with player/reviewer recognition and readability tests.
+**Status:** PROPOSED.
+
+### IRIS-QX-017 — Isometric Readability Field
+**Purpose:** map readability of important game entities across high-angle/isometric scenes.
+**How it works:** projection-space analysis combines value/color/edge/depth/semantic separation to identify background merges and occlusion zones.
+**Benefit:** stronger gameplay readability without flattening visual richness.
+**Dependencies:** M31, M35, scene segmentation.
+**Risk:** artistic contrast can be over-optimized.
+**Proof:** controlled recognition-time/error benchmark.
+**Status:** PROPOSED.
+
+### IRIS-QX-018 — Detail Survival Analyzer
+**Purpose:** spend art/render budget on detail that survives actual delivery conditions.
+**How it works:** compares master detail through target resolution, camera distance, LOD, mip/compression and display profiles; classifies visible/lost/aliasing detail.
+**Benefit:** better perceived quality per polygon/texel/GPU cost.
+**Dependencies:** M27, M28, M34, M35.
+**Risk:** target profiles can change.
+**Proof:** perceptual A/B + runtime budget comparison.
+**Status:** PROPOSED.
+
+### IRIS-QX-019 — VFX Occlusion Budget
+**Purpose:** preserve gameplay information under rich effects.
+**How it works:** tracks temporal screen-space overlap of important silhouettes/telegraphs with particles, bloom, smoke, decals and emissives.
+**Benefit:** cinematic VFX without unreadable combat.
+**Dependencies:** M32, M35, M37.
+**Risk:** semantic importance labeling.
+**Proof:** combat-recognition and telegraph-response tests.
+**Status:** PROPOSED.
+
+### IRIS-QX-020 — Isometric Motion Legibility Score
+**Purpose:** ensure high-quality motion remains readable from gameplay camera.
+**How it works:** evaluates projected pose silhouette, anticipation, action direction, contact, foot sliding, timing and transition clarity at target scale.
+**Benefit:** prevents beautiful close-up animation that reads poorly in actual play.
+**Dependencies:** M29, M30, M35.
+**Risk:** genre/action-specific calibration.
+**Proof:** action-recognition benchmark + motion defect corpus.
+**Status:** PROPOSED.
