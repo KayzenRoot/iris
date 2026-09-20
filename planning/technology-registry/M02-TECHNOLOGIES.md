@@ -892,3 +892,262 @@ All remain PROPOSED until M02 Final Technology Review.
 - PGX-073 preserves quality before cost optimization.
 
 All remain PROPOSED until M02 Final Technology Review.
+
+# Existing foundations added for S05
+
+## EXT-M02-020 — W3C SCXML / statecharts
+**Type:** existing standard / state-machine semantics.
+**What it does:** defines generic state-machine semantics including guarded transitions, compound/parallel state regions, final states and history states.
+**How IRIS uses the pattern:** reference for explicit legal state configurations and orthogonal production state regions without adopting XML/runtime dependency.
+**Risk:** SCXML executable semantics are broader than IRIS needs.
+**Proof:** state vector legality and transition-table tests.
+**Status:** PATTERN_ACCEPTED_FOR_S05.
+
+## EXT-M02-021 — Temporal durable workflow history
+**Type:** existing / durable execution pattern.
+**What it does:** persists workflow history and resumes execution after failures/outages.
+**How IRIS uses the pattern:** inspiration for replayable transition history, reconciliation and attempts that survive process failure.
+**Risk:** Temporal is not IRIS canonical production authority.
+**Proof:** reconstruct production state without Temporal runtime.
+**Status:** PATTERN_ACCEPTED_FOR_S05.
+
+## EXT-M02-022 — Dagster asset materialization / lineage model
+**Type:** existing / asset lifecycle pattern.
+**What it does:** models persistent assets, dependencies, materializations, checks and lineage rather than only ephemeral tasks.
+**How IRIS uses the pattern:** reinforces separation of materialization fact from orchestration execution and quality/check state.
+**Risk:** data-asset semantics are narrower than multimodal production.
+**Proof:** media/artifact lifecycle fixtures.
+**Status:** PATTERN_ACCEPTED_FOR_S05.
+
+## EXT-M02-023 — OpenUSD large-scale film composition workflow
+**Type:** existing / film/VFX production pattern.
+**What it does:** provides layered non-destructive composition and asset referencing designed for large-scale animated/VFX scene production.
+**How IRIS uses the pattern:** evidence that immutable/layered asset/shot composition and collaborative history are practical for film-scale workloads.
+**Risk:** scene composition is not production promotion/release governance.
+**Proof:** later M25/M36 mappings preserve IRIS lifecycle authority.
+**Status:** PATTERN_ACCEPTED_FOR_S05.
+
+# Internal technology candidates — S05
+
+## IRIS-PGX-074 — Orthogonal Production State Vector
+**Purpose:** eliminate contradictory overloaded status fields.
+**How it works:** separate versioned lifecycle, execution, review/promotion and release regions with cross-region invariants.
+**Benefit:** precise state/recovery reasoning.
+**Dependencies:** Transition Receipts.
+**Risk:** more state dimensions.
+**Proof:** legal-state model checking/table tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-075 — Lifecycle Transition Compiler
+**Purpose:** turn versioned lifecycle profiles into executable legal-transition tables.
+**How it works:** compiles states, events, guards, required receipts and resulting vector transitions into deterministic policy.
+**Benefit:** domains can add gates without hand-coded scattered conditionals.
+**Dependencies:** M03 policy compiler.
+**Risk:** bad profile compiles bad workflow.
+**Proof:** static validation + mutation tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-076 — Promotion Request Envelope
+**Purpose:** make approval/promotion an explicit auditable operation.
+**How it works:** binds candidate Snapshot, requested phase/class, Gate Set, reviewers, policy refs and reason.
+**Benefit:** finishing a render cannot accidentally promote it.
+**Dependencies:** S03 Snapshots, M01.
+**Risk:** ceremony/latency.
+**Proof:** no implicit promotion path.
+**Status:** PROPOSED.
+
+## IRIS-PGX-077 — Promotion Gate Set
+**Purpose:** unify structural, quality, rights, provenance, security, delivery and human-review admission.
+**How it works:** typed gates emit PASS/FAIL/UNKNOWN/N/A with evidence/authority/version.
+**Benefit:** production approval becomes machine-auditable and domain-aware.
+**Dependencies:** M01, M48, M53/M54/M59.
+**Risk:** gate sprawl.
+**Proof:** gate completeness by profile.
+**Status:** PROPOSED.
+
+## IRIS-PGX-078 — Gate Freshness Graph
+**Purpose:** prevent stale approvals from surviving dependency changes.
+**How it works:** each gate declares causal facets/slices; relevant deltas invalidate only affected gate results.
+**Benefit:** safe revalidation without rerendering clean media.
+**Dependencies:** PGX-017/018, S04.
+**Risk:** missing dependency causes stale approval.
+**Proof:** facet mutation corpus.
+**Status:** PROPOSED.
+
+## IRIS-PGX-079 — Promotion Evidence Bundle
+**Purpose:** provide one immutable evidence package for ACCEPTED/RELEASED promotions.
+**How it works:** binds snapshot, state transition, all gates, QualityDecisions, human decisions, rights/provenance and observations.
+**Benefit:** auditability and HIVE retrieval.
+**Dependencies:** M53/M55.
+**Risk:** bundle size.
+**Proof:** completeness validator.
+**Status:** PROPOSED.
+
+## IRIS-PGX-080 — Attempt/Production Separation Guard
+**Purpose:** prevent successful provider processes from masquerading as accepted production.
+**How it works:** type/state API forbids attempt terminal events from directly mutating acceptance/release regions.
+**Benefit:** closes a common automation safety hole.
+**Dependencies:** S01 attempt model.
+**Risk:** integration adapters may try shortcuts.
+**Proof:** adversarial adapter tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-081 — Correction Lineage Loop
+**Purpose:** govern reject/fix/review cycles without rewriting prior evidence.
+**How it works:** CHANGES_REQUIRED emits Graph/Production Delta lineage into a new attempt/revision/snapshot/review.
+**Benefit:** every correction round is reproducible.
+**Dependencies:** PGX-022, S03/S04.
+**Risk:** long lineage.
+**Proof:** multi-round correction replay.
+**Status:** PROPOSED.
+
+## IRIS-PGX-082 — Reversible Blocker Ledger
+**Purpose:** model missing rights/hardware/provider/human/security inputs without terminally killing production.
+**How it works:** typed blockers open/resolve through receipts and re-trigger affected gates.
+**Benefit:** durable pause/resume.
+**Dependencies:** M11, M54.
+**Risk:** stale blockers.
+**Proof:** unblock/revalidation tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-083 — Release Transaction Coordinator
+**Purpose:** make public/external delivery a governed multi-step transaction.
+**How it works:** prepare Release Snapshot → gates → stage → external mutation → receipt → publish state.
+**Benefit:** avoids half-published releases.
+**Dependencies:** PGX-029/042, M59.
+**Risk:** distributed transaction ambiguity.
+**Proof:** fault injection at each step.
+**Status:** PROPOSED.
+
+## IRIS-PGX-084 — External State Reconciler
+**Purpose:** safely handle timeouts/unknown outcomes after external side effects.
+**How it works:** queries external destination using idempotency/external IDs before deciding retry/success/failure.
+**Benefit:** prevents duplicate uploads/releases.
+**Dependencies:** M59 providers.
+**Risk:** external APIs may not expose enough truth.
+**Proof:** ambiguous-response simulator.
+**Status:** PROPOSED.
+
+## IRIS-PGX-085 — Release Recall Ledger
+**Purpose:** model withdrawal/recall without deleting public history.
+**How it works:** immutable recall receipts bind release, reason, destination actions and replacement.
+**Benefit:** legal/quality/security recall audit.
+**Dependencies:** M53/M59.
+**Risk:** destination removal may be partial.
+**Proof:** multi-destination recall tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-086 — Supersession Resolver
+**Purpose:** identify preferred current production/release without corrupting exact historical refs.
+**How it works:** append-only supersession graph plus policy-controlled "latest admitted" resolver.
+**Benefit:** consumers can follow current version while audits remain exact.
+**Dependencies:** PGX-008.
+**Risk:** supersession cycles.
+**Proof:** cycle rejection + exact/latest resolution tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-087 — Archive Contract Manifest
+**Purpose:** make archival completeness explicit.
+**How it works:** binds final snapshots, evidence, graph, provenance, retention tier, digests, reproducibility requirements and restoration risks.
+**Benefit:** archive is provable, not a folder move.
+**Dependencies:** M53/M55.
+**Risk:** very large manifests.
+**Proof:** missing closure/object mutation tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-088 — Multi-Tier Archive Policy
+**Purpose:** retain the right amount of production state by purpose.
+**How it works:** LIGHT / REPRODUCIBLE / LEGAL_HOLD / GOLDEN tiers with composable pins and retention obligations.
+**Benefit:** controls storage while preserving evidence/rebuild needs.
+**Dependencies:** M51/M53/M55.
+**Risk:** policy interaction complexity.
+**Proof:** retention/GC matrix.
+**Status:** PROPOSED.
+
+## IRIS-PGX-089 — Archive Integrity Sentinel
+**Purpose:** detect bit rot, missing CAS objects and broken evidence closure.
+**How it works:** periodic/on-access digest/reachability/manifest audits with explicit damage state.
+**Benefit:** long-lived media archives remain trustworthy.
+**Dependencies:** M55.
+**Risk:** audit I/O cost.
+**Proof:** corrupted/missing object injection.
+**Status:** PROPOSED.
+
+## IRIS-PGX-090 — Reproducibility Horizon Tracker
+**Purpose:** tell operators how reproducible an old production still is as external tools/models disappear.
+**How it works:** tracks availability/qualification of model/tool/provider/input dependencies and degrades restoration claims explicitly.
+**Benefit:** honest archive restoration.
+**Dependencies:** M14/M18/M55.
+**Risk:** external dependency discovery gaps.
+**Proof:** simulated provider/model retirement.
+**Status:** PROPOSED.
+
+## IRIS-PGX-091 — Revival Fork
+**Purpose:** reopen archived/superseded work without mutating historical state.
+**How it works:** creates new active production/branch from exact historic Snapshot and forces stale policy/tool/right revalidation.
+**Benefit:** safe remaster/remake/relaunch.
+**Dependencies:** S03 branch/fork.
+**Risk:** user may expect exact historic environment.
+**Proof:** archive→revival lineage tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-092 — State Projection Replay Engine
+**Purpose:** prove current production state from immutable history.
+**How it works:** replays baseline + transition/snapshot/promotion/release receipts into a deterministic current-state projection.
+**Benefit:** cached database state can be audited/rebuilt.
+**Dependencies:** PGX-005, M55.
+**Risk:** event schema evolution.
+**Proof:** cached-vs-replayed state equality.
+**Status:** PROPOSED.
+
+## IRIS-PGX-093 — Transition Idempotency Seal
+**Purpose:** prevent duplicate commands/events from duplicating approvals/releases/archives.
+**How it works:** stable event/command identity plus semantic digest returns prior receipt or flags conflict.
+**Benefit:** safe retries.
+**Dependencies:** PGX-005/083.
+**Risk:** bad idempotency scope can collapse distinct operations.
+**Proof:** duplicate/conflicting command corpus.
+**Status:** PROPOSED.
+
+## IRIS-PGX-094 — Completion Profile Resolver
+**Purpose:** avoid a universal misleading COMPLETED state.
+**How it works:** each production profile declares terminal obligation (ACCEPTED, RELEASED, ARCHIVED, etc.); completion is derived with profile evidence.
+**Benefit:** honest completion semantics across internal assets, films, campaigns and releases.
+**Dependencies:** lifecycle profiles.
+**Risk:** confusing UI if profile is hidden.
+**Proof:** profile-specific terminal tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-095 — Cross-State Invariant Guard
+**Purpose:** reject impossible combinations across orthogonal regions.
+**How it works:** compiled invariants validate whole State Vector on every transition/replay.
+**Benefit:** no PUBLISHED-before-ACCEPTED or ARCHIVED-with-active-attempt contradictions.
+**Dependencies:** PGX-074/075.
+**Risk:** invariant evolution.
+**Proof:** exhaustive invalid-vector corpus.
+**Status:** PROPOSED.
+
+## IRIS-PGX-096 — Persona Public Release Gate
+**Purpose:** apply stricter release admission to persistent public-facing synthetic identities.
+**How it works:** requires cross-modal persona/voice/brand continuity, rights/consent/provenance and human approval according to profile before public release.
+**Benefit:** corporate avatar cannot drift or publish without governed identity evidence.
+**Dependencies:** M05/M39/M40/M45/M46/M53.
+**Risk:** review latency.
+**Proof:** outfit/language variation passes; protected identity/rights drift blocks.
+**Status:** PROPOSED.
+
+# S05 relationship map
+
+- PGX-074/075/095 define the orthogonal lifecycle state kernel.
+- PGX-076/077/078/079 define explicit evidence-based promotion.
+- PGX-080 prevents attempt success from bypassing M01/M02 acceptance.
+- PGX-081/082 govern correction and reversible blockers.
+- PGX-083/084/085 govern release, uncertain external outcomes and recall.
+- PGX-086 handles supersession/current resolution.
+- PGX-087/088/089/090 define archive, retention and long-term integrity.
+- PGX-091 reopens old work through new lineage.
+- PGX-092/093 provide replayable/idempotent durable state.
+- PGX-094 derives honest completion by profile.
+- PGX-096 applies the stricter public-avatar release contract.
+
+All remain PROPOSED until M02 Final Technology Review.

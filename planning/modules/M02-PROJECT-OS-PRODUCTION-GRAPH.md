@@ -1612,8 +1612,582 @@ Future implementation must prove:
 ---
 
 # S05 — Production state machine, promotion and archive
-Status: `NOT_STARTED`
+Status: `S05_PROPOSED_COMPLETE_PENDING_DISCUSSION`
+
+## 1. State doctrine: one status field is not enough
+
+IRIS MUST NOT collapse production phase, active execution, quality approval and release/archive condition into one ambiguous status string.
+
+A production uses a versioned **Production State Vector** with orthogonal regions.
+
+Initial regions:
+
+### 1.1 Lifecycle Phase
+- `DRAFT`
+- `PLANNED`
+- `READY`
+- `MATERIALIZED`
+- `VALIDATING`
+- `ACCEPTED`
+- `RELEASED`
+- `SUPERSEDED`
+- `ARCHIVED`
+
+### 1.2 Execution Condition
+- `IDLE`
+- `ACTIVE`
+- `BLOCKED`
+
+Attempt-level `FAILED` / `CANCELLED` remain attempt facts from S01. A failed attempt does not automatically make the whole Production permanently failed.
+
+### 1.3 Review / Promotion Condition
+- `NOT_REQUESTED`
+- `PENDING`
+- `CHANGES_REQUIRED`
+- `APPROVED`
+
+This region records workflow state around review. Actual quality authority remains the M01 QualityDecision/Fidelity Contract, not this convenience flag.
+
+### 1.4 Release Condition
+- `UNRELEASED`
+- `STAGED`
+- `PUBLISHED`
+- `WITHDRAWN`
+
+Release state is external-delivery truth and may not be rolled back merely by moving an internal branch/snapshot.
+
+The vector avoids impossible statements such as "FAILED and RELEASED" being inferred from one overloaded field.
+
+## 2. Statechart semantics
+
+IRIS state machines are:
+- versioned;
+- explicit about legal transitions;
+- guard-driven;
+- receipt-producing;
+- fail-closed for unknown states/events;
+- replayable from durable transition history.
+
+W3C SCXML is a useful semantic reference because it formalizes state transitions, guards, final/history states and orthogonal/parallel state regions. IRIS may use its ideas without adopting XML or an SCXML runtime.
+
+## 3. Lifecycle promotion gates
+
+### DRAFT → PLANNED
+Requires:
+- admitted production identity/passport;
+- current intent/brief reference;
+- graph definition reference;
+- requested targets/output classes;
+- no unresolved structural contradiction preventing planning.
+
+### PLANNED → READY
+Requires:
+- bound graph / target selection;
+- required inputs available or explicitly admitted external dependencies;
+- provider/runtime capability plan exists;
+- required rights/security/policy preflight passes;
+- no blocking UNKNOWN that policy forbids.
+
+### READY → MATERIALIZED
+Requires:
+- required target materializations committed atomically or according to explicit partial-output contract;
+- producer attempts/lineage recorded;
+- no required output remains temporary/uncommitted.
+
+### MATERIALIZED → VALIDATING
+Requires:
+- applicable Fidelity Contracts resolved;
+- validator/evaluator capability available;
+- required evidence plan known.
+
+### VALIDATING → ACCEPTED
+Requires:
+- all required M01 QualityDecision gates pass;
+- mandatory human review satisfied;
+- rights/consent/security/provenance gates required at acceptance pass;
+- no blocking Quality Debt outside admitted policy;
+- Snapshot closure satisfies ACCEPTED profile.
+
+### ACCEPTED → RELEASED
+Requires:
+- Release Snapshot;
+- delivery package/format checks;
+- destination/profile validation;
+- release-specific rights/provenance/C2PA requirements;
+- external side-effect admission/idempotency policy;
+- release approval if policy requires it.
+
+### RELEASED → SUPERSEDED
+Requires:
+- replacement release/production reference;
+- supersession reason;
+- external destination behavior recorded where applicable.
+
+### SUPERSEDED → ARCHIVED
+Requires:
+- retention/pin/rights/provenance obligations evaluated;
+- active dependency/reference policy permits archive;
+- required recovery/reproducibility material retained.
+
+Direct jumps may exist only when an explicit profile proves all skipped gate obligations. "Relabeling" a production is forbidden.
+
+## 4. Acceptance is not rendering success
+
+A provider process exiting with code 0 proves only that an attempt completed according to that provider.
+
+It does NOT prove:
+- correct intent;
+- quality;
+- identity consistency;
+- temporal continuity;
+- rights;
+- provenance;
+- delivery fitness;
+- production acceptance.
+
+Therefore:
+`attempt SUCCEEDED != production ACCEPTED`.
+
+M01 is the acceptance authority for quality. M02 composes M01 evidence with lifecycle/policy/release obligations.
+
+## 5. Promotion Request
+
+Promotion is an explicit operation over a candidate Snapshot.
+
+A Promotion Request binds:
+- production_id;
+- source Snapshot;
+- requested target phase/class;
+- applicable transition profile;
+- Fidelity Contract / QualityDecision refs;
+- required reviewers;
+- rights/provenance/security policy refs;
+- release target if applicable;
+- reason/actor.
+
+Promotion is never a side effect of merely saving a file or finishing a render.
+
+## 6. Promotion Gate Set
+
+Promotion policy is compiled into a typed Gate Set.
+
+Gate families:
+- `STRUCTURAL`
+- `MATERIALIZATION`
+- `QUALITY`
+- `HUMAN_REVIEW`
+- `IDENTITY_CONTINUITY`
+- `RIGHTS_CONSENT`
+- `PROVENANCE`
+- `SECURITY`
+- `DELIVERY`
+- `EXTERNAL_SIDE_EFFECT`
+- `RETENTION_ARCHIVE`
+
+Each gate emits:
+- PASS;
+- FAIL;
+- UNKNOWN;
+- NOT_APPLICABLE;
+- evidence refs;
+- authority/version;
+- reason.
+
+Blocking UNKNOWN remains blocking according to policy.
+
+## 7. Gate monotonicity and revocation
+
+An approval is valid only under the inputs/assumptions it evaluated.
+
+If a relevant dependency changes:
+- prior gate result becomes stale;
+- it is never silently inherited;
+- the affected gate must revalidate.
+
+Example:
+- image bytes unchanged;
+- license/consent policy changed.
+
+Result:
+- QUALITY may remain valid;
+- RIGHTS_CONSENT becomes stale;
+- release may be blocked without rerendering.
+
+This extends S04 facet-aware invalidation to lifecycle promotion.
+
+## 8. Promotion Evidence Bundle
+
+Every accepted/released promotion creates an immutable Promotion Evidence Bundle with:
+- source/target lifecycle vector;
+- source/result Snapshot;
+- all gate results;
+- M01 QualityDecision refs;
+- human decisions;
+- rights/consent/provenance;
+- delivery validation;
+- actor/authority/version;
+- transition receipt;
+- unresolved/non-blocking observations;
+- Quality Debt / lifecycle debt where policy permits.
+
+A UI badge is never promotion evidence.
+
+## 9. Accepted vs Released
+
+`ACCEPTED` means IRIS has approved the production result under its acceptance contract.
+
+`RELEASED` means an accepted result has passed release/delivery policy and the external/publication state is recorded.
+
+A result can be:
+- ACCEPTED but not RELEASED;
+- RELEASED and later WITHDRAWN;
+- RELEASED then SUPERSEDED by another release.
+
+This is critical for films, campaigns, websites, app assets and public virtual-avatar content.
+
+## 10. Candidate, Master and Lifecycle are separate axes
+
+M01 output quality class:
+- DRAFT / PREVIEW / REVIEW / MASTER / ARCHIVAL_MASTER
+
+M02 production lifecycle phase:
+- DRAFT / PLANNED / READY / ... / ACCEPTED / RELEASED / ...
+
+These names may overlap semantically but represent different contracts.
+
+Examples:
+- a Production in VALIDATING may contain a candidate whose target quality class is MASTER;
+- a MASTER asset may be ACCEPTED but not yet RELEASED;
+- an ARCHIVAL_MASTER may exist only after a released production is archived.
+
+IRIS MUST NOT infer one axis from the other.
+
+## 11. Human approval boundary
+
+Some transitions require human sign-off:
+- corporate spokesperson identity MASTER;
+- brand/IP public master;
+- high-value film/campaign release;
+- rights/consent-sensitive outputs;
+- low-confidence/adversarial Quality decisions.
+
+Human approval records:
+- reviewer identity/authority;
+- scope;
+- decision;
+- reason;
+- evidence viewed;
+- timestamp;
+- applicable policy/version.
+
+M02 records the receipt; outer identity/security modules authenticate the human authority.
+
+## 12. Correction loop semantics
+
+A rejected/changes-required candidate is not destroyed.
+
+Typical flow:
+`VALIDATING → CHANGES_REQUIRED`
+then:
+- Graph/Production Delta;
+- new attempt;
+- new materialization/revision;
+- new Snapshot;
+- targeted revalidation.
+
+The earlier rejected Snapshot remains historical evidence.
+
+Correction never edits a prior approval/rejection record in place.
+
+## 13. Blocked production
+
+`Execution Condition = BLOCKED` is a reversible operational condition, not an archive/failure terminal state.
+
+Blockers may include:
+- missing model/provider;
+- unavailable GPU capability;
+- missing rights/consent;
+- missing asset;
+- incompatible dependency;
+- required human review;
+- security policy;
+- external API unavailable.
+
+Unblocking emits a receipt and reevaluates relevant gates. It does not pretend the blocker never occurred.
+
+## 14. Failed/cancelled attempts
+
+Attempts have their own state machine.
+
+When an attempt fails/cancels:
+- production phase usually remains where it was;
+- resulting committed immutable outputs remain historical facts if valid;
+- temporary outputs are not promoted;
+- a new retry creates a new attempt_id;
+- repeated failure may create a Production blocker or policy escalation.
+
+No "retry counter reset" rewrites failure history.
+
+## 15. Release Transaction
+
+A release is a governed transaction with phases such as:
+1. prepare immutable Release Snapshot;
+2. validate release gate set;
+3. stage package/artifacts;
+4. execute external side effects;
+5. record external receipts/identifiers;
+6. mark release published only when success criteria are proven.
+
+If the external action is ambiguous (timeout after submit, unknown remote state):
+- state becomes UNKNOWN/BLOCKED for reconciliation;
+- IRIS must inspect the external destination before retry;
+- blind retry is forbidden for non-idempotent effects.
+
+## 16. Withdrawal / recall
+
+Public content may need withdrawal due to:
+- legal/rights issue;
+- quality defect;
+- security/privacy issue;
+- campaign stop;
+- superseding release.
+
+Withdrawal is not deletion.
+
+A withdrawal receipt records:
+- which release;
+- why;
+- requested/confirmed external actions;
+- destination state;
+- replacement/superseding release if any.
+
+Historical provenance remains according to retention/legal policy.
+
+## 17. Supersession
+
+Supersession states:
+- old release remains immutable historical fact;
+- new accepted/released Snapshot becomes preferred/canonical for future consumers;
+- references can resolve "latest admitted" through policy;
+- exact historical refs always remain exact.
+
+A mutable "latest" alias never replaces durable exact version references in receipts/evidence.
+
+## 18. Archive policy
+
+Archive is a lifecycle state plus retention contract, not "move files to archive folder".
+
+Archive manifest binds:
+- final/canonical Snapshot refs;
+- release/supersession history;
+- provenance/rights/consent;
+- M01 quality evidence;
+- graph/intent/version refs;
+- retention tier;
+- required reproducibility assets;
+- checksums/content digests;
+- restoration prerequisites;
+- external dependency availability risks.
+
+## 19. Archive tiers
+
+Proposed initial tiers:
+
+### ARCHIVE_LIGHT
+Preserves metadata, graph, receipts and essential final artifacts; some recomputable intermediates may be omitted.
+
+### ARCHIVE_REPRODUCIBLE
+Preserves enough qualified inputs/tools/models/configuration references and required artifacts to target reproducibility under the recorded reproducibility class.
+
+### ARCHIVE_LEGAL_HOLD
+Retention/deletion is governed by legal/security/rights requirements and overrides ordinary GC.
+
+### ARCHIVE_GOLDEN
+Protected benchmark/reference material retained for M01/M51 regression and future Quality Court calibration.
+
+Tier is policy-driven and may combine pins.
+
+## 20. Cold storage and restoration
+
+M55 later implements storage mechanics.
+
+M02 requires that archive/restoration semantics distinguish:
+- metadata immediately available;
+- hot/warm/cold materializations;
+- remote/offline storage;
+- missing external dependencies;
+- model/tool version unavailable;
+- rights prevent restoration/use.
+
+A restored production cannot claim full reproducibility merely because metadata reopened successfully.
+
+## 21. Reopen semantics
+
+An ARCHIVED/SUPERSEDED production may be reopened only through a governed fork/revival operation.
+
+Reopening:
+- creates a new active branch/snapshot lineage from an exact historical point;
+- revalidates stale models/tools/policies/rights;
+- does not mutate the archived historical production;
+- may create a new production_id if policy treats the revival as a distinct production.
+
+## 22. Archive integrity audit
+
+Archives are periodically or on-access checked for:
+- manifest readability;
+- digest integrity;
+- required object reachability;
+- provenance/evidence references;
+- rights/legal-hold consistency;
+- restoration prerequisites.
+
+Bit rot or missing CAS objects becomes explicit damage/UNKNOWN, never silent success.
+
+## 23. Production completion
+
+A Production can declare `COMPLETED` as a derived summary only when its target lifecycle profile says no further mandatory transition remains.
+
+`COMPLETED` is not a canonical lifecycle phase because different profiles end at different points:
+- internal asset may end at ACCEPTED;
+- public campaign may require RELEASED;
+- regulated archive may require ARCHIVED.
+
+The derived summary must name the profile and terminal obligation it satisfied.
+
+## 24. Orthogonal state invariants
+
+Examples:
+- RELEASED implies an accepted Release Snapshot exists;
+- PUBLISHED release condition cannot coexist with a lifecycle phase earlier than ACCEPTED;
+- ARCHIVED normally requires execution condition IDLE;
+- ACTIVE attempt requires production not ARCHIVED unless it is an explicit restoration/verification task;
+- WITHDRAWN does not erase RELEASED history;
+- CHANGES_REQUIRED cannot be converted to APPROVED without a new review receipt.
+
+Invalid state vectors fail closed.
+
+## 25. Event idempotency and duplicate suppression
+
+State transitions accept a stable command/event id.
+
+Submitting the same admitted transition command twice:
+- returns the already-recorded receipt when semantically identical; or
+- detects duplicate/conflict.
+
+It must not issue duplicate external releases, approvals or archives.
+
+## 26. Durable replay
+
+Current production state is reconstructable from:
+- immutable production baseline;
+- ordered Transition Receipts;
+- Snapshot/Merge/Promotion/Release receipts.
+
+A materialized current-state projection may be cached for performance, but replay/audit must be able to prove it from durable history.
+
+Temporal's durable-history idea is a useful reference here; IRIS retains Git/Project Brain/production records as its own canonical domain truth rather than making a workflow engine the product authority.
+
+## 27. Film / series example
+
+Film:
+`PLANNED → READY → MATERIALIZED → VALIDATING → ACCEPTED → RELEASED`
+
+But attempts for:
+- shot 12 VFX;
+- shot 43 dialogue;
+- final color;
+- encode
+
+may fail/retry independently without resetting film identity.
+
+A recalled master can be WITHDRAWN and later SUPERSEDED by a repaired release while all prior release history remains auditable.
+
+## 28. Corporate spokesperson example
+
+Episode:
+- canonical persona baseline already ACCEPTED;
+- new script/scene fork materializes;
+- cross-modal persona/voice/temporal gates validate;
+- campaign/brand/rights gates validate;
+- episode becomes ACCEPTED;
+- platform deliveries become staged/published.
+
+If the company later changes the persona's approved Voice DNA, earlier videos remain historical releases; future episodes inherit the new baseline only through explicit supersession/migration.
+
+## 29. Website / Web3D example
+
+A website visual package can be ACCEPTED while deployment remains UNRELEASED.
+
+Release gate may require:
+- WebGPU fallback validation;
+- performance/accessibility;
+- provenance;
+- target environment;
+- deployment package integrity.
+
+A deployment rollback restores a previous release package through a new release/rollback receipt; it does not rewrite the previous deployment event.
+
+## 30. Proposed S05 decisions
+
+- **D-M02-S05-001:** production state is an orthogonal versioned State Vector, not one overloaded status field.
+- **D-M02-S05-002:** production lifecycle, attempt execution, review/promotion and release conditions are distinct.
+- **D-M02-S05-003:** attempt success never implies Production ACCEPTED.
+- **D-M02-S05-004:** promotion is an explicit request over an immutable candidate Snapshot.
+- **D-M02-S05-005:** promotion uses typed Gate Sets with PASS/FAIL/UNKNOWN/NOT_APPLICABLE evidence.
+- **D-M02-S05-006:** stale gate evidence is invalidated by causal dependency changes; approval is never silently inherited.
+- **D-M02-S05-007:** M01 Quality Class and M02 lifecycle phase remain separate axes.
+- **D-M02-S05-008:** accepted and released are distinct; public/external release requires a Release Transaction.
+- **D-M02-S05-009:** corrections create new deltas/attempts/revisions/review receipts; prior decisions remain immutable.
+- **D-M02-S05-010:** BLOCKED is reversible and receipt-driven; failed/cancelled attempts do not rewrite Production history.
+- **D-M02-S05-011:** ambiguous external release state fails to UNKNOWN/BLOCKED reconciliation instead of blind retry.
+- **D-M02-S05-012:** withdrawal/recall preserves historical release provenance.
+- **D-M02-S05-013:** supersession changes preferred future resolution but never exact historical references.
+- **D-M02-S05-014:** archive is a retention/reproducibility contract, not a filesystem folder.
+- **D-M02-S05-015:** archive tiers include LIGHT, REPRODUCIBLE, LEGAL_HOLD and GOLDEN semantics.
+- **D-M02-S05-016:** restoration/reopening creates new active lineage and revalidates stale dependencies/policies.
+- **D-M02-S05-017:** current state must be replayable/provable from immutable receipts.
+- **D-M02-S05-018:** duplicate transition/event commands are idempotent or detectably conflicting.
+- **D-M02-S05-019:** COMPLETED is a profile-derived summary, not a universal canonical lifecycle phase.
+- **D-M02-S05-020:** invalid orthogonal state combinations fail closed.
+
+## 31. S05 proof plan
+
+Future implementation must prove:
+1. legal lifecycle transition table is exhaustive and versioned;
+2. illegal direct jump fails closed;
+3. provider attempt success cannot promote production to ACCEPTED;
+4. failed attempt leaves production phase intact and remains in history;
+5. retry creates a new attempt id;
+6. promotion request binds exact candidate Snapshot;
+7. every required gate has authority/version/evidence;
+8. blocking UNKNOWN prevents promotion;
+9. stale QualityDecision is invalidated when relevant dependency changes;
+10. rights-only change invalidates rights/release gate without rerendering clean media;
+11. VALIDATING→ACCEPTED fails without required human review;
+12. ACCEPTED can exist without RELEASED;
+13. RELEASED cannot exist without accepted Release Snapshot;
+14. ambiguous external publish timeout blocks reconciliation and prevents blind duplicate publish;
+15. duplicate release command is idempotent/detectably duplicate;
+16. withdrawal preserves exact previous release/provenance;
+17. supersession resolves preferred new release while historical exact refs remain stable;
+18. archive manifest rejects missing required closure refs;
+19. LEGAL_HOLD prevents ordinary GC/deletion;
+20. GOLDEN archive remains pinned for benchmark use;
+21. archive integrity detects missing/corrupt object;
+22. restoring metadata alone cannot claim reproducibility if model/tool/input is unavailable;
+23. reopening archived production creates new active lineage rather than mutating history;
+24. state projection rebuilt from receipts matches cached current state;
+25. invalid orthogonal state combination fails construction/transition;
+26. correction loop preserves rejected Snapshot and review decision;
+27. M01 MASTER quality class does not by itself imply M02 RELEASED lifecycle;
+28. recurring corporate avatar release validates persona/voice/brand/rights gates independently;
+29. film shot attempt failures do not destroy accepted status of unrelated prior shots;
+30. website visual acceptance can remain separate from deployment release;
+31. profile-derived COMPLETED names the terminal obligation it satisfied;
+32. all S01-S04 receipts/snapshots/build semantics integrate without inventing a second state authority.
+
+---
 
 ## M02 current disposition
 
-S01 through S04 are proposed complete for discussion. No implementation is authorized. Technology candidates remain PROPOSED until M02 Final Technology Review. Next session: S05 — Production state machine, promotion and archive.
+S01 through S05 are proposed complete for discussion. No implementation is authorized. M02 slow planning is complete and now enters Final Technology Review → Forward Compatibility Scan → Contract Freeze.
