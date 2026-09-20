@@ -30,7 +30,7 @@ No secrets/machine-specific absolute paths. No destructive Git. Exact-head evide
 Source Pack and GEF/HIVE paths exist; validator/tests pass; Governance CI passes exact head; local HIVE operator command is documented; no product code introduced.
 
 ## TESTS
-`python -m py_compile scripts/validate_governance.py scripts/hive_bootstrap.py scripts/hive_mcp.py`; `python scripts/validate_governance.py`; `python -m unittest discover -s tests -p "test_*.py" -v`; exact-head GitHub Actions.
+`python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/hive_bootstrap.py scripts/hive_mcp.py`; `python scripts/validate_governance.py`; `python -m unittest discover -s tests -p "test_*.py" -v`; exact-head GitHub Actions.
 
 ## DELIVERABLES
 Governance, Source Pack, HIVE tooling, Codex MCP config, CI/templates, evidence and review.
