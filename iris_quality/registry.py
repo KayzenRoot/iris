@@ -322,10 +322,12 @@ class EvaluatorRegistry:
 class EvaluatorAuthority:
     """Bounded proof of which versioned evaluator may speak about which dimension.
 
-    A promotion-capable authority always carries an :class:`EvaluatorRegistry`: every speaking
-    component must be declared by the contract, registered at the exact version that spoke, and
-    covered for each dimension it opined on. The registry-less form is reachable only through
-    :meth:`preflight`, checks declaration alone, and is refused by ``DecisionEngine``.
+    A promotion-capable authority always carries an :class:`EvaluatorRegistry` that has already
+    been resolved against the whole declared panel: an authority over a registry that is missing
+    a declared evaluator, or a version of one, cannot be constructed at all. So no public
+    constructor is weaker than :meth:`resolved`, and an absent evaluator is never read as consent.
+    The registry-less form is reachable only through :meth:`preflight`, checks declaration alone,
+    and is refused by ``DecisionEngine``.
     """
 
     contract: FidelityContract
@@ -336,6 +338,11 @@ class EvaluatorAuthority:
             raise RegistrationError("contract must be a FidelityContract")
         if self.registry is not None and not isinstance(self.registry, EvaluatorRegistry):
             raise RegistrationError("registry must be an EvaluatorRegistry or None")
+        if self.registry is not None:
+            # A non-null registry is only evidence of capability once it has been resolved:
+            # without this the direct constructor would trust a panel that omits a declared
+            # evaluator, and an evaluator that never speaks is invisible to authorize().
+            self.registry.resolve(self.contract)
 
     @classmethod
     def preflight(cls, contract: FidelityContract) -> "EvaluatorAuthority":
@@ -356,9 +363,12 @@ class EvaluatorAuthority:
     def resolved(
         cls, contract: FidelityContract, registry: EvaluatorRegistry
     ) -> "EvaluatorAuthority":
-        """Issue authority only for a contract whose declared panel is registered and complete."""
+        """Issue authority for a contract whose declared panel is registered and complete.
 
-        registry.resolve(contract)
+        The dataclass enforces the same resolution, so this is the semantic name for that
+        guarantee rather than a second, stricter policy path.
+        """
+
         return cls(contract=contract, registry=registry)
 
     def declared_references(self) -> tuple[str, ...]:

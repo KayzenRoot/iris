@@ -1,12 +1,12 @@
-"""IRIS-WO-0003-CORRECTION-01/02 F2: promotion inputs are bounded by declared *and registered* capability.
+"""IRIS-WO-0003-CORRECTION-01/02/03 F2: promotion inputs are bounded by declared *and resolved* capability.
 
-CORRECTION-01 introduced :class:`EvaluatorAuthority`. CORRECTION-02 removes its optional
-tier: registration is no longer a stronger mode a caller may skip, it is what makes an
-authority promotion-capable. A contract-declared evaluator that cannot be resolved in a
-registry cannot influence a promotable decision, and the declaration-only preflight form is
-refused by the engine instead of silently deciding on a weaker rule.
+CORRECTION-01 introduced :class:`EvaluatorAuthority`. CORRECTION-02 removed its optional tier:
+registration is no longer a stronger mode a caller may skip, it is what makes an authority
+promotion-capable. CORRECTION-03 closes the last gap in that claim: a registry-backed authority
+is resolved against the *whole* declared panel by its own constructor, so carrying a registry that
+omits a declared evaluator is not a weaker authority, it is no authority at all.
 
-Nothing here is read out of a payload: an unnamed or unregistered component cannot buy
+Nothing here is read out of a payload: an unnamed, unregistered or absent component cannot buy
 influence by producing well-formed assessments.
 """
 
@@ -96,13 +96,11 @@ class EvaluatorAuthorityTests(TestCase):
             )
 
     def test_a_declared_judge_that_is_not_registered_is_refused(self) -> None:
-        result = judge_result(self.target, covered_assessments())
-        with self.assertRaises(EvaluationInputError) as caught:
-            self.decide(
-                results=(result,),
-                authority=EvaluatorAuthority(self.target, panel(include_judge=False)),
-            )
-        self.assertIn("not registered", str(caught.exception))
+        # CORRECTION-03: the gap is proven before any input is collected, so the weak authority
+        # never reaches the engine at all.
+        with self.assertRaises(RegistrationError) as caught:
+            EvaluatorAuthority(self.target, panel(include_judge=False))
+        self.assertIn("test-judge@1.0.0 is not registered", str(caught.exception))
 
     def test_a_judge_may_not_opine_outside_its_registered_coverage(self) -> None:
         result = judge_result(self.target, covered_assessments())
@@ -226,11 +224,14 @@ class MandatoryAuthorityTests(TestCase):
         registry = EvaluatorRegistry(
             [evaluator_descriptor(identifier="test-evaluator", dimension_ids=DIMENSIONS)]
         )
-        authority = EvaluatorAuthority(self.target, registry)
-        with self.assertRaises(EvaluationInputError) as caught:
-            self.engine.evaluate(self.target, SUBJECT, results=(result,), authority=authority)
-        self.assertIn("test-judge@1.0.0 is declared by contract", str(caught.exception))
-        self.assertIn("but not registered", str(caught.exception))
+        with self.assertRaises(RegistrationError) as caught:
+            self.engine.evaluate(
+                self.target,
+                SUBJECT,
+                results=(result,),
+                authority=EvaluatorAuthority(self.target, registry),
+            )
+        self.assertIn("evaluator test-judge@1.0.0 is not registered", str(caught.exception))
 
     def test_a_registered_coverage_mismatch_fails_closed(self) -> None:
         result = judge_result(self.target, covered_assessments())
@@ -274,3 +275,87 @@ class MandatoryAuthorityTests(TestCase):
         )
         self.assertEqual(decision.outcome.value, "PROMOTED")
         self.assertIs(decision.requested_class, QualityClass.MASTER)
+
+
+def evaluator_only_panel() -> EvaluatorRegistry:
+    """A registry that covers every dimension, but not every evaluator the contract declares."""
+
+    return EvaluatorRegistry(
+        [evaluator_descriptor(identifier="test-evaluator", dimension_ids=DIMENSIONS)]
+    )
+
+
+class ResolvedAtConstructionTests(TestCase):
+    """CORRECTION-03 F2b: no public constructor is weaker than ``resolved``.
+
+    The failure scenario the audit named is the interesting one: a declared evaluator that never
+    speaks is invisible to :meth:`EvaluatorAuthority.authorize`, which only sees who opined. The
+    only counter is to resolve the whole declared panel while the authority is being built.
+    """
+
+    def setUp(self) -> None:
+        self.engine = DecisionEngine()
+        self.target = contract()
+
+    def decide(self, *, results=(), assessments=(), authority):
+        return self.engine.evaluate(
+            self.target, SUBJECT, assessments=assessments, results=results, authority=authority
+        )
+
+    def test_a_registry_missing_a_declared_evaluator_cannot_be_built(self) -> None:
+        with self.assertRaises(RegistrationError) as caught:
+            EvaluatorAuthority(self.target, evaluator_only_panel())
+        self.assertIn("evaluator test-judge@1.0.0 is not registered", str(caught.exception))
+
+    def test_an_incomplete_registry_authority_is_never_promotion_capable(self) -> None:
+        self.assertTrue(EvaluatorAuthority(self.target, panel()).promotion_capable)
+        self.assertFalse(EvaluatorAuthority.preflight(self.target).promotion_capable)
+        for registry in (EvaluatorRegistry(), evaluator_only_panel()):
+            with self.assertRaises(RegistrationError):
+                EvaluatorAuthority(self.target, registry)
+
+    def test_a_partial_panel_fails_closed_even_when_the_absent_evaluator_never_speaks(self) -> None:
+        # test-evaluator alone covers all three dimensions and is the only component that opines.
+        with self.assertRaises(RegistrationError):
+            self.decide(assessments=covered_assessments(), authority=EvaluatorAuthority(
+                self.target, evaluator_only_panel()
+            ))
+
+    def test_a_version_mismatch_in_the_declared_panel_cannot_be_built(self) -> None:
+        registry = EvaluatorRegistry(
+            [
+                evaluator_descriptor(identifier="test-evaluator", dimension_ids=DIMENSIONS),
+                evaluator_descriptor(
+                    identifier="test-judge", version="2.0.0", dimension_ids=DIMENSIONS
+                ),
+            ]
+        )
+        with self.assertRaises(RegistrationError) as caught:
+            EvaluatorAuthority(self.target, registry)
+        self.assertIn("test-judge@1.0.0", str(caught.exception))
+
+    def test_a_declared_panel_that_leaves_a_dimension_uncovered_cannot_be_built(self) -> None:
+        with self.assertRaises(RegistrationError) as caught:
+            EvaluatorAuthority(
+                self.target,
+                EvaluatorRegistry(
+                    [
+                        evaluator_descriptor(
+                            identifier="test-evaluator", dimension_ids=("intent-adherence",)
+                        ),
+                        evaluator_descriptor(
+                            identifier="test-judge", dimension_ids=("intent-adherence",)
+                        ),
+                    ]
+                ),
+            )
+        self.assertIn("no registered evaluator", str(caught.exception))
+
+    def test_the_direct_constructor_behaves_identically_to_resolved(self) -> None:
+        result = judge_result(self.target, covered_assessments())
+        direct = self.decide(results=(result,), authority=EvaluatorAuthority(self.target, panel()))
+        via_resolved = self.decide(
+            results=(result,), authority=EvaluatorAuthority.resolved(self.target, panel())
+        )
+        self.assertEqual(direct.outcome.value, "PROMOTED")
+        self.assertEqual(direct.to_payload(), via_resolved.to_payload())

@@ -549,10 +549,11 @@ class DecisionEngine:
     ) -> QualityDecision:
         """Decide one asset against one contract. Same inputs, same bytes out.
 
-        The authority must be promotion-capable, i.e. issued by
-        :meth:`EvaluatorAuthority.resolved`: every component that speaks has to be declared by the
-        contract, registered at the exact version that spoke, and covered for each dimension it
-        opined on. A missing or declaration-only authority fails closed instead of decidable.
+        The authority must be promotion-capable, i.e. carry a registry resolved against the whole
+        declared panel: every component that speaks has to be declared by the contract, registered
+        at the exact version that spoke, and covered for each dimension it opined on, and every
+        evaluator the contract declares has to be present in that panel. A missing or
+        declaration-only authority fails closed instead of decidable.
         """
 
         if not isinstance(contract, FidelityContract):

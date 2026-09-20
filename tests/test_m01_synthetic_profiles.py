@@ -560,17 +560,20 @@ class NonVisualProfileTests(TestCase):
 
 
 class ResolvedAuthorityProfileTests(TestCase):
-    """CORRECTION-02 section 6: each synthetic profile promotes on a resolved authority.
+    """CORRECTION-02 §6 / CORRECTION-03 §5: each synthetic profile promotes on a resolved authority.
 
-    The authority below is issued by ``EvaluatorAuthority.resolved`` over the profile's own
-    declared panel, so a pass proves the registry-backed path rather than a fixture convenience.
+    The authority below is issued over the profile's own declared panel, so a pass proves the
+    registry-backed path rather than a fixture convenience. The direct constructor is exercised as
+    well, because CORRECTION-03 made it resolve the same panel rather than a weaker one.
     """
 
-    def promote(self, name: str, judges) -> QualityDecision:
+    def promote(
+        self, name: str, judges, *, issue=EvaluatorAuthority.resolved
+    ) -> QualityDecision:
         built = instantiate(name, QualityClass.MASTER)
         results = judged(built, judges(built))
         granted = authorized(built, results=results)
-        authority = EvaluatorAuthority.resolved(granted, panel_registry(granted))
+        authority = issue(granted, panel_registry(granted))
         decision = DecisionEngine().evaluate(
             granted, SUBJECT, results=results, authority=authority
         )
@@ -590,3 +593,6 @@ class ResolvedAuthorityProfileTests(TestCase):
 
     def test_narration_audio_promotes_with_explicit_resolved_authority(self) -> None:
         self.promote("narration-audio", lambda built: audio_jury())
+
+    def test_generic_image_promotes_on_an_equivalent_direct_authority(self) -> None:
+        self.promote("generic-image", jury, issue=EvaluatorAuthority)

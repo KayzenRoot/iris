@@ -65,9 +65,10 @@ if decision.outcome is DecisionOutcome.PROMOTED:
     decision.require_promotable()   # raises PromotionBlockedError otherwise
 ```
 
-`authority` is mandatory and must come from `EvaluatorAuthority.resolved`:
-a missing or declaration-only authority is refused instead of deciding on a
-weaker rule (invariant 10).
+`authority` is mandatory and must carry a registry resolved against the whole
+declared panel, which `EvaluatorAuthority` now guarantees while it is being
+built: a missing or declaration-only authority is refused instead of deciding on
+a weaker rule (invariant 10).
 
 Inputs may be handed over as `results` (from `QualityJudge` ports, merged by the
 engine) or as direct `assessments`. Mixing the two sources for the same dimension
@@ -128,7 +129,11 @@ raises `EvaluationInputError` rather than picking a winner silently.
     opined on. `evaluate()` therefore requires a promotion-capable
     `EvaluatorAuthority.resolved(contract, registry)`; `authority=None` and
     `EvaluatorAuthority.preflight(contract)` both raise `EvaluationInputError`.
-    A missing registry is a fail-closed condition, never permission.
+    A missing registry is a fail-closed condition, never permission, and no
+    public constructor is weaker than `resolved`: building a registry-backed
+    authority resolves `registry.resolve(contract)` first, so a panel that omits
+    a declared evaluator — even one that never speaks — cannot become
+    promotion-capable.
 11. **Dimensions are a closed, versioned set.** `DimensionRegistry` holds the 18
     frozen `CANONICAL_FIDELITY_VECTOR` ids plus at most `MAX_EXTENSION_DIMENSIONS`
     explicitly registered, non-core, non-shadowing extensions. Contracts, domain
@@ -210,6 +215,10 @@ kinds are enumerated in `serialization.SERIALIZABLE_TYPES`.
   is the only promotion-capable form, and it is required on every
   `DecisionEngine.evaluate()` call. CORRECTION-02 removed the tier that let a
   caller skip registration, because an optional registry is an optional invariant.
+  CORRECTION-03 moved the same resolution into `__post_init__`, so the invariant
+  lives in the type rather than in one recommended constructor: a directly built
+  authority over an incomplete panel raises `RegistrationError` instead of
+  quietly becoming promotion-capable.
   Declaration-only inspection survives as `EvaluatorAuthority.preflight(contract)`,
   which answers "who does this contract admit?" and is refused by the engine, so a
   production caller cannot silently fall back to the weaker rule.
