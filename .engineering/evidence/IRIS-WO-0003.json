@@ -25,15 +25,26 @@
     "headBinding": "The job step 'Assert exact candidate' logged 'Checked out head: 5369252fc0a40c22c05cff47485b62279849ef2d', so the recorded run executed this exact candidate head.",
     "ciEvidence": "Governance validation PASS (35 required artifacts) and 'Ran 196 tests' OK on the exact head.",
     "note": "5369252 is the last head that changes code, fixtures or documentation; every commit after it touches only .engineering/ governance artifacts, so its run is the one bound to the implementation.",
-    "artifactRefreshHead": {
-      "sha": "78bdd0c8f524cc3b9c59762ce287602ec3e489dd",
-      "runId": 35529168068,
-      "runUrl": "https://github.com/KayzenRoot/iris/actions/runs/35529168068",
-      "conclusion": "success",
-      "headBinding": "The job step 'Assert exact candidate' logged 'Checked out head: 78bdd0c8f524cc3b9c59762ce287602ec3e489dd'.",
-      "ciEvidence": "Governance validation PASS and 'Ran 196 tests' OK; the diff against 5369252 contains only the two .engineering artifacts.",
-      "note": "Recording this run in the bundle would change the head again, so the workflow/job binding for the final candidate head is written by the independent audit, as in IRIS-WO-0001 and IRIS-WO-0002."
-    }
+    "governanceArtifactHeads": [
+      {
+        "sha": "78bdd0c8f524cc3b9c59762ce287602ec3e489dd",
+        "runId": 35529168068,
+        "runUrl": "https://github.com/KayzenRoot/iris/actions/runs/35529168068",
+        "conclusion": "success",
+        "headBinding": "The job step 'Assert exact candidate' logged 'Checked out head: 78bdd0c8f524cc3b9c59762ce287602ec3e489dd'.",
+        "ciEvidence": "Governance validation PASS and 'Ran 196 tests' OK; the diff against 5369252 contains only the two .engineering artifacts."
+      },
+      {
+        "sha": "246a63cbfa76b6cd364cfb210c6832386d893358",
+        "runId": 35529331361,
+        "runUrl": "https://github.com/KayzenRoot/iris/actions/runs/35529331361",
+        "conclusion": "success",
+        "role": "pull request head at handoff",
+        "headBinding": "The job step 'Assert exact candidate' logged 'Checked out head: 246a63cbfa76b6cd364cfb210c6832386d893358'.",
+        "ciEvidence": "Governance validation PASS and 'Ran 196 tests' OK; base..246a63c measures 27 files and 8371 insertions, still only the two .engineering artifacts beyond the code head."
+      }
+    ],
+    "handoffNote": "Every commit after 5369252 touches only .engineering/ governance artifacts, and each one creates a new PR head whose own run post-dates the bundle text that would record it. The executor therefore lists the runs it actually observed and leaves the workflow/job binding of the final candidate head to the independent audit, as in IRIS-WO-0001 and IRIS-WO-0002. 'gh pr view 7 --json headRefOid' is authoritative for the current head."
   },
   "changedFiles": {
     "count": 27,
