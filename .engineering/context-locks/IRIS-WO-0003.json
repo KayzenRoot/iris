@@ -14,7 +14,8 @@
     "id": "35528633974",
     "workflow": "governance.yml",
     "headBinding": "Checked out head: 5369252fc0a40c22c05cff47485b62279849ef2d",
-    "testsRun": 196
+    "testsRun": 196,
+    "note": "5369252 is the last head touching code, fixtures or documentation. Governance run 35529168068 (success) covers the following .engineering-artifacts-only head 78bdd0c8f524cc3b9c59762ce287602ec3e489dd; the independent audit writes the binding for the final candidate head."
   },
   "status": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
   "frozenContract": {

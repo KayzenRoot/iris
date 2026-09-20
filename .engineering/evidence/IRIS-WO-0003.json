@@ -24,7 +24,16 @@
     "conclusion": "success",
     "headBinding": "The job step 'Assert exact candidate' logged 'Checked out head: 5369252fc0a40c22c05cff47485b62279849ef2d', so the recorded run executed this exact candidate head.",
     "ciEvidence": "Governance validation PASS (35 required artifacts) and 'Ran 196 tests' OK on the exact head.",
-    "note": "The bundle-refresh commit that records this run touches only .engineering/ governance artifacts; the implementation, fixture and documentation head is 5369252, and its run is the one bound above."
+    "note": "5369252 is the last head that changes code, fixtures or documentation; every commit after it touches only .engineering/ governance artifacts, so its run is the one bound to the implementation.",
+    "artifactRefreshHead": {
+      "sha": "78bdd0c8f524cc3b9c59762ce287602ec3e489dd",
+      "runId": 35529168068,
+      "runUrl": "https://github.com/KayzenRoot/iris/actions/runs/35529168068",
+      "conclusion": "success",
+      "headBinding": "The job step 'Assert exact candidate' logged 'Checked out head: 78bdd0c8f524cc3b9c59762ce287602ec3e489dd'.",
+      "ciEvidence": "Governance validation PASS and 'Ran 196 tests' OK; the diff against 5369252 contains only the two .engineering artifacts.",
+      "note": "Recording this run in the bundle would change the head again, so the workflow/job binding for the final candidate head is written by the independent audit, as in IRIS-WO-0001 and IRIS-WO-0002."
+    }
   },
   "changedFiles": {
     "count": 27,
@@ -164,6 +173,12 @@
       "command": "gh run view 35528633974 --json headSha,conclusion,status,url",
       "result": "PASS",
       "output": "{\"conclusion\":\"success\",\"headSha\":\"5369252fc0a40c22c05cff47485b62279849ef2d\",\"status\":\"completed\"}"
+    },
+    {
+      "name": "ci_artifact_refresh_head",
+      "command": "gh run view 35529168068 --json headSha,conclusion,status,url",
+      "result": "PASS",
+      "output": "{\"conclusion\":\"success\",\"headSha\":\"78bdd0c8f524cc3b9c59762ce287602ec3e489dd\",\"status\":\"completed\"}; log shows 'Checked out head: 78bdd0c8f524cc3b9c59762ce287602ec3e489dd', 'IRIS governance validation: PASS' and 'Ran 196 tests' OK"
     }
   ],
   "tests": [
