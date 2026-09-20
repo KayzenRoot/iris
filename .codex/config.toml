@@ -1,0 +1,18 @@
+[mcp_servers.hive]
+command = "python"
+args = ["scripts/hive_mcp.py"]
+env_vars = ["HIVE_REPO_PATH"]
+enabled = true
+required = true
+startup_timeout_sec = 20
+tool_timeout_sec = 60
+enabled_tools = [
+  "project.list",
+  "project.status",
+  "context.build",
+  "context.search",
+  "memory.search",
+  "memory.get",
+  "checkpoint.read",
+]
+default_tools_approval_mode = "auto"
