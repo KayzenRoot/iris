@@ -1,0 +1,724 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0003",
+  "correction": "IRIS-WO-0003-CORRECTION-03",
+  "baseSha": "2bcc90c77ce79ca38bd2bb4ede7dd10e1ac78352",
+  "implementationSha": "391f881078fc215c3e1aabb7df1648539d879dfb",
+  "auditedHeadSha": "ba2b7b434c731be197bae7bfdca151188f1b58bc",
+  "correctionSha": "ddb7ca41c9c6980927b8bfa17f86f9cf290e6158",
+  "status": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+  "branch": "iris-wo-0003-m01-quality-kernel",
+  "pullRequest": {
+    "number": 7,
+    "sameBranchAndPrRequired": true,
+    "merged": false,
+    "note": "CORRECTION-01, CORRECTION-02 and CORRECTION-03 were all pushed to the existing branch and PR #7; no merge was performed and M02 was not started.",
+    "headAtCorrection03": "ddb7ca41c9c6980927b8bfa17f86f9cf290e6158"
+  },
+  "changedFiles": {
+    "count": 27,
+    "countBasis": "git diff --name-only 2bcc90c77ce79ca38bd2bb4ede7dd10e1ac78352..ddb7ca41c9c6980927b8bfa17f86f9cf290e6158 | wc -l",
+    "correctionOfPriorClaim": "Every count here is measured per scope: 22 files at the 391f881 implementation commit, 24 at the first audited head 377e2f5, and 27 at every candidate head since (the corrections added 3 test modules and the 2 .engineering artifacts; no later round added a file). Insertions differ per head: 8124 at 5369252, 8655 at 0705ea3 and 8962 at ddb7ca4, because each correction only edited files the first candidate already listed.",
+    "implementationCommitFiles": {
+      "count": 22,
+      "sha": "391f881078fc215c3e1aabb7df1648539d879dfb",
+      "command": "git diff --name-only 2bcc90c..391f881 | wc -l"
+    },
+    "priorAuditedHeadFiles": {
+      "count": 24,
+      "sha": "377e2f5a995d1a8c81dbc4695bbeb9ff0a1e0878",
+      "command": "git diff --name-only 2bcc90c..377e2f5 | wc -l"
+    },
+    "candidateHeadFiles": {
+      "count": 27,
+      "sha": "ddb7ca41c9c6980927b8bfa17f86f9cf290e6158",
+      "command": "git diff --name-only 2bcc90c..ddb7ca41c9c6980927b8bfa17f86f9cf290e6158 | wc -l",
+      "insertions": 8962,
+      "deletions": 0,
+      "breakdown": "22 implementation-commit files + 3 correction test modules + 2 governance artifacts"
+    },
+    "kernelPackage": [
+      "iris_quality/__init__.py",
+      "iris_quality/contracts.py",
+      "iris_quality/debt.py",
+      "iris_quality/decision.py",
+      "iris_quality/defects.py",
+      "iris_quality/dimensions.py",
+      "iris_quality/errors.py",
+      "iris_quality/evidence.py",
+      "iris_quality/judging.py",
+      "iris_quality/registry.py",
+      "iris_quality/serialization.py",
+      "iris_quality/versions.py",
+      "iris_quality/zones.py"
+    ],
+    "fixtures": [
+      "examples/m01_synthetic_profiles.py",
+      "tests/m01_kernel_support.py"
+    ],
+    "tests": [
+      "tests/test_m01_kernel_types.py",
+      "tests/test_m01_decision.py",
+      "tests/test_m01_registry.py",
+      "tests/test_m01_serialization.py",
+      "tests/test_m01_synthetic_profiles.py",
+      "tests/test_m01_domain_neutrality.py",
+      "tests/test_m01_severity_and_review.py",
+      "tests/test_m01_evaluator_authority.py",
+      "tests/test_m01_dimension_registry.py"
+    ],
+    "documentation": [
+      "docs/M01-QUALITY-KERNEL.md"
+    ],
+    "governanceArtifacts": [
+      ".engineering/context-locks/IRIS-WO-0003.json",
+      ".engineering/evidence/IRIS-WO-0003.json"
+    ],
+    "productCodeFilesChangedOutsideM01": 0,
+    "insertions": 8962,
+    "deletions": 0,
+    "correction02CommitFiles": {
+      "count": 11,
+      "sha": "0705ea32b087573d48e3b891e346d8899130f049",
+      "insertions": 369,
+      "deletions": 96,
+      "command": "git show --shortstat 0705ea32b087573d48e3b891e346d8899130f049",
+      "breakdown": "2 kernel modules (decision, registry) + 1 test support module + 6 test modules + docs"
+    },
+    "priorCandidateHeadFiles": {
+      "count": 27,
+      "sha": "5369252fc0a40c22c05cff47485b62279849ef2d",
+      "insertions": 8124
+    },
+    "correction02CandidateHeadFiles": {
+      "count": 27,
+      "sha": "0705ea32b087573d48e3b891e346d8899130f049",
+      "insertions": 8655
+    },
+    "correction03CommitFiles": {
+      "count": 5,
+      "sha": "ddb7ca41c9c6980927b8bfa17f86f9cf290e6158",
+      "insertions": 149,
+      "deletions": 38,
+      "command": "git show --shortstat ddb7ca41c9c6980927b8bfa17f86f9cf290e6158",
+      "breakdown": "2 kernel modules (registry, decision) + 2 test modules + docs"
+    }
+  },
+  "structuralAudit": {
+    "contractVersion": "m01-contract-v1.0",
+    "schemaVersion": "iris-quality-schema-v1",
+    "kernelModules": 13,
+    "kernelLines": 4063,
+    "testAndFixtureLines": 4009,
+    "publicSymbols": 65,
+    "canonicalFidelityDimensions": 18,
+    "extensionDimensionsAdmittedByDefault": 0,
+    "maxExtensionDimensions": 64,
+    "defectSeverities": 4,
+    "blockerCodes": 13,
+    "serializableTypes": 16,
+    "syntheticProfiles": 3,
+    "extensionSyntheticProfiles": 1,
+    "thirdPartyDependenciesAdded": 0,
+    "priorBundleDrift": "CORRECTION-01 moved publicSymbols 60 to 65 and blockerCodes 12 to 13 (EvaluatorAuthority, the DimensionRegistry family, judge_human_review_requested). CORRECTION-02 and CORRECTION-03 changed no exported symbol, no blocker code and no serializable kind: CORRECTION-02 removed a permissive default and CORRECTION-03 moved resolution into the constructor of an existing type. Kernel lines 4052 to 4063; test and fixture lines 3918 to 4009."
+  },
+  "commands": [
+    {
+      "name": "compile_kernel_and_tests",
+      "command": "python -m compileall -q iris_quality examples tests",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "compile_scripts",
+      "command": "python -m compileall -q scripts",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "governance_validator",
+      "command": "python scripts/validate_governance.py",
+      "result": "PASS",
+      "output": "IRIS governance validation: PASS / GEF: v1.0.0 @ 866fe3af8cccc65c929aaf6a47a924401fa448b3 / HIVE: v1.0.0 @ a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf / Required artifacts: 35"
+    },
+    {
+      "name": "gef_preflight",
+      "command": "GEF_REPO_PATH=\"D:/Projeto Codexx/gef-bootstrap-v1.0.0\" python scripts/gef_preflight.py",
+      "result": "PASS",
+      "output": "GEF preflight: PASS v1.0.0 @ 866fe3af8cccc65c929aaf6a47a924401fa448b3"
+    },
+    {
+      "name": "full_test_suite",
+      "command": "python -m unittest discover -s tests -p \"test_*.py\" -v",
+      "result": "PASS",
+      "passed": 216,
+      "failed": 0,
+      "errors": 0,
+      "durationSeconds": 1.058,
+      "countBasis": "'Ran 216 tests' at head ddb7ca4 (0.442s in CI, 1.058s locally), against 209 at 0705ea3, 196 at 5369252 and 153 at 377e2f5; +7 net tests in this round, the authority module growing from 20 to 26 and the profile module from 32 to 33, with no test removed."
+    },
+    {
+      "name": "f1_regression_tests",
+      "command": "python -m unittest tests.test_m01_severity_and_review.EffectiveSeverityDebtTests -v",
+      "result": "PASS",
+      "passed": 5
+    },
+    {
+      "name": "f2_regression_tests",
+      "command": "python -m unittest tests.test_m01_evaluator_authority -v",
+      "result": "PASS",
+      "passed": 26
+    },
+    {
+      "name": "f3_regression_tests",
+      "command": "python -m unittest tests.test_m01_severity_and_review.JudgeReviewRequestTests -v",
+      "result": "PASS",
+      "passed": 5
+    },
+    {
+      "name": "f4_regression_tests",
+      "command": "python -m unittest tests.test_m01_dimension_registry tests.test_m01_synthetic_profiles.NonVisualProfileTests -v",
+      "result": "PASS",
+      "passed": 21
+    },
+    {
+      "name": "ci_exact_head",
+      "command": "gh run view 35532109369 --json headSha,conclusion,status,url",
+      "result": "PASS",
+      "output": "{\"conclusion\": \"success\", \"headSha\": \"ddb7ca41c9c6980927b8bfa17f86f9cf290e6158\", \"status\": \"completed\"}"
+    },
+    {
+      "name": "ci_artifact_refresh_head",
+      "command": "gh run view 35529168068 --json headSha,conclusion,status,url",
+      "result": "PASS",
+      "output": "{\"conclusion\":\"success\",\"headSha\":\"78bdd0c8f524cc3b9c59762ce287602ec3e489dd\",\"status\":\"completed\"}; log shows 'Checked out head: 78bdd0c8f524cc3b9c59762ce287602ec3e489dd', 'IRIS governance validation: PASS' and 'Ran 196 tests' OK"
+    },
+    {
+      "name": "f2_registry_backed_authority_tests",
+      "command": "python -m unittest tests.test_m01_evaluator_authority.MandatoryAuthorityTests -v",
+      "result": "PASS",
+      "output": "Ran 9 tests ... OK (CORRECTION-02 recorded 8 here; the class has 9)",
+      "passed": 9
+    },
+    {
+      "name": "f2_resolved_authority_profile_tests",
+      "command": "python -m unittest tests.test_m01_synthetic_profiles.ResolvedAuthorityProfileTests -v",
+      "result": "PASS",
+      "output": "Ran 5 tests ... OK (was 4 before the direct-constructor case was added)",
+      "passed": 5
+    },
+    {
+      "name": "ci_artifact_head_chain",
+      "command": "gh run list --branch iris-wo-0003-m01-quality-kernel --limit 5 --json databaseId,headSha,conclusion",
+      "result": "PASS",
+      "output": "Governance is green on every recorded head: ddb7ca4 (35532109369, 216 tests), ba2b7b4 (35531232356, CORRECTION-02 artifacts head audited by CORRECTION-03), plus 0705ea3/35530951011, feb940a/35529548255, 246a63c/35529331361, 78bdd0c/35529168068 and 5369252/35528633974."
+    },
+    {
+      "name": "f2b_resolved_at_construction_tests",
+      "command": "python -m unittest tests.test_m01_evaluator_authority.ResolvedAtConstructionTests -v",
+      "result": "PASS",
+      "passed": 6
+    }
+  ],
+  "tests": [
+    {
+      "name": "m01_kernel_types",
+      "file": "tests/test_m01_kernel_types.py",
+      "result": "PASS",
+      "passed": 37
+    },
+    {
+      "name": "m01_decision_and_promotion",
+      "file": "tests/test_m01_decision.py",
+      "result": "PASS",
+      "passed": 32
+    },
+    {
+      "name": "m01_registration_and_extension_metadata",
+      "file": "tests/test_m01_registry.py",
+      "result": "PASS",
+      "passed": 32
+    },
+    {
+      "name": "m01_serialization_round_trip",
+      "file": "tests/test_m01_serialization.py",
+      "result": "PASS",
+      "passed": 14
+    },
+    {
+      "name": "m01_synthetic_profiles_including_non_visual",
+      "file": "tests/test_m01_synthetic_profiles.py",
+      "result": "PASS",
+      "passed": 33
+    },
+    {
+      "name": "m01_domain_neutrality_and_closed_network",
+      "file": "tests/test_m01_domain_neutrality.py",
+      "result": "PASS",
+      "passed": 10
+    },
+    {
+      "name": "m01_effective_severity_debt_and_review_requests",
+      "file": "tests/test_m01_severity_and_review.py",
+      "result": "PASS",
+      "passed": 10
+    },
+    {
+      "name": "m01_evaluator_authority",
+      "file": "tests/test_m01_evaluator_authority.py",
+      "result": "PASS",
+      "passed": 26
+    },
+    {
+      "name": "m01_dimension_registry",
+      "file": "tests/test_m01_dimension_registry.py",
+      "result": "PASS",
+      "passed": 14
+    },
+    {
+      "name": "existing_repository_tests",
+      "result": "PASS",
+      "passed": 8,
+      "failed": 0
+    }
+  ],
+  "findingsClosed": {
+    "F1": {
+      "severity": "CRITICAL",
+      "finding": "Debt was ruled against the reporter-supplied severity, so a contract FATAL reported as MINOR with a matching MINOR debt was deferrable and walked through the Critical Defect Firewall.",
+      "resolution": "DecisionEngine._apply_policy now resolves contract, reporter and zone severity first and calls QualityDebtPolicy.rule_all(defects, debts, effective_severities); QualityDebtPolicy.rule() takes the effective severity as a required argument; rule_all refuses to guess a missing severity; QualityDecision refuses to construct a record holding a deferred effective FATAL, which makes the bypass unrepresentable rather than merely unreachable.",
+      "proofs": [
+        "test_a_reported_minor_cannot_dilute_a_contract_fatal (REJECTED, DRAFT, fatal_defect_firewall, deferred False, accepted_debt_ids empty, reason effective_fatal_defects_are_never_deferrable)",
+        "test_a_zone_escalation_to_fatal_is_never_deferrable (zone FATAL override with matching MAJOR debt stays deferred False and rejects)",
+        "test_a_minor_debt_cannot_dilute_a_contract_major (contract MAJOR with MINOR report and MINOR debt: awarded REVIEW, major_defect_without_debt)",
+        "test_no_admitted_policy_defers_an_effective_fatal (7 admitted QualityDebtPolicy configurations x 4 reported/debt severity pairs, 28 subTests, all REJECTED/DRAFT with empty accepted_debt_ids)",
+        "test_a_deferred_fatal_finding_cannot_be_written_into_a_record (tampered payload raises SchemaValidationError)",
+        "test_rule_all_refuses_to_guess_a_missing_effective_severity (tests/test_m01_kernel_types.py)"
+      ]
+    },
+    "F2": {
+      "severity": "HIGH",
+      "finding": "CORRECTION-01 introduced EvaluatorAuthority but left registration optional, so a declared-but-unregistered judge could reach promotion (CORRECTION-02). One bypass survived that round: promotion_capable meant only 'registry is not None', so a caller building EvaluatorAuthority(contract, incomplete_registry) directly got a promotion-capable authority that had never passed registry.resolve(contract). A contract declaring A and B against a registry holding only A promoted silently, because authorize() only ever sees the components that spoke and an absent evaluator never speaks.",
+      "resolution": "Enforcement moved from the recommended constructor into the type. A registry-backed authority now cannot exist unless the entire declared panel resolves: every evaluator the contract names must be registered at its exact version, and the union of their registered coverage must span the contract's dimensions. Declaration, registration, version and per-dimension coverage are then checked again per speaker in authorize(), so a component that opines outside what it was registered for is still refused. Nothing is inferred from JudgeResult, DimensionAssessment or any other payload, and no global or singleton registry was added: the registry stays an argument the caller supplies.",
+      "proofs": [
+        "test_a_registry_missing_a_declared_evaluator_cannot_be_built",
+        "test_an_incomplete_registry_authority_is_never_promotion_capable",
+        "test_a_partial_panel_fails_closed_even_when_the_absent_evaluator_never_speaks",
+        "test_a_version_mismatch_in_the_declared_panel_cannot_be_built",
+        "test_a_declared_panel_that_leaves_a_dimension_uncovered_cannot_be_built",
+        "test_the_direct_constructor_behaves_identically_to_resolved",
+        "test_a_declared_judge_that_is_not_registered_is_refused (now at construction)",
+        "test_a_declared_judge_absent_from_a_supplied_registry_fails_closed",
+        "test_a_registered_coverage_mismatch_fails_closed",
+        "test_an_undeclared_evaluator_stays_rejected_even_when_registered",
+        "test_a_declared_judge_with_no_registry_fails_closed",
+        "test_no_authority_at_all_fails_closed",
+        "test_a_preflight_authority_never_awards_anything_above_draft",
+        "test_generic_image_promotes_with_explicit_resolved_authority",
+        "test_generic_image_promotes_on_an_equivalent_direct_authority",
+        "test_nerim_isometric_asset_promotes_with_explicit_resolved_authority",
+        "test_logo_vector_promotes_with_explicit_resolved_authority",
+        "test_narration_audio_promotes_with_explicit_resolved_authority",
+        "the CORRECTION-01 proofs remain green, including the four rejection paths"
+      ],
+      "residual": "The panel an authority resolves is only as trustworthy as the registry behind it: M01 verifies declaration, registration, exact version and coverage, not the pedigree of whoever registered the descriptor. That trust boundary belongs to the outer system, as recorded in risksAndDeferredWork.",
+      "invariant": "Every promotion-capable authority is fully registry-resolved against the whole declared panel. EvaluatorAuthority.__post_init__ calls registry.resolve(contract) whenever the registry is not None, so an incomplete, version-mismatched or insufficiently covering panel fails as RegistrationError while the authority is being built. No public constructor path is weaker than EvaluatorAuthority.resolved(contract, registry): resolved delegates to the same constructor rather than enforcing a second policy. EvaluatorAuthority.preflight(contract) stays the only registry-less form and stays non-promoting, and DecisionEngine.evaluate() refuses both a missing authority and a preflight one. Carrying a non-null registry is not, by itself, evidence of anything."
+    },
+    "F3": {
+      "severity": "HIGH",
+      "finding": "JudgeResult.human_review_dimension_ids was collected but never consumed, so a judge that asked for a human decision could still be promoted past silently.",
+      "resolution": "_collect accumulates the union of requests per dimension (refusing a request for a dimension outside the contract) and _dimension_states marks that dimension HUMAN_REVIEW, emits the deterministic blocker judge_human_review_requested naming the requesting judges, and records requesters on DimensionOutcome.human_review_requested_by. One request out of several jurors is enough because the union is computed before the merge; a HUMAN_DECISION evidence item on the dimension answers it and clears the blocker while keeping the provenance.",
+      "proofs": [
+        "test_an_unanswered_request_bars_promotion_and_names_the_judge",
+        "test_one_request_out_of_several_jurors_is_enough",
+        "test_a_recorded_human_decision_clears_the_request",
+        "test_a_request_for_an_undeclared_dimension_fails_closed",
+        "test_the_request_survives_serialisation"
+      ],
+      "documentedLimitation": "The kernel proves that a HUMAN_DECISION evidence item exists and is attributed to a versioned producer; it does not authenticate the reviewer's identity, which stays with the review workflow outside this boundary. Recorded in docs/M01-QUALITY-KERNEL.md and risksAndDeferredWork."
+    },
+    "F4": {
+      "severity": "HIGH",
+      "finding": "The promised bounded, versioned dimension extension contract was missing: the kernel hardcoded 18 canonical ids, so a non-visual modality could not be admitted without editing frozen vocabulary.",
+      "resolution": "DimensionRegistry (version m01-dimension-registry-v1, capped at MAX_EXTENSION_DIMENSIONS=64) keeps the 18 canonical ids as built-ins and admits explicitly registered, non-core, non-shadowing extension dimensions. FidelityContract, DomainProfile and EvaluatorDescriptor each carry a registry, validate their dimensions against it and serialise it, so unknown ids fail closed at construction. DecisionEngine state-machine code was not edited: no dimension name, modality or registry branch exists in decision.py.",
+      "proofs": [
+        "tests/test_m01_dimension_registry.py (14 tests: canonical set always admitted, extension admitted without disturbing canonical order, unresolvable id, no shadowing, core=False required, bounded and unique, foreign registry version refused, payload round trip, contract/profile/descriptor fail closed, zone cannot smuggle an unregistered id, extension gates the ladder like a canonical dimension, failed extension dimension bars promotion)",
+        "tests/test_m01_synthetic_profiles.py::NonVisualProfileTests (7 tests over profile.narration-audio: voice-identity, audio-clarity, music-coherence and narrative-continuity promoted to MASTER through the unchanged DecisionEngine, silent extension dimension blocks, unnamed jury refused, record round trips)",
+        "the three frozen synthetic profiles still pass unchanged (21 prior profile tests plus 7 new ones in the same module)",
+        "grep proof: no visual/audio modality vocabulary appears in iris_quality/, enforced by tests/test_m01_domain_neutrality.py"
+      ]
+    },
+    "F5": {
+      "severity": "MEDIUM",
+      "finding": "The Evidence Bundle was not truthful: changedFiles.count said 22 while the candidate head changed 24 files, the final head and its Governance run were not bound, and requiredSemanticsEvidence claimed fatal_defect_firewall was unreachable through QualityDebt, which F1 proved false at the audited head.",
+      "resolution": "This bundle separates the implementation-commit count (22 at 391f881), the prior candidate-head count (24 at 377e2f5) and the corrected candidate-head count (27 at 5369252), binds the exact head to Governance run 35528633974 including the checkout assertion the workflow logged, replaces the false claim with the enforced property plus the tests that prove it, and reports the measured test count 196 rather than any reused number.",
+      "proofs": [
+        "exactHead block with run id, url, headSha, conclusion and the 'Assert exact candidate' log line",
+        "changedFiles.countBasis plus the three labelled git diff commands",
+        "commands[].countBasis recording where 196 and the +43 delta came from",
+        "requiredSemanticsEvidence.hardGatesNotDebtable rewritten and cross-referenced to the F1 proofs"
+      ]
+    }
+  },
+  "requiredSemanticsEvidence": {
+    "typedFrozenDataclasses": "Every kernel type is a frozen dataclass normalised in __post_init__; mutation attempts raise.",
+    "noAggregateScore": "DecisionEngine emits gate vectors and blocker sets only; no scoring field exists on any type (tests/test_m01_kernel_types.py).",
+    "failClosedTransitions": "Ladder ranks are monotonic; downgrades and unranked targets raise PromotionBlockedError.",
+    "severityAuthority": "effective = max(contract declaration, reporter claim, zone override); debt is ruled against that effective severity, proven by test_a_reported_minor_cannot_dilute_a_contract_fatal and test_a_minor_debt_cannot_dilute_a_contract_major.",
+    "observationsNeverBlock": "OBSERVATION findings are reported but excluded from _severity_blockers (test_observations_never_block).",
+    "uncertaintyPreserved": "UNKNOWN/HUMAN_REVIEW dimensions never gain a fabricated value; an unanswered judge request keeps the dimension HUMAN_REVIEW (test_an_unanswered_request_bars_promotion_and_names_the_judge).",
+    "hardGatesNotDebtable": "hard_gate_failed is never carried by accepted debt (test_hard_gate_failure_is_not_carried_by_debt) and a deferred effective FATAL is unrepresentable in a QualityDecision, so fatal_defect_firewall cannot be reached through any deferral path (F1 proofs above). The prior wording of this claim was false at the audited head and is corrected here.",
+    "dimensionLevelEvidence": "EvidenceRef and confidence carry dimension_id; contracts bind human review per dimension.",
+    "versionBinding": "JudgeResult carries contract_id plus contract_version and the digest is recomputed on deserialisation.",
+    "registryCollision": "Duplicate references, cross-version dimension drift and untrusted extension sources raise before registration takes effect.",
+    "closedDimensionVocabulary": "Dimension ids must appear in the contract's DimensionRegistry; unknown ids raise at contract, profile and descriptor construction.",
+    "noHiddenNetwork": "Full suite runs with no network access; test_m01_domain_neutrality additionally executes a cold import with socket.socket patched to raise.",
+    "registryBackedAuthority": "evaluate() raises EvaluationInputError when the authority is missing or declaration-only, and any registry-backed authority resolves the whole declared panel inside its own constructor, so an incomplete registry raises RegistrationError before a decision is possible. Proven by MandatoryAuthorityTests (9), ResolvedAtConstructionTests (6) and ResolvedAuthorityProfileTests (5)."
+  },
+  "domainNeutralityProof": {
+    "method": "AST scan of iris_quality/*.py asserting every import root is in sys.stdlib_module_names, no forbidden vendor/root token appears, no socket/subprocess touchpoint is called, and no domain vocabulary string appears in kernel sources.",
+    "forbiddenRoots": [
+      "blender",
+      "bpy",
+      "comfyui",
+      "dreamsim",
+      "flip",
+      "webgpu",
+      "torch",
+      "transformers",
+      "numpy",
+      "PIL",
+      "cv2",
+      "requests",
+      "urllib3",
+      "httpx"
+    ],
+    "violations": 0,
+    "additionalProof": "Cold-import subprocess with socket.socket patched to raise, plus an in-process socket-blocked decide-and-serialise determinism check (tests/test_m01_domain_neutrality.py, 10 tests PASS). The F4 extension dimensions live in examples/ and tests/, never in the kernel, so the same scan keeps passing with the audio fixture added."
+  },
+  "syntheticProfileProofs": {
+    "profiles": [
+      "profile.generic-image",
+      "profile.nerim-isometric-asset",
+      "profile.logo-vector"
+    ],
+    "extensionProfile": "profile.narration-audio (non-visual, admitted through DimensionRegistry)",
+    "sharedPropertyTests": [
+      "promotion to PREVIEW and MASTER for all three profiles",
+      "ARCHIVAL_MASTER held by human_review_not_recorded, then promoted with full sign-off and confidence 1.0",
+      "profile-declared FATAL defect class rejects every target",
+      "abstention yields UNKNOWN with zero evidence rather than a guessed value",
+      "insufficient confidence blocks with insufficient_certainty",
+      "judge disagreement surfaces judge_disagreement and HUMAN_REVIEW",
+      "validator gate projection refuses cross-contract and cross-subject results",
+      "zone confidence floors and zone.ocular severity escalation",
+      "serialization digests are stable per profile across a two-hop round trip",
+      "every fixture juror is granted capability by the contract before it speaks (F2)"
+    ],
+    "result": "PASS (33 tests: 21 prior profile tests over the three frozen profiles, all still green, plus 7 non-visual extension tests and 5 promotion cases run through an explicitly resolved authority)"
+  },
+  "failuresEncounteredAndFixed": [
+    {
+      "failure": "SyntaxError: generator expression inside a dataclasses.replace keyword argument",
+      "file": "tests/test_m01_decision.py",
+      "fix": "Built the HUMAN_DECISION EvidenceRef first and rebuilt the assessment tuple with an explicit conditional generator."
+    },
+    {
+      "failure": "Leftover `assertIs(...) if False else ...` scaffolding and an unused index variable",
+      "file": "tests/test_m01_decision.py",
+      "fix": "Removed; plain assertEqual retained."
+    },
+    {
+      "failure": "accepted_debt_ids assertion failed",
+      "file": "tests/test_m01_decision.py",
+      "fix": "Fixture literal was a single-element tuple missing its trailing comma."
+    },
+    {
+      "failure": "OBSERVATION severity was unreachable from a contract, so the required major/minor/observation policy test could not be written",
+      "file": "iris_quality/contracts.py, iris_quality/registry.py",
+      "fix": "Added observation_defect_classes as the declaration site (see designDecisions). The alternative, accepting a reporter-declared OBSERVATION, would have broken the rule that a contract owns severity."
+    },
+    {
+      "failure": "ModuleNotFoundError: importing a fixture from another test module",
+      "file": "tests/test_m01_registry.py",
+      "fix": "Promoted the shared factories into tests/m01_kernel_support.py."
+    },
+    {
+      "failure": "SchemaValidationError: version must be a string, got dict",
+      "file": "tests/test_m01_synthetic_profiles.py",
+      "fix": "ThresholdJudge's second positional parameter is version; all call sites now pass observations= by keyword."
+    },
+    {
+      "failure": "Profile decisions stalled at DRAFT",
+      "file": "examples/m01_synthetic_profiles.py, tests/test_m01_synthetic_profiles.py",
+      "fix": "human_review_dimension_ids is enforced at every ladder rung, so the fixture jury now signs those dimensions; the logo profile's minimum_evidence_count of 2 required a two-juror jury."
+    },
+    {
+      "failure": "Two registry tests reused a dimension already declared inside the profile",
+      "file": "tests/test_m01_registry.py",
+      "fix": "Switched them to identity-fidelity."
+    },
+    {
+      "failure": "NameError: TestCase, plus a vacuous vocabulary assertion and function-local imports in the neutrality tests",
+      "file": "tests/test_m01_domain_neutrality.py",
+      "fix": "Added the unittest import, deleted the vacuous assertion, moved imports to module level per repository rules."
+    },
+    {
+      "failure": "IndentationError in examples/m01_synthetic_profiles.py: 'def profile_for' lost its newline when the grant helper was inserted, which made unittest discovery import 22 fewer tests than exist",
+      "file": "examples/m01_synthetic_profiles.py",
+      "fix": "Restored the def/return split; discovery now loads all 196 tests."
+    },
+    {
+      "failure": "26 profile-test errors after F2: 'judge jury.alpha@0.1.0 is not declared by contract contract.logo-vector'",
+      "file": "examples/m01_synthetic_profiles.py, tests/test_m01_synthetic_profiles.py, tests/test_m01_decision.py, tests/m01_kernel_support.py",
+      "fix": "Expected fallout from strict-by-default capability: fixtures now declare every speaker through examples.m01_synthetic_profiles.declare_evaluators and the tests/m01_kernel_support.authorized helper, instead of teaching the kernel to trust an unnamed component."
+    },
+    {
+      "failure": "SchemaValidationError: evaluator_set identifiers must be unique when a helper was granted the same component twice",
+      "file": "examples/m01_synthetic_profiles.py, tests/m01_kernel_support.py",
+      "fix": "declare_evaluators/authorized deduplicate by reference, so a validator that speaks through several dimensions grants itself once."
+    },
+    {
+      "failure": "TypeError: QualityDebtPolicy.rule() missing 1 required positional argument: 'effective_severity'",
+      "file": "tests/test_m01_kernel_types.py",
+      "fix": "Policy tests updated to the F1 arity, plus a new test that rule_all refuses to guess a missing effective severity."
+    },
+    {
+      "failure": "Three stale wording assertions pinned messages the corrections intentionally replaced ('canonical Fidelity Vector', 'debt_severity_does_not_match_defect', 'canonical')",
+      "file": "tests/test_m01_kernel_types.py, tests/test_m01_registry.py, tests/test_m01_decision.py",
+      "fix": "Rewritten against the new registry-backed and effective-severity messages, and the two dimension tests were renamed to test_unregistered_dimension_is_rejected so the rule they check is visible in the test name."
+    },
+    {
+      "failure": "F4 extension ids came out in declaration order in FidelityContract.extension_dimension_ids while DimensionRegistry.dimension_ids sorts them, and a tuple/list comparison in the authority test failed",
+      "file": "iris_quality/contracts.py, tests/test_m01_evaluator_authority.py",
+      "fix": "extension_dimension_ids now follows the contract's own declared order, and the authority assertion compares tuples."
+    },
+    {
+      "failure": "A first mechanical pass over the engine call sites produced invalid Python where a multi-line call had no trailing comma before its closing paren",
+      "file": "tests/test_m01_decision.py, tests/test_m01_dimension_registry.py",
+      "fix": "Restored the two files from Git, which held nothing else this round, and rewrote the pass to insert after the last argument using ast node positions; compileall then passed."
+    },
+    {
+      "failure": "test_a_declared_judge_absent_from_a_supplied_registry_fails_closed passed when it should not have: the panel helper auto-registered the judge the test meant to omit",
+      "file": "tests/test_m01_evaluator_authority.py",
+      "fix": "Built that registry directly so the omission is real; the test now asserts the declared-but-not-registered refusal."
+    },
+    {
+      "failure": "Two assertions quoted messages the kernel does not emit: resolve() reports an unregistered evaluator, not an undeclared contract",
+      "file": "tests/test_m01_evaluator_authority.py",
+      "fix": "Corrected the expected text against the implementation rather than editing the message to match the test."
+    },
+    {
+      "failure": "CORRECTION-03 mid-edit assertion compared two authorities by identity, which fails because two EvaluatorRegistry instances holding the same descriptors are not equal",
+      "file": "tests/test_m01_evaluator_authority.py",
+      "fix": "Replaced it with an equality claim that is actually observable: the direct constructor and resolved() must produce decisions whose payloads match byte for byte (test_the_direct_constructor_behaves_identically_to_resolved)."
+    },
+    {
+      "failure": "Re-measuring the suite surfaced a drift the CORRECTION-02 bundle itself had carried: commands.f2_registry_backed_authority_tests recorded 'Ran 8 tests' for MandatoryAuthorityTests, which has 9 tests and ran 9 both then and now",
+      "file": ".engineering/evidence/IRIS-WO-0003.json",
+      "fix": "Corrected the recorded count to 9 and stated the correction inline, so the audit can see which number moved. The per-module totals in commands and tests still sum to the suite count that CI reports."
+    }
+  ],
+  "designDecisions": [
+    {
+      "decision": "Added observation_defect_classes to FidelityContract and DomainProfile",
+      "why": "OBSERVATION is a frozen severity with no declaration site in the freeze candidate. Without one the kernel cannot classify a defect as an observation from the contract side, and the required observation policy test would have to trust the reporter, which the fail-closed doctrine forbids.",
+      "risk": "Extends the serialized contract surface; reviewers must confirm this stays inside the freeze."
+    },
+    {
+      "decision": "human_review_dimension_ids lives on the contract, not only on the promotion rule",
+      "why": "Sign-off is a property of the dimension's authority, not of one ladder step."
+    },
+    {
+      "decision": "Promotion ladders must be contiguous and rank-ordered",
+      "why": "Non-contiguous custom ladders silently skipped rungs; PromotionBlockedError is preferable to a wrong verdict."
+    },
+    {
+      "decision": "EvidenceRef locators are relative paths or URIs, never absolute filesystem paths",
+      "why": "Absolute locators leak the machine layout and break reproducibility across runtimes."
+    },
+    {
+      "decision": "merge_assessments keeps the worst case on conflict",
+      "why": "A multi-judge conflict must surface as uncertainty, never as an averaged value."
+    },
+    {
+      "decision": "Table-driven and parametrised coverage instead of property-based testing",
+      "why": "The repository is stdlib-only with no hypothesis dependency; the Work Order explicitly accepts table-driven/state-transition coverage when property-based tooling would require unjustified dependency expansion."
+    },
+    {
+      "decision": "F1: move the debt ruling after severity resolution and add a QualityDecision construction invariant",
+      "why": "The defect was consulting the wrong severity, so fixing it at the deferral site would have left every other caller exposed. Ruling on the effective severity plus refusing a deferred effective FATAL makes the hole unrepresentable, and the two-phase order in _apply_policy keeps zone escalation in the same authority chain as the contract.",
+      "risk": "QualityDebtPolicy.rule/rule_all signatures changed; any external caller that ruled on a reported severity now fails loudly at the arity check instead of silently deferring."
+    },
+    {
+      "decision": "F2: capability is enforced by an EvaluatorAuthority value object whose registry-backed form is resolved at construction",
+      "why": "DecisionEngine must stay vendor-neutral and constructible without a registry, but an optional registry is an optional invariant. CORRECTION-02 moved the choice to the constructor, and CORRECTION-03 moved the guarantee into the type: __post_init__ resolves the declared panel, so resolved(contract, registry) is the semantic name for a rule every public constructor already enforces, and preflight(contract) is a named inspection object the engine refuses. A check that lives on the type cannot be skipped by calling a different constructor.",
+      "risk": "Every caller of evaluate() now has to supply a registry whose panel already resolves, including a script that only wanted a quick verdict. The kernel offers no shortcut, which is the point; reviewers should confirm no M01 consumer needs a sanctioned non-promoting decide path."
+    },
+    {
+      "decision": "F3: judge requests are recorded as provenance even after they are answered",
+      "why": "human_review_requested_by keeps the asking judges visible in the durable record after a HUMAN_DECISION clears the blocker, so an audit can see who was overruled by the sign-off."
+    },
+    {
+      "decision": "F4: extension dimensions are registry data carried by contract, profile and descriptor; decision.py was not edited",
+      "why": "The freeze promises non-visual Fidelity Vector growth. Adding constants to dimensions.py or branches to the state machine would have made growth a kernel change; the audio fixture promoting with an untouched DecisionEngine is the proof.",
+      "risk": "A contract can now declare dimensions the auditors have never seen; the bound (64), the version field, the core=False requirement and the no-shadowing rule are what keep that bounded."
+    },
+    {
+      "decision": "DimensionRegistry is serialised inside its owners rather than as a 17th SERIALIZABLE_TYPES entry",
+      "why": "It has no meaning outside the object that admits dimensions, and keeping the serializable kind count at 16 avoids an unnecessary change to the frozen transport surface."
+    }
+  ],
+  "deviations": [
+    {
+      "item": "Executor PDF section 2 names docs/project-brain/00-SOURCE-HIERARCHY.md as the authority file",
+      "detail": "That path does not exist in the frozen base. The canonical file is .engineering/SOURCE-HIERARCHY.md, which was read instead; the repository contract governed all decisions."
+    },
+    {
+      "item": "HIVE MCP flow could not be executed inside the session",
+      "detail": "The hive MCP tools are still not exposed in this Qoder session (mcp_list returns no hive entries; /mcp reload is pending on the user side), for CORRECTION-03 exactly as for the first run and both earlier corrections. health/status/search_knowledge/build_context/scan/diff/context_lock/memory_record/checkpoint were therefore not run, and native repository verifiers (validate_governance.py, gef_preflight.py, the unittest suite) plus Git and GitHub Actions evidence were used in their place, as permitted by the preference for deterministic Git/static/hash/test evidence. This is reported rather than worked around with fabricated HIVE evidence."
+    },
+    {
+      "item": "Line endings kept as LF",
+      "detail": "The injected repository rule text mentions CRLF, but the frozen tree and the HIVE runtime require LF. No .gitattributes was introduced or committed."
+    },
+    {
+      "item": "scripts/gef_preflight.py needs GEF_REPO_PATH",
+      "detail": "The preflight verifier resolves GEF from the environment; it was run with GEF_REPO_PATH pinned to D:/Projeto Codexx/gef-bootstrap-v1.0.0 at v1.0.0 @ 866fe3a."
+    },
+    {
+      "item": "Frozen contract re-examined under section 10",
+      "detail": "No BLOCKED stop was triggered. F1 restores the frozen severity-authority and firewall rules, F2 implements the frozen capability-declaration rule at the input boundary, F3 implements the frozen human-review requirement, and F4 implements the extension mechanism the freeze already promised. No frozen semantic was rewritten: contract m01-contract-v1.0, schema iris-quality-schema-v1, the 18 canonical dimensions, the 5-rung ladder and the 4 severities are unchanged, and only additive persisted fields with defaults were introduced."
+    },
+    {
+      "item": "CORRECTION-02 changed no frozen contract either",
+      "detail": "The correction tightens enforcement inside existing types: no exported symbol was added or removed (65 remain), and no blocker code, serializable kind or persisted field changed. EvaluatorAuthority gained a required registry argument and a preflight constructor, which removes a permissive default the audit rejected instead of rewriting the freeze."
+    }
+  ],
+  "unresolved": {
+    "critical": 0,
+    "high": 0,
+    "blockingMedium": 0,
+    "reviewItems": [
+      "Confirm observation_defect_classes is inside the frozen contract surface",
+      "Confirm the blocker code vocabulary (13 codes) matches the freeze candidate wording",
+      "Confirm that resolving the declared panel inside EvaluatorAuthority.__post_init__, so a registry-backed authority cannot exist over an incomplete panel, is the intended shape for M01 callers",
+      "Confirm additive persisted fields (dimension_registry on FidelityContract, DomainProfile and EvaluatorDescriptor) stay inside m01-contract-v1.0 rather than requiring a contract version bump"
+    ]
+  },
+  "risksAndDeferredWork": [
+    "The kernel has never been driven by a real evaluator; port fidelity is proven against synthetic fixtures only until M03+ integrators land.",
+    "No persistence, queueing or promotion executor ships here, so QualityDecision is not yet acted upon by anything.",
+    "HUMAN_DECISION evidence is asserted by a caller-supplied produced_by component version; the kernel cannot authenticate a reviewer identity, so sign-off trust belongs to the outer trust boundary (F3 documented limitation).",
+    "Schema enforcement is hand-rolled strict structural validation rather than a JSON Schema document, which keeps the stdlib constraint but moves the contract into Python.",
+    "Registry capacity caps (MAX_REGISTRATIONS, MAX_EXTENSION_DIMENSIONS) and digest cost are unverified at production scale.",
+    "Extension dimensions are trusted data: a registry can admit an id the auditors have not reviewed, which is bounded but not governed inside M01. Governance of who may extend the vector belongs to the contract freeze process, not the kernel."
+  ],
+  "checkpointDelta": {
+    "applied": false,
+    "reason": "validate_governance.py asserts heading parity across the three checkpoint artifacts; the delta is proposed here for the independent audit to apply on approval, exactly as IRIS-WO-0002 did.",
+    "proposed": "PROMOTE_M01_QUALITY_KERNEL_APPROVED_PENDING_REVIEW: m01-contract-v1.0 is implemented as the iris_quality package (13 modules, 65 public symbols, 18 canonical dimensions, 13 blocker codes) with a stdlib-only, network-free type surface. QualityJudge and AssetValidator are the sole ports for real evaluators, and every promotion-capable evaluation requires an EvaluatorAuthority whose registry has resolved the whole declared panel: declared, registered, version-exact and covered, with no declaration-only fallback and no constructor that skips resolution. Decision, promotion, debt, registry, dimension-registry and serialization semantics are frozen and covered by 208 M01 tests (216 total, all green); three synthetic visual profiles plus one opt-in non-visual profile prove the kernel is domain-neutral. Next increment stays blocked until the independent verdict records APPROVED; M02 remains out of scope and no real domain evaluator or provider is admitted."
+  },
+  "correctionRound": 3,
+  "priorAuditedHeadSha": "feb940a2f9439d3e4cac2c55b9cb62d843a02462",
+  "priorCorrectionSha": "0705ea32b087573d48e3b891e346d8899130f049",
+  "verdictChain": [
+    {
+      "head": "377e2f5a995d1a8c81dbc4695bbeb9ff0a1e0878",
+      "verdict": "CORRECTION REQUIRED",
+      "findings": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "authority": "IRIS-WO-0003-CORRECTION-01"
+    },
+    {
+      "head": "feb940a2f9439d3e4cac2c55b9cb62d843a02462",
+      "verdict": "CORRECTION REQUIRED",
+      "findings": [
+        "F2 residual (registration was optional on the default decision path)"
+      ],
+      "authority": "IRIS-WO-0003-CORRECTION-02"
+    },
+    {
+      "head": "ba2b7b434c731be197bae7bfdca151188f1b58bc",
+      "verdict": "CORRECTION REQUIRED",
+      "findings": [
+        "F2b (EvaluatorAuthority(contract, registry) could be built over an incomplete registry and still report itself promotion-capable)"
+      ],
+      "authority": "IRIS-WO-0003-CORRECTION-03"
+    },
+    {
+      "head": "ddb7ca41c9c6980927b8bfa17f86f9cf290e6158",
+      "verdict": "PENDING_INDEPENDENT_REREVIEW",
+      "findings": [
+        "F2 closed at construction: one registry-backed invariant"
+      ],
+      "authority": null
+    }
+  ],
+  "exactHead": {
+    "headSha": "ddb7ca41c9c6980927b8bfa17f86f9cf290e6158",
+    "scope": "code head: the last commit that changes iris_quality/, examples/, tests/ or docs/",
+    "workflow": "Governance",
+    "runId": 35532109369,
+    "runUrl": "https://github.com/KayzenRoot/iris/actions/runs/35532109369",
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success",
+    "headBinding": "The job step 'Assert exact candidate' logged 'Checked out head: ddb7ca41c9c6980927b8bfa17f86f9cf290e6158', so the recorded run executed this exact candidate head.",
+    "ciEvidence": "IRIS governance validation: PASS (35 required artifacts) and 'Ran 216 tests in 0.442s' / OK on the exact head."
+  },
+  "headChain": {
+    "rule": "exactHead binds the code head (ddb7ca4). Commits after it touch only .engineering/ governance artifacts, and each one creates a new PR head whose own Governance run post-dates the bundle text that would record it; every such run is listed here instead.",
+    "authoritativeHeadCommand": "gh pr view 7 --json headRefOid",
+    "finalHeadBinding": "Written by the independent audit, as in IRIS-WO-0001, IRIS-WO-0002 and CORRECTION-01.",
+    "observedRuns": [
+      {
+        "head": "ddb7ca41c9c6980927b8bfa17f86f9cf290e6158",
+        "runId": 35532109369,
+        "conclusion": "success",
+        "scope": "CORRECTION-03 code head (216 tests)"
+      },
+      {
+        "head": "ba2b7b434c731be197bae7bfdca151188f1b58bc",
+        "runId": 35531232356,
+        "conclusion": "success",
+        "scope": "CORRECTION-02 artifacts head; audited by CORRECTION-03"
+      },
+      {
+        "head": "0705ea32b087573d48e3b891e346d8899130f049",
+        "runId": 35530951011,
+        "conclusion": "success",
+        "scope": "CORRECTION-02 code head (209 tests)"
+      },
+      {
+        "head": "feb940a2f9439d3e4cac2c55b9cb62d843a02462",
+        "runId": 35529548255,
+        "conclusion": "success",
+        "scope": "CORRECTION-01 artifacts head; audited by CORRECTION-02"
+      },
+      {
+        "head": "246a63cbfa76b6cd364cfb210c6832386d893358",
+        "runId": 35529331361,
+        "conclusion": "success",
+        "scope": "CORRECTION-01 artifacts head"
+      },
+      {
+        "head": "78bdd0c8f524cc3b9c59762ce287602ec3e489dd",
+        "runId": 35529168068,
+        "conclusion": "success",
+        "scope": "CORRECTION-01 artifacts head"
+      },
+      {
+        "head": "5369252fc0a40c22c05cff47485b62279849ef2d",
+        "runId": 35528633974,
+        "conclusion": "success",
+        "scope": "CORRECTION-01 code head (196 tests)"
+      }
+    ]
+  }
+}

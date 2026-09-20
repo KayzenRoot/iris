@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0003",
+  "correction": "IRIS-WO-0003-CORRECTION-03",
+  "correctionAuthority": "IRIS-WO-0003-CORRECTION-03-AUTHORITY-RESOLUTION.pdf (independent re-review verdict CORRECTION REQUIRED on head ba2b7b434c731be197bae7bfdca151188f1b58bc, one remaining HIGH finding F2b: a caller could construct EvaluatorAuthority(contract, registry) over an incomplete registry and still be treated as promotion-capable without registry.resolve(contract) having succeeded)",
+  "pullRequest": 7,
+  "branch": "iris-wo-0003-m01-quality-kernel",
+  "baseSha": "2bcc90c77ce79ca38bd2bb4ede7dd10e1ac78352",
+  "implementationSha": "391f881078fc215c3e1aabb7df1648539d879dfb",
+  "auditedHeadSha": "ba2b7b434c731be197bae7bfdca151188f1b58bc",
+  "auditedVerdict": "CORRECTION REQUIRED",
+  "correctionSha": "ddb7ca41c9c6980927b8bfa17f86f9cf290e6158",
+  "governanceRun": {
+    "id": "35532109369",
+    "workflow": "governance.yml",
+    "headBinding": "Checked out head: ddb7ca41c9c6980927b8bfa17f86f9cf290e6158",
+    "testsRun": 216,
+    "note": "ddb7ca41c9c6980927b8bfa17f86f9cf290e6158 is the last head touching code, fixtures or documentation. Commits after it change only .engineering/ governance artifacts; their runs are listed in the Evidence Bundle headChain, and the independent audit writes the binding for the final candidate head."
+  },
+  "status": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+  "frozenContract": {
+    "name": "m01-contract-v1.0",
+    "schemaVersion": "iris-quality-schema-v1",
+    "canonicalDimensionCount": 18,
+    "promotionLadder": [
+      "DRAFT",
+      "PREVIEW",
+      "REVIEW",
+      "MASTER",
+      "ARCHIVAL_MASTER"
+    ],
+    "defectSeverities": [
+      "FATAL",
+      "MAJOR",
+      "MINOR",
+      "OBSERVATION"
+    ],
+    "correctionNote": "Findings F1-F5 of CORRECTION-01 and F2 of CORRECTION-02 and -03 implement requirements the freeze already carried (effective-severity authority over debt, capability declared and resolved rather than inferred, human-review propagation, a bounded versioned dimension registry). No frozen canonical contract was rewritten semantically."
+  },
+  "upstream": {
+    "gef": {
+      "version": "1.0.0",
+      "sha": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
+    },
+    "hive": {
+      "version": "1.0.0",
+      "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
+    }
+  },
+  "criticalSources": [
+    ".engineering/SOURCE-HIERARCHY.md",
+    ".engineering/work-orders/IRIS-WO-0003-M01-QUALITY-KERNEL.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/16-DECISIONS-LEDGER.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/02-REQUIREMENTS.md",
+    "docs/project-brain/04-ARCHITECTURE.md",
+    "docs/project-brain/15-DEFINITION-OF-DONE.md",
+    "planning/contracts/M01-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+    "planning/modules/M01-EXTREME-QUALITY.md",
+    "planning/checkpoints/M01-IMPLEMENTATION-GATE.md",
+    "planning/reviews/M01-HARD-CASE-GAP-REVIEW.md"
+  ],
+  "inScope": [
+    "Domain-neutral, typed, deterministic M01 quality kernel package iris_quality/",
+    "QualityJudge and AssetValidator ports as the only route for real evaluators",
+    "Evaluator and domain-profile registries with trust tiers and version binding",
+    "Decision engine, promotion ladder, blocker codes and quality-debt policy",
+    "Canonical serialization with content digests and strict schema round trip",
+    "Three synthetic profile fixtures in examples/ plus their contract tests",
+    "F1: rule quality debt against the authoritative effective severity so an effective FATAL is never deferrable",
+    "F2: fail-closed evaluator authority from contract declaration plus registry-resolved coverage",
+    "F3: propagate JudgeResult human-review requests into dimension outcomes and block silent promotion",
+    "F4: bounded, versioned, persisted Dimension Registry admitting non-visual extension dimensions",
+    "F5: restate the Evidence Bundle against measured Git diffs and bind the exact corrected head to its Governance run",
+    "F2 (residual): make registry-backed authority the only promotion-capable evaluation path, with an explicitly named non-promoting preflight authority",
+    "F2b: make an unresolved registry-backed authority impossible, so no constructor is weaker than EvaluatorAuthority.resolved"
+  ],
+  "outOfScope": [
+    "M02 and every later module",
+    "Real domain evaluators, vendor SDK adapters, Blender/ComfyUI/WebGPU providers",
+    "Persistence, queueing and the promotion executor that consumes QualityDecision",
+    "Any change to the frozen planning documents or checkpoint files"
+  ],
+  "stopCondition": "STOP once every promotion-capable authority is fully registry-resolved against the whole declared panel, the mandatory CORRECTION-03 regressions and the full suite pass, exact-head Governance succeeds, the Evidence Bundle states one final invariant truthfully, and the changes are pushed to PR #7 ready for independent re-review. Do not merge. Do not start M02.",
+  "closure": "F2b closed at construction on head ddb7ca4: EvaluatorAuthority.__post_init__ resolves the declared panel, so an incomplete, version-mismatched or under-covering registry raises RegistrationError instead of yielding a promotion-capable authority, and preflight remains the only non-promoting form. 216 tests green locally and on the exact head. No merge, no M02.",
+  "priorCorrection": "IRIS-WO-0003-CORRECTION-02",
+  "priorAuditedHeadSha": "feb940a2f9439d3e4cac2c55b9cb62d843a02462"
+}
