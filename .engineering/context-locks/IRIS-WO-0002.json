@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0002",
+  "baseSha": "f41c85f64f764400cc600eb52d98cadd0f78a49e",
+  "status": "ACTIVE",
+  "upstream": {
+    "ugasV1": {
+      "repository": "KayzenRoot/ugas",
+      "sha": "0169f84248703931bb7578177d9773bce319c14e"
+    },
+    "ugasV2Blueprint": {
+      "name": "UGAS-V2-MASTER-BLUEPRINT.md",
+      "version": "0.3.0"
+    },
+    "blender": {
+      "baseline": "5.2 LTS",
+      "researchDate": "2026-09-20"
+    },
+    "comfyui": {
+      "observedRelease": "0.36.0",
+      "researchDate": "2026-09-20"
+    }
+  },
+  "criticalSources": [
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/16-DECISIONS-LEDGER.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/02-REQUIREMENTS.md",
+    "planning/MASTER-MODULE-INDEX.md",
+    "planning/UGAS-CARRYOVER-MAP.md",
+    "planning/research/IRIS-RESEARCH-BASELINE-2026-09-20.md"
+  ],
+  "staleIf": "Any critical canonical source or inspected upstream baseline changes before audit."
+}

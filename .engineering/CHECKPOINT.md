@@ -1,22 +1,22 @@
 # IRIS Checkpoint
 
 ## STATUS
-BOOTSTRAP_APPROVED
+DISCOVERY_ACTIVE
 
 ## VERSION
-0.0.0-bootstrap
+1.0-planning
 
 ## PHASE
-PRODUCT_DISCOVERY_READY
+MASTER_MODULE_MAP
 
 ## OBJECTIVE
-Maintain the approved GEF v1.0.0 + HIVE v1.0.0 repository foundation and begin governed IRIS V1 product discovery without product implementation.
+Establish the complete IRIS 1.0 research baseline and M00–M60 planning map, carrying forward the useful UGAS V2 vision with extreme quality, adaptive 8 GB execution and headless-first Blender production.
 
 ## IN PROGRESS
-No implementation Work Order is active. The next legal increment is IRIS V1 product discovery/planning.
+IRIS-WO-0002: research baseline, UGAS carryover and 61-module / 305-session master planning map.
 
 ## BLOCKERS
-None for repository-side bootstrap. Local HIVE runtime execution remains separate operator evidence and must not be fabricated.
+None identified. Product implementation remains intentionally gated.
 
 ## NEXT STEP
-Create and admit the first IRIS V1 discovery/planning Work Order covering measurable quality goals, architecture and HIVE/CORE/IRIS contracts before product code.
+Audit IRIS-WO-0002 exact head; after APPROVED, promote the module map and begin M00 S01 — Vision, non-MVP boundary and complete V1 promise.

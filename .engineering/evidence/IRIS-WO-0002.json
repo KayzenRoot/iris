@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0002",
+  "baseSha": "f41c85f64f764400cc600eb52d98cadd0f78a49e",
+  "candidateHeadSha": null,
+  "status": "PENDING_EXACT_HEAD",
+  "structuralTargets": {
+    "modules": 61,
+    "sessionsPerModule": 5,
+    "totalSessions": 305,
+    "ugasV2CategoriesMapped": 30
+  },
+  "tests": [],
+  "ci": [],
+  "findings": [],
+  "checkpointDelta": "PENDING_AUDIT"
+}
