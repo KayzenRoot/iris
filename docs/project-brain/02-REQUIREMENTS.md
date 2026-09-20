@@ -22,5 +22,7 @@ Status: `PRODUCT_DISCOVERY_ACTIVE`
 - PR-014: production dependencies/models/workflows SHALL use qualification, compatibility checks, provenance and rollback.
 - PR-015: media repair SHOULD target the smallest affected region/frame/asset graph whenever quality can be preserved.
 - PR-016: final V1 completion SHALL require functional + tested + documented + deployed + validated outcomes and measurable quality/performance gates.
+- PR-017: IRIS SHALL support end-to-end production of films, cinematic scenes, commercials, episodic/series content, technology/explainer videos, music-driven media and other long/short-form audiovisual productions with shot/scene continuity, editing, VFX, voice, music and delivery masters.
+- PR-018: IRIS SHALL support persistent virtual spokespersons/digital ambassadors whose approved face, body, hair, clothing system, voice, mannerisms, personality/brand role and cross-modal identity remain consistent across image, 3D, video, dubbing, advertisements, product demonstrations, technology videos, social content and recurring campaigns, with rights/consent/provenance controls.
 
 Detailed module-level requirements are created and frozen during M00–M60 planning.

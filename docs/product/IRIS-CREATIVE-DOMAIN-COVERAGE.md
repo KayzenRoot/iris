@@ -17,8 +17,11 @@ IRIS 1.0 must support extreme-quality production for:
 - holographic/volumetric-inspired interface visuals;
 - product imagery and commercial media;
 - video/VFX;
+- films and cinematic scenes, episodic/series production and commercial spots;
+- presenter-led technology/explainer/product videos;
+- persistent virtual spokespersons, digital ambassadors, virtual influencers and streamers;
 - digital humans;
-- audio/voice/music;
+- audio/voice/music and music-led audiovisual productions;
 - reusable cross-surface brand assets.
 
 Quality validation is domain-aware. Game-distance metrics do not become universal web/logo metrics, and web metrics do not weaken game/3D standards.

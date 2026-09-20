@@ -23,6 +23,6 @@ Status: `DISCOVERY_ACTIVE`
 
 ## IRIS 1.0 product scope
 
-IRIS 1.0 includes the capabilities represented by M00–M60, including the useful UGAS V2 vision: project/production OS, hardware intelligence, compute, model intelligence, multimodal IR, Asset DNA, digital humans, image, video, motion, advanced 3D, Blender/DCC, voice/music/audio, narrative, faceless content, advertising, brand, localization, Quality Court, repair, render cascade, HIVE memory/RAG, provenance/rights, security, storage/cache, dashboard, automation/agents, APIs/MCP, adaptive export and release/recovery.
+IRIS 1.0 includes the capabilities represented by M00–M60, including the useful UGAS V2 vision: project/production OS, hardware intelligence, compute, model intelligence, multimodal IR, Asset DNA, digital humans, persistent virtual spokespersons/digital ambassadors, image, video, film/cinema/scene production, commercials, motion, advanced 3D, Blender/DCC, voice/music/audio, narrative, faceless and presenter-led content, advertising, brand, localization, Quality Court, repair, render cascade, HIVE memory/RAG, provenance/rights, security, storage/cache, dashboard, automation/agents, APIs/MCP, adaptive export and release/recovery.
 
 The implementation order does not reduce the V1 scope.
