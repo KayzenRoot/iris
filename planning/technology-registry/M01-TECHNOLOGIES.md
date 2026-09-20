@@ -225,3 +225,144 @@ Rule: candidate proprietary technologies MUST NOT be described as novel/patentab
 **Risk:** genre/action-specific calibration.
 **Proof:** action-recognition benchmark + motion defect corpus.
 **Status:** PROPOSED.
+
+
+## M01 hard-case gap review — 2026-09-20
+
+### EXT-M01-006 — Blender Hair Curves / Geometry Nodes
+**Type:** existing.
+**What it does:** procedural hair/fur generation, guide maps, clumping/curl/noise and surface attachment/validity through curve-based workflows.
+**IRIS use:** foundation for groom generation and deterministic groom QA; viewport density may be reduced independently of final render density.
+**Proof:** groom attachment, silhouette, deformation and performance benchmarks.
+
+### EXT-M01-007 — Blender Cloth / Collision / Self-Collision
+**Type:** existing.
+**What it does:** cloth simulation with object collision, optional self-collision, collision quality and bakeable simulation.
+**IRIS use:** physical-cloth reference and distance-aware simulation qualification.
+**Proof:** penetration, stability, silhouette and runtime tests.
+
+### EXT-M01-008 — Blender Principled BSDF / OpenPBR-compatible shading
+**Type:** existing.
+**What it does:** layered physically based surface model with diffuse/metal/subsurface/transmission/coat/sheen/thin-film behavior; skin-oriented Random Walk is available in Cycles.
+**IRIS use:** material validation reference for skin, glass, cloth, metal and layered materials.
+**Proof:** controlled light-rig material turntables and cross-renderer comparisons.
+
+### EXT-M01-009 — OpenUSD Validation
+**Type:** existing.
+**What it does:** extensible core/schema/client validation rules for robust interoperable USD assets.
+**IRIS use:** structural validation layer for USD/DCC exchange and custom IRIS rules.
+**Proof:** invalid-asset corpus and round-trip tests.
+
+### EXT-M01-010 — NVIDIA Kaolin
+**Type:** existing.
+**What it does:** GPU-accelerated 3D representations, differentiable rendering/conversion and geometric losses/operations.
+**IRIS use:** research/benchmark toolbox for geometric similarity, mesh and projection-space validation where qualified.
+**Proof:** compare against Blender/OpenUSD validators and human-reviewed geometry defects.
+
+### IRIS-QX-021 — Semantic Critical Zone Matrix
+**Purpose:** prevent whole-asset averages from hiding failures in high-risk semantic regions.
+**How it works:** asset classes declare semantic zones such as eyes, mouth, hands, feet, face, joints, hair roots, cloth contacts, weapon grip and transparent boundaries. Each zone gets applicable Fidelity Vector dimensions and stricter defect policies.
+**Benefit:** malformed fingers or dead eyes cannot disappear inside an excellent full-image score.
+**Dependencies:** segmentation/landmarks, M24/M29/M39.
+**Risk:** zone detection errors.
+**Proof:** protected-zone defect escape rate.
+**Status:** PROPOSED.
+
+### IRIS-QX-022 — Anatomy Constraint Lattice
+**Purpose:** validate humans, humanoids and creatures beyond generic image aesthetics.
+**How it works:** combines skeleton/landmark topology, joint limits, bilateral/proportional constraints, contact state and species/body-plan profiles. Supports intentional stylization through explicit anatomy profiles rather than one universal human template.
+**Benefit:** targets extra/missing/misaligned limbs, impossible joints and deformation.
+**Dependencies:** M05 Asset DNA, M29, M30.
+**Risk:** over-constraining stylized/non-human anatomy.
+**Proof:** anatomy challenge corpus across human/stylized/creature classes.
+**Status:** PROPOSED.
+
+### IRIS-QX-023 — Ocular Life & Gaze Validator
+**Purpose:** eliminate dead, crossed, floating or materially implausible eyes.
+**How it works:** evaluates binocular convergence, gaze target consistency, eyelid/eyeball contact, corneal catchlights/reflections, sclera/iris/pupil geometry and temporal gaze continuity.
+**Benefit:** major improvement to perceived character life.
+**Dependencies:** M29, M31, M39.
+**Risk:** stylized eyes need alternate profiles.
+**Proof:** human gaze-plausibility benchmark + geometric checks.
+**Status:** PROPOSED.
+
+### IRIS-QX-024 — Dermal Fidelity Stack
+**Purpose:** validate skin as a layered optical/material system rather than a flat texture.
+**How it works:** evaluates macro color/value, roughness variation, pore/micro-normal scale, subsurface response, specular breakup and distance survival under standardized lighting.
+**Benefit:** reduces wax/plastic skin while avoiding wasteful invisible microdetail.
+**Dependencies:** M28, M31, Detail Survival Analyzer.
+**Risk:** skin tone/lighting bias in learned evaluators.
+**Proof:** diverse calibrated material/lighting corpus and human review.
+**Status:** PROPOSED.
+
+### IRIS-QX-025 — Strand & Groom Integrity Field
+**Purpose:** validate hair/fur attachment, flow, silhouette and motion.
+**How it works:** tracks root validity, guide continuity, density/clump fields, scalp penetration, flyaway budget, silhouette, temporal coherence and LOD/detail survival.
+**Benefit:** catches floating hair, broken roots, noisy fur and unstable animation.
+**Dependencies:** Blender Hair Curves, M28/M30/M32.
+**Risk:** hairstyle diversity and simulation cost.
+**Proof:** groom defect corpus + attachment and temporal tests.
+**Status:** PROPOSED.
+
+### IRIS-QX-026 — Cloth Contact & Fold Fidelity
+**Purpose:** validate garments/capes against body, motion and material intent.
+**How it works:** combines penetration/self-intersection tests, contact gaps, stretch/compression, fold-scale plausibility, pin/constraint behavior and temporal stability. Simulation fidelity may scale with actual viewing distance.
+**Benefit:** avoids cloth-through-body, exploding cloth and rubbery fabric.
+**Dependencies:** Blender Cloth, M29/M30/M32.
+**Risk:** expensive simulation if applied indiscriminately.
+**Proof:** standardized motion/cloth torture scenes at multiple camera distances.
+**Status:** PROPOSED.
+
+### IRIS-QX-027 — Optical Boundary Validator
+**Purpose:** protect transparent, refractive, emissive and thin-film materials that ordinary RGB similarity can misjudge.
+**How it works:** evaluates silhouette boundary, alpha coverage, refraction continuity, IOR/transmission behavior, volume absorption, emission clipping, reflection consistency and compositing halos.
+**Benefit:** better glass, holograms, hair cards, particles and translucent assets.
+**Dependencies:** M28/M31/M32, linear color pipeline.
+**Risk:** renderer-specific behavior.
+**Proof:** canonical optical material test scenes.
+**Status:** PROPOSED.
+
+### IRIS-QX-028 — Microexpression Continuity Graph
+**Purpose:** preserve believable facial acting across time.
+**How it works:** represents facial state as temporally constrained regions/controls, checking asymmetry, eye-mouth timing, blink dynamics, lip/teeth intersections, expression transitions and identity preservation.
+**Benefit:** avoids frame-perfect faces that become uncanny in motion.
+**Dependencies:** M29/M30/M37/M39.
+**Risk:** cultural/individual variation.
+**Proof:** temporal facial benchmark + human naturalness review.
+**Status:** PROPOSED.
+
+### IRIS-QX-029 — Creature Morphology Grammar
+**Purpose:** support extreme quality for non-human creatures without forcing human anatomy.
+**How it works:** Asset DNA defines body-plan grammar: limb count, attachment graph, locomotion/contact rules, symmetry/asymmetry, joint families, mass distribution and intentional exceptions.
+**Benefit:** validates dragons, quadrupeds, insects and fantasy creatures coherently.
+**Dependencies:** M05, M25/M29/M30.
+**Risk:** unusual designs may not fit predefined grammars.
+**Proof:** diverse creature corpus + designer override tests.
+**Status:** PROPOSED.
+
+### IRIS-QX-030 — Procedural Determinism & Variation Auditor
+**Purpose:** ensure procedural detail is reproducible but not visibly repetitive.
+**How it works:** records seeds/graphs/inputs, checks deterministic rebuilds, detects tiling/repetition/correlation artifacts and measures controlled variation envelopes.
+**Benefit:** procedural worlds/materials/hair/VFX can be regenerated exactly without looking mechanically repeated.
+**Dependencies:** M06/M28/M32/M53.
+**Risk:** perceptual repetition detection is domain-sensitive.
+**Proof:** exact rebuild hash/evidence + repetition challenge corpus.
+**Status:** PROPOSED.
+
+### IRIS-QX-031 — Contact Truth Field
+**Purpose:** unify believable physical contact across feet, hands, weapons, cloth, props and environment.
+**How it works:** tracks signed distance/contact patches, normal alignment, penetration, hover gaps, sliding velocity and temporal persistence around semantically expected contacts.
+**Benefit:** catches floating feet, loose weapon grips and subtle intersections across stills and animation.
+**Dependencies:** M29/M30/M32, geometry/depth evidence.
+**Risk:** soft/deformable contact requires tolerance models.
+**Proof:** contact torture suite and annotated animation corpus.
+**Status:** PROPOSED.
+
+### IRIS-QX-032 — Multi-Light Material Truth Test
+**Purpose:** stop materials from being approved because they look good under one flattering light.
+**How it works:** every qualified material/character master is rendered under a compact canonical light rig set: neutral studio, grazing, hard directional, soft diffuse, dark/high-contrast and environment profile. Material dimensions are compared for physically/art-directably plausible response.
+**Benefit:** exposes waxy skin, broken normals, fake roughness, bad transparency and texture baking artifacts.
+**Dependencies:** M28/M31.
+**Risk:** render cost.
+**Proof:** defect discovery uplift vs single-light review.
+**Status:** PROPOSED.

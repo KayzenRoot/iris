@@ -116,3 +116,23 @@ Extreme quality means maximum validated fidelity to the intended artifact and it
 
 ## M01 proposed disposition
 S01–S05 are now specified at planning depth sufficient for review. Technologies remain individually PROPOSED until the M01 review promotes accepted entries.
+
+
+## Hard-case gap review addendum
+
+M01 explicitly treats the following as protected quality regions/domains:
+- hands, feet, face, eyes and mouth;
+- skin and subsurface/material response;
+- hair/fur roots, groom flow and motion;
+- cloth contact, collision, folds and temporal stability;
+- transparent/refractive/emissive boundaries;
+- facial microexpressions;
+- non-human creature morphology;
+- procedural repetition/determinism;
+- physical contact between characters, props and environment;
+- material behavior under multiple lighting conditions.
+
+These are not separate global Fidelity Vector dimensions by default. They are semantic zones/domain validators that attach stricter evidence to existing dimensions. This avoids an unbounded vector while preserving high-risk quality checks.
+
+### Added candidate technologies
+IRIS-QX-021 through IRIS-QX-032 are admitted to M01 review as PROPOSED.
