@@ -624,3 +624,271 @@ All remain PROPOSED until M02 Final Technology Review.
 - PGX-050 provides immutable time travel.
 
 All remain PROPOSED until M02 Final Technology Review.
+
+# Existing foundations added for S04
+
+## EXT-M02-015 — Bazel Action Cache + CAS
+**Type:** existing / build cache pattern.
+**What it does:** Bazel breaks builds into declared actions, maps action hashes to result metadata and stores output bytes in a CAS; reproducible results can be reused locally/remotely.
+**How IRIS uses the pattern:** separate action/build-result lookup from immutable content storage, with explicit declared inputs and trust boundaries.
+**Risk:** generative media is frequently non-hermetic/non-deterministic; IRIS cannot equate action-key equality with byte determinism for every node.
+**Proof:** cache-class/reproducibility tests.
+**Status:** PATTERN_ACCEPTED_FOR_S04.
+
+## EXT-M02-016 — Nix derivations/store
+**Type:** existing / immutable build-store pattern.
+**What it does:** derivations specify precise build inputs/outputs and the Nix store keeps immutable objects; deterministic build assumptions make caching/reuse meaningful.
+**How IRIS uses the pattern:** inspiration for immutable materializations, explicit closure and reproducibility-class-aware reuse.
+**Risk:** IRIS must model stochastic models and external/human state rather than pretending all production is pure.
+**Proof:** derivation-style fixtures across IRIS reproducibility classes.
+**Status:** PATTERN_ACCEPTED_FOR_S04.
+
+## EXT-M02-017 — Buck2 incremental actions
+**Type:** existing / incremental-action pattern.
+**What it does:** supports actions that reuse previous outputs when the action understands what changed and can update only affected portions.
+**How IRIS uses the pattern:** validates the value of preserving previous result state plus an explicit changed-input description for partial updates.
+**Risk:** partial update logic can leave stale output.
+**Proof:** incremental-vs-clean oracle.
+**Status:** PATTERN_ACCEPTED_FOR_S04.
+
+## EXT-M02-018 — DVC run cache / selective reproduction
+**Type:** existing / pipeline cache pattern.
+**What it does:** DVC pipelines track declared dependencies/outputs, rerun affected stages and can reuse previous stage results through run-cache.
+**How IRIS uses the pattern:** inspiration for long-lived production result reuse independent of one Git commit.
+**Risk:** whole-file/stage semantics are coarser than IRIS media dependency slices.
+**Proof:** compare file-level vs semantic-slice invalidation.
+**Status:** PATTERN_ACCEPTED_FOR_S04.
+
+## EXT-M02-019 — Transformer KV / prefix caching
+**Type:** existing / inference optimization.
+**What it does:** reuses previously computed attention key/value state or prefilled prompt prefixes so repeated autoregressive inference avoids recomputing unchanged prefixes.
+**How IRIS uses the pattern:** provider/runtime optimization for repeated script/planning/localization/evaluator contexts, always bound to exact model/tokenizer/template/runtime compatibility.
+**Risk:** stale/mismatched context cache can corrupt inference; runtime caches are not durable semantic evidence.
+**Proof:** context-fingerprint and recompute-equivalence tests.
+**Status:** PATTERN_ACCEPTED_FOR_S04.
+
+# Internal technology candidates — S04
+
+## IRIS-PGX-051 — Creative Build Compiler
+**Purpose:** compile semantic deltas and target requests into the smallest safe production Work Set.
+**How it works:** combines current Snapshot, Impact Cone, cache inventory, quality/policy constraints and runtime capability to assign work dispositions.
+**Benefit:** central engine for minimal recomputation.
+**Dependencies:** PGX-024, S03 snapshots.
+**Risk:** planner bug can under-invalidate.
+**Proof:** full-build oracle corpus.
+**Status:** PROPOSED.
+
+## IRIS-PGX-052 — Dirty Frontier Reducer
+**Purpose:** shrink a broad Impact Cone into the true roots that require action.
+**How it works:** stops propagation at admitted reusable/repaired/revalidated boundaries while preserving causal explanations.
+**Benefit:** fewer expensive downstream operations.
+**Dependencies:** PGX-024/051.
+**Risk:** unsafe frontier cut.
+**Proof:** mutation oracle + shadow rebuild.
+**Status:** PROPOSED.
+
+## IRIS-PGX-053 — Work Disposition Matrix
+**Purpose:** decide REBUILD vs REPAIR vs REVALIDATE vs REPACKAGE vs REUSE vs BLOCK.
+**How it works:** policy table combines delta facet, material state, reproducibility class, quality debt/evidence and repair capabilities.
+**Benefit:** avoids regenerating media when validation/package repair is enough.
+**Dependencies:** M01, M49, M59.
+**Risk:** wrong disposition.
+**Proof:** domain matrix fixtures.
+**Status:** PROPOSED.
+
+## IRIS-PGX-054 — Repair Frontier
+**Purpose:** localize regeneration inside a materialization.
+**How it works:** represents bounded affected region/time/subasset plus surrounding continuity constraints and required post-repair validators.
+**Benefit:** minimal image/frame/audio/mesh repair.
+**Dependencies:** M49.
+**Risk:** seam/continuity defects.
+**Proof:** local repair vs full rebuild quality benchmark.
+**Status:** PROPOSED.
+
+## IRIS-PGX-055 — Layered Reuse Fabric
+**Purpose:** make cache semantics explicit across planning, context, warm provider state, intermediate and final materializations, and evidence.
+**How it works:** independent cache layers with separate keys, trust and eviction rules.
+**Benefit:** much higher reuse without mixing transient optimization with canonical truth.
+**Dependencies:** M13/M55.
+**Risk:** cache complexity.
+**Proof:** layer isolation and eviction tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-056 — Reuse Trust Ladder
+**Purpose:** prevent “cache hit” from meaning “automatically safe”.
+**How it works:** EXACT_REUSE, QUALIFIED_REUSE, PARTIAL_REUSE, WARM_REUSE, ADVISORY_REUSE, NO_REUSE with explicit admission rules.
+**Benefit:** safe reuse across deterministic and generative workflows.
+**Dependencies:** PGX-021/055.
+**Risk:** too conservative => low hit rate.
+**Proof:** unsafe-hit rejection and hit-quality metrics.
+**Status:** PROPOSED.
+
+## IRIS-PGX-057 — Reuse Receipt
+**Purpose:** make semantic cache reuse auditable.
+**How it works:** records source, fingerprint, class, producer, qualification, environment/policy comparison and required validation.
+**Benefit:** answers “why did IRIS not rebuild this?”
+**Dependencies:** M53 provenance.
+**Risk:** receipt volume.
+**Proof:** replay cache admission decision.
+**Status:** PROPOSED.
+
+## IRIS-PGX-058 — Cache Poisoning Shield
+**Purpose:** stop stale/tampered/unqualified entries contaminating production.
+**How it works:** verifies digest, producer/version, key schema, dependency closure, qualification, rights/provenance and writer trust before admission.
+**Benefit:** shared cache can remain a performance layer without becoming a trust hole.
+**Dependencies:** M18 supply chain, M53, M54.
+**Risk:** false quarantine.
+**Proof:** malicious/stale cache corpus.
+**Status:** PROPOSED.
+
+## IRIS-PGX-059 — Context Fingerprint Cache
+**Purpose:** reduce LLM tokens/compute while guaranteeing context freshness.
+**How it works:** fingerprints canonical sources, HIVE retrieval set/order, prompt/compiler/template, model/tokenizer, policy, locale and tool schemas; unchanged slices/prefixes can be reused.
+**Benefit:** major token and latency savings for repeated planning/content/evaluator jobs.
+**Dependencies:** HIVE/M52, M43/M44/M47/M48.
+**Risk:** omitted context dependency creates stale reasoning.
+**Proof:** context mutation matrix.
+**Status:** PROPOSED.
+
+## IRIS-PGX-060 — Prefix/KV Compatibility Gate
+**Purpose:** safely exploit provider/runtime prefix or KV caching.
+**How it works:** reuse allowed only when model/tokenizer/template/runtime/context-prefix compatibility matches; cache remains ephemeral.
+**Benefit:** faster repeated inference, especially on long shared prompts.
+**Dependencies:** model providers/runtime.
+**Risk:** provider-specific cache semantics.
+**Proof:** recompute vs cached inference compatibility suite.
+**Status:** PROPOSED.
+
+## IRIS-PGX-061 — Provider Warmth Scheduler
+**Purpose:** reduce model load/compile churn.
+**How it works:** planner considers resident models/adapters/kernels/workflows as a cost signal among otherwise correctness-equivalent plans.
+**Benefit:** faster local 8GB workflows and lower thrashing.
+**Dependencies:** M09/M10/M11/M13.
+**Risk:** warm-state bias might select inferior provider if quality policy is not dominant.
+**Proof:** assert quality/provider constraints before warmth optimization.
+**Status:** PROPOSED.
+
+## IRIS-PGX-062 — Variant Work Coalescer
+**Purpose:** share expensive prefixes across related variants.
+**How it works:** finds causally common upstream/context/model work, batches it, then fans out at the first true divergent dependency.
+**Benefit:** efficient multilingual, aspect-ratio, campaign and avatar batches.
+**Dependencies:** PGX-033/035.
+**Risk:** accidental cross-variant contamination.
+**Proof:** fan-out boundary tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-063 — Build Journal
+**Purpose:** make crashes/cancellation recoverable without trusting temp files.
+**How it works:** append-only attempt journal differentiates planned, running, temp-produced, committed, validated and side-effect states.
+**Benefit:** resume/cleanup/retry truth.
+**Dependencies:** PGX-005/010, M11.
+**Risk:** journal/reality divergence.
+**Proof:** crash-at-every-boundary fault injection.
+**Status:** PROPOSED.
+
+## IRIS-PGX-064 — Atomic Materialization Commit
+**Purpose:** prevent partial multi-output results from entering cache/history as complete.
+**How it works:** output set commits atomically or uses an explicit partial-output contract with per-output truth.
+**Benefit:** no half-built cache hits.
+**Dependencies:** M55 storage/CAS.
+**Risk:** huge outputs make transaction design difficult.
+**Proof:** crash and torn-write simulations.
+**Status:** PROPOSED.
+
+## IRIS-PGX-065 — Incremental Truth Oracle
+**Purpose:** prove incremental build behavior against a clean/full reference.
+**How it works:** exact byte/digest comparison for qualified deterministic nodes, class-aware causal/quality equivalence for non-deterministic nodes.
+**Benefit:** incremental correctness becomes benchmarked rather than assumed.
+**Dependencies:** M51.
+**Risk:** full reference is expensive.
+**Proof:** protected benchmark corpus.
+**Status:** PROPOSED.
+
+## IRIS-PGX-066 — Shadow Rebuild Sentinel
+**Purpose:** detect hidden stale dependencies in apparently clean/cache-hit nodes.
+**How it works:** samples reused nodes for clean recomputation and compares digest/evidence/dependency observations.
+**Benefit:** catches under-invalidation before it becomes systemic.
+**Dependencies:** PGX-065.
+**Risk:** extra compute.
+**Proof:** inject missing dependency and measure detection.
+**Status:** PROPOSED.
+
+## IRIS-PGX-067 — Differential Mutation Lab
+**Purpose:** systematically test incremental dependency truth.
+**How it works:** mutates one facet/slice/model/policy/environment field at a time and asserts dirty/clean/reuse/disposition sets.
+**Benefit:** strong regression protection for the build compiler.
+**Dependencies:** M51.
+**Risk:** combinatorial corpus growth.
+**Proof:** mutation coverage reporting.
+**Status:** PROPOSED.
+
+## IRIS-PGX-068 — Cache Quarantine Circuit
+**Purpose:** react to proven cache mismatch/poisoning.
+**How it works:** quarantines entry/key namespace/provider/workflow scope, disables writes or widens invalidation until requalification.
+**Benefit:** one bad cache hit does not silently spread.
+**Dependencies:** M18/M54/M56.
+**Risk:** broad quarantine hurts performance.
+**Proof:** fault injection + recovery policy tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-069 — Incremental Explain Receipt
+**Purpose:** make minimal-build decisions transparent.
+**How it works:** records delta → facet/slice → dirty frontier → disposition → cache admission/rejection → expected savings.
+**Benefit:** operator and agents understand why work was or was not repeated.
+**Dependencies:** PGX-027/051.
+**Risk:** explanation overhead.
+**Proof:** trace corresponds to planner decisions.
+**Status:** PROPOSED.
+
+## IRIS-PGX-070 — Adaptive Retention Value Model
+**Purpose:** keep the most valuable intermediates under bounded storage.
+**How it works:** retention score considers recompute cost, hit frequency, size, quality/provenance importance, protection pins and hardware scarcity.
+**Benefit:** better cache hit rate than blind LRU for media.
+**Dependencies:** M13/M55.
+**Risk:** predictor error and starvation.
+**Proof:** replay workload benchmark vs LRU/LFU.
+**Status:** PROPOSED.
+
+## IRIS-PGX-071 — Persona Production Prefix Cache
+**Purpose:** accelerate recurring corporate-avatar/series production without weakening identity.
+**How it works:** caches admitted persona/brand/voice/context baseline compilation and heavy shared intermediates separately from episode-specific script/performance/delivery deltas.
+**Benefit:** hundreds of recurring videos reuse stable identity foundations.
+**Dependencies:** M05/M39/M40/M43/M45, PGX-059/062.
+**Risk:** stale baseline after persona/brand change.
+**Proof:** baseline mutation invalidates every dependent episode path correctly.
+**Status:** PROPOSED.
+
+## IRIS-PGX-072 — Token/Context Delta Compiler
+**Purpose:** minimize LLM input rebuilding when only part of production context changed.
+**How it works:** compiles canonical context into fingerprinted semantic segments and transmits/rebuilds only changed segments where the provider protocol allows safe reuse.
+**Benefit:** lower LLM input tokens and faster iterative planning/localization/script work.
+**Dependencies:** HIVE M52, provider context caching.
+**Risk:** provider APIs differ and semantic ordering may matter.
+**Proof:** full-context vs delta-context task equivalence/calibration.
+**Status:** PROPOSED.
+
+## IRIS-PGX-073 — Quality-Preserving Cost Frontier
+**Purpose:** choose the cheapest safe rebuild plan without turning quality into a tradeable afterthought.
+**How it works:** first filters plans that satisfy Fidelity Contract/correctness; only then Pareto-optimizes time, VRAM, GPU work, storage, network and token cost.
+**Benefit:** maximum efficiency with no silent MASTER degradation.
+**Dependencies:** M01, M09/M10/M50.
+**Risk:** incomplete cost estimates.
+**Proof:** selected plan must always lie inside admissible quality set.
+**Status:** PROPOSED.
+
+# S04 relationship map
+
+- PGX-051/052/053 compile semantic changes into minimal work.
+- PGX-054 integrates bounded repair into build truth.
+- PGX-055/056/057/058 define layered, trusted reuse.
+- PGX-059/060/072 target LLM/context/token efficiency.
+- PGX-061/062 optimize provider warmth and variant batching.
+- PGX-063/064 make execution crash/commit safe.
+- PGX-065/066/067 make incremental correctness testable.
+- PGX-068 protects production after cache mismatch.
+- PGX-069 makes incremental choices explainable.
+- PGX-070 makes retention cost-aware.
+- PGX-071 specializes safe reuse for persistent avatars/series.
+- PGX-073 preserves quality before cost optimization.
+
+All remain PROPOSED until M02 Final Technology Review.

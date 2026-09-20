@@ -1128,11 +1128,492 @@ Future implementation must prove:
 ---
 
 # S04 — Creative Build System and incremental rebuild semantics
-Status: `NOT_STARTED`
+Status: `S04_PROPOSED_COMPLETE_PENDING_DISCUSSION`
+
+## 1. Creative Build System mission
+
+The Creative Build System turns a semantic production delta into the smallest safe plan that returns the requested production targets to a truthful, validated state.
+
+It MUST answer:
+- what changed?
+- which nodes/materializations became stale?
+- why are they stale?
+- which outputs remain reusable?
+- can a cached result be trusted?
+- should IRIS rebuild, revalidate, repair or only repackage?
+- what compute/context/model state can be reused safely?
+- how do we prove incremental result correctness?
+
+The build system optimizes cost/time only after correctness and the applicable Fidelity Contract remain satisfied.
+
+## 2. Build states are explicit
+
+Proposed node/materialization planning states:
+- `CLEAN` — current bound result remains valid;
+- `DIRTY` — known causal change requires work;
+- `UNKNOWN` — validity cannot be proven;
+- `BLOCKED` — work cannot legally proceed;
+- `CACHED_ELIGIBLE` — a candidate reuse exists but still requires trust/admission checks;
+- `REVALIDATE_ONLY` — bytes/materialization may remain, but quality/policy/rights/evidence needs re-evaluation;
+- `REPACKAGE_ONLY` — content can remain, delivery/provenance packaging must change.
+
+`UNKNOWN` never silently becomes `CLEAN`.
+
+## 3. Delta compilation
+
+S03 semantic diffs and S02 dependency semantics compile into a normalized `Build Delta`.
+
+A Build Delta may include:
+- graph/node definition delta;
+- input revision/content delta;
+- variant selection delta;
+- intent/constraint delta;
+- quality policy/evidence delta;
+- rights/provenance delta;
+- delivery delta;
+- environment/tool/model qualification delta;
+- external-state delta.
+
+The delta is mapped to dependency facets/slices and then to an Impact Cone.
+
+## 4. Dirty frontier
+
+The Impact Cone is further reduced to the minimal `Dirty Frontier`:
+- roots that truly need work;
+- downstream nodes that can stay clean if the frontier is repaired/revalidated successfully;
+- boundaries where a cached/reused result may stop propagation.
+
+A node is never marked dirty simply because its ancestor branch changed.
+
+## 5. Work disposition: rebuild vs repair vs revalidate vs repackage
+
+Each dirty/affected node receives one planned disposition:
+
+### REBUILD
+Material output must be regenerated/recomputed.
+
+### REPAIR
+Only a bounded region/frame/take/subasset/component requires regeneration or transformation.
+
+### REVALIDATE
+Material bytes can remain, but quality/rights/policy/evidence must be recomputed.
+
+### REPACKAGE
+Underlying media remains; packaging/metadata/encode/delivery changes.
+
+### REUSE
+Existing materialization is admitted as still valid.
+
+### BLOCK
+No safe action can proceed until missing evidence/input/policy is resolved.
+
+This is a first-class choice, not an ad-hoc provider optimization.
+
+## 6. Repair frontier
+
+A Repair Frontier is a smaller work surface inside one materialization.
+
+Examples:
+- one hand/face region in an image;
+- frames 148–163 in a shot;
+- one texture tile;
+- one rigged garment;
+- one dialogue line;
+- one subtitle locale;
+- one WebGPU shader/material;
+- one commercial CTA card.
+
+Repair is allowed only when local replacement preserves surrounding invariants and the relevant Quality Contract can prove the repaired whole is acceptable.
+
+M49 later implements sophisticated repair engines. S04 defines how repair participates in build truth.
+
+## 7. Build Key / Causal Fingerprint
+
+PGX-020 Causal Fingerprint becomes the primary build/cache key input, but cache admission additionally includes reuse policy.
+
+The key binds correctness-relevant state such as:
+- node definition/version;
+- bound dependency digests/slices/facets;
+- graph/variant/intent refs;
+- qualified model/tool/workflow/provider versions;
+- relevant environment fingerprint;
+- seed/reproducibility class;
+- applicable policy/quality refs.
+
+Irrelevant UI metadata/name/path aliases MUST NOT perturb the build key.
+
+## 8. Cache is multi-layered
+
+IRIS does not have one universal cache.
+
+### L0 — Planning / graph cache
+Stores normalized graph queries, semantic diffs, impact cones and compiled build plans when their inputs are unchanged.
+
+### L1 — Context / prompt cache
+Stores canonical compiled context packages, prompt prefixes, conditioning plans and retrieval bundles keyed by model/tokenizer/template/context policy/version.
+
+This includes safe opportunities for LLM prefix/KV reuse when a provider/runtime supports it, but runtime KV state is never treated as a durable canonical artifact.
+
+### L2 — Provider warm-state cache
+Model residency, loaded LoRAs/adapters, decoded weights, compiled kernels, workflow/provider warm state.
+
+Performance-only. Losing L2 may cost time but must not change semantic truth.
+
+### L3 — Intermediate materialization cache
+Latents, masks, depth maps, segmentation, intermediate frames, geometry intermediates, bakes, stems, proxies, compiled shaders and other bounded reusable production intermediates.
+
+### L4 — Final materialization cache / CAS reuse
+Approved immutable output revisions/content-addressed bytes suitable for exact material reuse where policy admits it.
+
+### L5 — Evaluation/evidence cache
+Qualified validator/judge results keyed by candidate revision plus evaluator/version/policy/profile. Evidence is invalidated when its judge/policy/input assumptions change.
+
+Different layers have different trust, eviction and replay rules.
+
+## 9. Cache reuse classes
+
+Every reuse opportunity is classified:
+
+### EXACT_REUSE
+Immutable materialization bytes/revision proven valid for identical correctness-relevant inputs and environment requirements.
+
+### QUALIFIED_REUSE
+Reuse is permitted under a qualified equivalence rule even if execution environment differs in admitted ways.
+
+### PARTIAL_REUSE
+Only a bounded intermediate/context/region can be reused.
+
+### WARM_REUSE
+Provider/model/KV/runtime state only; no semantic result is being reused.
+
+### ADVISORY_REUSE
+Prior result may guide candidate selection/planning but cannot directly satisfy a production output.
+
+### NO_REUSE
+Policy/reproducibility/rights/security or uncertainty forbids reuse.
+
+Cache class must never be inferred merely because a key exists.
+
+## 10. Reuse admission receipt
+
+Every semantic cache hit emits/records a Reuse Receipt:
+- cache/revision source;
+- build key/fingerprint;
+- reuse class;
+- producer attempt/version;
+- trust/qualification rule;
+- relevant environment comparison;
+- policy/rights/provenance status;
+- validation required/performed;
+- reason for admission.
+
+Warm provider cache need not create the same heavy production receipt, but semantic output reuse does.
+
+## 11. Cache poisoning shield
+
+A cache entry is rejected/quarantined when:
+- producer identity/version is unknown or disallowed;
+- key schema/version mismatches;
+- content digest verification fails;
+- dependency closure is incomplete;
+- required model/tool/environment qualification expired;
+- rights/provenance policy changed incompatibly;
+- an evaluator/result used for evidence is no longer qualified;
+- the entry came from an untrusted write source.
+
+Read and write trust may be asymmetric. For example, CI or validated workers may populate a shared cache while ordinary local experiments are read-only or isolated until promoted.
+
+## 12. Cross-branch and cross-project reuse
+
+Branches may reuse exact immutable revisions/materializations because semantic branch membership does not alter the bytes.
+
+Cross-project reuse is allowed only when:
+- rights/license/consent permit it;
+- semantic policy permits sharing;
+- identity/brand/persona restrictions permit it;
+- dependency closure and qualification match.
+
+A company spokesperson's protected identity assets must not leak into unrelated projects merely because a hash matches.
+
+## 13. Incremental build planner
+
+Input:
+- requested targets/output classes;
+- current Snapshot;
+- prior trusted Snapshot/materializations;
+- Build Delta;
+- graph/variant state;
+- hardware/runtime capability envelope;
+- cache inventory;
+- policy/quality constraints.
+
+Output:
+- ordered/parallelizable Work Set;
+- disposition per node;
+- expected cache/reuse opportunities;
+- predicted compute/VRAM/time/storage/token cost;
+- required validators;
+- blockers/unknowns;
+- Build Explain Trace.
+
+The planner cannot lower quality gates to improve the estimate.
+
+## 14. Cost-aware scheduling without correctness compromise
+
+Among correctness-equivalent plans, IRIS may prefer:
+- local cache hit;
+- partial repair;
+- lower transfer cost;
+- already resident model;
+- shared prompt/context prefix;
+- batching related variants;
+- reusing a validated intermediate;
+- postponing expensive optional previews.
+
+Final MASTER criteria remain unchanged.
+
+## 15. LLM/context efficiency
+
+IRIS productions will often invoke planning, script, metadata, story, brand, localization and evaluator LLMs.
+
+The build system therefore treats context compilation as a cacheable production input.
+
+A Context Fingerprint includes as applicable:
+- canonical source IDs/revisions;
+- selected HIVE retrieval results and ordering;
+- prompt/template/compiler version;
+- model/tokenizer version;
+- policy/instruction version;
+- locale/domain profile;
+- tool schema/version.
+
+If only one context slice changes, IRIS should reuse unchanged compiled slices/prefixes where the runtime safely supports it.
+
+This provides token savings without allowing stale context to masquerade as current truth.
+
+## 16. Prefix/KV cache boundary
+
+Runtime KV/prefix caches can reduce repeated inference computation, but they are ephemeral optimization state.
+
+Rules:
+- bind to exact model/tokenizer/template/runtime compatibility;
+- never serialize them as canonical semantic evidence unless a provider-specific qualification explicitly supports it;
+- eviction/failure falls back to recomputation, not data loss;
+- reused context must still correspond to the current Context Fingerprint.
+
+## 17. Variant batch coalescing
+
+Related variants can be planned together when they share expensive prefixes/upstream work.
+
+Example corporate avatar batch:
+- same persona/scene/performance;
+- four languages;
+- three aspect ratios.
+
+IRIS may share:
+- persona/scene render;
+- common animation;
+- script-context prefix;
+- model residency;
+- intermediate stems/mattes;
+
+while rebuilding only language/crop/dubbing/delivery-specific paths.
+
+Batching is an execution optimization over truthful graph dependencies, not an excuse to fuse unrelated semantic outputs.
+
+## 18. Multi-output atomicity
+
+If one build node promises multiple coupled outputs, IRIS must define whether the materialization commits:
+- atomically as one output set; or
+- independently with explicit partial-result semantics.
+
+A crash must not expose a half-written output set as a valid cache hit.
+
+## 19. Build journal and commit boundary
+
+Every build attempt records a journal of:
+- plan version;
+- started/completed nodes;
+- cache hits/misses;
+- produced temporary outputs;
+- committed immutable revisions;
+- validators/results;
+- failures/cancellation;
+- side effects.
+
+Temporary outputs are not canonical until commit/admission succeeds.
+
+Crash recovery can inspect the journal and immutable receipts to decide whether to resume, reuse, clean or restart.
+
+## 20. Incremental truth oracle
+
+Incremental execution must be continuously tested against a clean/full reference path.
+
+### Deterministic nodes
+Where qualification promises deterministic output, incremental/full results should match required exact content digests.
+
+### Seeded/environment-sensitive nodes
+Compare under the qualified deterministic envelope when one exists; otherwise enforce dependency/evidence equivalence appropriate to their class.
+
+### Stochastic generative nodes
+Do NOT demand equal bytes from an unnecessary rerun. Instead prove:
+- clean reused outputs had unchanged causal dependencies;
+- dirty nodes were actually rebuilt/repaired/revalidated;
+- no stale dependency was consumed;
+- resulting candidates satisfy current Fidelity Contracts/quality evidence.
+
+The oracle judges correctness semantics, not fake byte determinism.
+
+## 21. Shadow rebuild sampling
+
+To detect under-invalidation/cache bugs, policy may sample apparently-clean/reused nodes for clean recomputation.
+
+Compare:
+- deterministic digest;
+- semantic/quality evidence;
+- dependency observations;
+- performance/cost.
+
+Any mismatch can quarantine the cache key/provider/workflow and widen future invalidation.
+
+## 22. Differential mutation corpus
+
+M51 benchmark/evals should mutate one dependency facet/slice at a time and verify:
+- expected dirty set;
+- expected clean set;
+- cache hit/miss behavior;
+- repair/revalidation choice;
+- final correctness.
+
+This becomes the regression corpus for incremental truth.
+
+## 23. Failure and cancellation semantics
+
+On failure:
+- already committed immutable revisions remain historical facts;
+- uncommitted temp outputs are not promoted;
+- downstream nodes remain dirty/blocked;
+- a retry creates a new attempt;
+- safe cache hits remain reusable;
+- external side effects obey PGX-029/042 fences.
+
+Cancellation must not convert partial work into a successful materialization.
+
+## 24. Cache eviction
+
+Eviction is policy-aware:
+- warm/provider cache is cheap to evict;
+- recomputable intermediates may be LRU/cost-aware;
+- expensive/high-reuse intermediates can be retained longer;
+- final immutable/release/provenance-required objects follow M55 retention;
+- protected persona/rights evidence follows its own policy.
+
+Eviction changes performance, not historical truth.
+
+## 25. Build explanation
+
+Every plan exposes:
+- why target is dirty/clean;
+- which change caused it;
+- why cache hit was accepted/rejected;
+- why REPAIR vs REBUILD vs REVALIDATE was selected;
+- expected savings;
+- validators still required.
+
+No opaque "smart cache" decisions.
+
+## 26. Domain examples
+
+### Corporate spokesperson commercial
+Change only Portuguese CTA text:
+- persona geometry/identity: CLEAN;
+- scene render where visual text is absent: CLEAN;
+- pt-BR voice line: REBUILD;
+- lip-sync segment: REPAIR/REBUILD affected take;
+- subtitles/title card: REBUILD;
+- identity/temporal validation: targeted REVALIDATE;
+- final edit/master: REPACKAGE/REBUILD downstream assembly.
+
+### Film
+Fix one bad 16-frame VFX region:
+- prior approved shots remain CLEAN;
+- local frame range becomes REPAIR frontier;
+- affected composite/color continuity revalidates;
+- final sequence/master rebuilds only from changed shot downstream packaging.
+
+### Logo / website
+Change favicon padding:
+- master logo geometry remains CLEAN;
+- favicon export REBUILD;
+- favicon microscale validation REVALIDATE;
+- unrelated Web3D hero CLEAN.
+
+### Nerim
+Change sword texture:
+- character sculpt/rig/animation CLEAN;
+- sword material/texture dependent nodes DIRTY;
+- affected render/game package nodes rebuild/revalidate according to facets.
+
+## 27. Proposed S04 decisions
+
+- **D-M02-S04-001:** incremental build correctness must be equivalent to an admitted full-build truth model; speed never weakens correctness.
+- **D-M02-S04-002:** CLEAN/DIRTY/UNKNOWN/BLOCKED and reuse/revalidate/repackage states are explicit; UNKNOWN fails closed.
+- **D-M02-S04-003:** semantic deltas compile through dependency facets/slices into an explainable Dirty Frontier.
+- **D-M02-S04-004:** REBUILD, REPAIR, REVALIDATE, REPACKAGE, REUSE and BLOCK are first-class dispositions.
+- **D-M02-S04-005:** Causal Fingerprint plus reuse policy governs cache admission.
+- **D-M02-S04-006:** cache is multi-layered; semantic result cache and runtime warm/KV cache are not conflated.
+- **D-M02-S04-007:** semantic cache hits require trust/qualification/provenance admission evidence.
+- **D-M02-S04-008:** cross-project reuse is rights/identity/policy constrained.
+- **D-M02-S04-009:** context/prompt compilation is cacheable by a versioned Context Fingerprint for token efficiency.
+- **D-M02-S04-010:** provider KV/prefix/model residency is ephemeral optimization state, never canonical truth by default.
+- **D-M02-S04-011:** related variants may coalesce shared upstream/context/model work.
+- **D-M02-S04-012:** multi-output nodes define atomic/partial commit semantics.
+- **D-M02-S04-013:** build attempts journal temporary vs committed results and support crash-safe recovery.
+- **D-M02-S04-014:** incremental truth is verified by deterministic exact comparison where valid and causal/quality equivalence for stochastic generation.
+- **D-M02-S04-015:** shadow rebuild sampling and mutation corpora detect under-invalidation/cache poisoning.
+- **D-M02-S04-016:** all dirty/cache/repair decisions expose human/machine-readable explanations.
+
+## 28. S04 proof plan
+
+Future implementation must prove:
+1. irrelevant alias/UI metadata changes do not dirty material output;
+2. one dependency-slice mutation dirties exactly the expected impact cone;
+3. UNKNOWN can never be treated as a cache hit;
+4. quality-only change selects REVALIDATE where material bytes remain valid;
+5. provenance/delivery-only change can select REPACKAGE;
+6. local defect can choose REPAIR and revalidate whole required quality surface;
+7. repair failure safely escalates to REBUILD;
+8. cache key changes when any correctness-relevant model/tool/environment/seed/policy input changes;
+9. irrelevant environment noise does not unnecessarily destroy qualified cache reuse;
+10. poisoned digest/producer/schema entry is rejected;
+11. untrusted writer cannot populate shared trusted cache;
+12. same immutable materialization can be reused across branches;
+13. cross-project protected persona asset reuse is blocked when policy forbids it;
+14. Context Fingerprint changes when HIVE source/retrieval/template/model/tool schema changes;
+15. unchanged context slices can be reused safely;
+16. KV/prefix cache loss falls back to recomputation with identical semantic inputs;
+17. variant batch coalescing shares only causally common work;
+18. multi-output crash cannot expose incomplete set as valid;
+19. build journal supports deterministic recovery classification;
+20. deterministic incremental/full output digest matches;
+21. seeded/environment-sensitive equivalence follows its qualification class;
+22. stochastic incremental path proves no stale clean node and meets current Quality Contract;
+23. shadow rebuild detects an intentionally missing dependency declaration;
+24. cache quarantine widens future safety behavior after mismatch;
+25. failed/cancelled attempt never promotes temp output;
+26. retry preserves prior failed attempt history;
+27. eviction never deletes protected release/provenance-required objects;
+28. build explanation traces every dirty/cache/disposition decision;
+29. avatar CTA-only change does not rerender unaffected persona/scene work;
+30. favicon-only change does not rebuild logo/Web3D source;
+31. one-shot film repair does not rebuild unrelated shots;
+32. Nerim subasset mutation leaves unrelated character pipeline branches clean.
+
+---
 
 # S05 — Production state machine, promotion and archive
 Status: `NOT_STARTED`
 
 ## M02 current disposition
 
-S01, S02 and S03 are proposed complete for discussion. No implementation is authorized. Technology candidates remain PROPOSED until M02 Final Technology Review. Next session: S04 — Creative Build System and incremental rebuild semantics.
+S01 through S04 are proposed complete for discussion. No implementation is authorized. Technology candidates remain PROPOSED until M02 Final Technology Review. Next session: S05 — Production state machine, promotion and archive.
