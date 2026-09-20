@@ -366,3 +366,96 @@ Rule: candidate proprietary technologies MUST NOT be described as novel/patentab
 **Risk:** render cost.
 **Proof:** defect discovery uplift vs single-light review.
 **Status:** PROPOSED.
+
+
+## Web / Brand / Vector / Futuristic UI quality expansion
+
+### IRIS-QX-033 — BrandMark Fidelity Matrix
+**Purpose:** make logo/brand generation production-grade rather than merely visually attractive.
+**How it works:** evaluates distinctiveness within project references, silhouette, optical balance, negative space, monochrome survival, inversion, small-size recognition, embroidery/print-like simplification, responsive variants and brand-system consistency.
+**Benefit:** logos are validated as usable identity systems, not one-off images.
+**Dependencies:** M22, M46, vector pipeline.
+**Risk:** subjective distinctiveness requires human/art-direction evidence.
+**Proof:** blind recognition, reduction, monochrome and multi-context tests.
+**Status:** PROPOSED.
+
+### IRIS-QX-034 — Vector Truth Validator
+**Purpose:** guarantee SVG/vector assets are structurally clean and scalable.
+**How it works:** checks path validity, winding/fill rules, transforms, clipping/masks, excessive nodes, hidden geometry, stroke scaling, viewBox, precision, accessibility metadata and rasterization equivalence at multiple sizes.
+**Benefit:** clean icons, logos, diagrams and web vectors rather than traced-looking SVG.
+**Dependencies:** M22, M34, M59.
+**Risk:** aggressive simplification can alter art.
+**Proof:** canonical renderer cross-check + visual delta.
+**Status:** PROPOSED.
+
+### IRIS-QX-035 — Icon MicroScale Survival
+**Purpose:** protect icons/favicons at tiny real-world sizes.
+**How it works:** rasterizes vector/master candidates across target pixel sizes, DPRs, light/dark backgrounds and platform masks; measures silhouette, stroke survival, contrast, pixel crowding and recognition.
+**Benefit:** a logo that looks excellent at 1024px also works at 16–32px.
+**Dependencies:** QX-033/034, M22/M46/M59.
+**Risk:** tiny-size variants may require intentional redesign rather than scaling.
+**Proof:** recognition and optical-quality tests by size.
+**Status:** PROPOSED.
+
+### IRIS-QX-036 — Responsive Visual Fidelity
+**Purpose:** preserve visual quality across desktop, tablet, mobile, ultrawide and embedded dashboard surfaces.
+**How it works:** evaluates composition hierarchy, cropping, safe zones, typography, asset resolution, animation visibility and 3D framing over canonical viewport/device matrices.
+**Benefit:** premium web visuals survive responsive layouts.
+**Dependencies:** M34, M56, M59.
+**Risk:** combinatorial viewport explosion.
+**Proof:** representative viewport matrix + visual regression.
+**Status:** PROPOSED.
+
+### IRIS-QX-037 — Futuristic UI Coherence Field
+**Purpose:** make advanced cockpit/holographic/neural interfaces visually sophisticated without becoming noisy or unreadable.
+**How it works:** measures information hierarchy, luminous-density distribution, depth layers, line/particle occupancy, focal competition, typography contrast and semantic animation load.
+**Benefit:** supports technological dashboards while protecting usability.
+**Dependencies:** M22/M34/M56.
+**Risk:** aesthetic evaluation remains partially human.
+**Proof:** task-readability + human preference + accessibility tests.
+**Status:** PROPOSED.
+
+### IRIS-QX-038 — Neural Energy Motion Grammar
+**Purpose:** provide a reusable production grammar for neural lines, energy pulses, thinking-brain visualizations, holographic connections and data-flow motion.
+**How it works:** defines graph topology, pulse propagation, branching, decay, emission, particle spawning, synchronization and semantic event binding independently of renderer.
+**Benefit:** reusable premium motion language across websites, dashboards, video and 3D.
+**Dependencies:** M04 IR, M32 VFX, M34 Web3D, M38 compositing.
+**Risk:** repetition can make products visually generic.
+**Proof:** renderer parity, performance tiers and art-direction variation tests.
+**Status:** PROPOSED.
+
+### IRIS-QX-039 — Motion Accessibility & Attention Governor
+**Purpose:** keep rich web/UI motion usable and accessible.
+**How it works:** classifies decorative vs informative motion, enforces reduced-motion alternatives, limits simultaneous attention claims, checks flash/flicker risk and preserves information without animation.
+**Benefit:** futuristic interfaces remain comfortable and usable.
+**Dependencies:** M34/M56/M59.
+**Risk:** conservative defaults can reduce spectacle if poorly tuned.
+**Proof:** reduced-motion parity, attention/readability tests.
+**Status:** PROPOSED.
+
+### IRIS-QX-040 — Web3D Perceptual Budgeter
+**Purpose:** maximize visible WebGL/WebGPU quality under browser/device budgets.
+**How it works:** combines camera/view importance, mesh/texture/material/VFX detail survival, frame-time, memory and loading budgets; allocates quality to perceptually valuable regions first.
+**Benefit:** high-end 3D sites without blindly shipping game-sized assets.
+**Dependencies:** QX-018, M34, M50, M59.
+**Risk:** browser/device variability.
+**Proof:** quality-vs-frame-time/loading Pareto benchmarks across hardware tiers.
+**Status:** PROPOSED.
+
+### IRIS-QX-041 — Cross-Surface Brand Continuity
+**Purpose:** preserve one brand identity across logo, favicon, site, dashboard, 3D, video, social and print-like exports.
+**How it works:** Brand DNA defines invariant anchors and allowed responsive transformations; each surface validates identity survival rather than pixel equality.
+**Benefit:** IRIS creates coherent brand systems instead of disconnected assets.
+**Dependencies:** M05, M46, M59.
+**Risk:** overconstraint can suppress useful adaptation.
+**Proof:** blind brand-family recognition across surfaces.
+**Status:** PROPOSED.
+
+### IRIS-QX-042 — Interface Visual Regression Court
+**Purpose:** detect visual regressions in web/dashboard output with semantic tolerance.
+**How it works:** combines DOM/layout metadata where available, screenshots, perceptual deltas, semantic regions and responsive baselines; distinguishes intentional content variation from broken layout/visual treatment.
+**Benefit:** generated premium sites stay premium after code/content changes.
+**Dependencies:** M34/M48/M51/M56.
+**Risk:** dynamic content creates noisy diffs.
+**Proof:** seeded UI defect corpus.
+**Status:** PROPOSED.
