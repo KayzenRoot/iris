@@ -48,3 +48,45 @@ S01 should combine:
 - OpenUSD-style non-destructive variant/composition ideas for later S03.
 
 The IRIS core must remain provider-neutral and must not hard-depend on these products merely to obtain their architectural lessons.
+
+
+# S02 Research Addendum — Production Graph dependencies
+
+## Bazel
+Bazel documentation distinguishes actual from declared dependencies and describes its dependency graph as a DAG. Its extension model also separates analysis from execution: rules declare actions/outputs before execution. IRIS adopts the explicit-dependency discipline and logical-vs-execution separation, while adding media/quality/provenance semantics.
+
+Sources:
+- https://bazel.build/versions/8.1.0/concepts/dependencies
+- https://bazel.build/extending/concepts
+
+## Ninja
+Ninja distinguishes explicit, implicit, order-only and validation dependencies and supports dynamically discovered dependencies through dyndep. IRIS uses this as evidence that dependency kinds materially affect rebuild semantics, then generalizes the concept to production facets such as quality/rights/provenance.
+
+Source:
+- https://ninja-build.org/manual.html
+
+## OpenUSD
+OpenUSD Pcp retains dependencies discovered during composition, uses them to propagate changes/invalidate cached computations, and supports change processing/namespace editing. USD documentation also recommends marking downstream clients dirty and deferring updates until necessary. IRIS adopts these principles for selective production invalidation, not USD's scene-specific graph as the universal core.
+
+Sources:
+- https://openusd.org/dev/api/pcp_page_front.html
+- https://openusd.org/dev/glossary.html
+- https://openusd.org/dev/api/dependencies_8h.html
+
+## Dagster
+Dagster emphasizes asset-centric orchestration with lineage and explicit dependencies. This reinforces IRIS treating persistent materializations/artifacts as first-class production results rather than viewing the system only as transient tasks.
+
+Source:
+- https://docs.dagster.io/
+
+## DVC
+DVC pipelines explicitly declare dependencies and outputs and derive a DAG used to decide which stages need rerunning. IRIS adopts the explicit deps/outs discipline but requires finer semantic/facet slices because a media project is often too coarse to invalidate at whole-file granularity.
+
+Source:
+- https://dvc.org/
+
+## Temporal
+Temporal's durable workflow history remains relevant to later execution/resume semantics. S02 deliberately keeps execution history separate from the logical Production Graph, so IRIS can use durable workflow engines without making their workflow model the product's canonical graph.
+
+Source:
+- https://docs.temporal.io/

@@ -187,3 +187,208 @@ Rule: internal/proprietary candidates are design candidates only. No novelty or 
 - PGX-012 separates semantic artifact identity from byte materialization.
 
 No candidate is yet IMPLEMENTED or VALIDATED.
+
+# Existing foundations added for S02
+
+## EXT-M02-008 — Bazel declared/actual dependency graph and action graph
+**Type:** existing / build-graph pattern.
+**What it does:** Bazel models targets as a DAG and distinguishes actual dependencies from declared dependencies. Correct builds require real direct dependencies to be represented in the declared graph; its analysis phase produces an action graph describing inputs/outputs/actions.
+**How IRIS uses the pattern:** every material dependency must be declared/admitted, while excessive dependencies are avoided because they expand invalidation and work.
+**Risk:** media generation is not ordinary compilation; stochastic/human steps need richer semantics.
+**Proof:** hidden-dependency and over-invalidation challenge graphs.
+**Status:** PATTERN_ACCEPTED_FOR_S02.
+
+## EXT-M02-009 — Ninja dependency classes, depfiles and dyndep
+**Type:** existing / incremental-build dependency pattern.
+**What it does:** separates explicit/implicit/order-only/validation dependencies and can load dynamically discovered dependencies before execution through dyndep.
+**How IRIS uses the pattern:** inspiration for edge semantics and a bounded dynamic-dependency discovery phase.
+**Risk:** Ninja is file/action centric and its types do not cover rights, quality or semantic facets.
+**Proof:** graph fixtures where order-only and material dependencies produce different invalidation outcomes.
+**Status:** PATTERN_ACCEPTED_FOR_S02.
+
+## EXT-M02-010 — DVC explicit deps/outs DAG
+**Type:** existing / data-pipeline pattern.
+**What it does:** stages declare dependencies and outputs; the resulting DAG lets DVC reason about which stages need rerunning when dependencies change.
+**How IRIS uses the pattern:** reinforces explicit dependency/output declarations and reproducible stage graph thinking.
+**Risk:** files are too coarse as the universal IRIS semantic dependency model.
+**Proof:** compare whole-file invalidation with IRIS facet/slice invalidation.
+**Status:** PATTERN_ACCEPTED_FOR_S02.
+
+## EXT-M02-011 — OpenUSD dependency tracking and change processing
+**Type:** existing / scene-composition dependency pattern.
+**What it does:** Pcp retains dependencies discovered during composition and uses them to propagate changes/invalidate affected cached computations; USD clients can defer updating dirty consumers until needed.
+**How IRIS uses the pattern:** inspiration for dependency receipts, impact analysis and lazy/selective recomputation for composed media.
+**Risk:** USD dependency semantics are specific to scene composition.
+**Proof:** USD integration later must map to IRIS graph semantics without redefining them.
+**Status:** PATTERN_ACCEPTED_FOR_S02.
+
+# Internal technology candidates — S02
+
+## IRIS-PGX-013 — Typed Production Graph Kernel
+**Purpose:** provide one provider-neutral graph substrate for every IRIS production domain.
+**How it works:** immutable versioned DAG of logical nodes connected only through typed semantic ports and typed dependency edges.
+**Benefit:** image, 3D, web, VFX, video and audio share one causal model.
+**Dependencies:** PGX-001/003, M04 IR.
+**Risk:** a universal graph can become over-generic.
+**Proof:** same kernel drives four radically different synthetic domain graphs.
+**Status:** PROPOSED.
+
+## IRIS-PGX-014 — Semantic Port Contract
+**Purpose:** prevent accidental connection of semantically incompatible graph values.
+**How it works:** ports declare semantic/media type, schema/version, cardinality, optionality and quality/profile requirements; incompatible links require explicit conversion nodes.
+**Benefit:** catches wrong graph wiring before expensive execution.
+**Dependencies:** M04 typed IR, M01 quality classes.
+**Risk:** too-rigid typing can slow evolution.
+**Proof:** compatibility matrix and schema evolution tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-015 — Causal Edge Taxonomy
+**Purpose:** stop ordering, evidence and telemetry relations from causing false rebuilds.
+**How it works:** edges are explicitly MATERIAL_CAUSAL, CONSTRAINT_CAUSAL, EVIDENCE_CAUSAL, ACTIVATION, ORDER_ONLY or OBSERVATION.
+**Benefit:** correct and smaller invalidation cones.
+**Dependencies:** PGX-013.
+**Risk:** misclassification can under- or over-invalidate.
+**Proof:** adversarial edge-semantics graph corpus.
+**Status:** PROPOSED.
+
+## IRIS-PGX-016 — Dependency Truth Auditor
+**Purpose:** detect hidden reads/dependencies that make a graph look reproducible when it is not.
+**How it works:** compares declared causal dependencies with provider/runtime observed dependency receipts; undeclared material reads fail/quarantine or create a governed Graph Delta.
+**Benefit:** prevents flaky “works because something happened to exist on disk” productions.
+**Dependencies:** M11 sandbox/process observation, provider adapters.
+**Risk:** black-box tools may hide dependencies that are difficult to observe.
+**Proof:** seeded hidden-file/model/reference access tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-017 — Facet-Aware Invalidation Matrix
+**Purpose:** avoid rebuilding expensive media when only non-material facets changed.
+**How it works:** edges select facets such as CONTENT, SEMANTICS, QUALITY, POLICY, RIGHTS, PROVENANCE, DELIVERY and ENVIRONMENT. Deltas propagate only to consumers that observe the changed facets.
+**Benefit:** major compute/time/cache savings with truthful dependencies.
+**Dependencies:** M53 provenance/rights, M59 delivery, S04 rebuild.
+**Risk:** missing a correctness-relevant facet can produce stale outputs.
+**Proof:** facet mutation matrix versus full-rebuild oracle.
+**Status:** PROPOSED.
+
+## IRIS-PGX-018 — Semantic Dependency Slice
+**Purpose:** narrow dependencies below whole-object granularity.
+**How it works:** versioned deterministic selectors bind a consumer to the exact fields/regions/properties it uses.
+**Benefit:** smaller invalidation cones and less context/token transfer.
+**Dependencies:** typed IR and canonical selectors.
+**Risk:** selector drift or hidden reads.
+**Proof:** property mutation tests and hidden-read auditor.
+**Status:** PROPOSED.
+
+## IRIS-PGX-019 — Graph Triptych
+**Purpose:** keep logical production semantics separate from bound materialization and provider execution.
+**How it works:** Definition Graph -> Bound Materialization Graph -> Execution Plan, with explicit compilation boundaries.
+**Benefit:** IRIS can swap Blender/ComfyUI/API/providers without rewriting project meaning.
+**Dependencies:** M16 provider compiler, M57 agents.
+**Risk:** extra layers increase implementation complexity.
+**Proof:** compile the same definition into two provider-specific synthetic execution plans with identical declared outputs.
+**Status:** PROPOSED.
+
+## IRIS-PGX-020 — Causal Fingerprint
+**Purpose:** create a deterministic invalidation/cache identity for one bound node.
+**How it works:** hashes normalized node definition plus only correctness-relevant bound input slices/facets, policies, qualified component/environment refs, seeds and decisions.
+**Benefit:** precise cache/invalidation without hashing irrelevant project noise.
+**Dependencies:** canonical serialization, M13 cache.
+**Risk:** omitted relevant input creates unsafe cache reuse.
+**Proof:** differential mutation corpus against full execution oracle.
+**Status:** PROPOSED.
+
+## IRIS-PGX-021 — Reproducibility Classifier
+**Purpose:** prevent cache identity from being mistaken for replay guarantees.
+**How it works:** every operation declares DETERMINISTIC, SEEDED, ENVIRONMENT_SENSITIVE, STOCHASTIC, HUMAN_DECISION or EXTERNAL_STATE.
+**Benefit:** correct replay, cache and provenance behavior for generative media.
+**Dependencies:** model/tool qualification, M51 benchmark lab.
+**Risk:** providers may claim determinism incorrectly.
+**Proof:** repeated execution qualification and drift tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-022 — Epochal Feedback Loop
+**Purpose:** support iterative creative correction without corrupting the causal DAG with cycles.
+**How it works:** each feedback iteration creates a new epoch/graph binding that consumes immutable prior-epoch outputs.
+**Benefit:** repair loops remain replayable, comparable and rollback-safe.
+**Dependencies:** S03 snapshots/branches, M49 repair.
+**Risk:** many epochs can produce history volume.
+**Proof:** generate/evaluate/repair loop reconstructed from receipts without a graph cycle.
+**Status:** PROPOSED.
+
+## IRIS-PGX-023 — Subgraph ABI
+**Purpose:** make complex production pipelines reusable and composable.
+**How it works:** a versioned subgraph exposes stable typed input/output ports and hides internal nodes unless expanded for analysis.
+**Benefit:** reusable character/logo/web-hero pipelines with controlled evolution.
+**Dependencies:** PGX-014, S03 versioning.
+**Risk:** interface versioning and hidden internal dependencies.
+**Proof:** compatibility tests across subgraph versions.
+**Status:** PROPOSED.
+
+## IRIS-PGX-024 — Impact Cone Engine
+**Purpose:** determine exactly what becomes stale when something changes.
+**How it works:** traverses dependency facets/slices and activation paths from a delta to derive direct, transitive, conditional and clean nodes.
+**Benefit:** foundation for minimal incremental media rebuild.
+**Dependencies:** PGX-015/017/018, S04.
+**Risk:** under-invalidation is dangerous; over-invalidation wastes compute.
+**Proof:** compare impact cone with full-rebuild oracle across mutation corpus.
+**Status:** PROPOSED.
+
+## IRIS-PGX-025 — Dynamic Dependency Admission Gate
+**Purpose:** safely handle dependencies only discoverable after inspecting content.
+**How it works:** discovery emits typed dependency receipts and a proposed Graph Delta; execution cannot treat the result as trusted until the delta is admitted/rebound according to policy.
+**Benefit:** supports USD refs, UDIMs, generated manifests and adapter discovery without silent graph mutation.
+**Dependencies:** PGX-016, S03 graph revisions.
+**Risk:** discovery/recompile loops.
+**Proof:** missing/dynamic dependency fault cases.
+**Status:** PROPOSED.
+
+## IRIS-PGX-026 — Producer Exclusivity Guard
+**Purpose:** eliminate ambiguous last-writer-wins outputs.
+**How it works:** one revision/materialization has one producer attempt; multiple candidate producers must feed an explicit selection/merge/decision node.
+**Benefit:** unambiguous provenance and reproducibility.
+**Dependencies:** PGX-002/012, M53 provenance.
+**Risk:** some DCC workflows naturally overwrite files and need adapter isolation.
+**Proof:** concurrent producer race tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-027 — Causal Explain Trace
+**Purpose:** make every rebuild/dirty decision human- and machine-explainable.
+**How it works:** records a compact path from source delta through facet/slice/edge/fingerprint difference to each dirty consumer.
+**Benefit:** developers can answer “why did IRIS rerender this?” instead of guessing.
+**Dependencies:** PGX-024, M56 observability.
+**Risk:** trace volume.
+**Proof:** explanation path must correspond exactly to graph traversal.
+**Status:** PROPOSED.
+
+## IRIS-PGX-028 — Quality Graph Gate
+**Purpose:** make M01 quality state a first-class causal input rather than an external UI check.
+**How it works:** validators emit QualityDecision values consumed by selection, repair, release and delivery nodes with explicit required quality classes.
+**Benefit:** PREVIEW cannot silently flow into a MASTER/release path.
+**Dependencies:** M01 Quality Kernel, M48 Quality Court.
+**Risk:** too many quality edges could over-invalidate generation.
+**Proof:** quality-only changes re-run decisions/delivery without unnecessary media regeneration.
+**Status:** PROPOSED.
+
+## IRIS-PGX-029 — Side-Effect Fence
+**Purpose:** stop publishing/external mutation nodes from being retried like pure rendering.
+**How it works:** node effect class is NO_SIDE_EFFECT, CONTROLLED_OUTPUTS or EXTERNAL_MUTATION; external mutation requires idempotency/compensation/admission policy.
+**Benefit:** prevents duplicate uploads/releases or destructive repeated actions.
+**Dependencies:** M11 execution, M59 publishing.
+**Risk:** adapters may misdeclare effects.
+**Proof:** retry/fault-injection tests with fake external sinks.
+**Status:** PROPOSED.
+
+# S02 relationship map
+
+- PGX-013 + PGX-014 form the universal typed graph substrate.
+- PGX-015 + PGX-017 + PGX-018 define truthful causal granularity.
+- PGX-016 + PGX-025 close the hidden/dynamic dependency problem.
+- PGX-019 separates product meaning from execution provider.
+- PGX-020 + PGX-021 make cache/replay claims safe.
+- PGX-022 gives iterative creativity an acyclic historical model.
+- PGX-023 enables reusable graph components.
+- PGX-024 + PGX-027 provide selective invalidation with explanations.
+- PGX-026 protects producer provenance.
+- PGX-028 integrates the M01 quality kernel into production causality.
+- PGX-029 protects external side effects.
+
+All remain PROPOSED until M02 Final Technology Review.
