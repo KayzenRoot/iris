@@ -625,6 +625,11 @@ Changing gameplay camera/readability policy can invalidate validation/LOD decisi
 
 Uses the same graph/port/edge concepts without visual-only fields.
 
+### Persistent spokesperson / cinematic production example
+`Persona DNA + brand role + script -> scene/shot graph -> performance/voice -> image/3D/video materialization -> temporal/cross-modal identity validation -> edit/VFX/music -> campaign/episode master -> localized/delivery variants`
+
+The persona remains one stable semantic identity while shots, outfits, languages, scenes and campaign revisions change.
+
 ## 21. Proposed S02 decisions
 
 - **D-M02-S02-001:** Production Graph is provider-neutral and versioned.

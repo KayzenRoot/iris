@@ -321,7 +321,7 @@ No module is implemented merely because it appears in this index.
 - S02 — S02 Face/body/hair/skin/clothing consistency
 - S03 — S03 Expression, gesture, mannerism and acting system
 - S04 — S04 Cross-modal identity binding for image/3D/video/voice
-- S05 — S05 Virtual influencer/avatar/streamer continuity and rights
+- S05 — S05 Virtual influencer/avatar/streamer/corporate spokesperson continuity and rights
 
 ### M40 — Voice Studio & Dubbing
 - S01 — S01 Voice DNA and authorized voice design/cloning
@@ -356,13 +356,13 @@ No module is implemented merely because it appears in this index.
 ### M44 — Faceless Content Factory
 - S01 — S01 Channel DNA, niche and content strategy
 - S02 — S02 Research/topic pipeline and script generation
-- S03 — S03 Narration, scenes, B-roll, music and subtitles
+- S03 — S03 Narration/presenter, scenes, B-roll, music and subtitles
 - S04 — S04 Shorts/long-form/series compilation and differentiation
 - S05 — S05 Trend scout, fatigue/repetition monitor and autonomous channel modes
 
 ### M45 — Advertising & Synthetic UGC Studio
 - S01 — S01 Campaign DNA, Creative Genome and audience intents
-- S02 — S02 Hooks, CTA, spokesperson and product demonstration
+- S02 — S02 Hooks, CTA, persistent virtual spokesperson and product demonstration
 - S03 — S03 Creative families, variants and platform crops
 - S04 — S04 Campaign twin, attribution, fatigue and creative evolution
 - S05 — S05 Autonomous campaign operation, offer optimization and approval boundaries

@@ -27,9 +27,10 @@ IRIS targets extreme final quality while using progressive fidelity for efficien
 - isometric/high-angle game production;
 - image/photography/product/brand/logo work;
 - Web 3D/WebGPU assets and animation;
-- video/cinema/VFX;
+- video/cinema/VFX, including films, scenes, commercials and episodic content;
 - voice/music/audio;
-- digital humans;
+- digital humans and persistent virtual spokespersons/digital ambassadors;
+- presenter-led or faceless technology/explainer content;
 - marketing/content/advertising;
 - localization and adaptive export.
 
@@ -51,3 +52,20 @@ IRIS targets extreme final quality while using progressive fidelity for efficien
 - IRIS creates, evaluates, repairs and delivers multimodal production artifacts.
 
 Integration is contract-based and versioned. No system silently owns another system's canonical state.
+
+
+## Persistent digital spokesperson direction
+
+IRIS 1.0 treats a recurring virtual company representative as a first-class production profile, not a one-off generated face.
+
+A spokesperson profile binds approved visual identity, body/wardrobe language, voice identity, mannerisms, speaking/acting style, brand role, rights/consent and continuity anchors. The same persona may appear in:
+- company advertisements;
+- product demonstrations;
+- technology/news/explainer videos;
+- social short-form and long-form content;
+- event/launch videos;
+- cinematic scenes;
+- website/Web3D experiences;
+- multilingual dubbed/localized variants.
+
+Identity may adapt by outfit, age presentation within approved bounds, camera, lighting, language and scenario without silently drifting into another persona.
