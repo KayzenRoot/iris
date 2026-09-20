@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0001",
+  "baseSha": "065b5388806bb5d6ef2a5640b87d1f2e74e9a0ab",
+  "candidateHeadSha": null,
+  "status": "PENDING_EXACT_HEAD",
+  "tests": [],
+  "ci": [],
+  "findings": [],
+  "checkpointDelta": "PENDING_AUDIT"
+}

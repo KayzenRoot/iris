@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "iris-gef-project-profile-v1",
+  "project": "KayzenRoot/iris",
+  "mode": "NEW_PROJECT",
+  "gefVersion": "1.0.0",
+  "gefReleaseCommit": "866fe3af8cccc65c929aaf6a47a924401fa448b3",
+  "profile": "HIVE_NATIVE",
+  "assuranceDefault": "STANDARD",
+  "sourceHierarchy": [
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/16-DECISIONS-LEDGER.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/15-DEFINITION-OF-DONE.md",
+    "docs/project-brain/04-ARCHITECTURE.md",
+    "docs/project-brain/02-REQUIREMENTS.md"
+  ]
+}

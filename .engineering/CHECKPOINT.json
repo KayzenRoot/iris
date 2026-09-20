@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "iris-checkpoint-v1",
+  "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
+  "status": "BOOTSTRAP_IN_REVIEW",
+  "version": "0.0.0-bootstrap",
+  "phase": "GEF_HIVE_FOUNDATION",
+  "nextStep": "Validate the bootstrap PR exact head, correct findings, then promote the checkpoint only after APPROVED."
+}

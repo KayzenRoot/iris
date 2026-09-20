@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "iris-bootstrap-manifest-v1",
+  "project": "KayzenRoot/iris",
+  "repositoryId": 1378447454,
+  "mode": "NEW_PROJECT",
+  "bootstrapBaseHead": "065b5388806bb5d6ef2a5640b87d1f2e74e9a0ab",
+  "gef": {
+    "version": "1.0.0",
+    "repository": "KayzenRoot/gef-bootstrap",
+    "releaseCommit": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
+  },
+  "hive": {
+    "version": "1.0.0",
+    "repository": "KayzenRoot/hive",
+    "releaseCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
+    "integrationMode": "EXTERNAL_LOCAL_FIRST"
+  },
+  "core": {
+    "repository": "KayzenRoot/core",
+    "integrationStatus": "PLANNING_REQUIRED"
+  },
+  "canonicalRoot": "docs/project-brain",
+  "governanceRoot": ".engineering"
+}
