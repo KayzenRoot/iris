@@ -23,6 +23,7 @@ from iris_quality.evidence import EvidenceRef
 from iris_quality.judging import SubjectRef
 from iris_quality.serialization import dumps
 from iris_quality.versions import ComponentVersion
+from tests.m01_kernel_support import promotion_authority
 
 ROOT = Path(__file__).resolve().parents[1]
 KERNEL = ROOT / "iris_quality"
@@ -222,10 +223,11 @@ class NoNetworkExecutionTests(TestCase):
                 ),
             )
             decision = DecisionEngine().evaluate(
-                built, subject, assessments=(assessment,)
+                built, subject, assessments=(assessment,),
+                authority=promotion_authority(built)
             )
             self.assertEqual(decision.outcome.value, "PROMOTED")
-            again = DecisionEngine().evaluate(built, subject, assessments=(assessment,))
+            again = DecisionEngine().evaluate(built, subject, assessments=(assessment,), authority=promotion_authority(built))
             self.assertEqual(dumps(decision), dumps(again))
         finally:
             socket.socket = original

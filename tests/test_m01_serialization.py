@@ -34,6 +34,7 @@ from tests.m01_kernel_support import (
     debt,
     evidence,
     judge_result,
+    promotion_authority,
 )
 from tests.m01_kernel_support import domain_profile as profile
 from tests.m01_kernel_support import evaluator_descriptor as descriptor
@@ -70,7 +71,7 @@ def _validator_outcome() -> ValidatorOutcome:
 
 def _decision() -> object:
     target = contract()
-    return DecisionEngine().evaluate(target, SUBJECT, assessments=covered_assessments())
+    return DecisionEngine().evaluate(target, SUBJECT, assessments=covered_assessments(), authority=promotion_authority(target))
 
 
 def _evaluator_registry() -> EvaluatorRegistry:

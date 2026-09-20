@@ -549,22 +549,35 @@ class DecisionEngine:
     ) -> QualityDecision:
         """Decide one asset against one contract. Same inputs, same bytes out.
 
-        Every evaluator that speaks is checked against the contract's declared capability, and
-        against the registry when an :class:`EvaluatorAuthority` carries one.
+        The authority must be promotion-capable, i.e. issued by
+        :meth:`EvaluatorAuthority.resolved`: every component that speaks has to be declared by the
+        contract, registered at the exact version that spoke, and covered for each dimension it
+        opined on. A missing or declaration-only authority fails closed instead of decidable.
         """
 
         if not isinstance(contract, FidelityContract):
             raise EvaluationInputError("contract must be a FidelityContract")
         if not isinstance(subject, SubjectRef):
             raise EvaluationInputError("subject must be a SubjectRef")
-        resolved_authority = (
-            EvaluatorAuthority(contract) if authority is None else authority
-        )
-        if resolved_authority.contract != contract:
+        if authority is None:
+            raise EvaluationInputError(
+                "evaluate() requires an explicit EvaluatorAuthority; a missing authority is a "
+                "fail-closed condition, not permission. Pass "
+                "EvaluatorAuthority.resolved(contract, registry) for a promotable decision."
+            )
+        if not isinstance(authority, EvaluatorAuthority):
+            raise EvaluationInputError("authority must be an EvaluatorAuthority")
+        if not authority.promotion_capable:
+            raise EvaluationInputError(
+                f"authority for contract {contract.contract_id} is declaration-only "
+                "(EvaluatorAuthority.preflight): it cannot prove registration or per-dimension "
+                "coverage, so it may not influence a promotable decision"
+            )
+        if authority.contract != contract:
             raise EvaluationInputError(
                 "the evaluator authority was issued for another contract; capability is per contract"
             )
-        collected = self._collect(contract, subject, assessments, results, defects, resolved_authority)
+        collected = self._collect(contract, subject, assessments, results, defects, authority)
         findings, rulings = self._apply_policy(contract, collected["defects"], debts)
         dimensions, certainty_blockers = self._dimension_states(
             contract, collected["assessments"], results, collected["review_requests"]

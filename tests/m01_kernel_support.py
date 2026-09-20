@@ -26,7 +26,9 @@ from iris_quality.evidence import EvidenceRef
 from iris_quality.judging import Abstention, JudgeResult, SubjectRef
 from iris_quality.registry import (
     DomainProfile,
+    EvaluatorAuthority,
     EvaluatorDescriptor,
+    EvaluatorRegistry,
     ExtensionMetadata,
     TrustTier,
 )
@@ -210,6 +212,38 @@ def authorized(
     if not extra:
         return target
     return replace(target, evaluator_set=target.evaluator_set + tuple(extra))
+
+
+def panel_registry(
+    target: FidelityContract, *descriptors: EvaluatorDescriptor
+) -> EvaluatorRegistry:
+    """Register the contract's declared panel, plus any descriptor a test supplies itself.
+
+    Auto-registered coverage is the contract's own dimension set; a descriptor passed explicitly
+    wins, which is how the coverage-mismatch tests keep their narrow declarations.
+    """
+
+    covered = {item.component.reference for item in descriptors}
+    auto = [
+        EvaluatorDescriptor(
+            component=component,
+            dimension_ids=tuple(target.dimension_ids),
+            deterministic=True,
+            trust_tier=TrustTier.CORE,
+            dimension_registry=target.dimension_registry,
+        )
+        for component in target.evaluator_set
+        if component.reference not in covered
+    ]
+    return EvaluatorRegistry(list(descriptors) + auto)
+
+
+def promotion_authority(
+    target: FidelityContract, *descriptors: EvaluatorDescriptor
+) -> EvaluatorAuthority:
+    """The only authority shape the engine accepts: declared, registered and covered."""
+
+    return EvaluatorAuthority.resolved(target, panel_registry(target, *descriptors))
 
 
 def judge_result(

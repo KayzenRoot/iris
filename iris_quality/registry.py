@@ -322,19 +322,35 @@ class EvaluatorRegistry:
 class EvaluatorAuthority:
     """Bounded proof of which versioned evaluator may speak about which dimension.
 
-    Declaring only a contract enforces its ``evaluator_set``. Adding a registry also enforces
-    that the declared version is registered and covers every dimension it opined on, so no
-    untrusted or undeclared evaluator can influence promotion.
+    A promotion-capable authority always carries an :class:`EvaluatorRegistry`: every speaking
+    component must be declared by the contract, registered at the exact version that spoke, and
+    covered for each dimension it opined on. The registry-less form is reachable only through
+    :meth:`preflight`, checks declaration alone, and is refused by ``DecisionEngine``.
     """
 
     contract: FidelityContract
-    registry: Optional[EvaluatorRegistry] = None
+    registry: Optional[EvaluatorRegistry]
 
     def __post_init__(self) -> None:
         if not isinstance(self.contract, FidelityContract):
             raise RegistrationError("contract must be a FidelityContract")
         if self.registry is not None and not isinstance(self.registry, EvaluatorRegistry):
             raise RegistrationError("registry must be an EvaluatorRegistry or None")
+
+    @classmethod
+    def preflight(cls, contract: FidelityContract) -> "EvaluatorAuthority":
+        """Declaration-only authority for inspection before any panel is registered.
+
+        It answers "which components does this contract admit?" and nothing else. It can never
+        produce a promotable decision: missing registration is a fail-closed condition, not
+        permission, so :class:`~iris_quality.decision.DecisionEngine` refuses it.
+        """
+
+        return cls(contract=contract, registry=None)
+
+    @property
+    def promotion_capable(self) -> bool:
+        return self.registry is not None
 
     @classmethod
     def resolved(
@@ -364,6 +380,8 @@ class EvaluatorAuthority:
                 "kernel does not infer capability from a result payload"
             )
         if self.registry is None:
+            # Preflight inspection only: declaration is enforced, registration cannot be seen, and
+            # no decision engine accepts this authority.
             return None
         try:
             descriptor = self.registry.descriptor(component)

@@ -65,8 +65,9 @@ if decision.outcome is DecisionOutcome.PROMOTED:
     decision.require_promotable()   # raises PromotionBlockedError otherwise
 ```
 
-Omitting `authority` still checks `contract.evaluator_set`; supplying a registry
-narrows every speaker to its registered coverage as well (invariant 10).
+`authority` is mandatory and must come from `EvaluatorAuthority.resolved`:
+a missing or declaration-only authority is refused instead of deciding on a
+weaker rule (invariant 10).
 
 Inputs may be handed over as `results` (from `QualityJudge` ports, merged by the
 engine) or as direct `assessments`. Mixing the two sources for the same dimension
@@ -120,11 +121,14 @@ raises `EvaluationInputError` rather than picking a winner silently.
 10. **Capability is declared, never inferred.** `EvaluatorRegistry.resolve()` fails
     when a contract names an unregistered evaluator or a dimension it cannot
     cover; two versions of one evaluator may not silently change coverage.
-    `DecisionEngine.evaluate()` enforces the same thing on the way in, through an
-    `EvaluatorAuthority`: every juror, every direct `DimensionAssessment` producer
-    and every defect speaker must appear in `contract.evaluator_set` at the exact
-    version that spoke, and when the authority carries a registry the component
-    must also be registered and covered for each dimension it opined on.
+    `DecisionEngine.evaluate()` enforces the same thing on the way in, and it is
+    not optional: every juror, every direct `DimensionAssessment` producer and
+    every defect speaker must appear in `contract.evaluator_set` at the exact
+    version that spoke **and** be registered with coverage for each dimension it
+    opined on. `evaluate()` therefore requires a promotion-capable
+    `EvaluatorAuthority.resolved(contract, registry)`; `authority=None` and
+    `EvaluatorAuthority.preflight(contract)` both raise `EvaluationInputError`.
+    A missing registry is a fail-closed condition, never permission.
 11. **Dimensions are a closed, versioned set.** `DimensionRegistry` holds the 18
     frozen `CANONICAL_FIDELITY_VECTOR` ids plus at most `MAX_EXTENSION_DIMENSIONS`
     explicitly registered, non-core, non-shadowing extensions. Contracts, domain
@@ -202,10 +206,13 @@ kinds are enumerated in `serialization.SERIALIZABLE_TYPES`.
   carried by its three owners rather than exchanged on its own.
 - **Evaluator capability is checked at the input boundary** (F2) through a small
   value object rather than by making `DecisionEngine` depend on
-  `EvaluatorRegistry`: `EvaluatorAuthority(contract, registry=None)` enforces the
-  contract's own declaration always, and registration plus coverage whenever the
-  caller supplies a registry. That keeps the vendor-neutral path (declaration only)
-  available while making registry-backed promotion the stricter default.
+  `EvaluatorRegistry` directly: `EvaluatorAuthority.resolved(contract, registry)`
+  is the only promotion-capable form, and it is required on every
+  `DecisionEngine.evaluate()` call. CORRECTION-02 removed the tier that let a
+  caller skip registration, because an optional registry is an optional invariant.
+  Declaration-only inspection survives as `EvaluatorAuthority.preflight(contract)`,
+  which answers "who does this contract admit?" and is refused by the engine, so a
+  production caller cannot silently fall back to the weaker rule.
 - **Debt rulings moved behind severity resolution** (F1) rather than special-casing
   FATAL at the deferral site, because the bypass was a dilution of *which* severity
   the ruling consulted. `_apply_policy` now resolves contract, report and zone

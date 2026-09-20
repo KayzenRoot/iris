@@ -32,6 +32,7 @@ from tests.m01_kernel_support import (
     defect,
     debt,
     judge_result,
+    promotion_authority,
 )
 
 BOARD = ComponentVersion("review-board", "1.0.0")
@@ -67,6 +68,7 @@ class EffectiveSeverityDebtTests(TestCase):
             assessments=self.assessments,
             defects=(defect("d.fatal", "subject-absent", DefectSeverity.MINOR, "intent-adherence"),),
             debts=(debt("d.fatal", "subject-absent", DefectSeverity.MINOR, "intent-adherence"),),
+            authority=promotion_authority(target)
         )
         finding = decision.findings[0]
         self.assertIs(finding.contract_severity, DefectSeverity.FATAL)
@@ -100,6 +102,7 @@ class EffectiveSeverityDebtTests(TestCase):
                 ),
             ),
             debts=(debt("d.zone", "geometry-break", DefectSeverity.MAJOR, "geometry-integrity"),),
+            authority=promotion_authority(target)
         )
         finding = decision.findings[0]
         self.assertIs(finding.effective_severity, DefectSeverity.FATAL)
@@ -117,6 +120,7 @@ class EffectiveSeverityDebtTests(TestCase):
             assessments=self.assessments,
             defects=(defect("d.major", "geometry-break", DefectSeverity.MINOR),),
             debts=(debt("d.major", "geometry-break", DefectSeverity.MINOR),),
+            authority=promotion_authority(target)
         )
         finding = decision.findings[0]
         self.assertIs(finding.contract_severity, DefectSeverity.MAJOR)
@@ -149,6 +153,7 @@ class EffectiveSeverityDebtTests(TestCase):
                         assessments=self.assessments,
                         defects=(defect("d.fatal", "subject-absent", reported, "intent-adherence"),),
                         debts=(debt("d.fatal", "subject-absent", recorded, "intent-adherence"),),
+                        authority=promotion_authority(target)
                     )
                     self.assertIs(decision.findings[0].effective_severity, DefectSeverity.FATAL)
                     self.assertFalse(decision.findings[0].deferred)
@@ -164,6 +169,7 @@ class EffectiveSeverityDebtTests(TestCase):
             SUBJECT,
             assessments=self.assessments,
             defects=(defect("d.fatal", "subject-absent", DefectSeverity.FATAL),),
+            authority=promotion_authority(target)
         )
         payload = decision.to_payload()
         for finding in payload["findings"]:
@@ -190,7 +196,7 @@ class JudgeReviewRequestTests(TestCase):
             covered_assessments(),
             human_review_dimension_ids=("intent-adherence",),
         )
-        decision = self.engine.evaluate(self.target, SUBJECT, results=(asking,))
+        decision = self.engine.evaluate(self.target, SUBJECT, results=(asking,), authority=promotion_authority(self.target))
         self.assertIsNot(decision.outcome, DecisionOutcome.PROMOTED)
         self.assertIs(decision.outcome, DecisionOutcome.HUMAN_REVIEW)
         self.assertTrue(decision.requires_human_review)
@@ -217,7 +223,7 @@ class JudgeReviewRequestTests(TestCase):
             human_review_dimension_ids=("perceptual-finish",),
         )
         target = authorized(self.target, QUIET_JUROR)
-        decision = self.engine.evaluate(target, SUBJECT, results=(quiet, asking))
+        decision = self.engine.evaluate(target, SUBJECT, results=(quiet, asking), authority=promotion_authority(target))
         self.assertIs(decision.outcome, DecisionOutcome.HUMAN_REVIEW)
         state = self.state(decision, "perceptual-finish")
         self.assertEqual(state.uncertainty, UncertaintyState.HUMAN_REVIEW.value)
@@ -247,7 +253,7 @@ class JudgeReviewRequestTests(TestCase):
         asking = judge_result(
             self.target, signed, human_review_dimension_ids=("intent-adherence",)
         )
-        decision = self.engine.evaluate(self.target, SUBJECT, results=(asking,))
+        decision = self.engine.evaluate(self.target, SUBJECT, results=(asking,), authority=promotion_authority(self.target))
         self.assertNotIn("judge_human_review_requested", decision.blocker_codes)
         self.assertIs(decision.outcome, DecisionOutcome.PROMOTED)
         state = self.state(decision, "intent-adherence")
@@ -262,7 +268,7 @@ class JudgeReviewRequestTests(TestCase):
             human_review_dimension_ids=("identity-fidelity",),
         )
         with self.assertRaises(EvaluationInputError) as caught:
-            self.engine.evaluate(self.target, SUBJECT, results=(stray,))
+            self.engine.evaluate(self.target, SUBJECT, results=(stray,), authority=promotion_authority(self.target))
         message = str(caught.exception)
         self.assertIn("outside contract contract.test", message)
         self.assertIn("refused, not ignored", message)
@@ -273,7 +279,7 @@ class JudgeReviewRequestTests(TestCase):
             covered_assessments(),
             human_review_dimension_ids=("geometry-integrity",),
         )
-        decision = self.engine.evaluate(self.target, SUBJECT, results=(asking,))
+        decision = self.engine.evaluate(self.target, SUBJECT, results=(asking,), authority=promotion_authority(self.target))
         restored = QualityDecision.from_payload(decision.to_payload())
         self.assertEqual(restored.content_sha256, decision.content_sha256)
         self.assertEqual(

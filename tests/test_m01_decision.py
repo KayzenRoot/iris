@@ -30,6 +30,7 @@ from tests.m01_kernel_support import (
     evidence,
     judge_result,
     ladder_rules,
+    promotion_authority,
 )
 
 DIGEST = "d" * 64
@@ -42,17 +43,18 @@ class DeterministicRecordTests(TestCase):
         self.assessments = covered_assessments()
 
     def test_identical_inputs_produce_identical_records(self) -> None:
-        first = self.engine.evaluate(self.target, SUBJECT, assessments=self.assessments)
-        second = self.engine.evaluate(self.target, SUBJECT, assessments=self.assessments)
+        first = self.engine.evaluate(self.target, SUBJECT, assessments=self.assessments, authority=promotion_authority(self.target))
+        second = self.engine.evaluate(self.target, SUBJECT, assessments=self.assessments, authority=promotion_authority(self.target))
         self.assertEqual(first.content_sha256, second.content_sha256)
         self.assertEqual(first.to_payload(), second.to_payload())
 
     def test_a_different_asset_produces_a_different_record(self) -> None:
-        baseline = self.engine.evaluate(self.target, SUBJECT, assessments=self.assessments)
+        baseline = self.engine.evaluate(self.target, SUBJECT, assessments=self.assessments, authority=promotion_authority(self.target))
         other = self.engine.evaluate(
             self.target,
             SubjectRef("asset.other", DIGEST),
             assessments=self.assessments,
+            authority=promotion_authority(self.target)
         )
         self.assertNotEqual(baseline.content_sha256, other.content_sha256)
 
@@ -62,12 +64,12 @@ class DeterministicRecordTests(TestCase):
             for item in covered_assessments(evidence_count=2)
         )
         ordered = covered_assessments(evidence_count=2)
-        first = self.engine.evaluate(self.target, SUBJECT, assessments=unordered)
-        second = self.engine.evaluate(self.target, SUBJECT, assessments=ordered)
+        first = self.engine.evaluate(self.target, SUBJECT, assessments=unordered, authority=promotion_authority(self.target))
+        second = self.engine.evaluate(self.target, SUBJECT, assessments=ordered, authority=promotion_authority(self.target))
         self.assertEqual(first.content_sha256, second.content_sha256)
 
     def test_the_engine_records_the_version_that_decided(self) -> None:
-        decision = self.engine.evaluate(self.target, SUBJECT, assessments=self.assessments)
+        decision = self.engine.evaluate(self.target, SUBJECT, assessments=self.assessments, authority=promotion_authority(self.target))
         self.assertEqual(decision.engine.identifier, "m01-decision-engine")
         self.assertEqual(decision.contract_reference, self.target.reference)
 
@@ -84,6 +86,7 @@ class FatalFirewallTests(TestCase):
             SUBJECT,
             assessments=self.assessments,
             defects=(defect("d.fatal", "subject-absent", DefectSeverity.FATAL),),
+            authority=promotion_authority(self.target)
         )
         self.assertIs(decision.awarded_class, QualityClass.DRAFT)
         self.assertEqual(decision.outcome.value, "REJECTED")
@@ -95,6 +98,7 @@ class FatalFirewallTests(TestCase):
             SUBJECT,
             assessments=self.assessments,
             defects=(defect("d.fatal", "subject-absent", DefectSeverity.OBSERVATION),),
+            authority=promotion_authority(self.target)
         )
         finding = decision.findings[0]
         self.assertIs(finding.contract_severity, DefectSeverity.FATAL)
@@ -109,6 +113,7 @@ class FatalFirewallTests(TestCase):
             assessments=self.assessments,
             defects=(defect("d.fatal", "subject-absent", DefectSeverity.FATAL),),
             debts=(debt("d.fatal", "subject-absent", DefectSeverity.FATAL),),
+            authority=promotion_authority(self.target)
         )
         self.assertFalse(decision.findings[0].deferred)
         self.assertEqual(decision.accepted_debt_ids, ())
@@ -129,6 +134,7 @@ class FatalFirewallTests(TestCase):
             defects=(
                 defect("d.geo", "geometry-break", DefectSeverity.MAJOR, "geometry-integrity", "zone.eyes"),
             ),
+            authority=promotion_authority(target)
         )
         self.assertIs(decision.findings[0].effective_severity, DefectSeverity.FATAL)
         self.assertEqual(decision.findings[0].zone_ids, ("zone.eyes",))
@@ -147,6 +153,7 @@ class SeverityPolicyTests(TestCase):
             SUBJECT,
             assessments=self.assessments,
             defects=(defect("d.major", "geometry-break", DefectSeverity.MAJOR),),
+            authority=promotion_authority(target)
         )
         self.assertIs(decision.awarded_class, QualityClass.REVIEW)
         self.assertIn("major_defect_without_debt", decision.blocker_codes)
@@ -159,6 +166,7 @@ class SeverityPolicyTests(TestCase):
             assessments=self.assessments,
             defects=(defect("d.major", "geometry-break", DefectSeverity.MAJOR),),
             debts=(debt("d.major"),),
+            authority=promotion_authority(target)
         )
         self.assertIs(decision.awarded_class, QualityClass.MASTER)
         self.assertEqual(decision.outcome.value, "PROMOTED")
@@ -173,6 +181,7 @@ class SeverityPolicyTests(TestCase):
             assessments=self.assessments,
             defects=(defect("d.major", "geometry-break", DefectSeverity.MAJOR),),
             debts=(debt("d.major", "geometry-break", DefectSeverity.MINOR),),
+            authority=promotion_authority(target)
         )
         self.assertIs(decision.awarded_class, QualityClass.REVIEW)
         self.assertEqual(
@@ -187,6 +196,7 @@ class SeverityPolicyTests(TestCase):
             SUBJECT,
             assessments=self.assessments,
             defects=(defect("d.minor", "soft-detail", DefectSeverity.MINOR),),
+            authority=promotion_authority(target)
         )
         self.assertIs(decision.awarded_class, QualityClass.MASTER)
         self.assertIn("minor_defect_without_debt", decision.blocker_codes)
@@ -202,6 +212,7 @@ class SeverityPolicyTests(TestCase):
                 defect("d.obs", "non-blocking-note", DefectSeverity.OBSERVATION),
                 defect("d.obs2", "optional-annotation", DefectSeverity.OBSERVATION),
             ),
+            authority=promotion_authority(target)
         )
         self.assertEqual(decision.outcome.value, "PROMOTED")
         self.assertIs(decision.awarded_class, QualityClass.ARCHIVAL_MASTER)
@@ -217,6 +228,7 @@ class SeverityPolicyTests(TestCase):
             SUBJECT,
             assessments=covered_assessments(evidence_count=4),
             defects=(defect("d.soft", "soft-detail", DefectSeverity.OBSERVATION),),
+            authority=promotion_authority(target)
         )
         finding = decision.findings[0]
         self.assertIs(finding.reported_severity, DefectSeverity.OBSERVATION)
@@ -231,7 +243,7 @@ class UncertaintyBehaviourTests(TestCase):
         self.target = contract()
 
     def test_missing_assessments_never_fabricate_certainty(self) -> None:
-        decision = self.engine.evaluate(self.target, SUBJECT)
+        decision = self.engine.evaluate(self.target, SUBJECT, authority=promotion_authority(self.target))
         self.assertIs(decision.awarded_class, QualityClass.DRAFT)
         self.assertEqual(decision.outcome.value, "NOT_PROMOTED")
         for dimension_id in DIMENSIONS:
@@ -253,7 +265,7 @@ class UncertaintyBehaviourTests(TestCase):
             )
             for dimension_id in DIMENSIONS
         )
-        decision = self.engine.evaluate(self.target, SUBJECT, assessments=assessments)
+        decision = self.engine.evaluate(self.target, SUBJECT, assessments=assessments, authority=promotion_authority(self.target))
         self.assertIs(decision.awarded_class, QualityClass.DRAFT)
         self.assertFalse(decision.requires_human_review)
 
@@ -262,7 +274,7 @@ class UncertaintyBehaviourTests(TestCase):
             self.target,
             (assessment("intent-adherence", evidence_items=[evidence("ev.i", "intent-adherence")]),),
         )
-        decision = self.engine.evaluate(self.target, SUBJECT, results=(partial,))
+        decision = self.engine.evaluate(self.target, SUBJECT, results=(partial,), authority=promotion_authority(self.target))
         self.assertIs(decision.awarded_class, QualityClass.DRAFT)
 
     def test_zone_confidence_floor_sends_the_asset_to_human_review(self) -> None:
@@ -270,14 +282,14 @@ class UncertaintyBehaviourTests(TestCase):
             "zone.hands", "Hands", ("geometry-integrity",), minimum_confidence=0.95
         )
         target = contract(zones=(zone,))
-        decision = self.engine.evaluate(target, SUBJECT, assessments=covered_assessments())
+        decision = self.engine.evaluate(target, SUBJECT, assessments=covered_assessments(), authority=promotion_authority(target))
         self.assertTrue(decision.requires_human_review)
         self.assertEqual(decision.outcome.value, "HUMAN_REVIEW")
         self.assertIn("zone_confidence_floor", decision.blocker_codes)
 
     def test_human_review_dimension_requires_a_recorded_decision(self) -> None:
         target = contract(human_review_dimension_ids=("intent-adherence",))
-        blocked = DecisionEngine().evaluate(target, SUBJECT, assessments=covered_assessments())
+        blocked = DecisionEngine().evaluate(target, SUBJECT, assessments=covered_assessments(), authority=promotion_authority(target))
         self.assertEqual(blocked.outcome.value, "NOT_PROMOTED")
         self.assertIn("human_review_missing_for_dimension", blocked.blocker_codes)
 
@@ -296,7 +308,7 @@ class UncertaintyBehaviourTests(TestCase):
             else item
             for item in signed
         )
-        promoted = DecisionEngine().evaluate(target, SUBJECT, assessments=signed)
+        promoted = DecisionEngine().evaluate(target, SUBJECT, assessments=signed, authority=promotion_authority(target))
         self.assertEqual(promoted.outcome.value, "PROMOTED")
 
     def test_a_jury_rung_can_demand_a_decision_on_every_dimension(self) -> None:
@@ -309,7 +321,8 @@ class UncertaintyBehaviourTests(TestCase):
             promotion_rules=rules,
         )
         plain = DecisionEngine().evaluate(
-            target, SUBJECT, assessments=covered_assessments(evidence_count=2)
+            target, SUBJECT, assessments=covered_assessments(evidence_count=2),
+            authority=promotion_authority(target)
         )
         self.assertIs(plain.awarded_class, QualityClass.MASTER)
         self.assertIn("human_review_not_recorded", plain.blocker_codes)
@@ -327,14 +340,15 @@ class PromotionLadderTests(TestCase):
         )
         target = contract(promotion_rules=rules)
         decision = self.engine.evaluate(
-            target, SUBJECT, assessments=covered_assessments(evidence_count=1)
+            target, SUBJECT, assessments=covered_assessments(evidence_count=1),
+            authority=promotion_authority(target)
         )
         self.assertIs(decision.awarded_class, QualityClass.DRAFT)
         self.assertTrue(all(item.target_class == "PREVIEW" for item in decision.blockers))
 
     def test_a_draft_can_never_be_relabelled_master(self) -> None:
         target = contract()
-        decision = self.engine.evaluate(target, SUBJECT, assessments=covered_assessments())
+        decision = self.engine.evaluate(target, SUBJECT, assessments=covered_assessments(), authority=promotion_authority(target))
         self.assertIs(decision.awarded_class, QualityClass.MASTER)
         degraded = self.engine.evaluate(
             target,
@@ -347,6 +361,7 @@ class PromotionLadderTests(TestCase):
                 )
                 for item in covered_assessments()
             ),
+            authority=promotion_authority(target)
         )
         self.assertIs(degraded.awarded_class, QualityClass.DRAFT)
         with self.assertRaises(PromotionBlockedError):
@@ -366,7 +381,7 @@ class PromotionLadderTests(TestCase):
             )
             for dimension_id in DIMENSIONS
         )
-        decision = self.engine.evaluate(target, SUBJECT, assessments=assessments)
+        decision = self.engine.evaluate(target, SUBJECT, assessments=assessments, authority=promotion_authority(target))
         self.assertIs(decision.awarded_class, QualityClass.DRAFT)
         self.assertIn("hard_gate_failed", decision.blocker_codes)
 
@@ -389,6 +404,7 @@ class PromotionLadderTests(TestCase):
                 defect("d.geo", "geometry-break", DefectSeverity.MAJOR, "geometry-integrity"),
             ),
             debts=(debt("d.geo", "geometry-break", DefectSeverity.MAJOR, "geometry-integrity"),),
+            authority=promotion_authority(target)
         )
         self.assertTrue(decision.findings[0].deferred)
         self.assertIn("hard_gate_failed", decision.blocker_codes)
@@ -409,6 +425,7 @@ class PromotionLadderTests(TestCase):
             SUBJECT,
             assessments=assessments,
             defects=(defect("d.geo", "geometry-break", DefectSeverity.MAJOR, "geometry-integrity"),),
+            authority=promotion_authority(target)
         )
         self.assertIn("dimension_gate_not_pass", blocked.blocker_codes)
         carried = self.engine.evaluate(
@@ -417,6 +434,7 @@ class PromotionLadderTests(TestCase):
             assessments=assessments,
             defects=(defect("d.geo", "geometry-break", DefectSeverity.MAJOR, "geometry-integrity"),),
             debts=(debt("d.geo", "geometry-break", DefectSeverity.MAJOR, "geometry-integrity"),),
+            authority=promotion_authority(target)
         )
         self.assertNotIn("dimension_gate_not_pass", carried.blocker_codes)
         self.assertIs(carried.awarded_class, QualityClass.MASTER)
@@ -447,7 +465,7 @@ class JuryDisagreementTests(TestCase):
 
     def test_disagreement_beyond_tolerance_forces_human_review(self) -> None:
         first, second = self._jury(0.9, 0.4)
-        decision = self.engine.evaluate(self.target, SUBJECT, results=(first, second))
+        decision = self.engine.evaluate(self.target, SUBJECT, results=(first, second), authority=promotion_authority(self.target))
         self.assertTrue(decision.requires_human_review)
         self.assertEqual(decision.outcome.value, "HUMAN_REVIEW")
         self.assertIn("judge_disagreement", decision.blocker_codes)
@@ -456,7 +474,7 @@ class JuryDisagreementTests(TestCase):
 
     def test_agreeing_jurors_reach_a_verdict(self) -> None:
         first, second = self._jury(0.9, 0.92)
-        decision = self.engine.evaluate(self.target, SUBJECT, results=(first, second))
+        decision = self.engine.evaluate(self.target, SUBJECT, results=(first, second), authority=promotion_authority(self.target))
         self.assertEqual(decision.outcome.value, "PROMOTED")
         self.assertEqual(decision.disagreements, ())
 
@@ -482,23 +500,26 @@ class JuryDisagreementTests(TestCase):
             covered_assessments(),
         )
         with self.assertRaises(EvaluationInputError):
-            self.engine.evaluate(self.target, SUBJECT, results=(foreign,))
+            self.engine.evaluate(self.target, SUBJECT, results=(foreign,), authority=promotion_authority(self.target))
         with self.assertRaises(EvaluationInputError):
             self.engine.evaluate(
-                self.target, SubjectRef("asset.other", DIGEST), results=(foreign,)
+                self.target, SubjectRef("asset.other", DIGEST), results=(foreign,),
+                authority=promotion_authority(self.target)
             )
 
     def test_a_dimension_may_not_arrive_from_two_sources(self) -> None:
         result = judge_result(self.target, covered_assessments())
         with self.assertRaises(EvaluationInputError):
             self.engine.evaluate(
-                self.target, SUBJECT, results=(result,), assessments=covered_assessments()
+                self.target, SUBJECT, results=(result,), assessments=covered_assessments(),
+                authority=promotion_authority(self.target)
             )
 
     def test_undeclared_defect_class_fails_closed(self) -> None:
         with self.assertRaises(EvaluationInputError) as caught:
             self.engine.evaluate(
-                self.target, SUBJECT, assessments=covered_assessments(), defects=(defect("d.x", "vibes-off"),)
+                self.target, SUBJECT, assessments=covered_assessments(), defects=(defect("d.x", "vibes-off"),),
+                authority=promotion_authority(self.target)
             )
         self.assertIn("not declared by contract", str(caught.exception))
 
@@ -511,4 +532,4 @@ class JuryDisagreementTests(TestCase):
             defects=(defect("d.dup", "geometry-break", DefectSeverity.MINOR),),
         )
         with self.assertRaises(EvaluationInputError):
-            self.engine.evaluate(self.target, SUBJECT, results=(first, second))
+            self.engine.evaluate(self.target, SUBJECT, results=(first, second), authority=promotion_authority(self.target))

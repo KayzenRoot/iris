@@ -33,6 +33,7 @@ from tests.m01_kernel_support import (
     evaluator_descriptor,
     extension_registry,
     ladder_rules,
+    promotion_authority,
 )
 
 AUDIO_DIMENSIONS = ("intent-adherence", "voice-identity", "audio-clarity")
@@ -175,7 +176,8 @@ class RegistryBackedContractTests(TestCase):
             output_class=QualityClass.MASTER,
         )
         decision = DecisionEngine().evaluate(
-            target, SUBJECT, assessments=covered_assessments(AUDIO_DIMENSIONS)
+            target, SUBJECT, assessments=covered_assessments(AUDIO_DIMENSIONS),
+            authority=promotion_authority(target)
         )
         self.assertEqual(decision.outcome.value, "PROMOTED")
         self.assertEqual(
@@ -194,7 +196,7 @@ class RegistryBackedContractTests(TestCase):
         assessments.append(
             covered_assessments(("voice-identity",), gate=GateState.FAIL)[0]
         )
-        decision = DecisionEngine().evaluate(target, SUBJECT, assessments=tuple(assessments))
+        decision = DecisionEngine().evaluate(target, SUBJECT, assessments=tuple(assessments), authority=promotion_authority(target))
         self.assertEqual(decision.outcome.value, "NOT_PROMOTED")
         self.assertIn("dimension_gate_not_pass", decision.blocker_codes)
         failed = next(

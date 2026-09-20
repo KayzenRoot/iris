@@ -44,10 +44,11 @@ from iris_quality.judging import (
     ValidatorOutcome,
     attach_contract_checks,
 )
-from iris_quality.registry import DomainProfile
+from iris_quality.registry import DomainProfile, EvaluatorAuthority
 from iris_quality.serialization import dumps, loads
 from iris_quality.versions import ComponentVersion
 from iris_quality.zones import SemanticZone
+from tests.m01_kernel_support import panel_registry, promotion_authority
 
 SUBJECT = SubjectRef(subject_id="asset.synthetic", content_sha256="1" * 64)
 PROFILE_NAMES = ("generic-image", "nerim-isometric-asset", "logo-vector")
@@ -125,6 +126,29 @@ def judged(
     return tuple(judge.evaluate(request) for judge in judges)
 
 
+AUDIO_OBSERVATIONS = {
+    "voice-identity": 0.88,
+    "audio-clarity": 0.94,
+    "music-coherence": 0.86,
+    "narrative-continuity": 0.9,
+}
+
+
+def audio_jury(measurements: dict | None = None) -> tuple[ThresholdJudge, ...]:
+    """The narration panel: two listeners over a non-visual dimension set."""
+
+    measured = dict(AUDIO_OBSERVATIONS if measurements is None else measurements)
+    measured["intent-adherence"] = OBSERVATIONS["intent-adherence"]
+    measured["technical-integrity"] = OBSERVATIONS["technical-integrity"]
+    return (
+        ThresholdJudge("jury.audio-a", observations=measured),
+        ThresholdJudge(
+            "jury.audio-b",
+            observations={key: min(1.0, value + 0.01) for key, value in measured.items()},
+        ),
+    )
+
+
 def authorized(
     contract: FidelityContract,
     *,
@@ -146,8 +170,13 @@ def decide(
     results: tuple[JudgeResult, ...],
     defects: tuple[Defect, ...] = (),
 ) -> QualityDecision:
+    granted = authorized(contract, results=results)
     return DecisionEngine().evaluate(
-        authorized(contract, results=results), SUBJECT, results=results, defects=defects
+        granted,
+        SUBJECT,
+        results=results,
+        defects=defects,
+        authority=promotion_authority(granted),
     )
 
 
@@ -338,7 +367,8 @@ class ProfileValidatorPortTests(TestCase):
         self.assertIs(technical.gate, GateState.FAIL)
         self.assertEqual(technical.uncertainty, UncertaintyState.KNOWN)
         decision = DecisionEngine().evaluate(
-            authorized(built, assessments=assessments), SUBJECT, assessments=assessments
+            authorized(built, assessments=assessments), SUBJECT, assessments=assessments,
+            authority=promotion_authority(authorized(built, assessments=assessments))
         )
         self.assertIs(decision.awarded_class, QualityClass.DRAFT)
         self.assertIn("dimension_gate_not_pass", decision.blocker_codes)
@@ -369,6 +399,7 @@ class ProfileValidatorPortTests(TestCase):
             SUBJECT,
             assessments=assessments,
             defects=outcome.defects,
+            authority=promotion_authority(authorized(built, assessments=assessments))
         )
         finding = decision.findings[0]
         self.assertIs(finding.reported_severity, DefectSeverity.MINOR)
@@ -455,27 +486,11 @@ class NonVisualProfileTests(TestCase):
     profiles, with no branch on a dimension name anywhere in the kernel.
     """
 
-    AUDIO_OBSERVATIONS = {
-        "voice-identity": 0.88,
-        "audio-clarity": 0.94,
-        "music-coherence": 0.86,
-        "narrative-continuity": 0.9,
-    }
-
     def setUp(self) -> None:
         self.built = instantiate("narration-audio", QualityClass.MASTER)
 
     def _judges(self, audio: dict | None = None) -> tuple[ThresholdJudge, ...]:
-        measured = dict(self.AUDIO_OBSERVATIONS if audio is None else audio)
-        measured["intent-adherence"] = OBSERVATIONS["intent-adherence"]
-        measured["technical-integrity"] = OBSERVATIONS["technical-integrity"]
-        return (
-            ThresholdJudge("jury.audio-a", observations=measured),
-            ThresholdJudge(
-                "jury.audio-b",
-                observations={key: min(1.0, value + 0.01) for key, value in measured.items()},
-            ),
-        )
+        return audio_jury(audio)
 
     def test_the_extension_profile_sits_outside_the_frozen_three(self) -> None:
         self.assertEqual(len(PROFILES), 3)
@@ -499,7 +514,7 @@ class NonVisualProfileTests(TestCase):
         )
 
     def test_a_silent_extension_dimension_bars_promotion(self) -> None:
-        partial = {key: value for key, value in self.AUDIO_OBSERVATIONS.items() if key != "audio-clarity"}
+        partial = {key: value for key, value in AUDIO_OBSERVATIONS.items() if key != "audio-clarity"}
         decision = decide(self.built, judged(self.built, self._judges(partial)))
         self.assertNotEqual(decision.outcome.value, "PROMOTED")
         self.assertIn("insufficient_certainty", decision.blocker_codes)
@@ -521,7 +536,7 @@ class NonVisualProfileTests(TestCase):
     def test_an_unnamed_audio_jury_is_refused_like_any_other(self) -> None:
         results = judged(self.built, self._judges())
         with self.assertRaises(EvaluationInputError):
-            DecisionEngine().evaluate(self.built, SUBJECT, results=results)
+            DecisionEngine().evaluate(self.built, SUBJECT, results=results, authority=promotion_authority(self.built))
 
     def test_a_non_visual_dimension_cannot_be_invented_at_registration_time(self) -> None:
         with self.assertRaises(RegistrationError) as caught:
@@ -542,3 +557,36 @@ class NonVisualProfileTests(TestCase):
         self.assertEqual(
             rebuilt.extension_dimension_ids, self.built.extension_dimension_ids
         )
+
+
+class ResolvedAuthorityProfileTests(TestCase):
+    """CORRECTION-02 section 6: each synthetic profile promotes on a resolved authority.
+
+    The authority below is issued by ``EvaluatorAuthority.resolved`` over the profile's own
+    declared panel, so a pass proves the registry-backed path rather than a fixture convenience.
+    """
+
+    def promote(self, name: str, judges) -> QualityDecision:
+        built = instantiate(name, QualityClass.MASTER)
+        results = judged(built, judges(built))
+        granted = authorized(built, results=results)
+        authority = EvaluatorAuthority.resolved(granted, panel_registry(granted))
+        decision = DecisionEngine().evaluate(
+            granted, SUBJECT, results=results, authority=authority
+        )
+        self.assertEqual(decision.outcome.value, "PROMOTED")
+        self.assertEqual(decision.blocker_codes, ())
+        self.assertIs(decision.awarded_class, QualityClass.MASTER)
+        return decision
+
+    def test_generic_image_promotes_with_explicit_resolved_authority(self) -> None:
+        self.promote("generic-image", jury)
+
+    def test_nerim_isometric_asset_promotes_with_explicit_resolved_authority(self) -> None:
+        self.promote("nerim-isometric-asset", jury)
+
+    def test_logo_vector_promotes_with_explicit_resolved_authority(self) -> None:
+        self.promote("logo-vector", jury)
+
+    def test_narration_audio_promotes_with_explicit_resolved_authority(self) -> None:
+        self.promote("narration-audio", lambda built: audio_jury())
