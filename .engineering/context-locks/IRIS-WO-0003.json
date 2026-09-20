@@ -1,16 +1,29 @@
 {
   "schemaVersion": "iris-context-lock-v1",
   "workOrder": "IRIS-WO-0003",
+  "correction": "IRIS-WO-0003-CORRECTION-01",
+  "correctionAuthority": "IRIS-WO-0003-CORRECTION-01-M01-QUALITY-KERNEL.pdf (independent audit verdict CORRECTION REQUIRED on head 377e2f5a995d1a8c81dbc4695bbeb9ff0a1e0878, findings F1-F5)",
+  "pullRequest": 7,
+  "branch": "iris-wo-0003-m01-quality-kernel",
   "baseSha": "2bcc90c77ce79ca38bd2bb4ede7dd10e1ac78352",
   "implementationSha": "391f881078fc215c3e1aabb7df1648539d879dfb",
-  "auditedHeadSha": "PENDING_INDEPENDENT_AUDIT",
-  "status": "OPEN_PENDING_INDEPENDENT_REVIEW",
+  "auditedHeadSha": "377e2f5a995d1a8c81dbc4695bbeb9ff0a1e0878",
+  "auditedVerdict": "CORRECTION REQUIRED",
+  "correctionSha": "5369252fc0a40c22c05cff47485b62279849ef2d",
+  "governanceRun": {
+    "id": "35528633974",
+    "workflow": "governance.yml",
+    "headBinding": "Checked out head: 5369252fc0a40c22c05cff47485b62279849ef2d",
+    "testsRun": 196
+  },
+  "status": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
   "frozenContract": {
     "name": "m01-contract-v1.0",
     "schemaVersion": "iris-quality-schema-v1",
     "canonicalDimensionCount": 18,
     "promotionLadder": ["DRAFT", "PREVIEW", "REVIEW", "MASTER", "ARCHIVAL_MASTER"],
-    "defectSeverities": ["FATAL", "MAJOR", "MINOR", "OBSERVATION"]
+    "defectSeverities": ["FATAL", "MAJOR", "MINOR", "OBSERVATION"],
+    "correctionNote": "Findings F1-F4 implement requirements the freeze already carried (effective-severity authority, declared capability, human-review propagation, bounded versioned dimension registry). No frozen semantics were rewritten, so Work Order section 10 did not trigger a BLOCKED stop."
   },
   "upstream": {
     "gef": {
@@ -42,7 +55,12 @@
     "Evaluator and domain-profile registries with trust tiers and version binding",
     "Decision engine, promotion ladder, blocker codes and quality-debt policy",
     "Canonical serialization with content digests and strict schema round trip",
-    "Three synthetic profile fixtures in examples/ plus their contract tests"
+    "Three synthetic profile fixtures in examples/ plus their contract tests",
+    "F1: rule quality debt against the authoritative effective severity so an effective FATAL is never deferrable",
+    "F2: fail-closed evaluator authority from contract declaration plus registry-resolved coverage",
+    "F3: propagate JudgeResult human-review requests into dimension outcomes and block silent promotion",
+    "F4: bounded, versioned, persisted Dimension Registry admitting non-visual extension dimensions",
+    "F5: restate the Evidence Bundle against measured Git diffs and bind the exact corrected head to its Governance run"
   ],
   "outOfScope": [
     "M02 and every later module",
@@ -50,6 +68,6 @@
     "Persistence, queueing and the promotion executor that consumes QualityDecision",
     "Any change to the frozen planning documents or checkpoint files"
   ],
-  "stopCondition": "Execution stopped once the kernel was committed, pushed and the PR plus Evidence Bundle were ready for independent review. Nothing merged; M02 not started.",
-  "closure": "Awaiting independent audit. A new Work Order and context lock are required for any follow-up change, including M01 integrator work."
+  "stopCondition": "Correction execution stops once F1-F5 are closed, the full suite and Governance pass on the exact corrected head, the Evidence Bundle is truthful, and the commits are pushed to PR #7 for independent re-review. Nothing merged; M02 not started.",
+  "closure": "Awaiting independent re-review of head 5369252fc0a40c22c05cff47485b62279849ef2d. A new Work Order and context lock are required for any follow-up change, including M01 integrator work."
 }
