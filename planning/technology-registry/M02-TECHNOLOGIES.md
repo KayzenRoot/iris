@@ -1151,3 +1151,14 @@ All remain PROPOSED until M02 Final Technology Review.
 - PGX-096 applies the stricter public-avatar release contract.
 
 All remain PROPOSED until M02 Final Technology Review.
+
+
+# Final Technology Review disposition
+
+See `planning/reviews/M02-FINAL-TECHNOLOGY-REVIEW.md`.
+
+Summary:
+- EXT-M02-001..023: ACCEPTED as reference/pattern, not mandatory dependencies.
+- PGX-004: SUPERSEDED by PGX-074.
+- all other PGX-001..096: ACCEPTED either as M02 semantic contract or as an M02-owned interface whose deep implementation belongs to the named future module.
+- no candidate is claimed patentable/novel by this disposition.
