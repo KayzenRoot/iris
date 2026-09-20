@@ -1,6 +1,6 @@
 # IRIS-WO-0001 - GEF + HIVE Foundation
 
-Status: `IN_REVIEW`
+Status: `COMPLETED_APPROVED`
 
 ## OBJECTIVE
 Bootstrap KayzenRoot/iris as a new GEF v1.0.0 project and make it structurally compatible with stable HIVE v1.0.0 before product planning/implementation.
@@ -38,5 +38,15 @@ Governance, Source Pack, HIVE tooling, Codex MCP config, CI/templates, evidence 
 ## REVIEW FORMAT
 PT-BR with severity and verdict `APPROVED`, `CORRECTION REQUIRED`, or `BLOCKED`.
 
+## EVIDENCE
+- Authorized base: `065b5388806bb5d6ef2a5640b87d1f2e74e9a0ab`.
+- Audited implementation head: `c2209066882ac9177978674dfa4d5f890704bb71`.
+- Exact-head Governance run: `35518322714` / job `106097931747` / SUCCESS.
+- Exact-head assertion: expected = actual = `c2209066882ac9177978674dfa4d5f890704bb71`.
+- Governance validator: PASS; 35 required artifacts.
+- Bridge tests: 8/8 PASS.
+- CRITICAL: 0; HIGH: 0; blocking MEDIUM: 0.
+- Local HIVE runtime execution remains separate operator evidence because this GitHub execution environment cannot access the user's workstation.
+
 ## STOP CONDITION
-Stop after exact-head bootstrap evidence and audit. Do not begin product implementation.
+Satisfied for repository-side bootstrap. IRIS product implementation remains prohibited until a new admitted planning Work Order exists.

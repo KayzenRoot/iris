@@ -2,10 +2,58 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0001",
   "baseSha": "065b5388806bb5d6ef2a5640b87d1f2e74e9a0ab",
-  "candidateHeadSha": null,
-  "status": "PENDING_EXACT_HEAD",
-  "tests": [],
-  "ci": [],
-  "findings": [],
-  "checkpointDelta": "PENDING_AUDIT"
+  "auditedHeadSha": "c2209066882ac9177978674dfa4d5f890704bb71",
+  "status": "APPROVED",
+  "exactHead": {
+    "workflowRunId": 35518322714,
+    "jobId": 106097931747,
+    "expectedSha": "c2209066882ac9177978674dfa4d5f890704bb71",
+    "checkedOutSha": "c2209066882ac9177978674dfa4d5f890704bb71",
+    "conclusion": "success"
+  },
+  "upstream": {
+    "gef": {
+      "version": "1.0.0",
+      "sha": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
+    },
+    "hive": {
+      "version": "1.0.0",
+      "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
+    }
+  },
+  "tests": [
+    {
+      "name": "python_compile_bootstrap_tooling",
+      "result": "PASS"
+    },
+    {
+      "name": "governance_validator",
+      "result": "PASS",
+      "requiredArtifacts": 35
+    },
+    {
+      "name": "gef_hive_bridge_unittests",
+      "result": "PASS",
+      "passed": 8,
+      "failed": 0
+    }
+  ],
+  "findings": [
+    {
+      "id": "IRIS-WO-0001-F001",
+      "severity": "PROCESS",
+      "status": "CORRECTED",
+      "summary": "Initial PR workflow checked GitHub merge ref instead of literal PR head.",
+      "correction": "Workflow now checks out the PR head explicitly and asserts git rev-parse HEAD equals expected SHA."
+    }
+  ],
+  "unresolved": {
+    "critical": 0,
+    "high": 0,
+    "blockingMedium": 0
+  },
+  "limitations": [
+    "The user's workstation-local HIVE runtime was not executed from GitHub; repository tooling and contracts were validated instead."
+  ],
+  "checkpointDelta": "PROMOTE_BOOTSTRAP_APPROVED_PRODUCT_DISCOVERY_READY"
 }

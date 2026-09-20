@@ -1,22 +1,22 @@
 # IRIS Checkpoint
 
 ## STATUS
-BOOTSTRAP_IN_REVIEW
+BOOTSTRAP_APPROVED
 
 ## VERSION
 0.0.0-bootstrap
 
 ## PHASE
-GEF_HIVE_FOUNDATION
+PRODUCT_DISCOVERY_READY
 
 ## OBJECTIVE
-Install the governed GEF v1.0.0 project layer and stable HIVE v1.0.0 local-first integration before IRIS product planning/implementation.
+Maintain the approved GEF v1.0.0 + HIVE v1.0.0 repository foundation and begin governed IRIS V1 product discovery without product implementation.
 
 ## IN PROGRESS
-IRIS-WO-0001: GEF + HIVE bootstrap.
+No implementation Work Order is active. The next legal increment is IRIS V1 product discovery/planning.
 
 ## BLOCKERS
-Exact-head CI, audit and local-operator HIVE runtime validation remain required before bootstrap promotion.
+None for repository-side bootstrap. Local HIVE runtime execution remains separate operator evidence and must not be fabricated.
 
 ## NEXT STEP
-Validate the bootstrap PR exact head, correct findings, then promote the checkpoint only after APPROVED.
+Create and admit the first IRIS V1 discovery/planning Work Order covering measurable quality goals, architecture and HIVE/CORE/IRIS contracts before product code.

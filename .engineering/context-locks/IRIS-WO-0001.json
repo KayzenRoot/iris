@@ -2,7 +2,8 @@
   "schemaVersion": "iris-context-lock-v1",
   "workOrder": "IRIS-WO-0001",
   "baseSha": "065b5388806bb5d6ef2a5640b87d1f2e74e9a0ab",
-  "status": "ACTIVE",
+  "auditedHeadSha": "c2209066882ac9177978674dfa4d5f890704bb71",
+  "status": "CLOSED_APPROVED",
   "upstream": {
     "gef": {
       "version": "1.0.0",
@@ -22,5 +23,5 @@
     "docs/project-brain/04-ARCHITECTURE.md",
     "docs/project-brain/02-REQUIREMENTS.md"
   ],
-  "staleIf": "Any critical source or upstream pin changes before review."
+  "closure": "Approved by exact-head audit Review 002; future changes require a new Work Order/context lock."
 }

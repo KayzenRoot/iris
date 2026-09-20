@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "BOOTSTRAP_IN_REVIEW",
+  "status": "BOOTSTRAP_APPROVED",
   "version": "0.0.0-bootstrap",
-  "phase": "GEF_HIVE_FOUNDATION",
-  "nextStep": "Validate the bootstrap PR exact head, correct findings, then promote the checkpoint only after APPROVED."
+  "phase": "PRODUCT_DISCOVERY_READY",
+  "nextStep": "Create and admit the first IRIS V1 discovery/planning Work Order covering measurable quality goals, architecture and HIVE/CORE/IRIS contracts before product code."
 }
