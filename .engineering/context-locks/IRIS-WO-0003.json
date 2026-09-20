@@ -1,30 +1,41 @@
 {
   "schemaVersion": "iris-context-lock-v1",
   "workOrder": "IRIS-WO-0003",
-  "correction": "IRIS-WO-0003-CORRECTION-01",
-  "correctionAuthority": "IRIS-WO-0003-CORRECTION-01-M01-QUALITY-KERNEL.pdf (independent audit verdict CORRECTION REQUIRED on head 377e2f5a995d1a8c81dbc4695bbeb9ff0a1e0878, findings F1-F5)",
+  "correction": "IRIS-WO-0003-CORRECTION-02",
+  "correctionAuthority": "IRIS-WO-0003-CORRECTION-02-EVALUATOR-AUTHORITY.pdf (independent re-review verdict CORRECTION REQUIRED on head feb940a2f9439d3e4cac2c55b9cb62d843a02462, one residual HIGH finding: registration was optional on the default decision path)",
   "pullRequest": 7,
   "branch": "iris-wo-0003-m01-quality-kernel",
   "baseSha": "2bcc90c77ce79ca38bd2bb4ede7dd10e1ac78352",
   "implementationSha": "391f881078fc215c3e1aabb7df1648539d879dfb",
-  "auditedHeadSha": "377e2f5a995d1a8c81dbc4695bbeb9ff0a1e0878",
+  "auditedHeadSha": "feb940a2f9439d3e4cac2c55b9cb62d843a02462",
   "auditedVerdict": "CORRECTION REQUIRED",
-  "correctionSha": "5369252fc0a40c22c05cff47485b62279849ef2d",
+  "correctionSha": "0705ea32b087573d48e3b891e346d8899130f049",
   "governanceRun": {
-    "id": "35528633974",
+    "id": "35530951011",
     "workflow": "governance.yml",
-    "headBinding": "Checked out head: 5369252fc0a40c22c05cff47485b62279849ef2d",
-    "testsRun": 196,
-    "note": "5369252 is the last head touching code, fixtures or documentation. Governance runs 35529168068 and 35529331361 (both success) cover the following .engineering-artifacts-only heads 78bdd0c and 246a63c; the independent audit writes the binding for the final candidate head."
+    "headBinding": "Checked out head: 0705ea32b087573d48e3b891e346d8899130f049",
+    "testsRun": 209,
+    "note": "0705ea32b087573d48e3b891e346d8899130f049 is the last head touching code, fixtures or documentation. Commits after it change only .engineering/ governance artifacts; their runs are listed in the Evidence Bundle headChain, and the independent audit writes the binding for the final candidate head."
   },
   "status": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
   "frozenContract": {
     "name": "m01-contract-v1.0",
     "schemaVersion": "iris-quality-schema-v1",
     "canonicalDimensionCount": 18,
-    "promotionLadder": ["DRAFT", "PREVIEW", "REVIEW", "MASTER", "ARCHIVAL_MASTER"],
-    "defectSeverities": ["FATAL", "MAJOR", "MINOR", "OBSERVATION"],
-    "correctionNote": "Findings F1-F4 implement requirements the freeze already carried (effective-severity authority, declared capability, human-review propagation, bounded versioned dimension registry). No frozen semantics were rewritten, so Work Order section 10 did not trigger a BLOCKED stop."
+    "promotionLadder": [
+      "DRAFT",
+      "PREVIEW",
+      "REVIEW",
+      "MASTER",
+      "ARCHIVAL_MASTER"
+    ],
+    "defectSeverities": [
+      "FATAL",
+      "MAJOR",
+      "MINOR",
+      "OBSERVATION"
+    ],
+    "correctionNote": "Findings F1-F5 of CORRECTION-01 and the residual F2 of CORRECTION-02 implement requirements the freeze already carried (effective-severity authority over debt, capability declared and registered rather than inferred, human-review propagation, a bounded versioned dimension registry). No frozen canonical contract was rewritten semantically."
   },
   "upstream": {
     "gef": {
@@ -61,7 +72,8 @@
     "F2: fail-closed evaluator authority from contract declaration plus registry-resolved coverage",
     "F3: propagate JudgeResult human-review requests into dimension outcomes and block silent promotion",
     "F4: bounded, versioned, persisted Dimension Registry admitting non-visual extension dimensions",
-    "F5: restate the Evidence Bundle against measured Git diffs and bind the exact corrected head to its Governance run"
+    "F5: restate the Evidence Bundle against measured Git diffs and bind the exact corrected head to its Governance run",
+    "F2 (residual): make registry-backed authority the only promotion-capable evaluation path, with an explicitly named non-promoting preflight authority"
   ],
   "outOfScope": [
     "M02 and every later module",
@@ -69,6 +81,8 @@
     "Persistence, queueing and the promotion executor that consumes QualityDecision",
     "Any change to the frozen planning documents or checkpoint files"
   ],
-  "stopCondition": "Correction execution stops once F1-F5 are closed, the full suite and Governance pass on the exact corrected head, the Evidence Bundle is truthful, and the commits are pushed to PR #7 for independent re-review. Nothing merged; M02 not started.",
-  "closure": "Awaiting independent re-review of head 5369252fc0a40c22c05cff47485b62279849ef2d. A new Work Order and context lock are required for any follow-up change, including M01 integrator work."
+  "stopCondition": "Correction execution stops once registry-backed authority is mandatory for every promotion-capable evaluator input, the mandatory regression tests and the full suite pass, exact-head Governance is successful, the Evidence Bundle is truthful, and the commits are pushed to PR #7 for independent re-review. Nothing merged; M02 not started.",
+  "closure": "Awaiting independent re-review of head 0705ea32b087573d48e3b891e346d8899130f049. A new Work Order and context lock are required for any follow-up change, including M01 integrator work.",
+  "priorCorrection": "IRIS-WO-0003-CORRECTION-01",
+  "priorAuditedHeadSha": "377e2f5a995d1a8c81dbc4695bbeb9ff0a1e0878"
 }
