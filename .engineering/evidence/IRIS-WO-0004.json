@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0004",
+  "status": "READY_FOR_EXECUTOR",
+  "baseSha": "59ee339c27750522106d0d2aa5a525f07f613702",
+  "headSha": null,
+  "pullRequest": null,
+  "frozenContract": "m02-contract-v1.0",
+  "tests": {
+    "planned": true,
+    "run": null,
+    "failures": null,
+    "errors": null
+  },
+  "changedFiles": [],
+  "designDecisions": [],
+  "failuresEncounteredAndFixed": [],
+  "deviations": [],
+  "risksAndDeferredWork": [],
+  "proof": {
+    "noProviderSdkLeakage": null,
+    "m01RemainsQualityAuthority": null,
+    "fiveSyntheticProfiles": null,
+    "exactHeadGovernance": null
+  },
+  "checkpointDelta": {
+    "applied": false,
+    "proposed": null
+  },
+  "stopCondition": "PENDING_EXECUTION"
+}
