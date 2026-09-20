@@ -1,7 +1,7 @@
 # M02 — Module Contract Freeze Candidate
 
-Status: `FREEZE_CANDIDATE`
-Version: `m02-contract-v0.1`
+Status: `FROZEN_APPROVED`
+Version: `m02-contract-v1.0`
 Module: `Project OS & Production Graph`
 
 ## 1. Contract purpose
@@ -254,3 +254,20 @@ DO NOT merge.
 DO NOT start M03.
 DO NOT implement later-module providers simply to satisfy an interface.
 If the contract cannot be implemented without changing a frozen M02 invariant, report BLOCKED rather than weakening it.
+
+
+## 14. Freeze evidence
+
+- Final Technology Review: `APPROVED_FOR_CONTRACT_FREEZE`.
+- Forward Compatibility Scan: `PASS_WITH_EXTENSION_PORTS`.
+- Planning audit head: `935669fa851eec55489877e4697e46a34760c067`.
+- Governance run: `35535628768` — SUCCESS.
+- Exact-head checkout: PASS.
+- Governance validation: PASS.
+- Required artifacts: 35.
+- Existing repository suite: 216 tests, OK.
+- Planning diff: 14 documentation/planning files, zero product-code files at audit head.
+- M06 overlap: resolved by explicit ownership boundary.
+- Public spokesperson/film/commercial/music scope: explicitly carried in PR-017/PR-018 and canonical product direction.
+
+Any semantic change to a frozen invariant after this point requires a versioned contract amendment plus renewed Forward Compatibility Scan.

@@ -1,22 +1,22 @@
 # IRIS Checkpoint
 
 ## STATUS
-M01_QUALITY_KERNEL_APPROVED
+M02_CONTRACT_FROZEN
 
 ## VERSION
-1.0-m01
+1.0-m02-planning
 
 ## PHASE
-M02_PROJECT_OS_PLANNING_READY
+M02_IMPLEMENTATION_HANDOFF_READY
 
 ## OBJECTIVE
-Begin governed slow planning of M02 — Project OS & Production Graph using the approved M01 Quality Kernel as the first implemented IRIS foundation while preserving complete-version, extreme-quality, domain-neutral, adaptive-hardware and headless-first invariants.
+Implement the frozen M02 Project OS & Production Graph semantic kernel from `m02-contract-v1.0` without stealing execution, storage, provider or domain implementation ownership from later modules.
 
 ## IN PROGRESS
-IRIS-WO-0003 is APPROVED and merged. PR #7 passed exact-head Governance with 216 tests and merged as `584b4230a0503fff145e3ad68d95c6682d796c6a`. No product implementation Work Order is currently active.
+M02 S01–S05 planning is complete. Final Technology Review is approved, Forward Compatibility Scan passed with extension ports, and `m02-contract-v1.0` is frozen. The planning PR remains subject to governed merge before an implementation Context Lock can bind the exact new main SHA.
 
 ## BLOCKERS
-None for M02 slow planning. The M00 entry in the master index remains a governance/planning bookkeeping item and must be reconciled against the already-canonical product constitution sources before any future contract freeze that depends on an uncovered M00 decision.
+No semantic blocker remains. Implementation MUST wait for the planning PR merge and a Context Lock compiled from the resulting exact main SHA.
 
 ## NEXT STEP
-Begin M02 S01 — Project/production identity and lifecycle.
+Merge the governed M02 planning/freeze PR, then compile IRIS-WO-0004 + exact Context Lock + executor PDF from the merged main baseline.

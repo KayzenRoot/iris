@@ -57,3 +57,8 @@ Fast-moving dependencies such as ComfyUI, custom nodes, models and DCC adapters 
 ## ADR-0014 - Review auto-fix before executor escalation
 Status: `APPROVED`
 During IRIS reviews, bounded findings that ChatGPT can safely correct and validate using repository/CI evidence are fixed directly in the active branch/PR. A Codex/Coder/Zcode corrective prompt is produced only when the correction requires unavailable workstation/runtime capabilities or cannot be safely proven from the review environment. The canonical operational rule is `.engineering/REVIEW-AUTOFIX-POLICY.md`.
+
+
+## ADR-0015 - M02 semantic authority and M06 operational ownership
+Status: `APPROVED`
+M02 is the canonical semantic authority for project/production identity, Production Graph causality, branch/variant/snapshot/rollback semantics, incremental-build/reuse semantics, and production promotion/release/archive lifecycle. M06 may deepen content-addressed persistence, dependency indexing, reconstruction, cleanup and rollback execution, but MUST implement/extend M02 contracts rather than create a competing second state/version/build model.
