@@ -17,7 +17,7 @@
     "testsRun": 216,
     "note": "ddb7ca41c9c6980927b8bfa17f86f9cf290e6158 is the last head touching code, fixtures or documentation. Commits after it change only .engineering/ governance artifacts; their runs are listed in the Evidence Bundle headChain, and the independent audit writes the binding for the final candidate head."
   },
-  "status": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+  "status": "CLOSED_APPROVED",
   "frozenContract": {
     "name": "m01-contract-v1.0",
     "schemaVersion": "iris-quality-schema-v1",
@@ -83,7 +83,12 @@
     "Any change to the frozen planning documents or checkpoint files"
   ],
   "stopCondition": "STOP once every promotion-capable authority is fully registry-resolved against the whole declared panel, the mandatory CORRECTION-03 regressions and the full suite pass, exact-head Governance succeeds, the Evidence Bundle states one final invariant truthfully, and the changes are pushed to PR #7 ready for independent re-review. Do not merge. Do not start M02.",
-  "closure": "F2b closed at construction on head ddb7ca4: EvaluatorAuthority.__post_init__ resolves the declared panel, so an incomplete, version-mismatched or under-covering registry raises RegistrationError instead of yielding a promotion-capable authority, and preflight remains the only non-promoting form. 216 tests green locally and on the exact head. No merge, no M02.",
+  "closure": "Independent review APPROVED on head c59ee84e3c34a2311bf8bc2e604eb63656994d7a; Governance run 35532459679 passed 216 tests; PR #7 squash merged as 584b4230a0503fff145e3ad68d95c6682d796c6a.",
   "priorCorrection": "IRIS-WO-0003-CORRECTION-02",
-  "priorAuditedHeadSha": "feb940a2f9439d3e4cac2c55b9cb62d843a02462"
+  "priorAuditedHeadSha": "feb940a2f9439d3e4cac2c55b9cb62d843a02462",
+  "finalApproval": {
+    "reviewedHead": "c59ee84e3c34a2311bf8bc2e604eb63656994d7a",
+    "governanceRunId": 35532459679,
+    "mergeSha": "584b4230a0503fff145e3ad68d95c6682d796c6a"
+  }
 }

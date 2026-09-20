@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "MODULE_MAP_APPROVED",
-  "version": "1.0-planning",
-  "phase": "M00_PRODUCT_CONSTITUTION_READY",
-  "nextStep": "Begin M00 S01 — Vision, non-MVP boundary and complete V1 promise."
+  "status": "M01_QUALITY_KERNEL_APPROVED",
+  "version": "1.0-m01",
+  "phase": "M02_PROJECT_OS_PLANNING_READY",
+  "nextStep": "Begin M02 S01 — Project/production identity and lifecycle."
 }

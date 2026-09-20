@@ -69,3 +69,12 @@ Do not:
 - implement a module without a forward compatibility scan;
 - make future modules depend on undocumented implementation details;
 - silently alter a frozen contract during implementation.
+
+
+## Review Auto-Fix Rule
+
+Independent review follows `.engineering/REVIEW-AUTOFIX-POLICY.md`.
+
+A reviewer classifies every correction as `CHAT_FIXABLE` or `EXECUTOR_REQUIRED`. Safe bounded repository fixes that can be applied and objectively validated by chat are corrected directly in the same branch/PR. Executor correction PDFs are reserved for findings that require unavailable local/runtime capabilities or cannot be safely proven from repository/CI evidence.
+
+After a direct fix, the reviewer re-audits before issuing APPROVED. HIGH/CRITICAL findings never become non-blocking merely because the fix was performed by chat.

@@ -15,6 +15,7 @@ Status: `BOOTSTRAP_ACTIVE`
 - INTEGRATION: `docs/project-brain/05-INTEGRATION-CONTRACTS.md`.
 - FUTURE_WORK: `docs/project-brain/14-BACKLOG.md`.
 - EXECUTION: active admitted Work Order under `.engineering/work-orders/`.
+- REVIEW_POLICY: `.engineering/REVIEW-AUTOFIX-POLICY.md`.
 
 Startup order: `Checkpoint -> Decisions -> Scope -> DoD -> Architecture -> Requirements -> other applicable sources`.
 

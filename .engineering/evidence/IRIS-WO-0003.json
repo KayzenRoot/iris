@@ -6,14 +6,15 @@
   "implementationSha": "391f881078fc215c3e1aabb7df1648539d879dfb",
   "auditedHeadSha": "ba2b7b434c731be197bae7bfdca151188f1b58bc",
   "correctionSha": "ddb7ca41c9c6980927b8bfa17f86f9cf290e6158",
-  "status": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+  "status": "APPROVED_MERGED",
   "branch": "iris-wo-0003-m01-quality-kernel",
   "pullRequest": {
     "number": 7,
     "sameBranchAndPrRequired": true,
-    "merged": false,
+    "merged": true,
     "note": "CORRECTION-01, CORRECTION-02 and CORRECTION-03 were all pushed to the existing branch and PR #7; no merge was performed and M02 was not started.",
-    "headAtCorrection03": "ddb7ca41c9c6980927b8bfa17f86f9cf290e6158"
+    "headAtCorrection03": "ddb7ca41c9c6980927b8bfa17f86f9cf290e6158",
+    "mergeSha": "584b4230a0503fff145e3ad68d95c6682d796c6a"
   },
   "changedFiles": {
     "count": 27,
@@ -615,8 +616,8 @@
     "Extension dimensions are trusted data: a registry can admit an id the auditors have not reviewed, which is bounded but not governed inside M01. Governance of who may extend the vector belongs to the contract freeze process, not the kernel."
   ],
   "checkpointDelta": {
-    "applied": false,
-    "reason": "validate_governance.py asserts heading parity across the three checkpoint artifacts; the delta is proposed here for the independent audit to apply on approval, exactly as IRIS-WO-0002 did.",
+    "applied": true,
+    "reason": "Applied after independent APPROVED verdict and squash merge of PR #7.",
     "proposed": "PROMOTE_M01_QUALITY_KERNEL_APPROVED_PENDING_REVIEW: m01-contract-v1.0 is implemented as the iris_quality package (13 modules, 65 public symbols, 18 canonical dimensions, 13 blocker codes) with a stdlib-only, network-free type surface. QualityJudge and AssetValidator are the sole ports for real evaluators, and every promotion-capable evaluation requires an EvaluatorAuthority whose registry has resolved the whole declared panel: declared, registered, version-exact and covered, with no declaration-only fallback and no constructor that skips resolution. Decision, promotion, debt, registry, dimension-registry and serialization semantics are frozen and covered by 208 M01 tests (216 total, all green); three synthetic visual profiles plus one opt-in non-visual profile prove the kernel is domain-neutral. Next increment stays blocked until the independent verdict records APPROVED; M02 remains out of scope and no real domain evaluator or provider is admitted."
   },
   "correctionRound": 3,
@@ -720,5 +721,14 @@
         "scope": "CORRECTION-01 code head (196 tests)"
       }
     ]
+  },
+  "finalIndependentReview": {
+    "verdict": "APPROVED",
+    "auditedHead": "c59ee84e3c34a2311bf8bc2e604eb63656994d7a",
+    "governanceRunId": 35532459679,
+    "tests": 216,
+    "failed": 0,
+    "errors": 0,
+    "mergedByGovernedFlow": true
   }
 }

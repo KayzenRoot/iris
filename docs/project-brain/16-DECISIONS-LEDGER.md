@@ -52,3 +52,8 @@ All useful UGAS V2 categories and previously planned ideas are mapped into IRIS 
 Status: `APPROVED`
 Fast-moving dependencies such as ComfyUI, custom nodes, models and DCC adapters are pinned/qualified for production and upgraded through compatibility checks/canaries with rollback.
 
+
+
+## ADR-0014 - Review auto-fix before executor escalation
+Status: `APPROVED`
+During IRIS reviews, bounded findings that ChatGPT can safely correct and validate using repository/CI evidence are fixed directly in the active branch/PR. A Codex/Coder/Zcode corrective prompt is produced only when the correction requires unavailable workstation/runtime capabilities or cannot be safely proven from the review environment. The canonical operational rule is `.engineering/REVIEW-AUTOFIX-POLICY.md`.
