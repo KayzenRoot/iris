@@ -6,8 +6,13 @@ from typing import Any, Iterable, Mapping, Optional, Sequence
 
 from .contracts import DEFECT_CLASS_FIELDS, FidelityContract, PromotionRule, QualityClass
 from .debt import QualityDebtPolicy
-from .dimensions import CANONICAL_FIDELITY_VECTOR
-from .errors import RegistrationError, SchemaValidationError, UntrustedExtensionError
+from .dimensions import DEFAULT_DIMENSION_REGISTRY, DimensionRegistry
+from .errors import (
+    EvaluationInputError,
+    RegistrationError,
+    SchemaValidationError,
+    UntrustedExtensionError,
+)
 from .evidence import require_relative_locator
 from .versions import (
     SCHEMA_VERSION,
@@ -23,6 +28,7 @@ __all__ = [
     "ExtensionMetadata",
     "EvaluatorDescriptor",
     "EvaluatorRegistry",
+    "EvaluatorAuthority",
     "DomainProfile",
     "DomainProfileRegistry",
 ]
@@ -134,19 +140,20 @@ class EvaluatorDescriptor:
     deterministic: bool = False
     trust_tier: TrustTier = TrustTier.EXPERIMENTAL
     metadata: ExtensionMetadata = field(default_factory=ExtensionMetadata)
+    dimension_registry: DimensionRegistry = DEFAULT_DIMENSION_REGISTRY
 
     def __post_init__(self) -> None:
         if not isinstance(self.component, ComponentVersion):
             raise SchemaValidationError("component must be a ComponentVersion")
+        if not isinstance(self.dimension_registry, DimensionRegistry):
+            raise SchemaValidationError("dimension_registry must be a DimensionRegistry")
         dimensions = require_unique(self.dimension_ids, "dimension_ids")
         if not dimensions:
             raise RegistrationError("an evaluator must declare at least one supported dimension")
-        outside = sorted(set(dimensions) - set(CANONICAL_FIDELITY_VECTOR))
-        if outside:
-            raise RegistrationError(
-                f"evaluator {self.component.reference} declares dimensions outside the canonical "
-                f"Fidelity Vector: {outside}"
-            )
+        try:
+            self.dimension_registry.require_admitted(dimensions, f"evaluator {self.component.reference}")
+        except SchemaValidationError as error:
+            raise RegistrationError(str(error)) from error
         object.__setattr__(self, "dimension_ids", dimensions)
         if not isinstance(self.deterministic, bool):
             raise SchemaValidationError("deterministic must be a bool")
@@ -168,13 +175,21 @@ class EvaluatorDescriptor:
             "deterministic": self.deterministic,
             "trust_tier": self.trust_tier.value,
             "metadata": self.metadata.to_payload(),
+            "dimension_registry": self.dimension_registry.to_payload(),
         }
 
     @classmethod
     def from_payload(cls, payload: Mapping[str, Any]) -> EvaluatorDescriptor:
         if not isinstance(payload, Mapping):
             raise SchemaValidationError("EvaluatorDescriptor must be a mapping")
-        expected = {"component", "dimension_ids", "deterministic", "trust_tier", "metadata"}
+        expected = {
+            "component",
+            "dimension_ids",
+            "deterministic",
+            "trust_tier",
+            "metadata",
+            "dimension_registry",
+        }
         unexpected = set(payload) - expected
         if unexpected:
             raise SchemaValidationError(f"EvaluatorDescriptor has unknown keys: {sorted(unexpected)}")
@@ -190,6 +205,7 @@ class EvaluatorDescriptor:
             deterministic=payload["deterministic"],
             trust_tier=TrustTier.parse(payload["trust_tier"]),
             metadata=ExtensionMetadata.from_payload(payload["metadata"]),
+            dimension_registry=DimensionRegistry.from_payload(payload["dimension_registry"]),
         )
 
 
@@ -303,6 +319,70 @@ class EvaluatorRegistry:
 
 
 @dataclass(frozen=True)
+class EvaluatorAuthority:
+    """Bounded proof of which versioned evaluator may speak about which dimension.
+
+    Declaring only a contract enforces its ``evaluator_set``. Adding a registry also enforces
+    that the declared version is registered and covers every dimension it opined on, so no
+    untrusted or undeclared evaluator can influence promotion.
+    """
+
+    contract: FidelityContract
+    registry: Optional[EvaluatorRegistry] = None
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.contract, FidelityContract):
+            raise RegistrationError("contract must be a FidelityContract")
+        if self.registry is not None and not isinstance(self.registry, EvaluatorRegistry):
+            raise RegistrationError("registry must be an EvaluatorRegistry or None")
+
+    @classmethod
+    def resolved(
+        cls, contract: FidelityContract, registry: EvaluatorRegistry
+    ) -> "EvaluatorAuthority":
+        """Issue authority only for a contract whose declared panel is registered and complete."""
+
+        registry.resolve(contract)
+        return cls(contract=contract, registry=registry)
+
+    def declared_references(self) -> tuple[str, ...]:
+        return tuple(sorted({item.reference for item in self.contract.evaluator_set}))
+
+    def authorize(
+        self,
+        component: ComponentVersion,
+        dimension_ids: Sequence[str],
+        role: str = "evaluator",
+    ) -> Optional[EvaluatorDescriptor]:
+        if not isinstance(component, ComponentVersion):
+            raise EvaluationInputError(f"{role} must be a ComponentVersion")
+        declared = {item.reference for item in self.contract.evaluator_set}
+        if component.reference not in declared:
+            raise EvaluationInputError(
+                f"{role} {component.reference} is not declared by contract "
+                f"{self.contract.contract_id}; its evaluator_set is {sorted(declared)} and the "
+                "kernel does not infer capability from a result payload"
+            )
+        if self.registry is None:
+            return None
+        try:
+            descriptor = self.registry.descriptor(component)
+        except RegistrationError as error:
+            raise EvaluationInputError(
+                f"{role} {component.reference} is declared by contract "
+                f"{self.contract.contract_id} but not registered: {error}"
+            ) from error
+        outside = sorted(set(dimension_ids) - set(descriptor.dimension_ids))
+        if outside:
+            raise EvaluationInputError(
+                f"{role} {component.reference} is registered for "
+                f"{sorted(descriptor.dimension_ids)} but opined on dimensions outside its "
+                f"declared coverage: {outside}"
+            )
+        return descriptor
+
+
+@dataclass(frozen=True)
 class DomainProfile:
     """A reusable, versioned statement of what a domain cares about."""
 
@@ -317,20 +397,26 @@ class DomainProfile:
     promotion_rules: tuple[PromotionRule, ...] = ()
     recommended_evaluators: tuple[ComponentVersion, ...] = ()
     human_review_dimension_ids: tuple[str, ...] = ()
+    dimension_registry: DimensionRegistry = DEFAULT_DIMENSION_REGISTRY
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "profile_id", require_identifier(self.profile_id, "profile_id"))
         object.__setattr__(self, "version", require_text(self.version, "version", maximum=64))
         object.__setattr__(self, "summary", require_text(self.summary, "summary", maximum=512))
+        if not isinstance(self.dimension_registry, DimensionRegistry):
+            raise RegistrationError("dimension_registry must be a DimensionRegistry")
         dimensions = require_unique(self.dimension_ids, "dimension_ids")
         if not dimensions:
             raise RegistrationError("a domain profile must declare at least one dimension")
-        outside = sorted(set(dimensions) - set(CANONICAL_FIDELITY_VECTOR))
-        if outside:
-            raise RegistrationError(
-                f"profile {self.profile_id} declares non-canonical dimensions: {outside}; "
-                "extend the Fidelity Vector through a contract freeze, not a profile"
+        try:
+            self.dimension_registry.require_admitted(
+                dimensions, f"profile {self.profile_id}"
             )
+        except SchemaValidationError as error:
+            raise RegistrationError(
+                f"{error}; extend the Fidelity Vector through the contract dimension registry, "
+                "never by inventing an id at evaluation time"
+            ) from error
         object.__setattr__(self, "dimension_ids", dimensions)
         for name, _ in DEFECT_CLASS_FIELDS:
             object.__setattr__(self, name, require_unique(getattr(self, name), name))
@@ -413,6 +499,7 @@ class DomainProfile:
             zones=tuple(zones),
             promotion_rules=self.promotion_rules,
             human_review_dimension_ids=self.human_review_dimension_ids,
+            dimension_registry=self.dimension_registry,
             debt_policy=debt_policy if debt_policy is not None else QualityDebtPolicy(),
             max_judge_disagreement=max_judge_disagreement,
         )
@@ -430,6 +517,7 @@ class DomainProfile:
             "promotion_rules": [rule.to_payload() for rule in self.promotion_rules],
             "recommended_evaluators": [item.to_payload() for item in self.recommended_evaluators],
             "human_review_dimension_ids": list(self.human_review_dimension_ids),
+            "dimension_registry": self.dimension_registry.to_payload(),
         }
 
     @classmethod
@@ -448,6 +536,7 @@ class DomainProfile:
             "promotion_rules",
             "recommended_evaluators",
             "human_review_dimension_ids",
+            "dimension_registry",
         }
         unexpected = set(payload) - expected
         if unexpected:
@@ -485,6 +574,7 @@ class DomainProfile:
                 ComponentVersion.from_payload(item) for item in lists["recommended_evaluators"]
             ),
             human_review_dimension_ids=tuple(lists["human_review_dimension_ids"]),
+            dimension_registry=DimensionRegistry.from_payload(payload["dimension_registry"]),
         )
 
 

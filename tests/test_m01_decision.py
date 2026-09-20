@@ -22,6 +22,7 @@ from tests.m01_kernel_support import (
     JUDGE,
     SUBJECT,
     assessment,
+    authorized,
     contract,
     covered_assessments,
     defect,
@@ -174,7 +175,10 @@ class SeverityPolicyTests(TestCase):
             debts=(debt("d.major", "geometry-break", DefectSeverity.MINOR),),
         )
         self.assertIs(decision.awarded_class, QualityClass.REVIEW)
-        self.assertEqual(decision.findings[0].debt_note, "debt_severity_does_not_match_defect")
+        self.assertEqual(
+            decision.findings[0].debt_note,
+            "debt_severity_MINOR_does_not_match_effective_severity_MAJOR",
+        )
 
     def test_minor_defects_only_bar_archival_master(self) -> None:
         target = contract(output_class=QualityClass.ARCHIVAL_MASTER)
@@ -421,7 +425,11 @@ class PromotionLadderTests(TestCase):
 class JuryDisagreementTests(TestCase):
     def setUp(self) -> None:
         self.engine = DecisionEngine()
-        self.target = contract(max_judge_disagreement=0.15)
+        self.target = authorized(
+            contract(max_judge_disagreement=0.15),
+            ComponentVersion("jury-one", "1.0.0"),
+            ComponentVersion("jury-two", "2.0.0"),
+        )
 
     def _jury(self, first: float, second: float) -> tuple[JudgeResult, JudgeResult]:
         return (

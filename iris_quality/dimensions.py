@@ -13,8 +13,15 @@ __all__ = [
     "UncertaintyState",
     "FidelityDimension",
     "DimensionAssessment",
+    "DimensionRegistry",
     "CANONICAL_FIDELITY_VECTOR",
+    "DEFAULT_DIMENSION_REGISTRY",
+    "DIMENSION_REGISTRY_VERSION",
+    "MAX_EXTENSION_DIMENSIONS",
 ]
+
+DIMENSION_REGISTRY_VERSION = "m01-dimension-registry-v1"
+MAX_EXTENSION_DIMENSIONS = 64
 
 CANONICAL_FIDELITY_VECTOR: tuple[str, ...] = (
     "intent-adherence",
@@ -252,6 +259,113 @@ def canonical_dimension(dimension_id: str) -> FidelityDimension:
             "domain profile instead"
         )
     return FidelityDimension(dimension_id=identifier, label=identifier.replace("-", " ").title())
+
+
+@dataclass(frozen=True)
+class DimensionRegistry:
+    """The admitted dimension set: 18 frozen built-ins plus explicitly registered extensions.
+
+    The approved forward-compatibility scan promises non-visual Fidelity Vector growth without
+    touching core state-machine semantics, so an extension is data declared here rather than a new
+    constant in ``decision.py``.
+    """
+
+    extension_dimensions: tuple[FidelityDimension, ...] = ()
+    version: str = DIMENSION_REGISTRY_VERSION
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.extension_dimensions, tuple):
+            raise SchemaValidationError("extension_dimensions must be a tuple of FidelityDimension")
+        extensions = tuple(self.extension_dimensions)
+        if len(extensions) > MAX_EXTENSION_DIMENSIONS:
+            raise SchemaValidationError(
+                f"a dimension registry admits at most {MAX_EXTENSION_DIMENSIONS} extensions, "
+                f"got {len(extensions)}"
+            )
+        identifiers = [item.dimension_id for item in extensions]
+        if len(identifiers) != len(set(identifiers)):
+            raise SchemaValidationError("extension dimension ids must be unique")
+        shadowing = sorted(set(identifiers) & set(CANONICAL_FIDELITY_VECTOR))
+        if shadowing:
+            raise SchemaValidationError(
+                f"canonical dimensions are built-ins and cannot be re-registered: {shadowing}"
+            )
+        for item in extensions:
+            if not isinstance(item, FidelityDimension):
+                raise SchemaValidationError("extension_dimensions entries must be FidelityDimension")
+            if item.core:
+                raise SchemaValidationError(
+                    f"extension dimension {item.dimension_id} must declare core=False; "
+                    "only the frozen S01 vector is core"
+                )
+        object.__setattr__(self, "extension_dimensions", extensions)
+        object.__setattr__(
+            self, "version", require_text(self.version, "version", maximum=64)
+        )
+
+    @property
+    def dimension_ids(self) -> tuple[str, ...]:
+        return CANONICAL_FIDELITY_VECTOR + tuple(
+            item.dimension_id for item in sorted(self.extension_dimensions, key=lambda x: x.dimension_id)
+        )
+
+    @property
+    def extension_ids(self) -> tuple[str, ...]:
+        return tuple(item.dimension_id for item in self.extension_dimensions)
+
+    def admits(self, dimension_id: str) -> bool:
+        return dimension_id in self.dimension_ids
+
+    def resolve(self, dimension_id: str) -> FidelityDimension:
+        identifier = require_identifier(dimension_id, "dimension_id")
+        if identifier in CANONICAL_FIDELITY_VECTOR:
+            return canonical_dimension(identifier)
+        for item in self.extension_dimensions:
+            if item.dimension_id == identifier:
+                return item
+        raise SchemaValidationError(
+            f"{identifier!r} is not an admitted dimension; register it in the contract's "
+            "dimension_registry instead of inventing it at evaluation time"
+        )
+
+    def require_admitted(self, dimension_ids: Sequence[str], owner: str) -> tuple[str, ...]:
+        outside = sorted(set(dimension_ids) - set(self.dimension_ids))
+        if outside:
+            raise SchemaValidationError(
+                f"{owner} references dimensions outside the registry {self.version}: {outside}"
+            )
+        return tuple(dimension_ids)
+
+    def to_payload(self) -> dict[str, Any]:
+        return {
+            "version": self.version,
+            "extension_dimensions": [item.to_payload() for item in self.extension_dimensions],
+        }
+
+    @classmethod
+    def from_payload(cls, payload: Any) -> "DimensionRegistry":
+        if isinstance(payload, cls):
+            return payload
+        if not isinstance(payload, Mapping):
+            raise SchemaValidationError("DimensionRegistry must be a mapping")
+        _require_keys(payload, {"version", "extension_dimensions"}, "DimensionRegistry")
+        if payload["version"] != DIMENSION_REGISTRY_VERSION:
+            raise SchemaValidationError(
+                f"unsupported dimension registry version {payload['version']!r}; this kernel "
+                f"admits {DIMENSION_REGISTRY_VERSION!r}"
+            )
+        extensions = payload["extension_dimensions"]
+        if not isinstance(extensions, list):
+            raise SchemaValidationError("extension_dimensions must be a list")
+        return cls(
+            extension_dimensions=tuple(
+                FidelityDimension.from_payload(item) for item in extensions
+            ),
+            version=payload["version"],
+        )
+
+
+DEFAULT_DIMENSION_REGISTRY = DimensionRegistry()
 
 
 def dimension_ids(assessments: tuple[DimensionAssessment, ...]) -> tuple[str, ...]:

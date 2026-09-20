@@ -25,6 +25,7 @@ __all__ = [
 ]
 
 _SHA256_LENGTH = 64
+MAX_REQUEST_PARAMETERS = 32
 
 
 @dataclass(frozen=True)
@@ -96,7 +97,23 @@ class JudgeRequest:
         object.__setattr__(self, "zone_ids", zones)
         if not isinstance(self.parameters, Mapping):
             raise SchemaValidationError("parameters must be a mapping")
-        object.__setattr__(self, "parameters", dict(self.parameters))
+        if len(self.parameters) > MAX_REQUEST_PARAMETERS:
+            raise SchemaValidationError(
+                f"parameters accepts at most {MAX_REQUEST_PARAMETERS} entries, "
+                f"got {len(self.parameters)}"
+            )
+        checked: dict[str, Any] = {}
+        for key, value in self.parameters.items():
+            name = require_identifier(key, "parameters key")
+            if value is not None and not isinstance(value, (bool, int, float, str)):
+                raise SchemaValidationError(
+                    f"parameter {name!r} must be a scalar or None, not {type(value).__name__}; "
+                    "structured instructions belong in a versioned evaluator, not a request"
+                )
+            if isinstance(value, str) and len(value) > 512:
+                raise SchemaValidationError(f"parameter {name!r} exceeds 512 characters")
+            checked[name] = value
+        object.__setattr__(self, "parameters", checked)
 
     def to_payload(self) -> dict[str, Any]:
         return {
@@ -416,7 +433,12 @@ def _require_unique(values: Iterable[str], name: str) -> None:
 def attach_contract_checks(
     contract: FidelityContract, subject: SubjectRef, outcome: ValidatorOutcome
 ) -> tuple[DimensionAssessment, ...]:
-    """Project structural checks onto dimensions without inventing perceptual values."""
+    """Project binary structural checks onto dimensions as structural measurements.
+
+    The value and confidence here restate a deterministic gate, so a PASS check is reported at 1.0
+    and a FAIL at 0.0: they carry no perceptual opinion, and a perceptual dimension stays absent
+    until a judge that can opine on it is declared by the contract.
+    """
 
     if outcome.contract_reference != contract.reference:
         raise EvaluationInputError(

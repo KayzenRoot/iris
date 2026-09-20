@@ -11,12 +11,19 @@ Nothing in this module is production quality logic. The kernel in
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from typing import Mapping, Sequence
 
 from iris_quality.contracts import FidelityContract, PromotionRule, QualityClass
 from iris_quality.defects import Defect, DefectSeverity
-from iris_quality.dimensions import DimensionAssessment, GateState, UncertaintyState
+from iris_quality.dimensions import (
+    DEFAULT_DIMENSION_REGISTRY,
+    DimensionAssessment,
+    DimensionRegistry,
+    FidelityDimension,
+    GateState,
+    UncertaintyState,
+)
 from iris_quality.evidence import EvidenceRef
 from iris_quality.judging import (
     Abstention,
@@ -41,7 +48,12 @@ __all__ = [
     "GENERIC_IMAGE",
     "GAME_ASSET_ZONES",
     "ISOMETRIC_GAME_ASSET",
+    "EXTENSION_PROFILES",
     "LOGO_VECTOR",
+    "NARRATION_AUDIO",
+    "NARRATION_DIMENSIONS",
+    "NARRATION_EVALUATORS",
+    "NARRATION_REGISTRY",
     "PROFILES",
     "SYNTHETIC_EVALUATORS",
     "ThresholdJudge",
@@ -72,7 +84,10 @@ def evidence_for(
 
 
 def _descriptor(
-    identifier: str, dimensions: Sequence[str], deterministic: bool = False
+    identifier: str,
+    dimensions: Sequence[str],
+    deterministic: bool = False,
+    registry: DimensionRegistry = DEFAULT_DIMENSION_REGISTRY,
 ) -> EvaluatorDescriptor:
     return EvaluatorDescriptor(
         component=ComponentVersion(identifier, "0.1.0"),
@@ -80,6 +95,7 @@ def _descriptor(
         deterministic=deterministic,
         trust_tier=TrustTier.QUALIFIED if deterministic else TrustTier.EXPERIMENTAL,
         metadata=ExtensionMetadata({"purpose": "synthetic contract-test fixture"}),
+        dimension_registry=registry,
     )
 
 
@@ -268,9 +284,71 @@ LOGO_VECTOR = DomainProfile(
     human_review_dimension_ids=("style-brand-consistency",),
 )
 
+NARRATION_DIMENSIONS: tuple[str, ...] = (
+    "intent-adherence",
+    "technical-integrity",
+    "voice-identity",
+    "audio-clarity",
+    "music-coherence",
+    "narrative-continuity",
+)
+
+NARRATION_REGISTRY = DimensionRegistry(
+    extension_dimensions=(
+        FidelityDimension(
+            "voice-identity", label="Voice identity against the reference read", core=False
+        ),
+        FidelityDimension(
+            "audio-clarity", label="Speech clarity and freedom from artefacts", core=False
+        ),
+        FidelityDimension(
+            "music-coherence", label="Music bed coherence with the picture", core=False
+        ),
+        FidelityDimension(
+            "narrative-continuity", label="Narrative continuity across the cut", core=False
+        ),
+    ),
+)
+
+NARRATION_EVALUATORS: tuple[EvaluatorDescriptor, ...] = (
+    _descriptor(
+        "eval.narration-panel",
+        ("intent-adherence", "voice-identity", "narrative-continuity"),
+        registry=NARRATION_REGISTRY,
+    ),
+    _descriptor(
+        "eval.loudness-meter",
+        ("technical-integrity", "audio-clarity", "music-coherence"),
+        deterministic=True,
+        registry=NARRATION_REGISTRY,
+    ),
+)
+
+NARRATION_AUDIO = DomainProfile(
+    profile_id="profile.narration-audio",
+    version="0.1.0",
+    summary="Trailer voice-over bed where no pixel takes part in the judgement.",
+    dimension_ids=NARRATION_DIMENSIONS,
+    fatal_defect_classes=("silence-gap",),
+    major_defect_classes=("voice-drift", "sync-collapse"),
+    minor_defect_classes=("clipping", "room-tone"),
+    observation_defect_classes=("mix-preference",),
+    promotion_rules=_ladder(
+        NARRATION_DIMENSIONS, evidence=1, confidence=0.6, hard_gates=("technical-integrity",)
+    ),
+    recommended_evaluators=(
+        ComponentVersion("eval.narration-panel", "0.1.0"),
+        ComponentVersion("eval.loudness-meter", "0.1.0"),
+    ),
+    dimension_registry=NARRATION_REGISTRY,
+)
+
+EXTENSION_PROFILES: Mapping[str, DomainProfile] = {
+    NARRATION_AUDIO.profile_id: NARRATION_AUDIO,
+}
+
 PROFILES: Mapping[str, DomainProfile] = {
-    GENERIC_IMAGE.profile_id: GENERIC_IMAGE,
-    ISOMETRIC_GAME_ASSET.profile_id: ISOMETRIC_GAME_ASSET,
+    GENERIC_IMAGE.profile_id: GENERIC_IMAGE,    ISOMETRIC_GAME_ASSET.profile_id: ISOMETRIC_GAME_ASSET,
     LOGO_VECTOR.profile_id: LOGO_VECTOR,
 }
 
@@ -298,14 +376,42 @@ GAME_ASSET_ZONES: tuple[SemanticZone, ...] = (
 )
 
 
+def declare_evaluators(
+    contract: FidelityContract, *components: ComponentVersion
+) -> FidelityContract:
+    """Admit extra evaluators to a contract, the way an integrator must grant capability.
+
+    A contract names every component allowed to speak about it. Fixtures use this instead of
+    expecting the kernel to infer capability from whatever payload arrives.
+    """
+
+    declared = {item.reference for item in contract.evaluator_set}
+    extra: list[ComponentVersion] = []
+    for component in components:
+        if component.reference in declared or any(
+            component.reference == item.reference for item in extra
+        ):
+            continue
+        extra.append(component)
+    if not extra:
+        return contract
+    return replace(contract, evaluator_set=contract.evaluator_set + tuple(extra))
+
+
 def profile_for(name: str) -> DomainProfile:
-    profile = PROFILES.get(f"profile.{name}")
-    if profile is None:
-        raise KeyError(f"unknown synthetic profile {name!r}; choose from {sorted(PROFILES)}")
-    return profile
+    for table in (PROFILES, EXTENSION_PROFILES):
+        profile = table.get(f"profile.{name}")
+        if profile is not None:
+            return profile
+    known = sorted(
+        profile_id.split(".", 1)[1] for profile_id in list(PROFILES) + list(EXTENSION_PROFILES)
+    )
+    raise KeyError(f"unknown synthetic profile {name!r}; choose from {known}")
 
 
 def build_profile_registry(*extra: DomainProfile) -> DomainProfileRegistry:
+    """The frozen three-domain catalogue. Extension profiles are opt-in, never implicit."""
+
     registry = DomainProfileRegistry()
     for profile in (*PROFILES.values(), *extra):
         registry.register(profile)
@@ -314,7 +420,7 @@ def build_profile_registry(*extra: DomainProfile) -> DomainProfileRegistry:
 
 def build_evaluator_registry(*extra: EvaluatorDescriptor) -> EvaluatorRegistry:
     registry = EvaluatorRegistry()
-    for descriptor in (*SYNTHETIC_EVALUATORS, *extra):
+    for descriptor in (*SYNTHETIC_EVALUATORS, *NARRATION_EVALUATORS, *extra):
         registry.register(descriptor)
     return registry
 

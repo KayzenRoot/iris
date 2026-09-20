@@ -143,17 +143,35 @@ class QualityDebtPolicy:
             if not isinstance(getattr(self, flag), bool):
                 raise SchemaValidationError(f"{flag} must be a bool")
 
-    def rule(self, defect: Defect, debt: QualityDebt | None) -> DebtRuling:
-        if defect.severity is DefectSeverity.FATAL:
-            return DebtRuling(False, "fatal_defects_are_never_deferrable", None)
-        if defect.severity not in self.deferrable_severities:
-            return DebtRuling(False, f"{defect.severity.value}_is_not_deferrable", None)
+    def rule(
+        self,
+        defect: Defect,
+        debt: QualityDebt | None,
+        effective_severity: DefectSeverity,
+    ) -> DebtRuling:
+        """Rule on a deferral using the authoritative severity, never a softer reported one.
+
+        ``effective_severity`` is the contract-plus-zone severity the kernel will actually enforce.
+        Ruling on ``defect.severity`` instead would let a reporter dilute a contract-defined FATAL
+        to MINOR, attach matching debt and walk the Critical Defect Firewall.
+        """
+
+        severity = DefectSeverity.parse(effective_severity)
+        if severity is DefectSeverity.FATAL:
+            return DebtRuling(False, "effective_fatal_defects_are_never_deferrable", None)
+        if severity not in self.deferrable_severities:
+            return DebtRuling(False, f"{severity.value}_is_not_deferrable", None)
         if debt is None:
             return DebtRuling(False, f"no_quality_debt_recorded_for_{defect.defect_id}", None)
         if debt.defect_id != defect.defect_id or debt.defect_class != defect.defect_class:
             return DebtRuling(False, "debt_does_not_reference_this_defect", None)
-        if debt.severity is not defect.severity:
-            return DebtRuling(False, "debt_severity_does_not_match_defect", None)
+        if debt.severity is not severity:
+            return DebtRuling(
+                False,
+                f"debt_severity_{debt.severity.value}_does_not_match_effective_severity_"
+                f"{severity.value}",
+                None,
+            )
         if (
             self.allowed_exception_classes
             and defect.defect_class not in self.allowed_exception_classes
@@ -169,9 +187,26 @@ class QualityDebtPolicy:
             return DebtRuling(False, "debt_requires_an_approver", None)
         return DebtRuling(True, "debt_accepted_by_policy", debt)
 
-    def rule_all(self, defects: Iterable[Defect], debts: Iterable[QualityDebt]) -> dict[str, DebtRuling]:
+    def rule_all(
+        self,
+        defects: Iterable[Defect],
+        debts: Iterable[QualityDebt],
+        effective_severities: Mapping[str, DefectSeverity],
+    ) -> dict[str, DebtRuling]:
+        """Rule every defect against its authoritative severity; a missing entry fails closed."""
+
         by_defect = {debt.defect_id: debt for debt in debts}
-        return {defect.defect_id: self.rule(defect, by_defect.get(defect.defect_id)) for defect in defects}
+        rulings: dict[str, DebtRuling] = {}
+        for defect in defects:
+            if defect.defect_id not in effective_severities:
+                raise SchemaValidationError(
+                    f"no effective severity supplied for defect {defect.defect_id}; debt cannot be "
+                    "ruled on a severity the kernel has not computed"
+                )
+            rulings[defect.defect_id] = self.rule(
+                defect, by_defect.get(defect.defect_id), effective_severities[defect.defect_id]
+            )
+        return rulings
 
     def to_payload(self) -> dict[str, Any]:
         return {

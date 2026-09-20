@@ -12,14 +12,14 @@ note, not a planning document: the normative wording stays in
 | Module | Holds | Audience |
 | --- | --- | --- |
 | `versions` | `ComponentVersion`, version/schema constants, identifier and text guards, `canonical_json`, `content_digest` | kernel + callers |
-| `dimensions` | `FidelityDimension`, `CANONICAL_FIDELITY_VECTOR` (18 ids), `GateState`, `UncertaintyState`, `MeasurementRange`, `DimensionAssessment` | kernel + judges |
+| `dimensions` | `FidelityDimension`, `CANONICAL_FIDELITY_VECTOR` (18 ids), `DimensionRegistry` + `DEFAULT_DIMENSION_REGISTRY`, `GateState`, `UncertaintyState`, `MeasurementRange`, `DimensionAssessment` | kernel + judges |
 | `evidence` | `EvidenceRef`, `EVIDENCE_KINDS`, relative-locator guard | judges, validators |
 | `defects` | `Defect`, `DefectSeverity` | judges, validators |
 | `zones` | `SemanticZone` | domain profiles |
 | `contracts` | `QualityClass`, `PromotionRule`, `FidelityContract` | every caller |
 | `debt` | `QualityDebt`, `QualityDebtPolicy`, `DebtRuling` | quality policy |
 | `judging` | `SubjectRef`, `JudgeRequest`, `JudgeResult`, `Abstention`, `QualityJudge` and `AssetValidator` ports, `ValidationCheck`, `ValidatorOutcome`, `attach_contract_checks`, `numeric_spread` | evaluator authors |
-| `registry` | `TrustTier`, `ExtensionMetadata`, `EvaluatorDescriptor`, `EvaluatorRegistry`, `DomainProfile`, `DomainProfileRegistry` | module authors |
+| `registry` | `TrustTier`, `ExtensionMetadata`, `EvaluatorDescriptor`, `EvaluatorRegistry`, `EvaluatorAuthority`, `DomainProfile`, `DomainProfileRegistry` | module authors |
 | `decision` | `DecisionEngine`, `QualityDecision`, `Blocker`, `DimensionOutcome`, `EffectiveFinding`, `merge_assessments` | callers |
 | `serialization` | typed envelopes, `dumps`/`loads`, `validate_payload` | storage, HIVE later |
 
@@ -34,8 +34,10 @@ from iris_quality import (
     FidelityContract, PromotionRule, QualityClass,   # obligations
     SubjectRef, JudgeRequest, JudgeResult,           # ports
     DimensionAssessment, EvidenceRef, Defect, SemanticZone,
+    DimensionRegistry, DEFAULT_DIMENSION_REGISTRY,   # admitted dimensions
     DecisionEngine, QualityDecision, DecisionOutcome,  # verdicts
-    EvaluatorRegistry, DomainProfileRegistry,          # capability
+    EvaluatorRegistry, EvaluatorAuthority,           # capability
+    DomainProfileRegistry,
     dumps, loads, envelope, from_envelope, validate_payload,
 )
 ```
@@ -55,10 +57,16 @@ contract = profile.instantiate(
 subject = SubjectRef("asset.siege-01", content_sha256=digest)
 results = tuple(judge.evaluate(JudgeRequest(contract, subject, contract.dimension_ids))
                 for judge in jurors)
-decision = DecisionEngine().evaluate(contract, subject, results=results)
+decision = DecisionEngine().evaluate(
+    contract, subject, results=results,
+    authority=EvaluatorAuthority.resolved(contract, evaluator_registry),
+)
 if decision.outcome is DecisionOutcome.PROMOTED:
     decision.require_promotable()   # raises PromotionBlockedError otherwise
 ```
+
+Omitting `authority` still checks `contract.evaluator_set`; supplying a registry
+narrows every speaker to its registered coverage as well (invariant 10).
 
 Inputs may be handed over as `results` (from `QualityJudge` ports, merged by the
 engine) or as direct `assessments`. Mixing the two sources for the same dimension
@@ -71,9 +79,15 @@ raises `EvaluationInputError` rather than picking a winner silently.
    class raises. The effective severity is the strictest of the contract's
    declaration, the reporter's severity, and any zone override, so a reporter
    cannot dilute a `MINOR` class by calling it an `OBSERVATION`.
-2. **FATAL is a firewall.** Any non-deferred FATAL finding awards `DRAFT` and
-   returns `REJECTED`, regardless of every other measurement, and it is never
-   deferrable by debt (`QualityDebtPolicy` refuses `FATAL`).
+2. **FATAL is a firewall, and debt is ruled against the firewall.**
+   `QualityDebtPolicy.rule(defect, debt, effective_severity)` and `rule_all` take
+   the authoritative severity, so a `MINOR` report of a contract-`FATAL` class
+   with matching `MINOR` debt is refused (`effective_fatal_defects_are_never_deferrable`)
+   instead of buying a deferral. Any non-deferred effective FATAL awards `DRAFT`,
+   returns `REJECTED` and carries `fatal_defect_firewall`; `QualityDecision`
+   additionally refuses to *construct* a record where an effective FATAL finding
+   is marked deferred, so the bypass is unrepresentable in a stored decision, not
+   merely unreachable through one call path.
 3. **No aggregate score.** `QualityDecision` carries per-dimension gates,
    uncertainty, evidence counts and confidences. Nothing averages a defect away.
 4. **Monotonic ladder.** Promotion evaluates `PREVIEW → REVIEW → MASTER →
@@ -90,7 +104,12 @@ raises `EvaluationInputError` rather than picking a winner silently.
 7. **Human review is explicit.** `FidelityContract.human_review_dimension_ids`
    demands a `HUMAN_DECISION` evidence item on that dimension at every rung, and a
    `PromotionRule.requires_human_review` rung demands one on each of its required
-   dimensions.
+   dimensions. A judge's own `JudgeResult.human_review_dimension_ids` is honoured
+   too: the union across jurors marks the dimension `HUMAN_REVIEW`, records the
+   requesters on `DimensionOutcome.human_review_requested_by`, raises
+   `judge_human_review_requested` and blocks promotion until a `HUMAN_DECISION`
+   item answers it. A request naming a dimension the contract never admitted
+   raises instead of being dropped.
 8. **Deterministic records.** Identical normalized inputs produce identical
    `QualityDecision.to_payload()` bytes and the same `content_sha256`; findings,
    blockers and dimensions are canonically ordered, never input-ordered.
@@ -101,15 +120,28 @@ raises `EvaluationInputError` rather than picking a winner silently.
 10. **Capability is declared, never inferred.** `EvaluatorRegistry.resolve()` fails
     when a contract names an unregistered evaluator or a dimension it cannot
     cover; two versions of one evaluator may not silently change coverage.
+    `DecisionEngine.evaluate()` enforces the same thing on the way in, through an
+    `EvaluatorAuthority`: every juror, every direct `DimensionAssessment` producer
+    and every defect speaker must appear in `contract.evaluator_set` at the exact
+    version that spoke, and when the authority carries a registry the component
+    must also be registered and covered for each dimension it opined on.
+11. **Dimensions are a closed, versioned set.** `DimensionRegistry` holds the 18
+    frozen `CANONICAL_FIDELITY_VECTOR` ids plus at most `MAX_EXTENSION_DIMENSIONS`
+    explicitly registered, non-core, non-shadowing extensions. Contracts, domain
+    profiles and evaluator descriptors each carry a registry (defaulting to
+    `DEFAULT_DIMENSION_REGISTRY`) and reject any id outside it, so a new modality
+    is admitted by data at the freeze boundary rather than by editing the state
+    machine in `decision.py`.
 
 ### Blocker codes
 
 Every non-promotion carries at least one named blocker:
 `fatal_defect_firewall`, `judge_disagreement`, `zone_confidence_floor`,
-`insufficient_certainty`, `insufficient_evidence_coverage`,
-`insufficient_confidence`, `dimension_gate_not_pass`, `hard_gate_failed`,
-`major_defect_without_debt`, `minor_defect_without_debt`,
-`human_review_missing_for_dimension`, `human_review_not_recorded`.
+`judge_human_review_requested`, `insufficient_certainty`,
+`insufficient_evidence_coverage`, `insufficient_confidence`,
+`dimension_gate_not_pass`, `hard_gate_failed`, `major_defect_without_debt`,
+`minor_defect_without_debt`, `human_review_missing_for_dimension`,
+`human_review_not_recorded`.
 
 ## Ports
 
@@ -119,7 +151,18 @@ Every non-promotion carries at least one named blocker:
 defects and explicit `Abstention`s; a validator returns `ValidatorOutcome`, whose
 binary `ValidationCheck`s are projected onto dimensions by
 `attach_contract_checks()`, which refuses an outcome bound to a different
-contract reference or subject.
+contract reference or subject. A projection is structural, not perceptual: each
+check becomes a `PASS`/`FAIL` gate at the boundary values 1.0/0.0 with the
+validator as its evaluator, so a validator can force a gate but can never
+manufacture a mid-range perceptual value.
+
+A `JudgeResult` may ask for a human on dimensions it assessed or abstained from;
+the engine treats that request as an unresolved obligation (invariant 7). The
+kernel deliberately does not authenticate *who* signed a `HUMAN_DECISION`
+evidence item: the outer boundary of M01 is that such an item exists and is
+attributed to a versioned producer. Identity, quorum and tamper-evidence of human
+sign-off belong to the review workflow that stores these records, not to the
+decision kernel.
 
 ## Serialization
 
@@ -149,11 +192,31 @@ kinds are enumerated in `serialization.SERIALIZABLE_TYPES`.
 - **`merge_assessments` is worst-case**, not average: strictest gate, weakest
   uncertainty, lowest confidence, median value, union of evidence, attributed to a
   synthetic `jury-consensus@<digest>` evaluator.
+- **Extension dimensions are registry data, not a kernel constant**
+  (IRIS-WO-0003-CORRECTION-01 F4). The approved freeze promises non-visual Fidelity
+  Vector growth; putting an id in `dimensions.py` would have made that growth a code
+  change to the state machine. `DimensionRegistry` is instead a persisted, versioned,
+  bounded field on `FidelityContract`, `DomainProfile` and `EvaluatorDescriptor`, so
+  `DecisionEngine` stayed byte-for-byte unchanged and `profile.narration-audio`
+  promotes through it. The serializable-kind count stays 16 because a registry is
+  carried by its three owners rather than exchanged on its own.
+- **Evaluator capability is checked at the input boundary** (F2) through a small
+  value object rather than by making `DecisionEngine` depend on
+  `EvaluatorRegistry`: `EvaluatorAuthority(contract, registry=None)` enforces the
+  contract's own declaration always, and registration plus coverage whenever the
+  caller supplies a registry. That keeps the vendor-neutral path (declaration only)
+  available while making registry-backed promotion the stricter default.
+- **Debt rulings moved behind severity resolution** (F1) rather than special-casing
+  FATAL at the deferral site, because the bypass was a dilution of *which* severity
+  the ruling consulted. `_apply_policy` now resolves contract, report and zone
+  severity first and rules once, and `QualityDecision` refuses a deferred effective
+  FATAL so no caller can reintroduce the hole through a hand-built record.
 
 ## What M01 deliberately does not do
 
 No inference, no pixel/mesh/scene access, no Blender or ComfyUI, no DreamSim/FLIP
 or model-provider calls, no CV segmentation, no game/web/logo engines, no UI, no
-distributed compute, no HIVE mutation, no M02 code. The three profiles in
-`examples/` are contract fixtures with arithmetic stand-ins; the real evaluators
-that will replace them are delivered by their own modules through the ports above.
+distributed compute, no HIVE mutation, no M02 code. The three frozen profiles in
+`examples/` (plus the non-visual `profile.narration-audio` extension fixture) are
+contract fixtures with arithmetic stand-ins; the real evaluators that will replace
+them are delivered by their own modules through the ports above.

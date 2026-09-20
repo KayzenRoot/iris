@@ -5,7 +5,7 @@ from enum import Enum
 from typing import Any, Mapping, Sequence
 
 from .debt import QualityDebtPolicy
-from .dimensions import CANONICAL_FIDELITY_VECTOR
+from .dimensions import DEFAULT_DIMENSION_REGISTRY, DimensionRegistry
 from .errors import SchemaValidationError
 from .versions import (
     CONTRACT_VERSION,
@@ -178,6 +178,7 @@ class FidelityContract:
     zones: tuple[SemanticZone, ...] = ()
     promotion_rules: tuple[PromotionRule, ...] = ()
     human_review_dimension_ids: tuple[str, ...] = ()
+    dimension_registry: DimensionRegistry = DEFAULT_DIMENSION_REGISTRY
     debt_policy: QualityDebtPolicy = field(default_factory=QualityDebtPolicy)
     max_judge_disagreement: float = 0.35
     contract_version: str = CONTRACT_VERSION
@@ -191,15 +192,12 @@ class FidelityContract:
             "contract_version",
             require_supported_version("contract", self.contract_version, _SUPPORTED_CONTRACTS),
         )
+        if not isinstance(self.dimension_registry, DimensionRegistry):
+            raise SchemaValidationError("dimension_registry must be a DimensionRegistry")
         dimensions = require_unique(self.dimension_ids, "dimension_ids")
         if not dimensions:
             raise SchemaValidationError("dimension_ids must list at least one applicable dimension")
-        unknown = sorted(set(dimensions) - set(CANONICAL_FIDELITY_VECTOR))
-        if unknown:
-            raise SchemaValidationError(
-                f"dimensions {unknown} are not in the canonical Fidelity Vector; register them "
-                "through a domain profile"
-            )
+        self.dimension_registry.require_admitted(dimensions, f"contract {self.contract_id}")
         object.__setattr__(self, "dimension_ids", dimensions)
         object.__setattr__(self, "reference_ids", require_unique(self.reference_ids, "reference_ids"))
         for name, _ in DEFECT_CLASS_FIELDS:
@@ -307,6 +305,13 @@ class FidelityContract:
                 return severity
         return None
 
+    @property
+    def extension_dimension_ids(self) -> tuple[str, ...]:
+        """Non-visual dimensions this contract admitted through its dimension registry."""
+
+        extension = set(self.dimension_registry.extension_ids)
+        return tuple(item for item in self.dimension_ids if item in extension)
+
     def to_payload(self) -> dict[str, Any]:
         return {
             "contract_id": self.contract_id,
@@ -326,6 +331,7 @@ class FidelityContract:
             "zones": [zone.to_payload() for zone in self.zones],
             "promotion_rules": [rule.to_payload() for rule in self.promotion_rules],
             "human_review_dimension_ids": list(self.human_review_dimension_ids),
+            "dimension_registry": self.dimension_registry.to_payload(),
             "debt_policy": self.debt_policy.to_payload(),
             "max_judge_disagreement": self.max_judge_disagreement,
         }
@@ -352,6 +358,7 @@ class FidelityContract:
             "zones",
             "promotion_rules",
             "human_review_dimension_ids",
+            "dimension_registry",
             "debt_policy",
             "max_judge_disagreement",
         }
@@ -387,6 +394,7 @@ class FidelityContract:
             zones=tuple(SemanticZone.from_payload(item) for item in zones),
             promotion_rules=tuple(PromotionRule.from_payload(item) for item in rules),
             human_review_dimension_ids=tuple(payload["human_review_dimension_ids"]),
+            dimension_registry=DimensionRegistry.from_payload(payload["dimension_registry"]),
             debt_policy=QualityDebtPolicy.from_payload(payload["debt_policy"]),
             max_judge_disagreement=payload["max_judge_disagreement"],
             contract_version=payload["contract_version"],

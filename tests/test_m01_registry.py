@@ -69,10 +69,12 @@ class ExtensionMetadataTests(TestCase):
 
 
 class EvaluatorDescriptorTests(TestCase):
-    def test_dimensions_come_from_the_canonical_vector(self) -> None:
+    def test_unregistered_dimension_is_rejected(self) -> None:
         with self.assertRaises(RegistrationError) as caught:
             descriptor(dimension_ids=("my-own-opinion",))
-        self.assertIn("canonical", str(caught.exception))
+        message = str(caught.exception)
+        self.assertIn("outside the registry", message)
+        self.assertIn("my-own-opinion", message)
 
     def test_coverage_is_declared_once(self) -> None:
         with self.assertRaises(SchemaValidationError):

@@ -11,6 +11,7 @@ from .dimensions import DimensionAssessment, GateState, UncertaintyState
 from .errors import EvaluationInputError, PromotionBlockedError, SchemaValidationError
 from .evidence import EvidenceRef
 from .judging import JudgeResult, SubjectRef, numeric_spread
+from .registry import EvaluatorAuthority
 from .versions import (
     SCHEMA_VERSION,
     SUPPORTED_SCHEMA_VERSIONS,
@@ -20,6 +21,7 @@ from .versions import (
     require_supported_version,
     require_text,
 )
+from .zones import SemanticZone
 
 __all__ = [
     "HUMAN_DECISION_KIND",
@@ -273,6 +275,14 @@ class DimensionOutcome:
     zone_ids: tuple[str, ...]
     evaluated_by: tuple[str, ...]
     human_decision_recorded: bool
+    human_review_requested_by: tuple[str, ...] = ()
+
+    def __post_init__(self) -> None:
+        object.__setattr__(
+            self,
+            "human_review_requested_by",
+            tuple(sorted(set(self.human_review_requested_by))),
+        )
 
     def to_payload(self) -> dict[str, Any]:
         return {
@@ -284,6 +294,7 @@ class DimensionOutcome:
             "zone_ids": list(self.zone_ids),
             "evaluated_by": list(self.evaluated_by),
             "human_decision_recorded": self.human_decision_recorded,
+            "human_review_requested_by": list(self.human_review_requested_by),
         }
 
     @classmethod
@@ -299,6 +310,7 @@ class DimensionOutcome:
             "zone_ids",
             "evaluated_by",
             "human_decision_recorded",
+            "human_review_requested_by",
         }
         unexpected = set(payload) - expected
         if unexpected:
@@ -306,7 +318,10 @@ class DimensionOutcome:
         missing = expected - set(payload)
         if missing:
             raise SchemaValidationError(f"DimensionOutcome is missing keys: {sorted(missing)}")
-        lists = {key: payload[key] for key in ("zone_ids", "evaluated_by")}
+        lists = {
+            key: payload[key]
+            for key in ("zone_ids", "evaluated_by", "human_review_requested_by")
+        }
         for key, value in lists.items():
             if not isinstance(value, list):
                 raise SchemaValidationError(f"{key} must be a list")
@@ -319,6 +334,7 @@ class DimensionOutcome:
             zone_ids=tuple(lists["zone_ids"]),
             evaluated_by=tuple(lists["evaluated_by"]),
             human_decision_recorded=payload["human_decision_recorded"],
+            human_review_requested_by=tuple(lists["human_review_requested_by"]),
         )
 
 
@@ -393,6 +409,16 @@ class QualityDecision:
             raise SchemaValidationError("a rejected decision cannot carry any class above DRAFT")
         if self.outcome is DecisionOutcome.HUMAN_REVIEW and not self.requires_human_review:
             raise SchemaValidationError("HUMAN_REVIEW outcome requires the human review flag")
+        bypassed = sorted(
+            item.defect_id
+            for item in self.findings
+            if item.effective_severity is DefectSeverity.FATAL and item.deferred
+        )
+        if bypassed:
+            raise SchemaValidationError(
+                f"an effective FATAL finding can never be deferred, but {bypassed} is recorded as "
+                "deferred; the Critical Defect Firewall cannot be carried by quality debt"
+            )
         if self.blockers != tuple(sorted(self.blockers, key=Blocker.sort_key)):
             raise SchemaValidationError("blockers must be stored in canonical order")
         if self.findings != tuple(sorted(self.findings, key=lambda item: item.defect_id)):
@@ -519,17 +545,29 @@ class DecisionEngine:
         results: Sequence[JudgeResult] = (),
         defects: Sequence[Defect] = (),
         debts: Sequence[QualityDebt] = (),
+        authority: Optional[EvaluatorAuthority] = None,
     ) -> QualityDecision:
-        """Decide one asset against one contract. Same inputs, same bytes out."""
+        """Decide one asset against one contract. Same inputs, same bytes out.
+
+        Every evaluator that speaks is checked against the contract's declared capability, and
+        against the registry when an :class:`EvaluatorAuthority` carries one.
+        """
 
         if not isinstance(contract, FidelityContract):
             raise EvaluationInputError("contract must be a FidelityContract")
         if not isinstance(subject, SubjectRef):
             raise EvaluationInputError("subject must be a SubjectRef")
-        collected = self._collect(contract, subject, assessments, results, defects)
+        resolved_authority = (
+            EvaluatorAuthority(contract) if authority is None else authority
+        )
+        if resolved_authority.contract != contract:
+            raise EvaluationInputError(
+                "the evaluator authority was issued for another contract; capability is per contract"
+            )
+        collected = self._collect(contract, subject, assessments, results, defects, resolved_authority)
         findings, rulings = self._apply_policy(contract, collected["defects"], debts)
         dimensions, certainty_blockers = self._dimension_states(
-            contract, collected["assessments"], results
+            contract, collected["assessments"], results, collected["review_requests"]
         )
         needs_review = any(
             item.uncertainty == UncertaintyState.HUMAN_REVIEW.value for item in dimensions
@@ -609,7 +647,22 @@ class DecisionEngine:
         assessments: Sequence[DimensionAssessment],
         results: Sequence[JudgeResult],
         defects: Sequence[Defect],
+        authority: EvaluatorAuthority,
     ) -> dict[str, tuple[Any, ...]]:
+        review_requests: dict[str, list[str]] = {}
+        for result in results:
+            spoken = [item.dimension_id for item in result.assessments] + [
+                item.dimension_id for item in result.defects if item.dimension_id is not None
+            ]
+            authority.authorize(result.judge, spoken, role="judge")
+            for dimension_id in result.human_review_dimension_ids:
+                if dimension_id not in contract.dimension_ids:
+                    raise EvaluationInputError(
+                        f"judge {result.judge.reference} requested human review for "
+                        f"{dimension_id!r}, outside contract {contract.contract_id}; a request the "
+                        "contract never admitted is refused, not ignored"
+                    )
+                review_requests.setdefault(dimension_id, []).append(result.judge.reference)
         merged = {
             item.dimension_id: item
             for item in merge_assessments(contract, subject, results)
@@ -617,6 +670,7 @@ class DecisionEngine:
         for item in assessments:
             if not isinstance(item, DimensionAssessment):
                 raise EvaluationInputError("assessments entries must be DimensionAssessment")
+            authority.authorize(item.evaluator, (item.dimension_id,), role="assessment evaluator")
             if item.dimension_id in merged:
                 raise EvaluationInputError(
                     f"dimension {item.dimension_id!r} carries both a judge assessment and an "
@@ -649,6 +703,7 @@ class DecisionEngine:
         return {
             "assessments": tuple(merged[key] for key in sorted(merged)),
             "defects": tuple(sorted(reported, key=lambda item: item.defect_id)),
+            "review_requests": {key: tuple(sorted(set(value))) for key, value in review_requests.items()},
         }
 
     def _apply_policy(
@@ -657,8 +712,9 @@ class DecisionEngine:
         defects: Sequence[Defect],
         debts: Sequence[QualityDebt],
     ) -> tuple[tuple[EffectiveFinding, ...], Mapping[str, DebtRuling]]:
-        rulings = contract.debt_policy.rule_all(defects, debts)
-        findings: list[EffectiveFinding] = []
+        severities: dict[str, DefectSeverity] = {}
+        zones_by_defect: dict[str, tuple[SemanticZone, ...]] = {}
+        contract_severities: dict[str, DefectSeverity] = {}
         for defect in defects:
             declared = contract.declared_severity(defect.defect_class)
             if declared is None:
@@ -679,15 +735,23 @@ class DecisionEngine:
                     (effective, zone.effective_severity(defect.defect_class, effective)),
                     key=lambda item: item.rank,
                 )
+            contract_severities[defect.defect_id] = contract_severity
+            severities[defect.defect_id] = effective
+            zones_by_defect[defect.defect_id] = zones
+        # Debt is ruled after the authoritative severity exists, so a softer reported severity can
+        # never buy a deferral the effective severity forbids.
+        rulings = contract.debt_policy.rule_all(defects, debts, severities)
+        findings: list[EffectiveFinding] = []
+        for defect in defects:
             ruling = rulings[defect.defect_id]
             findings.append(
                 EffectiveFinding(
                     defect_id=defect.defect_id,
                     defect_class=defect.defect_class,
-                    contract_severity=contract_severity,
+                    contract_severity=contract_severities[defect.defect_id],
                     reported_severity=defect.severity,
-                    effective_severity=effective,
-                    zone_ids=tuple(sorted(zone.zone_id for zone in zones)),
+                    effective_severity=severities[defect.defect_id],
+                    zone_ids=tuple(sorted(zone.zone_id for zone in zones_by_defect[defect.defect_id])),
                     dimension_id=defect.dimension_id,
                     deferred=ruling.allowed,
                     debt_id=None if ruling.debt is None else ruling.debt.debt_id,
@@ -701,6 +765,7 @@ class DecisionEngine:
         contract: FidelityContract,
         assessments: Sequence[DimensionAssessment],
         results: Sequence[JudgeResult],
+        review_requests: Mapping[str, tuple[str, ...]],
     ) -> tuple[tuple[DimensionOutcome, ...], tuple[Blocker, ...]]:
         by_dimension = {item.dimension_id: item for item in assessments}
         spread = numeric_spread(results)
@@ -750,6 +815,24 @@ class DecisionEngine:
                             dimension_id=dimension_id,
                         )
                     )
+            recorded = bool(
+                assessment and any(item.kind == HUMAN_DECISION_KIND for item in assessment.evidence)
+            )
+            requesters = review_requests.get(dimension_id, ())
+            if requesters and not recorded:
+                # A judge asking for a human is never reinterpreted as a pass, and one request out
+                # of several jurors is enough: the union survives the merge until it is answered.
+                uncertainty = UncertaintyState.HUMAN_REVIEW
+                blockers.append(
+                    Blocker(
+                        code="judge_human_review_requested",
+                        detail=(
+                            f"{', '.join(requesters)} asked for a human decision on {dimension_id}; "
+                            "the kernel will not promote over an unanswered request"
+                        ),
+                        dimension_id=dimension_id,
+                    )
+                )
             states.append(
                 DimensionOutcome(
                     dimension_id=dimension_id,
@@ -765,10 +848,8 @@ class DecisionEngine:
                     evaluated_by=()
                     if assessment is None
                     else (assessment.evaluator.reference,),
-                    human_decision_recorded=bool(
-                        assessment
-                        and any(item.kind == HUMAN_DECISION_KIND for item in assessment.evidence)
-                    ),
+                    human_decision_recorded=recorded,
+                    human_review_requested_by=requesters,
                 )
             )
         return tuple(states), tuple(sorted(blockers, key=Blocker.sort_key))

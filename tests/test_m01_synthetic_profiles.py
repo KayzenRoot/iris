@@ -13,18 +13,25 @@ from examples.m01_synthetic_profiles import (
     GAME_ASSET_ZONES,
     GENERIC_IMAGE,
     ISOMETRIC_GAME_ASSET,
+    EXTENSION_PROFILES,
     LOGO_VECTOR,
+    NARRATION_REGISTRY,
     PROFILES,
     StaticValidator,
     ThresholdJudge,
     build_evaluator_registry,
     build_profile_registry,
+    declare_evaluators,
     profile_for,
 )
 from iris_quality.contracts import FidelityContract, QualityClass
 from iris_quality.decision import DecisionEngine, QualityDecision
 from iris_quality.defects import Defect, DefectSeverity
-from iris_quality.dimensions import GateState, UncertaintyState
+from iris_quality.dimensions import (
+    DimensionAssessment,
+    GateState,
+    UncertaintyState,
+)
 from iris_quality.errors import (
     EvaluationInputError,
     RegistrationError,
@@ -37,6 +44,7 @@ from iris_quality.judging import (
     ValidatorOutcome,
     attach_contract_checks,
 )
+from iris_quality.registry import DomainProfile
 from iris_quality.serialization import dumps, loads
 from iris_quality.versions import ComponentVersion
 from iris_quality.zones import SemanticZone
@@ -117,12 +125,30 @@ def judged(
     return tuple(judge.evaluate(request) for judge in judges)
 
 
+def authorized(
+    contract: FidelityContract,
+    *,
+    results: tuple[JudgeResult, ...] = (),
+    assessments: tuple[DimensionAssessment, ...] = (),
+) -> FidelityContract:
+    """Grant the contract exactly the evaluators that will speak in this fixture.
+
+    Real integrators declare capability up front; the fixtures do the same so a passing profile
+    test never depends on the kernel trusting an unnamed component.
+    """
+
+    speaking = [item.judge for item in results] + [item.evaluator for item in assessments]
+    return declare_evaluators(contract, *speaking)
+
+
 def decide(
     contract: FidelityContract,
     results: tuple[JudgeResult, ...],
     defects: tuple[Defect, ...] = (),
 ) -> QualityDecision:
-    return DecisionEngine().evaluate(contract, SUBJECT, results=results, defects=defects)
+    return DecisionEngine().evaluate(
+        authorized(contract, results=results), SUBJECT, results=results, defects=defects
+    )
 
 
 def reported_defect(
@@ -311,7 +337,9 @@ class ProfileValidatorPortTests(TestCase):
         technical = next(item for item in assessments if item.dimension_id == "technical-integrity")
         self.assertIs(technical.gate, GateState.FAIL)
         self.assertEqual(technical.uncertainty, UncertaintyState.KNOWN)
-        decision = DecisionEngine().evaluate(built, SUBJECT, assessments=assessments)
+        decision = DecisionEngine().evaluate(
+            authorized(built, assessments=assessments), SUBJECT, assessments=assessments
+        )
         self.assertIs(decision.awarded_class, QualityClass.DRAFT)
         self.assertIn("dimension_gate_not_pass", decision.blocker_codes)
 
@@ -335,10 +363,11 @@ class ProfileValidatorPortTests(TestCase):
             results={"geometry-integrity": False},
             defect_for_failure=("defect.topology", "broken-topology", DefectSeverity.MINOR),
         ).validate(built, SUBJECT)
+        assessments = attach_contract_checks(built, SUBJECT, outcome)
         decision = DecisionEngine().evaluate(
-            built,
+            authorized(built, assessments=assessments),
             SUBJECT,
-            assessments=attach_contract_checks(built, SUBJECT, outcome),
+            assessments=assessments,
             defects=outcome.defects,
         )
         finding = decision.findings[0]
@@ -417,3 +446,99 @@ class ProfileRecordTests(TestCase):
         self.assertNotIn("anatomy-plausibility", LOGO_VECTOR.dimension_ids)
         self.assertIn("cross-modal-consistency", LOGO_VECTOR.dimension_ids)
         self.assertIn("target-platform-fitness", ISOMETRIC_GAME_ASSET.dimension_ids)
+
+
+class NonVisualProfileTests(TestCase):
+    """F4: a domain the kernel has never heard of, admitted through the dimension registry.
+
+    Promotion here is produced by the same ``DecisionEngine`` that serves the three visual
+    profiles, with no branch on a dimension name anywhere in the kernel.
+    """
+
+    AUDIO_OBSERVATIONS = {
+        "voice-identity": 0.88,
+        "audio-clarity": 0.94,
+        "music-coherence": 0.86,
+        "narrative-continuity": 0.9,
+    }
+
+    def setUp(self) -> None:
+        self.built = instantiate("narration-audio", QualityClass.MASTER)
+
+    def _judges(self, audio: dict | None = None) -> tuple[ThresholdJudge, ...]:
+        measured = dict(self.AUDIO_OBSERVATIONS if audio is None else audio)
+        measured["intent-adherence"] = OBSERVATIONS["intent-adherence"]
+        measured["technical-integrity"] = OBSERVATIONS["technical-integrity"]
+        return (
+            ThresholdJudge("jury.audio-a", observations=measured),
+            ThresholdJudge(
+                "jury.audio-b",
+                observations={key: min(1.0, value + 0.01) for key, value in measured.items()},
+            ),
+        )
+
+    def test_the_extension_profile_sits_outside_the_frozen_three(self) -> None:
+        self.assertEqual(len(PROFILES), 3)
+        self.assertEqual(tuple(EXTENSION_PROFILES), ("profile.narration-audio",))
+        self.assertEqual(self.built.dimension_registry, NARRATION_REGISTRY)
+        self.assertEqual(
+            self.built.extension_dimension_ids,
+            ("voice-identity", "audio-clarity", "music-coherence", "narrative-continuity"),
+        )
+        self.assertEqual(build_profile_registry().registered_references(), 
+            tuple(sorted(f"{item.profile_id}@{item.version}" for item in PROFILES.values())))
+
+    def test_a_non_visual_domain_promotes_without_any_kernel_edit(self) -> None:
+        results = judged(self.built, self._judges())
+        decision = decide(self.built, results)
+        self.assertEqual(decision.outcome.value, "PROMOTED")
+        self.assertIs(decision.awarded_class, QualityClass.MASTER)
+        self.assertEqual(decision.blocker_codes, ())
+        self.assertEqual(
+            [item.dimension_id for item in decision.dimensions], sorted(self.built.dimension_ids)
+        )
+
+    def test_a_silent_extension_dimension_bars_promotion(self) -> None:
+        partial = {key: value for key, value in self.AUDIO_OBSERVATIONS.items() if key != "audio-clarity"}
+        decision = decide(self.built, judged(self.built, self._judges(partial)))
+        self.assertNotEqual(decision.outcome.value, "PROMOTED")
+        self.assertIn("insufficient_certainty", decision.blocker_codes)
+        state = next(
+            item for item in decision.dimensions if item.dimension_id == "audio-clarity"
+        )
+        self.assertEqual(state.uncertainty, UncertaintyState.UNKNOWN.value)
+        self.assertEqual(state.evaluated_by, ())
+
+    def test_the_extension_panel_covers_every_admitted_dimension(self) -> None:
+        resolved = build_evaluator_registry().resolve(self.built)
+        self.assertEqual(
+            sorted(item.reference for item in resolved),
+            ["eval.loudness-meter@0.1.0", "eval.narration-panel@0.1.0"],
+        )
+        covered = {dimension for item in resolved for dimension in item.dimension_ids}
+        self.assertEqual(covered, set(self.built.dimension_ids))
+
+    def test_an_unnamed_audio_jury_is_refused_like_any_other(self) -> None:
+        results = judged(self.built, self._judges())
+        with self.assertRaises(EvaluationInputError):
+            DecisionEngine().evaluate(self.built, SUBJECT, results=results)
+
+    def test_a_non_visual_dimension_cannot_be_invented_at_registration_time(self) -> None:
+        with self.assertRaises(RegistrationError) as caught:
+            DomainProfile(
+                profile_id="profile.aura",
+                version="0.1.0",
+                summary="an attempt to smuggle an unadmitted dimension in",
+                dimension_ids=("voice-identity", "aura-fidelity"),
+                dimension_registry=NARRATION_REGISTRY,
+            )
+        self.assertIn("outside the registry", str(caught.exception))
+
+    def test_the_non_visual_record_round_trips(self) -> None:
+        decision = decide(self.built, judged(self.built, self._judges()))
+        self.assertEqual(loads(dumps(decision)).content_sha256, decision.content_sha256)
+        rebuilt = FidelityContract.from_payload(self.built.to_payload())
+        self.assertEqual(rebuilt.dimension_registry, self.built.dimension_registry)
+        self.assertEqual(
+            rebuilt.extension_dimension_ids, self.built.extension_dimension_ids
+        )

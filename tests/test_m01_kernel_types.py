@@ -55,10 +55,12 @@ class ContractConstructionTests(TestCase):
         self.assertEqual(target.reference, "contract.test@m01-contract-v1.0")
         self.assertEqual(target.output_class, QualityClass.MASTER)
 
-    def test_non_canonical_dimension_is_rejected(self) -> None:
+    def test_unregistered_dimension_is_rejected(self) -> None:
         with self.assertRaises(SchemaValidationError) as caught:
             contract(dimension_ids=("intent-adherence", "aura-fidelity"))
-        self.assertIn("canonical Fidelity Vector", str(caught.exception))
+        message = str(caught.exception)
+        self.assertIn("outside the registry", message)
+        self.assertIn("aura-fidelity", message)
 
     def test_duplicate_dimensions_are_rejected(self) -> None:
         with self.assertRaises(SchemaValidationError):
@@ -226,9 +228,13 @@ class ZoneAndDebtPolicyTests(TestCase):
 
     def test_fatal_defects_are_never_deferrable(self) -> None:
         policy = QualityDebtPolicy()
-        ruling = policy.rule(defect("d.f", "subject-absent", DefectSeverity.FATAL), debt("d.f", "subject-absent", DefectSeverity.FATAL))
+        ruling = policy.rule(
+            defect("d.f", "subject-absent", DefectSeverity.FATAL),
+            debt("d.f", "subject-absent", DefectSeverity.FATAL),
+            DefectSeverity.FATAL,
+        )
         self.assertFalse(ruling.allowed)
-        self.assertEqual(ruling.reason, "fatal_defects_are_never_deferrable")
+        self.assertEqual(ruling.reason, "effective_fatal_defects_are_never_deferrable")
 
     def test_fatal_cannot_be_declared_deferrable_at_all(self) -> None:
         with self.assertRaises(SchemaValidationError):
@@ -240,15 +246,25 @@ class ZoneAndDebtPolicyTests(TestCase):
 
     def test_debt_must_match_its_defect(self) -> None:
         policy = QualityDebtPolicy()
-        ruling = policy.rule(defect("d.1", "geometry-break", DefectSeverity.MAJOR), debt("d.2"))
+        ruling = policy.rule(
+            defect("d.1", "geometry-break", DefectSeverity.MAJOR),
+            debt("d.2"),
+            DefectSeverity.MAJOR,
+        )
         self.assertFalse(ruling.allowed)
         self.assertEqual(ruling.reason, "debt_does_not_reference_this_defect")
 
     def test_debt_outside_allowed_exception_classes_is_refused(self) -> None:
         policy = QualityDebtPolicy(allowed_exception_classes=frozenset({"other-class"}))
-        ruling = policy.rule(defect("d.1"), debt("d.1"))
+        ruling = policy.rule(defect("d.1"), debt("d.1"), DefectSeverity.MAJOR)
         self.assertFalse(ruling.allowed)
         self.assertIn("not_an_allowed_exception_class", ruling.reason)
+
+    def test_rule_all_refuses_to_guess_a_missing_effective_severity(self) -> None:
+        policy = QualityDebtPolicy()
+        with self.assertRaises(SchemaValidationError) as caught:
+            policy.rule_all((defect("d.1"),), (), {})
+        self.assertIn("no effective severity supplied", str(caught.exception))
 
 
 class JudgePortTests(TestCase):

@@ -7,14 +7,23 @@ exercise kernel semantics, so profile behaviour is tested separately through
 
 from __future__ import annotations
 
+from dataclasses import replace
 from typing import Any, Mapping, Optional, Sequence
 
 from iris_quality.contracts import FidelityContract, PromotionRule, QualityClass
 from iris_quality.debt import QualityDebt
 from iris_quality.defects import Defect, DefectSeverity
-from iris_quality.dimensions import DimensionAssessment, GateState, UncertaintyState
+from iris_quality.dimensions import (
+    DEFAULT_DIMENSION_REGISTRY,
+    DIMENSION_REGISTRY_VERSION,
+    DimensionAssessment,
+    DimensionRegistry,
+    FidelityDimension,
+    GateState,
+    UncertaintyState,
+)
 from iris_quality.evidence import EvidenceRef
-from iris_quality.judging import JudgeResult, SubjectRef
+from iris_quality.judging import Abstention, JudgeResult, SubjectRef
 from iris_quality.registry import (
     DomainProfile,
     EvaluatorDescriptor,
@@ -135,7 +144,7 @@ def contract(
         "major_defect_classes": MAJOR_CLASSES,
         "minor_defect_classes": MINOR_CLASSES,
         "observation_defect_classes": OBSERVATION_CLASSES,
-        "evaluator_set": (EVALUATOR,),
+        "evaluator_set": (EVALUATOR, JUDGE),
         "promotion_rules": tuple(
             promotion_rules
             if promotion_rules is not None
@@ -182,6 +191,27 @@ def debt(
     )
 
 
+def authorized(
+    target: FidelityContract,
+    *speakers: ComponentVersion,
+) -> FidelityContract:
+    """Grant a contract the components already in its payloads.
+
+    Capability is declared, never inferred: a test that invents its own judge has to admit it
+    to the contract first, exactly as an integrator would.
+    """
+
+    declared = {item.reference for item in target.evaluator_set}
+    extra: list[ComponentVersion] = []
+    for item in speakers:
+        if item.reference in declared or any(item.reference == seen.reference for seen in extra):
+            continue
+        extra.append(item)
+    if not extra:
+        return target
+    return replace(target, evaluator_set=target.evaluator_set + tuple(extra))
+
+
 def judge_result(
     target: FidelityContract,
     assessments: Sequence[DimensionAssessment],
@@ -189,6 +219,8 @@ def judge_result(
     judge: ComponentVersion = JUDGE,
     subject: SubjectRef = SUBJECT,
     defects: Sequence[Defect] = (),
+    abstentions: Sequence[Abstention] = (),
+    human_review_dimension_ids: Sequence[str] = (),
 ) -> JudgeResult:
     return JudgeResult(
         judge=judge,
@@ -197,6 +229,22 @@ def judge_result(
         subject=subject,
         assessments=tuple(assessments),
         defects=tuple(defects),
+        abstentions=tuple(abstentions),
+        human_review_dimension_ids=tuple(human_review_dimension_ids),
+    )
+
+
+def extension_registry(
+    *dimension_ids: str, version: str = DIMENSION_REGISTRY_VERSION
+) -> DimensionRegistry:
+    """A registry that admits named non-visual dimensions, as a freeze would."""
+
+    return DimensionRegistry(
+        extension_dimensions=tuple(
+            FidelityDimension(dimension_id, label=dimension_id.replace("-", " ").title(), core=False)
+            for dimension_id in dimension_ids
+        ),
+        version=version,
     )
 
 
@@ -207,6 +255,7 @@ def evaluator_descriptor(
     deterministic: bool = False,
     trust_tier: TrustTier = TrustTier.EXPERIMENTAL,
     metadata: ExtensionMetadata = ExtensionMetadata(),
+    dimension_registry: DimensionRegistry = DEFAULT_DIMENSION_REGISTRY,
 ) -> EvaluatorDescriptor:
     return EvaluatorDescriptor(
         component=ComponentVersion(identifier, version),
@@ -214,6 +263,7 @@ def evaluator_descriptor(
         deterministic=deterministic,
         trust_tier=trust_tier,
         metadata=metadata,
+        dimension_registry=dimension_registry,
     )
 
 
@@ -229,6 +279,7 @@ def domain_profile(
     promotion_rules: tuple[PromotionRule, ...] | None = None,
     recommended_evaluators: tuple[ComponentVersion, ...] = (EVALUATOR,),
     human_review_dimension_ids: tuple[str, ...] = (),
+    dimension_registry: DimensionRegistry = DEFAULT_DIMENSION_REGISTRY,
 ) -> DomainProfile:
     return DomainProfile(
         profile_id=profile_id,
@@ -239,7 +290,8 @@ def domain_profile(
         major_defect_classes=major_defect_classes,
         minor_defect_classes=minor_defect_classes,
         observation_defect_classes=observation_defect_classes,
-        promotion_rules=ladder_rules() if promotion_rules is None else promotion_rules,
+        promotion_rules=ladder_rules(dimension_ids) if promotion_rules is None else promotion_rules,
         recommended_evaluators=recommended_evaluators,
         human_review_dimension_ids=human_review_dimension_ids,
+        dimension_registry=dimension_registry,
     )
