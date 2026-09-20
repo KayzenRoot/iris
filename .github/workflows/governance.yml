@@ -1,0 +1,28 @@
+name: Governance
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  governance:
+    name: Governance
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+      - name: Compile bootstrap tooling
+        run: python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/hive_bootstrap.py scripts/hive_mcp.py
+      - name: Validate IRIS governance
+        run: python scripts/validate_governance.py
+      - name: Test GEF and HIVE bridges
+        run: python -m unittest discover -s tests -p "test_*.py" -v
