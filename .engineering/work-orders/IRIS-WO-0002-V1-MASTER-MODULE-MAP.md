@@ -1,6 +1,6 @@
 # IRIS-WO-0002 — IRIS 1.0 Research Baseline + Master Module Map
 
-Status: `IN_REVIEW`
+Status: `COMPLETED_APPROVED`
 
 ## OBJECTIVE
 Create the first canonical IRIS 1.0 product-planning baseline: research findings, UGAS V1/V2 carryover, quality/runtime invariants and the complete module/session map.
@@ -63,5 +63,17 @@ Canonical discovery baseline, module map, carryover map, quality/runtime princip
 ## REVIEW FORMAT
 Português brasileiro; findings by severity; verdict `APPROVED`, `CORRECTION REQUIRED` or `BLOCKED`.
 
+## EVIDENCE
+- Authorized base: `f41c85f64f764400cc600eb52d98cadd0f78a49e`.
+- Audited planning head: `d9d644d5fe110ec12326b6e2372eef9470223300`.
+- Exact-head Governance run: `35518970773` / job `106099623155` / SUCCESS.
+- Exact-head assertion: expected = actual = `d9d644d5fe110ec12326b6e2372eef9470223300`.
+- Governance validator: PASS.
+- Bridge tests: 8/8 PASS.
+- Structural audit: 61/61 modules; M00-M60; 305/305 sessions; 61/61 modules with exactly five sessions.
+- UGAS V2 carryover audit: 30/30 categories mapped.
+- Diff audit: 15/15 changed files limited to planning/docs/.engineering; product code changed: 0.
+- CRITICAL: 0; HIGH: 0; blocking MEDIUM: 0.
+
 ## STOP CONDITION
-Stop after module-map baseline is approved and merged. Next increment begins M00 planning. No product implementation.
+Satisfied for the research/module-map baseline. Product implementation remains gated. The next legal increment is M00 S01 planning.

@@ -2,7 +2,8 @@
   "schemaVersion": "iris-context-lock-v1",
   "workOrder": "IRIS-WO-0002",
   "baseSha": "f41c85f64f764400cc600eb52d98cadd0f78a49e",
-  "status": "ACTIVE",
+  "auditedHeadSha": "d9d644d5fe110ec12326b6e2372eef9470223300",
+  "status": "CLOSED_APPROVED",
   "upstream": {
     "ugasV1": {
       "repository": "KayzenRoot/ugas",
@@ -30,5 +31,5 @@
     "planning/UGAS-CARRYOVER-MAP.md",
     "planning/research/IRIS-RESEARCH-BASELINE-2026-09-20.md"
   ],
-  "staleIf": "Any critical canonical source or inspected upstream baseline changes before audit."
+  "closure": "Approved by IRIS-WO-0002 Review 001. Future planning starts a new Work Order/context lock at M00 S01."
 }

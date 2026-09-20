@@ -1,22 +1,22 @@
 # IRIS Checkpoint
 
 ## STATUS
-DISCOVERY_ACTIVE
+MODULE_MAP_APPROVED
 
 ## VERSION
 1.0-planning
 
 ## PHASE
-MASTER_MODULE_MAP
+M00_PRODUCT_CONSTITUTION_READY
 
 ## OBJECTIVE
-Establish the complete IRIS 1.0 research baseline and M00–M60 planning map, carrying forward the useful UGAS V2 vision with extreme quality, adaptive 8 GB execution and headless-first Blender production.
+Begin governed IRIS 1.0 module planning from the approved M00-M60 / 305-session master map while preserving the complete-version, extreme-quality, adaptive-hardware and headless-first runtime invariants.
 
 ## IN PROGRESS
-IRIS-WO-0002: research baseline, UGAS carryover and 61-module / 305-session master planning map.
+No product implementation Work Order is active. IRIS-WO-0002 is approved and closed; M00 S01 is the next planning increment.
 
 ## BLOCKERS
-None identified. Product implementation remains intentionally gated.
+None for planning progression. Product implementation remains gated until the applicable module planning and dependencies are admitted.
 
 ## NEXT STEP
-Audit IRIS-WO-0002 exact head; after APPROVED, promote the module map and begin M00 S01 — Vision, non-MVP boundary and complete V1 promise.
+Begin M00 S01 — Vision, non-MVP boundary and complete V1 promise.

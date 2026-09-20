@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "DISCOVERY_ACTIVE",
+  "status": "MODULE_MAP_APPROVED",
   "version": "1.0-planning",
-  "phase": "MASTER_MODULE_MAP",
-  "nextStep": "Audit IRIS-WO-0002 exact head; after APPROVED, promote the module map and begin M00 S01 — Vision, non-MVP boundary and complete V1 promise."
+  "phase": "M00_PRODUCT_CONSTITUTION_READY",
+  "nextStep": "Begin M00 S01 — Vision, non-MVP boundary and complete V1 promise."
 }
