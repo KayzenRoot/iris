@@ -392,3 +392,235 @@ No candidate is yet IMPLEMENTED or VALIDATED.
 - PGX-029 protects external side effects.
 
 All remain PROPOSED until M02 Final Technology Review.
+
+# Existing foundations added for S03
+
+## EXT-M02-012 — Git snapshots and movable refs
+**Type:** existing / version-control pattern.
+**What it does:** Git commits point at immutable snapshots/history while branches are lightweight movable references to commits.
+**How IRIS uses the pattern:** branch refs move; production Snapshots remain immutable. IRIS does not require large media bytes to be stored in Git.
+**Risk:** Git's line/text merge semantics are not suitable as universal media merge semantics.
+**Proof:** ref movement + immutable Snapshot history tests.
+**Status:** PATTERN_ACCEPTED_FOR_S03.
+
+## EXT-M02-013 — OpenUSD VariantSets
+**Type:** existing / non-destructive variant composition.
+**What it does:** packages switchable alternatives within scene description and allows downstream variant selection without destructively rewriting the base asset.
+**How IRIS uses the pattern:** inspiration for typed non-destructive Variant Sets across 2D/3D/web/video/audio domains.
+**Risk:** USD variants are scene-description constructs and cannot be the universal IRIS variant kernel.
+**Proof:** provider mapping without leaking USD-only semantics into core.
+**Status:** PATTERN_ACCEPTED_FOR_S03.
+
+## EXT-M02-014 — Perforce Streams
+**Type:** existing / managed branching/merge pattern.
+**What it does:** provides structured parent/child stream relationships and controlled propagation across concurrent development lines, commonly used in large asset/code projects.
+**How IRIS uses the pattern:** inspiration for explicit branch relationships, propagation policy and large-media production workflows.
+**Risk:** IRIS does not inherit depot/path-centric assumptions.
+**Proof:** branch lineage and merge-flow fixtures.
+**Status:** PATTERN_ACCEPTED_FOR_S03.
+
+# Internal technology candidates — S03
+
+## IRIS-PGX-030 — Creative Branch Ref
+**Purpose:** provide cheap independent creative lines over immutable production history.
+**How it works:** stable branch_id + mutable head_snapshot_id + exact fork point + policy profile.
+**Benefit:** many experiments/campaigns/shots can evolve without project duplication.
+**Dependencies:** PGX-001/003, Snapshot Manifest.
+**Risk:** uncontrolled branch proliferation.
+**Proof:** fork/advance/rename/merge/retention tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-031 — Immutable Production Snapshot
+**Purpose:** freeze a reproducible production state without copying all media.
+**How it works:** immutable snapshot references graph revision, variants, artifact revisions, policies, decisions and parent snapshots.
+**Benefit:** time travel, fork, rollback and evidence.
+**Dependencies:** M55 CAS, PGX-012.
+**Risk:** incomplete closure being mistaken for full reproducibility.
+**Proof:** snapshot immutability + closure completeness tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-032 — Snapshot Closure Manifest
+**Purpose:** make snapshot completeness a provable claim.
+**How it works:** canonical manifest lists graph, selected variants, revisions, quality/rights/provenance/environment refs and unresolved dependencies.
+**Benefit:** LOGICAL/MATERIALIZED/VALIDATED/RELEASE claims can fail closed.
+**Dependencies:** M01, M53, M55.
+**Risk:** manifest growth.
+**Proof:** missing-reference mutation corpus.
+**Status:** PROPOSED.
+
+## IRIS-PGX-033 — Variant Lattice
+**Purpose:** represent orthogonal coexisting alternatives without cloning branches.
+**How it works:** typed Variant Sets combine along controlled axes such as outfit/language/platform/motion/brand-mark.
+**Benefit:** compact representation of large product/campaign matrices.
+**Dependencies:** graph activation/port contracts.
+**Risk:** combinatorial explosion.
+**Proof:** variant-space and identity-preservation tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-034 — Variant Constraint Solver
+**Purpose:** reject impossible/unsafe variant combinations before execution.
+**How it works:** compatibility predicates/constraints over Variant Sets produce valid/invalid/conditional combinations with explanations.
+**Benefit:** saves compute and protects persona/brand/platform invariants.
+**Dependencies:** PGX-033, M03 constraints.
+**Risk:** constraint complexity.
+**Proof:** seeded legal/illegal combination corpus.
+**Status:** PROPOSED.
+
+## IRIS-PGX-035 — Sparse Variant Materializer
+**Purpose:** avoid eagerly rendering every Cartesian variant.
+**How it works:** materializes only requested/downstream-required combinations while structurally sharing common upstream revisions.
+**Benefit:** large savings in GPU/storage/time.
+**Dependencies:** PGX-024 Impact Cone, M55 CAS.
+**Risk:** late missing variant discovery.
+**Proof:** combinatorial benchmark against eager baseline.
+**Status:** PROPOSED.
+
+## IRIS-PGX-036 — Semantic Three-Way Merge
+**Purpose:** merge media-production histories using graph/object semantics rather than byte heuristics.
+**How it works:** compares merge base, source and target Snapshots per graph/object/variant/policy dimension.
+**Benefit:** safe collaboration and creative convergence.
+**Dependencies:** Semantic Diff, conflict engine.
+**Risk:** domain-specific conflict ambiguity.
+**Proof:** structured merge corpus with known oracle.
+**Status:** PROPOSED.
+
+## IRIS-PGX-037 — Creative Conflict Taxonomy
+**Purpose:** classify merge conflicts into actionable production meanings.
+**How it works:** typed conflicts cover topology, node definition, artifact revision, variants, identity, quality, rights, delivery and side effects.
+**Benefit:** human/agent resolution is explicit rather than "merge failed".
+**Dependencies:** PGX-036.
+**Risk:** unknown conflict types.
+**Proof:** fail closed on unrecognized/ambiguous conflict.
+**Status:** PROPOSED.
+
+## IRIS-PGX-038 — Merge Rebuild Planner
+**Purpose:** prevent a successful metadata merge from pretending downstream media is still valid.
+**How it works:** merge result feeds semantic deltas into S04 Impact Cone and computes nodes requiring revalidation/rebuild.
+**Benefit:** safe merge plus minimal recomputation.
+**Dependencies:** PGX-024, S04.
+**Risk:** merge/invalidation mismatch.
+**Proof:** merged state vs clean full rebuild oracle.
+**Status:** PROPOSED.
+
+## IRIS-PGX-039 — Experiment Sandbox Branch
+**Purpose:** make model/style/camera/campaign experiments cheap and governed.
+**How it works:** bounded branch stores hypothesis, origin Snapshot, budget, providers, TTL/pin and acceptance criteria.
+**Benefit:** systematic experimentation without polluting canonical history.
+**Dependencies:** M51 benchmarks, M15 champion/challenger.
+**Risk:** experiment accumulation.
+**Proof:** TTL/pin/promotion tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-040 — Experiment Promotion Bridge
+**Purpose:** promote a winning experiment without copying arbitrary files.
+**How it works:** emits an admitted semantic Delta/Merge Receipt from experiment to target branch with provenance and impact analysis.
+**Benefit:** reproducible A/B winner promotion.
+**Dependencies:** PGX-036/039.
+**Risk:** hidden dependencies in experiment.
+**Proof:** winner transplant retains causal lineage.
+**Status:** PROPOSED.
+
+## IRIS-PGX-041 — Safe Rollback Planner
+**Purpose:** restore an older known-good state without rewriting history.
+**How it works:** selects target Snapshot, validates reachability/policy, derives reverse semantic delta, checks external side effects and creates a new rollback Snapshot/receipt.
+**Benefit:** reliable recovery.
+**Dependencies:** PGX-031/032, S04.
+**Risk:** old dependencies/providers may no longer be available.
+**Proof:** rollback/rebuild/revalidation matrix.
+**Status:** PROPOSED.
+
+## IRIS-PGX-042 — External Side-Effect Rollback Fence
+**Purpose:** prevent local state rollback from falsely claiming the outside world was undone.
+**How it works:** marks published/uploaded/payment/external mutations and requires explicit compensation or release rollback workflows.
+**Benefit:** avoids duplicate or inconsistent external actions.
+**Dependencies:** PGX-029, M59.
+**Risk:** provider-specific compensation limitations.
+**Proof:** fake external sink fault tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-043 — Structural Snapshot Sharing
+**Purpose:** make branches/snapshots cheap for large media.
+**How it works:** snapshot manifests share immutable CAS/revision references; copy-on-write occurs only for changed semantics/materializations.
+**Benefit:** branch a feature film or game asset set without duplicating terabytes.
+**Dependencies:** M55 CAS.
+**Risk:** reachability/GC correctness.
+**Proof:** storage amplification benchmark and GC safety.
+**Status:** PROPOSED.
+
+## IRIS-PGX-044 — Persona Continuity Branch Guard
+**Purpose:** prevent a persistent avatar's protected identity from drifting through ordinary variants/merges.
+**How it works:** identity-anchor fields are protected across branches; changes require explicit identity migration/new persona semantics and stronger review.
+**Benefit:** stable corporate spokesperson across campaigns/episodes.
+**Dependencies:** M05, M39, M01 Quality.
+**Risk:** too-strict anchors can limit intentional evolution.
+**Proof:** outfit/language pass; face/voice-core mutation blocks.
+**Status:** PROPOSED.
+
+## IRIS-PGX-045 — Campaign & Episode Baseline
+**Purpose:** give recurring media a stable shared production ancestry.
+**How it works:** each campaign/episode/shot can fork from an approved baseline Snapshot while inheriting persona/brand/world/music/voice anchors.
+**Benefit:** hundreds of videos can evolve independently without continuity collapse.
+**Dependencies:** M36/M37/M43/M45.
+**Risk:** baseline updates need controlled propagation.
+**Proof:** multi-episode continuity and propagation tests.
+**Status:** PROPOSED.
+
+## IRIS-PGX-046 — Semantic Delta Transplant
+**Purpose:** cherry-pick bounded creative/technical improvements across branches.
+**How it works:** transplants a typed Graph/Production Delta with dependency preconditions and conflict/impact checks.
+**Benefit:** reuse one fix without merging unrelated experiments.
+**Dependencies:** PGX-036/038.
+**Risk:** delta assumes missing context.
+**Proof:** precondition mismatch must block.
+**Status:** PROPOSED.
+
+## IRIS-PGX-047 — Merge Provenance Receipt
+**Purpose:** make merge outcomes independently auditable.
+**How it works:** records base/source/target, auto/manual resolutions, unresolved conflicts, resulting Snapshot and policy/evidence.
+**Benefit:** explains exactly how a creative direction became canonical.
+**Dependencies:** M53 provenance.
+**Risk:** receipt volume.
+**Proof:** replay/verify merge decision history.
+**Status:** PROPOSED.
+
+## IRIS-PGX-048 — Variant Explosion Governor
+**Purpose:** prevent apparently harmless Variant Sets from creating runaway compute/storage demand.
+**How it works:** estimates reachable combination count, materialization demand and quality-test matrix; requires policy approval/budget when thresholds exceed limits.
+**Benefit:** protects workstation and cloud cost.
+**Dependencies:** PGX-033/035, M09/M10/M50.
+**Risk:** conservative estimates may block useful batches.
+**Proof:** predicted vs actual materialization cost.
+**Status:** PROPOSED.
+
+## IRIS-PGX-049 — Snapshot Reachability & Pin Ledger
+**Purpose:** make cleanup safe.
+**How it works:** tracks reachability from live branches plus release/benchmark/rights/audit pins before materialization GC.
+**Benefit:** reclaim storage without deleting evidence or rollback targets.
+**Dependencies:** M53/M55.
+**Risk:** stale pins leak storage.
+**Proof:** mark/sweep-style adversarial reachability corpus.
+**Status:** PROPOSED.
+
+## IRIS-PGX-050 — Production Time-Travel Inspector
+**Purpose:** inspect any historical Snapshot without mutating it.
+**How it works:** resolves snapshot closure into a read-only project/graph/asset view suitable for comparison, provenance and optional reproduction.
+**Benefit:** debugging, quality regression and creative archaeology.
+**Dependencies:** PGX-031/032.
+**Risk:** unavailable historic providers/assets.
+**Proof:** immutability and read-only access tests.
+**Status:** PROPOSED.
+
+# S03 relationship map
+
+- PGX-030/031 separate moving creative refs from immutable history.
+- PGX-032 makes Snapshot completeness provable.
+- PGX-033/034/035/048 form the variant composition + explosion-control suite.
+- PGX-036/037/038/047 form semantic merge and auditable conflict resolution.
+- PGX-039/040 govern experiments and winner promotion.
+- PGX-041/042 define safe rollback without pretending external effects vanished.
+- PGX-043/049 make large-media branching/storage practical.
+- PGX-044/045 protect persistent avatars, campaigns and episodes.
+- PGX-046 provides bounded cherry-pick-like semantic reuse.
+- PGX-050 provides immutable time travel.
+
+All remain PROPOSED until M02 Final Technology Review.

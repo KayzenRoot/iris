@@ -674,7 +674,458 @@ Future implementation must prove:
 ---
 
 # S03 — Branches, variants, snapshots and rollback
-Status: `NOT_STARTED`
+Status: `S03_PROPOSED_COMPLETE_PENDING_DISCUSSION`
+
+## 1. Four concepts that MUST remain separate
+
+IRIS does not use one generic "version" concept for every creative alternative.
+
+### 1.1 Branch
+A mutable named/reference line of creative or production development.
+
+A Branch points to one current immutable Snapshot and advances by creating/admitting new Snapshots.
+
+Branch name is an alias. Branch identity is stable.
+
+### 1.2 Variant
+A compositional alternative inside one semantic production/artifact family.
+
+Examples:
+- outfit = formal / casual / launch-event;
+- language = pt-BR / en-US / es-ES;
+- logo = full / compact / monochrome;
+- platform = web / mobile / game;
+- motion = full / reduced;
+- camera package = cinematic / product-demo.
+
+A Variant does not automatically deserve a whole Branch.
+
+### 1.3 Snapshot
+An immutable point-in-time closure over production state.
+
+It captures references to:
+- project/production identity;
+- graph revision;
+- selected variants;
+- artifact/revision map;
+- intent/policy/quality refs;
+- relevant environment/qualification refs;
+- parent snapshot(s);
+- transition/evidence refs.
+
+A Snapshot points to immutable revisions/CAS objects rather than copying large media bytes.
+
+### 1.4 Rollback
+A governed operation that creates a new current state derived from an earlier Snapshot.
+
+Rollback NEVER deletes the intervening history and never rewrites an old Snapshot.
+
+## 2. Branch identity and refs
+
+Proposed Branch record:
+- branch_id;
+- project_id / production_id;
+- branch_type/profile;
+- display_name / aliases;
+- head_snapshot_id;
+- fork_point_snapshot_id;
+- parent_branch_id where applicable;
+- policy refs;
+- lifecycle state;
+- created_at / creator;
+- retention/pin policy.
+
+A branch ref is mutable; every Snapshot it points to is immutable.
+
+This deliberately follows the useful separation seen in Git between lightweight movable branch refs and immutable commit/snapshot history, without requiring IRIS media to live inside Git.
+
+## 3. Branch kinds are policy, not new kernels
+
+Suggested initial profiles:
+- `CANONICAL` — accepted/main production line;
+- `EXPERIMENT` — bounded creative exploration;
+- `CAMPAIGN` — marketing/campaign-specific direction;
+- `EPISODE_SHOT` — scene/shot-level production line where needed;
+- `RELEASE` — stabilization/delivery line.
+
+These are policy profiles over one branch mechanism. IRIS must not implement five incompatible branch systems.
+
+## 4. Fork law
+
+A fork creates a new Branch from a specific immutable Snapshot.
+
+Fork receipt records:
+- source branch/snapshot;
+- new branch identity;
+- reason;
+- initial variant selections;
+- inherited pins/policies;
+- actor;
+- time.
+
+A branch cannot silently "start from current" without persisting the exact fork-point Snapshot.
+
+## 5. Variant Sets
+
+Variants are organized into typed Variant Sets.
+
+Examples:
+- `outfit = {formal, casual, keynote}`
+- `language = {pt-BR, en-US}`
+- `brand-mark = {full, compact, icon}`
+- `motion-policy = {full, reduced, static}`
+- `render-tier = {preview, master}`
+
+Each Variant Set declares:
+- variant_set_id;
+- semantic purpose;
+- allowed options;
+- default/none behavior;
+- compatibility/constraint rules;
+- affected graph facets/ports;
+- whether selection changes require revalidation/rebuild.
+
+OpenUSD VariantSets are a useful reference for non-destructive switchable alternatives, but IRIS Variant Sets are cross-domain and do not inherit USD scene-specific semantics.
+
+## 6. Variant Constraint Graph
+
+Not every Cartesian product is legal.
+
+Example:
+- `outfit=keynote` may require `event=launch`;
+- `motion-policy=reduced` may prohibit a particle-heavy WebGPU treatment;
+- `language=ja-JP` may require a different typography/layout node;
+- a corporate spokesperson's "approved hairstyle B" may be legal only for some campaign profile.
+
+IRIS therefore stores compatibility constraints separately from the Variant Set values.
+
+Invalid combinations fail before expensive execution.
+
+## 7. Sparse / lazy variant materialization
+
+IRIS never materializes all possible variant combinations just because they exist.
+
+A variant combination is materialized only when:
+- requested;
+- required downstream;
+- selected by a campaign/release profile;
+- needed for testing/quality coverage.
+
+Shared upstream revisions remain structurally shared.
+
+This prevents a combinatorial explosion such as:
+`4 outfits × 6 languages × 5 aspect ratios × 3 motion modes × 4 platforms`.
+
+## 8. Persona continuity rule
+
+For a persistent virtual spokesperson/digital ambassador:
+
+### Variant-safe changes
+May include, within approved policy:
+- outfit;
+- background;
+- language;
+- camera;
+- lighting;
+- campaign styling;
+- approved hairstyle variant;
+- emotional performance range.
+
+### Identity-anchor changes
+Face/body identity anchors, voice identity core, canonical persona role and other protected identity anchors are NOT ordinary variants.
+
+Changing protected anchors requires:
+- explicit identity migration, or
+- creation of a new persona/semantic identity branch/fork according to later M05/M39 policy.
+
+This prevents an "outfit variant" mechanism from slowly mutating the spokesperson into a different person.
+
+## 9. Snapshot classes
+
+Proposed Snapshot completeness classes:
+
+### LOGICAL_SNAPSHOT
+Captures graph/project/variant/policy state but may reference outputs not yet materialized.
+
+### MATERIALIZED_SNAPSHOT
+All required selected graph outputs have immutable materialization refs.
+
+### VALIDATED_SNAPSHOT
+Required M01 QualityDecisions/evidence are bound and satisfy declared gates for the snapshot profile.
+
+### RELEASE_SNAPSHOT
+A validated closure additionally binds delivery/provenance/rights/release evidence required by the release profile.
+
+A class is a completeness claim, not merely a label.
+
+## 10. Snapshot closure manifest
+
+Every Snapshot has a canonical Closure Manifest.
+
+It answers:
+- which graph revision?
+- which branch/fork ancestry?
+- which variant selections?
+- which artifact revisions?
+- which quality decisions?
+- which policies/rights/provenance refs?
+- which environment/tool/model qualification refs matter?
+- which dependencies are unresolved or external?
+
+A Snapshot claiming MATERIALIZED/VALIDATED/RELEASE completeness fails closed if required closure references are missing.
+
+## 11. Structural sharing
+
+Snapshots store references to immutable objects/revisions.
+
+If Snapshot B differs from Snapshot A only in one subtitle, outfit, texture or graph node:
+- unchanged assets remain referenced;
+- only the changed delta/revisions are new;
+- storage deduplication belongs to CAS/M55;
+- semantic identities remain separate from byte deduplication.
+
+This enables cheap creative branches even with very large media projects.
+
+## 12. Semantic diff
+
+A Snapshot Diff is not just "which files differ".
+
+It classifies deltas such as:
+- graph topology;
+- node definition;
+- dependency facet/slice;
+- variant selection;
+- intent/brief;
+- semantic asset revision;
+- quality decision;
+- rights/provenance;
+- delivery policy;
+- environment/tool/model qualification.
+
+Diff output drives merge, review and S04 impact/rebuild planning.
+
+## 13. Three-way semantic merge
+
+IRIS merge uses:
+- merge base Snapshot;
+- target head Snapshot;
+- source head Snapshot.
+
+Merge is object/graph semantic, not blind byte merging.
+
+Safe auto-merge examples:
+- independent graph nodes edited on separate branches;
+- disjoint Variant Sets;
+- independent metadata fields with compatible policies.
+
+Conflict examples:
+- both branches modify the same node definition differently;
+- both replace the same artifact revision differently;
+- one branch deletes a node the other depends on;
+- incompatible variant constraints;
+- identity-anchor disagreement;
+- rights/policy conflict;
+- one branch lowers required Quality Class;
+- divergent release/published state.
+
+Binary media is never "merged" by averaging bytes. Competing revisions require explicit selection, recomposition, regeneration or a domain merge operation.
+
+## 14. Conflict taxonomy
+
+Initial conflict families:
+- `TOPOLOGY_CONFLICT`
+- `NODE_DEFINITION_CONFLICT`
+- `ARTIFACT_REVISION_CONFLICT`
+- `VARIANT_SELECTION_CONFLICT`
+- `VARIANT_CONSTRAINT_CONFLICT`
+- `IDENTITY_ANCHOR_CONFLICT`
+- `QUALITY_POLICY_CONFLICT`
+- `RIGHTS_PROVENANCE_CONFLICT`
+- `DELIVERY_RELEASE_CONFLICT`
+- `SIDE_EFFECT_CONFLICT`
+
+Each conflict is explicit and has legal resolution strategies.
+
+Unknown conflict classes fail closed.
+
+## 15. Merge Receipt
+
+A merge produces:
+- merge_id;
+- base/source/target Snapshot refs;
+- semantic diff refs;
+- automatically resolved items;
+- manually resolved items;
+- unresolved conflicts;
+- resulting Snapshot;
+- actor/tool/version;
+- evidence and policy refs.
+
+A branch head cannot advance to a merge result with unresolved blocking conflicts.
+
+## 16. Graph Delta / semantic cherry-pick
+
+IRIS should support transplanting a bounded admitted change without merging an entire branch.
+
+Examples:
+- bring one approved logo geometry improvement into a campaign branch;
+- reuse one rig correction across character delivery branches;
+- apply one subtitle timing fix to another locale branch.
+
+The transplant is a versioned Graph/Production Delta with:
+- source Snapshot;
+- target Snapshot;
+- dependency preconditions;
+- semantic scope;
+- resulting conflicts/impact cone.
+
+It is not an untracked manual copy.
+
+## 17. Experiment branches
+
+Experiments are cheap, bounded Branches with:
+- origin Snapshot;
+- hypothesis/intent;
+- budget;
+- retention TTL or pin;
+- allowed providers/models;
+- acceptance criteria.
+
+Examples:
+- compare two image models;
+- test two avatar outfits;
+- try a new WebGPU neural shader;
+- test an alternate camera style;
+- A/B commercial hook variants.
+
+Winning experiment outputs can be promoted by a governed delta/merge, preserving provenance.
+
+Losing experiments remain auditable until retention policy allows cleanup.
+
+## 18. Campaign / episode / shot lineage
+
+For film, advertising and recurring avatar content:
+
+- a Series/Campaign can have a canonical production branch;
+- episodes/campaign waves may fork from approved baseline Snapshots;
+- shots can branch only when independent iteration warrants it;
+- persona/Brand DNA anchors remain inherited/protected;
+- final episode/campaign Snapshot records exact shot/persona/music/voice/brand revisions.
+
+This allows a company spokesperson to stay consistent across 100 videos while each episode evolves independently.
+
+## 19. Safe rollback
+
+Rollback means:
+1. select an earlier trusted Snapshot;
+2. verify it is reachable/admissible;
+3. calculate semantic diff from current head to rollback target;
+4. compute impact / incompatible external side effects;
+5. create a new rollback Snapshot/Transition Receipt;
+6. move the Branch ref only after policy gates pass.
+
+History between current and target remains preserved.
+
+## 20. External side-effect rollback fence
+
+IRIS distinguishes state rollback from undoing the outside world.
+
+Examples:
+- moving a branch back does NOT automatically delete a YouTube upload;
+- restoring an older website package does NOT imply payment/campaign state has rolled back;
+- reverting a project snapshot does NOT revoke already-issued rights/legal records.
+
+External mutations require explicit compensation/release procedures.
+
+## 21. Time travel / inspection
+
+Any immutable Snapshot can be opened read-only for:
+- comparison;
+- evidence review;
+- provenance;
+- quality regression;
+- export reproduction when allowed;
+- branch/fork creation.
+
+Read-only time travel must not mutate the historical Snapshot.
+
+## 22. Reachability, pins and cleanup
+
+A Snapshot/revision can be retained because it is:
+- reachable from a live Branch;
+- referenced by a Release/Validated Snapshot;
+- pinned for benchmark/golden evidence;
+- required by rights/provenance/audit;
+- retained by policy/TTL.
+
+Garbage collection may remove unneeded materializations only when reachability/retention policy says they are disposable.
+
+A semantic tombstone remains when identity/provenance policy requires it.
+
+## 23. Branch vs Variant decision rule
+
+Use a **Variant** when alternatives:
+- belong to one semantic identity/family;
+- are expected to coexist;
+- can be described by a bounded typed axis;
+- share most lineage/dependencies.
+
+Use a **Branch** when alternatives:
+- represent competing or independently evolving creative directions;
+- require separate history/review/promotion;
+- may change graph topology/intent materially;
+- need independent rollback/merge.
+
+A branch may contain Variant Sets.
+
+## 24. Proposed S03 decisions
+
+- **D-M02-S03-001:** Branch refs are mutable; Snapshots are immutable.
+- **D-M02-S03-002:** branch name/alias is not branch identity.
+- **D-M02-S03-003:** Branch, Variant, Snapshot and Rollback are separate concepts.
+- **D-M02-S03-004:** forks always record an exact immutable source Snapshot.
+- **D-M02-S03-005:** Variant Sets are typed, constrained and lazily materialized.
+- **D-M02-S03-006:** persona protected identity anchors are not ordinary variants.
+- **D-M02-S03-007:** Snapshot completeness claims are LOGICAL/MATERIALIZED/VALIDATED/RELEASE and require closure evidence.
+- **D-M02-S03-008:** Snapshots structurally share immutable revisions/CAS objects instead of duplicating media.
+- **D-M02-S03-009:** merge is three-way and semantic; binary media is not blind-byte merged.
+- **D-M02-S03-010:** unresolved blocking conflicts prevent branch-head advancement.
+- **D-M02-S03-011:** bounded Graph/Production Deltas provide cherry-pick-like transplant semantics.
+- **D-M02-S03-012:** experiments are explicit bounded branches with promotion/retention policy.
+- **D-M02-S03-013:** rollback creates new history; it never erases intervening history.
+- **D-M02-S03-014:** branch rollback does not automatically compensate external side effects.
+- **D-M02-S03-015:** Snapshot GC is reachability/pin/rights-policy aware.
+- **D-M02-S03-016:** recurring films/campaigns/avatar content use branch/snapshot lineage while persona/brand anchors stay protected.
+
+## 25. S03 proof plan
+
+Future implementation must prove:
+1. Branch ref can move while old Snapshots remain immutable/readable;
+2. renaming branch does not change branch_id;
+3. fork persists exact fork-point Snapshot;
+4. Variant selection never mutates base variant definition;
+5. invalid variant combination fails before execution;
+6. sparse variant materialization does not create unused combinations;
+7. persona outfit/language variants preserve identity anchors;
+8. protected persona-anchor mutation cannot sneak through a normal Variant Set;
+9. LOGICAL cannot be relabeled VALIDATED without closure evidence;
+10. structural sharing avoids duplicate large media references;
+11. semantic diff distinguishes graph/variant/quality/rights/delivery deltas;
+12. three-way merge auto-merges disjoint compatible changes;
+13. same-node divergent edits create an explicit conflict;
+14. competing binary/media revisions require explicit resolution;
+15. unresolved conflict prevents branch-head move;
+16. cherry-pick/Graph Delta checks dependency preconditions;
+17. experiment promotion preserves origin/hypothesis/provenance;
+18. rollback creates a new Snapshot/receipt rather than deleting history;
+19. rollback blocks or flags incompatible external side effects;
+20. time-travel inspection is read-only;
+21. GC never removes pinned/reachable/release/provenance-required objects;
+22. 100 recurring avatar episodes can share persona baseline while carrying independent episode/shot revisions;
+23. multilingual/commercial variants can share heavy upstream media where causally legal;
+24. merge/rollback output feeds S04 impact-cone/rebuild logic deterministically.
+
+---
 
 # S04 — Creative Build System and incremental rebuild semantics
 Status: `NOT_STARTED`
@@ -684,4 +1135,4 @@ Status: `NOT_STARTED`
 
 ## M02 current disposition
 
-S01 and S02 are proposed complete for discussion. No implementation is authorized. Technology candidates remain PROPOSED until M02 Final Technology Review. Next session: S03 — Branches, variants, snapshots and rollback.
+S01, S02 and S03 are proposed complete for discussion. No implementation is authorized. Technology candidates remain PROPOSED until M02 Final Technology Review. Next session: S04 — Creative Build System and incremental rebuild semantics.

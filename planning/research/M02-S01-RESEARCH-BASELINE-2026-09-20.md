@@ -90,3 +90,36 @@ Temporal's durable workflow history remains relevant to later execution/resume s
 
 Source:
 - https://docs.temporal.io/
+
+
+# S03 Research Addendum — Branches, variants, snapshots and rollback
+
+## Git
+Git stores commits as snapshots and treats a branch as a lightweight movable pointer/reference to a commit. IRIS adopts this useful separation between mutable branch refs and immutable history, but media payloads/revisions may live in IRIS CAS rather than Git.
+
+Sources:
+- https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
+- https://git-scm.com/book/en/v2/Git-Internals-Git-References
+
+## OpenUSD VariantSets
+OpenUSD VariantSets package discrete alternatives and allow downstream selection to non-destructively compose one variant. IRIS generalizes this idea into typed cross-domain Variant Sets with compatibility constraints and lazy materialization.
+
+Sources:
+- https://openusd.org/dev/glossary.html
+- https://openusd.org/dev/api/class_usd_variant_set.html
+
+## Perforce Streams
+Perforce Streams model explicit parent/child development lines and managed propagation/merging and are widely positioned for concurrent large-project development. IRIS uses the architectural lesson that branch relationships and flow policy should be explicit, while avoiding depot/path-specific coupling.
+
+Sources:
+- https://help.perforce.com/helix-core/cloud/current/Content/Cloud/admin-set-up-streams.html
+- https://www.perforce.com/products/perforce-streams
+
+## S03 conclusion
+IRIS should combine:
+- Git-like movable branch refs over immutable snapshots;
+- USD-like non-destructive variants;
+- managed branch lineage/propagation inspired by large-project VCS;
+- IRIS-specific semantic merge, quality/rights conflict types, CAS structural sharing and external-side-effect rollback fencing.
+
+No external VCS/DCC becomes IRIS's canonical production model.
