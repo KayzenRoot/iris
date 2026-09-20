@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "iris-gef-source-bridge-v1",
+  "profile": "HIVE_NATIVE",
+  "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
+  "domains": {
+    "PROJECT_STATE": "docs/project-brain/13-CHECKPOINT.md",
+    "DECISION": "docs/project-brain/16-DECISIONS-LEDGER.md",
+    "SCOPE": "docs/project-brain/03-SCOPE.md",
+    "COMPLETION": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+    "ARCHITECTURE": "docs/project-brain/04-ARCHITECTURE.md",
+    "REQUIREMENT": "docs/project-brain/02-REQUIREMENTS.md",
+    "SECURITY": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+    "VALIDATION": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+    "DEPLOYMENT": "docs/project-brain/12-LOCAL-DEPLOYMENT.md",
+    "INTEGRATION": "docs/project-brain/05-INTEGRATION-CONTRACTS.md"
+  },
+  "rule": "GEF bridge artifacts are derived views and never supersede mapped canonical Git sources."
+}
