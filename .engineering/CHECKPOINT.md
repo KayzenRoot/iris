@@ -1,22 +1,22 @@
 # IRIS Checkpoint
 
 ## STATUS
-BOOTSTRAP_APPROVED
+MODULE_MAP_APPROVED
 
 ## VERSION
-0.0.0-bootstrap
+1.0-planning
 
 ## PHASE
-PRODUCT_DISCOVERY_READY
+M00_PRODUCT_CONSTITUTION_READY
 
 ## OBJECTIVE
-Maintain the approved GEF v1.0.0 + HIVE v1.0.0 repository foundation and begin governed IRIS V1 product discovery without product implementation.
+Begin governed IRIS 1.0 module planning from the approved M00-M60 / 305-session master map while preserving the complete-version, extreme-quality, adaptive-hardware and headless-first runtime invariants.
 
 ## IN PROGRESS
-No implementation Work Order is active. The next legal increment is IRIS V1 product discovery/planning.
+No product implementation Work Order is active. IRIS-WO-0002 is approved and closed; M00 S01 is the next planning increment.
 
 ## BLOCKERS
-None for repository-side bootstrap. Local HIVE runtime execution remains separate operator evidence and must not be fabricated.
+None for planning progression. Product implementation remains gated until the applicable module planning and dependencies are admitted.
 
 ## NEXT STEP
-Create and admit the first IRIS V1 discovery/planning Work Order covering measurable quality goals, architecture and HIVE/CORE/IRIS contracts before product code.
+Begin M00 S01 — Vision, non-MVP boundary and complete V1 promise.

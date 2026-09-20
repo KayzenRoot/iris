@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0002",
+  "baseSha": "f41c85f64f764400cc600eb52d98cadd0f78a49e",
+  "auditedHeadSha": "d9d644d5fe110ec12326b6e2372eef9470223300",
+  "status": "APPROVED",
+  "exactHead": {
+    "workflowRunId": 35518970773,
+    "jobId": 106099623155,
+    "expectedSha": "d9d644d5fe110ec12326b6e2372eef9470223300",
+    "checkedOutSha": "d9d644d5fe110ec12326b6e2372eef9470223300",
+    "conclusion": "success"
+  },
+  "structuralAudit": {
+    "moduleCount": 61,
+    "moduleRange": "M00-M60",
+    "totalSessions": 305,
+    "modulesWithExactlyFiveSessions": 61,
+    "ugasV2CategoriesMapped": 30,
+    "productCodeFilesChanged": 0
+  },
+  "tests": [
+    {
+      "name": "governance_validator",
+      "result": "PASS"
+    },
+    {
+      "name": "gef_hive_bridge_unittests",
+      "result": "PASS",
+      "passed": 8,
+      "failed": 0
+    },
+    {
+      "name": "master_module_index_structure",
+      "result": "PASS",
+      "modules": 61,
+      "sessions": 305
+    },
+    {
+      "name": "ugas_v2_carryover_completeness",
+      "result": "PASS",
+      "mappedCategories": 30,
+      "totalCategories": 30
+    },
+    {
+      "name": "planning_only_diff",
+      "result": "PASS",
+      "changedFiles": 15,
+      "productCodeFiles": 0
+    }
+  ],
+  "unresolved": {
+    "critical": 0,
+    "high": 0,
+    "blockingMedium": 0
+  },
+  "checkpointDelta": "PROMOTE_MODULE_MAP_APPROVED_M00_PRODUCT_CONSTITUTION_READY"
+}

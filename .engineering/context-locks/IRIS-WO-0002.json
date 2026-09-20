@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0002",
+  "baseSha": "f41c85f64f764400cc600eb52d98cadd0f78a49e",
+  "auditedHeadSha": "d9d644d5fe110ec12326b6e2372eef9470223300",
+  "status": "CLOSED_APPROVED",
+  "upstream": {
+    "ugasV1": {
+      "repository": "KayzenRoot/ugas",
+      "sha": "0169f84248703931bb7578177d9773bce319c14e"
+    },
+    "ugasV2Blueprint": {
+      "name": "UGAS-V2-MASTER-BLUEPRINT.md",
+      "version": "0.3.0"
+    },
+    "blender": {
+      "baseline": "5.2 LTS",
+      "researchDate": "2026-09-20"
+    },
+    "comfyui": {
+      "observedRelease": "0.36.0",
+      "researchDate": "2026-09-20"
+    }
+  },
+  "criticalSources": [
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/16-DECISIONS-LEDGER.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/02-REQUIREMENTS.md",
+    "planning/MASTER-MODULE-INDEX.md",
+    "planning/UGAS-CARRYOVER-MAP.md",
+    "planning/research/IRIS-RESEARCH-BASELINE-2026-09-20.md"
+  ],
+  "closure": "Approved by IRIS-WO-0002 Review 001. Future planning starts a new Work Order/context lock at M00 S01."
+}
