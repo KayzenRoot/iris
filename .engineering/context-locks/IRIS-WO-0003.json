@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0003",
+  "baseSha": "2bcc90c77ce79ca38bd2bb4ede7dd10e1ac78352",
+  "implementationSha": "391f881078fc215c3e1aabb7df1648539d879dfb",
+  "auditedHeadSha": "PENDING_INDEPENDENT_AUDIT",
+  "status": "OPEN_PENDING_INDEPENDENT_REVIEW",
+  "frozenContract": {
+    "name": "m01-contract-v1.0",
+    "schemaVersion": "iris-quality-schema-v1",
+    "canonicalDimensionCount": 18,
+    "promotionLadder": ["DRAFT", "PREVIEW", "REVIEW", "MASTER", "ARCHIVAL_MASTER"],
+    "defectSeverities": ["FATAL", "MAJOR", "MINOR", "OBSERVATION"]
+  },
+  "upstream": {
+    "gef": {
+      "version": "1.0.0",
+      "sha": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
+    },
+    "hive": {
+      "version": "1.0.0",
+      "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
+    }
+  },
+  "criticalSources": [
+    ".engineering/SOURCE-HIERARCHY.md",
+    ".engineering/work-orders/IRIS-WO-0003-M01-QUALITY-KERNEL.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/16-DECISIONS-LEDGER.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/02-REQUIREMENTS.md",
+    "docs/project-brain/04-ARCHITECTURE.md",
+    "docs/project-brain/15-DEFINITION-OF-DONE.md",
+    "planning/contracts/M01-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+    "planning/modules/M01-EXTREME-QUALITY.md",
+    "planning/checkpoints/M01-IMPLEMENTATION-GATE.md",
+    "planning/reviews/M01-HARD-CASE-GAP-REVIEW.md"
+  ],
+  "inScope": [
+    "Domain-neutral, typed, deterministic M01 quality kernel package iris_quality/",
+    "QualityJudge and AssetValidator ports as the only route for real evaluators",
+    "Evaluator and domain-profile registries with trust tiers and version binding",
+    "Decision engine, promotion ladder, blocker codes and quality-debt policy",
+    "Canonical serialization with content digests and strict schema round trip",
+    "Three synthetic profile fixtures in examples/ plus their contract tests"
+  ],
+  "outOfScope": [
+    "M02 and every later module",
+    "Real domain evaluators, vendor SDK adapters, Blender/ComfyUI/WebGPU providers",
+    "Persistence, queueing and the promotion executor that consumes QualityDecision",
+    "Any change to the frozen planning documents or checkpoint files"
+  ],
+  "stopCondition": "Execution stopped once the kernel was committed, pushed and the PR plus Evidence Bundle were ready for independent review. Nothing merged; M02 not started.",
+  "closure": "Awaiting independent audit. A new Work Order and context lock are required for any follow-up change, including M01 integrator work."
+}

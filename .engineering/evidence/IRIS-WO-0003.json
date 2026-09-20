@@ -1,0 +1,245 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0003",
+  "baseSha": "2bcc90c77ce79ca38bd2bb4ede7dd10e1ac78352",
+  "implementationSha": "391f881078fc215c3e1aabb7df1648539d879dfb",
+  "auditedHeadSha": "PENDING_INDEPENDENT_AUDIT",
+  "status": "PENDING_INDEPENDENT_REVIEW",
+  "branch": "iris-wo-0003-m01-quality-kernel",
+  "exactHead": {
+    "note": "Executor records local, reproducible evidence. The workflow/job binding for the final candidate head is written by the independent audit, as in IRIS-WO-0001 and IRIS-WO-0002."
+  },
+  "changedFiles": {
+    "count": 22,
+    "insertions": 6452,
+    "kernelPackage": [
+      "iris_quality/__init__.py",
+      "iris_quality/contracts.py",
+      "iris_quality/debt.py",
+      "iris_quality/decision.py",
+      "iris_quality/defects.py",
+      "iris_quality/dimensions.py",
+      "iris_quality/errors.py",
+      "iris_quality/evidence.py",
+      "iris_quality/judging.py",
+      "iris_quality/registry.py",
+      "iris_quality/serialization.py",
+      "iris_quality/versions.py",
+      "iris_quality/zones.py"
+    ],
+    "fixtures": ["examples/m01_synthetic_profiles.py", "tests/m01_kernel_support.py"],
+    "tests": [
+      "tests/test_m01_kernel_types.py",
+      "tests/test_m01_decision.py",
+      "tests/test_m01_registry.py",
+      "tests/test_m01_serialization.py",
+      "tests/test_m01_synthetic_profiles.py",
+      "tests/test_m01_domain_neutrality.py"
+    ],
+    "documentation": ["docs/M01-QUALITY-KERNEL.md"],
+    "governanceArtifacts": [
+      ".engineering/context-locks/IRIS-WO-0003.json",
+      ".engineering/evidence/IRIS-WO-0003.json"
+    ],
+    "productCodeFilesChangedOutsideM01": 0
+  },
+  "structuralAudit": {
+    "contractVersion": "m01-contract-v1.0",
+    "schemaVersion": "iris-quality-schema-v1",
+    "kernelModules": 13,
+    "kernelLines": 3661,
+    "testAndFixtureLines": 2791,
+    "publicSymbols": 60,
+    "canonicalFidelityDimensions": 18,
+    "defectSeverities": 4,
+    "blockerCodes": 12,
+    "serializableTypes": 16,
+    "syntheticProfiles": 3,
+    "thirdPartyDependenciesAdded": 0
+  },
+  "commands": [
+    {
+      "name": "compile_kernel_and_tests",
+      "command": "python -m compileall -q iris_quality examples tests",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "governance_validator",
+      "command": "python scripts/validate_governance.py",
+      "result": "PASS",
+      "output": "IRIS governance validation: PASS / GEF: v1.0.0 @ 866fe3af8cccc65c929aaf6a47a924401fa448b3 / HIVE: v1.0.0 @ a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf / Required artifacts: 35"
+    },
+    {
+      "name": "gef_preflight",
+      "command": "GEF_REPO_PATH=\"D:/Projeto Codexx/gef-bootstrap-v1.0.0\" python scripts/gef_preflight.py",
+      "result": "PASS",
+      "output": "GEF preflight: PASS v1.0.0 @ 866fe3af8cccc65c929aaf6a47a924401fa448b3"
+    },
+    {
+      "name": "full_test_suite",
+      "command": "python -m unittest discover -s tests -p \"test_*.py\" -v",
+      "result": "PASS",
+      "passed": 153,
+      "failed": 0,
+      "errors": 0,
+      "durationSeconds": 1.151
+    }
+  ],
+  "tests": [
+    { "name": "m01_kernel_types", "file": "tests/test_m01_kernel_types.py", "result": "PASS", "passed": 36 },
+    { "name": "m01_decision_and_promotion", "file": "tests/test_m01_decision.py", "result": "PASS", "passed": 32 },
+    { "name": "m01_registration_and_extension_metadata", "file": "tests/test_m01_registry.py", "result": "PASS", "passed": 32 },
+    { "name": "m01_serialization_round_trip", "file": "tests/test_m01_serialization.py", "result": "PASS", "passed": 14 },
+    { "name": "m01_three_synthetic_profiles", "file": "tests/test_m01_synthetic_profiles.py", "result": "PASS", "passed": 21 },
+    { "name": "m01_domain_neutrality_and_closed_network", "file": "tests/test_m01_domain_neutrality.py", "result": "PASS", "passed": 10 },
+    { "name": "existing_repository_tests", "result": "PASS", "passed": 8, "failed": 0 }
+  ],
+  "requiredSemanticsEvidence": {
+    "typedFrozenDataclasses": "Every kernel type is a frozen dataclass normalised in __post_init__; mutation attempts raise.",
+    "noAggregateScore": "DecisionEngine emits gate vectors and blocker sets only; no scoring field exists on any type (tests/test_m01_kernel_types.py).",
+    "failClosedTransitions": "Ladder ranks are monotonic; downgrades and unranked targets raise PromotionBlockedError.",
+    "severityAuthority": "effective = max(contract declaration, reporter claim, zone override); a reporter cannot dilute a declared class, proven by test_a_reporter_cannot_dilute_a_declared_class_with_observation.",
+    "observationsNeverBlock": "OBSERVATION findings are reported but excluded from _severity_blockers (test_observations_never_block).",
+    "uncertaintyPreserved": "UNKNOWN/UNCERTAIN dimensions produce abstention and non-blocking states, never fabricated certainty.",
+    "hardGatesNotDebtable": "fatal_defect_firewall and hard_gate_failed are unreachable through QualityDebt; accepted debt only clears major/minor.",
+    "dimensionLevelEvidence": "EvidenceRef and confidence carry dimension_id; contracts bind human review per dimension.",
+    "versionBinding": "JudgeResult carries contract_id plus contract_version and the digest is recomputed on deserialisation.",
+    "registryCollision": "Duplicate references, cross-version dimension drift and untrusted extension sources raise before registration takes effect.",
+    "noHiddenNetwork": "Full suite runs with no network access; test_m01_domain_neutrality additionally executes a cold import with socket.socket patched to raise."
+  },
+  "domainNeutralityProof": {
+    "method": "AST scan of iris_quality/*.py asserting every import root is in sys.stdlib_module_names, no forbidden vendor/root token appears, no socket/subprocess touchpoint is called, and no domain vocabulary string appears in kernel sources.",
+    "forbiddenRoots": ["blender", "bpy", "comfyui", "dreamsim", "flip", "webgpu", "torch", "transformers", "numpy", "PIL", "cv2", "requests", "urllib3", "httpx"],
+    "violations": 0,
+    "additionalProof": "Cold-import subprocess with socket.socket patched to raise, plus an in-process socket-blocked decide-and-serialise determinism check (tests/test_m01_domain_neutrality.py, 10 tests PASS)."
+  },
+  "syntheticProfileProofs": {
+    "profiles": ["profile.generic-image", "profile.nerim-isometric-asset", "profile.logo-vector"],
+    "sharedPropertyTests": [
+      "promotion to PREVIEW and MASTER for all three profiles",
+      "ARCHIVAL_MASTER held by human_review_not_recorded, then promoted with full sign-off and confidence 1.0",
+      "profile-declared FATAL defect class rejects every target",
+      "abstention yields UNKNOWN with zero evidence rather than a guessed value",
+      "insufficient confidence blocks with insufficient_certainty",
+      "judge disagreement surfaces judge_disagreement and HUMAN_REVIEW",
+      "validator gate projection refuses cross-contract and cross-subject results",
+      "zone confidence floors and zone.ocular severity escalation",
+      "serialization digests are stable per profile across a two-hop round trip"
+    ],
+    "result": "PASS (21 tests, all three profiles from one parametrised table)"
+  },
+  "failuresEncounteredAndFixed": [
+    {
+      "failure": "SyntaxError: generator expression inside a dataclasses.replace keyword argument",
+      "file": "tests/test_m01_decision.py",
+      "fix": "Built the HUMAN_DECISION EvidenceRef first and rebuilt the assessment tuple with an explicit conditional generator."
+    },
+    {
+      "failure": "Leftover `assertIs(...) if False else ...` scaffolding and an unused index variable",
+      "file": "tests/test_m01_decision.py",
+      "fix": "Removed; plain assertEqual retained."
+    },
+    {
+      "failure": "accepted_debt_ids assertion failed",
+      "file": "tests/test_m01_decision.py",
+      "fix": "Fixture literal was a single-element tuple missing its trailing comma."
+    },
+    {
+      "failure": "OBSERVATION severity was unreachable from a contract, so the required major/minor/observation policy test could not be written",
+      "file": "iris_quality/contracts.py, iris_quality/registry.py",
+      "fix": "Added observation_defect_classes as the declaration site (see designDecisions). The alternative, accepting a reporter-declared OBSERVATION, would have broken the rule that a contract owns severity."
+    },
+    {
+      "failure": "ModuleNotFoundError: importing a fixture from another test module",
+      "file": "tests/test_m01_registry.py",
+      "fix": "Promoted the shared factories into tests/m01_kernel_support.py."
+    },
+    {
+      "failure": "SchemaValidationError: version must be a string, got dict",
+      "file": "tests/test_m01_synthetic_profiles.py",
+      "fix": "ThresholdJudge's second positional parameter is version; all call sites now pass observations= by keyword."
+    },
+    {
+      "failure": "Profile decisions stalled at DRAFT",
+      "file": "examples/m01_synthetic_profiles.py, tests/test_m01_synthetic_profiles.py",
+      "fix": "human_review_dimension_ids is enforced at every ladder rung, so the fixture jury now signs those dimensions; the logo profile's minimum_evidence_count of 2 required a two-juror jury."
+    },
+    {
+      "failure": "Two registry tests reused a dimension already declared inside the profile",
+      "file": "tests/test_m01_registry.py",
+      "fix": "Switched them to identity-fidelity."
+    },
+    {
+      "failure": "NameError: TestCase, plus a vacuous vocabulary assertion and function-local imports in the neutrality tests",
+      "file": "tests/test_m01_domain_neutrality.py",
+      "fix": "Added the unittest import, deleted the vacuous assertion, moved imports to module level per repository rules."
+    }
+  ],
+  "designDecisions": [
+    {
+      "decision": "Added observation_defect_classes to FidelityContract and DomainProfile",
+      "why": "OBSERVATION is a frozen severity with no declaration site in the freeze candidate. Without one the kernel cannot classify a defect as an observation from the contract side, and the required observation policy test would have to trust the reporter, which the fail-closed doctrine forbids.",
+      "risk": "Extends the serialized contract surface; reviewers must confirm this stays inside the freeze."
+    },
+    {
+      "decision": "human_review_dimension_ids lives on the contract, not only on the promotion rule",
+      "why": "Sign-off is a property of the dimension's authority, not of one ladder step."
+    },
+    {
+      "decision": "Promotion ladders must be contiguous and rank-ordered",
+      "why": "Non-contiguous custom ladders silently skipped rungs; PromotionBlockedError is preferable to a wrong verdict."
+    },
+    {
+      "decision": "EvidenceRef locators are relative paths or URIs, never absolute filesystem paths",
+      "why": "Absolute locators leak the machine layout and break reproducibility across runtimes."
+    },
+    {
+      "decision": "merge_assessments keeps the worst case on conflict",
+      "why": "A multi-judge conflict must surface as uncertainty, never as an averaged value."
+    },
+    {
+      "decision": "Table-driven and parametrised coverage instead of property-based testing",
+      "why": "The repository is stdlib-only with no hypothesis dependency; the Work Order explicitly accepts table-driven/state-transition coverage when property-based tooling would require unjustified dependency expansion."
+    }
+  ],
+  "deviations": [
+    {
+      "item": "Executor PDF section 2 names docs/project-brain/00-SOURCE-HIERARCHY.md as the authority file",
+      "detail": "That path does not exist in the frozen base. The canonical file is .engineering/SOURCE-HIERARCHY.md, which was read instead; the repository contract governed all decisions."
+    },
+    {
+      "item": "HIVE MCP flow could not be executed inside the session",
+      "detail": "The hive MCP tools are not exposed in this Qoder session (mcp_list returns no hive entries; /mcp reload is still pending on the user side). health/status/search_knowledge/build_context/scan/diff/context_lock/memory_record/checkpoint were therefore not run, and native repository verifiers (validate_governance.py, gef_preflight.py, the unittest suite) plus Git evidence were used in their place, as permitted by the preference for deterministic Git/static/hash/test evidence. This is reported rather than worked around with fabricated HIVE evidence."
+    },
+    {
+      "item": "Line endings kept as LF",
+      "detail": "The injected repository rule text mentions CRLF, but the frozen tree and the HIVE runtime require LF. No .gitattributes was introduced or committed."
+    },
+    {
+      "item": "scripts/gef_preflight.py needs GEF_REPO_PATH",
+      "detail": "The preflight verifier resolves GEF from the environment; it was run with GEF_REPO_PATH pinned to D:/Projeto Codexx/gef-bootstrap-v1.0.0 at v1.0.0 @ 866fe3a."
+    }
+  ],
+  "unresolved": {
+    "critical": 0,
+    "high": 0,
+    "blockingMedium": 0,
+    "reviewItems": [
+      "Confirm observation_defect_classes is inside the frozen contract surface",
+      "Confirm the blocker code vocabulary matches the freeze candidate wording"
+    ]
+  },
+  "risksAndDeferredWork": [
+    "The kernel has never been driven by a real evaluator; port fidelity is proven against synthetic fixtures only until M03+ integrators land.",
+    "No persistence, queueing or promotion executor ships here, so QualityDecision is not yet acted upon by anything.",
+    "HUMAN_DECISION evidence is asserted by a caller-supplied produced_by component version; the kernel cannot authenticate a reviewer identity, so sign-off trust belongs to the outer trust boundary.",
+    "Schema enforcement is hand-rolled strict structural validation rather than a JSON Schema document, which keeps the stdlib constraint but moves the contract into Python.",
+    "Registry capacity caps (MAX_REGISTRATIONS) and digest cost are unverified at production scale."
+  ],
+  "checkpointDelta": {
+    "applied": false,
+    "reason": "validate_governance.py asserts heading parity across the three checkpoint artifacts; the delta is proposed here for the independent audit to apply on approval, exactly as IRIS-WO-0002 did.",
+    "proposed": "PROMOTE_M01_QUALITY_KERNEL_APPROVED_PENDING_REVIEW: m01-contract-v1.0 is implemented as the iris_quality package (13 modules, 60 public symbols, 18 canonical dimensions, 12 blocker codes) with stdlib-only, network-free type surface; QualityJudge and AssetValidator are the sole ports for real evaluators; decision, promotion, debt, registry and serialization semantics are frozen and covered by 145 new M01 tests (153 total, all green); three synthetic profiles prove the kernel is domain-neutral. Next increment stays blocked until the independent verdict records APPROVED; M02 remains out of scope and no real domain evaluator or provider is admitted."
+  }
+}
