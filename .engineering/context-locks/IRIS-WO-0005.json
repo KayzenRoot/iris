@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0005",
+  "issue": 13,
+  "branch": "iris-wo-0005-github-hardening",
+  "baseSha": "732895d17ead7a1497985a3a98396f4f2aa975d2",
+  "status": "CLOSED_APPROVED",
+  "risk": "ELEVATED",
+  "criticalSources": [
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "sha": "0c0493f28df7b33ba6ec674a17f6d298f8e33bc1"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "sha": "5cec1114366b24d7889ac4b27ff2727439294eb3"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "sha": "6e755bbf604d67b861e182a208409ccd9ac68e5c"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "sha": "e2a2435525620a8469356d89423abd38a4daead9"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "sha": "8d95bf4bfee50ad0f68c6a8c5ff93b0c7543aaae"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "sha": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "sha": "ce3b48c8dcbf6006d83363c9af716ce96e6b864b"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "sha": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".github/workflows/governance.yml",
+      "sha": "69ad10baaf919af2789e4a91bc9614a7373ffb82"
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "sha": "82f85e296a3057766f9b53ef4cf59f00dbe25ba6"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "sha": "79f38b50f0e4540ef096b62fb99f101437df880a"
+    },
+    {
+      "path": ".engineering/github/repository-settings.desired.json",
+      "sha": "94e3f39fb5c5e69599431968411eb1fdb324c981"
+    },
+    {
+      "path": ".engineering/github/main-governance.ruleset.json",
+      "sha": "f0854a05382340dde52ac1e2e1e866b38c37247c"
+    },
+    {
+      "path": ".engineering/github/REPOSITORY-HARDENING.md",
+      "sha": "e90869b5eeaeace164680a3f7e7344151e1d5b00"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0005-GITHUB-HARDENING.md",
+      "sha": "2b089fe7c46273ae96d00053a38e8c85343e9812"
+    }
+  ],
+  "verifiedBaseline": {
+    "mainSha": "732895d17ead7a1497985a3a98396f4f2aa975d2",
+    "governance": {
+      "runId": 35596884279,
+      "jobId": 106323644504,
+      "conclusion": "success",
+      "tests": 1805
+    },
+    "mainProtected": false,
+    "rulesetCount": 0,
+    "repositorySettings": {
+      "allow_squash_merge": true,
+      "allow_merge_commit": true,
+      "allow_rebase_merge": true,
+      "allow_auto_merge": false,
+      "delete_branch_on_merge": false,
+      "allow_update_branch": false
+    }
+  },
+  "allowedDelta": [
+    "GitHub repository administrative settings explicitly listed in IRIS-WO-0005",
+    "one main-governance ruleset",
+    "Actions workflow default/security settings explicitly listed in IRIS-WO-0005",
+    "SECURITY.md and github-actions Dependabot config when absent",
+    "Evidence Bundle and proposed Checkpoint Delta",
+    "documentation required to keep desired server state reproducible"
+  ],
+  "outOfScope": [
+    "M03 or product/kernel implementation",
+    "force push/history rewrite",
+    "ruleset or branch deletion",
+    "visibility/license changes",
+    "mandatory signed commits",
+    "mandatory human/CODEOWNER/last-pusher approvals",
+    "classic branch protection alongside active main-governance ruleset"
+  ],
+  "stopCondition": "Apply/read back/test/evidence IRIS-WO-0005, update one PR, then STOP before merge and before M03.",
+  "reviewClosure": {
+    "verdict": "APPROVED",
+    "reviewedHead": "759a9660161124ea84343eb426eeb9782d989622",
+    "governance": {
+      "runId": 35602488859,
+      "jobId": 106341644724,
+      "tests": 1805,
+      "conclusion": "success"
+    },
+    "closedFindings": [
+      "IRIS-WO-0005-C01"
+    ],
+    "criticalHighBlockers": 0,
+    "next": "Squash merge PR #14 after promotion-head Governance PASS; validate main before M03."
+  }
+}

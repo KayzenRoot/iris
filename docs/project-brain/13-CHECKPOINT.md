@@ -1,39 +1,42 @@
 # IRIS Checkpoint
 
 ## STATUS
-M02_IMPLEMENTATION_APPROVED
+REPOSITORY_HARDENING_APPROVED
 
 ## VERSION
 1.0-m02-implemented
 
 ## PHASE
-M02_PROMOTION_DELTA_PENDING_MERGE
+REPOSITORY_HARDENING_PROMOTION_PENDING_MERGE
 
 ## OBJECTIVE
-Close the approved M02 Project OS & Production Graph implementation, merge PR #12 through the governed flow, then harden repository-level GitHub protections/rulesets before admitting M03.
+Complete IRIS-WO-0005 by merging the independently approved GitHub repository hardening, then validate the hardened `main` baseline before admitting M03 planning.
 
 ## COMPLETED
-- M02 S01-S05 planning/freeze: approved and merged.
-- Frozen contract: `m02-contract-v1.0`.
-- Implementation package: `iris_project_os/` with 22 domain-neutral modules.
-- Public kernel surface: 399 exported symbols.
-- Five synthetic profiles: logo/web, game asset, film sequence, persistent spokesperson, voice/music.
-- M01 remains the sole quality authority; M02 composes `QualityDecision` rather than re-judging quality.
-- Independent review: APPROVED on `3e439f404a16cbf5d1652296c93160519ff4d0b6`.
-- Governance run/job: `35596394803 / 106322077536`.
+- M01 Quality Kernel: implemented, approved and merged.
+- M02 Project OS & Production Graph: implemented, independently reviewed, approved and squash-merged.
+- M02 merge SHA on `main`: `732895d17ead7a1497985a3a98396f4f2aa975d2`.
+- Review auto-fix policy v1.1 remains canonical and mandatory across IRIS chats.
+- IRIS-WO-0005 repository hardening executed and independently reviewed.
+- Active unique `main-governance` ruleset id `23766624`: main-only, no bypass, squash-only PR flow, linear history, resolved review threads, strict required `Governance` check, deletion/non-fast-forward blocked.
+- Repository merge defaults: squash-only, auto-merge capability enabled, Update branch enabled, delete merged branches enabled, PR_TITLE/PR_BODY.
+- Actions defaults: read-only; workflow PR-review approval disabled.
+- Security: vulnerability alerts enabled; automated security fixes enabled; Dependabot security updates enabled; secret scanning and push protection enabled.
+- Correction `IRIS-WO-0005-C01`: resolved and evidenced.
+- Independent review head: `759a9660161124ea84343eb426eeb9782d989622`.
+- Exact-head Governance: run `35602488859`, job `106341644724`, PASS.
 - Exact-head suite: 1805/1805 OK.
-- Review findings requiring code correction were CHAT_FIXABLE and closed on PR #12.
 - CRITICAL/HIGH blockers: 0.
 
 ## IN PROGRESS
-Final governance/documentation promotion delta for IRIS-WO-0004. No product-code change is admitted in this delta.
+Documentation/governance promotion delta for the approved IRIS-WO-0005. No product/kernel change is admitted in this delta.
 
 ## BLOCKERS
 M03 MUST NOT start until:
 1. this promotion delta passes exact-head Governance;
-2. PR #12 is merged;
-3. `main` is validated after merge;
-4. repository hardening requested by the owner is applied and validated through `gh` (main ruleset/protection and professional repository settings).
+2. PR #14 is squash-merged through the active ruleset;
+3. the resulting `main` SHA passes post-merge Governance;
+4. the hardened repository state remains intact after merge.
 
 ## NEXT STEP
-Validate this promotion delta, squash merge PR #12, validate `main`, then execute the repository-hardening Work Order/PDF before compiling the M03 planning Context Lock.
+Validate this promotion delta, squash merge PR #14, validate the resulting `main` exact SHA, then admit M03 planning.

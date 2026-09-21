@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0005",
+  "status": "APPROVED",
+  "branch": "iris-wo-0005-github-hardening",
+  "baseSha": "732895d17ead7a1497985a3a98396f4f2aa975d2",
+  "headSha": "34646299d1b4b2c17ea49568901992e63df0856a",
+  "headShaBasis": "Reviewed correction head for IRIS-WO-0005-C01: the tree that carries the hardening deliverables plus the correction instruction, at which the C01 server mutation was applied and read back. The follow-up commit on this branch is this documentation-only Evidence Bundle update and changes no tested file.",
+  "issue": 13,
+  "pullRequest": {
+    "number": 14,
+    "url": "https://github.com/KayzenRoot/iris/pull/14",
+    "base": "main",
+    "state": "OPEN",
+    "merged": false,
+    "autoMergeEnabled": false,
+    "note": "Same PR used throughout, including correction delta 01; no second PR. Ready for independent review only after the C01 evidence was coherent and required checks green; never merged, M03 not started."
+  },
+  "risk": "ELEVATED",
+  "ghVersion": "2.98.0",
+  "preflight": {
+    "remote": "origin https://github.com/KayzenRoot/iris.git (KayzenRoot/iris)",
+    "originMain": "732895d17ead7a1497985a3a98396f4f2aa975d2 (== authorized base)",
+    "branchHead": "bc8592d69ff9a3af546a7aa69c3d7f79197ddfcc (preparation commit, contains it)",
+    "mergeBase": "732895d17ead7a1497985a3a98396f4f2aa975d2 (== authorized base)",
+    "ghAuth": "logged in as KayzenRoot (https)",
+    "adminPermission": "gh api repos/KayzenRoot/iris .permissions.admin = true",
+    "criticalSources": "all 15 Context Lock SHAs matched the working tree (no STALE_CONTEXT)",
+    "workingTree": "clean before checkout; ff-only tracking branch created, no history rewrite",
+    "correction01": {
+      "gitStatusShort": "clean (no stray or untracked file; .gitattributes never staged)",
+      "branch": "iris-wo-0005-github-hardening",
+      "fetch": "git fetch origin --prune pulled 3c24248..3464629; local moved by --ff-only, no rewrite",
+      "mergeBase": "git merge-base HEAD origin/main = 732895d17ead7a1497985a3a98396f4f2aa975d2 (== authorized base)",
+      "originMain": "732895d17ead7a1497985a3a98396f4f2aa975d2 (unchanged)",
+      "ghAuth": "KayzenRoot over https; token scopes gist, read:org, repo, workflow",
+      "adminPermission": "gh api repos/KayzenRoot/iris .permissions.admin = true (confirmed before any mutation)",
+      "pr": "#14 OPEN against main, head 34646299d1b4b2c17ea49568901992e63df0856a, mergedAt null, autoMergeRequest null"
+    }
+  },
+  "baseline": {
+    "governanceRun": 35596884279,
+    "governanceJob": 106323644504,
+    "tests": 1805,
+    "mainProtected": false,
+    "rulesets": [],
+    "note": "Baseline observed before executor administrative mutation; matches Context Lock verifiedBaseline."
+  },
+  "before": {
+    "repository": {
+      "default_branch": "main",
+      "allow_squash_merge": true,
+      "allow_merge_commit": true,
+      "allow_rebase_merge": true,
+      "allow_auto_merge": false,
+      "delete_branch_on_merge": false,
+      "allow_update_branch": false,
+      "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+      "squash_merge_commit_message": "COMMIT_MESSAGES",
+      "has_issues": true,
+      "visibility": "public"
+    },
+    "rulesets": [],
+    "mainRules": "gh api repos/KayzenRoot/iris/branches/main/protection -> 404 'Branch not protected'",
+    "rulesetCheck": "gh ruleset check --default -> '0 rules apply to branch main'",
+    "actionsPermissions": {
+      "default_workflow_permissions": "read",
+      "can_approve_pull_request_reviews": false
+    },
+    "security": {
+      "secret_scanning": "enabled",
+      "secret_scanning_push_protection": "enabled",
+      "secret_scanning_non_provider_patterns": "disabled",
+      "secret_scanning_validity_checks": "disabled",
+      "dependabot_security_updates": "disabled",
+      "vulnerability_alerts": "GET /vulnerability-alerts -> 404, i.e. not enabled",
+      "automated_security_fixes": "GET /automated-security-fixes -> {enabled:false,paused:false}"
+    }
+  },
+  "after": {
+    "repository": {
+      "default_branch": "main",
+      "allow_squash_merge": true,
+      "allow_merge_commit": false,
+      "allow_rebase_merge": false,
+      "allow_auto_merge": true,
+      "delete_branch_on_merge": true,
+      "allow_update_branch": true,
+      "squash_merge_commit_title": "PR_TITLE",
+      "squash_merge_commit_message": "PR_BODY",
+      "has_issues": true,
+      "visibility": "public"
+    },
+    "rulesets": [
+      {
+        "id": 23766624,
+        "name": "main-governance",
+        "source": "repository",
+        "target": "branch",
+        "enforcement": "active",
+        "bypass": "never (bypass_actors = [])",
+        "conditions": "ref_name include [refs/heads/main], exclude []",
+        "rules": [
+          "deletion",
+          "non_fast_forward",
+          "required_linear_history",
+          "pull_request: squash-only, required_approving_review_count 0, require_code_owner_review false, require_last_push_approval false, required_review_thread_resolution true",
+          "required_status_checks: context 'Governance', strict_required_status_checks_policy true"
+        ]
+      }
+    ],
+    "rulesetCheck": "gh ruleset check --default -> '5 rules apply to branch main'",
+    "actionsPermissions": {
+      "default_workflow_permissions": "read",
+      "can_approve_pull_request_reviews": false
+    },
+    "security": {
+      "secret_scanning": "enabled",
+      "secret_scanning_push_protection": "enabled",
+      "vulnerability_alerts": "PUT /repos/KayzenRoot/iris/vulnerability-alerts -> HTTP 204; readback GET -> HTTP 204 (enabled)",
+      "automated_security_fixes": "PUT /repos/KayzenRoot/iris/automated-security-fixes -> HTTP 204; readback GET -> {\"enabled\":true,\"paused\":false}",
+      "dependabot_security_updates": "enabled (security_and_analysis readback; transiently reported 'disabled' for a few seconds right after the PUT, then 'enabled')"
+    },
+    "driftCheck": "Readback at the start of C01 matched the recorded AFTER exactly: default_branch main, visibility public, squash-only (merge/rebase false), allow_auto_merge true, delete_branch_on_merge true, allow_update_branch true, PR_TITLE/PR_BODY, one ruleset main-governance id 23766624 enforcement active, actions permissions read/false. No drift, so none of that state was re-mutated."
+  },
+  "commands": [
+    {
+      "cmd": "gh api -X PATCH repos/KayzenRoot/iris --input repository-settings.desired.json",
+      "result": "200; merge methods -> squash-only, auto-merge/update-branch/delete-branch on, PR_TITLE/PR_BODY"
+    },
+    {
+      "cmd": "gh api -X POST repos/KayzenRoot/iris/rulesets --input main-governance (enforcement disabled)",
+      "result": "created id 23766624, 5 rule types, target branch, conditions refs/heads/main"
+    },
+    {
+      "cmd": "gh api -X PUT repos/KayzenRoot/iris/rulesets/23766624 (enforcement active)",
+      "result": "200; enforcement active (PATCH returned 404 — ruleset update uses PUT)"
+    },
+    {
+      "cmd": "gh api -X PUT repos/KayzenRoot/iris/actions/permissions/workflow default_workflow_permissions=read can_approve_pull_request_reviews=false",
+      "result": "read / false (unchanged from already-correct baseline)"
+    },
+    {
+      "cmd": "gh api -X POST repos/KayzenRoot/iris/vulnerability-alerts",
+      "result": "SUPERSEDED BY C01: 404. POST is not the enable verb, so this attempt proved nothing and the NOT_AVAILABLE classification drawn from it was withdrawn."
+    },
+    {
+      "cmd": "gh api -X PUT repos/KayzenRoot/iris/automated-security-fixes",
+      "result": "SUPERSEDED BY C01: 422 'Vulnerability alerts must be enabled to configure automated security fixes.' Retried successfully only after the corrected PUT /vulnerability-alerts."
+    },
+    {
+      "cmd": "gh api -i -X PUT repos/KayzenRoot/iris/vulnerability-alerts",
+      "result": "HTTP/2.0 204 No Content (C01 Step A)"
+    },
+    {
+      "cmd": "gh api -i repos/KayzenRoot/iris/vulnerability-alerts",
+      "result": "HTTP/2.0 204 No Content (C01 Step B: enabled state proven by readback)"
+    },
+    {
+      "cmd": "gh api -i -X PUT repos/KayzenRoot/iris/automated-security-fixes",
+      "result": "HTTP/2.0 204 No Content (C01 Step C)"
+    },
+    {
+      "cmd": "gh api repos/KayzenRoot/iris/automated-security-fixes",
+      "result": "{\"enabled\":true,\"paused\":false} (C01 Step D readback)"
+    },
+    {
+      "cmd": "gh api repos/KayzenRoot/iris --jq .security_and_analysis",
+      "result": "dependabot_security_updates enabled; secret_scanning enabled; secret_scanning_push_protection enabled"
+    },
+    {
+      "cmd": "gh ruleset check --default -R KayzenRoot/iris",
+      "result": "5 rules apply to branch main"
+    },
+    {
+      "cmd": "gh pr checks 14 -R KayzenRoot/iris --required",
+      "result": "Governance pass (required + green on the Work Order PR head)"
+    },
+    {
+      "cmd": "python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/hive_bootstrap.py scripts/hive_mcp.py",
+      "result": "OK"
+    },
+    {
+      "cmd": "python scripts/validate_governance.py",
+      "result": "IRIS governance validation: PASS (35 artifacts)"
+    },
+    {
+      "cmd": "python -m unittest discover -s tests -p \"test_*.py\"",
+      "result": "Ran 1805 tests OK"
+    }
+  ],
+  "filesChanged": [
+    ".github/SECURITY.md (added)",
+    ".github/dependabot.yml (added)"
+  ],
+  "filesChangedBasis": "git diff --name-only 732895d..HEAD shows only .engineering/, .github/, and docs/project-brain/13-CHECKPOINT.md (the last from the preparation commit, not the executor). No product/kernel file touched.",
+  "tests": {
+    "full": 1805,
+    "failures": 0,
+    "errors": 0,
+    "result": "OK"
+  },
+  "adminMutations": [
+    "repository merge/settings patch (§8)",
+    "main-governance ruleset created disabled then activated, id 23766624 (§9)",
+    "actions workflow permissions set read-only, PR-review approval disabled — confirmed already-correct (§10)",
+    "C01: PUT /vulnerability-alerts -> 204 (enable)",
+    "C01: PUT /automated-security-fixes -> 204 (enable), which also flips dependabot_security_updates to enabled"
+  ],
+  "limitations": [
+    "dependabot_security_updates briefly still read as 'disabled' in security_and_analysis immediately after the automated-security-fixes PUT returned 204; a later readback reported 'enabled'. Only the later value is quoted as final state.",
+    "The ruleset's pull_request rule carries GitHub platform default require_extra_approval_for_unattributed_changes=true. It is inert because required_approving_review_count=0 (no approvals are required), so it introduces no human-approval deadlock; it is not in the manifest and was left at the platform default."
+  ],
+  "risks": [
+    "Activating main-governance requires future PRs to main to pass the Governance check and use squash merge; this is the intended enforcement, not a regression.",
+    "delete_branch_on_merge=true removes a head branch after merge — standard and desired, but means merged feature branches must be re-created for follow-up work."
+  ],
+  "rollbackPosture": "BEFORE admin state fully captured above (settings, zero rulesets, unprotected main, actions, security). Independent review can restore merge settings by patching the recorded BEFORE booleans, and can disable (not delete) ruleset 23766624 by setting enforcement=disabled via gh api PUT. C01 security enables are reversible with gh api -X DELETE repos/KayzenRoot/iris/vulnerability-alerts and .../automated-security-fixes. No destructive rollback executed here.",
+  "checkpointDelta": {
+    "applied": true,
+    "proposed": "On APPROVED only: record that GitHub enforces the IRIS workflow on main through the active main-governance ruleset (squash-only PRs, linear history, required exact-head Governance check) with repository defaults (auto-merge capability, update-branch, delete-branch-on-merge, PR_TITLE/PR_BODY), and that vulnerability alerts, automated security fixes and Dependabot security updates are enabled alongside secret scanning with push protection. Do not promote before independent review.",
+    "appliedBy": "Independent review promotion delta after C01 closure; documentation/governance only, no product/kernel change."
+  },
+  "stopCondition": "APPROVED_PENDING_MERGE: independent review accepted IRIS-WO-0005 and closed C01. Promotion delta is applied in the PR. Merge only after this documentation-only head passes exact-head Governance; then validate main before admitting M03.",
+  "reviewAudit": {
+    "verdict": "APPROVED",
+    "reviewedHead": "759a9660161124ea84343eb426eeb9782d989622",
+    "exactHeadGovernance": {
+      "runId": 35602488859,
+      "jobId": 106341644724,
+      "conclusion": "success",
+      "tests": 1805,
+      "exactHeadAsserted": true
+    },
+    "serverStateReview": {
+      "ruleset": "main-governance id 23766624 active; exactly one repository ruleset; refs/heads/main only; no bypass; deletion/non-fast-forward/linear-history/PR squash-only/resolved threads/Governance strict",
+      "repositorySettings": "squash-only; allow_auto_merge=true; delete_branch_on_merge=true; allow_update_branch=true; PR_TITLE/PR_BODY; visibility/default branch unchanged",
+      "security": "C01 evidence proves PUT vulnerability-alerts -> 204 + GET 204; PUT automated-security-fixes -> 204 + readback enabled=true paused=false; dependabot security updates enabled; secret scanning + push protection enabled"
+    },
+    "findingsClosed": [
+      "IRIS-WO-0005-C01"
+    ],
+    "criticalHighBlockers": 0,
+    "previousReview": {
+      "verdict": "CORRECTION_REQUIRED",
+      "reviewedHead": "3c242487c65fef3f189135374e9ec79af934f525",
+      "exactHeadGovernance": {
+        "runId": 35599514543,
+        "jobId": 106332020787,
+        "conclusion": "success",
+        "tests": 1805
+      },
+      "finding": {
+        "id": "IRIS-WO-0005-C01",
+        "severity": "MEDIUM",
+        "classification": "EXECUTOR_REQUIRED",
+        "mergeBlocking": true,
+        "title": "Vulnerability alerts were tested with the wrong HTTP method and were falsely classified as NOT_AVAILABLE",
+        "evidence": [
+          "Executor command recorded: gh api -X POST repos/KayzenRoot/iris/vulnerability-alerts -> 404",
+          "GitHub REST contract enables vulnerability alerts with PUT, not POST",
+          "GET 404 means vulnerability alerts are not enabled; it does not prove platform unavailability",
+          "Automated security fixes then returned 422 because vulnerability alerts were not enabled"
+        ],
+        "requiredCorrection": [
+          "Use PUT /repos/KayzenRoot/iris/vulnerability-alerts and verify the follow-up GET returns 204",
+          "Then use PUT /repos/KayzenRoot/iris/automated-security-fixes and read back enabled state",
+          "Update Evidence Bundle truthfully from actual readback",
+          "Re-run/observe exact-head Governance and gh pr checks 14 --required",
+          "Do not change the already-correct ruleset/repository settings except if a readback proves drift"
+        ]
+      }
+    }
+  },
+  "correctionDelta01": {
+    "finding": "IRIS-WO-0005-C01",
+    "status": "RESOLVED_AND_EVIDENCED",
+    "severity": "MEDIUM (merge-blocking)",
+    "classification": "EXECUTOR_REQUIRED",
+    "keptHistorically": "The finding stands as recorded by the review: a POST against /vulnerability-alerts returned 404 and was wrongly classified as platform NOT_AVAILABLE. That classification is withdrawn; no false NOT_AVAILABLE claim remains in this bundle.",
+    "rootCauseConfirmed": "The enable endpoint is PUT, not POST. A 404 on GET/POST only reports that alerts were not enabled, and the later 422 on automated-security-fixes was downstream of that disabled state.",
+    "correctedProof": {
+      "stepA_enable": "gh api -i -X PUT repos/KayzenRoot/iris/vulnerability-alerts -> HTTP/2.0 204 No Content",
+      "stepB_readback": "gh api -i repos/KayzenRoot/iris/vulnerability-alerts -> HTTP/2.0 204 No Content",
+      "stepC_enable": "gh api -i -X PUT repos/KayzenRoot/iris/automated-security-fixes -> HTTP/2.0 204 No Content",
+      "stepD_readback": "gh api repos/KayzenRoot/iris/automated-security-fixes -> {\"enabled\":true,\"paused\":false}",
+      "crossCheck": "gh api repos/KayzenRoot/iris .security_and_analysis.dependabot_security_updates -> enabled"
+    },
+    "preservedWithoutChange": [
+      "ruleset main-governance id 23766624, enforcement active, 5 rules",
+      "squash-only merge strategy, auto-merge capability, update-branch, delete-branch-on-merge, PR_TITLE/PR_BODY",
+      "Actions default workflow permissions read and can_approve_pull_request_reviews false",
+      "secret scanning enabled with push protection enabled"
+    ],
+    "validation": {
+      "pyCompile": "OK for validate_governance.py, gef_preflight.py, hive_bootstrap.py, hive_mcp.py",
+      "governanceScript": "Required artifacts: 35, GEF v1.0.0, HIVE v1.0.0",
+      "unitTests": "Ran 1805 tests OK (0 failures, 0 errors)",
+      "rulesetCheck": "gh ruleset check --default -R KayzenRoot/iris -> rules including required_status_checks context Governance apply to branch main from ruleset 23766624",
+      "requiredChecks": "gh pr checks 14 -R KayzenRoot/iris --required -> Governance pass (run 35600314448 / job 106334599267) at reviewed head 34646299d1b4b2c17ea49568901992e63df0856a; the evidence commit only changes this JSON file and exact-head Governance is re-observed after push",
+      "productCodeTouched": "none — git diff --name-only 732895d..HEAD lists only .engineering/, .github/ and docs/project-brain/13-CHECKPOINT.md"
+    },
+    "gitPosture": "Fast-forward only onto the reviewer's correction commit; normal push on iris-wo-0005-github-hardening; same PR #14; no force-push, no history rewrite, no branch/ruleset deletion, no merge, no M03."
+  }
+}
