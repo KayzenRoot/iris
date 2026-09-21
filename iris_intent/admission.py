@@ -590,7 +590,7 @@ class SemanticAdmissionShield:
         subject = SemanticRef(kind=RefKind.REVISION.value, ref_id=assessment.revision_id)
         findings: list[AdmissionFinding] = []
         for record in assessment.ambiguities:
-            if not record.consequence_enum.blocks_completion:
+            if not record.consequence_class.blocks_completion:
                 continue
             ref = SemanticRef(kind=RefKind.AMBIGUITY.value, ref_id=record.ambiguity_id)
             findings.append(
@@ -604,15 +604,16 @@ class SemanticAdmissionShield:
                     recoverable=True,
                 )
             )
-        for zone in assessment.freedom_as_gap:
-            ref = SemanticRef(kind=RefKind.FREEDOM_ZONE.value, ref_id=zone.zone_id)
+        for ambiguity_id in assessment.freedom_as_gap:
+            ref = SemanticRef(kind=RefKind.AMBIGUITY.value, ref_id=ambiguity_id)
             findings.append(
                 self._finding(
                     AdmissionCheck.FREEDOM_AS_GAP,
                     AdmissionDecision.REFUSED,
                     ref,
-                    f"freedom zone {zone.zone_id} is being treated as a gap or defaulted; open "
-                    "creative latitude is a decision to leave it open, not an omission (§5.7)",
+                    f"ambiguity {ambiguity_id} is recorded as creative freedom but falls outside "
+                    "every granted zone, so it is being treated as a gap; open creative latitude is "
+                    "a decision to leave it open, not an omission (§5.7)",
                     (ref, subject),
                 )
             )

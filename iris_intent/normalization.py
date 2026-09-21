@@ -332,10 +332,12 @@ class ConstraintNormalForm(Record):
         return [item.fingerprint_inputs() for item in self.active_rules(context)]
 
     def digest_of(self) -> str:
+        # The bundle ref is deliberately absent: it carries the bundle's own content digest, and
+        # hashing it here would make a rewording of one rationale change the form digest, which is
+        # exactly the invalidation the equivalence profile exists to prevent (§5.45).
         return content_digest(
             {
                 "normal_form_version": self.normal_form_version,
-                "bundle": self.bundle_ref.text,
                 "rules": [item.fingerprint_inputs() for item in self.rules],
                 "residues": [dict(item) for item in self.residues],
             }

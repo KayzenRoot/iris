@@ -301,6 +301,10 @@ class ProvenanceCapsule(Record):
         kinds = {ref.kind for ref in self.source_refs} | {ref.kind for ref in self.policy_refs}
         return bool(kinds & _AUTHORITATIVE_BASIS_KINDS)
 
+    @property
+    def capsule_ref(self) -> SemanticRef:
+        return SemanticRef(kind=RefKind.PROVENANCE.value, ref_id=self.capsule_id).with_digest(self.digest())
+
     def reaches(self, source_id: str) -> bool:
         return any(ref.ref_id == source_id for ref in self.source_refs) or any(
             anchor.source_id == source_id for anchor in self.anchors
