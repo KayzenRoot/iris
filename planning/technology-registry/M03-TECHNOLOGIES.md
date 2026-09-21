@@ -1,6 +1,6 @@
 # M03 — Technology Registry
 
-Status: `S05_COMPLETE_PENDING_FINAL_REVIEW`
+Status: `FINAL_REVIEW_APPROVED_CONSOLIDATED`
 Module: `M03 Creative Brief, Intent & Constraint Compiler`
 
 This registry tracks IRIS-owned technology candidates for M03. Names describe internal design concepts, not patent claims. Prior-art/external-reference review remains mandatory before Final Technology Review and Contract Freeze.
@@ -513,3 +513,9 @@ Continue planning with `IRIS-ICX-055..072`. No S04 candidate is frozen or claime
 ## S05 technology disposition
 
 The M03 planning registry now contains `IRIS-ICX-001..090`. All remain candidates pending Final Technology Review; research candidates and overlapping concepts must be merged, superseded, rejected or bounded before contract freeze. No novelty/patent claim is made by this registry.
+
+
+## Final Review Pointer
+
+The authoritative technology disposition is `planning/reviews/M03-FINAL-TECHNOLOGY-REVIEW.md`.
+The original `IRIS-ICX-001..090` identifiers remain as design-history references; contract freeze should use consolidated families `F-M03-01..16` and the explicit research/boundary dispositions from the review.
