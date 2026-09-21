@@ -11,7 +11,7 @@ import hashlib
 import json
 import re
 import unicodedata
-from typing import Any, Mapping
+from typing import Any
 
 from iris_quality.contracts import QualityClass
 from iris_quality.versions import CONTRACT_VERSION as M01_CONTRACT_VERSION
