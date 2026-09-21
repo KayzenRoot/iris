@@ -1,6 +1,6 @@
 # M03 — Creative Brief, Intent & Constraint Compiler
 
-Status: `S03_PROPOSED_COMPLETE_PENDING_DISCUSSION`
+Status: `S04_PROPOSED_COMPLETE_PENDING_DISCUSSION`
 Module: `M03`
 Area: `A — Product Constitution & Production OS`
 Planning issue: `#17`
@@ -1245,12 +1245,412 @@ Future implementation/tests must prove at least:
 21. provider/model/DCC names are unnecessary to compile the quality contract;
 22. M01 `DecisionEngine`, `EvaluatorRegistry` and defect/debt authority are not reimplemented in M03.
 
+
+
+---
+
+# S04 — Provider-neutral execution intent and explainability
+
+Status: `S04_PROPOSED_COMPLETE_PENDING_DISCUSSION`
+
+## 1. Execution-intent doctrine
+
+M03 S04 compiles **what kind of production behavior is required** without deciding which provider, model, DCC, workflow, worker, GPU, cloud or command will perform it.
+
+The canonical artifact is an `Execution Intent Bundle`, not a prompt and not an executable plan.
+
+It sits between:
+- S01/S02/S03 semantic truth; and
+- M04 Scene/Multimodal IR, M16 workflow/provider compilation, M17 ComfyUI integration, M26 Blender automation and M11/M12 execution infrastructure.
+
+## 2. Explicit distinction from M02 ExecutionPlan
+
+M02 already owns the provider-neutral production graph semantics and exposes `ProviderCompiler.compile(...)->ExecutionPlan` as a later-module boundary.
+
+Therefore:
+- **M03 Execution Intent** = semantic demand / desired behavior / constraints / explanation;
+- **M02 Definition/Bound Graph** = causal production structure and immutable execution semantics;
+- **M16/M17/M26/etc. provider compilers/adapters** = concrete provider workflow/action compilation;
+- **M02 ExecutionPlan** = provider/runtime-specific plan returned through the admitted M02 port;
+- **M11/M12** = process/worker/scheduling/placement.
+
+M03 MUST NOT emit an M02 `ExecutionPlan`, worker command, ComfyUI graph or Blender script.
+
+## 3. Execution Intent Bundle
+
+One bundle is immutable/versioned and binds:
+- source Creative Brief revision;
+- intent fingerprint;
+- constraint fingerprint;
+- Fidelity Contract Set refs/fingerprint;
+- semantic deliverable targets;
+- capability demands;
+- transformation intents;
+- candidate/exploration intents;
+- protected semantic zones/anchors;
+- applicable Minimum Sufficient Intent/Constraint slices;
+- explainability graph;
+- unresolved execution-intent gaps;
+- compiler/schema versions;
+- bundle fingerprint.
+
+## 4. Intent Operation
+
+An `Intent Operation` describes a provider-neutral desired transformation.
+
+Initial operation families:
+- `CREATE` — synthesize a new governed subject/output;
+- `TRANSFORM` — change an admitted subject while preserving declared invariants;
+- `COMPOSE` — combine multiple governed inputs;
+- `EXTEND` — expand scene/frame/timeline/spatial content;
+- `REPAIR` — correct localized defects while preserving protected semantics;
+- `VARIATE` — explore approved degrees of freedom;
+- `SELECT` — request selection among candidates according to referenced quality/intent criteria;
+- `VALIDATE` — request evidence against a referenced Fidelity Contract/constraint slice;
+- `PACKAGE` — request an output family/destination package semantically, without codec/provider implementation;
+- `LOCALIZE` — request locale adaptation by reference, with M47 owning detailed semantics.
+
+These are semantic verbs. They do not dictate graph node count or provider workflow structure.
+
+## 5. Operation contract
+
+Each Intent Operation declares at minimum:
+- `intent_operation_id`;
+- operation family;
+- semantic purpose;
+- source/subject semantic refs;
+- desired output semantic type/ref;
+- applicable Fidelity Contract refs;
+- intent slice ref;
+- constraint slice ref;
+- protected anchors/zones;
+- creative Freedom Zones;
+- capability demand refs;
+- allowed semantic mutation classes;
+- forbidden semantic mutation classes;
+- required explanation links;
+- completion semantics at the intent level;
+- schema/version.
+
+## 6. Capability Demand
+
+M03 expresses required **capabilities**, not provider names.
+
+Examples:
+- identity-preserving image synthesis;
+- controlled pose generation;
+- alpha/transparency output;
+- text/layout fidelity;
+- temporal identity consistency;
+- 3D topology transformation;
+- lip-synchronized speech animation;
+- multilingual voice persistence;
+- stem-separated music generation;
+- deterministic vector export.
+
+A capability demand may include:
+- mandatory/optional status;
+- semantic scope;
+- quality/Fidelity Contract refs;
+- required input/output semantic types;
+- constraints it must preserve;
+- evidence expected from the eventual provider/compiler.
+
+Provider registries later advertise whether they can satisfy these demands.
+
+## 7. No vendor/provider lock in canonical intent
+
+The following are forbidden as canonical M03 execution semantics unless they were explicit user/project contractual requirements and are stored as external constraints rather than universal meaning:
+- model checkpoint names;
+- ComfyUI node IDs;
+- Blender operators/scripts;
+- API endpoints;
+- vendor sampler names;
+- CUDA/ROCm/DirectML choices;
+- worker host IDs;
+- cloud regions;
+- queue names;
+- prompt-weight syntax.
+
+Provider-specific details are compilation outputs of later modules, never the source of semantic truth.
+
+## 8. Provider capability gap
+
+If no known provider can currently satisfy a mandatory capability, M03 records an `Execution Intent Gap`; it does not mutate the intent to fit a weaker provider.
+
+Gap types:
+- `MISSING_CAPABILITY`;
+- `UNREPRESENTABLE_CONSTRAINT`;
+- `INSUFFICIENT_REFERENCE_SUPPORT`;
+- `NO_QUALITY_EVIDENCE_PATH`;
+- `SEMANTIC_TYPE_UNSUPPORTED`;
+- `PROTECTED_ANCHOR_UNSUPPORTED`;
+- `SIDE_EFFECT_POLICY_UNRESOLVED`;
+- `PROVIDER_TRANSLATION_LOSS`;
+- `STALE_PROVIDER_CAPABILITY`.
+
+Later routing may find another provider/workflow, change execution strategy or escalate compute. Required meaning stays intact.
+
+## 9. Semantic Loss Budget
+
+Provider translation is allowed to vary implementation, not meaning.
+
+Every required semantic item is classified:
+- `LOSSLESS_REQUIRED` — must be represented exactly or block;
+- `BOUNDED_APPROXIMATION` — approximation allowed only within an explicit tolerance/quality policy;
+- `CREATIVE_FREEDOM` — provider may choose freely inside the declared zone;
+- `ADVISORY` — may influence strategy without being a hard semantic obligation.
+
+There is no global numeric “meaning loss score”. Each obligation keeps its own disposition/evidence.
+
+## 10. Provider Translation Receipt requirement
+
+S04 requires later provider compilers to be able to return a `Provider Translation Receipt` describing, for every relevant execution-intent/constraint item:
+- represented exactly;
+- represented approximately under an admitted tolerance;
+- delegated to an external validator/repair loop;
+- unsupported;
+- intentionally irrelevant to this provider step.
+
+Unsupported LOSSLESS_REQUIRED items block provider-plan admission.
+
+M03 defines the receipt expectation. M16/provider modules implement concrete translation.
+
+## 11. Creative exploration intent
+
+M03 distinguishes exploitation from exploration without deciding compute counts.
+
+An exploration request may declare:
+- which Freedom Zones should vary;
+- which anchors must remain fixed;
+- diversity axes;
+- whether variations should be broad/narrow/structured;
+- whether branches should be independent or progressive refinements;
+- selection/Fidelity Contract refs.
+
+Actual candidate count, seed allocation, compute budget and scheduler policy belong to later planning/runtime modules.
+
+## 12. Mutation envelope
+
+For TRANSFORM/REPAIR/VARIATE operations, M03 emits a `Semantic Mutation Envelope`:
+- protected properties;
+- mutable properties;
+- conditionally mutable properties;
+- maximum tolerated semantic drift where typed policy exists;
+- reference anchors;
+- reset/reversion policy refs.
+
+This enables minimal repair and identity preservation later without encoding masks/model controls in M03.
+
+## 13. Side-effect intent
+
+M03 may classify that an operation's desired result is:
+- pure/internal materialization;
+- controlled export/package;
+- external publication/mutation request.
+
+But M02 owns executable side-effect classes and release/reconciliation law, while M59 owns actual destination/publishing behavior.
+
+M03 cannot authorize an external publish merely because the brief says “post it”. It can express the desired delivery intent and required approval boundary.
+
+## 14. Execution-intent slicing
+
+Downstream modules consume a `Minimum Sufficient Execution Intent Slice` for the semantic operation they compile.
+
+The slice includes only:
+- operation semantics;
+- required capabilities;
+- relevant intent/constraint refs;
+- relevant Fidelity Contract refs;
+- protected anchors/zones;
+- explanation/provenance refs;
+- applicable gap/loss rules.
+
+This avoids injecting a full campaign/film/project brief into every provider call.
+
+## 15. Prompt compilation boundary
+
+Prompts, negative prompts, conditioning graphs and model-control values are **ephemeral provider artifacts** derived later.
+
+Rules:
+- prompt text is never the canonical Creative Brief;
+- a prompt must be traceable to the Execution Intent Slice it implements;
+- provider prompt changes do not change semantic truth unless they reflect an admitted semantic revision;
+- generated prompt text cannot self-promote into new intent/constraints;
+- prompt injection from retrieved/reference content remains blocked by S02 Constraint Admission Shield.
+
+## 16. Explainability Graph
+
+S04 compiles an immutable `Intent Explanation Graph`.
+
+Nodes can include:
+- raw source refs;
+- normalized Intent Statements;
+- constraints;
+- ambiguity resolutions;
+- Freedom Zones;
+- Fidelity Contract obligations;
+- Intent Operations;
+- Capability Demands;
+- protected mutation rules;
+- later provider translation receipts.
+
+Edges encode “derived from / required by / constrained by / selected because / unresolved because”.
+
+Every emitted operation/capability demand must have at least one explanation path to admitted source semantics or policy.
+
+## 17. Decision explanation
+
+A downstream system should be able to answer:
+- why CREATE rather than TRANSFORM?
+- why is identity preservation mandatory?
+- why is alpha capability required?
+- why may camera angle vary?
+- why is a provider being rejected?
+- which requirement caused a costly strategy?
+- what can be changed without recompiling the whole production?
+
+M03 provides semantic reasons; later modules append provider/runtime reasons.
+
+## 18. Explanation levels
+
+To balance humans, machines and token cost, explanations are layered:
+- `TRACE_ID_ONLY` — compact refs/digests for machine pipelines;
+- `COMPACT` — concise structured rationale;
+- `HUMAN` — user-readable explanation;
+- `AUDIT` — complete provenance/authority/version chain.
+
+All levels resolve to the same canonical graph. “Compact” is not allowed to invent a different explanation.
+
+## 19. Explainability caching
+
+Explanation packets may be cached by:
+- source semantic fingerprints;
+- operation fingerprint;
+- compiler version;
+- explanation profile/version.
+
+A wording-only change that does not alter semantics can reuse machine traces while preserving the new source revision lineage.
+
+## 20. Execution Intent fingerprint
+
+The bundle fingerprint includes:
+- brief/constraint/Fidelity compilation fingerprints;
+- operation semantics;
+- capability demands;
+- semantic mutation envelopes;
+- protected anchors/zones;
+- loss classifications;
+- applicable policy/profile refs;
+- compiler/schema version.
+
+No provider choice, host ID or runtime telemetry enters this canonical fingerprint.
+
+## 21. Recompilation and delta
+
+S04 emits an `Execution Intent Delta` between bundle revisions.
+
+Change classes include:
+- `NO_SEMANTIC_CHANGE`;
+- `OPERATION_ADDED_REMOVED`;
+- `CAPABILITY_DEMAND_CHANGE`;
+- `MUTATION_ENVELOPE_CHANGE`;
+- `PROTECTED_ANCHOR_CHANGE`;
+- `QUALITY_CONTRACT_REF_CHANGE`;
+- `DELIVERABLE_INTENT_CHANGE`;
+- `EXPLANATION_ONLY_CHANGE`.
+
+M02/M04/M16 later use the delta to determine graph/IR/provider recompilation impact.
+
+## 22. Provider-neutral examples
+
+### Persistent corporate spokesperson ad
+Canonical M03 intent may say:
+- CREATE/TRANSFORM a presenter-led video;
+- preserve persona identity anchors;
+- preserve voice identity;
+- product/claim constraints apply;
+- vary gesture/background inside Freedom Zones;
+- require temporal identity consistency + lip-sync capability;
+- validate against linked Fidelity Contracts.
+
+It does **not** say “use model X + node Y + sampler Z”.
+
+### Product hero image
+- CREATE still image;
+- preserve exact product packaging/geometry/color anchors;
+- background/composition may vary within brand constraints;
+- require typography/text fidelity if label text is visible;
+- transparent-background capability may be required for one deliverable variant.
+
+### Game character repair
+- REPAIR localized hand deformation;
+- protect character identity, silhouette, materials and unaffected geometry;
+- modification envelope targets only allowed semantic region;
+- validate relevant M01 dimensions after repair.
+
+## 23. Security / trust boundary
+
+Untrusted provider output or generated prompt text cannot modify the canonical Execution Intent Bundle.
+
+Provider observations may produce:
+- receipts;
+- discovered capability facts;
+- dependency observations;
+- gap reports;
+- proposed semantic deltas.
+
+Any semantic change must re-enter governed M03 revision/admission flow.
+
+## 24. S04 decisions proposed
+
+- **D-M03-S04-001:** M03 Execution Intent is semantic demand, not M02 ExecutionPlan or provider workflow.
+- **D-M03-S04-002:** canonical M03 execution artifacts contain capability demands, not provider/model/DCC/runtime choices.
+- **D-M03-S04-003:** provider-specific prompts/workflows are derived ephemeral artifacts, never canonical intent.
+- **D-M03-S04-004:** mandatory unsupported capability creates an Execution Intent Gap rather than silent semantic downgrade.
+- **D-M03-S04-005:** semantic-loss policy is per obligation (LOSSLESS_REQUIRED/BOUNDED_APPROXIMATION/CREATIVE_FREEDOM/ADVISORY), not a single aggregate score.
+- **D-M03-S04-006:** later provider compilers must expose translation receipts proving which semantic obligations were represented.
+- **D-M03-S04-007:** exploration intent declares variation axes/Freedom Zones, not candidate counts or scheduler strategy.
+- **D-M03-S04-008:** TRANSFORM/REPAIR/VARIATE use Semantic Mutation Envelopes with protected/mutable properties.
+- **D-M03-S04-009:** M03 may express delivery/publication desire but cannot authorize external side effects; M02/M59 retain their authority.
+- **D-M03-S04-010:** downstream compilers consume Minimum Sufficient Execution Intent Slices.
+- **D-M03-S04-011:** prompts cannot self-promote into intent/constraints and must trace to a canonical slice.
+- **D-M03-S04-012:** every operation/capability demand requires an explanation path to admitted source or policy.
+- **D-M03-S04-013:** explainability has machine/compact/human/audit projections over one canonical explanation graph.
+- **D-M03-S04-014:** Execution Intent fingerprints exclude provider/host/runtime details.
+- **D-M03-S04-015:** semantic changes produce typed Execution Intent Deltas for later selective recompilation.
+- **D-M03-S04-016:** provider observations may propose deltas but cannot mutate canonical M03 state.
+
+## 25. S04 proof plan
+
+Future implementation/tests must prove at least:
+1. one brief compiles to the same canonical Execution Intent regardless of provider availability ordering;
+2. canonical payload contains no ComfyUI/Blender/model/host/queue implementation field;
+3. provider name changes do not alter Execution Intent fingerprint;
+4. mandatory missing capability yields MISSING_CAPABILITY and no silent fallback weakening;
+5. LOSSLESS_REQUIRED unsupported translation blocks provider admission;
+6. BOUNDED_APPROXIMATION requires explicit tolerance/policy ref;
+7. Freedom Zones survive into exploration intent without becoming hard defaults;
+8. Semantic Mutation Envelope preserves protected anchors during repair/variation compilation;
+9. external publish desire cannot bypass M02/M59 approval/reconciliation boundary;
+10. Minimum Sufficient Execution Intent Slice excludes unrelated campaign/project semantics;
+11. generated provider prompt cannot add a canonical constraint;
+12. every operation/capability has an explanation path;
+13. compact and audit explanations resolve to the same canonical graph facts;
+14. explanation cache invalidates on semantic/compiler version change;
+15. explanation-only wording changes can avoid provider recompilation when semantics are unchanged;
+16. provider translation receipt identifies exact/approximate/unsupported obligations;
+17. provider output cannot mutate canonical bundle directly;
+18. M02 ProviderCompiler/ExecutionPlan semantics are not reimplemented by M03;
+19. M04/M16 can consume M03 refs without M03 importing their provider implementation;
+20. one bundle can remain valid across local/remote/cloud execution strategy changes when semantics stay constant.
+
 ---
 
 ## M03 current disposition
 
-S01, S02 and S03 are proposed complete for discussion.
+S01 through S04 are proposed complete for discussion.
 
 No M03 implementation is authorized.
 
-Next legal planning action after S03 review/acceptance: **S04 — Provider-neutral execution intent and explainability**.
+Next legal planning action after S04 review/acceptance: **S05 — Conflict detection, override policy and brief versioning**.

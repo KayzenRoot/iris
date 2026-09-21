@@ -3,6 +3,6 @@
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "M03_PLANNING_ACTIVE",
   "version": "1.0-m02-implemented",
-  "phase": "M03_S03_FIDELITY_CONTRACT_COMPILATION",
-  "nextStep": "Review/accept M03 S03, then continue to S04 — Provider-neutral execution intent and explainability."
+  "phase": "M03_S04_EXECUTION_INTENT_EXPLAINABILITY",
+  "nextStep": "Review/accept M03 S04, then continue to S05 — Conflict detection, override policy and brief versioning."
 }

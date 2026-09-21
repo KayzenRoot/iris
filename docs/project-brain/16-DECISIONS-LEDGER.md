@@ -72,3 +72,8 @@ M03 is the canonical semantic authority for Creative Brief identity/revisions, n
 ## ADR-0017 - M03 compiles quality intent into M01 without authority duplication
 Status: `APPROVED`
 M03 may compile admitted brief/constraint semantics into a versioned Fidelity Contract Spec and, through an admitted M01 DomainProfile/registry path, into the frozen M01 `FidelityContract`. M03 MUST NOT invent FidelityDimension IDs, grant evaluator capability, weaken M01 defect/hard-gate rules, fabricate HUMAN_DECISION evidence or silently lower QualityClass due to hardware/provider limits. M01 remains the sole quality decision/promotion authority.
+
+
+## ADR-0018 - M03 Execution Intent is not an M02 ExecutionPlan
+Status: `APPROVED`
+M03 owns a provider-neutral semantic Execution Intent Bundle expressing desired operations, capability demands, mutation/protection envelopes and explainability. It MUST NOT emit provider workflows, prompts as canonical truth, worker commands or M02 `ExecutionPlan` objects. M02 remains the causal graph/execution-plan contract authority; M16/M17/M26 and other provider modules perform concrete translation. Mandatory semantic obligations may not be silently weakened to fit provider capability.

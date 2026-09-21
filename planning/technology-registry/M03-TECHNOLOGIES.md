@@ -1,6 +1,6 @@
 # M03 — Technology Registry
 
-Status: `S03_ACTIVE`
+Status: `S04_ACTIVE`
 Module: `M03 Creative Brief, Intent & Constraint Compiler`
 
 This registry tracks IRIS-owned technology candidates for M03. Names describe internal design concepts, not patent claims. Prior-art/external-reference review remains mandatory before Final Technology Review and Contract Freeze.
@@ -322,3 +322,99 @@ Continue planning with `IRIS-ICX-017..036`. No S02 candidate is frozen yet. S03-
 ## S03 technology disposition
 
 Continue planning with `IRIS-ICX-037..054`. No S03 candidate is frozen or claimed novel yet. Final Technology Review must assess overlap, prior art, implementation value and merge/supersession opportunities across ICX-001..054.
+
+
+## IRIS-ICX-055 — Execution Intent Bundle
+**Purpose:** immutable provider-neutral description of desired production behavior linked to brief/constraints/Fidelity Contracts.
+**Benefit:** provider portability without semantic drift.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-056 — Capability Demand Graph
+**Purpose:** express required capabilities and semantic dependencies without provider identities.
+**Benefit:** supports empirical routing across ComfyUI, Blender, APIs, LAN/cloud providers later.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-057 — Semantic Mutation Envelope
+**Purpose:** explicitly separate protected, mutable and conditionally mutable semantic regions/properties.
+**Benefit:** safer variations, repair and partial regeneration.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-058 — Semantic Loss Firewall
+**Purpose:** classify obligations as lossless/approximable/free/advisory and block silent loss of required meaning.
+**Benefit:** provider changes cannot quietly degrade intent.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-059 — Provider Translation Receipt
+**Purpose:** require later compilers to report exact/approximate/delegated/unsupported mapping for each semantic obligation.
+**Benefit:** makes provider compilation auditable and testable.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-060 — Provider Drift Sentinel
+**Purpose:** detect when a previously capable provider/version can no longer represent required execution semantics.
+**Benefit:** safer upgrades/canaries and automatic rerouting.
+**Dependencies:** M14-M18 qualification data later.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-061 — Prompt Ephemerality Guard
+**Purpose:** enforce that provider prompt text is derived output, never canonical project intent.
+**Benefit:** avoids prompt-centric lock-in and prompt injection promotion.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-062 — Minimum Sufficient Execution Slice
+**Purpose:** compile only operation-relevant intent/constraints/quality/provenance into downstream context.
+**Benefit:** major LLM token/context savings and reduced cross-task contamination.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-063 — Intent Explanation Graph
+**Purpose:** canonical provenance graph connecting source statements to constraints, quality obligations, operations and capability demands.
+**Benefit:** deterministic explainability for users, agents and audits.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-064 — Explainability Projection Engine
+**Purpose:** render TRACE_ID_ONLY/COMPACT/HUMAN/AUDIT views over the same explanation graph.
+**Benefit:** high auditability without paying full-context token cost everywhere.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-065 — Execution Intent Fingerprint
+**Purpose:** provider-independent digest of semantic execution demand.
+**Benefit:** reuse survives provider/worker/location changes.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-066 — Execution Intent Delta
+**Purpose:** classify operation/capability/mutation/quality-reference changes between revisions.
+**Benefit:** selective M04/M16 recompilation and smaller M02 impact cones.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-067 — Exploration Axis Compiler
+**Purpose:** translate Freedom Zones into explicit variation axes without selecting candidate counts/seeds/providers.
+**Benefit:** diversity is intentional rather than random prompt noise.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-068 — Protected Anchor Propagation
+**Purpose:** ensure identity/brand/product anchors are carried through every relevant operation slice.
+**Benefit:** reduces cross-stage identity drift.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-069 — Execution Gap Matrix
+**Purpose:** structured gap model for missing capability, translation loss, evidence path and semantic-type support.
+**Benefit:** failures become routable engineering facts rather than vague “provider could not do it”.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-070 — Semantic Side-Effect Boundary
+**Purpose:** distinguish desired external delivery intent from actual authorization/execution.
+**Benefit:** preserves M02/M59 side-effect safety and reconciliation.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-071 — Intent Slice Cache Passport
+**Purpose:** prove reuse safety for compact downstream execution slices using semantic/compiler fingerprints.
+**Benefit:** avoids repeated prompt/context construction and reduces LLM cost.
+**Status:** PROPOSED_S04.
+
+## IRIS-ICX-072 — Capability-Neutral Retry Intent
+**Purpose:** preserve retry/repair semantic goals while allowing later modules to change provider/strategy.
+**Benefit:** failed providers do not force semantic rewrite or duplicated user prompting.
+**Status:** PROPOSED_S04.
+
+## S04 technology disposition
+
+Continue planning with `IRIS-ICX-055..072`. No S04 candidate is frozen or claimed novel yet. Final Technology Review must assess consolidation and prior art across ICX-001..072.
