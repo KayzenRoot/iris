@@ -2,24 +2,26 @@
 
 Status: `DISCOVERY_ACTIVE`
 
-## Current increment — IRIS-WO-0002
+## Current increment — M03 planning
 
 ### NECESSARY
-- current-state research of UGAS V1, UGAS V2, Blender and ComfyUI;
-- full IRIS 1.0 module/session taxonomy;
-- no-MVP/full-V1 decision;
-- extreme-quality North Star;
-- 8 GB hardware/adaptive execution invariant;
-- Blender headless-first and supervised worker direction;
-- UGAS V2 carryover map;
-- canonical planning updates.
+- governed S01-S05 planning for M03 Creative Brief, Intent & Constraint Compiler;
+- provider-neutral creative brief and intent semantics;
+- constraint/negative-constraint model;
+- M01 Fidelity Contract compilation boundary;
+- provider-neutral execution intent + explainability;
+- conflict/override/versioning policy;
+- proprietary-technology registry and prior-art review;
+- forward compatibility scan against M04-M60;
+- frozen M03 module contract before implementation admission.
 
 ### OUT OF SCOPE FOR THIS INCREMENT
-- product implementation;
-- model downloads;
-- actual rendering/generation;
-- local workstation mutation;
-- freezing detailed implementation architecture for each M00–M60 module.
+- M03 product implementation;
+- provider/model prompt compilation implementation;
+- Blender/ComfyUI/DCC execution;
+- model downloads or generation;
+- M04+ implementation;
+- changing M01 quality authority or M02 production/graph authority.
 
 ## IRIS 1.0 product scope
 

@@ -62,3 +62,28 @@ During IRIS reviews, bounded findings that ChatGPT can safely correct and valida
 ## ADR-0015 - M02 semantic authority and M06 operational ownership
 Status: `APPROVED`
 M02 is the canonical semantic authority for project/production identity, Production Graph causality, branch/variant/snapshot/rollback semantics, incremental-build/reuse semantics, and production promotion/release/archive lifecycle. M06 may deepen content-addressed persistence, dependency indexing, reconstruction, cleanup and rollback execution, but MUST implement/extend M02 contracts rather than create a competing second state/version/build model.
+
+
+## ADR-0016 - M03 semantic ownership and compiler boundary
+Status: `APPROVED`
+M03 is the canonical semantic authority for Creative Brief identity/revisions, normalized intent, ambiguity/freedom representation, constraint semantics and later provider-neutral execution-intent compilation. M03 does not own M01 quality judgment/promotion, M02 production/graph/lifecycle semantics, M04 media/scene IR, or provider-specific workflow/runtime details. M02 consumes versioned M03 references; M04+ consume compiled M03 intent.
+
+
+## ADR-0017 - M03 compiles quality intent into M01 without authority duplication
+Status: `APPROVED`
+M03 may compile admitted brief/constraint semantics into a versioned Fidelity Contract Spec and, through an admitted M01 DomainProfile/registry path, into the frozen M01 `FidelityContract`. M03 MUST NOT invent FidelityDimension IDs, grant evaluator capability, weaken M01 defect/hard-gate rules, fabricate HUMAN_DECISION evidence or silently lower QualityClass due to hardware/provider limits. M01 remains the sole quality decision/promotion authority.
+
+
+## ADR-0018 - M03 Execution Intent is not an M02 ExecutionPlan
+Status: `APPROVED`
+M03 owns a provider-neutral semantic Execution Intent Bundle expressing desired operations, capability demands, mutation/protection envelopes and explainability. It MUST NOT emit provider workflows, prompts as canonical truth, worker commands or M02 `ExecutionPlan` objects. M02 remains the causal graph/execution-plan contract authority; M16/M17/M26 and other provider modules perform concrete translation. Mandatory semantic obligations may not be silently weakened to fit provider capability.
+
+
+## ADR-0019 - M03 conflicts and overrides are receipt-governed
+Status: `APPROVED`
+M03 semantic conflicts are explicit versioned objects. Recency, specificity or model confidence alone never determines precedence. Effective overrides require an authorized versioned Authority Policy Graph plus immutable Override Receipt, and ordinary M03 overrides cannot bypass M01/M02 invariants or admitted non-overridable rights/security/governance policy. Brief edits/migrations/restorations create new immutable revisions; M02 remains branch/variant/rollback authority.
+
+
+## ADR-0020 - M03 contract freezes semantic compilation, not provider execution
+Status: `APPROVED`
+The M03 freeze covers immutable Creative Brief/Intent/Constraint semantics, compilation into M01 Fidelity Contract references/objects, provider-neutral Execution Intent, explainability, conflicts/overrides and semantic revision/freshness. It explicitly excludes provider prompts/workflows, M02 ExecutionPlan/worker execution, M04 Scene IR internals, domain DNA engines, real judges, HIVE retrieval, rights/security engines, persistence and publishing.
