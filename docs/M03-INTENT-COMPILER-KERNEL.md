@@ -203,20 +203,24 @@ enforces, and every line is exercised by `tests/test_m03_*.py`.
 
 M03 borrows quality vocabulary rather than rebuilding it:
 `iris_intent.versions.QualityClass` **is** `iris_quality.contracts.QualityClass`
-(same object), and the fidelity bridge imports `iris_quality` for the ladder, the
-canonical JSON form, the `QualityDebtPolicy`, the `DefectSeverity` vocabulary its
-blocking gaps are measured in, and the `DomainProfile`/`EvaluatorRegistry` it
-consults but does not own. It imports exactly one M01 failure family —
-`iris_quality.errors` — to classify a refusal it did not invent. M03 never
-computes a score, never registers an evaluator, never extends a dimension registry,
-and never weakens a FATAL gate: the bridge's whole authority is "here is a spec
-M01 can check".
+(same object), and the whole M01 surface the kernel touches is eight submodules,
+each for a stated reason — `contracts` for the ladder, the defect-class fields and
+`FidelityContract`; `debt` for `QualityDebtPolicy`; `defects` for `DefectSeverity`,
+which is how a blocking gap is measured; `errors` for the one M01 failure family it
+must recognise as not-its-own; `registry` for `DomainProfile` and
+`EvaluatorRegistry`; `serialization` for `envelope`/`from_envelope`/
+`validate_payload`, so a contract M03 hands over is checked by M01's own reader;
+`versions` for `M01_CONTRACT_VERSION` and `ComponentVersion`; `zones` for
+`SemanticZone`. It never computes a score, never registers an evaluator, never
+extends a dimension registry, and never weakens a FATAL gate: the bridge's whole
+authority is "here is a spec M01 can check".
 
 M02 owns project state: graph topology, branch/variant/rollback, snapshots, build
-and lifecycle. M03 reads it through refs and cites it; `ports.ProjectGraphPort`
-is a read boundary and `SemanticMutationClass` says which dimensions an edit moves,
-not what the tree looks like afterwards. Where the two disagree about who decides,
-the kernel's failure mode is a typed gap or refusal naming the owning module.
+and lifecycle — and `iris_intent` imports **no** `iris_project_os` module at all.
+M03 reaches M02 only through refs: `ports.ProjectGraphPort` is a read boundary and
+`SemanticMutationClass` says which dimensions an edit moves, not what the tree looks
+like afterwards. Where the two disagree about who decides, the kernel's failure mode
+is a typed gap or refusal naming the owning module.
 
 ## Ports and stores
 
