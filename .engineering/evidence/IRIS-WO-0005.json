@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0005",
-  "status": "READY_FOR_REVIEW",
+  "status": "CORRECTION_REQUIRED",
   "branch": "iris-wo-0005-github-hardening",
   "baseSha": "732895d17ead7a1497985a3a98396f4f2aa975d2",
   "headSha": "17cc0cad72a06c39186fc03dd195190cda5f6b3a",
@@ -107,38 +107,76 @@
     "security": {
       "secret_scanning": "enabled",
       "secret_scanning_push_protection": "enabled",
-      "dependabot_security_updates": "disabled (see limitations)",
-      "vulnerability_alerts": "NOT_AVAILABLE (404)",
-      "automated_security_fixes": "NOT_AVAILABLE (422)"
+      "dependabot_security_updates": "UNRESOLVED pending corrected vulnerability-alerts + automated-security-fixes flow.",
+      "vulnerability_alerts": "UNRESOLVED: previous POST attempt was invalid for the enable endpoint; correction IRIS-WO-0005-C01 must use PUT and read back state.",
+      "automated_security_fixes": "UNRESOLVED: prior 422 was downstream of vulnerability alerts remaining disabled; retry only after PUT vulnerability-alerts succeeds."
     }
   },
   "commands": [
-    { "cmd": "gh api -X PATCH repos/KayzenRoot/iris --input repository-settings.desired.json", "result": "200; merge methods -> squash-only, auto-merge/update-branch/delete-branch on, PR_TITLE/PR_BODY" },
-    { "cmd": "gh api -X POST repos/KayzenRoot/iris/rulesets --input main-governance (enforcement disabled)", "result": "created id 23766624, 5 rule types, target branch, conditions refs/heads/main" },
-    { "cmd": "gh api -X PUT repos/KayzenRoot/iris/rulesets/23766624 (enforcement active)", "result": "200; enforcement active (PATCH returned 404 — ruleset update uses PUT)" },
-    { "cmd": "gh api -X PUT repos/KayzenRoot/iris/actions/permissions/workflow default_workflow_permissions=read can_approve_pull_request_reviews=false", "result": "read / false (unchanged from already-correct baseline)" },
-    { "cmd": "gh api -X POST repos/KayzenRoot/iris/vulnerability-alerts", "result": "404 Not Found — NOT_AVAILABLE (dependency graph not indexed for repo)" },
-    { "cmd": "gh api -X PUT repos/KayzenRoot/iris/automated-security-fixes", "result": "422 'Vulnerability alerts must be enabled to configure automated security fixes' — NOT_AVAILABLE (depends on the above)" },
-    { "cmd": "gh ruleset check --default -R KayzenRoot/iris", "result": "5 rules apply to branch main" },
-    { "cmd": "gh pr checks 14 -R KayzenRoot/iris --required", "result": "Governance pass (required + green on the Work Order PR head)" },
-    { "cmd": "python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/hive_bootstrap.py scripts/hive_mcp.py", "result": "OK" },
-    { "cmd": "python scripts/validate_governance.py", "result": "IRIS governance validation: PASS (35 artifacts)" },
-    { "cmd": "python -m unittest discover -s tests -p \"test_*.py\"", "result": "Ran 1805 tests OK" }
+    {
+      "cmd": "gh api -X PATCH repos/KayzenRoot/iris --input repository-settings.desired.json",
+      "result": "200; merge methods -> squash-only, auto-merge/update-branch/delete-branch on, PR_TITLE/PR_BODY"
+    },
+    {
+      "cmd": "gh api -X POST repos/KayzenRoot/iris/rulesets --input main-governance (enforcement disabled)",
+      "result": "created id 23766624, 5 rule types, target branch, conditions refs/heads/main"
+    },
+    {
+      "cmd": "gh api -X PUT repos/KayzenRoot/iris/rulesets/23766624 (enforcement active)",
+      "result": "200; enforcement active (PATCH returned 404 — ruleset update uses PUT)"
+    },
+    {
+      "cmd": "gh api -X PUT repos/KayzenRoot/iris/actions/permissions/workflow default_workflow_permissions=read can_approve_pull_request_reviews=false",
+      "result": "read / false (unchanged from already-correct baseline)"
+    },
+    {
+      "cmd": "gh api -X POST repos/KayzenRoot/iris/vulnerability-alerts",
+      "result": "INVALID ATTEMPT FOR ENABLE: POST returned 404. GitHub enable endpoint requires PUT; this does not prove NOT_AVAILABLE."
+    },
+    {
+      "cmd": "gh api -X PUT repos/KayzenRoot/iris/automated-security-fixes",
+      "result": "422 because vulnerability alerts were still disabled. Must be retried after corrected PUT /vulnerability-alerts."
+    },
+    {
+      "cmd": "gh ruleset check --default -R KayzenRoot/iris",
+      "result": "5 rules apply to branch main"
+    },
+    {
+      "cmd": "gh pr checks 14 -R KayzenRoot/iris --required",
+      "result": "Governance pass (required + green on the Work Order PR head)"
+    },
+    {
+      "cmd": "python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/hive_bootstrap.py scripts/hive_mcp.py",
+      "result": "OK"
+    },
+    {
+      "cmd": "python scripts/validate_governance.py",
+      "result": "IRIS governance validation: PASS (35 artifacts)"
+    },
+    {
+      "cmd": "python -m unittest discover -s tests -p \"test_*.py\"",
+      "result": "Ran 1805 tests OK"
+    }
   ],
   "filesChanged": [
     ".github/SECURITY.md (added)",
     ".github/dependabot.yml (added)"
   ],
   "filesChangedBasis": "git diff --name-only 732895d..HEAD shows only .engineering/, .github/, and docs/project-brain/13-CHECKPOINT.md (the last from the preparation commit, not the executor). No product/kernel file touched.",
-  "tests": { "full": 1805, "failures": 0, "errors": 0, "result": "OK" },
+  "tests": {
+    "full": 1805,
+    "failures": 0,
+    "errors": 0,
+    "result": "OK"
+  },
   "adminMutations": [
     "repository merge/settings patch (§8)",
     "main-governance ruleset created disabled then activated, id 23766624 (§9)",
     "actions workflow permissions set read-only, PR-review approval disabled — confirmed already-correct (§10)"
   ],
   "limitations": [
-    "Vulnerability alerts (POST /repos/.../vulnerability-alerts) returns 404 for this repository; the dependency graph is not yet indexed, so the feature is genuinely NOT_AVAILABLE and was not falsely claimed as enabled.",
-    "Automated security fixes / Dependabot security updates returns 422 ('Vulnerability alerts must be enabled'); it is unavailable as a direct consequence of the item above and is recorded NOT_AVAILABLE.",
+    "CORRECTION REQUIRED: vulnerability alerts were not proven unavailable. The executor used POST for an endpoint whose enable operation is PUT. GET/POST 404 therefore cannot satisfy the Work Order's NOT_AVAILABLE condition.",
+    "Automated security fixes remain unresolved because their prior 422 explicitly depended on vulnerability alerts not being enabled.",
     "The ruleset's pull_request rule carries GitHub platform default require_extra_approval_for_unattributed_changes=true. It is inert because required_approving_review_count=0 (no approvals are required), so it introduces no human-approval deadlock; it is not in the manifest and was left at the platform default."
   ],
   "risks": [
@@ -148,7 +186,37 @@
   "rollbackPosture": "BEFORE admin state fully captured above (settings, zero rulesets, unprotected main, actions, security). Independent review can restore merge settings by patching the recorded BEFORE booleans, and can disable (not delete) ruleset 23766624 by setting enforcement=disabled via gh api PUT. No destructive rollback executed here.",
   "checkpointDelta": {
     "applied": false,
-    "proposed": "On APPROVED: record in 13-CHECKPOINT.md that KayzenRoot/iris main is protected by the active repository ruleset 'main-governance' (id 23766624) — squash-only, PR required, linear history, resolved threads, Governance status check (strict); repository defaults squash-only + auto-merge + update-branch + delete-branch-on-merge; Actions read-only with PR-review approval disabled; secret scanning + push protection on; Dependabot github-actions config present. Note vulnerability alerts + automated security fixes as NOT_AVAILABLE pending dependency-graph indexing. Executor did not promote this."
+    "proposed": "On APPROVED only after IRIS-WO-0005-C01: record the active main-governance ruleset and repository defaults, plus the final verified vulnerability-alerts / automated-security-fixes state. Do not promote while the correction is open."
   },
-  "stopCondition": "READY_FOR_INDEPENDENT_REVIEW: preflight proved; BEFORE captured without secrets; desired repository settings read back exactly; a single active main-governance ruleset (id 23766624) targets only refs/heads/main and enforces deletion/non-fast-forward/linear-history/PR+squash+resolved-threads/required Governance (strict); Actions read-only and PR-review approval disabled; secret scanning + push protection confirmed; unavailable security features evidenced NOT_AVAILABLE; Governance required+green on PR #14; 1805 tests OK; product/kernel untouched. PR #14 marked ready, NOT merged, M03 NOT started."
+  "stopCondition": "CORRECTION REQUIRED: ruleset/repository settings and exact-head CI are green, but security acceptance criterion remains unmet until vulnerability alerts are enabled with the correct PUT endpoint and automated security fixes are retried/read back. PR #14 must remain unmerged; M03 must remain unstarted.",
+  "reviewAudit": {
+    "verdict": "CORRECTION_REQUIRED",
+    "reviewedHead": "3c242487c65fef3f189135374e9ec79af934f525",
+    "exactHeadGovernance": {
+      "runId": 35599514543,
+      "jobId": 106332020787,
+      "conclusion": "success",
+      "tests": 1805
+    },
+    "finding": {
+      "id": "IRIS-WO-0005-C01",
+      "severity": "MEDIUM",
+      "classification": "EXECUTOR_REQUIRED",
+      "mergeBlocking": true,
+      "title": "Vulnerability alerts were tested with the wrong HTTP method and were falsely classified as NOT_AVAILABLE",
+      "evidence": [
+        "Executor command recorded: gh api -X POST repos/KayzenRoot/iris/vulnerability-alerts -> 404",
+        "GitHub REST contract enables vulnerability alerts with PUT, not POST",
+        "GET 404 means vulnerability alerts are not enabled; it does not prove platform unavailability",
+        "Automated security fixes then returned 422 because vulnerability alerts were not enabled"
+      ],
+      "requiredCorrection": [
+        "Use PUT /repos/KayzenRoot/iris/vulnerability-alerts and verify the follow-up GET returns 204",
+        "Then use PUT /repos/KayzenRoot/iris/automated-security-fixes and read back enabled state",
+        "Update Evidence Bundle truthfully from actual readback",
+        "Re-run/observe exact-head Governance and gh pr checks 14 --required",
+        "Do not change the already-correct ruleset/repository settings except if a readback proves drift"
+      ]
+    }
+  }
 }
