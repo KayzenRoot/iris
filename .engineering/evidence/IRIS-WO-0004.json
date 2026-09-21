@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0004",
-  "status": "READY_FOR_REVIEW",
+  "status": "APPROVED",
   "branch": "iris-wo-0004-m02-project-os",
   "frozenContract": "m02-contract-v1.0",
   "baseSha": "59ee339c27750522106d0d2aa5a525f07f613702",
@@ -15,7 +15,7 @@
     "state": "OPEN",
     "issue": 11,
     "merged": false,
-    "note": "Independent review only. Not merged; M03 not started, per the STOP CONDITION."
+    "note": "Independent review APPROVED at 3e439f4. Final promotion delta is governance/documentation-only and must pass exact-head CI before merge."
   },
   "tests": {
     "runner": "python -m unittest discover -s tests -p \"test_*.py\"",
@@ -118,8 +118,9 @@
     "exactHeadGovernance": "base 59ee339c27750522106d0d2aa5a525f07f613702 -> review-corrected code head 4f6f3530d869742afc690c010a05280331f6be4c on PR #12. Governance run 35584434087 / job 106284371007 checked out that exact SHA, validate_governance PASS (35 required artifacts), and Ran 1805 tests / OK."
   },
   "checkpointDelta": {
-    "applied": false,
-    "proposed": "On APPROVED: register M02 (iris_project_os, m02-contract-v1.0) as accepted in docs/project-brain/13-CHECKPOINT.md, record the 399-name public surface and the 1805-test exact-head baseline, preserve M01 as sole quality authority, and note the review corrections. Do not start M03 before that promotion/merge is complete."
+    "applied": true,
+    "proposed": "On APPROVED: register M02 (iris_project_os, m02-contract-v1.0) as accepted in docs/project-brain/13-CHECKPOINT.md, record the 399-name public surface and the 1805-test exact-head baseline, preserve M01 as sole quality authority, and note the review corrections. Do not start M03 before that promotion/merge is complete.",
+    "appliedIn": "final promotion delta commit following reviewed head 3e439f404a16cbf5d1652296c93160519ff4d0b6"
   },
   "contextLock": {
     "path": ".engineering/context-locks/IRIS-WO-0004.json",
@@ -130,7 +131,7 @@
     "merged": false,
     "m03Started": false,
     "contractWeakened": false,
-    "result": "STOP CONDITION SATISFIED at review-corrected code head 4f6f353: full M02 semantic kernel implemented, independently corrected where CHAT_FIXABLE, exact-head CI green (1805 tests), documented, PR #12 open, M03 not started, no later-module provider stubbed, and m02-contract-v1.0 unchanged."
+    "result": "REVIEW APPROVED at exact head 3e439f4 with 1805/1805 tests. Final promotion delta closes Work Order/Context Lock/Checkpoint only; M03 remains unstarted until PR #12 is merged."
   },
   "reviewCorrections": [
     {
@@ -151,5 +152,23 @@
       ],
       "validation": "Exact-head Governance run 35584434087 checked out 4f6f3530d869742afc690c010a05280331f6be4c, governance PASS (35 artifacts), full suite 1805/1805 OK."
     }
-  ]
+  ],
+  "reviewVerdict": {
+    "verdict": "APPROVED",
+    "reviewedHead": "3e439f404a16cbf5d1652296c93160519ff4d0b6",
+    "governanceRun": 35596394803,
+    "governanceJob": 106322077536,
+    "exactHead": true,
+    "tests": {
+      "run": 1805,
+      "failures": 0,
+      "errors": 0,
+      "result": "OK"
+    },
+    "blockers": {
+      "critical": 0,
+      "high": 0
+    },
+    "reviewCommentId": 5760062803
+  }
 }

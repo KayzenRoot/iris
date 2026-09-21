@@ -1,18 +1,20 @@
 # IRIS M02 Planning / Implementation Gate
 
-Status: `M02_EXECUTOR_READY`
+Status: `M02_IMPLEMENTATION_APPROVED_PENDING_MERGE`
 
-- M02 S01–S05: complete and reviewed.
+- M02 S01-S05 planning: complete and approved.
 - Final Technology Review: `APPROVED_FOR_CONTRACT_FREEZE`.
 - Forward Compatibility Scan: `PASS_WITH_EXTENSION_PORTS`.
 - Frozen contract: `m02-contract-v1.0`.
 - Planning PR #10: merged.
-- Merged main baseline: `59ee339c27750522106d0d2aa5a525f07f613702`.
 - Implementation Work Order: `IRIS-WO-0004`.
-- Context Lock: `.engineering/context-locks/IRIS-WO-0004.json`.
-- Implementation branch: `iris-wo-0004-m02-project-os`.
-- Implementation issue: `#11`.
-- M03 remains blocked until M02 implementation review is APPROVED.
-- Review corrections follow `.engineering/REVIEW-AUTOFIX-POLICY.md`.
+- Implementation PR: `#12`.
+- Independent review: `APPROVED`.
+- Reviewed head: `3e439f404a16cbf5d1652296c93160519ff4d0b6`.
+- Exact-head Governance: run `35596394803`, job `106322077536`, PASS.
+- Full suite: `1805/1805 OK`.
+- Review corrections: CHAT_FIXABLE and closed on the same branch/PR.
+- M03 remains blocked until promotion-delta CI, PR merge, post-merge main validation and repository hardening are complete.
+- Cross-chat review behavior follows `.engineering/REVIEW-AUTOFIX-POLICY.md`.
 
-Next legal action: execute IRIS-WO-0004 on this branch, stop before merge and request independent review.
+Next legal action: validate the documentation-only promotion delta, merge PR #12, validate main, then apply professional GitHub ruleset/repository settings via the dedicated repository-hardening Work Order.
