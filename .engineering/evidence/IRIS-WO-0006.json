@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0006",
+  "status": "READY_FOR_EXECUTOR",
+  "branch": "iris-wo-0006-m03-intent-compiler",
+  "frozenContract": "m03-contract-v1.0",
+  "baseSha": "ee06358ee04de1d7aa2271ac05060247985f98dc",
+  "headSha": null,
+  "headShaBasis": "Populate after implementation with the tested candidate head; do not self-reference the evidence commit.",
+  "issue": 19,
+  "pullRequest": {
+    "number": null,
+    "url": null,
+    "base": "main",
+    "state": "NOT_CREATED_AT_BUNDLE_PREP",
+    "merged": false
+  },
+  "baseline": {
+    "governanceRun": 35607568552,
+    "governanceJob": 106358324382,
+    "tests": 1805,
+    "conclusion": "success"
+  },
+  "implementation": {
+    "package": "iris_intent",
+    "status": "NOT_STARTED"
+  },
+  "commands": [],
+  "tests": {
+    "baseline": 1805,
+    "full": null,
+    "m03": null,
+    "failures": null,
+    "errors": null,
+    "result": "NOT_RUN"
+  },
+  "changedFiles": [],
+  "designDecisions": [],
+  "failuresEncounteredAndFixed": [],
+  "scopeDeviations": [],
+  "risksAndDeferredWork": [],
+  "proof": {
+    "m01RemainsQualityAuthority": "PENDING",
+    "m02AuthorityBoundary": "PENDING",
+    "noProviderRuntimeLeakage": "PENDING",
+    "sixSyntheticProfiles": "PENDING",
+    "tokenSliceEfficiency": "PENDING",
+    "semanticAdmissionShield": "PENDING",
+    "exactHeadGovernance": "PENDING"
+  },
+  "checkpointDelta": {
+    "applied": false,
+    "proposed": "On independent APPROVED only: register implemented M03 semantic kernel and final exact-head evidence; do not start M04 before merge/main validation."
+  },
+  "stopCondition": {
+    "merged": false,
+    "m04Started": false,
+    "contractWeakened": false,
+    "result": "NOT_STARTED"
+  }
+}

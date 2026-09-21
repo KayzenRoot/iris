@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0006",
+  "issue": 19,
+  "branch": "iris-wo-0006-m03-intent-compiler",
+  "baseSha": "ee06358ee04de1d7aa2271ac05060247985f98dc",
+  "baseTreeSha": "2dba5943ad546e6291996bf55b53fd89a8273a71",
+  "status": "READY_FOR_EXECUTOR",
+  "risk": "HIGH",
+  "frozenContract": {
+    "name": "m03-contract-v1.0",
+    "path": "planning/contracts/M03-MODULE-CONTRACT-FREEZE-CANDIDATE.md"
+  },
+  "postMergeBaseline": {
+    "governanceRun": 35607568552,
+    "governanceJob": 106358324382,
+    "conclusion": "success",
+    "tests": 1805
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "sha": "5cec1114366b24d7889ac4b27ff2727439294eb3"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "sha": "0c0493f28df7b33ba6ec674a17f6d298f8e33bc1"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "sha": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "sha": "f295beb455756753e366cf1ecc23f9b5b073253d"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "sha": "ce3b48c8dcbf6006d83363c9af716ce96e6b864b"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "sha": "90bb9b64422f01028ced83a91a6c36730ef54be9"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "sha": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "sha": "c01fd5e15795b6e9124171019dd3919ff62538b7"
+    },
+    {
+      "path": "planning/contracts/M03-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "sha": "66616ac94f9e4d02b680e9dc4e4f8a8fce21d34a"
+    },
+    {
+      "path": "planning/modules/M03-CREATIVE-BRIEF-INTENT-CONSTRAINT-COMPILER.md",
+      "sha": "05c3b82e8bae88d9a82fe1a2ddb1ef09f5729f8f"
+    },
+    {
+      "path": "planning/reviews/M03-FINAL-TECHNOLOGY-REVIEW.md",
+      "sha": "b7a396c7c7f0c44416c87f37af84df48fbdd8e89"
+    },
+    {
+      "path": "planning/compatibility/M03-FORWARD-COMPATIBILITY-SCAN.md",
+      "sha": "9c05ca036d1465138bf652a6bce580e294810524"
+    },
+    {
+      "path": "planning/technology-registry/M03-TECHNOLOGIES.md",
+      "sha": "d6fea3f85327bd4e72d8075181f3774230921344"
+    },
+    {
+      "path": "iris_quality/contracts.py",
+      "sha": "bfd147c18c23c17894309fc41f1ab08a8a799a9e"
+    },
+    {
+      "path": "iris_quality/registry.py",
+      "sha": "db35fb77bf6152df15a6d4b278b1278b5a83de3f"
+    },
+    {
+      "path": "iris_project_os/ports.py",
+      "sha": "0aef39b7581446d0f4f7f661c38dc873b979983a"
+    }
+  ],
+  "inScope": [
+    "Complete domain-neutral iris_intent semantic kernel for all frozen M03 S01-S05 contracts",
+    "M01 FidelityContract compilation bridge without quality-authority duplication",
+    "M02-compatible refs/fingerprints/deltas without graph/build/release authority duplication",
+    "Minimum-sufficient semantic slices, fingerprints, freshness and reuse semantics",
+    "Conflict/override/versioning governance and semantic admission shield",
+    "Six synthetic production domains"
+  ],
+  "outOfScope": [
+    "M04 and every later module implementation",
+    "Real Blender/ComfyUI/Maya/model/provider execution",
+    "Scene/Character/Asset/Camera/Material IR implementation",
+    "Hardware discovery/VRAM/worker scheduling",
+    "Production database/CAS/distributed storage",
+    "Real HIVE retrieval or runtime mutation",
+    "Rights/legal/C2PA/security/RBAC engine implementation",
+    "Real image/video/3D/audio judges",
+    "Actual publishing/export APIs",
+    "Model training/download/routing"
+  ],
+  "stopCondition": "STOP after the complete m03-contract-v1.0 semantic kernel is implemented, fully tested/documented/evidenced, branch pushed and the same PR ready for independent review. Do not merge. Do not start M04. Report BLOCKED_CONTRACT_CONFLICT rather than weakening frozen M03 semantics.",
+  "upstream": {
+    "gef": {
+      "version": "1.0.0",
+      "sha": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
+    },
+    "hive": {
+      "version": "1.0.0",
+      "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
+    }
+  }
+}
