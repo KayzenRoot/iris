@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0006",
-  "status": "READY_FOR_EXECUTOR",
+  "status": "EXECUTOR_READY",
   "branch": "iris-wo-0006-m03-intent-compiler",
   "frozenContract": "m03-contract-v1.0",
   "baseSha": "ee06358ee04de1d7aa2271ac05060247985f98dc",
@@ -9,10 +9,10 @@
   "headShaBasis": "Populate after implementation with the tested candidate head; do not self-reference the evidence commit.",
   "issue": 19,
   "pullRequest": {
-    "number": null,
-    "url": null,
+    "number": 20,
+    "url": "https://github.com/KayzenRoot/iris/pull/20",
     "base": "main",
-    "state": "NOT_CREATED_AT_BUNDLE_PREP",
+    "state": "OPEN_ADMISSION",
     "merged": false
   },
   "baseline": {
@@ -57,5 +57,6 @@
     "m04Started": false,
     "contractWeakened": false,
     "result": "NOT_STARTED"
-  }
+  },
+  "admissionHead": "6b386d1720a2a575ef9d45a539bccc51bc71655f"
 }
