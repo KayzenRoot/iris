@@ -1,6 +1,6 @@
 # IRIS-WO-0005 — GitHub Repository Hardening
 
-Status: `READY_FOR_EXECUTOR`
+Status: `COMPLETED_APPROVED`
 Risk: `ELEVATED`
 Issue: `#13`
 Branch: `iris-wo-0005-github-hardening`
@@ -233,3 +233,15 @@ DO NOT START M03.
 DO NOT bypass a failing required check.
 If Administration permission is unavailable, STOP `BLOCKED_ADMIN_PERMISSION` before partial server mutation.
 If the base or a critical source is stale, STOP `STALE_CONTEXT`.
+
+## INDEPENDENT REVIEW CLOSURE
+
+- Verdict: `APPROVED`.
+- Reviewed head: `759a9660161124ea84343eb426eeb9782d989622`.
+- Exact-head Governance: run `35602488859`, job `106341644724`, PASS.
+- Full suite: `1805/1805 OK`.
+- `IRIS-WO-0005-C01`: resolved and evidenced with the correct PUT/readback flow.
+- Ruleset `main-governance` id `23766624`: active, unique, no bypass, scoped to `refs/heads/main`.
+- CRITICAL/HIGH blockers: 0.
+- Product/kernel changes in this Work Order: none.
+- Promotion delta may be merged only after its exact head passes Governance; validate `main` after merge before admitting M03.

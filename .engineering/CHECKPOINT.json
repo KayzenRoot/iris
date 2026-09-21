@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M02_IMPLEMENTATION_MERGED",
+  "status": "REPOSITORY_HARDENING_APPROVED",
   "version": "1.0-m02-implemented",
-  "phase": "REPOSITORY_HARDENING_EXECUTOR_READY",
-  "nextStep": "Execute IRIS-WO-0005 on branch `iris-wo-0005-github-hardening` using Codex with authenticated `gh`; stop before merge for independent review."
+  "phase": "REPOSITORY_HARDENING_PROMOTION_PENDING_MERGE",
+  "nextStep": "Validate this promotion delta, squash merge PR #14, validate the resulting `main` exact SHA, then admit M03 planning."
 }

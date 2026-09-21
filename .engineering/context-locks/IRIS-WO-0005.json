@@ -4,7 +4,7 @@
   "issue": 13,
   "branch": "iris-wo-0005-github-hardening",
   "baseSha": "732895d17ead7a1497985a3a98396f4f2aa975d2",
-  "status": "READY_FOR_EXECUTOR",
+  "status": "CLOSED_APPROVED",
   "risk": "ELEVATED",
   "criticalSources": [
     {
@@ -104,5 +104,20 @@
     "mandatory human/CODEOWNER/last-pusher approvals",
     "classic branch protection alongside active main-governance ruleset"
   ],
-  "stopCondition": "Apply/read back/test/evidence IRIS-WO-0005, update one PR, then STOP before merge and before M03."
+  "stopCondition": "Apply/read back/test/evidence IRIS-WO-0005, update one PR, then STOP before merge and before M03.",
+  "reviewClosure": {
+    "verdict": "APPROVED",
+    "reviewedHead": "759a9660161124ea84343eb426eeb9782d989622",
+    "governance": {
+      "runId": 35602488859,
+      "jobId": 106341644724,
+      "tests": 1805,
+      "conclusion": "success"
+    },
+    "closedFindings": [
+      "IRIS-WO-0005-C01"
+    ],
+    "criticalHighBlockers": 0,
+    "next": "Squash merge PR #14 after promotion-head Governance PASS; validate main before M03."
+  }
 }

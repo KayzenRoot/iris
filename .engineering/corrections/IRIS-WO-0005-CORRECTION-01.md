@@ -1,6 +1,6 @@
 # IRIS-WO-0005 — Correction Delta 01
 
-Status: `EXECUTOR_REQUIRED`
+Status: `RESOLVED_APPROVED`
 Finding: `IRIS-WO-0005-C01`
 Severity: `MEDIUM` (merge-blocking)
 PR: `#14`
@@ -77,3 +77,13 @@ Perform only this bounded server-side correction plus evidence/CI refresh.
 ## STOP CONDITION
 
 STOP at `READY_FOR_INDEPENDENT_REVIEW` after the bounded correction is pushed, read back, evidenced and green. Do not merge.
+
+## RESOLUTION
+
+Resolved by the executor and accepted in independent review.
+
+- Vulnerability alerts: correct `PUT` returned HTTP 204; GET readback returned HTTP 204.
+- Automated security fixes: `PUT` returned HTTP 204; readback returned `enabled=true, paused=false`.
+- Dependabot security updates: final readback enabled.
+- Exact-head review validation: Governance run `35602488859`, job `106341644724`, 1805/1805 tests OK on `759a9660161124ea84343eb426eeb9782d989622`.
+- Merge-blocking status: cleared.

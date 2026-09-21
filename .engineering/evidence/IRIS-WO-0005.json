@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0005",
-  "status": "READY_FOR_REVIEW",
+  "status": "APPROVED",
   "branch": "iris-wo-0005-github-hardening",
   "baseSha": "732895d17ead7a1497985a3a98396f4f2aa975d2",
   "headSha": "34646299d1b4b2c17ea49568901992e63df0856a",
@@ -217,38 +217,59 @@
   ],
   "rollbackPosture": "BEFORE admin state fully captured above (settings, zero rulesets, unprotected main, actions, security). Independent review can restore merge settings by patching the recorded BEFORE booleans, and can disable (not delete) ruleset 23766624 by setting enforcement=disabled via gh api PUT. C01 security enables are reversible with gh api -X DELETE repos/KayzenRoot/iris/vulnerability-alerts and .../automated-security-fixes. No destructive rollback executed here.",
   "checkpointDelta": {
-    "applied": false,
-    "proposed": "On APPROVED only: record that GitHub enforces the IRIS workflow on main through the active main-governance ruleset (squash-only PRs, linear history, required exact-head Governance check) with repository defaults (auto-merge capability, update-branch, delete-branch-on-merge, PR_TITLE/PR_BODY), and that vulnerability alerts, automated security fixes and Dependabot security updates are enabled alongside secret scanning with push protection. Do not promote before independent review."
+    "applied": true,
+    "proposed": "On APPROVED only: record that GitHub enforces the IRIS workflow on main through the active main-governance ruleset (squash-only PRs, linear history, required exact-head Governance check) with repository defaults (auto-merge capability, update-branch, delete-branch-on-merge, PR_TITLE/PR_BODY), and that vulnerability alerts, automated security fixes and Dependabot security updates are enabled alongside secret scanning with push protection. Do not promote before independent review.",
+    "appliedBy": "Independent review promotion delta after C01 closure; documentation/governance only, no product/kernel change."
   },
-  "stopCondition": "READY_FOR_INDEPENDENT_REVIEW: IRIS-WO-0005-C01 is closed with the documented PUT flow and readbacks, all other hardening was verified drift-free and left untouched, exact-head CI is green, PR #14 stays unmerged with auto-merge off, and M03 stays unstarted.",
+  "stopCondition": "APPROVED_PENDING_MERGE: independent review accepted IRIS-WO-0005 and closed C01. Promotion delta is applied in the PR. Merge only after this documentation-only head passes exact-head Governance; then validate main before admitting M03.",
   "reviewAudit": {
-    "verdict": "CORRECTION_REQUIRED",
-    "reviewedHead": "3c242487c65fef3f189135374e9ec79af934f525",
+    "verdict": "APPROVED",
+    "reviewedHead": "759a9660161124ea84343eb426eeb9782d989622",
     "exactHeadGovernance": {
-      "runId": 35599514543,
-      "jobId": 106332020787,
+      "runId": 35602488859,
+      "jobId": 106341644724,
       "conclusion": "success",
-      "tests": 1805
+      "tests": 1805,
+      "exactHeadAsserted": true
     },
-    "finding": {
-      "id": "IRIS-WO-0005-C01",
-      "severity": "MEDIUM",
-      "classification": "EXECUTOR_REQUIRED",
-      "mergeBlocking": true,
-      "title": "Vulnerability alerts were tested with the wrong HTTP method and were falsely classified as NOT_AVAILABLE",
-      "evidence": [
-        "Executor command recorded: gh api -X POST repos/KayzenRoot/iris/vulnerability-alerts -> 404",
-        "GitHub REST contract enables vulnerability alerts with PUT, not POST",
-        "GET 404 means vulnerability alerts are not enabled; it does not prove platform unavailability",
-        "Automated security fixes then returned 422 because vulnerability alerts were not enabled"
-      ],
-      "requiredCorrection": [
-        "Use PUT /repos/KayzenRoot/iris/vulnerability-alerts and verify the follow-up GET returns 204",
-        "Then use PUT /repos/KayzenRoot/iris/automated-security-fixes and read back enabled state",
-        "Update Evidence Bundle truthfully from actual readback",
-        "Re-run/observe exact-head Governance and gh pr checks 14 --required",
-        "Do not change the already-correct ruleset/repository settings except if a readback proves drift"
-      ]
+    "serverStateReview": {
+      "ruleset": "main-governance id 23766624 active; exactly one repository ruleset; refs/heads/main only; no bypass; deletion/non-fast-forward/linear-history/PR squash-only/resolved threads/Governance strict",
+      "repositorySettings": "squash-only; allow_auto_merge=true; delete_branch_on_merge=true; allow_update_branch=true; PR_TITLE/PR_BODY; visibility/default branch unchanged",
+      "security": "C01 evidence proves PUT vulnerability-alerts -> 204 + GET 204; PUT automated-security-fixes -> 204 + readback enabled=true paused=false; dependabot security updates enabled; secret scanning + push protection enabled"
+    },
+    "findingsClosed": [
+      "IRIS-WO-0005-C01"
+    ],
+    "criticalHighBlockers": 0,
+    "previousReview": {
+      "verdict": "CORRECTION_REQUIRED",
+      "reviewedHead": "3c242487c65fef3f189135374e9ec79af934f525",
+      "exactHeadGovernance": {
+        "runId": 35599514543,
+        "jobId": 106332020787,
+        "conclusion": "success",
+        "tests": 1805
+      },
+      "finding": {
+        "id": "IRIS-WO-0005-C01",
+        "severity": "MEDIUM",
+        "classification": "EXECUTOR_REQUIRED",
+        "mergeBlocking": true,
+        "title": "Vulnerability alerts were tested with the wrong HTTP method and were falsely classified as NOT_AVAILABLE",
+        "evidence": [
+          "Executor command recorded: gh api -X POST repos/KayzenRoot/iris/vulnerability-alerts -> 404",
+          "GitHub REST contract enables vulnerability alerts with PUT, not POST",
+          "GET 404 means vulnerability alerts are not enabled; it does not prove platform unavailability",
+          "Automated security fixes then returned 422 because vulnerability alerts were not enabled"
+        ],
+        "requiredCorrection": [
+          "Use PUT /repos/KayzenRoot/iris/vulnerability-alerts and verify the follow-up GET returns 204",
+          "Then use PUT /repos/KayzenRoot/iris/automated-security-fixes and read back enabled state",
+          "Update Evidence Bundle truthfully from actual readback",
+          "Re-run/observe exact-head Governance and gh pr checks 14 --required",
+          "Do not change the already-correct ruleset/repository settings except if a readback proves drift"
+        ]
+      }
     }
   },
   "correctionDelta01": {
