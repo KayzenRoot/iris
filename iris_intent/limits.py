@@ -50,6 +50,7 @@ __all__ = [
     "MAX_CONTRACTS_PER_SET",
     "MAX_DIMENSIONS_PER_SPEC",
     "MAX_OBLIGATION_TRACES",
+    "MAX_ENTRIES_PER_FIELD",
     "MAX_OPERATIONS_PER_BUNDLE",
     "MAX_CAPABILITY_DEMANDS",
     "MAX_MUTATION_TARGETS",
@@ -114,6 +115,9 @@ MAX_PROJECTION_NODES = 1024
 MAX_CONTRACTS_PER_SET = 64
 MAX_DIMENSIONS_PER_SPEC = 128
 MAX_OBLIGATION_TRACES = 1024
+# Generic bound for the id and text lists a compilation record carries, whose size follows the
+# collections it cites rather than a domain limit of its own.
+MAX_ENTRIES_PER_FIELD = 512
 
 # Execution intent
 MAX_OPERATIONS_PER_BUNDLE = 256
