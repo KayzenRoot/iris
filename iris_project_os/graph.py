@@ -772,10 +772,10 @@ class GraphDefinition(Record):
                 f"activation edge {edge.edge_id} may not cross epochs, so it cannot gate a later pass"
             )
         if edge.kind.participates_in_acyclicity:
-            if edge.feedback and target_node.epoch >= source_node.epoch:
+            if edge.feedback and source_node.epoch >= target_node.epoch:
                 raise GraphValidationError(
-                    f"edge {edge.edge_id} is marked feedback but its target is not in an earlier "
-                    "epoch: left unmarked it would close a material cycle"
+                    f"edge {edge.edge_id} is marked feedback but does not flow from a prior epoch into a "
+                    "later epoch; iterative work consumes immutable output from the previous epoch"
                 )
             if not edge.feedback and target_node.epoch != source_node.epoch:
                 raise GraphValidationError(

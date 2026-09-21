@@ -783,6 +783,14 @@ class LedgerTests(unittest.TestCase):
         self.assertEqual(first.transition_id, again.transition_id)
         self.assertEqual(len(ledger), len(ledger.history))
 
+    def test_an_idempotent_retry_still_works_at_the_transition_bound(self) -> None:
+        production = new_id()
+        ledger = ProductionLedger(production, initial_vector(production), maximum=1)
+        first = ledger.advance(actor=ACTOR, phase=Phase.PLANNED, command_id="cmd-only")
+        again = ledger.advance(actor=ACTOR, phase=Phase.PLANNED, command_id="cmd-only")
+        self.assertEqual(first.transition_id, again.transition_id)
+        self.assertEqual(len(ledger), 1)
+
     def test_a_repeated_command_with_a_new_meaning_is_a_conflict(self) -> None:
         ledger = released()
         ledger.advance(actor=ACTOR, review="PENDING", command_id="cmd-reopen")

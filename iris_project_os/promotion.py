@@ -262,10 +262,11 @@ class GateResult(Record):
     authority: Any = None
     evidence_refs: tuple[ExternalRef, ...] = ()
     binding: Any = None
+    quality_decision: Any = None
     observed_at_ms: int = 0
     contract_version: str = CONTRACT_VERSION
 
-    NESTED = {"binding": of(FreshnessBinding)}
+    NESTED = {"binding": of(FreshnessBinding), "quality_decision": of(QualityDecision)}
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "gate_id", require_identifier(self.gate_id, "gate_id"))
@@ -277,6 +278,37 @@ class GateResult(Record):
             object.__setattr__(self, "authority", require_component_version(self.authority, "authority"))
         if self.binding is not None:
             object.__setattr__(self, "binding", FreshnessBinding.coerce(self.binding, "binding"))
+        if self.quality_decision is not None and not isinstance(self.quality_decision, QualityDecision):
+            raise SchemaValidationError("quality_decision must be an M01 QualityDecision or None")
+        if self.kind is GateKind.QUALITY:
+            if self.quality_decision is None:
+                raise PromotionBlockedError(
+                    f"{self.gate_id} answers QUALITY without carrying the M01 QualityDecision it claims to "
+                    "compose; a generic PASS may not stand in for the quality authority"
+                )
+            if self.authority is not None and self.authority != self.quality_decision.engine:
+                raise PromotionBlockedError(
+                    f"{self.gate_id} names {self.authority} as quality authority while the bound M01 decision "
+                    f"was issued by {self.quality_decision.engine}"
+                )
+            if self.binding is not None and self.binding.subject_digest != self.quality_decision.subject.content_sha256:
+                raise PromotionBlockedError(
+                    f"{self.gate_id} binds subject {self.binding.subject_digest[:12]} while the M01 decision "
+                    f"judged {self.quality_decision.subject.content_sha256[:12]}"
+                )
+            if self.outcome is GateOutcome.PASS and (
+                self.quality_decision.outcome is not DecisionOutcome.PROMOTED
+                or self.quality_decision.requires_human_review
+            ):
+                raise PromotionBlockedError(
+                    f"{self.gate_id} claims QUALITY PASS from an M01 decision that is "
+                    f"{self.quality_decision.outcome.value} or still requires human review"
+                )
+        elif self.quality_decision is not None:
+            raise PromotionBlockedError(
+                f"{self.gate_id} is a {self.kind.value} gate but carries an M01 QualityDecision; "
+                "quality evidence may only answer the QUALITY lane"
+            )
         object.__setattr__(self, "observed_at_ms", require_millis(self.observed_at_ms, "observed_at_ms"))
         self._require_provable_claim()
         require_supported_version("contract", self.contract_version, {CONTRACT_VERSION})
@@ -404,7 +436,31 @@ class PromotionGate(Record):
                     f"{result.reason}"
                 )
             return None
+        if result.outcome is GateOutcome.NOT_APPLICABLE:
+            if self.required:
+                return (
+                    f"{result.gate_id} ({self.kind.value}) is required by this promotion and cannot be "
+                    "waived as NOT_APPLICABLE"
+                )
+            return None
         if result.outcome is GateOutcome.PASS:
+            if self.kind is GateKind.QUALITY:
+                decision = result.quality_decision
+                if decision is None:
+                    return f"{result.gate_id} has no bound M01 QualityDecision"
+                if decision.outcome is not DecisionOutcome.PROMOTED or decision.requires_human_review:
+                    return (
+                        f"{result.gate_id} cites an M01 decision that is {decision.outcome.value} or still "
+                        "requires human review"
+                    )
+                if (
+                    self.minimum_quality_class is not None
+                    and decision.awarded_class.ladder_rank < self.minimum_quality_class.ladder_rank
+                ):
+                    return (
+                        f"{result.gate_id} awarded {decision.awarded_class.value} where this promotion demands "
+                        f"{self.minimum_quality_class.value}"
+                    )
             moved = result.staled_by(current or {})
             if moved:
                 return (
@@ -616,13 +672,39 @@ class PromotionRequest(Record):
     def _require_obligations(self) -> None:
         """The compiled minimum is a floor, so an under-declared request is refused as data."""
 
-        declared = {item.kind for item in self.gates}
         owed = compile_gates(self.source_vector.phase, self.requested_phase)
-        missing = [item.value for item in owed if item not in declared]
+        missing = [
+            kind.value
+            for kind in owed
+            if not any(gate.kind is kind and gate.required for gate in self.gates)
+        ]
         if missing:
             raise PromotionBlockedError(
-                f"{self.request_id} promotes to {self.requested_phase.value} without gates answering "
-                f"{', '.join(missing)}; §3 owes those obligations for the rungs crossed"
+                f"{self.request_id} promotes to {self.requested_phase.value} without required gates answering "
+                f"{', '.join(missing)}; a lifecycle obligation cannot be weakened by declaring it optional"
+            )
+        lenient = [
+            gate.gate_id
+            for gate in self.gates
+            if gate.kind in owed and gate.required and not gate.blocking_unknown
+        ]
+        if lenient:
+            raise PromotionBlockedError(
+                f"{self.request_id} marks required lifecycle gates {', '.join(sorted(lenient))} as "
+                "non-blocking on UNKNOWN; frozen M02 obligations fail closed"
+            )
+        declared_reviewers = set(self.required_reviewers)
+        foreign_review_authorities = [
+            gate.gate_id
+            for gate in self.gates
+            if gate.kind is GateKind.HUMAN_REVIEW
+            and gate.authority is not None
+            and gate.authority not in declared_reviewers
+        ]
+        if foreign_review_authorities:
+            raise PromotionBlockedError(
+                f"{self.request_id} assigns human-review gates {', '.join(sorted(foreign_review_authorities))} "
+                "to authorities not listed in required_reviewers"
             )
         if any(item.kind is GateKind.QUALITY for item in self.gates) and not self.quality_decision_refs:
             raise PromotionBlockedError(
@@ -713,6 +795,7 @@ def quality_result(
         kind=GateKind.QUALITY,
         authority=engine,
         evidence_refs=(reference,),
+        quality_decision=decision,
         observed_at_ms=observed_at_ms,
     )
     if decision.subject.content_sha256 != wanted:
@@ -1064,7 +1147,10 @@ def _review_result(
     rejected = [item for item in lane if not item.is_approval]
     approved = [item for item in lane if item.is_approval]
     reviewers = {item.reviewer for item in approved}
-    outstanding = [item for item in request.required_reviewers if item not in reviewers]
+    expected_reviewers = (
+        (gate.authority,) if gate.authority is not None else request.required_reviewers
+    )
+    outstanding = [item for item in expected_reviewers if item not in reviewers]
     cited = tuple(
         dict.fromkeys(
             [item.reference for item in approved]
@@ -1178,8 +1264,9 @@ def admit_promotion(
             if gate.required:
                 held_up.add(gate.kind)
             continue
-        discharged.add(gate.kind)
-        if found.outcome is not GateOutcome.PASS:
+        if found.outcome is GateOutcome.PASS:
+            discharged.add(gate.kind)
+        else:
             unresolved.append(f"{gate.gate_id} ({gate.kind.value}) is {found.outcome.value}: {found.reason}")
     for kind in request.obligations:
         if kind in discharged or kind in held_up:

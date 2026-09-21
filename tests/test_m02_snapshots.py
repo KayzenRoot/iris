@@ -504,14 +504,20 @@ class SnapshotStoreTests(unittest.TestCase):
         self.assertEqual(chain[0], self.first.snapshot_id)
         self.assertEqual(chain[-1], second.snapshot_id)
 
-    def test_a_history_that_loops_is_walked_once(self) -> None:
+    def test_a_history_cycle_fails_closed(self) -> None:
         looped = self.store.commit(derive_snapshot(self.first, snapshot_id=new_id()))
         self.store._items[self.first.snapshot_id] = replace(
             self.first, closure=replace(self.first.closure, parent_snapshot_ids=(looped.snapshot_id,))
         )
-        chain = self.store.ancestors_of(looped.snapshot_id)
-        self.assertEqual(len(chain), len(set(chain)))
-        self.assertEqual(set(chain), {self.first.snapshot_id, looped.snapshot_id})
+        with self.assertRaises(SnapshotClosureError) as caught:
+            self.store.ancestors_of(looped.snapshot_id)
+        self.assertIn("cycle", str(caught.exception))
+
+    def test_a_snapshot_may_not_list_itself_as_a_parent(self) -> None:
+        identity = new_id()
+        with self.assertRaises(SnapshotClosureError) as caught:
+            snapshot({"parent_snapshot_ids": (identity,)}, snapshot_id=identity)
+        self.assertIn("itself as a parent", str(caught.exception))
 
     def test_a_snapshot_is_its_own_ancestor_for_reachability(self) -> None:
         self.assertTrue(self.store.is_ancestor(self.first.snapshot_id, of_snapshot_id=self.first.snapshot_id))

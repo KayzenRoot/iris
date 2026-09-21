@@ -1171,14 +1171,14 @@ class ProductionLedger:
         wanted = StateTransition.coerce(transition, "transition")
         if wanted.production_id != self._production_id:
             raise LifecycleError(f"{self._production_id} cannot record a transition for {wanted.production_id}")
+        duplicate = self._duplicate(wanted)
+        if duplicate is not None:
+            return duplicate
         if len(self._items) >= self._maximum:
             raise LifecycleError(
                 f"{self._production_id} already holds {self._maximum} transitions, the admitted bound; a "
                 "production with more history than that is a different production"
             )
-        duplicate = self._duplicate(wanted)
-        if duplicate is not None:
-            return duplicate
         if self._profile is not None and wanted.profile is not None and wanted.profile != self._profile:
             raise LifecycleError(
                 f"{self._production_id} is governed by profile {self._profile.profile_id}, not "

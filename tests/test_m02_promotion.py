@@ -373,7 +373,11 @@ class GateResultLawTests(unittest.TestCase):
             authority=ACTOR,
         )
         self.assertFalse(waived.is_passing)
-        self.assertIsNone(gate(GateKind.DELIVERY, "gate.delivery").blocks(waived))
+        self.assertIsNone(gate(GateKind.DELIVERY, "gate.delivery", required=False).blocks(waived))
+        self.assertIn(
+            "cannot be waived",
+            gate(GateKind.DELIVERY, "gate.delivery", required=True).blocks(waived) or "",
+        )
 
     def test_a_result_survives_the_payload_round_trip(self) -> None:
         result = passing(gate(GateKind.SECURITY, "gate.security"))
@@ -500,6 +504,32 @@ class FreshnessTests(unittest.TestCase):
         self.assertEqual(FreshnessBinding.from_payload(binding.to_payload()), binding)
 
 
+
+    def test_a_lifecycle_obligation_cannot_be_declared_optional(self) -> None:
+        quality = decision_for()
+        ledger = ladder()
+        gates = list(acceptance_request(ledger, quality).gates)
+        gates = [
+            replace(item, required=False) if item.kind is GateKind.QUALITY else item
+            for item in gates
+        ]
+        with self.assertRaises(PromotionBlockedError) as caught:
+            acceptance_request(ledger, quality, gates=tuple(gates))
+        self.assertIn("cannot be weakened", str(caught.exception))
+
+    def test_a_required_lifecycle_gate_cannot_make_unknown_non_blocking(self) -> None:
+        quality = decision_for()
+        ledger = ladder()
+        gates = list(acceptance_request(ledger, quality).gates)
+        gates = [
+            replace(item, blocking_unknown=False) if item.kind is GateKind.QUALITY else item
+            for item in gates
+        ]
+        with self.assertRaises(PromotionBlockedError) as caught:
+            acceptance_request(ledger, quality, gates=tuple(gates))
+        self.assertIn("fail closed", str(caught.exception))
+
+
 class QualityCompositionTests(unittest.TestCase):
     def setUp(self) -> None:
         self.quality = decision_for()
@@ -598,6 +628,40 @@ class QualityCompositionTests(unittest.TestCase):
     def test_extra_inputs_a_gate_reads_can_be_bound(self) -> None:
         answer = self.answer(extra_dependencies=(GateDependency(reference="m02.font", input_digest=MOVED),))
         self.assertIn("m02.font#CONTENT", [item.key for item in answer.binding.dependencies])
+
+
+    def test_a_generic_quality_pass_cannot_impersonate_m01(self) -> None:
+        with self.assertRaises(PromotionBlockedError) as caught:
+            GateResult(
+                gate_id=self.wanted.gate_id,
+                kind=GateKind.QUALITY,
+                outcome=GateOutcome.PASS,
+                reason="trust me",
+                authority=self.quality.engine,
+                evidence_refs=(self.request.quality_decision_refs[0],),
+                binding=binding_for(),
+                observed_at_ms=NOW,
+            )
+        self.assertIn("M01 QualityDecision", str(caught.exception))
+
+    def test_a_hand_built_quality_result_cannot_lie_about_the_floor(self) -> None:
+        preview = decision_for(output_class=QualityClass.PREVIEW)
+        with self.assertRaises(PromotionBlockedError):
+            GateResult(
+                gate_id=self.wanted.gate_id,
+                kind=GateKind.QUALITY,
+                outcome=GateOutcome.PASS,
+                reason="pretends preview is master",
+                authority=preview.engine,
+                evidence_refs=(self.request.quality_decision_refs[0],),
+                binding=FreshnessBinding(
+                    subject_digest=preview.subject.content_sha256,
+                    dependencies=(GateDependency(reference="candidate", input_digest=preview.subject.content_sha256),),
+                    evaluated_at_ms=NOW,
+                ),
+                quality_decision=preview,
+                observed_at_ms=NOW,
+            )
 
 
 class HumanReviewTests(unittest.TestCase):
@@ -829,6 +893,39 @@ class PromotionRequestTests(unittest.TestCase):
     def test_a_request_needs_its_actors_identity(self) -> None:
         with self.assertRaises(SchemaValidationError):
             acceptance_request(self.ledger, self.quality, actor="the-team")
+
+
+
+    def test_distinct_human_review_lanes_each_require_only_their_named_authority(self) -> None:
+        quality = decision_for()
+        ledger = ladder()
+        base = acceptance_request(ledger, quality)
+        lanes = tuple(
+            item for item in base.gates if item.kind is not GateKind.HUMAN_REVIEW
+        ) + (
+            gate(GateKind.HUMAN_REVIEW, "gate.review.creative", authority=REVIEWER),
+            gate(GateKind.HUMAN_REVIEW, "gate.review.legal", authority=SECOND_REVIEWER),
+        )
+        request = acceptance_request(
+            ledger,
+            quality,
+            gates=lanes,
+            required_reviewers=(REVIEWER, SECOND_REVIEWER),
+        )
+        answers = answers_for(request, quality)
+        decision = admit_promotion(
+            request,
+            answers,
+            approvals=(
+                approval_for(request, REVIEWER),
+                approval_for(request, SECOND_REVIEWER),
+            ),
+            now_ms=NOW,
+        )
+        self.assertTrue(decision.admitted)
+        review_results = [item for item in decision.gate_results if item.kind is GateKind.HUMAN_REVIEW]
+        self.assertEqual(len(review_results), 2)
+        self.assertTrue(all(item.outcome is GateOutcome.PASS for item in review_results))
 
 
 class AdmissionTests(unittest.TestCase):

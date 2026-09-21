@@ -1,7 +1,7 @@
 # IRIS Review Auto-Fix Policy
 
 Status: `ACTIVE`
-Version: `1.0`
+Version: `1.1`
 
 ## Rule
 
@@ -55,3 +55,16 @@ After an APPROVED review:
 - generate a new executor PDF only when the next implementation gate is actually reached.
 
 This policy is repository-canonical and applies to every ChatGPT conversation operating on Hive IRIS.
+
+
+## Mandatory cross-chat enforcement
+
+This policy is mandatory for every current and future ChatGPT conversation operating on Hive IRIS.
+
+Before any Codex/Coder/Zcode correction prompt is produced, the reviewer MUST first classify each finding as `CHAT_FIXABLE` or `EXECUTOR_REQUIRED`.
+
+Producing an executor correction for a `CHAT_FIXABLE` finding without first attempting the safe direct repository repair and objective validation is a governance violation.
+
+A new IRIS chat performing review MUST read this policy through `.engineering/SOURCE-HIERARCHY.md` before deciding whether to escalate a finding.
+
+Only `EXECUTOR_REQUIRED` findings may be escalated to a corrective executor PDF. When all findings are `CHAT_FIXABLE`, the review stays in chat through repair, CI/evidence, re-audit and final verdict.

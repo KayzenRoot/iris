@@ -458,6 +458,10 @@ class Snapshot(Record):
             if value is not None:
                 object.__setattr__(self, name, require_id(value, name))
         object.__setattr__(self, "supersedes_snapshot_ids", _ids(self.supersedes_snapshot_ids, "supersedes_snapshot_ids"))
+        if self.snapshot_id in self.parent_snapshot_ids:
+            raise SnapshotClosureError(
+                f"snapshot {self.snapshot_id} lists itself as a parent; snapshot history must remain acyclic"
+            )
         require_supported_version("contract", self.contract_version, {CONTRACT_VERSION})
         blockers = closure_obligations(self.closure, self.snapshot_class)
         if blockers:
@@ -643,23 +647,38 @@ class SnapshotStore:
         """Closure over parents, cycle-safe: a broken lineage is refused, not looped."""
 
         wanted = require_id(snapshot_id, "snapshot_id")
-        chain: list[str] = []
-        seen: set[str] = set()
-        frontier = [wanted]
+        ordered: list[str] = []
+        state: dict[str, int] = {}
+        frontier: list[tuple[str, bool]] = [(wanted, False)]
         while frontier:
-            current = frontier.pop()
-            if current in seen:
+            current, leaving = frontier.pop()
+            if leaving:
+                state[current] = 2
+                ordered.append(current)
                 continue
-            seen.add(current)
-            chain.append(current)
+            mark = state.get(current, 0)
+            if mark == 2:
+                continue
+            if mark == 1:
+                raise SnapshotClosureError(
+                    f"snapshot ancestry contains a cycle at {current}; immutable history must be acyclic"
+                )
             snapshot = self.get(current)
             unknown = sorted(set(snapshot.parent_snapshot_ids) - set(self._items))
             if unknown:
                 raise SnapshotClosureError(
                     f"snapshot {current} names parents that were never committed: {unknown}"
                 )
-            frontier.extend(snapshot.parent_snapshot_ids)
-        return tuple(reversed(chain))
+            state[current] = 1
+            frontier.append((current, True))
+            for parent in reversed(snapshot.parent_snapshot_ids):
+                if state.get(parent, 0) == 1:
+                    raise SnapshotClosureError(
+                        f"snapshot ancestry contains a cycle through {parent}; immutable history must be acyclic"
+                    )
+                if state.get(parent, 0) != 2:
+                    frontier.append((parent, False))
+        return tuple(ordered)
 
     def is_ancestor(self, candidate: Any, of_snapshot_id: str) -> bool:
         if candidate is None:

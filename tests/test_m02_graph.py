@@ -296,14 +296,33 @@ class DefinitionStructureTests(unittest.TestCase):
         with self.assertRaises(GraphValidationError):
             k.definition(k.source("a", port_id="out"), operation("b", epoch=1), edges=(k.edge("e", "a", "b"),), declared=())
 
-    def test_a_feedback_edge_must_point_to_an_earlier_epoch(self) -> None:
+    def test_a_feedback_edge_consumes_an_immutable_prior_epoch(self) -> None:
+        value = k.definition(
+            k.source("a", port_id="out"),
+            operation("b", epoch=1),
+            edges=(k.edge("e", "a", "b", feedback=True),),
+            declared=(),
+        )
+        self.assertEqual(value.edge_index["e"].source_node_id, "a")
+        self.assertEqual(value.node_index["a"].epoch, 0)
+        self.assertEqual(value.node_index["b"].epoch, 1)
+
+    def test_a_feedback_edge_may_not_flow_back_into_an_older_epoch(self) -> None:
         with self.assertRaises(GraphValidationError) as caught:
             k.definition(
-                operation("a"), operation("b"),
-                edges=(k.edge("e", "a", "b", feedback=True), k.edge("f", "b", "a")),
+                operation("a", epoch=1), operation("b", epoch=0),
+                edges=(k.edge("e", "a", "b", feedback=True),),
                 declared=(),
             )
-        self.assertIn("not in an earlier epoch", str(caught.exception))
+        self.assertIn("prior epoch into a later epoch", str(caught.exception))
+
+    def test_a_feedback_edge_may_not_stay_inside_one_epoch(self) -> None:
+        with self.assertRaises(GraphValidationError):
+            k.definition(
+                operation("a"), operation("b"),
+                edges=(k.edge("e", "a", "b", feedback=True),),
+                declared=(),
+            )
 
     def test_a_slice_on_a_non_dirtying_edge_is_refused(self) -> None:
         with self.assertRaises(GraphValidationError):
