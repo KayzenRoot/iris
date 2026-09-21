@@ -1,6 +1,6 @@
 # M03 — Creative Brief, Intent & Constraint Compiler
 
-Status: `S05_PROPOSED_COMPLETE_PENDING_FINAL_REVIEW`
+Status: `PLANNING_COMPLETE_CONTRACT_FREEZE_CANDIDATE`
 Module: `M03`
 Area: `A — Product Constitution & Production OS`
 Planning issue: `#17`

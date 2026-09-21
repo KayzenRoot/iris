@@ -22,7 +22,7 @@ Planning only. No M03 implementation is authorized.
 - main-governance ruleset id `23766624`: active.
 
 ## Next legal action
-Run M03 Final Technology Review, then M04-M60 Forward Compatibility Scan and Contract Freeze Candidate on this same planning branch/PR.
+Validate the exact contract-freeze head and perform independent planning audit of PR #18. If approved, promote to `m03-contract-v1.0`; do not start implementation before merge/main validation and a separate implementation Work Order.
 
 
 ## Final Technology Review
