@@ -680,8 +680,9 @@ class PromotionRequest(Record):
         ]
         if missing:
             raise PromotionBlockedError(
-                f"{self.request_id} promotes to {self.requested_phase.value} without required gates answering "
-                f"{', '.join(missing)}; a lifecycle obligation cannot be weakened by declaring it optional"
+                f"{self.request_id} promotes to {self.requested_phase.value} without gates answering "
+                f"{', '.join(missing)}; lifecycle obligations must be required and cannot be weakened "
+                "by declaring them optional"
             )
         lenient = [
             gate.gate_id

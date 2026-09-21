@@ -646,22 +646,22 @@ class QualityCompositionTests(unittest.TestCase):
 
     def test_a_hand_built_quality_result_cannot_lie_about_the_floor(self) -> None:
         preview = decision_for(output_class=QualityClass.PREVIEW)
-        with self.assertRaises(PromotionBlockedError):
-            GateResult(
-                gate_id=self.wanted.gate_id,
-                kind=GateKind.QUALITY,
-                outcome=GateOutcome.PASS,
-                reason="pretends preview is master",
-                authority=preview.engine,
-                evidence_refs=(self.request.quality_decision_refs[0],),
-                binding=FreshnessBinding(
-                    subject_digest=preview.subject.content_sha256,
-                    dependencies=(GateDependency(reference="candidate", input_digest=preview.subject.content_sha256),),
-                    evaluated_at_ms=NOW,
-                ),
-                quality_decision=preview,
-                observed_at_ms=NOW,
-            )
+        forged = GateResult(
+            gate_id=self.wanted.gate_id,
+            kind=GateKind.QUALITY,
+            outcome=GateOutcome.PASS,
+            reason="pretends preview is master",
+            authority=preview.engine,
+            evidence_refs=(self.request.quality_decision_refs[0],),
+            binding=FreshnessBinding(
+                subject_digest=preview.subject.content_sha256,
+                dependencies=(GateDependency(reference="candidate", input_digest=preview.subject.content_sha256),),
+                evaluated_at_ms=NOW,
+            ),
+            quality_decision=preview,
+            observed_at_ms=NOW,
+        )
+        self.assertIn("this promotion demands", self.wanted.blocks(forged) or "")
 
 
 class HumanReviewTests(unittest.TestCase):
@@ -974,41 +974,19 @@ class AdmissionTests(unittest.TestCase):
         self.assertIn("never silently inherited", decision.blocking_reasons[0])
         self.assertEqual(len(decision.stale_gates), 5)
 
-    def test_an_owed_family_keeps_its_blocking_unknown_blocking(self) -> None:
+    def test_an_owed_family_cannot_be_weakened_to_optional(self) -> None:
         lenient = gate(GateKind.SECURITY, "gate.security", required=False)
         lanes = tuple(item if item.kind is not GateKind.SECURITY else lenient for item in self.request.gates)
-        request = replace(self.request, gates=lanes)
-        answers = [item for item in answers_for(request, self.quality) if item.kind is not GateKind.SECURITY]
-        answers.append(
-            GateResult(
-                gate_id="gate.security",
-                kind=GateKind.SECURITY,
-                outcome=GateOutcome.UNKNOWN,
-                reason="the scanner is offline",
-                authority=ACTOR,
-            )
-        )
-        decision = admit_promotion(request, answers, approvals=self.approvals, now_ms=NOW)
-        self.assertFalse(decision.admitted)
-        self.assertIn("SECURITY obligation", decision.blocking_reasons[-1])
+        with self.assertRaises(PromotionBlockedError) as caught:
+            replace(self.request, gates=lanes)
+        self.assertIn("cannot be weakened", str(caught.exception))
 
-    def test_a_waiver_someone_declared_is_honoured_and_recorded(self) -> None:
-        lenient = gate(GateKind.SECURITY, "gate.security", required=False, blocking_unknown=False)
+    def test_an_owed_family_cannot_make_unknown_non_blocking(self) -> None:
+        lenient = gate(GateKind.SECURITY, "gate.security", required=True, blocking_unknown=False)
         lanes = tuple(item if item.kind is not GateKind.SECURITY else lenient for item in self.request.gates)
-        request = replace(self.request, gates=lanes)
-        answers = [item for item in answers_for(request, self.quality) if item.kind is not GateKind.SECURITY]
-        answers.append(
-            GateResult(
-                gate_id="gate.security",
-                kind=GateKind.SECURITY,
-                outcome=GateOutcome.UNKNOWN,
-                reason="the scanner is offline; policy lets this one through",
-                authority=ACTOR,
-            )
-        )
-        decision = admit_promotion(request, answers, approvals=self.approvals, now_ms=NOW)
-        self.assertTrue(decision.admitted)
-        self.assertIn("is UNKNOWN", " ".join(decision.unresolved))
+        with self.assertRaises(PromotionBlockedError) as caught:
+            replace(self.request, gates=lanes)
+        self.assertIn("fail closed", str(caught.exception))
 
     def test_a_single_explanation_is_offered_per_blocked_family(self) -> None:
         missing = [item for item in self.results if item.kind is not GateKind.SECURITY]
