@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M02_CONTRACT_FROZEN",
-  "version": "1.0-m02-planning",
-  "phase": "M02_IMPLEMENTATION_HANDOFF_READY",
-  "nextStep": "Merge the governed M02 planning/freeze PR, then compile IRIS-WO-0004 + exact Context Lock + executor PDF from the merged main baseline."
+  "status": "M02_IMPLEMENTATION_APPROVED",
+  "version": "1.0-m02-implemented",
+  "phase": "M02_PROMOTION_DELTA_PENDING_MERGE",
+  "nextStep": "Validate this promotion delta, squash merge PR #12, validate `main`, then execute the repository-hardening Work Order/PDF before compiling the M03 planning Context Lock."
 }

@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0004",
+  "status": "APPROVED",
+  "branch": "iris-wo-0004-m02-project-os",
+  "frozenContract": "m02-contract-v1.0",
+  "baseSha": "59ee339c27750522106d0d2aa5a525f07f613702",
+  "headSha": "4f6f3530d869742afc690c010a05280331f6be4c",
+  "headShaBasis": "Review-corrected code/test head after independent CHAT_FIXABLE corrections. The evidence-only commit that records this bundle necessarily follows that SHA; exact-head CI on the resulting PR head plus the independent PR review binds the final candidate without pretending a Git-tracked file can self-reference its own commit.",
+  "pullRequest": {
+    "number": 12,
+    "url": "https://github.com/KayzenRoot/iris/pull/12",
+    "base": "main",
+    "head": "4f6f3530d869742afc690c010a05280331f6be4c",
+    "state": "OPEN",
+    "issue": 11,
+    "merged": false,
+    "note": "Independent review APPROVED at 3e439f4. Final promotion delta is governance/documentation-only and must pass exact-head CI before merge."
+  },
+  "tests": {
+    "runner": "python -m unittest discover -s tests -p \"test_*.py\"",
+    "fullSuite": {
+      "run": 1805,
+      "failures": 0,
+      "errors": 0,
+      "result": "OK"
+    },
+    "m01Only": {
+      "run": 208,
+      "result": "OK"
+    },
+    "m02Methods": {
+      "run": 1589,
+      "files": 17,
+      "result": "OK"
+    },
+    "countBasis": "1589 M02 test methods across tests/test_m02_*.py + 216 pre-existing repository tests = 1805 discover total on exact head 4f6f353. Review corrections added 9 net M02 regressions: graph +2, lifecycle +1, promotion +5, snapshots +1.",
+    "perFileMethods": {
+      "test_m02_archive.py": 91,
+      "test_m02_branching.py": 140,
+      "test_m02_build.py": 131,
+      "test_m02_diffing.py": 75,
+      "test_m02_domain_neutrality.py": 19,
+      "test_m02_graph.py": 96,
+      "test_m02_identity.py": 91,
+      "test_m02_lifecycle.py": 98,
+      "test_m02_merge.py": 162,
+      "test_m02_ports.py": 132,
+      "test_m02_profiles.py": 82,
+      "test_m02_promotion.py": 118,
+      "test_m02_release.py": 117,
+      "test_m02_reuse.py": 32,
+      "test_m02_serialization.py": 34,
+      "test_m02_snapshots.py": 127,
+      "test_m02_stores.py": 44
+    }
+  },
+  "commands": [
+    {
+      "command": "python -m py_compile $(find iris_project_os -name '*.py') tests/test_m02_*.py tests/m02_kernel_support.py examples/m02_synthetic_profiles.py",
+      "result": "OK (no output, exit 0)"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p \"test_*.py\"",
+      "result": "Exact-head GitHub Actions run 35584434087 / job 106284371007: Ran 1805 tests in 5.431s / OK"
+    },
+    {
+      "command": "python scripts/validate_governance.py",
+      "result": "IRIS governance validation: PASS (GEF v1.0.0, HIVE v1.0.0, 35 required artifacts)"
+    },
+    {
+      "command": "ruff check iris_project_os tests/test_m02_*.py tests/m02_kernel_support.py examples/m02_synthetic_profiles.py",
+      "result": "All checks passed! (new M02 files are clean)"
+    },
+    {
+      "command": "ruff check --select F401 .",
+      "result": "15 errors — all pre-existing unused imports in committed M01 tests, untouched; ruff is not a CI merge gate."
+    }
+  ],
+  "changedFiles": {
+    "count": 42,
+    "countBasis": "Implementation surface remains 22 kernel modules + 17 M02 test modules + tests/m02_kernel_support.py + examples/m02_synthetic_profiles.py, with planning/checkpoint and documentation/governance artifacts alongside it. Review corrections modified existing M02 files only; no provider/database dependency was added.",
+    "kernelModules": 22,
+    "kernelPublicSurface": 399,
+    "testModules": 17,
+    "documentation": [
+      "docs/M02-PROJECT-OS-KERNEL.md"
+    ],
+    "dependencyChanges": "None. No new runtime or dev dependency; the kernel is stdlib-only plus iris_quality."
+  },
+  "designDecisions": [
+    "Domain-neutral package iris_project_os/ (22 modules), quality vocabulary borrowed from iris_quality rather than rebuilt (WO §11 'separate domain-neutral package'; §18 'M01 remains quality authority').",
+    "Package __all__ derived at import from each module's __all__ (399 names), refusing an ambiguous double-claim or an empty-export module at import rather than hand-copying a second API that drifts.",
+    "closure_obligations returns the full blocker set rather than raising, so commit_snapshot reports every missing piece of evidence at once.",
+    "Variant merge canonicalises against the axis default; effective choice asserted via resolve_selection.",
+    "restore_archive reports damage (RestorationReport) instead of raising, so revival is an informed decision.",
+    "The three module-level tables (LIFECYCLE_TABLES, REQUIRED_GATES, EVIDENCE_KINDS) are annotated Mapping (frozen lookup tables), not the mutable global registries §11 forbids."
+  ],
+  "failuresEncounteredAndFixed": [
+    "tests/test_m02_domain_neutrality.py first run failed on unverified helper imports (revision_of/closure/snapshot signatures) — replaced with the real m02_kernel_support API: snapshot(production_id=..., klass=...), closure(production_id=..., graph=bound()), closure_obligations.",
+    "Neutrality AST mutable-authority scan initially used ast.Assign.value as a target list (TypeError across every module) and over-flagged the three legitimate Mapping-annotated frozen tables; fixed to read ast.Assign.targets and to allow a declared immutable annotation while still rejecting a bare mutable singleton.",
+    "SemanticDiff accessor is is_empty, not empty; the borrowed-ladder identity checked against iris_project_os.versions.QualityClass (the package does not re-export it at top level).",
+    "Subprocess isolation script referenced sys without importing it — added to the -c script.",
+    "tests/test_m02_profiles.py: 34 initial failures against guessed APIs were resolved by measuring the real kernel behaviour first (archive seal/audit/restore contract, merge selection canonicalisation, MergeConflict.resolution being the strategy itself, SnapshotClosureError for cross-production merges, retention-pin liveness, the lifecycle ladder, store ancestor/descendant shapes). No kernel code was changed to satisfy a test."
+  ],
+  "scopeDeviations": [
+    "No frozen M02 invariant was weakened. Review corrections strengthened fail-closed semantics and corrected implementation/test mismatches inside the admitted Work Order."
+  ],
+  "risksAndDeferredWork": [
+    "Provider ports (Blender/ComfyUI/cloud/database) are boundaries only; their real implementations arrive in later modules and are deliberately not stubbed here (WO §18 'do not implement later-module providers merely to satisfy an interface').",
+    "Windows console renders the '§' character in some kernel error strings as mojibake (\\ufffd); this is display noise in the terminal, not a data defect — the source files are UTF-8 and the tests match on ASCII substrings.",
+    "M01 test files carry 15 pre-existing F401 unused imports (committed before this WO); left untouched as out of scope and not gated by CI."
+  ],
+  "proof": {
+    "noProviderSdkLeakage": "tests/test_m02_domain_neutrality.py ImportBoundaryTests + DomainVocabularyTests: every iris_project_os import is stdlib or iris_quality; none of ~70 forbidden roots (blender/bpy/comfyui/torch/numpy/PIL/cv2/requests/httpx/boto3/sqlalchemy/redis/mcp/hive/...) is imported; no socket/subprocess/os.system touchpoint; a cold import with sockets monkeypatched to raise completes and reports 399 exports from a temp cwd where examples cannot resolve.",
+    "m01RemainsQualityAuthority": "QualityAuthorityTests: the kernel imports only iris_quality.{contracts,decision,errors,versions}; never the judging machinery (dimensions/evidence/judging/registry/zones); never names DecisionEngine/EvaluatorRegistry/JudgeRequest/DomainProfile/DimensionRegistry/SemanticZone; iris_project_os.versions.QualityClass is iris_quality.contracts.QualityClass (same object); a VALIDATED M02 claim names an M01 decision by reference and closure_obligations reports the gap when none is bound.",
+    "fiveSyntheticProfiles": "tests/test_m02_profiles.py drives profile.logo-web, profile.game-asset, profile.film-sequence, profile.spokesperson and profile.voice-music (examples/m02_synthetic_profiles.py) through the graph, identity, branch/variant/snapshot, diff/merge/rollback, build/reuse, lifecycle/promotion and archive/retention families — 82 methods, all against the one shared kernel. Neutrality test proves the core names none of these profiles' identifiers.",
+    "exactHeadGovernance": "base 59ee339c27750522106d0d2aa5a525f07f613702 -> review-corrected code head 4f6f3530d869742afc690c010a05280331f6be4c on PR #12. Governance run 35584434087 / job 106284371007 checked out that exact SHA, validate_governance PASS (35 required artifacts), and Ran 1805 tests / OK."
+  },
+  "checkpointDelta": {
+    "applied": true,
+    "proposed": "On APPROVED: register M02 (iris_project_os, m02-contract-v1.0) as accepted in docs/project-brain/13-CHECKPOINT.md, record the 399-name public surface and the 1805-test exact-head baseline, preserve M01 as sole quality authority, and note the review corrections. Do not start M03 before that promotion/merge is complete.",
+    "appliedIn": "final promotion delta commit following reviewed head 3e439f404a16cbf5d1652296c93160519ff4d0b6"
+  },
+  "contextLock": {
+    "path": ".engineering/context-locks/IRIS-WO-0004.json",
+    "deltaNeeded": false,
+    "note": "Committed in the pre-execution handoff (4d1db56); no allowed-delta change was required during execution."
+  },
+  "stopCondition": {
+    "merged": false,
+    "m03Started": false,
+    "contractWeakened": false,
+    "result": "REVIEW APPROVED at exact head 3e439f4 with 1805/1805 tests. Final promotion delta closes Work Order/Context Lock/Checkpoint only; M03 remains unstarted until PR #12 is merged."
+  },
+  "reviewCorrections": [
+    {
+      "classification": "CHAT_FIXABLE",
+      "commits": [
+        "26dd2f9f8eaf100a2d2a220558dc862652c124a1",
+        "4f6f3530d869742afc690c010a05280331f6be4c"
+      ],
+      "closed": [
+        "feedback epoch direction now models immutable prior-epoch output feeding a later epoch and rejects same/backward epoch misuse",
+        "transition retry remains idempotent even when the bounded ledger is full",
+        "snapshot ancestry fails closed on cycles and self-parenting is rejected",
+        "M02 QUALITY gates must carry the M01 QualityDecision they compose; generic PASS cannot impersonate M01",
+        "requested quality floor is checked against the bound M01 awarded class",
+        "required lifecycle gates cannot be weakened to optional or UNKNOWN-non-blocking",
+        "distinct human-review lanes can bind their declared reviewers without requiring every reviewer on every lane",
+        "non-PASS gate results no longer silently discharge an obligation"
+      ],
+      "validation": "Exact-head Governance run 35584434087 checked out 4f6f3530d869742afc690c010a05280331f6be4c, governance PASS (35 artifacts), full suite 1805/1805 OK."
+    }
+  ],
+  "reviewVerdict": {
+    "verdict": "APPROVED",
+    "reviewedHead": "3e439f404a16cbf5d1652296c93160519ff4d0b6",
+    "governanceRun": 35596394803,
+    "governanceJob": 106322077536,
+    "exactHead": true,
+    "tests": {
+      "run": 1805,
+      "failures": 0,
+      "errors": 0,
+      "result": "OK"
+    },
+    "blockers": {
+      "critical": 0,
+      "high": 0
+    },
+    "reviewCommentId": 5760062803
+  }
+}

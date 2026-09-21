@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0004",
+  "issue": 11,
+  "branch": "iris-wo-0004-m02-project-os",
+  "baseSha": "59ee339c27750522106d0d2aa5a525f07f613702",
+  "baseTreeSha": "163d7f7460369c8678a18fdad4a5597781e14c30",
+  "status": "CLOSED_APPROVED",
+  "frozenContract": {
+    "name": "m02-contract-v1.0",
+    "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md"
+  },
+  "planningGovernance": {
+    "frozenPlanningHead": "d3e39f5da57d142be2ceb7a691022856d179d1b8",
+    "runId": 35535685507,
+    "tests": 216,
+    "conclusion": "success"
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "sha": "0a85dca760de3ea5c6ae2c4c0fda94a273b4ca58"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "sha": "0c0493f28df7b33ba6ec674a17f6d298f8e33bc1"
+    },
+    {
+      "path": "docs/product/IRIS-VIRTUAL-SPOKESPERSON-DIRECTION.md",
+      "sha": "7789ffdb87f12f725ee87fd17c9d3712648dde37"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "sha": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "sha": "8d95bf4bfee50ad0f68c6a8c5ff93b0c7543aaae"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "sha": "ce3b48c8dcbf6006d83363c9af716ce96e6b864b"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "sha": "de8c276d6bfd51d25cb0dafdbdfbcea61a3c1faf"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "sha": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "sha": "e2a2435525620a8469356d89423abd38a4daead9"
+    },
+    {
+      "path": "planning/compatibility/M02-FORWARD-COMPATIBILITY-SCAN.md",
+      "sha": "ad7069410757de184cb4c35b1a9c41c36047c62b"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "sha": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+    },
+    {
+      "path": "planning/modules/M02-PROJECT-OS-PRODUCTION-GRAPH.md",
+      "sha": "3167e2ee8be597a7e33d9083a151c8cbcb462c7f"
+    },
+    {
+      "path": "planning/reviews/M02-FINAL-TECHNOLOGY-REVIEW.md",
+      "sha": "6b4b08513bc5bbf34f627916dd013a1988cdd5ad"
+    },
+    {
+      "path": "planning/technology-registry/M02-TECHNOLOGIES.md",
+      "sha": "caf0cc4065246b2007dc5cb833b52b82686364b5"
+    }
+  ],
+  "inScope": [
+    "M02 domain-neutral project/production identity and immutable history semantics",
+    "Typed/versioned Production Graph, dependencies, impact analysis and explain traces",
+    "Branches, Variant Sets, Snapshots, semantic merge, rollback and retention pins",
+    "Incremental build/reuse planning semantics and context fingerprint contract",
+    "Orthogonal production lifecycle, promotion, release, archive and receipt replay",
+    "M01 QualityDecision integration as external quality authority",
+    "Five synthetic domain profiles: logo/web, Nerim 3D, film, corporate spokesperson, voice/music"
+  ],
+  "outOfScope": [
+    "M03 and every later module implementation",
+    "Real Blender/ComfyUI/DCC/model/provider execution",
+    "Production database/CAS/distributed storage",
+    "Real HIVE retrieval or runtime mutation",
+    "Real KV/prefix cache implementation",
+    "Rights/legal policy engine or C2PA signing",
+    "Publishing API/external release provider implementation",
+    "Cloud/LAN worker scheduling"
+  ],
+  "stopCondition": "STOP after the complete M02 semantic kernel is implemented, fully tested/documented, Evidence Bundle updated, branch pushed and PR ready for independent review. Do not merge. Do not start M03. Report BLOCKED_CONTRACT_CONFLICT rather than weakening m02-contract-v1.0.",
+  "upstream": {
+    "gef": {
+      "version": "1.0.0",
+      "sha": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
+    },
+    "hive": {
+      "version": "1.0.0",
+      "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
+    }
+  },
+  "reviewClosure": {
+    "verdict": "APPROVED",
+    "reviewedHead": "3e439f404a16cbf5d1652296c93160519ff4d0b6",
+    "governanceRun": 35596394803,
+    "governanceJob": 106322077536,
+    "tests": 1805,
+    "criticalHighBlockers": 0,
+    "note": "Independent review completed after CHAT_FIXABLE corrections. This promotion commit changes governance/documentation state only; M03 remained unstarted."
+  }
+}
