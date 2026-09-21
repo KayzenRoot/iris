@@ -1,6 +1,6 @@
 # M03 — Creative Brief, Intent & Constraint Compiler
 
-Status: `S02_PROPOSED_COMPLETE_PENDING_DISCUSSION`
+Status: `S03_PROPOSED_COMPLETE_PENDING_DISCUSSION`
 Module: `M03`
 Area: `A — Product Constitution & Production OS`
 Planning issue: `#17`
@@ -814,12 +814,443 @@ Future implementation/tests must prove at least:
 17. M01 quality authority is not imported/reimplemented;
 18. M02 can consume constraint refs/fingerprints without importing constraint internals.
 
+
+
+---
+
+# S03 — Fidelity Contract compilation
+
+Status: `S03_PROPOSED_COMPLETE_PENDING_DISCUSSION`
+
+## 1. Compilation doctrine
+
+M03 compiles an admitted Creative Brief revision plus its active Constraint Set into a **Fidelity Contract Compilation** that targets the already-frozen M01 quality contract.
+
+The compiler does not create a second quality model. It performs a typed, explainable translation from “what the production intends” into “what M01 must require evidence for”.
+
+The authority split is strict:
+- M03 decides how admitted intent/constraints map into a requested quality contract specification;
+- M01 owns the legal `FidelityContract` schema, QualityClass ladder, dimension registry, promotion rules, defect semantics, evaluator authority, uncertainty and final QualityDecision;
+- domain modules/profiles own domain-specific quality dimensions/evaluators when they are admitted through M01 extension contracts;
+- M03 may not manufacture evaluator capability or bypass M01 registry resolution.
+
+## 2. Compilation input
+
+A compilation binds immutable references to:
+- M03 `brief_revision_id`;
+- semantic intent fingerprint;
+- active constraint fingerprint;
+- requested deliverable/destination profile refs;
+- applicable project/brand/persona/policy refs;
+- selected M01 `DomainProfile` reference/version;
+- M01 contract/schema version;
+- M01 dimension-registry reference/digest;
+- compiler component version;
+- optional previously approved contract lineage when recompiling.
+
+Raw prose is evidence/source material, not the canonical compilation input after normalization.
+
+## 3. Compilation output layers
+
+S03 separates three artifacts.
+
+### 3.1 Quality Intent Projection
+A provider-neutral statement of which admitted intent/constraints create quality obligations.
+
+Examples:
+- “persistent spokesperson must remain the same person” -> identity-fidelity obligation + protected identity reference;
+- “logo must remain readable as a favicon” -> silhouette/readability + technical/platform fitness obligations;
+- “final cinematic master” -> requested output class + applicable visual/temporal dimensions supplied by an admitted domain profile;
+- “voice must remain the corporate voice” -> admitted voice-identity extension dimension when available.
+
+It is traceable back to exact M03 statements/constraints.
+
+### 3.2 Fidelity Contract Spec
+A compiler-owned intermediate specification containing only values M03 is authorized to request/bind.
+
+Minimum fields:
+- `compilation_id`;
+- source brief/constraint refs + fingerprints;
+- target M01 contract version;
+- selected domain profile ref;
+- requested `QualityClass`;
+- contract intent summary;
+- approved reference IDs;
+- target platform/camera/delivery profile refs where applicable;
+- applicable Semantic Zone requests/references;
+- requested human-review obligations by semantic reason;
+- policy references for debt/defect handling, without redefining M01 semantics;
+- rationale map from each requested obligation to source intent/constraint IDs;
+- unresolved compilation gaps;
+- compiler version/fingerprint.
+
+The Spec is not itself a M01 `FidelityContract` and cannot be sent to `DecisionEngine`.
+
+### 3.3 M01 FidelityContract
+The final instantiated object accepted by M01 schema/registries.
+
+It must be constructed only through an admitted M01/domain profile path or other future M01-approved extension path.
+
+M03 compilation is successful only if the resulting M01 contract validates under the targeted M01 contract version and dimension/evaluator/profile registries.
+
+## 4. Exact M01 surface targeted by S03
+
+Current `m01-contract-v1.0` / implementation surface includes:
+- `contract_id`;
+- `intent`;
+- `output_class`;
+- `dimension_ids`;
+- `reference_ids`;
+- fatal/major/minor/observation defect classes;
+- `evaluator_set`;
+- `target_platform`;
+- `camera_profile`;
+- `delivery_profile`;
+- `SemanticZone` entries;
+- contiguous `PromotionRule` ladder;
+- `human_review_dimension_ids`;
+- `DimensionRegistry`;
+- `QualityDebtPolicy`;
+- `max_judge_disagreement`;
+- versioned contract identity.
+
+S03 explicitly acknowledges this surface so later implementation cannot invent fields that M01 does not own.
+
+## 5. QualityClass compilation
+
+M03 may request only M01 classes:
+- `DRAFT`;
+- `PREVIEW`;
+- `REVIEW`;
+- `MASTER`;
+- `ARCHIVAL_MASTER`.
+
+Rules:
+1. human adjectives such as “amazing”, “premium”, “cinematic” or “ultra quality” do not directly map to a QualityClass;
+2. output class comes from explicit user/project/delivery policy or an approved domain-profile rule;
+3. a final production master must never be silently downgraded because of hardware/provider limits;
+4. runtime constraints may change execution strategy, not the requested quality class;
+5. if the requested class cannot be legally instantiated/proven, compilation reports a blocking capability/contract gap rather than lowering the target.
+
+This preserves ADR-0008 and the non-MVP quality doctrine.
+
+## 6. Dimension compilation
+
+M03 does not invent dimension identifiers.
+
+A requested semantic quality obligation is mapped only to:
+- a dimension admitted by the selected M01 `DimensionRegistry` / DomainProfile; or
+- a declared unresolved requirement that blocks final compilation until an authorized future module registers the needed extension dimension.
+
+Example:
+- voice identity can compile only if an admitted dimension such as `voice-identity` exists in the bound registry/profile.
+
+Unknown dimensions fail closed. They never become free-form strings in a production M01 contract.
+
+## 7. Domain profile selection
+
+Domain profile selection is capability admission, not a nearest-text guess.
+
+Selection inputs may include:
+- deliverable family;
+- semantic type;
+- required dimensions;
+- destination profile;
+- identity/brand requirements;
+- admitted profile registry metadata.
+
+The selected profile must cover every mandatory quality obligation or compilation remains incomplete.
+
+A composite production may require multiple Fidelity Contracts for different governed subjects/artifacts rather than one giant contract pretending to judge everything.
+
+## 8. Evaluator authority firewall
+
+M03 cannot infer evaluator authority from a model name, prompt, result payload or recommendation text.
+
+The final contract's `evaluator_set` must come from an admitted M01/domain profile or another M01-authorized capability mechanism. M01's `EvaluatorRegistry.resolve()` remains the promotion-capable authority boundary.
+
+If no registered evaluator covers a required dimension:
+- compilation may describe the missing capability;
+- execution/promotion for that contract is blocked;
+- M03 must not remove the dimension, weaken the requirement or invent an evaluator to make the contract pass.
+
+## 9. Promotion-rule integrity
+
+M03 cannot create an arbitrary shorter quality ladder.
+
+Current M01 requires contiguous PromotionRules up to the requested output class.
+
+Therefore S03 must preserve:
+- ascending contiguous rung order;
+- required dimensions per rung;
+- hard-gate dimensions subset of required dimensions;
+- evidence count/confidence requirements;
+- explicit human-review requirements.
+
+Profile-owned promotion rules are preferred. Any future customization path requires an M01 contract amendment/authorized profile mechanism, not M03-side schema mutation.
+
+## 10. Intent-to-dimension traceability
+
+Every compiled dimension obligation carries a rationale link to one or more:
+- Intent Statement IDs;
+- Constraint IDs;
+- domain/profile policy refs;
+- destination/profile refs.
+
+This forms a `Quality Obligation Trace`:
+
+`source intent/constraint -> quality obligation -> M01 dimension/profile/rule -> evidence/judge requirement`
+
+Users and agents must be able to ask “why are we judging this?” and receive a deterministic explanation.
+
+## 11. References compilation
+
+M03 compiles only admitted, typed references into M01 `reference_ids` or future profile-specific references.
+
+Reference roles include:
+- identity anchor;
+- must-match artifact;
+- approved brand reference;
+- structural target;
+- quality baseline;
+- anti-reference evidence reference when an evaluator/profile supports it.
+
+A general inspiration image is not automatically a strict fidelity reference.
+
+## 12. Semantic Zone compilation
+
+M03 may request quality emphasis/protection over semantic zones only when the selected domain/profile can bind those zones legally to M01 dimensions.
+
+Examples:
+- eyes/face for persistent human identity;
+- hands/weapon grip for a game character;
+- logo clear-space/silhouette region;
+- product label area.
+
+S03 does not define pixel masks or 3D selections. M04/domain modules later materialize semantic zone geometry.
+
+A zone may increase confidence/severity requirements through the M01 contract, but M03 cannot dilute a profile's stricter requirement.
+
+## 13. Defect-class compilation
+
+Defect classes and severities in a final FidelityContract are profile/policy-owned M01 semantics.
+
+M03 can project intent into requested protections and explain why a defect family matters, but it cannot casually relabel a profile-declared FATAL/MAJOR defect as MINOR.
+
+When user/project policy adds a stricter rule, the compilation records the requested strictness and requires a legal M01 profile/policy representation.
+
+Weakening an admitted severity requires an authorized versioned policy change, never a prompt-level override.
+
+## 14. Human-review compilation
+
+Human review requests can arise from:
+- explicit user policy;
+- domain profile requirements;
+- sensitive identity/brand/public-release constraints;
+- M01 promotion rules;
+- unresolved uncertainty requiring a human boundary.
+
+M03 may compile the requirement, but M01 owns how a `HUMAN_DECISION` evidence obligation blocks promotion.
+
+M03 never fabricates human approval evidence.
+
+## 15. Quality Debt boundary
+
+M03 does not decide which defects are “acceptable enough” after evaluation.
+
+It may bind an approved `QualityDebtPolicy` reference or request a project policy profile, but M01 remains the decision authority.
+
+FATAL/hard-gate behavior cannot be bypassed by a creative brief or ordinary override.
+
+## 16. Confidence and disagreement
+
+M03 may request policy/profile settings that ultimately bind M01 confidence/human-review behavior, but does not compute judge confidence or jury disagreement.
+
+Current M01 `max_judge_disagreement` and zone confidence floors remain M01 semantics.
+
+The compilation must record the exact profile/policy source for any non-default setting.
+
+## 17. Contract gap model
+
+S03 introduces `Fidelity Compilation Gap` types:
+- `MISSING_DOMAIN_PROFILE`;
+- `MISSING_DIMENSION`;
+- `MISSING_EVALUATOR_CAPABILITY`;
+- `UNRESOLVED_REFERENCE`;
+- `UNSUPPORTED_QUALITY_CLASS`;
+- `UNREPRESENTABLE_CONSTRAINT`;
+- `PROFILE_POLICY_CONFLICT`;
+- `REGISTRY_VERSION_MISMATCH`;
+- `BLOCKING_AMBIGUITY`;
+- `STALE_COMPILATION_INPUT`.
+
+A blocking gap prevents production-grade contract emission.
+
+No gap is repaired by silently dropping the originating requirement.
+
+## 18. Compilation completeness
+
+A compilation is `COMPLETE` only when:
+- source brief/constraint revisions are immutable/current;
+- no BLOCKING ambiguity remains;
+- selected profile is version-pinned and admitted;
+- every mandatory quality obligation maps to admitted dimensions/rules;
+- evaluator capability is resolvable by M01 registry boundary;
+- every strict reference is resolved;
+- requested QualityClass can be legally represented;
+- generated M01 FidelityContract validates round-trip;
+- rationale coverage is complete for every compiled obligation.
+
+Otherwise status is `INCOMPLETE` or `BLOCKED`, never a partial contract mislabeled ready.
+
+## 19. Compilation fingerprint
+
+Each compilation gets a `fidelity_compilation_fingerprint` over correctness-relevant inputs:
+- source brief/constraint fingerprints;
+- selected domain profile/version;
+- target M01 contract version;
+- dimension registry identity/version;
+- destination/profile refs;
+- policy refs;
+- compiler version;
+- emitted contract payload digest when complete.
+
+This makes stale contracts detectable and enables M02 reuse/invalidation.
+
+## 20. Recompilation / minimal invalidation
+
+A brief edit does not automatically invalidate every quality obligation.
+
+Using S01/S02 semantic deltas, S03 computes which Fidelity Contract fields are affected.
+
+Examples:
+- copy change may leave geometry/identity dimensions unchanged;
+- output destination change may alter target-platform/delivery requirements;
+- identity-anchor change invalidates identity references and related zones;
+- requested final-class change alters promotion obligations;
+- purely explanatory text change may not require a new semantic contract payload even though brief revision history advances.
+
+M02 remains the authority for graph impact/rebuild decisions. S03 supplies a typed Quality Contract Delta.
+
+## 21. Quality Contract Delta
+
+S03 produces a semantic delta classification such as:
+- `NO_SEMANTIC_CHANGE`;
+- `REFERENCE_CHANGE`;
+- `DIMENSION_OBLIGATION_CHANGE`;
+- `QUALITY_CLASS_CHANGE`;
+- `ZONE_CHANGE`;
+- `DELIVERY_PROFILE_CHANGE`;
+- `POLICY_CHANGE`;
+- `PROFILE_CHANGE`;
+- `REGISTRY_CHANGE`.
+
+The delta includes explanation paths back to source changes.
+
+## 22. Multi-contract productions
+
+One Creative Brief may compile into multiple subject-specific Fidelity Contracts.
+
+Example film/commercial production:
+- persistent spokesperson identity contract;
+- individual shot visual/master contract;
+- voice/dialogue contract;
+- music/audio contract;
+- final delivery/package contract.
+
+M03 maintains a `Fidelity Contract Set` linking them to one brief revision without merging incompatible dimension/evaluator domains into one mega-contract.
+
+## 23. Contract inheritance / overlays
+
+Reusable quality policy may be layered from:
+- IRIS project defaults;
+- domain profile;
+- brand/persona/product profile;
+- production-specific strict additions;
+- destination requirements.
+
+Compilation must produce one explicit resolved result plus a provenance trace.
+
+Hidden runtime inheritance is forbidden.
+
+Overlays may strengthen within legal profile/policy mechanisms. They cannot weaken immutable/higher-authority requirements without an authorized S05 override that is itself legally representable by M01.
+
+## 24. No hardware-driven quality collapse
+
+8 GB VRAM and other resource constraints are first-class execution realities, but they do not rewrite the Fidelity Contract.
+
+If local hardware cannot produce the requested MASTER quality in one pass, later planners may use tiling, staged rendering, offload, remote spillover, alternative models or more time.
+
+S03 emits the target quality truthfully; M07-M13 solve execution feasibility.
+
+## 25. Explainability packet
+
+Each complete compilation emits compact evidence answering:
+- why this QualityClass?
+- why each dimension?
+- why each strict reference?
+- why human review?
+- which profile/registry/evaluator capabilities are expected?
+- what could not be represented?
+- what changed from the previous contract?
+
+This packet is referenceable rather than repeatedly injecting the full brief into downstream LLM context.
+
+## 26. S03 decisions proposed
+
+- **D-M03-S03-001:** M03 compiles to the frozen M01 FidelityContract contract; it does not create a parallel quality system.
+- **D-M03-S03-002:** compilation uses a separate Fidelity Contract Spec intermediate that has no M01 decision authority.
+- **D-M03-S03-003:** requested QualityClass comes from explicit/admitted policy, never adjective heuristics or hardware limitations.
+- **D-M03-S03-004:** M03 cannot invent dimension IDs; mandatory unmapped quality intent becomes a blocking compilation gap.
+- **D-M03-S03-005:** domain profile selection is admitted capability matching, not nearest-text guessing.
+- **D-M03-S03-006:** evaluator_set is supplied only through M01-authorized profile/registry mechanisms; M03 never grants evaluator capability.
+- **D-M03-S03-007:** M01 promotion-rule contiguity/hard-gate/human-review invariants are preserved exactly.
+- **D-M03-S03-008:** every compiled quality obligation is traceable to source intent/constraint/policy.
+- **D-M03-S03-009:** inspiration references are not silently promoted to strict fidelity references.
+- **D-M03-S03-010:** M03 may request Semantic Zones but domain modules materialize their geometry/regions.
+- **D-M03-S03-011:** M03 cannot weaken profile-owned defect severity or bypass FATAL/hard gates with ordinary overrides/debt.
+- **D-M03-S03-012:** human-review requirement may be compiled, but only M01-recognized HUMAN_DECISION evidence can satisfy M01.
+- **D-M03-S03-013:** incomplete capability/schema/profile coverage blocks contract emission rather than dropping requirements.
+- **D-M03-S03-014:** compiled contracts carry versioned fingerprints and stale-input detection.
+- **D-M03-S03-015:** semantic brief deltas compile into typed Quality Contract Deltas for M02 impact analysis.
+- **D-M03-S03-016:** one brief may produce a Fidelity Contract Set of subject-specific contracts rather than an unsafe mega-contract.
+- **D-M03-S03-017:** quality-policy layering must resolve to one explicit payload with provenance; no hidden inheritance.
+- **D-M03-S03-018:** hardware/resource constraints cannot silently downgrade requested final quality.
+- **D-M03-S03-019:** explainability is emitted as a compact referenceable compilation packet for token-efficient downstream work.
+- **D-M03-S03-020:** successful compilation requires M01 schema/registry validation and deterministic round-trip of the emitted contract.
+
+## 27. S03 proof plan
+
+Future implementation/tests must prove at least:
+1. a valid admitted profile compiles to an actual `FidelityContract` accepted by current M01 serialization/validation;
+2. emitted contract round-trips deterministically;
+3. “premium/cinematic/high quality” text alone cannot choose MASTER/ARCHIVAL_MASTER;
+4. explicit/admitted MASTER policy compiles to MASTER without hardware-based downgrade;
+5. unknown dimension request produces MISSING_DIMENSION, not a free-form M01 dimension;
+6. missing evaluator capability blocks completion;
+7. M03 cannot append an evaluator that M01 registry/profile did not admit;
+8. promotion rules remain contiguous through requested class;
+9. strict profile defect severity cannot be weakened by a brief constraint;
+10. user inspiration reference is not strict unless its role says so;
+11. unresolved strict reference blocks completion;
+12. Semantic Zone request must bind only admitted contract dimensions;
+13. human-review request produces an M01-compatible obligation but no fabricated decision evidence;
+14. blocking ambiguity prevents complete contract emission;
+15. compilation fingerprint changes when profile/registry/policy/source semantics change;
+16. stale source revision is detectable;
+17. unrelated wording change can yield NO_SEMANTIC_CHANGE in Quality Contract Delta;
+18. destination change selectively changes delivery/platform obligations;
+19. one multimodal brief can legally produce multiple distinct contracts without cross-domain evaluator contamination;
+20. every emitted dimension/rule/reference has an explanation path to source or selected profile;
+21. provider/model/DCC names are unnecessary to compile the quality contract;
+22. M01 `DecisionEngine`, `EvaluatorRegistry` and defect/debt authority are not reimplemented in M03.
+
 ---
 
 ## M03 current disposition
 
-S01 and S02 are proposed complete for discussion.
+S01, S02 and S03 are proposed complete for discussion.
 
 No M03 implementation is authorized.
 
-Next legal planning action after S02 review/acceptance: **S03 — Fidelity Contract compilation**.
+Next legal planning action after S03 review/acceptance: **S04 — Provider-neutral execution intent and explainability**.

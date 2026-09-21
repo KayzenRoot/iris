@@ -67,3 +67,8 @@ M02 is the canonical semantic authority for project/production identity, Product
 ## ADR-0016 - M03 semantic ownership and compiler boundary
 Status: `APPROVED`
 M03 is the canonical semantic authority for Creative Brief identity/revisions, normalized intent, ambiguity/freedom representation, constraint semantics and later provider-neutral execution-intent compilation. M03 does not own M01 quality judgment/promotion, M02 production/graph/lifecycle semantics, M04 media/scene IR, or provider-specific workflow/runtime details. M02 consumes versioned M03 references; M04+ consume compiled M03 intent.
+
+
+## ADR-0017 - M03 compiles quality intent into M01 without authority duplication
+Status: `APPROVED`
+M03 may compile admitted brief/constraint semantics into a versioned Fidelity Contract Spec and, through an admitted M01 DomainProfile/registry path, into the frozen M01 `FidelityContract`. M03 MUST NOT invent FidelityDimension IDs, grant evaluator capability, weaken M01 defect/hard-gate rules, fabricate HUMAN_DECISION evidence or silently lower QualityClass due to hardware/provider limits. M01 remains the sole quality decision/promotion authority.

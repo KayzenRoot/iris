@@ -1,6 +1,6 @@
 # M03 — Technology Registry
 
-Status: `S02_ACTIVE`
+Status: `S03_ACTIVE`
 Module: `M03 Creative Brief, Intent & Constraint Compiler`
 
 This registry tracks IRIS-owned technology candidates for M03. Names describe internal design concepts, not patent claims. Prior-art/external-reference review remains mandatory before Final Technology Review and Contract Freeze.
@@ -223,3 +223,102 @@ No candidate is frozen or claimed novel yet. S02-S05 may merge, supersede or rej
 ## S02 technology disposition
 
 Continue planning with `IRIS-ICX-017..036`. No S02 candidate is frozen yet. S03-S05 and Final Technology Review may merge/supersede/reject candidates.
+
+
+## IRIS-ICX-037 — Quality Obligation Compiler
+**Purpose:** translate admitted intent/constraints into M01-compatible quality obligations without duplicating M01 authority.
+**Benefit:** “creative intent” becomes machine-enforceable quality requirements.
+**Risk:** bad semantic mappings could over/under-constrain quality; every mapping needs traceability.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-038 — Fidelity Contract Spec
+**Purpose:** non-authoritative intermediate representation between M03 semantics and M01 FidelityContract.
+**Benefit:** keeps compiler concerns separate from the frozen M01 schema and supports gap analysis before contract emission.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-039 — Quality Obligation Trace
+**Purpose:** map every emitted dimension/reference/rule back to source intent, constraint or policy.
+**Benefit:** deterministic “why is this required?” explanations and safer audits.
+**Token benefit:** downstream systems can receive compact traces instead of full conversations.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-040 — Profile Capability Matcher
+**Purpose:** select only admitted M01 DomainProfiles whose dimension/capability surface covers mandatory obligations.
+**Benefit:** avoids nearest-text profile guessing and hidden quality loss.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-041 — Quality Gap Sentinel
+**Purpose:** classify missing profile/dimension/evaluator/reference/registry coverage and fail closed.
+**Benefit:** prevents silent requirement deletion.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-042 — Quality-Class Truth Lock
+**Purpose:** prevent hardware/provider limitations or vague adjectives from silently changing the requested M01 QualityClass.
+**Benefit:** preserves master quality targets across constrained hardware.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-043 — Evaluator Authority Firewall Bridge
+**Purpose:** guarantee M03 never grants evaluator capability; promotion-capable authority remains resolved by M01 registry mechanisms.
+**Benefit:** blocks fabricated judge capability from compiler/agent outputs.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-044 — Contract Round-Trip Seal
+**Purpose:** require emitted M01 contracts to validate, serialize, digest and reconstruct canonically before admission.
+**Benefit:** catches schema/compiler drift before execution.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-045 — Fidelity Compilation Fingerprint
+**Purpose:** digest source semantics + profile/registry/policy/compiler versions + emitted contract payload.
+**Benefit:** stale detection, reuse and precise M02 invalidation.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-046 — Quality Contract Delta
+**Purpose:** classify the semantic effect of brief changes on quality obligations.
+**Benefit:** avoids re-evaluating/regenerating unrelated work.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-047 — Multi-Contract Composer
+**Purpose:** compile one multimodal brief into subject-specific M01 contracts linked as a governed set.
+**Benefit:** avoids unsafe mega-contracts mixing incompatible evaluator domains.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-048 — Quality Policy Overlay Resolver
+**Purpose:** resolve project/domain/brand/persona/destination quality layers to one explicit contract result with provenance.
+**Benefit:** no hidden inheritance and deterministic policy composition.
+**Risk:** precedence is partly S05-owned and must remain authority-aware.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-049 — Strict Reference Role Compiler
+**Purpose:** distinguish inspiration, must-match, identity-anchor and quality-baseline references before M01 binding.
+**Benefit:** prevents loose inspiration from accidentally becoming strict similarity obligation.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-050 — Semantic Zone Request Bridge
+**Purpose:** express quality-critical semantic zones without owning pixel/mesh geometry.
+**Benefit:** later domain modules can materialize zones while M01 keeps quality semantics.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-051 — Human Review Obligation Bridge
+**Purpose:** compile authorized human-review requirements into M01-compatible contract obligations without creating approval evidence.
+**Benefit:** preserves human boundaries for identity/brand/public-release workflows.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-052 — No-Downgrade Quality Shield
+**Purpose:** make any attempted quality-class weakening caused by compute/provider scarcity an explicit blocking event.
+**Benefit:** 8 GB hardware stays supported through smarter execution rather than lower hidden quality.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-053 — Contract Explainability Capsule
+**Purpose:** compact why-class/why-dimension/why-reference/why-review packet linked to immutable source IDs.
+**Benefit:** auditability with strong token economy.
+**Status:** PROPOSED_S03.
+
+## IRIS-ICX-054 — Compilation Reuse Passport
+**Purpose:** prove whether a prior Fidelity Contract compilation can be reused after a brief/constraint revision.
+**Benefit:** skips redundant LLM/compiler work while preserving stale-context safety.
+**Dependencies:** ICX-009/028/045/046 and M02 reuse semantics.
+**Status:** PROPOSED_S03.
+
+## S03 technology disposition
+
+Continue planning with `IRIS-ICX-037..054`. No S03 candidate is frozen or claimed novel yet. Final Technology Review must assess overlap, prior art, implementation value and merge/supersession opportunities across ICX-001..054.
