@@ -1,6 +1,6 @@
 # M03 — Technology Registry
 
-Status: `S01_ACTIVE`
+Status: `S02_ACTIVE`
 Module: `M03 Creative Brief, Intent & Constraint Compiler`
 
 This registry tracks IRIS-owned technology candidates for M03. Names describe internal design concepts, not patent claims. Prior-art/external-reference review remains mandatory before Final Technology Review and Contract Freeze.

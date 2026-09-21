@@ -1,6 +1,6 @@
 # M03 — Creative Brief, Intent & Constraint Compiler
 
-Status: `S01_PROPOSED_COMPLETE_PENDING_DISCUSSION`
+Status: `S02_PROPOSED_COMPLETE_PENDING_DISCUSSION`
 Module: `M03`
 Area: `A — Product Constitution & Production OS`
 Planning issue: `#17`
