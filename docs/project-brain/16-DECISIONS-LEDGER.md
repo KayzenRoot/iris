@@ -62,3 +62,8 @@ During IRIS reviews, bounded findings that ChatGPT can safely correct and valida
 ## ADR-0015 - M02 semantic authority and M06 operational ownership
 Status: `APPROVED`
 M02 is the canonical semantic authority for project/production identity, Production Graph causality, branch/variant/snapshot/rollback semantics, incremental-build/reuse semantics, and production promotion/release/archive lifecycle. M06 may deepen content-addressed persistence, dependency indexing, reconstruction, cleanup and rollback execution, but MUST implement/extend M02 contracts rather than create a competing second state/version/build model.
+
+
+## ADR-0016 - M03 semantic ownership and compiler boundary
+Status: `APPROVED`
+M03 is the canonical semantic authority for Creative Brief identity/revisions, normalized intent, ambiguity/freedom representation, constraint semantics and later provider-neutral execution-intent compilation. M03 does not own M01 quality judgment/promotion, M02 production/graph/lifecycle semantics, M04 media/scene IR, or provider-specific workflow/runtime details. M02 consumes versioned M03 references; M04+ consume compiled M03 intent.

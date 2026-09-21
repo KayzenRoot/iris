@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "REPOSITORY_HARDENING_APPROVED",
+  "status": "M03_PLANNING_ACTIVE",
   "version": "1.0-m02-implemented",
-  "phase": "REPOSITORY_HARDENING_PROMOTION_PENDING_MERGE",
-  "nextStep": "Validate this promotion delta, squash merge PR #14, validate the resulting `main` exact SHA, then admit M03 planning."
+  "phase": "M03_S01_CREATIVE_BRIEF_SCHEMA",
+  "nextStep": "Review/accept M03 S01, then continue to S02 — Constraint taxonomy and negative constraints."
 }
