@@ -1,8 +1,7 @@
 # M03 — Module Contract Freeze Candidate
 
-Status: `FREEZE_CANDIDATE_PENDING_INDEPENDENT_AUDIT`
-Version candidate: `m03-contract-v0.1`
-Target frozen version: `m03-contract-v1.0`
+Status: `FROZEN_APPROVED`
+Version: `m03-contract-v1.0`
 Module: `Creative Brief, Intent & Constraint Compiler`
 
 ## 1. Contract purpose
@@ -523,3 +522,26 @@ Before changing this candidate to `FROZEN_APPROVED / m03-contract-v1.0`, the pla
 - zero HIGH/CRITICAL planning blockers.
 
 Any semantic change after v1.0 freeze requires a versioned contract amendment plus renewed compatibility review.
+
+
+## 23. Freeze evidence
+
+- S01-S05 planning: complete.
+- Final Technology Review: `APPROVED_FOR_FORWARD_COMPATIBILITY`.
+- Consolidated frozen families: `F-M03-01..16`.
+- Research-only / excluded from frozen core: `ICX-014`, `ICX-034`.
+- Forward Compatibility Scan: `PASS_WITH_EXTENSION_PORTS` across M04-M60.
+- Independent planning audit verdict: `APPROVED`.
+- Independently reviewed head: `0c7098a4dfdd3db6e917da4378b5952061ce3fcd`.
+- Exact-head Governance: run `35607101679`, job `106356761740`, PASS.
+- Exact-head assertion: expected = checked out = `0c7098a4dfdd3db6e917da4378b5952061ce3fcd`.
+- Governance required artifacts: 35.
+- Existing repository suite: `1805/1805 OK`.
+- Planning diff: planning/docs/checkpoint files only; no M03 product/kernel implementation.
+- HIGH/CRITICAL planning blockers at approval: `0`.
+- M01 quality authority preserved.
+- M02 project/graph/build/release authority preserved.
+- M04-M60 provider/domain ownership boundaries preserved.
+- Review finding: one stale planning-status sentence was `CHAT_FIXABLE` and corrected on the same PR before approval.
+
+Any semantic change after this freeze requires a versioned M03 contract amendment plus renewed compatibility and independent review.

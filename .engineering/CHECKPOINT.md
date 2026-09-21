@@ -1,36 +1,43 @@
 # IRIS Checkpoint
 
 ## STATUS
-M03_CONTRACT_FREEZE_CANDIDATE
+M03_PLANNING_APPROVED
 
 ## VERSION
-1.0-m02-implemented
+m03-contract-v1.0
 
 ## PHASE
-M03_PLANNING_INDEPENDENT_AUDIT_READY
+M03_PLANNING_PROMOTION_PENDING_MERGE
 
 ## OBJECTIVE
-Independently audit the complete M03 planning/freeze package and promote to m03-contract-v1.0 only if exact-head evidence and ownership boundaries pass.
+Merge the independently approved M03 planning/freeze package, validate the resulting hardened `main`, then admit a separate bounded M03 implementation Work Order.
 
 ## COMPLETED
-- M03 S01-S05 planning: complete as freeze candidate.
-- Final Technology Review: APPROVED_FOR_FORWARD_COMPATIBILITY.
-- Consolidated technology families: F-M03-01..16.
-- M04-M60 Forward Compatibility Scan: PASS_WITH_EXTENSION_PORTS.
-- Compatibility scan exact-head Governance: run `35606766239`, job `106355638096`, PASS; 1805/1805 tests OK.
-- M03 Module Contract Freeze Candidate: `m03-contract-v0.1`.
-- No M03 product implementation in planning branch.
+- M01 Quality Kernel: implemented, approved and merged.
+- M02 Project OS & Production Graph: implemented, approved and merged.
+- Repository hardening: active and validated.
+- M03 S01-S05 planning: complete and independently approved.
+- Final Technology Review: `APPROVED_FOR_FORWARD_COMPATIBILITY`.
+- Consolidated M03 technology families: `F-M03-01..16`.
+- M04-M60 Forward Compatibility Scan: `PASS_WITH_EXTENSION_PORTS`.
+- M03 contract: `FROZEN_APPROVED / m03-contract-v1.0`.
+- Independent planning audit head: `0c7098a4dfdd3db6e917da4378b5952061ce3fcd`.
+- Independent audit Governance: run `35607101679`, job `106356761740`, PASS.
+- Independent audit suite: 1805/1805 OK.
+- HIGH/CRITICAL planning blockers: 0.
+- No M03 product/kernel implementation in this planning PR.
 
 ## IN PROGRESS
-Independent planning audit of PR #18 / exact contract-freeze head.
+Documentation/governance promotion delta for approved M03 planning. No product/kernel implementation is admitted in this delta.
 
 ## BLOCKERS
 M03 implementation MUST NOT start until:
-1. contract-freeze exact head passes Governance;
-2. independent planning audit is APPROVED with no HIGH/CRITICAL blockers;
-3. contract is promoted to `FROZEN_APPROVED / m03-contract-v1.0`;
-4. planning PR is squash-merged and main validated;
-5. a separate bounded M03 implementation Work Order/Context Lock/Evidence package is admitted.
+1. this promotion delta passes exact-head Governance;
+2. PR #18 is squash-merged through `main-governance`;
+3. the resulting `main` SHA passes post-merge Governance;
+4. a separate M03 implementation Work Order / Context Lock / Evidence package is admitted.
+
+M04 implementation remains blocked until the M03 implementation itself later completes its governed lifecycle.
 
 ## NEXT STEP
-Validate exact-head Governance and independently audit PR #18 / m03-contract-v0.1.
+Validate the promotion delta, squash merge PR #18, validate the resulting `main`, then compile the separate M03 implementation Work Order.
