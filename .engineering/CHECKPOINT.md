@@ -1,36 +1,36 @@
 # IRIS Checkpoint
 
 ## STATUS
-M03_FORWARD_COMPATIBILITY_PASS
+M03_CONTRACT_FREEZE_CANDIDATE
 
 ## VERSION
 1.0-m02-implemented
 
 ## PHASE
-M03_CONTRACT_FREEZE_READY
+M03_PLANNING_INDEPENDENT_AUDIT_READY
 
 ## OBJECTIVE
-Compile and audit the frozen M03 module contract after successful S01-S05 planning, technology review and M04-M60 compatibility scan.
+Independently audit the complete M03 planning/freeze package and promote to m03-contract-v1.0 only if exact-head evidence and ownership boundaries pass.
 
 ## COMPLETED
-- M03 S01-S05 planning: proposed complete.
-- M03 technology registry: IRIS-ICX-001..090.
-- Final Technology Review: APPROVED_FOR_FORWARD_COMPATIBILITY; consolidated F-M03-01..16.
-- Final Technology Review exact-head baseline: `8cde06c3c0c506962d418c68a3d0b8b082d42af8`, Governance run `35606491038`, job `106354736858`, 1805/1805 OK.
-- M04-M60 Forward Compatibility Scan: `PASS_WITH_EXTENSION_PORTS`.
-- M01 quality authority, M02 production/graph authority and all later-domain ownership boundaries preserved.
-- No M03 implementation admitted.
+- M03 S01-S05 planning: complete as freeze candidate.
+- Final Technology Review: APPROVED_FOR_FORWARD_COMPATIBILITY.
+- Consolidated technology families: F-M03-01..16.
+- M04-M60 Forward Compatibility Scan: PASS_WITH_EXTENSION_PORTS.
+- Compatibility scan exact-head Governance: run `35606766239`, job `106355638096`, PASS; 1805/1805 tests OK.
+- M03 Module Contract Freeze Candidate: `m03-contract-v0.1`.
+- No M03 product implementation in planning branch.
 
 ## IN PROGRESS
-M03 Module Contract Freeze Candidate.
+Independent planning audit of PR #18 / exact contract-freeze head.
 
 ## BLOCKERS
 M03 implementation MUST NOT start until:
-1. Module Contract Freeze Candidate is complete;
-2. planning PR exact-head Governance passes;
-3. independent planning audit approves the frozen contract;
-4. planning PR is merged and main validated;
+1. contract-freeze exact head passes Governance;
+2. independent planning audit is APPROVED with no HIGH/CRITICAL blockers;
+3. contract is promoted to `FROZEN_APPROVED / m03-contract-v1.0`;
+4. planning PR is squash-merged and main validated;
 5. a separate bounded M03 implementation Work Order/Context Lock/Evidence package is admitted.
 
 ## NEXT STEP
-Compile M03 Module Contract Freeze Candidate from the approved sessions, consolidated technology families and forward-compatibility boundaries.
+Validate exact-head Governance and independently audit PR #18 / m03-contract-v0.1.

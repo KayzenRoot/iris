@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M03_FORWARD_COMPATIBILITY_PASS",
+  "status": "M03_CONTRACT_FREEZE_CANDIDATE",
   "version": "1.0-m02-implemented",
-  "phase": "M03_CONTRACT_FREEZE_READY",
-  "nextStep": "Compile M03 Module Contract Freeze Candidate from the approved sessions, consolidated technology families and forward-compatibility boundaries."
+  "phase": "M03_PLANNING_INDEPENDENT_AUDIT_READY",
+  "nextStep": "Validate exact-head Governance and independently audit PR #18 / m03-contract-v0.1."
 }

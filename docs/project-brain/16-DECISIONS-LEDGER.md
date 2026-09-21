@@ -82,3 +82,8 @@ M03 owns a provider-neutral semantic Execution Intent Bundle expressing desired 
 ## ADR-0019 - M03 conflicts and overrides are receipt-governed
 Status: `APPROVED`
 M03 semantic conflicts are explicit versioned objects. Recency, specificity or model confidence alone never determines precedence. Effective overrides require an authorized versioned Authority Policy Graph plus immutable Override Receipt, and ordinary M03 overrides cannot bypass M01/M02 invariants or admitted non-overridable rights/security/governance policy. Brief edits/migrations/restorations create new immutable revisions; M02 remains branch/variant/rollback authority.
+
+
+## ADR-0020 - M03 contract freezes semantic compilation, not provider execution
+Status: `APPROVED`
+The M03 freeze covers immutable Creative Brief/Intent/Constraint semantics, compilation into M01 Fidelity Contract references/objects, provider-neutral Execution Intent, explainability, conflicts/overrides and semantic revision/freshness. It explicitly excludes provider prompts/workflows, M02 ExecutionPlan/worker execution, M04 Scene IR internals, domain DNA engines, real judges, HIVE retrieval, rights/security engines, persistence and publishing.

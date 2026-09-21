@@ -1,6 +1,6 @@
 # IRIS M03 Planning Gate
 
-Status: `FORWARD_COMPATIBILITY_PASS_CONTRACT_FREEZE_READY`
+Status: `CONTRACT_FREEZE_CANDIDATE_READY_FOR_AUDIT`
 Issue: `#17`
 Branch: `m03-creative-brief-planning`
 Authorized main baseline: `bb5201fea5c394cf4dd7a169ca60df7924153e92`
@@ -42,3 +42,12 @@ Run M03 Final Technology Review, then M04-M60 Forward Compatibility Scan and Con
 - Critical ownership conflicts: 0
 - Future ownership warning: M04/M16 Provider Compiler naming overlap to resolve during those modules; M03 remains neutral.
 - Next: Module Contract Freeze Candidate.
+
+
+## Module Contract Freeze Candidate
+- Candidate version: `m03-contract-v0.1`
+- Status: `FREEZE_CANDIDATE_PENDING_INDEPENDENT_AUDIT`
+- File: `planning/contracts/M03-MODULE-CONTRACT-FREEZE-CANDIDATE.md`
+- Core invariants: 46
+- Synthetic domain-neutrality targets: 6
+- Implementation remains blocked until independent planning audit + merge/main validation.
