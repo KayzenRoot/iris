@@ -1,6 +1,6 @@
 # IRIS M03 Planning Gate
 
-Status: `TECH_REVIEW_APPROVED_FORWARD_COMPATIBILITY_READY`
+Status: `FORWARD_COMPATIBILITY_PASS_CONTRACT_FREEZE_READY`
 Issue: `#17`
 Branch: `m03-creative-brief-planning`
 Authorized main baseline: `bb5201fea5c394cf4dd7a169ca60df7924153e92`
@@ -32,3 +32,13 @@ Run M03 Final Technology Review, then M04-M60 Forward Compatibility Scan and Con
 - Contract-worthy consolidated families: `F-M03-01..16`
 - Research-only: `ICX-014`, `ICX-034`
 - Next: M04-M60 Forward Compatibility Scan.
+
+
+## Forward Compatibility Scan
+- Status: `PASS_WITH_EXTENSION_PORTS`
+- Scope: M04-M60
+- File: `planning/compatibility/M03-FORWARD-COMPATIBILITY-SCAN.md`
+- Required extension/ref families: 12
+- Critical ownership conflicts: 0
+- Future ownership warning: M04/M16 Provider Compiler naming overlap to resolve during those modules; M03 remains neutral.
+- Next: Module Contract Freeze Candidate.

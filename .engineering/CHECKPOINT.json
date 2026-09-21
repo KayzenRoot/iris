@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M03_TECH_REVIEW_APPROVED",
+  "status": "M03_FORWARD_COMPATIBILITY_PASS",
   "version": "1.0-m02-implemented",
-  "phase": "M03_FORWARD_COMPATIBILITY_READY",
-  "nextStep": "Run M03 Forward Compatibility Scan against M04-M60, then compile the M03 Module Contract Freeze Candidate."
+  "phase": "M03_CONTRACT_FREEZE_READY",
+  "nextStep": "Compile M03 Module Contract Freeze Candidate from the approved sessions, consolidated technology families and forward-compatibility boundaries."
 }

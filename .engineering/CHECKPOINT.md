@@ -1,39 +1,36 @@
 # IRIS Checkpoint
 
 ## STATUS
-M03_TECH_REVIEW_APPROVED
+M03_FORWARD_COMPATIBILITY_PASS
 
 ## VERSION
 1.0-m02-implemented
 
 ## PHASE
-M03_FORWARD_COMPATIBILITY_READY
+M03_CONTRACT_FREEZE_READY
 
 ## OBJECTIVE
-Validate M03 S01-S05 against known future IRIS modules, then freeze the M03 module contract before implementation admission.
+Compile and audit the frozen M03 module contract after successful S01-S05 planning, technology review and M04-M60 compatibility scan.
 
 ## COMPLETED
-- M01 Quality Kernel and M02 Project OS: implemented, approved and merged.
-- GitHub repository hardening: active and validated.
-- M03 planning issue #17 / PR #18.
-- M03 S01-S05: proposed complete.
-- S05 exact-head Governance: run `35606185453`, job `106353723936`, PASS; 1805/1805 tests OK.
-- M03 technology registry: `IRIS-ICX-001..090`.
-- Final Technology Review: `APPROVED_FOR_FORWARD_COMPATIBILITY`.
-- Contract-worthy technology families consolidated to `F-M03-01..16`.
-- Research-only: `ICX-014 Semantic Entropy Radar`, `ICX-034 Creative Elasticity Budget`.
+- M03 S01-S05 planning: proposed complete.
+- M03 technology registry: IRIS-ICX-001..090.
+- Final Technology Review: APPROVED_FOR_FORWARD_COMPATIBILITY; consolidated F-M03-01..16.
+- Final Technology Review exact-head baseline: `8cde06c3c0c506962d418c68a3d0b8b082d42af8`, Governance run `35606491038`, job `106354736858`, 1805/1805 OK.
+- M04-M60 Forward Compatibility Scan: `PASS_WITH_EXTENSION_PORTS`.
+- M01 quality authority, M02 production/graph authority and all later-domain ownership boundaries preserved.
 - No M03 implementation admitted.
 
 ## IN PROGRESS
-M04-M60 Forward Compatibility Scan for M03 semantic contracts.
+M03 Module Contract Freeze Candidate.
 
 ## BLOCKERS
 M03 implementation MUST NOT start until:
-1. M04-M60 Forward Compatibility Scan passes;
-2. M03 Module Contract is frozen;
-3. planning PR passes exact-head Governance and independent review;
+1. Module Contract Freeze Candidate is complete;
+2. planning PR exact-head Governance passes;
+3. independent planning audit approves the frozen contract;
 4. planning PR is merged and main validated;
-5. a separate bounded implementation Work Order/Context Lock/Evidence package is admitted.
+5. a separate bounded M03 implementation Work Order/Context Lock/Evidence package is admitted.
 
 ## NEXT STEP
-Run M03 Forward Compatibility Scan against M04-M60, then compile the M03 Module Contract Freeze Candidate.
+Compile M03 Module Contract Freeze Candidate from the approved sessions, consolidated technology families and forward-compatibility boundaries.
