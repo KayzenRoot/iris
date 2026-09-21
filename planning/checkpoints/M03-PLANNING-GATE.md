@@ -1,13 +1,13 @@
 # IRIS M03 Planning Gate
 
-Status: `S01_PROPOSED_COMPLETE_PENDING_DISCUSSION`
+Status: `S02_PROPOSED_COMPLETE_PENDING_DISCUSSION`
 Issue: `#17`
 Branch: `m03-creative-brief-planning`
 Authorized main baseline: `bb5201fea5c394cf4dd7a169ca60df7924153e92`
 
 ## Sessions
 - S01 — Creative brief schema and intent capture: PROPOSED COMPLETE
-- S02 — Constraint taxonomy and negative constraints: NOT STARTED
+- S02 — Constraint taxonomy and negative constraints: PROPOSED COMPLETE
 - S03 — Fidelity Contract compilation: NOT STARTED
 - S04 — Provider-neutral execution intent and explainability: NOT STARTED
 - S05 — Conflict detection, override policy and brief versioning: NOT STARTED
@@ -22,4 +22,4 @@ Planning only. No M03 implementation is authorized.
 - main-governance ruleset id `23766624`: active.
 
 ## Next legal action
-Review S01. If accepted, continue S02 on this same planning branch/PR.
+Review S02. If accepted, continue S03 — Fidelity Contract compilation on this same planning branch/PR.

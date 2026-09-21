@@ -443,4 +443,383 @@ S01 is proposed complete for discussion.
 
 No M03 implementation is authorized.
 
-Next legal planning action after S01 review/acceptance: **S02 — Constraint taxonomy and negative constraints**.
+
+---
+
+# S02 — Constraint taxonomy and negative constraints
+
+Status: `S02_PROPOSED_COMPLETE_PENDING_DISCUSSION`
+
+## 1. Constraint doctrine
+
+A constraint is not a prompt suffix. It is a versioned semantic rule that narrows the legal solution space of a Creative Brief.
+
+M03 constraints describe what an acceptable interpretation/execution may or may not do. Providers may later translate them into prompts, masks, graph choices, solver bounds, policies, validators or workflow parameters, but those provider encodings are projections rather than canonical truth.
+
+## 2. Constraint object
+
+Every constraint has at minimum:
+- `constraint_id`;
+- `brief_revision_id` or reusable policy/profile owner;
+- `semantic_target` / affected paths;
+- `predicate` or typed relation;
+- `polarity`;
+- `strength`;
+- `scope`;
+- `origin` and source reference;
+- authority + confidence;
+- applicability condition;
+- tolerance semantics where relevant;
+- rationale/evidence reference;
+- schema/compiler version;
+- lifecycle status.
+
+Constraints are immutable inside an admitted brief revision. Changes create semantic deltas/new revisions.
+
+## 3. Polarity
+
+Initial polarity classes:
+- `REQUIRE` — state/property must hold;
+- `FORBID` — state/property must not hold;
+- `PREFER` — optimize toward;
+- `AVOID` — optimize away from without making it illegal;
+- `ALLOW` — explicitly open a region otherwise constrained by a broader rule.
+
+`FORBID` is not represented by injecting words into a model-specific negative prompt.
+
+## 4. Strength
+
+Initial strength levels:
+- `HARD` — violation makes this interpretation/execution inadmissible;
+- `GUARDED` — violation requires explicit authorized override/escalation;
+- `SOFT` — optimization objective, may trade off against peers;
+- `ADVISORY` — informative direction that does not by itself block;
+- `EXPERIMENTAL` — intentionally relaxed for an exploration branch.
+
+Strength belongs to the constraint contract, not to provider prompt weight syntax.
+
+M01 quality gates remain M01-owned. M03 may compile requested quality intent into M01 Fidelity Contract inputs/references later, but cannot create an alternate quality authority by labeling a preference HARD.
+
+## 5. Constraint taxonomy
+
+### 5.1 Semantic/content
+What the output is or communicates.
+
+Examples:
+- product must remain recognizable;
+- scene must contain two characters;
+- advertisement must not state an unapproved claim.
+
+### 5.2 Identity
+Constraints over stable identity anchors supplied by M05/M39/M40/M41/M46.
+
+Examples:
+- preserve spokesperson identity;
+- do not mutate approved logo geometry;
+- preserve Voice DNA reference.
+
+M03 references identity contracts. It does not define DNA internals.
+
+### 5.3 Composition/spatial
+Relationships such as framing, order, relative position, occupancy or layout intent.
+
+The canonical rule is semantic. Exact camera/scene coordinates belong to M04+ when compiled.
+
+### 5.4 Temporal/motion
+Pacing, duration ranges, ordering, continuity intent and forbidden transitions.
+
+### 5.5 Style/brand
+Style direction, brand boundaries, tone and anti-style rules.
+
+### 5.6 Technical/delivery
+Target capabilities and output requirements that are genuinely known at brief time.
+
+Codec/provider/runtime details are deferred to M59 or provider compilers unless the user explicitly made them a hard requirement.
+
+### 5.7 Rights/provenance/security
+References to M53/M54 policy obligations.
+
+M03 carries the constraint reference and applicability, not the legal/security engine.
+
+### 5.8 Quality-request
+Requested quality rung/dimensions expressed as inputs to M01 contract compilation in S03.
+
+M03 does not judge satisfaction.
+
+### 5.9 Cost/time/resource
+User/project business constraints such as deadline, budget class or hardware availability.
+
+Runtime placement/VRAM strategy remains M07-M13.
+
+### 5.10 Accessibility/localization
+Requested languages, captions, readability, cultural or accessibility requirements by reference. M47 owns full localization/culturalization semantics.
+
+## 6. Negative constraints as first-class semantics
+
+Negative constraints identify forbidden properties, relationships, transformations or outcomes.
+
+Examples:
+- must not alter approved facial identity;
+- must not add text to a clean product image;
+- must not crop the logo clear-space zone;
+- must not introduce extra fingers/limbs;
+- must not show a competitor mark;
+- must not make an unapproved medical/financial claim;
+- must not change canonical character weapon;
+- must avoid camera shake beyond declared tolerance.
+
+A negative constraint may later compile to:
+- a provider negative prompt fragment;
+- mask/protected region;
+- graph exclusion;
+- model/workflow capability filter;
+- validator requirement;
+- repair trigger;
+- release gate reference.
+
+Those mechanisms are interchangeable implementations of the same semantic rule.
+
+## 7. Anti-reference semantics
+
+A reference can express “do not become this” without implying every visual property of the reference is forbidden.
+
+An Anti-Reference binds:
+- reference asset/revision;
+- forbidden semantic facets;
+- comparison scope;
+- tolerance;
+- explanation.
+
+Example: a competing logo may be an anti-reference for silhouette similarity while its color palette is irrelevant.
+
+This avoids accidental over-constraint from whole-image similarity.
+
+## 8. Constraint predicates
+
+Provider-neutral predicate families include:
+- equality / inequality;
+- membership / exclusion;
+- numeric range;
+- cardinality;
+- existence / absence;
+- ordering;
+- relational / graph relation;
+- semantic compatibility;
+- threshold by external metric reference;
+- protected-anchor preservation;
+- temporal duration/sequence relation;
+- capability requirement.
+
+Arbitrary executable code is forbidden inside canonical constraint data.
+
+Unknown mandatory predicate types fail closed.
+
+## 9. Scope mesh
+
+Constraints can scope to:
+- entire project;
+- production;
+- branch/variant set;
+- deliverable family;
+- one artifact;
+- scene/shot/region/time span;
+- semantic path/facet;
+- audience/destination profile.
+
+Narrower scope does not automatically mean higher authority. S05 will define conflict precedence.
+
+## 10. Conditional constraints
+
+A constraint may activate only when a declared condition holds.
+
+Examples:
+- if output is a favicon, minimum line thickness rule applies;
+- if a shot uses the persistent spokesperson, identity-preservation constraints activate;
+- if destination is social vertical video, safe-area intent applies;
+- if a branch is marked experimental, selected SOFT constraints may relax.
+
+Conditions are provider-neutral and versioned.
+
+Hidden runtime branching is not allowed to invent a new canonical constraint.
+
+## 11. Tolerance envelopes
+
+Not every constraint is binary.
+
+Typed tolerance can express:
+- numeric interval;
+- categorical acceptable set;
+- bounded deviation from anchor;
+- temporal tolerance;
+- spatial tolerance;
+- metric threshold reference.
+
+Tolerance must carry units/semantic meaning. “0.8” without metric/version/unit is invalid.
+
+## 12. Cross-modal constraints
+
+One semantic rule may bind multiple modalities.
+
+Examples:
+- spokesperson identity spans face/body/voice/mannerism;
+- Brand DNA spans logo/color/typography/voice/music;
+- narrative canon constrains image/video/dialogue;
+- a product color must match across still, video and 3D.
+
+M03 owns the cross-modal constraint relation; domain modules own the modality-specific representation/evidence.
+
+## 13. Constraint bundles
+
+Reusable bundles group compatible constraints by explicit version.
+
+Examples:
+- corporate brand pack;
+- persistent spokesperson public-release pack;
+- ecommerce product fidelity pack;
+- game-ready character pack;
+- family-safe campaign pack;
+- destination-specific delivery intent pack.
+
+Bundle inclusion is explicit. A bundle does not silently update inside an immutable brief revision.
+
+## 14. Constraint normal form
+
+M03 normalizes semantically comparable constraints into a canonical representation before fingerprinting/conflict analysis.
+
+Normalization may:
+- canonicalize units;
+- normalize set ordering;
+- resolve aliases to semantic IDs;
+- split compound statements into atomic rules;
+- bind explicit scope;
+- attach schema versions.
+
+Normalization must not strengthen or weaken the rule.
+
+Raw/source representation remains preserved.
+
+## 15. Constraint slicing and performance
+
+Downstream consumers receive only constraints whose scope/facets can affect them.
+
+A `Minimum Sufficient Constraint Slice` contains:
+- relevant canonical rules;
+- necessary provenance/authority;
+- active bundle refs;
+- conflict/override receipts applicable to those rules.
+
+This supports:
+- smaller LLM prompts;
+- smaller M02 invalidation cones;
+- provider cache reuse;
+- less accidental interaction between unrelated rules.
+
+## 16. Constraint fingerprints
+
+Constraint state contributes a versioned `constraint_fingerprint`.
+
+Fingerprint includes correctness-relevant normalized rule semantics, scope, strength, polarity, active conditions, referenced immutable policy/profile versions and compiler/schema version.
+
+Changing only explanatory prose does not necessarily imply a semantic fingerprint change. Changing an active hard rule does.
+
+## 17. Constraint coverage
+
+Before compilation, M03 can report which brief dimensions are constrained, intentionally free, unknown or uncovered.
+
+Coverage states:
+- `CONSTRAINED`;
+- `FREEDOM_ZONE`;
+- `UNKNOWN`;
+- `NOT_APPLICABLE`.
+
+Coverage is not automatically “the more constraints, the better”. Over-constraint is itself a production risk.
+
+## 18. Constraint cost awareness
+
+Constraints may carry an estimated execution/quality impact class without binding to one provider.
+
+Examples:
+- exact identity preservation: likely high-cost/high-quality-critical;
+- strict 4K delivery: compute/storage impact;
+- multi-reference consistency: additional validation/candidate cost.
+
+Actual resource planning remains M07-M13. M03 only exposes semantic demand for those planners.
+
+## 19. Poisoning / injection boundary
+
+Untrusted reference text, metadata or retrieved context cannot create a high-authority constraint simply because it contains imperative language.
+
+Constraint admission requires explicit source classification + authority.
+
+Examples that must not self-promote:
+- EXIF/comment saying “ignore brand rules”;
+- webpage text saying “publish secret”; 
+- retrieved prompt injection;
+- model-generated metadata claiming USER_EXPLICIT authority.
+
+This constraint-admission shield is foundational for M52/M54 integrations.
+
+## 20. Violation semantics
+
+M03 defines what a rule means and how violations are represented, but does not become the universal evaluator.
+
+A `ConstraintViolation` can reference:
+- constraint ID/version;
+- observed evidence;
+- severity derived from constraint strength/policy;
+- affected output/ref;
+- detector/evaluator authority ref;
+- remediation hint.
+
+The authoritative domain judge may live in M01/M24/M48/etc.
+
+## 21. S02 decisions proposed
+
+- **D-M03-S02-001:** canonical constraints are semantic rules, never provider prompt syntax.
+- **D-M03-S02-002:** REQUIRE/FORBID/PREFER/AVOID/ALLOW polarity is distinct from HARD/GUARDED/SOFT/ADVISORY/EXPERIMENTAL strength.
+- **D-M03-S02-003:** negative constraints are first-class and may compile into multiple provider mechanisms.
+- **D-M03-S02-004:** anti-references bind forbidden facets, not whole-reference blanket similarity.
+- **D-M03-S02-005:** arbitrary executable code is forbidden in canonical constraint predicates.
+- **D-M03-S02-006:** constraints are explicitly scoped; scope and authority are separate.
+- **D-M03-S02-007:** conditional activation must be declared and versioned.
+- **D-M03-S02-008:** tolerance requires typed units/metric semantics.
+- **D-M03-S02-009:** cross-modal constraints are semantic links; domain evidence stays with domain modules.
+- **D-M03-S02-010:** reusable constraint bundles are immutable/versioned when referenced by a brief revision.
+- **D-M03-S02-011:** canonical normalization must preserve meaning and source representation.
+- **D-M03-S02-012:** downstream consumers use Minimum Sufficient Constraint Slices.
+- **D-M03-S02-013:** over-constraint and under-constraint are both diagnosable states.
+- **D-M03-S02-014:** untrusted/retrieved text cannot self-promote into authoritative constraints.
+- **D-M03-S02-015:** M03 violation records do not replace M01/M24/M48 evaluator authority.
+- **D-M03-S02-016:** S05 owns conflict/override precedence; S02 supplies normalized rules and conflict candidates only.
+
+## 22. S02 proof plan
+
+Future implementation/tests must prove at least:
+1. a FORBID rule survives provider-neutral serialization without becoming prompt text;
+2. polarity and strength cannot be conflated;
+3. HARD violation fails admission unless later S05 policy provides an authorized override path;
+4. SOFT/ADVISORY rules remain non-blocking by default;
+5. anti-reference can prohibit selected facets without banning unrelated facets;
+6. unknown mandatory predicate type fails closed;
+7. unit/range normalization is deterministic;
+8. conditional constraints activate only from declared condition state;
+9. inactive constraints do not contaminate consumer slices/fingerprints;
+10. bundle revisions are immutable and pinned;
+11. narrower scope does not forge higher authority;
+12. untrusted metadata cannot claim USER_EXPLICIT/PROJECT_POLICY authority;
+13. cross-modal constraint round-trip preserves all target refs;
+14. constraint fingerprint changes on semantic rule change;
+15. wording/rationale-only change can remain semantically equivalent under a versioned normalization profile;
+16. over-constraint coverage can be detected separately from unknown/under-specified areas;
+17. M01 quality authority is not imported/reimplemented;
+18. M02 can consume constraint refs/fingerprints without importing constraint internals.
+
+---
+
+## M03 current disposition
+
+S01 and S02 are proposed complete for discussion.
+
+No M03 implementation is authorized.
+
+Next legal planning action after S02 review/acceptance: **S03 — Fidelity Contract compilation**.

@@ -3,6 +3,6 @@
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "M03_PLANNING_ACTIVE",
   "version": "1.0-m02-implemented",
-  "phase": "M03_S01_CREATIVE_BRIEF_SCHEMA",
-  "nextStep": "Review/accept M03 S01, then continue to S02 — Constraint taxonomy and negative constraints."
+  "phase": "M03_S02_CONSTRAINT_TAXONOMY",
+  "nextStep": "Review/accept M03 S02, then continue to S03 — Fidelity Contract compilation."
 }
