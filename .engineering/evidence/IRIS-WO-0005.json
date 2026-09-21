@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0005",
+  "status": "READY_FOR_EXECUTOR",
+  "branch": "iris-wo-0005-github-hardening",
+  "baseSha": "732895d17ead7a1497985a3a98396f4f2aa975d2",
+  "headSha": null,
+  "issue": 13,
+  "pullRequest": null,
+  "risk": "ELEVATED",
+  "baseline": {
+    "governanceRun": 35596884279,
+    "governanceJob": 106323644504,
+    "tests": 1805,
+    "mainProtected": false,
+    "rulesets": [],
+    "note": "Baseline observed before executor administrative mutation."
+  },
+  "before": {
+    "repository": null,
+    "rulesets": null,
+    "mainRules": null,
+    "actionsPermissions": null,
+    "security": null
+  },
+  "after": {
+    "repository": null,
+    "rulesets": null,
+    "mainRules": null,
+    "actionsPermissions": null,
+    "security": null
+  },
+  "commands": [],
+  "filesChanged": [],
+  "tests": null,
+  "adminMutations": [],
+  "limitations": [],
+  "risks": [],
+  "rollbackPosture": null,
+  "checkpointDelta": {
+    "applied": false,
+    "proposed": null
+  },
+  "stopCondition": "PENDING_EXECUTION"
+}

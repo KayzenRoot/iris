@@ -1,39 +1,37 @@
 # IRIS Checkpoint
 
 ## STATUS
-M02_IMPLEMENTATION_APPROVED
+M02_IMPLEMENTATION_MERGED
 
 ## VERSION
 1.0-m02-implemented
 
 ## PHASE
-M02_PROMOTION_DELTA_PENDING_MERGE
+REPOSITORY_HARDENING_EXECUTOR_READY
 
 ## OBJECTIVE
-Close the approved M02 Project OS & Production Graph implementation, merge PR #12 through the governed flow, then harden repository-level GitHub protections/rulesets before admitting M03.
+Harden the GitHub repository through IRIS-WO-0005 before admitting M03, with professional main-branch governance, least-privilege repository defaults and reproducible evidence.
 
 ## COMPLETED
-- M02 S01-S05 planning/freeze: approved and merged.
-- Frozen contract: `m02-contract-v1.0`.
-- Implementation package: `iris_project_os/` with 22 domain-neutral modules.
-- Public kernel surface: 399 exported symbols.
-- Five synthetic profiles: logo/web, game asset, film sequence, persistent spokesperson, voice/music.
-- M01 remains the sole quality authority; M02 composes `QualityDecision` rather than re-judging quality.
-- Independent review: APPROVED on `3e439f404a16cbf5d1652296c93160519ff4d0b6`.
-- Governance run/job: `35596394803 / 106322077536`.
-- Exact-head suite: 1805/1805 OK.
-- Review findings requiring code correction were CHAT_FIXABLE and closed on PR #12.
-- CRITICAL/HIGH blockers: 0.
+- M01 Quality Kernel: implemented, approved and merged.
+- M02 Project OS & Production Graph: implemented, independently reviewed, approved and squash-merged.
+- M02 merge SHA on `main`: `732895d17ead7a1497985a3a98396f4f2aa975d2`.
+- Post-merge Governance: run `35596884279`, job `106323644504`, PASS.
+- Post-merge suite: 1805/1805 OK.
+- Review auto-fix policy v1.1 is canonical and mandatory across IRIS chats.
+- CRITICAL/HIGH known product blockers: 0.
 
 ## IN PROGRESS
-Final governance/documentation promotion delta for IRIS-WO-0004. No product-code change is admitted in this delta.
+IRIS-WO-0005 prepares repository hardening. Repository administration mutations require local authenticated `gh` because the ChatGPT GitHub connection cannot write administration/ruleset endpoints.
 
 ## BLOCKERS
-M03 MUST NOT start until:
-1. this promotion delta passes exact-head Governance;
-2. PR #12 is merged;
-3. `main` is validated after merge;
-4. repository hardening requested by the owner is applied and validated through `gh` (main ruleset/protection and professional repository settings).
+M03 MUST NOT start until IRIS-WO-0005:
+1. configures and verifies the professional `main` ruleset/protection;
+2. applies required repository and Actions security defaults;
+3. records before/after evidence;
+4. passes exact-head Governance;
+5. receives independent review and is merged;
+6. validates the resulting `main` state.
 
 ## NEXT STEP
-Validate this promotion delta, squash merge PR #12, validate `main`, then execute the repository-hardening Work Order/PDF before compiling the M03 planning Context Lock.
+Execute IRIS-WO-0005 on branch `iris-wo-0005-github-hardening` using Codex with authenticated `gh`; stop before merge for independent review.
