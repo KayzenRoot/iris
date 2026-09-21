@@ -257,6 +257,21 @@ class BriefRevision(Record):
         )
 
     @property
+    def brief_ref(self) -> SemanticRef:
+        """The brief this revision belongs to, as a bound ref.
+
+        ``CreativeBriefIdentity`` owns this ref and a revision carries only ``brief_id``, so the
+        citation binds the identity by id with a digest of that id rather than inventing a content
+        digest it never observed.
+        """
+
+        from .versions import content_digest
+
+        return SemanticRef(kind=RefKind.BRIEF.value, ref_id=self.brief_id).with_digest(
+            content_digest({"brief_id": self.brief_id})
+        )
+
+    @property
     def admitted(self) -> bool:
         return RevisionStatus.parse(self.status) is not RevisionStatus.DRAFT
 

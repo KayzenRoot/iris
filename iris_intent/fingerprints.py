@@ -50,7 +50,6 @@ __all__ = [
     "ConstraintFingerprint",
     "IntentDelta",
     "SemanticChange",
-    "SemanticDelta",
     "SemanticEquivalenceProfile",
     "SemanticIntentFingerprint",
     "diff_bundles",
@@ -506,8 +505,11 @@ SemanticChange.NESTED = {"subject_refs": of(SemanticRef)}
 
 
 @dataclass(frozen=True)
-class SemanticDelta(Record):
+class IntentDelta(Record):
     """The difference between two fingerprints of the same subject kind.
+
+    One class serves all four subject kinds because the shape of "what moved" does not depend on what
+    moved; the contract's name for it is ``IntentDelta``, so that is the name it is filed under.
 
     ``correctness_relevant`` is the field reuse decisions read, and it is derived from the
     changes rather than supplied: a caller that could set it directly could declare any delta
@@ -584,16 +586,12 @@ class SemanticDelta(Record):
         return [item.fingerprint_inputs() for item in self.changes]
 
 
-SemanticDelta.NESTED = {
+IntentDelta.NESTED = {
     "before_ref": of(SemanticRef),
     "after_ref": of(SemanticRef),
     "profile_ref": of(SemanticRef),
     "changes": of(SemanticChange),
 }
-
-#: ``IntentDelta`` is the frozen contract's name for this concept; one class serves all four
-#: subject kinds because the shape of "what moved" does not depend on what moved.
-IntentDelta = SemanticDelta
 
 
 def fingerprint_model(
@@ -717,7 +715,7 @@ def diff_models(
     after: SemanticIntentFingerprint,
     *,
     delta_id: str | None = None,
-) -> SemanticDelta:
+) -> IntentDelta:
     """Path-level difference between two model fingerprints.
 
     A path present on one side only is ADDED/REMOVED; a path on both with different digests is
@@ -742,7 +740,7 @@ def diff_models(
                 after_digest=right,
             )
         )
-    return SemanticDelta(
+    return IntentDelta(
         delta_id=delta_id or f"delta-{before.semantic_digest[:8]}-{after.semantic_digest[:8]}",
         subject_kind="INTENT",
         before_ref=before.model_ref,
@@ -758,7 +756,7 @@ def diff_bundles(
     *,
     profile: SemanticEquivalenceProfile = DEFAULT_EQUIVALENCE_PROFILE,
     delta_id: str | None = None,
-) -> SemanticDelta:
+) -> IntentDelta:
     """Classify how an admitted rule set changed, rule by rule.
 
     Matching is by (path, predicate identity) rather than by constraint id, because a rewritten
@@ -802,7 +800,7 @@ def diff_bundles(
                 subject_refs=(new.constraint_ref,),
             )
         )
-    return SemanticDelta(
+    return IntentDelta(
         delta_id=delta_id or f"cdelta-{before.bundle_id}-{after.bundle_id}",
         subject_kind="CONSTRAINT",
         before_ref=before.bundle_ref,

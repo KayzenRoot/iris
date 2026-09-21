@@ -30,7 +30,7 @@ from typing import Any, Iterable, Mapping
 
 from .base import Labeled, Record, of
 from .errors import SchemaValidationError, StaleSemanticError
-from .fingerprints import ConstraintFingerprint, SemanticDelta, SemanticIntentFingerprint
+from .fingerprints import ConstraintFingerprint, IntentDelta, SemanticIntentFingerprint
 from .freshness import (
     DerivedArtifactKind,
     DerivedIntentDependency,
@@ -484,7 +484,7 @@ def evaluate_reuse(
     mapping_digest: str | None = None,
     upstream: Mapping[str, Mapping[str, Any]],
     revision_ordinal: int | None = None,
-    delta: SemanticDelta | None = None,
+    delta: IntentDelta | None = None,
 ) -> ReuseAssessment:
     """Decide what may be carried over, recomputing freshness from observed state.
 
@@ -502,8 +502,8 @@ def evaluate_reuse(
     vector = passport.freshness_vector(
         vector_id=vector_id, upstream=upstream, revision_ordinal=revision_ordinal
     )
-    if delta is not None and not isinstance(delta, SemanticDelta):
-        raise SchemaValidationError("evaluate_reuse delta must be a SemanticDelta")
+    if delta is not None and not isinstance(delta, IntentDelta):
+        raise SchemaValidationError("evaluate_reuse delta must be a IntentDelta")
     stale = tuple(vector.non_current_dimensions)
     unknown = tuple(vector.unknown_dimensions)
     profile_changed = profile_ref.text != passport.profile_ref.text

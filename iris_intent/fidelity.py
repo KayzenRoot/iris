@@ -29,7 +29,7 @@ less than the brief asked for, which is the failure this whole module exists to 
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from typing import Any, Iterable, Mapping
 
 from iris_quality import errors as m01_errors
@@ -2719,7 +2719,9 @@ def compile_fidelity_contract(
             "rewrite M01's schema to fit the brief",
         )
         return FidelityCompilation(
-            status=FidelityCompilationStatus.INCOMPLETE.value, gaps=tuple(gaps), spec=spec
+            status=FidelityCompilationStatus.INCOMPLETE.value,
+            gaps=tuple(gaps),
+            spec=replace(spec, gaps=tuple(gaps)),
         )
     try:
         evaluator_registry.resolve(contract)
@@ -2732,7 +2734,9 @@ def compile_fidelity_contract(
             "boundary, and M03 does not add a panel member to get past it",
         )
         return FidelityCompilation(
-            status=FidelityCompilationStatus.INCOMPLETE.value, gaps=tuple(gaps), spec=spec
+            status=FidelityCompilationStatus.INCOMPLETE.value,
+            gaps=tuple(gaps),
+            spec=replace(spec, gaps=tuple(gaps)),
         )
 
     delta = (

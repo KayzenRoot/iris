@@ -33,7 +33,6 @@ from .identity import (
     RefKind,
     SemanticRef,
     SourceKind,
-    is_untrusted,
 )
 from .intent import IntentModel, IntentOrigin, IntentStatement
 from .limits import (
@@ -427,7 +426,7 @@ class SemanticAdmissionShield:
                         (ref,),
                     )
                 )
-            if is_untrusted(AuthorityLevel.parse(level.value)) and statement.confidence is not None:
+            if not level.self_asserting_is_enough and statement.confidence is not None:
                 if statement.confidence > 0.9 and level.rank < self.policy_authority.rank:
                     findings.append(
                         self._finding(
@@ -598,7 +597,7 @@ class SemanticAdmissionShield:
                     AdmissionCheck.BLOCKING_AMBIGUITY,
                     AdmissionDecision.REFUSED,
                     ref,
-                    f"{record.consequence.value} ambiguity {record.ambiguity_id} on "
+                    f"{record.consequence} ambiguity {record.ambiguity_id} on "
                     f"{list(record.semantic_paths)} blocks admission until it is resolved (§5.8)",
                     (ref, subject),
                     recoverable=True,

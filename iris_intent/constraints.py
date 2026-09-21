@@ -38,7 +38,7 @@ from .errors import (
     UntrustedExtensionError,
 )
 from .identity import AuthorityLevel, RefKind, SemanticRef, require_bound_ref
-from .intent import IntentAuthorityRef
+from .intent import IntentAuthorityRef, ModalChannel
 from .limits import (
     MAX_ANTI_REFERENCE_FACETS,
     MAX_CONDITIONS,
@@ -85,19 +85,14 @@ __all__ = [
     "require_no_authority_in_scope",
 ]
 
-#: Modalities a constraint may address. Shared with ``intent.ModalChannel`` values so a
-#: constraint cannot scope itself to a channel the intent model has no statements about.
-KNOWN_CHANNELS = (
-    "AUDIO",
-    "BRAND",
-    "GEOMETRY",
-    "IMAGE",
-    "INTERFACE",
-    "MATERIAL",
-    "MOTION",
-    "SPEECH",
-    "TEXT",
-    "VIDEO",
+#: Modalities a constraint may address: every emit-able ``intent.ModalChannel`` minus the two
+#: labels that name no channel. ``CROSS`` says "these channels must agree", which is a link
+#: rather than a scope, and ``UNSPECIFIED`` says nobody ever said — a rule scoped to nothing is
+#: enforced by nothing. Derived from the enum instead of hand-listed, because the previous
+#: duplicate had drifted: MUSIC existed as a statement modality and not as a rule scope, so the
+#: §6 narration-and-music brief could state a music fact but could not bind a rule to it.
+KNOWN_CHANNELS = tuple(
+    sorted({member.value for member in ModalChannel} - {ModalChannel.CROSS.value, ModalChannel.UNSPECIFIED.value})
 )
 
 
@@ -585,9 +580,7 @@ class AntiReference(Record):
             object.__setattr__(self, "modality", channel_set((self.modality,), "modality")[0])
         if self.severity_hint is not None:
             object.__setattr__(
-                self,
-                "severity_hint",
-                DefectSeverity.parse(self.severity_hint, "severity_hint").value,
+                self, "severity_hint", _m03_severity(self.severity_hint, "severity_hint")
             )
         if self.rationale is not None:
             reject_interpolation(self.rationale, "rationale")
@@ -1129,9 +1122,7 @@ class ConstraintViolationRef(Record):
             "decision_ref",
             require_bound_ref(self.decision_ref, "decision_ref", kind=RefKind.RECEIPT),
         )
-        object.__setattr__(
-            self, "severity", DefectSeverity.parse(self.severity, "severity").value
-        )
+        object.__setattr__(self, "severity", _m03_severity(self.severity, "severity"))
         object.__setattr__(self, "observed", bounded_metadata(self.observed, "observed"))
         if self.measure is not None:
             object.__setattr__(self, "measure", require_identifier(self.measure, "measure"))
@@ -1426,6 +1417,19 @@ def _next_version(version: str) -> str:
     raise SchemaValidationError(
         f"cannot derive the next version from {text!r}; supersede with an explicit version instead"
     )
+
+
+def _m03_severity(value: Any, field: str) -> str:
+    """Read M01's severity ladder without handing out M01's exception class.
+
+    The rung is M01's and stays M01's; the refusal is M03's, because a caller auditing an
+    intent kernel has one error hierarchy to catch and one place to look for what was rejected.
+    """
+
+    try:
+        return DefectSeverity.parse(value).value
+    except Exception as error:  # noqa: BLE001 - the parser belongs to M01, whose hierarchy is not M03's
+        raise SchemaValidationError(f"{field}: {error}") from error
 
 
 def require_no_authority_in_scope(scope: ConstraintScope, owner: str) -> None:
