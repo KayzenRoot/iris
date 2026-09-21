@@ -1,6 +1,6 @@
 # M03 — Technology Registry
 
-Status: `S04_ACTIVE`
+Status: `S05_COMPLETE_PENDING_FINAL_REVIEW`
 Module: `M03 Creative Brief, Intent & Constraint Compiler`
 
 This registry tracks IRIS-owned technology candidates for M03. Names describe internal design concepts, not patent claims. Prior-art/external-reference review remains mandatory before Final Technology Review and Contract Freeze.
@@ -418,3 +418,98 @@ Continue planning with `IRIS-ICX-037..054`. No S03 candidate is frozen or claime
 ## S04 technology disposition
 
 Continue planning with `IRIS-ICX-055..072`. No S04 candidate is frozen or claimed novel yet. Final Technology Review must assess consolidation and prior art across ICX-001..072.
+
+
+## IRIS-ICX-073 — Semantic Conflict Hypergraph
+**Purpose:** represent multi-rule conflicts across scopes/modalities rather than only pairwise string disagreements.
+**Benefit:** exposes real cross-modal/brand/identity contradictions.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-074 — Authority Policy Graph
+**Purpose:** versioned graph of which authority classes may strengthen/narrow/replace/relax which rule classes.
+**Benefit:** deterministic governance without a brittle global priority number.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-075 — No-Last-Writer-Wins Guard
+**Purpose:** forbid timestamp-only semantic supersession.
+**Benefit:** prevents accidental policy/intent loss in chat-driven editing.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-076 — Override Receipt Ledger
+**Purpose:** immutable proof of every admitted semantic override with actor, authority, scope, reason and before/after state.
+**Benefit:** auditable creative governance.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-077 — Override Safety Gradient
+**Purpose:** apply stricter admission to weakening/disable actions than compatible strengthening.
+**Benefit:** blocks casual erosion of quality/identity/security rules.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-078 — Temporary Override Lease
+**Purpose:** time/review-bounded experimental relaxation with automatic staleness when expired.
+**Benefit:** safe experimentation without permanent accidental policy drift.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-079 — Override Debt Ledger
+**Purpose:** track unresolved semantic/governance exceptions separately from M01 QualityDebt.
+**Benefit:** release gates can see temporary creative exceptions without contaminating quality defect semantics.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-080 — Semantic Three-Way Merge Analyzer
+**Purpose:** compare base/left/right M03 semantics during M02-governed branch convergence.
+**Benefit:** semantic merge safety for parallel creative work.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-081 — Scope Split Resolver
+**Purpose:** resolve compatible “conflicts” by explicit audience/deliverable/artifact/branch scope partition.
+**Benefit:** avoids unnecessary winner-takes-all decisions.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-082 — Clarification Impact Optimizer
+**Purpose:** rank the minimum human questions by blocker count, invalidation cone and cost/quality consequence.
+**Benefit:** fewer interruptions and lower LLM/user interaction cost.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-083 — Brief Freshness Vector
+**Purpose:** track freshness across source, constraints, profiles, policies, registries, identity anchors and compiler versions.
+**Benefit:** selective stale-context invalidation.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-084 — Derived Intent Dependency Ledger
+**Purpose:** bind inferred/derived statements to the exact context facts that produced them.
+**Benefit:** HIVE/context changes invalidate only affected inference, not user-explicit truth.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-085 — Semantic Migration Receipt
+**Purpose:** versioned proof of schema/compiler migrations with changed/unchanged/lossy paths.
+**Benefit:** long-lived project compatibility without rewriting history.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-086 — Restoration Revision Protocol
+**Purpose:** restore prior semantics through a new revision evaluated under current policy/profile context.
+**Benefit:** safe rollback without resurrecting stale rights/security assumptions.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-087 — Minimum Sufficient Conflict Slice
+**Purpose:** compile only rules, authority edges, sources and dependencies needed to resolve one conflict.
+**Benefit:** strong token/context economy.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-088 — Conflict Resolution Fingerprint
+**Purpose:** stale-safe digest of conflict inputs, authority policy and resolution receipts.
+**Benefit:** cached decisions cannot survive relevant policy/context changes unnoticed.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-089 — Semantic Release Readiness Radar
+**Purpose:** expose unresolved blockers, expired overrides, stale mandatory semantics and release-blocking Override Debt.
+**Benefit:** one explainable semantic readiness signal without replacing M01/M02/M53/M54/M59 gates.
+**Status:** PROPOSED_S05.
+
+## IRIS-ICX-090 — Versioned Compilation Cascade
+**Purpose:** bind Intent Model -> Constraint Set -> Fidelity Contract Set -> Execution Intent Bundle -> Explainability Graph to one source semantic fingerprint/version chain.
+**Benefit:** exact reproducibility, selective rebuild and no timestamp-as-truth shortcuts.
+**Status:** PROPOSED_S05.
+
+## S05 technology disposition
+
+The M03 planning registry now contains `IRIS-ICX-001..090`. All remain candidates pending Final Technology Review; research candidates and overlapping concepts must be merged, superseded, rejected or bounded before contract freeze. No novelty/patent claim is made by this registry.

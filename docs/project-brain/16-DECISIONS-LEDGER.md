@@ -77,3 +77,8 @@ M03 may compile admitted brief/constraint semantics into a versioned Fidelity Co
 ## ADR-0018 - M03 Execution Intent is not an M02 ExecutionPlan
 Status: `APPROVED`
 M03 owns a provider-neutral semantic Execution Intent Bundle expressing desired operations, capability demands, mutation/protection envelopes and explainability. It MUST NOT emit provider workflows, prompts as canonical truth, worker commands or M02 `ExecutionPlan` objects. M02 remains the causal graph/execution-plan contract authority; M16/M17/M26 and other provider modules perform concrete translation. Mandatory semantic obligations may not be silently weakened to fit provider capability.
+
+
+## ADR-0019 - M03 conflicts and overrides are receipt-governed
+Status: `APPROVED`
+M03 semantic conflicts are explicit versioned objects. Recency, specificity or model confidence alone never determines precedence. Effective overrides require an authorized versioned Authority Policy Graph plus immutable Override Receipt, and ordinary M03 overrides cannot bypass M01/M02 invariants or admitted non-overridable rights/security/governance policy. Brief edits/migrations/restorations create new immutable revisions; M02 remains branch/variant/rollback authority.

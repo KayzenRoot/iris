@@ -1,6 +1,6 @@
 # IRIS M03 Planning Gate
 
-Status: `S04_PROPOSED_COMPLETE_PENDING_DISCUSSION`
+Status: `S01_S05_PROPOSED_COMPLETE_PENDING_FINAL_REVIEW`
 Issue: `#17`
 Branch: `m03-creative-brief-planning`
 Authorized main baseline: `bb5201fea5c394cf4dd7a169ca60df7924153e92`
@@ -10,7 +10,7 @@ Authorized main baseline: `bb5201fea5c394cf4dd7a169ca60df7924153e92`
 - S02 — Constraint taxonomy and negative constraints: PROPOSED COMPLETE
 - S03 — Fidelity Contract compilation: PROPOSED COMPLETE
 - S04 — Provider-neutral execution intent and explainability: PROPOSED COMPLETE
-- S05 — Conflict detection, override policy and brief versioning: NOT STARTED
+- S05 — Conflict detection, override policy and brief versioning: PROPOSED COMPLETE
 
 ## Current guard
 Planning only. No M03 implementation is authorized.
@@ -22,4 +22,4 @@ Planning only. No M03 implementation is authorized.
 - main-governance ruleset id `23766624`: active.
 
 ## Next legal action
-Review S04. If accepted, continue S05 — Conflict detection, override policy and brief versioning on this same planning branch/PR.
+Run M03 Final Technology Review, then M04-M60 Forward Compatibility Scan and Contract Freeze Candidate on this same planning branch/PR.

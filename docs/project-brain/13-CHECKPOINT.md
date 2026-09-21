@@ -1,16 +1,16 @@
 # IRIS Checkpoint
 
 ## STATUS
-M03_PLANNING_ACTIVE
+M03_PLANNING_SESSIONS_COMPLETE
 
 ## VERSION
 1.0-m02-implemented
 
 ## PHASE
-M03_S04_EXECUTION_INTENT_EXPLAINABILITY
+M03_FINAL_TECHNOLOGY_REVIEW_READY
 
 ## OBJECTIVE
-Plan and freeze M03 — Creative Brief, Intent & Constraint Compiler through S01-S05 before any M03 implementation is admitted.
+Complete the governed review/freeze package for M03 after S01-S05 planning, without admitting implementation prematurely.
 
 ## COMPLETED
 - M01 Quality Kernel: implemented, approved and merged; frozen contract `m01-contract-v1.0`.
@@ -23,21 +23,22 @@ Plan and freeze M03 — Creative Brief, Intent & Constraint Compiler through S01
 - M03 S01 Creative Brief schema and intent capture: proposed complete.
 - M03 S02 Constraint taxonomy and negative constraints: proposed complete.
 - M03 S03 Fidelity Contract compilation: proposed complete.
-- S03 exact-head Governance: run `35605377166`, job `106351053575`, PASS; 1805/1805 tests OK.
-- M03 S04 Provider-neutral execution intent and explainability: proposed complete pending discussion.
-- M03 technology candidates through `IRIS-ICX-072`.
+- M03 S04 Provider-neutral execution intent and explainability: proposed complete.
+- S04 exact-head Governance: run `35605748081`, job `106352274562`, PASS; 1805/1805 tests OK.
+- M03 S05 Conflict detection, override policy and brief versioning: proposed complete.
+- M03 technology candidate registry: `IRIS-ICX-001..090`.
 
 ## IN PROGRESS
-M03 S04 planning review. Planning only; no M03 implementation.
+M03 Final Technology Review preparation. Planning only; no M03 implementation.
 
 ## BLOCKERS
 M03 implementation MUST NOT start until:
-1. S01-S05 planning is complete;
-2. Final Technology Review is approved;
-3. M04-M60 Forward Compatibility Scan passes;
-4. M03 Module Contract is frozen;
-5. planning PR passes exact-head Governance and independent review;
+1. Final Technology Review is approved;
+2. M04-M60 Forward Compatibility Scan passes;
+3. M03 Module Contract is frozen;
+4. planning PR passes exact-head Governance and independent review;
+5. planning PR is merged and main validated;
 6. a separate bounded implementation Work Order/Context Lock/Evidence package is admitted.
 
 ## NEXT STEP
-Review/accept M03 S04, then continue to S05 — Conflict detection, override policy and brief versioning.
+Run M03 Final Technology Review across IRIS-ICX-001..090, then forward compatibility and contract freeze.

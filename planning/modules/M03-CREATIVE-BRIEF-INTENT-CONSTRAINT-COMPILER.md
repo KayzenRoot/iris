@@ -1,6 +1,6 @@
 # M03 — Creative Brief, Intent & Constraint Compiler
 
-Status: `S04_PROPOSED_COMPLETE_PENDING_DISCUSSION`
+Status: `S05_PROPOSED_COMPLETE_PENDING_FINAL_REVIEW`
 Module: `M03`
 Area: `A — Product Constitution & Production OS`
 Planning issue: `#17`
@@ -1645,12 +1645,461 @@ Future implementation/tests must prove at least:
 19. M04/M16 can consume M03 refs without M03 importing their provider implementation;
 20. one bundle can remain valid across local/remote/cloud execution strategy changes when semantics stay constant.
 
+
+
 ---
 
-## M03 current disposition
+# S05 — Conflict detection, override policy and brief versioning
 
-S01 through S04 are proposed complete for discussion.
+Status: `S05_PROPOSED_COMPLETE_PENDING_FINAL_REVIEW`
 
-No M03 implementation is authorized.
+## 1. Conflict doctrine
 
-Next legal planning action after S04 review/acceptance: **S05 — Conflict detection, override policy and brief versioning**.
+M03 must never resolve contradictory creative intent through hidden heuristics such as “latest text wins”, “more specific field wins”, “LLM confidence wins” or “provider accepted it, so it must be fine”.
+
+Conflicts are first-class semantic objects with explicit evidence, authority, scope and resolution state.
+
+## 2. Conflict object
+
+A `Semantic Conflict` binds:
+- `conflict_id`;
+- involved statement/constraint/policy/profile refs;
+- semantic paths/facets;
+- scope intersection;
+- condition intersection;
+- authority refs;
+- conflict class;
+- consequence class;
+- candidate resolutions;
+- resolution status;
+- explanation/provenance refs;
+- schema/compiler version.
+
+Conflict detection does not itself authorize a winner.
+
+## 3. Conflict classes
+
+Initial classes:
+- `DIRECT_CONTRADICTION` — REQUIRE X vs FORBID X;
+- `VALUE_INCOMPATIBILITY` — incompatible categorical values;
+- `EMPTY_RANGE` — numeric/tolerance intersection is empty;
+- `CARDINALITY_CONFLICT` — incompatible counts;
+- `SCOPE_COLLISION` — rules overlap unexpectedly in the same semantic scope;
+- `CONDITIONAL_COLLISION` — conditions activate incompatible rules together;
+- `REFERENCE_CONFLICT` — strict references demand incompatible targets;
+- `IDENTITY_CONFLICT` — protected identity anchors disagree;
+- `QUALITY_POLICY_CONFLICT` — requested policy/profile/quality obligations cannot coexist;
+- `RIGHTS_SECURITY_CONFLICT` — creative intent conflicts with admitted rights/security policy;
+- `CROSS_MODAL_CONFLICT` — image/video/voice/music/3D requirements disagree on one identity/brand/canon invariant;
+- `VERSION_CONFLICT` — sources depend on incompatible schema/profile/policy versions;
+- `STALE_DERIVATION` — derived/inferred state was compiled from superseded inputs;
+- `AMBIGUITY_COLLISION` — multiple unresolved interpretations produce incompatible plans.
+
+## 4. Conflict severity / consequence
+
+Conflict consequence is not a universal numeric score.
+
+Classes:
+- `BLOCKING` — cannot emit an admitted contract/execution intent;
+- `QUALITY_CRITICAL` — may produce materially wrong final quality;
+- `RIGHTS_SECURITY_CRITICAL` — requires policy/authorized resolution;
+- `COST_CRITICAL` — unresolved choice may cause major wasted compute/time;
+- `NON_BLOCKING` — can proceed under explicit policy;
+- `EXPLORATION_FORK` — incompatibility is intentionally represented as separate creative branches/variants.
+
+## 5. Authority Policy Graph
+
+M03 does not hard-code one universal scalar priority order for all organizations/projects.
+
+Instead, an `Authority Policy Graph` defines which authority classes may:
+- strengthen;
+- narrow;
+- replace;
+- relax;
+- disable;
+- temporarily experiment against
+
+which other rule classes/scopes.
+
+The graph must be acyclic or otherwise deterministically resolvable by an approved policy contract.
+
+Authority and confidence remain independent. A high-confidence inference does not outrank an explicit authorized rule merely because confidence is higher.
+
+## 6. Reserved unoverridable boundaries
+
+Ordinary M03 overrides cannot bypass:
+- M01 FATAL/hard-gate invariants;
+- M01 evaluator authority/registry resolution;
+- M02 immutable history/graph/lifecycle invariants;
+- repository/project governance invariants;
+- admitted M53/M54 rights/security restrictions marked non-overridable;
+- platform/legal policy boundaries represented as non-overridable by their owning module.
+
+A brief cannot convert a forbidden system invariant into a creative preference.
+
+## 7. No last-writer-wins
+
+Timestamp/recency alone is never sufficient authority.
+
+A later statement may supersede an earlier one only when:
+- it explicitly targets or semantically replaces the earlier rule/statement; and
+- its authority is permitted to do so; and
+- the resulting revision records a supersession/override receipt.
+
+Otherwise both facts remain visible and the conflict is unresolved.
+
+## 8. Override Receipt
+
+Every accepted override produces an immutable `Override Receipt` containing:
+- override ID;
+- exact target statement/constraint/policy refs;
+- action;
+- actor/authority ref;
+- reason;
+- requested and effective scope;
+- previous semantic state;
+- new semantic state or relaxation;
+- approval/evidence refs when required;
+- creation time;
+- optional expiry/review time;
+- compiler/policy version;
+- downstream invalidation hints.
+
+The original rule remains in history; it is not deleted.
+
+## 9. Override actions
+
+Initial actions:
+- `STRENGTHEN`;
+- `NARROW_SCOPE`;
+- `REPLACE`;
+- `RELAX`;
+- `DISABLE`;
+- `TEMPORARY_EXPERIMENT`;
+- `RESTORE_PRIOR`.
+
+Each action is authority/policy-gated.
+
+Strengthening may still conflict with capability/quality feasibility and is not automatically valid.
+
+## 10. Override safety gradient
+
+M03 treats weakening differently from strengthening.
+
+Examples:
+- changing PREFER to HARD may be allowed only if the selected profile can represent the demand;
+- changing HARD to SOFT is a relaxation and requires explicit authority;
+- disabling a rights/security hard rule is rejected when the owning policy says non-overridable;
+- changing a protected identity reference requires identity-policy authorization, not ordinary creative preference.
+
+## 11. Temporary override / expiration
+
+Temporary experiments are first-class and must carry:
+- scope;
+- expiry/review condition;
+- non-release boundary where applicable;
+- restoration semantics.
+
+Expired overrides cannot silently remain active because a cached provider workflow still contains them.
+
+A stale override invalidates dependent compilations/fingerprints.
+
+## 12. Override Debt Ledger
+
+Temporary or risky relaxations create an `Override Debt` record, distinct from M01 `QualityDebt`.
+
+Override Debt tracks semantic/governance debt such as:
+- temporary brand exception;
+- experimental constraint relaxation;
+- unresolved non-blocking ambiguity accepted for exploration;
+- temporary use of an older policy/profile version.
+
+It must not be confused with M01 defect acceptance. M01 QualityDebt remains M01-owned.
+
+Override Debt can block release/promotion if project policy requires closure.
+
+## 13. Conflict resolution states
+
+Initial states:
+- `UNRESOLVED`;
+- `RESOLVED_BY_COMPATIBILITY`;
+- `RESOLVED_BY_AUTHORITY_POLICY`;
+- `RESOLVED_BY_EXPLICIT_OVERRIDE`;
+- `RESOLVED_BY_SCOPE_SPLIT`;
+- `RESOLVED_AS_EXPLORATION_FORK`;
+- `NEEDS_HUMAN_DECISION`;
+- `BLOCKED_UNOVERRIDABLE`;
+- `SUPERSEDED`.
+
+Resolution records are immutable and versioned.
+
+## 14. Scope split / creative fork
+
+Not every conflict needs one winner.
+
+If two incompatible intents are both valid in different contexts, M03 may propose:
+- scope split;
+- deliverable split;
+- M02 variant/branch proposal;
+- exploration fork.
+
+M03 produces the semantic proposal. M02 remains the authority for actual branches/variants/merge topology.
+
+## 15. Minimal clarification strategy
+
+When human input is needed, M03 should ask the smallest set of questions that resolves the highest-consequence conflicts.
+
+The Clarification Oracle from S01 can rank questions using:
+- blocking consequence;
+- number of dependent obligations/operations;
+- expected invalidation cone;
+- compute/cost risk;
+- user-authority requirement.
+
+It may not invent the answer to avoid asking.
+
+## 16. Semantic three-way merge support
+
+When M02 branches/variants converge, M03 can compare:
+- common base brief semantics;
+- left revision semantic delta;
+- right revision semantic delta.
+
+It produces a `Brief Semantic Merge Analysis`:
+- non-overlapping safe changes;
+- equivalent changes;
+- conflicting changes;
+- authority/policy issues;
+- unresolved questions;
+- candidate merged semantic state.
+
+M03 does not replace M02 merge mechanics. It supplies semantic merge intelligence to the M02-governed branch merge.
+
+## 17. Brief revision graph
+
+Creative Brief history is immutable and append-only.
+
+Each revision stores:
+- `brief_revision_id`;
+- parent revision refs;
+- M02 production/branch/variant refs;
+- raw-source delta refs;
+- semantic delta;
+- constraint delta;
+- conflict/override receipts;
+- semantic fingerprints;
+- compiler/schema version;
+- change reason/actor.
+
+Multiple parents may be referenced for a merge result, but M02 remains the branch/merge history authority.
+
+## 18. Raw revision vs semantic revision
+
+Every admitted edit creates a new historical brief revision, but not every edit changes canonical semantics.
+
+Revision classifications:
+- `SOURCE_ONLY_CHANGE`;
+- `SEMANTIC_EQUIVALENT_CHANGE`;
+- `SEMANTIC_CHANGE`;
+- `POLICY_CONTEXT_CHANGE`;
+- `MERGE_REVISION`;
+- `RESTORATION_REVISION`;
+- `MIGRATION_REVISION`.
+
+This preserves audit history without needlessly invalidating media/provider work.
+
+## 19. Semantic version compatibility
+
+M03 schema/compiler/profile/policy versions participate in compilation compatibility.
+
+A revision must record which versions interpreted it.
+
+If semantics from an older schema can be read unchanged, compatibility may be declared explicitly.
+
+If migration changes meaning or representation assumptions, M03 creates a `MIGRATION_REVISION` plus Migration Receipt rather than rewriting old data.
+
+## 20. Migration Receipt
+
+A migration records:
+- source revision/schema/compiler versions;
+- target versions;
+- migration component;
+- transformed semantic paths;
+- unchanged paths;
+- lossy/unrepresentable elements;
+- validation evidence;
+- resulting fingerprints.
+
+Lossy migration of a mandatory semantic element blocks automatic admission.
+
+## 21. Restoration / rollback semantics
+
+“Rollback” never rewrites M03 history.
+
+To restore a prior brief meaning:
+- create a new `RESTORATION_REVISION` referencing the prior desired semantic state;
+- record why restoration occurred;
+- recompile current policies/profile versions as required;
+- let M02 govern production branch/snapshot/rollback mechanics.
+
+An old raw revision cannot simply be made current while ignoring newer rights/security/project policies.
+
+## 22. Staleness model
+
+A brief-derived artifact can become stale because of changes to:
+- source semantics;
+- active constraints;
+- authority policy;
+- domain profile;
+- M01 registry/contract version;
+- rights/security refs;
+- brand/persona identity anchors;
+- destination policy;
+- compiler schema/version when compatibility is not declared.
+
+M03 emits a `Brief Freshness Vector` so downstream caches can invalidate only affected slices.
+
+## 23. Derived/inferred statement freshness
+
+Derived/inferred statements carry dependency refs to the facts/context that produced them.
+
+If an upstream context fact changes:
+- explicit user statements remain what the user said;
+- affected derived/inferred statements become stale;
+- they must be recomputed or explicitly retained under policy;
+- stale inference cannot continue masquerading as current truth.
+
+This is critical for M52/HIVE context updates.
+
+## 24. Agent authority boundary
+
+Agents/LLMs may:
+- detect conflicts;
+- propose resolutions;
+- propose overrides;
+- propose scope splits/forks;
+- summarize impact;
+- generate clarification questions.
+
+They may not:
+- self-grant higher authority;
+- approve a human-required override;
+- weaken non-overridable rules;
+- fabricate user intent;
+- mark a blocking conflict resolved without the required receipt/evidence.
+
+## 25. Conflict slicing and token economy
+
+Conflict resolution uses a `Minimum Sufficient Conflict Slice` containing only:
+- conflicting semantic rules/statements;
+- relevant authority-policy edges;
+- affected scope/conditions;
+- minimal source/provenance context;
+- dependent quality/execution refs;
+- candidate resolutions.
+
+The entire project history is not required to decide one localized conflict.
+
+## 26. Conflict fingerprint
+
+A conflict/resolution is fingerprinted over:
+- involved immutable refs;
+- normalized semantics;
+- active scopes/conditions;
+- authority policy version;
+- resolution/override receipts;
+- compiler version.
+
+If relevant inputs change, the previous resolution becomes stale rather than silently reused.
+
+## 27. Versioned compilation cascade
+
+One admitted brief revision can produce version-pinned:
+- normalized Intent Model;
+- active Constraint Set;
+- Fidelity Contract Set;
+- Execution Intent Bundle;
+- explainability graph.
+
+Every downstream artifact records the source semantic fingerprint and compiler version.
+
+No downstream artifact is considered current merely because its file timestamp is newer.
+
+## 28. Release-readiness conflict gate
+
+Before a production can be considered semantically ready for final execution/release, M03 reports:
+- unresolved BLOCKING conflicts;
+- unresolved RIGHTS_SECURITY_CRITICAL conflicts;
+- expired overrides;
+- unresolved required human decisions;
+- stale mandatory derived semantics;
+- active Override Debt that policy marks release-blocking;
+- incompatible/stale compiled artifacts.
+
+M03 reports readiness evidence; M02/M01/M53/M54/M59 retain their own promotion/release authority.
+
+## 29. S05 decisions proposed
+
+- **D-M03-S05-001:** semantic conflicts are explicit versioned objects; detection does not imply authority to resolve.
+- **D-M03-S05-002:** recency, specificity or LLM confidence alone never determines a winner.
+- **D-M03-S05-003:** override authority is defined by a versioned Authority Policy Graph, not a global scalar priority.
+- **D-M03-S05-004:** ordinary M03 overrides cannot bypass M01/M02/governance/non-overridable rights-security invariants.
+- **D-M03-S05-005:** every effective override produces an immutable Override Receipt; original rules remain in history.
+- **D-M03-S05-006:** weakening/relaxation is more tightly governed than ordinary compatible strengthening.
+- **D-M03-S05-007:** temporary overrides expire/review explicitly and invalidate dependent caches when stale.
+- **D-M03-S05-008:** Override Debt is distinct from M01 QualityDebt.
+- **D-M03-S05-009:** compatible conflicts may resolve via scope split/exploration fork instead of one arbitrary winner.
+- **D-M03-S05-010:** human clarification is minimized but never replaced by fabricated intent.
+- **D-M03-S05-011:** M03 supplies semantic three-way merge analysis while M02 remains branch/merge authority.
+- **D-M03-S05-012:** every admitted edit is historical, but semantic-equivalent edits need not invalidate downstream work.
+- **D-M03-S05-013:** schema/compiler migrations create new revisions/receipts; old revisions are never rewritten.
+- **D-M03-S05-014:** restoration creates a new revision and re-evaluates current policy context rather than reviving stale policy blindly.
+- **D-M03-S05-015:** derived/inferred semantics track dependencies and become stale when those dependencies change.
+- **D-M03-S05-016:** agents may propose but cannot self-authorize restricted overrides/resolutions.
+- **D-M03-S05-017:** conflict decisions consume Minimum Sufficient Conflict Slices for token/context efficiency.
+- **D-M03-S05-018:** conflict/override resolutions are fingerprinted and stale-safe.
+- **D-M03-S05-019:** every compiled artifact is version-pinned to source semantic fingerprint/compiler; timestamps are not truth.
+- **D-M03-S05-020:** M03 semantic release-readiness is evidence for, not a replacement of, downstream quality/rights/release gates.
+
+## 30. S05 proof plan
+
+Future implementation/tests must prove at least:
+1. REQUIRE X + FORBID X creates a deterministic DIRECT_CONTRADICTION;
+2. disjoint scopes do not falsely conflict;
+3. conditionally inactive rules do not create active conflicts;
+4. high-confidence inference cannot override authorized explicit intent by confidence alone;
+5. later timestamp alone cannot supersede an earlier rule;
+6. explicit permitted supersession creates a new revision + Override Receipt;
+7. prohibited override against an unoverridable rule fails closed;
+8. HARD->SOFT relaxation requires allowed authority/action;
+9. temporary override expiry invalidates dependent compilation;
+10. Override Debt cannot be passed into M01 as QualityDebt;
+11. scope split can resolve two valid incompatible intents without deleting either;
+12. agent proposal cannot self-mark a human-required resolution approved;
+13. three-way semantic merge detects same-path divergent edits;
+14. non-overlapping semantic deltas merge without fabricated conflict;
+15. source-only wording edit creates history but can preserve semantic fingerprint/equivalence;
+16. schema migration leaves source revision unchanged and emits a Migration Receipt;
+17. lossy mandatory migration blocks admission;
+18. restoration creates a new revision and uses current policy refs;
+19. changed HIVE-derived dependency marks affected inferred statements stale without changing user-explicit statements;
+20. Minimum Sufficient Conflict Slice excludes irrelevant project history;
+21. conflict resolution fingerprint becomes stale when authority policy changes;
+22. release-readiness report identifies unresolved blockers/expired overrides/stale mandatory semantics;
+23. M02 branch/variant/rollback semantics are consumed rather than reimplemented;
+24. M01 QualityDecision/QualityDebt authority is not reimplemented.
+
+---
+
+## M03 planning disposition after S05
+
+S01-S05 are proposed complete.
+
+M03 remains **planning-only** and is NOT yet implementation-admitted.
+
+Next governed steps:
+1. Final Technology Review across `IRIS-ICX-001..090`;
+2. M04-M60 Forward Compatibility Scan;
+3. M03 Module Contract Freeze Candidate;
+4. exact-head Governance + independent planning audit;
+5. only after approved/merged planning, compile a separate M03 implementation Work Order/Context Lock/Evidence package.
