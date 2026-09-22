@@ -31,6 +31,7 @@ Begin governed planning for M04 — Multimodal IR / Scene IR, preserving the fro
 - Implementation branch deleted automatically.
 - Active `main-governance` ruleset remains in force.
 - Checkpoint reconciliation PR #22 merged as `fdd659a0334bf1a77dc1b58377fc01f7a03cdb37`; exact-main Governance run `35671998557` passed.
+- IRIS-WO-0007 reconciled stale Source Pack/current-state documentation to `M04_PLANNING_READY`; independent review passed 2527/2527 tests with no HIGH/CRITICAL blocker. Separate M00 contract-freeze status remains recorded planning debt rather than inferred completion.
 
 ## IN PROGRESS
 None. M04 planning has not started; the repository is at the governed `M04_PLANNING_READY` gate.

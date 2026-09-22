@@ -1,6 +1,6 @@
 # IRIS Source Hierarchy
 
-Status: `BOOTSTRAP_ACTIVE`
+Status: `ACTIVE`
 
 - REPOSITORY_STATE: exact Git state.
 - PROJECT_STATE: `docs/project-brain/13-CHECKPOINT.md`.
@@ -14,7 +14,7 @@ Status: `BOOTSTRAP_ACTIVE`
 - DEPLOYMENT: `docs/project-brain/12-LOCAL-DEPLOYMENT.md`.
 - INTEGRATION: `docs/project-brain/05-INTEGRATION-CONTRACTS.md`.
 - FUTURE_WORK: `docs/project-brain/14-BACKLOG.md`.
-- EXECUTION: active admitted Work Order under `.engineering/work-orders/`.
+- EXECUTION: active admitted Work Order under `.engineering/work-orders/`, when an execution increment is active.
 - REVIEW_POLICY: `.engineering/REVIEW-AUTOFIX-POLICY.md`.
 
 Startup order: `Checkpoint -> Decisions -> Scope -> DoD -> Architecture -> Requirements -> other applicable sources`.
