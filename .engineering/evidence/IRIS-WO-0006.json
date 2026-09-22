@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0006",
-  "status": "APPROVED",
+  "status": "MERGED_VALIDATED",
   "branch": "iris-wo-0006-m03-intent-compiler",
   "frozenContract": "m03-contract-v1.0",
   "baseSha": "ee06358ee04de1d7aa2271ac05060247985f98dc",
@@ -22,10 +22,11 @@
     "number": 20,
     "url": "https://github.com/KayzenRoot/iris/pull/20",
     "base": "main",
-    "state": "OPEN_REVIEW_APPROVED_PROMOTION_PENDING",
-    "merged": false,
+    "state": "MERGED",
+    "merged": true,
     "title": "IRIS-WO-0006 | Implement M03 Creative Brief, Intent & Constraint Compiler",
-    "head": "c7b88bab561144ef6a55be61e60a9d8023246653"
+    "head": "c7b88bab561144ef6a55be61e60a9d8023246653",
+    "mergeSha": "f690bfd40c34089421a4b7d606ddf837077dc864"
   },
   "baseline": {
     "governanceRun": 35607568552,
@@ -358,14 +359,15 @@
     "exactHeadGovernance": "Hosted Governance run 35662504110 / job 106540757838 checked out evidence head 551ff594fbdb3511450928eb38895eaf713618c9 (asserted by the 'Assert exact candidate' step), reported 'IRIS governance validation: PASS' with 'Required artifacts: 35', and ran 'Ran 2522 tests in 8.667s / OK'. Governance run 35662616661 / job 106541121265 repeated the same gate on the next evidence head 29438b3629a082cae8cdcbd62bc4b18b708bb5e0. Each of those heads differs from the measured tested head 72b51adc389f69301247069b10be06741da07170 by this file only, so the suite that passed locally is the suite that passed on the exact candidate; the commit that records this observation necessarily follows all three, and its own run is reported on the PR rather than inside itself."
   },
   "checkpointDelta": {
-    "applied": false,
-    "proposed": "On independent APPROVED and merge only: register M03 as an implemented provider-neutral semantic kernel (iris_intent, 29 modules, 431 public names, schema iris-intent-schema-v1, contract m03-contract-v1.0) with the six-domain neutrality evidence and the exact-head CI binding; record the five repaired kernel defect paths and the one unreachable-refusal observation as accepted implementation notes; keep M04 unstarted until a separate admitted Work Order."
+    "applied": true,
+    "proposed": "M03 implementation merged and exact-main validated; admit M04 planning only.",
+    "appliedViaIssue": 21
   },
   "stopCondition": {
-    "merged": false,
+    "merged": true,
     "m04Started": false,
     "contractWeakened": false,
-    "result": "INDEPENDENT_REVIEW_APPROVED_PROMOTION_PENDING_MERGE"
+    "result": "MERGED_AND_MAIN_VALIDATED"
   },
   "admissionHead": "6b386d1720a2a575ef9d45a539bccc51bc71655f",
   "reviewCorrections": [
@@ -440,5 +442,18 @@
       "high": 0
     },
     "executorRequiredFindings": 0
+  },
+  "postMergeValidation": {
+    "mainSha": "f690bfd40c34089421a4b7d606ddf837077dc864",
+    "governanceRun": 35671820527,
+    "governanceJob": 106569748687,
+    "exactHead": true,
+    "requiredArtifacts": 35,
+    "tests": {
+      "run": 2527,
+      "failures": 0,
+      "errors": 0,
+      "result": "OK"
+    }
   }
 }

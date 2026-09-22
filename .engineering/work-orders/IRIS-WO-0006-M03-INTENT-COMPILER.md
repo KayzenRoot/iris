@@ -443,3 +443,17 @@ The review itself temporarily produced failing test-only heads while patches wer
 Approved for a governance/documentation promotion delta, squash merge through `main-governance`, and post-merge `main` validation.
 
 Do not start M04 implementation before M03 is merged and the resulting `main` is validated.
+
+
+## MERGE CLOSURE
+
+- PR #20 squash-merged: `f690bfd40c34089421a4b7d606ddf837077dc864`
+- Issue #19: `COMPLETED`
+- Post-merge Governance: `35671820527 / 106569748687` — PASS
+- Exact post-merge suite: `2527/2527 OK`
+- Required artifacts: `35`
+- Implementation branch: deleted automatically
+- M03 status: `MERGED_VALIDATED`
+- M04 status: planning may be admitted after post-merge checkpoint reconciliation; implementation remains blocked.
+
+IRIS-WO-0006 is closed.
