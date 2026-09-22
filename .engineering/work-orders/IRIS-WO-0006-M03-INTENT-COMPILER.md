@@ -1,6 +1,6 @@
 # IRIS-WO-0006 — Implement M03 Creative Brief, Intent & Constraint Compiler
 
-Status: `READY_FOR_EXECUTOR`
+Status: `MERGED_VALIDATED`
 Risk: `HIGH`
 Issue: `#19`
 Branch: `iris-wo-0006-m03-intent-compiler`
