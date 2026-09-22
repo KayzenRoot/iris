@@ -87,3 +87,32 @@ M03 semantic conflicts are explicit versioned objects. Recency, specificity or m
 ## ADR-0020 - M03 contract freezes semantic compilation, not provider execution
 Status: `APPROVED`
 The M03 freeze covers immutable Creative Brief/Intent/Constraint semantics, compilation into M01 Fidelity Contract references/objects, provider-neutral Execution Intent, explainability, conflicts/overrides and semantic revision/freshness. It explicitly excludes provider prompts/workflows, M02 ExecutionPlan/worker execution, M04 Scene IR internals, domain DNA engines, real judges, HIVE retrieval, rights/security engines, persistence and publishing.
+
+
+## ADR-0021 - M04 owns provider-neutral structured production IR
+Status: `APPROVED`
+M04 is the canonical authority for provider-neutral multimodal structured production representation derived from admitted M03 semantics. It owns Scene/Entity/Asset/Character/Geometry, spatial/camera/light/material/color, temporal/motion/audio/music/narrative/timeline representation, schema/version/validation and round-trip contracts. It does not replace M01 quality, M02 project/build/release or M03 creative-intent authority.
+
+## ADR-0022 - M04 uses dual graph, interface/payload and immutable revision semantics
+Status: `APPROVED`
+Containment/transform topology is a strict acyclic graph distinct from typed semantic relationships. Canonical IR revisions/fragments/prototypes are immutable. Lightweight interface capsules remain interpretable independently of heavy geometry/media/cache payloads, which are referenced through typed resources.
+
+## ADR-0023 - M04 base representations do not steal domain-engine ownership
+Status: `APPROVED`
+M04 owns generic cross-domain MaterialIR, CameraIR, LightIR, TimelineIR, MotionIR, AudioIR, MusicIR and NarrativeProjectionIR representation contracts. M28/M31/M36/M38/M40-M43 and related domain modules own generation, editing, rendering, mix, story/Canon, QA and other domain operations. M04 representation is substrate, not those engines.
+
+## ADR-0024 - M16 solely owns the concrete Provider Compiler
+Status: `APPROVED`
+The historical M04 S04 Provider Compiler label is superseded by **Representation Capability & Semantic Lowering**. M04 may analyze semantic representability and emit declarative provider-neutral lowering plans/receipts. M16 alone owns concrete provider/workflow compilation, workflow graphs, provider nodes/parameters, qualification and rollback.
+
+## ADR-0025 - Capability scarcity cannot downgrade canonical quality or semantics
+Status: `APPROVED`
+Unsupported target/provider/hardware capability produces explicit gaps, extension requirements, alternate-target/escalation proposals or an upstream governed revision. M04 MUST NOT lower M01 QualityClass, relax mandatory/protected M03 constraints, relabel required capability as optional, or replace final semantics with preview semantics merely to fit provider scarcity/cost.
+
+## ADR-0026 - M04 schema evolution and migration are explicit and immutable
+Status: `APPROVED`
+Transport version, core schema version, facet/dialect versions and validation/lowering versions are separate axes. Compatibility is directional and version-pinned; "latest" is not automatic compatibility. Migration creates a new immutable IR revision plus receipt and leaves the historical source unchanged.
+
+## ADR-0027 - Round-trip fidelity is semantic and independently evidenced
+Status: `APPROVED`
+M04 round-trip contracts define exact, structural, semantic, tolerant, opaque-preservation or allowed-loss expectations per semantic family/path. Witness sets are derived from canonical obligations before adapter output. Adapters/providers cannot self-certify equivalence or promotion; M04 readiness remains evidence only.
