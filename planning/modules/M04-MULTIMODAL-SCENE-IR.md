@@ -1,6 +1,6 @@
 # M04 — Multimodal IR / Scene IR
 
-Status: `S01_COMPLETE_S02_NEXT`
+Status: `S02_COMPLETE_S03_NEXT`
 Module: `M04`
 Area: `B — Semantic Production Representation`
 Planning issue: `#26`
@@ -544,3 +544,353 @@ Later M04 implementation must prove at minimum:
 No implementation is authorized.
 
 Next legal planning session: **S02 — Camera, Lighting, Material and Spatial IR**.
+
+
+---
+
+# S02 — Camera, Lighting, Material and Spatial IR
+
+## 26. S02 goals
+
+S02 must make these statements true:
+
+1. spatial quantities have explicit frames/units/conventions;
+2. physical camera semantics are portable without renderer-specific tokens;
+3. lighting has typed emitter/quantity/color/shaping semantics;
+4. material/look development is a typed provider-neutral network;
+5. color values cannot lose their color-space/encoding meaning;
+6. preview approximations cannot silently replace final-quality semantics;
+7. unsupported spatial/camera/light/material features become explicit gaps.
+
+## 27. Spatial Reference Contract
+
+M04 introduces `SpatialReferenceIR`.
+
+Required fields/concepts:
+- length unit and scale;
+- handedness;
+- up axis;
+- forward/view convention;
+- world/reference origin;
+- angular unit;
+- time base ref where spatial sampling depends on time;
+- precision class;
+- spatial schema version.
+
+All spatial values are interpreted through a declared reference.
+
+A consumer may convert references only through a deterministic `SpatialConversionReceipt`.
+
+## 28. Quantity-safe values
+
+Physical/spatial properties use typed quantities rather than unlabelled floats.
+
+`QuantityIR` carries:
+- numeric value;
+- dimension;
+- unit;
+- precision/tolerance;
+- authored vs derived state;
+- provenance.
+
+Examples:
+- focal length;
+- sensor size;
+- distance;
+- illuminance/radiance/luminance-related values;
+- color temperature;
+- angle;
+- exposure values where semantically defined.
+
+Dimensionally incompatible operations are invalid.
+
+## 29. Coordinate frames
+
+`CoordinateFrameIR` provides named/scoped frames:
+- WORLD;
+- SCENE;
+- ASSET;
+- CHARACTER;
+- SKELETON;
+- JOINT;
+- CAMERA;
+- LIGHT;
+- MATERIAL/PROJECTION;
+- CUSTOM versioned extension.
+
+A frame binds to a transformable node/reference and declares scope.
+
+Names are display/discovery labels, not global identity.
+
+## 30. Transform IR
+
+M04 represents authored transform intent separately from derived world transforms.
+
+### TransformChainIR
+Ordered typed operations:
+- translation;
+- rotation/quaternion;
+- scale;
+- pivot;
+- shear where supported by the declared schema;
+- explicit matrix operation when decomposition would lose authored meaning.
+
+### ResolvedTransform
+Derived/cacheable result for a particular frame evaluation.
+
+Rules:
+- operation order is explicit;
+- transform parent comes from S01 containment graph;
+- hidden DCC transform conventions are forbidden;
+- lossy decomposition requires a receipt/gap;
+- coordinate conversion is explicit.
+
+## 31. Camera IR
+
+`CameraIR` is an Entity facet with a `CameraOpticsIR`.
+
+Core projection families:
+- PERSPECTIVE;
+- ORTHOGRAPHIC;
+- extension-ref for fisheye/panoramic/nonlinear projection.
+
+Physical/semantic fields include:
+- filmback/sensor aperture;
+- focal length or equivalent projection contract;
+- lens shift/offset;
+- near/far clipping policy;
+- focus distance;
+- aperture/f-number where depth of field is requested;
+- depth-of-field enable/intent;
+- camera gate/aspect intent;
+- framing/composition constraint refs;
+- focus/target relationship refs;
+- optional lens-distortion/calibration extension refs.
+
+Provider-specific lens names/presets are not canonical.
+
+## 32. Camera exposure boundary
+
+Photographic/render exposure semantics are explicit and versioned.
+
+M04 may represent:
+- aperture;
+- shutter/exposure-time **reference** (detailed temporal shutter semantics finish in S03);
+- ISO/sensitivity intent;
+- exposure compensation;
+- target exposure policy refs.
+
+M04 does not dictate renderer tone mapping.
+
+Color/output transforms are separate from scene exposure.
+
+## 33. Lighting IR
+
+`LightIR` separates emitter geometry, emission and artistic modifiers.
+
+Core emitter families:
+- POINT/SPHERE;
+- DISK;
+- RECT/AREA;
+- DISTANT;
+- ENVIRONMENT;
+- MESH/GEOMETRY via facet;
+- extension-ref.
+
+Emission semantics:
+- physically identified quantity/unit or declared normalized artistic quantity;
+- exposure multiplier if used;
+- color or spectral intent;
+- color temperature with explicit basis;
+- normalization policy;
+- two-sided/directional behavior where relevant.
+
+An untyped `intensity=1000` is invalid canonical final semantics.
+
+## 34. Light shaping and influence
+
+Separate facets:
+- `LightShapingIR` — cone/spread/focus/profile/IES-like resource refs;
+- `ShadowIntentIR` — shadow participation/softness/bias semantics at provider-neutral level;
+- `LightInfluenceIR` — include/exclude semantic target sets;
+- `LightFilterBindingIR` — filter/resource/network refs.
+
+A renderer may approximate only when the loss policy permits it and a translation receipt records the difference.
+
+## 35. Material IR
+
+`MaterialIR` contains typed terminal families:
+- SURFACE;
+- VOLUME;
+- DISPLACEMENT;
+- EMISSION;
+- extension terminal.
+
+A material may expose:
+- parameters;
+- typed graph/network;
+- texture/resource bindings;
+- coordinate-space requirements;
+- color-management refs;
+- semantic purpose/profile;
+- physical/non-physical flags where meaningful.
+
+## 36. Material Graph IR
+
+`MaterialGraphIR` uses:
+- typed nodes;
+- typed input/output ports;
+- explicit connections;
+- declared value types;
+- node family/version;
+- target-neutral semantics;
+- deterministic graph validation;
+- extension registry.
+
+Arbitrary executable shader source is not canonical graph semantics.
+
+MaterialX/OpenPBR-compatible families can later be mapped through adapters, but M04 cannot assume a renderer implements every node identically.
+
+## 37. Material binding
+
+`MaterialBindingIR` binds a material to:
+- whole geometry/entity;
+- semantic region/subset;
+- collection;
+- purpose profile.
+
+Purpose classes may include:
+- FINAL;
+- PREVIEW;
+- COLLISION/UTILITY where semantically relevant;
+- domain extension.
+
+A PREVIEW binding can never satisfy a FINAL requirement unless the owning M01/M03 contract explicitly accepts equivalence.
+
+## 38. Texture/resource semantics
+
+`TextureResourceIR` references:
+- logical resource;
+- sampling role;
+- coordinate-set/frame ref;
+- channel semantics;
+- color space/encoding;
+- alpha mode;
+- wrap/filter intent where correctness-relevant;
+- UDIM/tile/atlas extension refs;
+- provenance/rights.
+
+File extension does not define color space.
+
+## 39. Color semantics
+
+M04 introduces `ColorValueIR`:
+- components/value;
+- color-space ref;
+- transfer/encoding ref when required;
+- alpha association semantics;
+- spectral/color-temperature source when applicable;
+- precision.
+
+`ColorPipelineRef` may point to an admitted OCIO-like configuration/profile, but M04 does not own global color-management software.
+
+Conversions create `ColorConversionReceipt` with source/target profile/version and loss/tolerance.
+
+## 40. Spatial regions and bounds
+
+`SpatialRegionIR` may represent:
+- bounding volume;
+- semantic region;
+- interaction/placement volume;
+- camera safe/framing region;
+- light influence region.
+
+Bounds are labelled AUTHORED or DERIVED.
+
+A stale derived bound cannot become canonical placement truth after geometry changes.
+
+## 41. Provider-neutral physicality
+
+S02 distinguishes:
+- PHYSICAL;
+- PHYSICALLY_BASED_APPROXIMATION;
+- ARTISTIC_NON_PHYSICAL;
+- UNKNOWN/UNDECLARED.
+
+This classification applies where relevant to camera/light/material semantics.
+
+IRIS does not ban artistic controls. It prevents an artistic control from masquerading as a physical quantity and contaminating cross-provider translation.
+
+## 42. Quality and approximation shield
+
+Every S02 semantic feature carries or inherits a loss policy.
+
+Rules:
+- final-quality LOSSLESS_REQUIRED obligations block on unsupported translation;
+- preview-only bounded approximation is allowed only when explicitly admitted;
+- provider scarcity cannot rewrite canonical camera/light/material semantics;
+- final M01 QualityClass is never lowered by M04;
+- approximation receipts remain traceable to exact IR features affected.
+
+## 43. S02 proprietary technology candidates
+
+S02 extends the registry with `IRIS-MIRX-031..060`.
+
+Key families:
+- Unit-Safe Spatial Ledger;
+- Frame/Transform Integrity;
+- Physical Camera Envelope;
+- Lens Extension Registry;
+- Photometric/Spectral Light Contract;
+- Influence/Shaping Graph;
+- Material Semantic Graph;
+- purpose-aware material binding;
+- color-space tagged values;
+- color-pipeline receipt;
+- Preview/Final Separation Shield;
+- physicality classification;
+- approximation impact map.
+
+## 44. S02 proposed decisions
+
+- **D-M04-016:** all correctness-relevant spatial values are interpreted under an explicit SpatialReferenceIR.
+- **D-M04-017:** authored transform chains and derived world matrices are separate facts.
+- **D-M04-018:** camera/lens semantics are physical/provider-neutral first, provider preset second.
+- **D-M04-019:** untyped light intensity is insufficient for canonical final semantics.
+- **D-M04-020:** artistic non-physical lighting/material controls are allowed only when explicitly classified.
+- **D-M04-021:** MaterialIR is IRIS-owned; MaterialX is an adapter/reference, not canonical dependency.
+- **D-M04-022:** material binding is typed by target/subset/purpose.
+- **D-M04-023:** every color/texture value that requires interpretation carries color-space/encoding identity.
+- **D-M04-024:** preview semantics cannot silently satisfy final obligations.
+- **D-M04-025:** coordinate/color/unit conversions produce receipts.
+- **D-M04-026:** unsupported mandatory camera/light/material semantics become gaps, never dropped fields.
+- **D-M04-027:** provider capabilities cannot mutate canonical physical values.
+- **D-M04-028:** S03 owns detailed temporal shutter/motion sampling semantics.
+- **D-M04-029:** S02 spatial semantics do not create M02 production-graph topology.
+- **D-M04-030:** renderer-specific shader source/options live behind future adapters/extensions.
+
+## 45. S02 acceptance obligations
+
+Later implementation must prove:
+- unit mismatch detection;
+- deterministic coordinate conversion;
+- transform-chain order preservation;
+- transform-cycle remains impossible;
+- camera physical properties survive canonical round-trip;
+- unsupported nonlinear lens is a typed extension/gap rather than coerced perspective;
+- light quantities cannot be confused across incompatible units;
+- non-physical light modifiers are explicit;
+- material graph type/port validation;
+- material-binding purpose separation;
+- MaterialX-style adapter can be added without core rewrite;
+- color-space tags survive texture/material binding;
+- untagged correctness-critical color is rejected or explicitly UNKNOWN according to policy;
+- preview material cannot satisfy final requirement by default;
+- conversion/approximation receipts identify affected IR paths;
+- no renderer/DCC/provider package is required by core.
+
+## 46. S02 disposition
+
+`COMPLETE_FOR_MODULE_PLANNING`
+
+Next legal planning session: **S03 — Motion, Audio, Music and Narrative IR**.
