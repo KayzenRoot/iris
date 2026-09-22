@@ -1,6 +1,6 @@
 # IRIS M04 Planning Gate
 
-Status: `S01_S05_COMPLETE_TECH_REVIEW_NEXT`
+Status: `TECH_REVIEW_APPROVED_COMPAT_SCAN_NEXT`
 Issue: `#26`
 Branch: `m04-multimodal-ir-planning`
 Authorized main baseline: `c231dd61a210fe6d315126e755b4642a4fd2e9a3`
@@ -61,7 +61,14 @@ Planning only. No M04 implementation is authorized.
 ## Planning sessions gate
 S01-S05 complete. M04 implementation remains blocked.
 
+## Final Technology Review
+- Status: `APPROVED_FOR_FORWARD_COMPATIBILITY`
+- File: `planning/reviews/M04-FINAL-TECHNOLOGY-REVIEW.md`
+- Detailed candidates: `IRIS-MIRX-001..150`
+- Consolidated contract families: `F-M04-01..20`
+- Ownership correction: M04 S04 = Representation Capability & Semantic Lowering; M16 = concrete Provider Compiler.
+
 ## Next legal action
-Run the **M04 Final Technology Review**. Then run the M05-M60 Forward Compatibility Scan before freezing the module contract.
+Run the **M05-M60 Forward Compatibility Scan**. Do not freeze or implement M04 before that scan passes.
 
 Do not implement M04.
