@@ -1,6 +1,6 @@
 # IRIS M04 Planning Gate
 
-Status: `CONTRACT_FREEZE_CANDIDATE_AUDIT_NEXT`
+Status: `M04_PLANNING_APPROVED_PROMOTION_PENDING_MERGE`
 Issue: `#26`
 Branch: `m04-multimodal-ir-planning`
 Authorized main baseline: `c231dd61a210fe6d315126e755b4642a4fd2e9a3`
@@ -79,16 +79,31 @@ S01-S05 complete. M04 implementation remains blocked.
 
 ## Module Contract Freeze Candidate
 - Target version: `m04-contract-v1.0`
-- Status: `FREEZE_CANDIDATE`
+- Status: `FROZEN_APPROVED`
 - File: `planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md`
 - Hard invariants: 80
 - Consolidated technology families: 20
 - Domain-neutral synthetic targets: 7
 - Concrete Provider Compiler ownership: M16 only
 
+## Independent Planning Audit
+- Verdict: `APPROVED`
+- File: `planning/reviews/M04-INDEPENDENT-PLANNING-AUDIT.md`
+- Reviewed head: `86a75307c7e50b47702ed2fede74a92ca6ea5e5a`
+- Governance: `35681272803 / 106598537403` — PASS
+- Full suite: `2527/2527 OK`
+- Findings: 2 CHAT_FIXABLE, both CLOSED
+- HIGH/CRITICAL blockers: 0
+
+## Promotion state
+- Frozen contract: `m04-contract-v1.0`
+- Planning implementation: none
+- PR: #27
+- Promotion delta: governance/docs only
+
 ## Next legal action
-Run exact-head Governance and an **independent planning audit**. Only an APPROVED planning audit may promote this candidate to `FROZEN_APPROVED`.
+Pass exact-head Governance on this promotion delta, squash-merge PR #27 through `main-governance`, validate the resulting exact `main`, then compile a separate M04 implementation Work Order / Context Lock / Evidence package.
 
-M04 implementation remains blocked.
+M04 implementation remains blocked until that post-merge validation and implementation admission.
 
-Do not implement M04.
+Do not implement M04 on this branch.
