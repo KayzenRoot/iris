@@ -1,7 +1,7 @@
 # M04 Technology Registry
 
 Module: `M04 — Multimodal IR / Scene IR`
-Status: `S03_REGISTRY_ACTIVE`
+Status: `S04_REGISTRY_ACTIVE`
 Rule: proprietary candidates are design identifiers, not novelty/patentability claims until dedicated prior-art/legal review.
 
 ## External prior-art references
@@ -310,3 +310,97 @@ All `MIRX-031..060` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
 
 
 All `MIRX-061..090` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
+
+
+## IRIS-MIRX-091 — Representation Capability Manifest
+**Purpose:** deterministic required/used semantic capability inventory for an IR slice/document.
+
+## IRIS-MIRX-092 — Required/Used Capability Split
+**Purpose:** prevent correctness-critical semantics from being relabelled optional.
+
+## IRIS-MIRX-093 — Target Representation Profile
+**Purpose:** versioned semantic destination support contract, not a vendor identity.
+
+## IRIS-MIRX-094 — Semantic Legality Analyzer
+**Purpose:** analysis-only exact/bounded/unsupported/unknown classification.
+
+## IRIS-MIRX-095 — Dynamic Legality Constraint
+**Purpose:** declare conditional support for a feature under bounded constraints.
+
+## IRIS-MIRX-096 — Semantic Lowering Plan
+**Purpose:** provider-neutral ordered adaptation contract consumed by future concrete compilers.
+
+## IRIS-MIRX-097 — Declarative Lowering Rule Registry
+**Purpose:** versioned non-executable source/target semantic adaptation rules.
+
+## IRIS-MIRX-098 — Loss Authorization Gate
+**Purpose:** bounded adaptation only when upstream loss policy authorizes it.
+
+## IRIS-MIRX-099 — No-Downgrade Quality Shield
+**Purpose:** prohibit scarcity/cost/provider weakness from reducing canonical QualityClass or mandatory semantics.
+
+## IRIS-MIRX-100 — Representation Gap Ledger
+**Purpose:** target support failures/remedies bound to exact IR/quality/constraint refs.
+
+## IRIS-MIRX-101 — Adaptation Proposal Ledger
+**Purpose:** proposals such as split/bake/extension/escalation without self-authorization.
+
+## IRIS-MIRX-102 — Semantic/Concrete Compiler Split
+**Purpose:** architectural firewall between M04 semantic lowering and M16 concrete workflow compilation.
+
+## IRIS-MIRX-103 — Provider Observation Quarantine
+**Purpose:** runtime/provider capability observations remain evidence, not canonical mutation authority.
+
+## IRIS-MIRX-104 — Translation Receipt Chain
+**Purpose:** link M03 semantic translation -> M04 IR translation -> M16 concrete provider receipt.
+
+## IRIS-MIRX-105 — Target Profile Version Pin
+**Purpose:** target semantic profile/version participates in legality/fingerprint evidence.
+
+## IRIS-MIRX-106 — Extension Requirement Ledger
+**Purpose:** required vs optional extension families and exact support evidence.
+
+## IRIS-MIRX-107 — Capability Evidence Ref
+**Purpose:** bind support claims to future M14/M16 qualification evidence.
+
+## IRIS-MIRX-108 — Semantic Capability Debt
+**Purpose:** governed non-blocking representation debt distinct from M01 QualityDebt.
+
+## IRIS-MIRX-109 — Capability Debt Expiry
+**Purpose:** stale/temporary approximation acceptance invalidates dependent translations.
+
+## IRIS-MIRX-110 — Multi-Target Lowering Bundle
+**Purpose:** one canonical source mapped to multiple semantic targets with explicit equivalence obligations.
+
+## IRIS-MIRX-111 — Cross-Target Identity Bridge
+**Purpose:** preserve stable semantic identity across DCC/web/game/render target representations.
+
+## IRIS-MIRX-112 — Cross-Target Fidelity Matrix
+**Purpose:** enumerate exact/approx/loss per obligation for every requested target.
+
+## IRIS-MIRX-113 — Semantic Destination Taxonomy
+**Purpose:** target families remain vendor-neutral and capability-oriented.
+
+## IRIS-MIRX-114 — Capability Slice Compiler
+**Purpose:** minimum sufficient compatibility input rather than full scene/provider catalog.
+
+## IRIS-MIRX-115 — Unsupported Feature Escalation Contract
+**Purpose:** deterministic escalation to extension/alternate target/future provider routing.
+
+## IRIS-MIRX-116 — Opaque Preservation Contract
+**Purpose:** preserve optional unknown extensions without pretending to understand them.
+
+## IRIS-MIRX-117 — Approximation Boundary Proof
+**Purpose:** prove bounded adaptation remains inside authorized tolerances.
+
+## IRIS-MIRX-118 — Canonical Master Preservation
+**Purpose:** derived/lossy target representation never replaces canonical source IR.
+
+## IRIS-MIRX-119 — Representation Qualification Ref
+**Purpose:** future signed qualification evidence from M16 without circular ownership.
+
+## IRIS-MIRX-120 — Semantic Compiler Contract
+**Purpose:** frozen interface handed from M04 to M16: source IR + capability manifest + lowering plan + obligations + validation requirements.
+
+
+All `MIRX-091..120` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
