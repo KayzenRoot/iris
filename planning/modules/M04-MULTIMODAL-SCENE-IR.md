@@ -1,6 +1,6 @@
 # M04 — Multimodal IR / Scene IR
 
-Status: `S04_COMPLETE_S05_NEXT`
+Status: `PLANNING_COMPLETE_TECH_REVIEW_NEXT`
 Module: `M04`
 Area: `B — Semantic Production Representation`
 Planning issue: `#26`
@@ -1724,3 +1724,453 @@ Later implementation must prove:
 `COMPLETE_FOR_MODULE_PLANNING`
 
 Next legal planning session: **S05 — IR validation, versioning and round-trip guarantees**.
+
+
+---
+
+# S05 — IR Validation, Versioning and Round-Trip Guarantees
+
+## 97. S05 goals
+
+S05 must make these statements true:
+
+1. every canonical IR document declares its transport and semantic schema versions;
+2. canonical serialization is deterministic and hashable;
+3. validation is layered and fail-closed for correctness-critical unknowns;
+4. migrations never rewrite old admitted IR in place;
+5. round-trip fidelity is measured semantically, not by byte equality alone;
+6. extension/facet evolution cannot silently change behavior;
+7. adapter/provider output cannot self-certify semantic equivalence;
+8. resource limits prevent pathological IR from exhausting the validator.
+
+## 98. Canonical IR Envelope
+
+`IRDocumentEnvelope` wraps a canonical payload with:
+- IRIS M04 contract version;
+- transport format/version;
+- root schema family/version;
+- schema manifest fingerprint;
+- document/revision identity;
+- payload canonical digest;
+- dependency manifest digest;
+- extension capability manifest;
+- provenance/security refs;
+- canonicalization profile/version.
+
+Envelope metadata cannot contradict values derivable from the payload.
+
+## 99. Transport vs schema version
+
+Separate axes:
+- M04 contract version;
+- transport encoding version;
+- core schema version;
+- facet/dialect family versions;
+- lowering-rule version;
+- validation-profile version.
+
+A compatibility declaration names every relevant axis.
+
+A newer parser does not imply a newer schema is semantically acceptable.
+
+## 100. Canonical serialization
+
+Canonical serialization requirements:
+- deterministic field/property order;
+- deterministic set/list policy per field;
+- stable enum/token encoding;
+- finite numeric values only unless a schema explicitly represents a non-finite concept symbolically;
+- normalized explicit units/types;
+- stable Unicode handling policy;
+- no duplicate map/object keys;
+- no location/path-dependent identity;
+- canonical bytes yield stable digest across compliant implementations.
+
+Human-readable formatting is not canonical hash material.
+
+## 101. Validation pipeline
+
+M04 validation is phased:
+
+1. `TRANSPORT_VALIDATION`
+2. `SCHEMA_VALIDATION`
+3. `STRUCTURAL_VALIDATION`
+4. `REFERENCE_VALIDATION`
+5. `SEMANTIC_VALIDATION`
+6. `AUTHORITY_POLICY_VALIDATION`
+7. `CAPABILITY_VALIDATION`
+8. `RESOURCE_LIMIT_VALIDATION`
+9. `ROUND_TRIP_VALIDATION` where an adapter/interchange claim exists.
+
+Each phase returns typed findings, not booleans only.
+
+A fatal earlier-phase failure can short-circuit later expensive phases while preserving diagnostics.
+
+## 102. Validation finding
+
+`IRValidationFinding` carries:
+- stable finding code;
+- severity/consequence;
+- IR path/ref;
+- schema family/version;
+- evidence;
+- source semantic refs;
+- quality obligation refs;
+- remediation class;
+- blocking state;
+- validator identity/version.
+
+No free-form-only errors for contract-critical failures.
+
+## 103. Validation profiles
+
+`IRValidationProfile` defines:
+- required phases;
+- required schema/facet families;
+- allowed optional/opaque extensions;
+- resource limits;
+- round-trip requirements;
+- target representation profile refs;
+- applicable M01/M03 obligation refs.
+
+Profiles are versioned.
+
+FINAL and PREVIEW profiles cannot be implicitly substituted.
+
+## 104. Schema family evolution
+
+Every canonical schema/facet family declares:
+- family identity;
+- version;
+- compatibility predecessors/successors;
+- migration availability;
+- deprecation state;
+- unknown-field policy;
+- behavior compatibility statement;
+- extension ownership.
+
+A schema version changes when downstream semantic behavior can change in a way that requires old assets to retain old behavior.
+
+Cosmetic/documentation-only changes need not force semantic schema versions.
+
+## 105. Compatibility classes
+
+`SchemaCompatibilityDeclaration` may state:
+- READ_COMPATIBLE;
+- WRITE_COMPATIBLE;
+- ROUND_TRIP_COMPATIBLE;
+- BEHAVIOR_EQUIVALENT;
+- MIGRATION_REQUIRED;
+- INCOMPATIBLE;
+- UNKNOWN.
+
+Compatibility is directional and version-pinned.
+
+No automatic "latest is compatible".
+
+## 106. Unknown field / extension policy
+
+Unknown data classes:
+- UNKNOWN_REQUIRED_SCHEMA;
+- UNKNOWN_REQUIRED_FACET;
+- UNKNOWN_OPTIONAL_OPAQUE;
+- UNKNOWN_ADVISORY_METADATA.
+
+Rules:
+- required unknowns fail closed;
+- optional opaque data can survive only if declared opaque-preservable and not correctness-critical;
+- unknown data must not gain authority simply because it survived a round trip;
+- serializers must preserve opaque payload identity when preservation is promised.
+
+## 107. Migration
+
+`IRMigrationPlan` declares:
+- source family/version;
+- target family/version;
+- migration steps/rules;
+- preconditions;
+- semantic equivalence/loss expectations;
+- affected paths;
+- validation obligations.
+
+Executing a migration creates:
+- new IRRevision;
+- immutable `IRMigrationReceipt`;
+- old revision unchanged.
+
+## 108. Migration receipt
+
+`IRMigrationReceipt` records:
+- source/target revision fingerprints;
+- source/target schema manifests;
+- rule versions;
+- changed semantic paths;
+- exact/equivalent/lost semantics;
+- unresolved gaps;
+- validator evidence;
+- actor/tool identity.
+
+A migration receipt cannot prove itself valid merely by existing.
+
+## 109. Round-trip contract
+
+`RoundTripContract` states what an adapter/interchange path promises.
+
+Per semantic family/path, requirement can be:
+- BYTE_STABLE where meaningful;
+- STRUCTURALLY_IDENTICAL;
+- SEMANTICALLY_EQUIVALENT;
+- EQUIVALENT_WITH_TOLERANCE;
+- OPAQUE_PRESERVED;
+- LOSS_ALLOWED;
+- ONE_WAY_ONLY.
+
+The contract identifies:
+- source/target profile versions;
+- adapter identity/version;
+- tolerance/equivalence profile;
+- required witness set;
+- disallowed loss.
+
+## 110. Round-trip receipt
+
+`RoundTripReceipt` records:
+- source fingerprint;
+- exported/intermediate fingerprint;
+- reimported fingerprint;
+- adapter chain;
+- schema/profile versions;
+- path-by-path comparison;
+- tolerated differences;
+- lost/unmapped data;
+- witness evidence;
+- validation results.
+
+It is evidence, not automatic promotion authority.
+
+## 111. Semantic witness set
+
+`SemanticWitnessSet` is a compact set of invariants used to prove round-trip fidelity.
+
+Examples:
+- stable entity/asset identity;
+- transform/spatial equivalence;
+- skeleton hierarchy/joint semantic identity;
+- material terminal/binding equivalence;
+- camera physical properties;
+- light physical/intent properties;
+- temporal markers/ranges;
+- audio/music sync;
+- protected M03 constraints;
+- M01 quality-obligation bindings.
+
+Witnesses must be generated from canonical sources, not hand-written after seeing output.
+
+## 112. Equivalence profile
+
+`IREquivalenceProfile` states:
+- fields/paths compared;
+- exact vs tolerant comparison;
+- canonical unit/color/time conversions;
+- ordering significance;
+- opaque-extension policy;
+- floating/quantity tolerances;
+- semantic ignore rules.
+
+Equivalence profiles are versioned and cannot omit mandatory paths silently.
+
+## 113. Derived vs canonical data
+
+Data classes:
+- CANONICAL_AUTHORED;
+- CANONICAL_LOWERED;
+- DERIVED_REBUILDABLE;
+- CACHE_ONLY;
+- EXTERNAL_OBSERVATION.
+
+Derived/cache values may be regenerated.
+Canonical authored/lowered values require governed revision/migration.
+
+Provider observation never becomes canonical merely because it is newer.
+
+## 114. Integrity and fingerprints
+
+M04 supports:
+- document canonical digest;
+- schema manifest digest;
+- subgraph digest;
+- interface digest;
+- resource manifest digest;
+- translation/lowering-plan digest;
+- validation evidence digest.
+
+Digest algorithm/profile is versioned.
+
+A digest mismatch fails before semantic trust.
+
+## 115. Resource and complexity limits
+
+Validator profiles bound:
+- node count;
+- edge count;
+- containment depth;
+- graph fanout;
+- schema/facet count;
+- property count/size;
+- string/blob metadata size;
+- temporal sample count;
+- recursion/nesting;
+- external reference count;
+- total inline payload size.
+
+Limits are deterministic and configurable by admitted profile.
+
+Exceeding a limit is a typed refusal/gap, not an uncontrolled crash.
+
+## 116. Cycle and reachability validation
+
+Mandatory graph checks:
+- containment/transform acyclic;
+- schema inheritance/application cycles rejected where illegal;
+- explanation/lowering provenance reachability;
+- semantic relationship cycles evaluated by edge-family policy;
+- no dangling required refs;
+- no duplicate canonical IDs;
+- no prototype/instance self-reference loops;
+- no migration ancestry loops.
+
+## 117. Validation determinism
+
+Same canonical input + same validator/profile/version must yield:
+- same findings;
+- same finding order;
+- same fingerprints;
+- same readiness result.
+
+Clock time, hash-map order, filesystem path and network/provider state cannot alter deterministic validation unless explicitly supplied as versioned evidence input.
+
+## 118. IR readiness report
+
+`IRReleaseReadinessReport` aggregates:
+- validation phases assessed;
+- blocking findings;
+- unresolved gaps;
+- mandatory capability coverage;
+- stale refs/dependencies;
+- round-trip obligations where required;
+- provenance/rights/security handoff refs.
+
+It is M04 evidence only.
+
+It cannot replace:
+- M01 quality promotion;
+- M02 build/release promotion;
+- M53 rights/provenance;
+- M54 security;
+- M59 side-effect authorization.
+
+## 119. Adapter qualification boundary
+
+A round-trip-capable adapter must be qualified later under the owning integration module.
+
+M04 defines qualification evidence contract:
+- supported source/target profiles;
+- schema versions;
+- witness coverage;
+- deterministic test corpus;
+- known losses;
+- failure modes;
+- adapter hash/version;
+- qualification status/ref.
+
+M04 does not ship provider/DCC adapters in the semantic kernel merely to test the contract.
+
+## 120. Serialization formats
+
+The frozen semantic model is transport-neutral.
+
+Initial implementation may select one canonical repository serialization if architecture/tests justify it, but:
+- semantic identity is not tied to JSON field layout;
+- binary transport can be added later through versioned encoding;
+- encoding version is separate from schema version;
+- canonical bytes/fingerprint rules must be explicit.
+
+## 121. Fuzz / adversarial validation obligations
+
+Later implementation must include hostile cases:
+- duplicate IDs/keys;
+- non-finite numbers;
+- invalid Unicode/encoding where applicable;
+- deeply nested facets;
+- huge graphs/fanout;
+- cycle bombs;
+- unknown mandatory extensions;
+- digest mismatch;
+- stale migration receipts;
+- forged adapter qualification;
+- round-trip receipts that omit required witnesses;
+- downgrade of mandatory semantics during import.
+
+## 122. S05 proprietary technology candidates
+
+S05 extends the registry with `IRIS-MIRX-121..150`.
+
+Key families:
+- Multi-Axis Version Vector;
+- Canonical IR Envelope;
+- Layered Validator;
+- Schema Evolution Ledger;
+- Immutable Migration Receipt;
+- Semantic Round-Trip Contract;
+- Witness-Driven Round-Trip Proof;
+- Equivalence Profile;
+- Canonical/Derived Data Firewall;
+- Adversarial Complexity Shield;
+- Deterministic Readiness Evidence.
+
+## 123. S05 proposed decisions
+
+- **D-M04-061:** transport encoding version and semantic schema versions are independent.
+- **D-M04-062:** canonical serialization is deterministic, finite-number-safe and hashable.
+- **D-M04-063:** validation is layered with typed stable findings.
+- **D-M04-064:** required unknown schemas/facets fail closed.
+- **D-M04-065:** optional opaque data survives only under an explicit preservation policy.
+- **D-M04-066:** schema compatibility is directional/version-pinned and never inferred from "latest".
+- **D-M04-067:** semantic behavior change is the primary trigger for schema version/migration.
+- **D-M04-068:** migrations create new immutable revisions and receipts.
+- **D-M04-069:** round-trip success is semantic, not merely parse/byte success.
+- **D-M04-070:** round-trip contracts declare exact/tolerant/opaque/loss semantics per path/family.
+- **D-M04-071:** witness sets are derived from canonical obligations before adapter output exists.
+- **D-M04-072:** adapters cannot self-certify qualification/equivalence.
+- **D-M04-073:** derived/cache/provider observations cannot overwrite canonical authored/lowered facts.
+- **D-M04-074:** resource/depth/fanout limits are deterministic validation inputs.
+- **D-M04-075:** IR readiness is evidence and never replaces M01/M02/M53/M54/M59 authority.
+
+## 124. S05 acceptance obligations
+
+Later implementation must prove:
+- deterministic canonical serialization/digest;
+- NaN/Infinity refusal;
+- duplicate key/ID refusal;
+- schema-family/version pinning;
+- unknown mandatory schema/facet failure;
+- optional opaque extension preservation only under policy;
+- directional compatibility;
+- migration creates new revision and leaves source bytes/fingerprint unchanged;
+- migration receipt cannot self-authorize invalid result;
+- exact semantic witness set is reproducible;
+- round-trip comparison catches material/camera/transform/time/sync loss;
+- tolerance comparison is unit/color/time aware;
+- adapter cannot omit required witnesses;
+- derived cache is rebuildable and not canonical authority;
+- complexity limits reject pathological graphs deterministically;
+- deterministic finding order;
+- release-readiness report cannot claim M01/M02 promotion.
+
+## 125. S05 disposition
+
+`COMPLETE_FOR_MODULE_PLANNING`
+
+S01-S05 are now complete for planning.
+
+Next legal gate: **Final Technology Review**. No M04 implementation is authorized.
