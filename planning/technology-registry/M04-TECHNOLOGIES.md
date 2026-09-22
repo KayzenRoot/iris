@@ -1,7 +1,7 @@
 # M04 Technology Registry
 
 Module: `M04 — Multimodal IR / Scene IR`
-Status: `S02_REGISTRY_ACTIVE`
+Status: `S03_REGISTRY_ACTIVE`
 Rule: proprietary candidates are design identifiers, not novelty/patentability claims until dedicated prior-art/legal review.
 
 ## External prior-art references
@@ -216,3 +216,97 @@ No candidate is frozen until:
 
 
 All `MIRX-031..060` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
+
+
+## IRIS-MIRX-061 — Unified Temporal Reference Fabric
+**Purpose:** exact rational time basis shared across motion/audio/music/narrative.
+
+## IRIS-MIRX-062 — Temporal Layer Partition
+**Purpose:** separate semantic, authored, sampled/baked and editorial time.
+
+## IRIS-MIRX-063 — Temporal Conversion Receipt
+**Purpose:** explicit frame/timebase conversion with quantization/loss evidence.
+
+## IRIS-MIRX-064 — Motion Channel Contract
+**Purpose:** typed target-property temporal channels independent of DCC paths.
+
+## IRIS-MIRX-065 — Curve Semantics Envelope
+**Purpose:** provider-neutral knots/tangents/interpolation/extrapolation/loop semantics.
+
+## IRIS-MIRX-066 — Motion Clip Semantic Layer
+**Purpose:** immutable reusable clips with timing/blend/root-motion contracts.
+
+## IRIS-MIRX-067 — Motion Composition Ledger
+**Purpose:** deterministic layer/blend precedence and provenance.
+
+## IRIS-MIRX-068 — Deformation Time Binding
+**Purpose:** bind skeleton/morph/attachment temporal data to CharacterIR.
+
+## IRIS-MIRX-069 — Temporal Sampling Contract
+**Purpose:** shutter/sample-window/motion-blur semantics without renderer settings.
+
+## IRIS-MIRX-070 — Motion Bake Receipt
+**Purpose:** prove sampled/baked output corresponds to authored motion and expose loss.
+
+## IRIS-MIRX-071 — Audio Object Semantic Envelope
+**Purpose:** semantic role, media, timing, identity and rights around audio objects.
+
+## IRIS-MIRX-072 — Spatial Audio Representation Profile
+**Purpose:** channel/object/scene/binaural metadata without renderer ownership.
+
+## IRIS-MIRX-073 — Audio Clip Binding
+**Purpose:** source/target ranges, fades, gain envelopes and sync refs.
+
+## IRIS-MIRX-074 — Voice Identity Bridge
+**Purpose:** opaque Voice/Persona refs without taking M39/M40 ownership.
+
+## IRIS-MIRX-075 — Audio Conform Receipt
+**Purpose:** record trim/resample/channel/layout conversion effects.
+
+## IRIS-MIRX-076 — Music Structural IR
+**Purpose:** tempo/meter/form/parts/events independent of a DAW or MIDI protocol.
+
+## IRIS-MIRX-077 — Tempo & Meter Map
+**Purpose:** exact temporal mapping between musical and real-time domains.
+
+## IRIS-MIRX-078 — Music Performance Event Dialect
+**Purpose:** optional note/expression/articulation semantics beyond MIDI limitations.
+
+## IRIS-MIRX-079 — Music Media/Score Duality
+**Purpose:** keep symbolic/structural representation distinct from rendered audio media.
+
+## IRIS-MIRX-080 — Music Adapter Quarantine
+**Purpose:** MIDI/score/DAW extensions never contaminate canonical core identity.
+
+## IRIS-MIRX-081 — Narrative Projection Firewall
+**Purpose:** prevent production-local narrative realization from becoming Canon truth.
+
+## IRIS-MIRX-082 — Narrative Cue Envelope
+**Purpose:** bounded beat/action/dialogue/reaction/transition cues before M43 integration.
+
+## IRIS-MIRX-083 — Story/Canon Ref Bridge
+**Purpose:** future M43 references without implementing Canon internals.
+
+## IRIS-MIRX-084 — Portable Timeline Fabric
+**Purpose:** nested track/clip/gap/marker/transition representation without editor authority.
+
+## IRIS-MIRX-085 — Shot Representation Capsule
+**Purpose:** compact camera/scene/entity/audio/narrative binding for a shot.
+
+## IRIS-MIRX-086 — Cross-Modal Sync Graph
+**Purpose:** typed exact/offset/beat/lip/event synchronization relations.
+
+## IRIS-MIRX-087 — Sync Tolerance Shield
+**Purpose:** fail closed when mandatory synchronization exceeds admitted tolerance.
+
+## IRIS-MIRX-088 — Continuity Dependency Bridge
+**Purpose:** expose continuity-relevant state to future M37 without implementing its judge.
+
+## IRIS-MIRX-089 — Temporal Loss Impact Map
+**Purpose:** bind resampling/baking/edit loss to exact semantic paths and quality obligations.
+
+## IRIS-MIRX-090 — Context-Budgeted Temporal Slice
+**Purpose:** time-window + dependency-closure slices for localized temporal work.
+
+
+All `MIRX-061..090` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
