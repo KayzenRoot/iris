@@ -19,6 +19,7 @@ and the two would drift in whichever direction was least noticed.
 
 from __future__ import annotations
 
+import math
 import re
 from dataclasses import dataclass, field
 from typing import Any, Iterable, Mapping
@@ -470,6 +471,8 @@ class ToleranceEnvelope(Record):
                 continue
             if isinstance(value, bool) or not isinstance(value, (int, float)):
                 raise ToleranceError(f"{name} must be a number, got {value!r}")
+            if not math.isfinite(float(value)):
+                raise ToleranceError(f"{name} must be a finite number, got {value!r}")
         if comparison is Comparison.BETWEEN:
             if self.lower is None or self.upper is None:
                 raise ToleranceError("BETWEEN needs both lower and upper")
@@ -506,6 +509,12 @@ class ToleranceEnvelope(Record):
         this method has no unit knowledge left to get wrong.
         """
 
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            raise ToleranceError(f"measurement must be a number, got {value!r}")
+        number = float(value)
+        if not math.isfinite(number):
+            raise ToleranceError(f"measurement must be a finite number, got {value!r}")
+        value = number
         comparison = self.comparison_kind
         if comparison is Comparison.BETWEEN:
             return self.lower <= value <= self.upper

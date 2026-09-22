@@ -41,7 +41,7 @@ from iris_intent.constraints import (
 from iris_intent.errors import (
     AdmissionRefusedError,
     AuthorityError,
-    LimitExceededError,
+    LimitExceededError,\n    PredicateError,
     RefError,
     RevisionFrozenError,
     SchemaValidationError,
@@ -463,7 +463,25 @@ class TolerancesNormaliseDeterministically(unittest.TestCase):
             with self.subTest(value=value):
                 with self.assertRaises(ToleranceError) as caught:
                     envelope(target=value)
-                self.assertIn("must be a number", str(caught.exception))
+                self.assertIn("must be a number", str    def test_nonfinite_bounds_and_measurements_are_refused(self) -> None:
+        for value in (float("nan"), float("inf"), float("-inf")):
+            with self.subTest(bound=value):
+                with self.assertRaises(ToleranceError) as caught:
+                    envelope(target=value)
+                self.assertIn("finite number", str(caught.exception))
+            with self.subTest(measurement=value):
+                with self.assertRaises(ToleranceError) as caught:
+                    envelope().describes(value)
+                self.assertIn("finite number", str(caught.exception))
+
+    def test_predicate_arguments_refuse_nonfinite_numbers_before_admission(self) -> None:
+        for value in (float("nan"), float("inf"), float("-inf")):
+            with self.subTest(value=value):
+                with self.assertRaises(PredicateError) as caught:
+                    PredicateCall(predicate_id="numeric", version="v1", arguments={"value": value})
+                self.assertIn("finite", str(caught.exception))
+
+(caught.exception))
 
     def test_a_metric_must_be_a_reference_and_not_a_string(self) -> None:
         with self.assertRaises(SchemaValidationError) as caught:

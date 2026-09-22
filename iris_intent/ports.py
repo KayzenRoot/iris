@@ -31,6 +31,7 @@ a plausible-looking ``None``.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from types import MappingProxyType
 from typing import Any, Mapping, Protocol, runtime_checkable
 
 from .base import Labeled, Record, of
@@ -564,7 +565,7 @@ class ExtensionObservation(Record):
         }
 
 
-PORT_PROTOCOLS: Mapping[ExtensionBoundary, tuple[str, ...]] = {
+PORT_PROTOCOLS: Mapping[ExtensionBoundary, tuple[str, ...]] = MappingProxyType({
     ExtensionBoundary.PROJECT_GRAPH: ("production_of", "branch_of", "state_of"),
     ExtensionBoundary.SEMANTIC_TYPE: ("type_of", "carries_path"),
     ExtensionBoundary.IDENTITY_ANCHOR: ("anchor_for", "policy_for"),
@@ -577,7 +578,7 @@ PORT_PROTOCOLS: Mapping[ExtensionBoundary, tuple[str, ...]] = {
     ExtensionBoundary.DELIVERY_DESTINATION: ("destination_for", "profiles_for"),
     ExtensionBoundary.EXPLANATION_EXPORT: ("render",),
     ExtensionBoundary.DOMAIN_VOCABULARY: ("signature_for", "path_of"),
-}
+})
 
 PORT_BOUNDARIES: tuple[ExtensionBoundary, ...] = tuple(ExtensionBoundary)
 
@@ -712,7 +713,7 @@ class DomainVocabularyPort(Protocol):
 
 
 #: Every boundary and the port shape that answers it, used by :func:`require_port`.
-_PORT_SHAPES: Mapping[ExtensionBoundary, tuple[type, tuple[str, ...]]] = {
+_PORT_SHAPES: Mapping[ExtensionBoundary, tuple[type, tuple[str, ...]]] = MappingProxyType({
     ExtensionBoundary.PROJECT_GRAPH: (ProjectGraphPort, PORT_PROTOCOLS[ExtensionBoundary.PROJECT_GRAPH]),
     ExtensionBoundary.SEMANTIC_TYPE: (SemanticTypePort, PORT_PROTOCOLS[ExtensionBoundary.SEMANTIC_TYPE]),
     ExtensionBoundary.IDENTITY_ANCHOR: (IdentityAnchorPort, PORT_PROTOCOLS[ExtensionBoundary.IDENTITY_ANCHOR]),
@@ -740,7 +741,7 @@ _PORT_SHAPES: Mapping[ExtensionBoundary, tuple[type, tuple[str, ...]]] = {
         DomainVocabularyPort,
         PORT_PROTOCOLS[ExtensionBoundary.DOMAIN_VOCABULARY],
     ),
-}
+})
 
 
 class ExtensionPorts:

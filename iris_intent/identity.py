@@ -271,7 +271,10 @@ class SemanticRef(Record):
         if self.version is not None:
             parts.append(self.version)
         if self.content_digest is not None:
-            parts.append(self.content_digest[:16])
+            # This is a canonical identity/sort/fingerprint form, not a UI abbreviation.
+            # Truncating here would let two different exact-content refs with the same prefix
+            # collapse onto one textual key.
+            parts.append(self.content_digest)
         return "@".join(parts)
 
     @property

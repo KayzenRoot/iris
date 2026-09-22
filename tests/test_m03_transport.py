@@ -782,6 +782,13 @@ class TransportRoundTripTests(unittest.TestCase):
                 self.assertEqual(deserialize(envelope_for(record)), record)
                 self.assertEqual(from_envelope(payload), record)
 
+    def test_canonical_json_refuses_nonfinite_numbers(self) -> None:
+        for value in (float("nan"), float("inf"), float("-inf")):
+            with self.subTest(value=value):
+                with self.assertRaises(SchemaValidationError) as caught:
+                    canonical_json({"number": value})
+                self.assertIn("not canonical data", str(caught.exception))
+
     def test_dumps_is_canonical_json_and_loads_round_trips(self) -> None:
         for kind, record in sorted(self.inventory().items()):
             with self.subTest(record=kind):
@@ -1059,7 +1066,14 @@ class OpaqueRefBoundaryTests(unittest.TestCase):
         self.assertFalse(loose.pinned)
         bound = loose.with_digest(S.digest("x"))
         self.assertTrue(bound.pinned)
-        self.assertEqual(bound.text, f"{loose.text}@{S.digest('x')[:16]}")
+        self.assertEqual(bound.text, f"{loose.text}@{S.digest('x')}")
+
+        # Exact-content identity must never collapse merely because two digests share a prefix.
+        prefix = "0123456789abcdef"
+        first = SemanticRef(kind=RefKind.SOURCE.value, ref_id="src.same", content_digest=prefix + "0" * 48)
+        second = SemanticRef(kind=RefKind.SOURCE.value, ref_id="src.same", content_digest=prefix + "f" * 48)
+        self.assertNotEqual(first.text, second.text)
+        self.assertNotEqual(first.text.split("@")[-1], second.text.split("@")[-1])
 
     def test_malformed_ref_ids_are_refused(self) -> None:
         for ident in ("", "   ", "Brief.Launch", "two words", "a<b", "a|b", "x" * 129):
@@ -1434,25 +1448,21 @@ class PackageSurfaceTests(unittest.TestCase):
         self.assertEqual(versions.SUPPORTED_CONTRACT_VERSIONS, frozenset({CONTRACT_VERSION}))
         self.assertEqual(versions.SUPPORTED_SCHEMA_VERSIONS, frozenset({SCHEMA_VERSION}))
 
-    def test_the_port_protocol_table_is_a_plain_dict_whose_answers_are_frozen_tuples(self) -> None:
-        """Recorded behaviour, not a law: §12's method table is mutable at module scope.
-
-        ``iris_intent/ports.py:567`` builds ``PORT_PROTOCOLS`` as a ``dict`` under a
-        ``Mapping`` annotation, so unlike the family and version tables it can be edited in
-        place by anything that imports it. Nothing here weakens the kernel over it; the values
-        are tuples and the wiring law in :func:`require_port` re-reads the table per call, so a
-        tampered table changes which method names a provider must expose — a fact a reviewer
-        should see stated rather than assumed away.
-        """
+    def test_the_port_contract_tables_are_read_only(self) -> None:
+        """The twelve extension contracts are frozen lookup data, never runtime authority state."""
 
         from iris_intent import ports
 
-        self.assertIsInstance(ports.PORT_PROTOCOLS, dict)
-        self.assertNotIsInstance(ports.PORT_PROTOCOLS, MappingProxyType)
+        self.assertIsInstance(ports.PORT_PROTOCOLS, MappingProxyType)
+        self.assertIsInstance(ports._PORT_SHAPES, MappingProxyType)
         for boundary, methods in ports.PORT_PROTOCOLS.items():
             with self.subTest(boundary=boundary.value):
                 self.assertIsInstance(methods, tuple)
                 self.assertEqual(ports._PORT_SHAPES[boundary][1], methods)
+        with self.assertRaises(TypeError):
+            ports.PORT_PROTOCOLS[ExtensionBoundary.SEMANTIC_TYPE] = ("invented",)
+        with self.assertRaises(TypeError):
+            ports._PORT_SHAPES[ExtensionBoundary.SEMANTIC_TYPE] = (object, ("invented",))
 
     def test_a_modality_is_declared_never_assumed(self) -> None:
         """§6: the channel alphabet is open vocabulary a statement cites, with no visual default."""

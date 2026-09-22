@@ -172,7 +172,19 @@ def require_supported(kind: str, value: Any, supported: frozenset[str]) -> str:
 
 
 def canonical_json(value: Any) -> str:
-    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    try:
+        return json.dumps(
+            value,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+            allow_nan=False,
+        )
+    except (TypeError, ValueError) as error:
+        raise SchemaValidationError(
+            f"value is not canonical data: {error}; canonical M03 JSON must be reproducible "
+            "by standards-compliant JSON readers"
+        ) from error
 
 
 def content_digest(value: Any, *, algorithm: str = "sha256") -> str:

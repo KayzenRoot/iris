@@ -15,6 +15,7 @@ optional is a gap to report; unknown and mandatory is a refusal.
 
 from __future__ import annotations
 
+import math
 import re
 from dataclasses import dataclass, field
 from typing import Any, Iterable, Mapping
@@ -74,7 +75,10 @@ class ValueType(Labeled):
         if type_name is ValueType.NUMBER:
             if isinstance(value, bool) or not isinstance(value, (int, float)):
                 raise PredicateError(f"{field_name} must be a number, got {value!r}")
-            return float(value)
+            number = float(value)
+            if not math.isfinite(number):
+                raise PredicateError(f"{field_name} must be a finite number, got {value!r}")
+            return number
         if type_name is ValueType.BOOLEAN:
             if not isinstance(value, bool):
                 raise PredicateError(f"{field_name} must be a boolean, got {value!r}")
@@ -334,6 +338,8 @@ class PredicateCall(Record):
 def _scalar(value: Any) -> Any:
     if isinstance(value, SemanticRef):
         return value.to_payload()
+    if isinstance(value, float) and not math.isfinite(value):
+        raise PredicateError(f"predicate numeric arguments must be finite, got {value!r}")
     if isinstance(value, bool) or isinstance(value, (str, int, float)) or value is None:
         return value
     raise PredicateError(
