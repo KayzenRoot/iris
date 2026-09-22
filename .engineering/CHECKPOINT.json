@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M03_IMPLEMENTATION_EXECUTOR_READY",
+  "status": "M03_IMPLEMENTATION_APPROVED",
   "version": "m03-contract-v1.0",
-  "phase": "IRIS_WO_0006_READY_FOR_EXECUTION",
-  "nextStep": "Execute IRIS-WO-0006 on branch `iris-wo-0006-m03-intent-compiler`, update the same PR, and STOP before merge for independent review."
+  "phase": "M03_IMPLEMENTATION_PROMOTION_PENDING_MERGE",
+  "nextStep": "Validate this promotion delta, squash merge PR #20, validate the resulting main, then record the post-merge checkpoint and admit M04 planning."
 }
