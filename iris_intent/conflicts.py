@@ -23,6 +23,7 @@ cannot name spends the one resource a compiler has, which is the reviewer's trus
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from types import MappingProxyType
 from typing import Any, Iterable, Mapping
 
 from .ambiguity import AmbiguityAssessment
@@ -167,24 +168,24 @@ class ConflictConsequence(Labeled):
         return _CONSEQUENCE_RANK[self]
 
 
-_CONSEQUENCE_RANK: Mapping[ConflictConsequence, int] = {
+_CONSEQUENCE_RANK: Mapping[ConflictConsequence, int] = MappingProxyType({
     ConflictConsequence.RIGHTS_SECURITY_CRITICAL: 0,
     ConflictConsequence.BLOCKING: 1,
     ConflictConsequence.QUALITY_CRITICAL: 2,
     ConflictConsequence.COST_CRITICAL: 3,
     ConflictConsequence.EXPLORATION_FORK: 4,
     ConflictConsequence.NON_BLOCKING: 5,
-}
+})
 
 #: Weakening a conflict below its class default is the one direction of editing that is refused.
-_CONSEQUENCE_SEVERITY: Mapping[ConflictConsequence, int] = {
+_CONSEQUENCE_SEVERITY: Mapping[ConflictConsequence, int] = MappingProxyType({
     ConflictConsequence.NON_BLOCKING: 0,
     ConflictConsequence.EXPLORATION_FORK: 1,
     ConflictConsequence.COST_CRITICAL: 2,
     ConflictConsequence.QUALITY_CRITICAL: 3,
     ConflictConsequence.RIGHTS_SECURITY_CRITICAL: 4,
     ConflictConsequence.BLOCKING: 4,
-}
+})
 
 
 class ConflictResolutionState(Labeled):
@@ -309,7 +310,7 @@ class ConflictClass(Labeled):
         return self in {ConflictClass.IDENTITY_CONFLICT, ConflictClass.CROSS_MODAL_CONFLICT}
 
 
-_CLASS_CONSEQUENCE: Mapping[ConflictClass, ConflictConsequence] = {
+_CLASS_CONSEQUENCE: Mapping[ConflictClass, ConflictConsequence] = MappingProxyType({
     ConflictClass.DIRECT_CONTRADICTION: ConflictConsequence.BLOCKING,
     ConflictClass.VALUE_INCOMPATIBILITY: ConflictConsequence.QUALITY_CRITICAL,
     ConflictClass.EMPTY_RANGE: ConflictConsequence.BLOCKING,
@@ -324,7 +325,7 @@ _CLASS_CONSEQUENCE: Mapping[ConflictClass, ConflictConsequence] = {
     ConflictClass.VERSION_CONFLICT: ConflictConsequence.COST_CRITICAL,
     ConflictClass.STALE_DERIVATION: ConflictConsequence.COST_CRITICAL,
     ConflictClass.AMBIGUITY_COLLISION: ConflictConsequence.EXPLORATION_FORK,
-}
+})
 
 _ALL_EXITS = frozenset(
     {
@@ -344,7 +345,7 @@ _ESCALATION = frozenset(
     }
 )
 
-_CLASS_RESOLUTIONS: Mapping[ConflictClass, frozenset[ConflictResolutionState]] = {
+_CLASS_RESOLUTIONS: Mapping[ConflictClass, frozenset[ConflictResolutionState]] = MappingProxyType({
     # Two rules that cannot both hold have no compatibility reading; only authority decides.
     ConflictClass.DIRECT_CONTRADICTION: _ALL_EXITS
     - {ConflictResolutionState.RESOLVED_BY_COMPATIBILITY, ConflictResolutionState.RESOLVED_AS_EXPLORATION_FORK}
@@ -387,7 +388,7 @@ _CLASS_RESOLUTIONS: Mapping[ConflictClass, frozenset[ConflictResolutionState]] =
     ConflictClass.VERSION_CONFLICT: _ALL_EXITS | _ESCALATION,
     ConflictClass.STALE_DERIVATION: _ALL_EXITS | _ESCALATION,
     ConflictClass.AMBIGUITY_COLLISION: _ALL_EXITS | _ESCALATION,
-}
+})
 
 _KERNEL_DETECTED = frozenset(
     {

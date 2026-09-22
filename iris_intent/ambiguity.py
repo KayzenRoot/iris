@@ -15,6 +15,7 @@ defaulted statement landing inside one is refused rather than tolerated.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from types import MappingProxyType
 from typing import Any, Iterable, Mapping
 
 from .base import Labeled, Record, of
@@ -76,13 +77,13 @@ class AmbiguityConsequence(Labeled):
         }
 
 
-_CONSEQUENCE_RANKS: Mapping[AmbiguityConsequence, int] = {
+_CONSEQUENCE_RANKS: Mapping[AmbiguityConsequence, int] = MappingProxyType({
     AmbiguityConsequence.CREATIVE_FREEDOM: 0,
     AmbiguityConsequence.NON_BLOCKING: 1,
     AmbiguityConsequence.COST_CRITICAL: 2,
     AmbiguityConsequence.QUALITY_CRITICAL: 3,
     AmbiguityConsequence.BLOCKING: 4,
-}
+})
 
 
 class AmbiguityKind(Labeled):
