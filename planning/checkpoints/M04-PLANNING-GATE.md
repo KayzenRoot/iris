@@ -1,14 +1,14 @@
 # IRIS M04 Planning Gate
 
-Status: `S01_COMPLETE_S02_NEXT`
+Status: `S02_COMPLETE_S03_NEXT`
 Issue: `#26`
 Branch: `m04-multimodal-ir-planning`
 Authorized main baseline: `c231dd61a210fe6d315126e755b4642a4fd2e9a3`
 
 ## Sessions
 - S01 — Scene, Character and Asset IR: COMPLETE_FOR_MODULE_PLANNING
-- S02 — Camera, Lighting, Material and Spatial IR: NEXT
-- S03 — Motion, Audio, Music and Narrative IR: NOT_STARTED
+- S02 — Camera, Lighting, Material and Spatial IR: COMPLETE_FOR_MODULE_PLANNING
+- S03 — Motion, Audio, Music and Narrative IR: NEXT
 - S04 — Provider Compiler and capability downgrade planning: NOT_STARTED
 - S05 — IR validation, versioning and round-trip guarantees: NOT_STARTED
 
@@ -37,7 +37,12 @@ Planning only. No M04 implementation is authorized.
 - M16 provider/workflow compiler boundary preserved.
 - provider extensions quarantined from canonical core.
 
+## S02 artifacts
+- research: `planning/research/M04-S02-CAMERA-LIGHT-MATERIAL-SPATIAL-IR-RESEARCH-2026-09-22.md`
+- module plan: S02 in `planning/modules/M04-MULTIMODAL-SCENE-IR.md`
+- technologies: `IRIS-MIRX-031..060`
+
 ## Next legal action
-Continue slow planning with **S02 — Camera, Lighting, Material and Spatial IR**.
+Continue slow planning with **S03 — Motion, Audio, Music and Narrative IR**.
 
 Do not implement M04.
