@@ -30,6 +30,7 @@ less than the brief asked for, which is the failure this whole module exists to 
 from __future__ import annotations
 
 from dataclasses import dataclass, field, replace
+from types import MappingProxyType
 from typing import Any, Iterable, Mapping
 
 from iris_quality import errors as m01_errors
@@ -147,7 +148,7 @@ class QualityObligationKind(Labeled):
 #: Obligation -> candidate M01 dimension ids, tried in order. Only ids M01 already knows appear
 #: on the canonical side; ``voice-identity`` and ``text-legibility`` are extension ids that exist
 #: only in a registry which has admitted them, which is the §6 example made executable.
-_OBLIGATION_DIMENSIONS: Mapping[QualityObligationKind, tuple[str, ...]] = {
+_OBLIGATION_DIMENSIONS: Mapping[QualityObligationKind, tuple[str, ...]] = MappingProxyType({
     QualityObligationKind.INTENT_ADHERENCE: ("intent-adherence",),
     QualityObligationKind.IDENTITY_FIDELITY: ("identity-fidelity",),
     QualityObligationKind.ANATOMY: ("anatomy-plausibility",),
@@ -168,7 +169,7 @@ _OBLIGATION_DIMENSIONS: Mapping[QualityObligationKind, tuple[str, ...]] = {
     QualityObligationKind.PERCEPTUAL_FINISH: ("perceptual-finish",),
     QualityObligationKind.VOICE_IDENTITY: ("voice-identity",),
     QualityObligationKind.TEXT_LEGIBILITY: ("text-legibility", "silhouette-readability"),
-}
+})
 
 
 def dimensions_for(obligation: Any) -> tuple[str, ...]:

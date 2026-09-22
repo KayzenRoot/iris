@@ -22,6 +22,7 @@ from __future__ import annotations
 import math
 import re
 from dataclasses import dataclass, field
+from types import MappingProxyType
 from typing import Any, Iterable, Mapping
 
 from iris_quality.defects import DefectSeverity
@@ -143,13 +144,13 @@ class ConstraintPolarity(Labeled):
         return _POLARITY_STRICTNESS[self]
 
 
-_POLARITY_STRICTNESS: Mapping[ConstraintPolarity, int] = {
+_POLARITY_STRICTNESS: Mapping[ConstraintPolarity, int] = MappingProxyType({
     ConstraintPolarity.ALLOW: 0,
     ConstraintPolarity.PREFER: 1,
     ConstraintPolarity.AVOID: 2,
     ConstraintPolarity.REQUIRE: 3,
     ConstraintPolarity.FORBID: 4,
-}
+})
 
 
 class ConstraintStrength(Labeled):
@@ -187,13 +188,13 @@ class ConstraintStrength(Labeled):
         return self.rank >= ConstraintStrength.GUARDED.rank
 
 
-_STRENGTH_RANKS: Mapping[ConstraintStrength, int] = {
+_STRENGTH_RANKS: Mapping[ConstraintStrength, int] = MappingProxyType({
     ConstraintStrength.EXPERIMENTAL: 0,
     ConstraintStrength.ADVISORY: 1,
     ConstraintStrength.SOFT: 2,
     ConstraintStrength.GUARDED: 3,
     ConstraintStrength.HARD: 4,
-}
+})
 
 
 class ConditionOperator(Labeled):
@@ -382,7 +383,7 @@ class Condition(Record):
 #: written in ms or in seconds fingerprints alike; a domain measure such as "brand-compliance
 #: points" is deliberately absent, because any conversion the kernel invented for it would be
 #: a claim about a metric it does not own — those arrive as extensions with their own metric.
-UNIT_ALIASES: Mapping[str, tuple[str, float]] = {
+UNIT_ALIASES: Mapping[str, tuple[str, float]] = MappingProxyType({
     "S": ("SECOND", 1.0),
     "SECOND": ("SECOND", 1.0),
     "SECONDS": ("SECOND", 1.0),
@@ -411,7 +412,7 @@ UNIT_ALIASES: Mapping[str, tuple[str, float]] = {
     # own; the unit stays distinct so nobody can compare it against a seconds bound.
     "FRAME": ("FRAME", 1.0),
     "FRAMES": ("FRAME", 1.0),
-}
+})
 
 
 @dataclass(frozen=True)
@@ -1541,14 +1542,14 @@ def _seq(value: Any, kind: type, name: str, limit: int) -> tuple[Any, ...]:
     return tuple(sorted(items, key=lambda item: getattr(item, _identity_field(kind))))
 
 
-_IDENTITY_FIELDS: Mapping[type, str] = {
+_IDENTITY_FIELDS: Mapping[type, str] = MappingProxyType({
     Condition: "context_key",
     ToleranceEnvelope: "measure",
     AntiReference: "anti_ref_id",
     ProtectedAnchor: "anchor_id",
     CrossModalLink: "link_id",
     Constraint: "constraint_id",
-}
+})
 
 
 def _identity_field(kind: type) -> str:
