@@ -1,6 +1,6 @@
 # M04 — Multimodal IR / Scene IR
 
-Status: `S02_COMPLETE_S03_NEXT`
+Status: `S03_COMPLETE_S04_NEXT`
 Module: `M04`
 Area: `B — Semantic Production Representation`
 Planning issue: `#26`
@@ -894,3 +894,464 @@ Later implementation must prove:
 `COMPLETE_FOR_MODULE_PLANNING`
 
 Next legal planning session: **S03 — Motion, Audio, Music and Narrative IR**.
+
+
+---
+
+# S03 — Motion, Audio, Music and Narrative IR
+
+## 47. S03 goals
+
+S03 must make these statements true:
+
+1. time is represented explicitly and consistently across modalities;
+2. motion can target semantic IR properties without choosing a DCC animation system;
+3. audio can be placed, related and spatially described without embedding a DAW/runtime graph;
+4. music can carry structural/performance semantics without making MIDI canonical;
+5. narrative can bind production realization to story/canon references without making M04 the Story Engine;
+6. cross-modal synchronization can be represented and validated;
+7. temporal resampling/baking/conversion loss is explicit.
+
+## 48. Temporal Reference Contract
+
+M04 introduces `TemporalReferenceIR`.
+
+It declares:
+- rational `ticks_per_second` or equivalent exact time scale;
+- optional display frame-rate profile;
+- optional SMPTE/timecode interpretation profile;
+- timeline epoch/origin;
+- range semantics;
+- subframe precision;
+- schema/version.
+
+Canonical time is rational/integer-domain where practical. Floating timestamps are not the only source of temporal identity.
+
+Display frame numbers never become universal canonical time.
+
+## 49. Time primitives
+
+Core primitives:
+- `TimePointIR`;
+- `TimeRangeIR`;
+- `DurationIR`;
+- `TemporalMarkerIR`;
+- `TemporalRelationIR`;
+- `TemporalTransformReceipt`.
+
+Temporal conversions must state source/target bases and rounding/loss.
+
+## 50. Temporal layers
+
+M04 distinguishes:
+
+### Semantic production time
+Meaningful event/shot/cue timing.
+
+### Authored animation time
+Curves, key events and interpolation.
+
+### Sampled/baked time
+Dense samples, simulation caches, mocap/audio/media alignment.
+
+### Editorial presentation time
+Clip placement, trims, transitions and sequence relationships.
+
+These layers may reference each other but are not silently collapsed.
+
+M36/M38 own production/editorial operations. M04 only represents their portable result/intent substrate.
+
+## 51. Motion IR
+
+`MotionIR` binds time-varying behavior to canonical targets.
+
+Core:
+- target node/ref;
+- target semantic property/path;
+- value type;
+- temporal range;
+- authored representation kind;
+- interpolation/extrapolation policy;
+- source/provenance;
+- loss policy;
+- payload/clip refs;
+- fingerprint.
+
+Representation kinds:
+- KEYED;
+- CURVE;
+- SAMPLED;
+- CLIP_REFERENCE;
+- PROCEDURAL_REQUIREMENT_REF;
+- EVENT_DRIVEN_EXTENSION.
+
+## 52. Motion channels
+
+`MotionChannelIR` may target:
+- transform properties;
+- skeleton joints;
+- blend-shape/morph weights;
+- material/light/camera properties;
+- future simulation/control parameters admitted by extensions.
+
+The target must be type-compatible with the channel value type.
+
+No arbitrary string-path execution.
+
+## 53. Curve semantics
+
+`AnimationCurveIR` supports provider-neutral:
+- knots/key points;
+- tangent/interpolation family;
+- pre/post extrapolation;
+- loop/repeat intent;
+- units/value type;
+- discontinuity/held state.
+
+If a provider cannot preserve curve shape under a lossless obligation, it reports a gap.
+
+M30 later owns how curves/motion are generated, retargeted or repaired.
+
+## 54. Motion clips and layering
+
+`MotionClipIR` is an immutable reusable temporal fragment.
+
+It can declare:
+- source time range;
+- target mapping;
+- time scale/offset;
+- loop policy;
+- blend region/weight semantics;
+- channel set;
+- root-motion semantics ref;
+- provenance.
+
+`MotionLayerIR` combines clips/channels with explicit composition rules.
+
+It does not define a DCC NLA system or animation state machine implementation.
+
+## 55. Skeleton/deformation time binding
+
+S03 extends S01 CharacterIR with temporal bindings:
+- skeletal pose channels;
+- morph/blend-shape channels;
+- visibility/state events;
+- attachment changes;
+- semantic performance events.
+
+M29 owns rig/deformation standards and M30 owns animation production. M04 represents the resulting canonical temporal semantics.
+
+## 56. Shutter and temporal sampling
+
+S03 completes the S02 camera shutter boundary.
+
+`TemporalSamplingIR` may declare:
+- shutter/open-close interval;
+- sampling window;
+- motion-blur intent;
+- rolling/global-shutter extension refs;
+- sample distribution intent;
+- source/target time basis.
+
+Renderer-specific motion-blur samples/settings are adapter concerns.
+
+## 57. Audio IR
+
+`AudioIR` separates semantic audio object/role from media payload.
+
+Core audio entity classes:
+- DIALOGUE;
+- VOICE;
+- MUSIC;
+- SFX;
+- FOLEY;
+- AMBIENCE;
+- ROOM_TONE;
+- UI;
+- NARRATIVE_GUIDE;
+- extension.
+
+An audio entity may bind:
+- media/resource ref;
+- time range/placement;
+- source language;
+- speaker/persona refs;
+- loudness/level intent refs;
+- channel/object/spatial representation profile;
+- provenance/rights/consent refs;
+- M01 quality obligations;
+- M03 semantic sources.
+
+## 58. Audio object and spatial semantics
+
+`AudioSpatialIR` may describe:
+- channel-based;
+- object-based;
+- scene/HOA-like;
+- binaural;
+- custom extension representation.
+
+Object-based audio can bind:
+- source entity;
+- position/orientation/spread;
+- coordinate-frame ref;
+- motion ref;
+- divergence/diffuse intent;
+- rendering-zone/profile refs.
+
+M42 later owns sound design/spatial-audio production and rendering choices.
+
+## 59. Audio clip placement
+
+`AudioClipBindingIR` represents:
+- media ref;
+- source range;
+- timeline range;
+- trim;
+- loop;
+- fades/crossfade intent;
+- gain/level envelope ref;
+- sync relation;
+- semantic role.
+
+Media bytes stay external.
+
+Editing operations and mix/render graphs belong to M38/M42.
+
+## 60. Voice/persona boundary
+
+Audio/voice IR may carry:
+- `VoiceIdentityRef`;
+- `PersonaRef`;
+- `SpeakerRef`;
+- language/locale;
+- dialogue/text source ref;
+- performance/prosody requirement refs.
+
+M39/M40 own identity/voice design, generation, cloning authorization, dubbing and drift QA.
+
+M04 does not synthesize or infer a voice identity.
+
+## 61. Music IR
+
+`MusicIR` provides a provider-neutral structural representation that may be sparse or detailed.
+
+Core:
+- musical work/cue identity ref;
+- timeline placement;
+- tempo map;
+- meter map;
+- key/tonal-context ref when applicable;
+- section/form markers;
+- part/track/instrument-role refs;
+- performance-event streams;
+- harmony/chord extension refs;
+- lyric/text refs;
+- media/render refs;
+- provenance/rights.
+
+Music IR supports non-tonal/non-metered material by allowing these fields to be absent/explicitly inapplicable.
+
+## 62. Music events
+
+Optional `MusicEventIR` dialect may represent:
+- note/pitch event;
+- duration;
+- velocity/dynamics;
+- articulation;
+- expression/controller intent;
+- per-note modulation;
+- semantic role.
+
+MIDI 1/2 import/export is an adapter path. MIDI channel/message identity is not canonical M04 identity.
+
+M41 owns composition, arrangement, Music DNA and final mix/master decisions.
+
+## 63. Narrative Projection IR
+
+M04 introduces `NarrativeProjectionIR`, not a Canon engine.
+
+It binds a production representation to external/future story semantics:
+- story/canon ref;
+- scene/sequence/beat ref;
+- character role ref;
+- action/dialogue/event projection;
+- emotional/performance intent refs;
+- continuity dependency refs;
+- narrative time/order refs;
+- source revision/provenance.
+
+When M43 exists, M43 remains authoritative for story/canon/world state/arcs/dialogue truth.
+
+M04 only records how a current production scene realizes or references that truth.
+
+## 64. Local narrative cues
+
+For workflows before M43 exists, M04 may carry bounded `NarrativeCueIR` objects derived from M03:
+- BEAT;
+- ACTION;
+- DIALOGUE_CUE;
+- REACTION;
+- REVEAL;
+- TRANSITION_INTENT;
+- CONTINUITY_REQUIREMENT.
+
+These cues are production-local and cannot self-promote into global canon.
+
+## 65. Timeline IR
+
+`TimelineIR` is a provider-neutral temporal container, not an editor.
+
+It can contain:
+- tracks/layers by semantic role;
+- clips/fragments;
+- gaps;
+- transitions as semantic refs/contracts;
+- markers;
+- nested sequences;
+- sync groups;
+- external media refs.
+
+M36 owns shot planning/production timeline strategy.
+M38 owns editing/cut/compositing/encode operations.
+
+M04 owns only the portable representation substrate those modules may use.
+
+## 66. Shot / sequence boundary
+
+M04 may define:
+- `ShotRepresentationIR`;
+- `SequenceRepresentationIR`;
+- shot range;
+- scene/camera refs;
+- involved entity refs;
+- audio/music/narrative bindings;
+- continuity dependency refs;
+- transition intent refs.
+
+Shot selection, edit decisions and long-form assembly algorithms remain M36/M38.
+
+## 67. Cross-modal synchronization
+
+`SyncRelationIR` supports typed relations:
+- EXACT_START;
+- EXACT_END;
+- OFFSET;
+- LOCKED_DURATION;
+- LIP_SYNC_REQUIREMENT;
+- BEAT_SYNC;
+- EVENT_SYNC;
+- CAMERA_MOTION_SYNC;
+- CUSTOM_EXTENSION.
+
+A sync relation identifies:
+- source/target temporal refs;
+- tolerance;
+- authority;
+- loss policy;
+- provenance.
+
+A provider cannot silently drift a mandatory sync relation.
+
+## 68. Temporal continuity boundary
+
+M04 stores continuity dependency refs and state projections but M37 owns:
+- temporal identity lock;
+- shot continuity graph;
+- cross-shot object/environment/camera continuity evaluation;
+- artifact radar and repair;
+- continuity scoring.
+
+M04 is the transport/representation layer for continuity-relevant facts, not their judge.
+
+## 69. Temporal lowering and loss
+
+Every temporal transformation can emit:
+- `TemporalResampleReceipt`;
+- `MotionBakeReceipt`;
+- `AudioConformReceipt`;
+- `TimelineProjectionReceipt`.
+
+Receipts identify:
+- source/target bases;
+- affected channels/events;
+- interpolation/resampling policy;
+- quantization/rounding;
+- dropped/approximated semantics;
+- M03 loss class;
+- M01 obligations affected.
+
+Lossless-required timing/sync semantics cannot be rounded away silently.
+
+## 70. Context economy for time
+
+`MinimumSufficientTemporalSlice` selects:
+- time range;
+- target roots;
+- channel/event families;
+- sync closure;
+- narrative/audio/music dependencies;
+- provenance/quality depth.
+
+A lip-sync repair task should not require the whole film timeline.
+A foot-contact fix should not require unrelated dialogue/music tracks.
+
+## 71. S03 proprietary technology candidates
+
+S03 extends the registry with `IRIS-MIRX-061..090`.
+
+Key families:
+- Unified Temporal Reference Fabric;
+- authored/sample/editorial time partition;
+- Motion Channel Contract;
+- Motion Clip Semantic Layering;
+- Cross-Modal Sync Graph;
+- Audio Object Semantic Envelope;
+- Music Structural IR;
+- Narrative Projection Firewall;
+- Temporal Loss Receipts;
+- Context-Budgeted Temporal Slice.
+
+## 72. S03 proposed decisions
+
+- **D-M04-031:** canonical time basis is explicit and separate from display frame numbering.
+- **D-M04-032:** semantic/authored/sampled/editorial time are distinct layers.
+- **D-M04-033:** MotionIR targets typed semantic properties rather than DCC path strings.
+- **D-M04-034:** M04 represents motion but M30 owns motion generation/retargeting/repair.
+- **D-M04-035:** detailed rig/control systems remain M29/provider/DCC responsibility.
+- **D-M04-036:** S03 temporal sampling completes but does not replace S02 camera semantics.
+- **D-M04-037:** audio bytes/media remain external resources.
+- **D-M04-038:** M04 audio representation does not own mix/post/render algorithms.
+- **D-M04-039:** MIDI is an adapter/interchange route, not canonical Music IR.
+- **D-M04-040:** M41 owns composition/Music DNA/mix-master; M04 owns portable music representation.
+- **D-M04-041:** NarrativeProjectionIR cannot become global Canon truth.
+- **D-M04-042:** M43 will remain narrative/canon authority.
+- **D-M04-043:** TimelineIR is representation, not editorial authority.
+- **D-M04-044:** M36/M38 own shot planning/editing/assembly operations.
+- **D-M04-045:** mandatory cross-modal sync loss blocks when outside admitted tolerance.
+
+## 73. S03 acceptance obligations
+
+Later implementation must prove:
+- rational time conversion determinism;
+- no hidden frame-rate assumption;
+- typed motion-target validation;
+- curve/interpolation round trip;
+- clip time-scale/offset determinism;
+- sampled payload may remain deferred;
+- audio resource externalization;
+- object/spatial audio bindings remain coordinate-frame aware;
+- music event representation does not require MIDI;
+- non-metered/non-tonal music remains representable;
+- narrative local cue cannot self-promote to Canon;
+- timeline nested-range validation;
+- exact sync tolerance failure-closed;
+- temporal resample/bake receipt identifies loss;
+- localized temporal slice excludes unrelated timeline regions;
+- no animation/audio/music/editorial/story runtime dependency in core.
+
+## 74. S03 disposition
+
+`COMPLETE_FOR_MODULE_PLANNING`
+
+Next legal planning session: **S04 — Provider Compiler and capability downgrade planning**.
