@@ -30,9 +30,10 @@ Begin governed planning for M04 — Multimodal IR / Scene IR, preserving the fro
 - Issue #19 closed automatically as completed.
 - Implementation branch deleted automatically.
 - Active `main-governance` ruleset remains in force.
+- Checkpoint reconciliation PR #22 merged as `fdd659a0334bf1a77dc1b58377fc01f7a03cdb37`; exact-main Governance run `35671998557` passed.
 
 ## IN PROGRESS
-Post-merge governance reconciliation only. No M04 product implementation.
+None. M04 planning has not started; the repository is at the governed `M04_PLANNING_READY` gate.
 
 ## BLOCKERS
 M04 implementation MUST NOT start until:
