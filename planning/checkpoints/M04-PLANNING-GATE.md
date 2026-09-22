@@ -1,6 +1,6 @@
 # IRIS M04 Planning Gate
 
-Status: `TECH_REVIEW_APPROVED_COMPAT_SCAN_NEXT`
+Status: `COMPAT_SCAN_PASS_CONTRACT_FREEZE_NEXT`
 Issue: `#26`
 Branch: `m04-multimodal-ir-planning`
 Authorized main baseline: `c231dd61a210fe6d315126e755b4642a4fd2e9a3`
@@ -68,7 +68,16 @@ S01-S05 complete. M04 implementation remains blocked.
 - Consolidated contract families: `F-M04-01..20`
 - Ownership correction: M04 S04 = Representation Capability & Semantic Lowering; M16 = concrete Provider Compiler.
 
+## Forward Compatibility Scan
+- Status: `PASS_WITH_EXTENSION_PORTS`
+- File: `planning/compatibility/M04-FORWARD-COMPATIBILITY-SCAN.md`
+- Modules scanned: M05-M60
+- Critical ownership conflicts remaining: 0
+- Required extension/ref families: 20
+- Explicit overlap shields: M28 MaterialIR, M31 Camera/Light IR, M36/M38 Timeline/Color, M48 quality authority
+- M16 concrete Provider Compiler ownership preserved.
+
 ## Next legal action
-Run the **M05-M60 Forward Compatibility Scan**. Do not freeze or implement M04 before that scan passes.
+Compile the **M04 Module Contract Freeze Candidate**. No implementation is authorized.
 
 Do not implement M04.
