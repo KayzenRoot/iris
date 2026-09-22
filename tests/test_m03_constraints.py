@@ -41,7 +41,8 @@ from iris_intent.constraints import (
 from iris_intent.errors import (
     AdmissionRefusedError,
     AuthorityError,
-    LimitExceededError,\n    PredicateError,
+    LimitExceededError,
+    PredicateError,
     RefError,
     RevisionFrozenError,
     SchemaValidationError,
