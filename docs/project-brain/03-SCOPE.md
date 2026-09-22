@@ -2,26 +2,30 @@
 
 Status: `DISCOVERY_ACTIVE`
 
-## Current increment — M03 planning
+## Current admitted increment — M04 planning
 
 ### NECESSARY
-- governed S01-S05 planning for M03 Creative Brief, Intent & Constraint Compiler;
-- provider-neutral creative brief and intent semantics;
-- constraint/negative-constraint model;
-- M01 Fidelity Contract compilation boundary;
-- provider-neutral execution intent + explainability;
-- conflict/override/versioning policy;
+- governed S01-S05 planning for M04 — Multimodal IR / Scene IR;
+- Scene, Character and Asset IR contract design;
+- Camera, Lighting, Material and Spatial IR contract design;
+- Motion, Audio, Music and Narrative IR representation boundaries;
+- semantic lowering from admitted M03 intent into detailed provider-neutral IR;
+- IR validation, versioning, compatibility and round-trip guarantees;
+- explicit preservation of M01 quality authority, M02 Project OS/graph/release/ExecutionPlan authority and M03 brief/intent/constraint authority;
+- resolve the M04 S04 / M16 Provider Compiler ownership overlap without embedding provider runtime details into M04;
 - proprietary-technology registry and prior-art review;
-- forward compatibility scan against M04-M60;
-- frozen M03 module contract before implementation admission.
+- forward compatibility scan against M05-M60;
+- frozen M04 module contract before implementation admission.
 
 ### OUT OF SCOPE FOR THIS INCREMENT
-- M03 product implementation;
-- provider/model prompt compilation implementation;
-- Blender/ComfyUI/DCC execution;
-- model downloads or generation;
-- M04+ implementation;
-- changing M01 quality authority or M02 production/graph authority.
+- M04 product implementation;
+- concrete provider/model prompt/workflow compilation;
+- Blender/ComfyUI/Maya/DCC execution;
+- model downloads, training or media generation;
+- M05 Asset DNA implementation;
+- M16 workflow/provider compiler implementation;
+- changing or weakening frozen M01, M02 or M03 authority/contracts;
+- provider/runtime choices that silently reduce final M01 QualityClass.
 
 ## IRIS 1.0 product scope
 
