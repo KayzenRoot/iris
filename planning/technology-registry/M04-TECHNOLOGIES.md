@@ -1,7 +1,7 @@
 # M04 Technology Registry
 
 Module: `M04 — Multimodal IR / Scene IR`
-Status: `S01_S05_CANDIDATES_COMPLETE`
+Status: `FINAL_REVIEW_COMPLETE`
 Rule: proprietary candidates are design identifiers, not novelty/patentability claims until dedicated prior-art/legal review.
 
 ## External prior-art references
@@ -498,3 +498,17 @@ All `MIRX-091..120` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
 
 
 All `MIRX-121..150` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
+
+
+---
+
+## Final Technology Review closure
+
+Authoritative disposition: `planning/reviews/M04-FINAL-TECHNOLOGY-REVIEW.md`.
+
+- Detailed design-history candidates: `IRIS-MIRX-001..150`.
+- Frozen-family candidates for contract/compatibility scan: `F-M04-01..20`.
+- MIRX-015: superseded by complete S02 spatial contract.
+- MIRX-024: superseded by F-M04-20 round-trip/readiness proof fabric.
+- External technologies remain references/adapters, not mandatory M04 core dependencies.
+- M04 S04 concrete Provider Compiler ownership removed; M16 remains sole concrete provider/workflow compiler owner.
