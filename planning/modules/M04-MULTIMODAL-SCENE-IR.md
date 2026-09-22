@@ -1,6 +1,6 @@
 # M04 — Multimodal IR / Scene IR
 
-Status: `S03_COMPLETE_S04_NEXT`
+Status: `S04_COMPLETE_S05_NEXT`
 Module: `M04`
 Area: `B — Semantic Production Representation`
 Planning issue: `#26`
@@ -1355,3 +1355,372 @@ Later implementation must prove:
 `COMPLETE_FOR_MODULE_PLANNING`
 
 Next legal planning session: **S04 — Provider Compiler and capability downgrade planning**.
+
+
+---
+
+# S04 — Representation Capability & Semantic Lowering Planning
+
+> Historical index label: "Provider Compiler and capability downgrade planning".
+>
+> S04 resolves that overlap by reserving concrete provider/workflow compilation to M16.
+
+## 75. S04 goals
+
+S04 must make these statements true:
+
+1. M04 can state exactly which representation capabilities a document requires and uses;
+2. a future target/profile can be checked for semantic representability without compiling a workflow;
+3. mandatory unsupported semantics fail closed;
+4. bounded approximation is permitted only when upstream loss policy explicitly allows it;
+5. canonical IR is never rewritten to fit provider scarcity;
+6. M01 QualityClass is never downgraded by M04;
+7. M16 receives a deterministic semantic compilation contract.
+
+## 76. Representation Capability Manifest
+
+Every M04 document/revision can emit a `RepresentationCapabilityManifest`.
+
+It contains:
+- schema families/versions used;
+- mandatory facets/extensions;
+- optional facets/extensions;
+- value/type capabilities;
+- spatial/temporal/material/audio/narrative feature families used;
+- payload/codec/interchange requirements where semantically required;
+- lossless-required feature set;
+- bounded-approximation-eligible feature set;
+- resource-limit assumptions;
+- fingerprint.
+
+This is capability metadata about **the representation**, not a provider hardware/model card.
+
+## 77. Required vs optional semantics
+
+Capability disposition:
+- REQUIRED;
+- USED_OPTIONAL;
+- ADVISORY;
+- EXTENSION_OPAQUE_ALLOWED.
+
+Rules:
+- every REQUIRED capability must be understood and preserved by a lossless target or produce a blocking gap;
+- an optional unknown capability can remain opaque only when its loss policy permits;
+- metadata cannot relabel a required feature as optional to make compilation pass.
+
+## 78. Target Representation Profile
+
+M04 defines a provider-neutral `TargetRepresentationProfile`.
+
+It may describe a semantic destination family such as:
+- generic 3D interchange;
+- image/render scene;
+- animation interchange;
+- editorial interchange;
+- game/web asset representation;
+- audio object metadata;
+- future provider-compiler input profile.
+
+It declares:
+- profile identity/version;
+- supported schema/facet families/versions;
+- supported value/relationship types;
+- semantic limits;
+- extension support;
+- exact vs bounded support classes;
+- unsupported features;
+- evidence/qualification refs.
+
+A profile cannot claim concrete runtime/provider support without later M16/M14 qualification evidence.
+
+## 79. Capability support states
+
+For each required IR feature, analysis yields:
+- EXACT;
+- BOUNDED;
+- EXTENSION_REQUIRED;
+- OPAQUE_PRESERVABLE;
+- UNSUPPORTED;
+- UNKNOWN.
+
+`BOUNDED` requires:
+- explicit allowed loss class;
+- tolerance/affected paths;
+- adaptation rule identity;
+- downstream obligation impact.
+
+UNSUPPORTED/UNKNOWN on a mandatory lossless feature blocks.
+
+## 80. Semantic Legality Analysis
+
+`SemanticLegalityReport` is analysis-only.
+
+It identifies:
+- legal/exact features;
+- dynamically legal features under stated constraints;
+- illegal/unrepresentable features;
+- unknown features;
+- required extensions;
+- possible adaptation routes;
+- blocking gaps;
+- quality/constraint obligations affected.
+
+It does not rewrite the IR.
+
+This is the M04 analogue of "can this semantics be lowered?", not "compile it now".
+
+## 81. Semantic Lowering Plan
+
+When analysis permits, M04 may produce an immutable `SemanticLoweringPlan`.
+
+It contains:
+- source IR revision/fingerprint;
+- target representation profile;
+- ordered semantic lowering/adaptation rules;
+- expected outputs at semantic family level;
+- required extensions;
+- expected approximation/loss;
+- validation obligations;
+- rollback/source trace;
+- compiler-contract version.
+
+The plan contains no:
+- model selection;
+- ComfyUI nodes;
+- Blender Python;
+- provider URLs;
+- worker/GPU placement;
+- secret/API keys;
+- concrete runtime queue plan.
+
+## 82. Semantic Lowering Rule
+
+A `SemanticLoweringRule` is declarative and versioned.
+
+It states:
+- source schema/facet/type pattern;
+- target semantic family;
+- preconditions;
+- exact/bounded result class;
+- preserved obligations;
+- affected/lost obligations;
+- required extension;
+- validation obligations;
+- provenance/version.
+
+It is not arbitrary executable code.
+
+M16/provider adapters later implement executable realization of accepted rule contracts.
+
+## 83. Adaptation proposals
+
+When exact representation is impossible, M04 can emit an `AdaptationProposal`:
+- split representation;
+- bake/flatten a representable derived artifact;
+- replace with admitted bounded approximation;
+- retain an opaque extension;
+- defer to another target;
+- require provider escalation;
+- request new M03/M04 revision.
+
+An adaptation proposal is not self-authorizing.
+
+If meaning/quality intent changes, a governed upstream revision is required.
+
+## 84. No-Downgrade Shield
+
+S04 freezes the distinction:
+
+### Forbidden
+- lowering M01 QualityClass because target/provider is weak;
+- deleting mandatory semantics to make a target pass;
+- converting REQUIRED to OPTIONAL;
+- changing protected M03 constraints;
+- accepting a preview representation as final without explicit equivalence.
+
+### Potentially allowed
+- provider-neutral bounded approximation already authorized by M03 loss class/tolerance;
+- alternate target/profile selection by future M15/M16;
+- escalation to another representation/provider;
+- multi-pass or split representation;
+- additional extension requirement.
+
+Scarcity produces **capability debt/gap**, not quality redefinition.
+
+## 85. Capability Gap Ledger
+
+`RepresentationGap` records:
+- feature/path;
+- required support;
+- observed target support;
+- blocking state;
+- upstream loss policy;
+- M01 obligation refs;
+- M03 constraint refs;
+- suggested remedy;
+- future owner;
+- evidence/profile version.
+
+Gap resolution never mutates original evidence.
+
+## 86. Translation receipt boundary
+
+M03 already defines provider-neutral ProviderTranslationReceipt contracts.
+
+M04 extends this into a representation-specific `IRTranslationReceipt` that records:
+- source M04 fingerprint;
+- target representation profile/version;
+- lowering-plan fingerprint;
+- exact/bounded/extension outcomes per feature;
+- validation results;
+- unresolved gaps.
+
+M16 later emits the concrete provider/workflow translation receipt linked to this semantic receipt.
+
+## 87. Provider observation quarantine
+
+A future provider may report:
+- supported;
+- unsupported;
+- approximation;
+- runtime failure;
+- version drift.
+
+Those observations are evidence.
+
+They cannot:
+- rewrite the M04 IR;
+- upgrade their own capability status;
+- relax required semantics;
+- alter M01/M03 authority.
+
+Qualification belongs to M14/M16 and governance.
+
+## 88. Selection boundary with M14/M15/M16
+
+- M14 owns empirical Model Cards/Capability Genome.
+- M15 owns model/provider routing and champion/challenger decisions.
+- M16 owns workflow registry and concrete provider compiler.
+- M17+ own provider runtime integrations.
+- M07-M13 own hardware/runtime/performance planning.
+
+M04 only emits the semantic/capability contract these modules consume.
+
+## 89. Semantic target families
+
+M04 target profiles are **semantic destinations**, not vendor products.
+
+Examples:
+- SCENE_INTERCHANGE;
+- WEB_GAME_INTERCHANGE;
+- DCC_INTERCHANGE;
+- RENDER_SCENE;
+- EDITORIAL_TIMELINE;
+- AUDIO_METADATA;
+- SYMBOLIC_MUSIC;
+- PROVIDER_COMPILER_INPUT;
+- CUSTOM_VERSIONED_EXTENSION.
+
+Concrete USD/glTF/MaterialX/OTIO/MIDI/provider formats are adapters/profiles admitted later.
+
+## 90. Multi-target lowering
+
+One M04 source may require multiple target representations.
+
+`LoweringBundlePlan` can declare:
+- target profiles;
+- shared obligations;
+- target-specific obligations;
+- equivalence requirements;
+- cross-target identity bindings;
+- validation matrix.
+
+This supports, for example, web/game/DCC variants without pretending one lossy target is the master canonical representation.
+
+M02 owns build/variant production topology.
+
+## 91. Semantic Capability Debt
+
+M04 may record `SemanticCapabilityDebt` when:
+- a non-blocking authorized approximation is accepted;
+- an optional extension is unavailable;
+- an interim representation requires later replacement.
+
+This debt is not M01 QualityDebt and cannot waive M01 gates.
+
+It records:
+- affected IR paths;
+- authority/acceptance ref;
+- expiry/review condition;
+- remedy;
+- downstream invalidation scope.
+
+## 92. Context-efficient compatibility
+
+`CapabilitySlice` contains only:
+- features used by selected IR roots;
+- required schema/facets;
+- loss policies;
+- obligations;
+- target profile evidence.
+
+Compatibility analysis should not require the entire project or provider catalog.
+
+## 93. S04 proprietary technology candidates
+
+S04 extends the registry with `IRIS-MIRX-091..120`.
+
+Key families:
+- Representation Capability Manifest;
+- Required/Used Capability Split;
+- Semantic Legality Analyzer;
+- Target Representation Profile;
+- Semantic Lowering Plan;
+- Declarative Lowering Rule Registry;
+- No-Downgrade Shield;
+- Adaptation Proposal Ledger;
+- Capability Gap Ledger;
+- Semantic/Concrete Compiler Split;
+- Provider Observation Quarantine.
+
+## 94. S04 proposed decisions
+
+- **D-M04-046:** M04 S04 is renamed/narrowed to Representation Capability & Semantic Lowering; M16 solely owns concrete Provider Compiler/workflow compilation.
+- **D-M04-047:** M04 performs semantic legality/representability analysis without selecting runtime providers.
+- **D-M04-048:** required and merely-used capabilities are separate classes.
+- **D-M04-049:** unknown mandatory capability fails closed.
+- **D-M04-050:** bounded support is valid only under an upstream-authorized loss class/tolerance.
+- **D-M04-051:** M04 cannot lower M01 QualityClass for scarcity/cost/provider limitations.
+- **D-M04-052:** M04 cannot relax M03 protected/mandatory constraints.
+- **D-M04-053:** target profiles are semantic and versioned, not vendor product identities.
+- **D-M04-054:** lowering rules are declarative contracts, not executable provider code.
+- **D-M04-055:** provider observations are evidence and cannot mutate canonical truth.
+- **D-M04-056:** M14/M15/M16 own empirical capability, routing and concrete compilation respectively.
+- **D-M04-057:** exact source IR remains canonical even when a target requires approximation.
+- **D-M04-058:** multi-target lowering preserves canonical master semantics and explicit equivalence obligations.
+- **D-M04-059:** SemanticCapabilityDebt is distinct from M01 QualityDebt.
+- **D-M04-060:** any adaptation that changes semantic intent requires governed upstream revision.
+
+## 95. S04 acceptance obligations
+
+Later implementation must prove:
+- deterministic capability manifest;
+- required/optional split cannot be forged downstream;
+- unknown mandatory facet/profile capability blocks;
+- legality analysis makes no canonical mutation;
+- exact support vs bounded support distinguishable;
+- bounded support requires loss authorization;
+- lowering plan contains no provider/runtime/DCC/workflow implementation data;
+- target-profile version participates in fingerprint;
+- provider observation cannot self-promote capability;
+- M01 QualityClass unchanged under target scarcity;
+- protected M03 constraints unchanged;
+- multi-target bundle exposes target-specific gaps;
+- capability slice excludes unrelated IR families;
+- concrete provider compilation remains outside M04 imports/dependencies.
+
+## 96. S04 disposition
+
+`COMPLETE_FOR_MODULE_PLANNING`
+
+Next legal planning session: **S05 — IR validation, versioning and round-trip guarantees**.
