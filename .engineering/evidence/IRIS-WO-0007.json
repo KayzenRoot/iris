@@ -2,7 +2,7 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0007",
   "issue": 24,
-  "status": "EXECUTED_PENDING_AUDIT",
+  "status": "APPROVED",
   "branch": "iris-wo-0007-source-pack-reconciliation",
   "baseSha": "d65df7f239627f99941896451340f43ee1a887fd",
   "headBinding": "Use PR headRefOid / exact-head Governance; do not self-reference this evidence commit as its own head.",
@@ -79,13 +79,30 @@
       "result": "OK"
     }
   },
-  "reviewVerdict": null,
+  "reviewVerdict": {
+    "verdict": "APPROVED",
+    "reviewedHead": "d0feba9435dfc0591feb96c72c920d99d86e90fd",
+    "governanceRun": 35680115768,
+    "governanceJob": 106595068454,
+    "exactHead": true,
+    "tests": {
+      "run": 2527,
+      "failures": 0,
+      "errors": 0,
+      "result": "OK"
+    },
+    "blockers": {
+      "critical": 0,
+      "high": 0
+    },
+    "executorRequiredFindings": 0
+  },
   "checkpointDelta": {
-    "applied": false,
+    "applied": true,
     "proposed": "No checkpoint phase transition. After approval/merge, retain M04_PLANNING_READY and admit M04 S01 planning."
   },
   "stopCondition": {
-    "result": "PENDING_INDEPENDENT_AUDIT_AND_MERGE",
+    "result": "APPROVED_PROMOTION_PENDING_MERGE",
     "m04PlanningStarted": false,
     "m04ImplementationStarted": false
   }
