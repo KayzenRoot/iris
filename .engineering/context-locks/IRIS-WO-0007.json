@@ -50,6 +50,7 @@
     }
   ],
   "intentionalCanonicalRewrites": [
+    ".engineering/SOURCE-HIERARCHY.md",
     "docs/project-brain/01-PROJECT-OVERVIEW.md",
     "docs/project-brain/03-SCOPE.md",
     "docs/project-brain/04-ARCHITECTURE.md",
@@ -65,5 +66,8 @@
     "M00 completion invention",
     "frozen M01-M03 contract changes"
   ],
-  "stopCondition": "Exact-head Governance + independent APPROVED + squash merge + exact-main Governance before M04 S01."
+  "stopCondition": "Exact-head Governance + independent APPROVED + squash merge + exact-main Governance before M04 S01.",
+  "supportingDocRewrites": [
+    "README.md"
+  ]
 }
