@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0007",
+  "issue": 24,
+  "branch": "iris-wo-0007-source-pack-reconciliation",
+  "baseSha": "d65df7f239627f99941896451340f43ee1a887fd",
+  "status": "ACTIVE_RECONCILIATION",
+  "risk": "STANDARD",
+  "purpose": "Reconcile stale canonical Source Pack truth before M04 planning.",
+  "criticalSources": [
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "sha": "0c0493f28df7b33ba6ec674a17f6d298f8e33bc1"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "sha": "5cec1114366b24d7889ac4b27ff2727439294eb3"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "sha": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "sha": "f295beb455756753e366cf1ecc23f9b5b073253d"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "sha": "ce3b48c8dcbf6006d83363c9af716ce96e6b864b"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "sha": "9584b37775f363cf2b4c36d08f5b0f8c62f46df4"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "sha": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "sha": "c01fd5e15795b6e9124171019dd3919ff62538b7"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "sha": "67fa7df93dc06ab17c875b6fa207fc5095da9c7a"
+    },
+    {
+      "path": "planning/compatibility/M03-FORWARD-COMPATIBILITY-SCAN.md",
+      "sha": "9c05ca036d1465138bf652a6bce580e294810524"
+    }
+  ],
+  "intentionalCanonicalRewrites": [
+    "docs/project-brain/01-PROJECT-OVERVIEW.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/04-ARCHITECTURE.md",
+    "docs/project-brain/05-INTEGRATION-CONTRACTS.md",
+    "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+    "docs/project-brain/12-LOCAL-DEPLOYMENT.md",
+    "docs/project-brain/14-BACKLOG.md"
+  ],
+  "outOfScope": [
+    "M04 deep planning",
+    "M04 implementation",
+    "product/kernel code",
+    "M00 completion invention",
+    "frozen M01-M03 contract changes"
+  ],
+  "stopCondition": "Exact-head Governance + independent APPROVED + squash merge + exact-main Governance before M04 S01."
+}
