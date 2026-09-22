@@ -1,7 +1,7 @@
 # M04 Module Contract Freeze Candidate — Multimodal IR / Scene IR
 
-Status: `FREEZE_CANDIDATE`
-Target frozen version: `m04-contract-v1.0`
+Status: `FROZEN_APPROVED`
+Frozen version: `m04-contract-v1.0`
 Module: `M04`
 Issue: `#26`
 Authorized baseline: `c231dd61a210fe6d315126e755b4642a4fd2e9a3`
@@ -694,3 +694,19 @@ Before status becomes `FROZEN_APPROVED / m04-contract-v1.0`, planning PR must pr
 - zero HIGH/CRITICAL planning blockers.
 
 Any semantic change after freeze requires versioned M04 contract amendment + renewed compatibility review.
+
+
+## 27. Freeze closure
+
+- Contract: `m04-contract-v1.0`
+- Status: `FROZEN_APPROVED`
+- Independent planning audit: `APPROVED`
+- Reviewed semantic/planning head: `86a75307c7e50b47702ed2fede74a92ca6ea5e5a`
+- Governance: `35681272803 / 106598537403` — PASS
+- Full suite: `2527/2527 OK`
+- Planning findings: 2 CHAT_FIXABLE / both CLOSED
+- HIGH/CRITICAL blockers: 0
+- Product/kernel implementation: not started
+- M16 concrete Provider Compiler boundary: preserved
+
+The promotion/checkpoint commits that follow this audit are governance/documentation-only and must pass their own exact-head Governance before merge.
