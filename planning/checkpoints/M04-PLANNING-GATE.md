@@ -1,6 +1,6 @@
 # IRIS M04 Planning Gate
 
-Status: `S04_COMPLETE_S05_NEXT`
+Status: `S01_S05_COMPLETE_TECH_REVIEW_NEXT`
 Issue: `#26`
 Branch: `m04-multimodal-ir-planning`
 Authorized main baseline: `c231dd61a210fe6d315126e755b4642a4fd2e9a3`
@@ -10,7 +10,7 @@ Authorized main baseline: `c231dd61a210fe6d315126e755b4642a4fd2e9a3`
 - S02 — Camera, Lighting, Material and Spatial IR: COMPLETE_FOR_MODULE_PLANNING
 - S03 — Motion, Audio, Music and Narrative IR: COMPLETE_FOR_MODULE_PLANNING
 - S04 — Representation Capability & Semantic Lowering (legacy Provider Compiler label): COMPLETE_FOR_MODULE_PLANNING
-- S05 — IR validation, versioning and round-trip guarantees: NEXT
+- S05 — IR validation, versioning and round-trip guarantees: COMPLETE_FOR_MODULE_PLANNING
 
 ## Current guard
 Planning only. No M04 implementation is authorized.
@@ -53,7 +53,15 @@ Planning only. No M04 implementation is authorized.
 - technologies: `IRIS-MIRX-091..120`
 - ownership resolution: M04 semantic legality/lowering only; M16 concrete provider/workflow compiler
 
+## S05 artifacts
+- research: `planning/research/M04-S05-VALIDATION-VERSIONING-ROUNDTRIP-RESEARCH-2026-09-22.md`
+- module plan: S05 in `planning/modules/M04-MULTIMODAL-SCENE-IR.md`
+- technologies: `IRIS-MIRX-121..150`
+
+## Planning sessions gate
+S01-S05 complete. M04 implementation remains blocked.
+
 ## Next legal action
-Continue slow planning with **S05 — IR validation, versioning and round-trip guarantees**.
+Run the **M04 Final Technology Review**. Then run the M05-M60 Forward Compatibility Scan before freezing the module contract.
 
 Do not implement M04.
