@@ -54,7 +54,7 @@ Status: ACCEPT.
 Purpose: IRIS-owned typed multimodal node/relationship substrate with dual graph topology.
 
 ### F-M04-02 — Intent / Quality Trace Spine
-Sources: MIRX-003, 006, 007, 027.
+Sources: MIRX-003, 006, 007, 027, 028.
 Status: ACCEPT.
 Purpose: trace M03 semantics and M01 obligations into IR representation and lowering receipts.
 
@@ -125,7 +125,7 @@ MIRX-081 Narrative Projection Firewall is mandatory.
 Boundary: M36/M38 own editorial operations; M43 owns Canon/story truth; M37 owns continuity judgment.
 
 ### F-M04-16 — Representation Capability & Legality Fabric
-Sources: MIRX-091..095, 100, 105, 106, 107.
+Sources: MIRX-091..095, 105, 106, 107.
 Status: ACCEPT.
 Purpose: deterministic used/required capability manifests and semantic legality analysis.
 
@@ -157,7 +157,7 @@ IR readiness remains evidence only, not release/promotion authority.
 - MIRX-015: SUPERSEDED_BY_S02_SPATIAL_CONTRACT, retained as history.
 - MIRX-016..023: ACCEPT through F-M04-01/06/07.
 - MIRX-024: SUPERSEDED_BY_F_M04_20, retained as history.
-- MIRX-025..030: ACCEPT through F-M04-03/04/07.
+- MIRX-025..030: ACCEPT through F-M04-02/03/04/07.
 - MIRX-031..060: ACCEPT through F-M04-08..11.
 - MIRX-061..090: ACCEPT through F-M04-12..15.
 - MIRX-091..120: ACCEPT through F-M04-16..18, with M16 ownership shield.
@@ -187,3 +187,10 @@ IR readiness remains evidence only, not release/promotion authority.
 S01-S05 plus F-M04-01..20 are coherent enough to perform the M05-M60 Forward Compatibility Scan.
 
 No M04 implementation is authorized.
+
+
+## Independent audit correction notes
+
+- `M04-PLAN-R01` — CHAT_FIXABLE / CLOSED: MIRX-028 was accepted in candidate-level prose but omitted from all consolidated family source lists. It is now mapped to `F-M04-02 Intent / Quality Trace Spine`.
+- `M04-PLAN-R02` — CHAT_FIXABLE / CLOSED: MIRX-100 was listed in both `F-M04-16` and `F-M04-17`. Its single canonical family is now `F-M04-17 Semantic Lowering & Compiler Boundary Fabric`.
+- Consolidated family mapping is intended to cover `MIRX-001..150` exactly once.
