@@ -1448,6 +1448,40 @@ class PackageSurfaceTests(unittest.TestCase):
         self.assertEqual(versions.SUPPORTED_CONTRACT_VERSIONS, frozenset({CONTRACT_VERSION}))
         self.assertEqual(versions.SUPPORTED_SCHEMA_VERSIONS, frozenset({SCHEMA_VERSION}))
 
+    def test_static_semantic_law_tables_are_read_only(self) -> None:
+        """Core classification and mapping law cannot drift by mutating imported tables."""
+
+        from iris_intent import ambiguity, conflicts, constraints, execution, explanation, fidelity, freshness, readiness
+
+        protected = (
+            ambiguity._CONSEQUENCE_RANKS,
+            conflicts._CONSEQUENCE_RANK,
+            conflicts._CONSEQUENCE_SEVERITY,
+            conflicts._CLASS_CONSEQUENCE,
+            conflicts._CLASS_RESOLUTIONS,
+            constraints._POLARITY_STRICTNESS,
+            constraints._STRENGTH_RANKS,
+            constraints.UNIT_ALIASES,
+            constraints._IDENTITY_FIELDS,
+            execution._DELTA_ADDED_REMOVED,
+            execution._DELTA_VIEW_DEFAULTS,
+            execution._DELTA_FIELD_CLASSES,
+            explanation._ENTRY_FIELDS_BY_LEVEL,
+            explanation.ROOT_CLASSIFICATION,
+            explanation._NARRATIVE,
+            fidelity._OBLIGATION_DIMENSIONS,
+            freshness._DIMENSION_SCOPES,
+            freshness._EVIDENCE_BASES,
+            freshness._STATE_RANKS,
+            freshness._EVIDENCE_STATES,
+            readiness._FAMILY_ORDER,
+        )
+        for table in protected:
+            with self.subTest(table=repr(table)[:80]):
+                self.assertIsInstance(table, MappingProxyType)
+                with self.assertRaises(TypeError):
+                    table[next(iter(table))] = object()
+
     def test_authority_and_boundary_policy_lookups_are_read_only(self) -> None:
         """Permission semantics cannot drift because a caller mutates an imported module constant."""
 
