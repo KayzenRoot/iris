@@ -464,7 +464,9 @@ class TolerancesNormaliseDeterministically(unittest.TestCase):
             with self.subTest(value=value):
                 with self.assertRaises(ToleranceError) as caught:
                     envelope(target=value)
-                self.assertIn("must be a number", str    def test_nonfinite_bounds_and_measurements_are_refused(self) -> None:
+                self.assertIn("must be a number", str(caught.exception))
+
+    def test_nonfinite_bounds_and_measurements_are_refused(self) -> None:
         for value in (float("nan"), float("inf"), float("-inf")):
             with self.subTest(bound=value):
                 with self.assertRaises(ToleranceError) as caught:
@@ -481,8 +483,6 @@ class TolerancesNormaliseDeterministically(unittest.TestCase):
                 with self.assertRaises(PredicateError) as caught:
                     PredicateCall(predicate_id="numeric", version="v1", arguments={"value": value})
                 self.assertIn("finite", str(caught.exception))
-
-(caught.exception))
 
     def test_a_metric_must_be_a_reference_and_not_a_string(self) -> None:
         with self.assertRaises(SchemaValidationError) as caught:
