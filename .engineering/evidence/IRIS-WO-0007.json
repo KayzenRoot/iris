@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0007",
+  "issue": 24,
+  "status": "EXECUTED_PENDING_AUDIT",
+  "branch": "iris-wo-0007-source-pack-reconciliation",
+  "baseSha": "d65df7f239627f99941896451340f43ee1a887fd",
+  "headBinding": "Use PR headRefOid / exact-head Governance; do not self-reference this evidence commit as its own head.",
+  "findings": [
+    {
+      "id": "SP-01",
+      "severity": "HIGH",
+      "classification": "CHAT_FIXABLE",
+      "status": "CORRECTED",
+      "finding": "Scope still named M03 planning as current increment, contradicting M04_PLANNING_READY checkpoint."
+    },
+    {
+      "id": "SP-02",
+      "severity": "MEDIUM",
+      "classification": "CHAT_FIXABLE",
+      "status": "CORRECTED",
+      "finding": "Project Overview still stated current phase was bootstrap only."
+    },
+    {
+      "id": "SP-03",
+      "severity": "MEDIUM",
+      "classification": "CHAT_FIXABLE",
+      "status": "CORRECTED",
+      "finding": "Architecture still carried BOOTSTRAP_ARCHITECTURE and omitted already-frozen M01-M03 authority layers."
+    },
+    {
+      "id": "SP-04",
+      "severity": "LOW",
+      "classification": "CHAT_FIXABLE",
+      "status": "CORRECTED",
+      "finding": "Integration/Test/Deployment documents still described only bootstrap/future-product posture despite implemented semantic kernels."
+    },
+    {
+      "id": "SP-05",
+      "severity": "MEDIUM",
+      "classification": "CHAT_FIXABLE",
+      "status": "CORRECTED",
+      "finding": "Backlog still listed already-completed WO-0002 promotion as next and M00 execution as an unqualified next-step gate."
+    }
+  ],
+  "m00PlanningDebt": {
+    "status": "RECORDED_NOT_RESOLVED",
+    "statement": "No separate approved M00 contract-freeze artifact was found in the inspected repository history. This increment does not infer completion. Checkpoint priority still authorizes M04 planning."
+  },
+  "changes": {
+    "productKernelFiles": 0,
+    "runtimeDependencies": 0,
+    "canonicalDocs": [
+      "docs/project-brain/01-PROJECT-OVERVIEW.md",
+      "docs/project-brain/03-SCOPE.md",
+      "docs/project-brain/04-ARCHITECTURE.md",
+      "docs/project-brain/05-INTEGRATION-CONTRACTS.md",
+      "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "docs/project-brain/12-LOCAL-DEPLOYMENT.md",
+      "docs/project-brain/14-BACKLOG.md"
+    ]
+  },
+  "baselineEvidence": {
+    "mainSha": "d65df7f239627f99941896451340f43ee1a887fd",
+    "governanceRun": 35679208065,
+    "tests": {
+      "run": 2527,
+      "result": "OK"
+    }
+  },
+  "reviewVerdict": null,
+  "checkpointDelta": {
+    "applied": false,
+    "proposed": "No checkpoint phase transition. After approval/merge, retain M04_PLANNING_READY and admit M04 S01 planning."
+  },
+  "stopCondition": {
+    "result": "PENDING_INDEPENDENT_AUDIT_AND_MERGE",
+    "m04PlanningStarted": false,
+    "m04ImplementationStarted": false
+  }
+}
