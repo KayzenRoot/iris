@@ -23,6 +23,7 @@ looked at, and ``ready`` refuses to be true while any of §28's seven is missing
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from types import MappingProxyType
 from typing import Any, Iterable, Mapping
 
 from .ambiguity import OpenQuestion, QuestionStatus
@@ -139,7 +140,7 @@ class ReadinessFamily(Labeled):
 #: §28's bullets, in the order the spec lists them. Report order follows this.
 READINESS_FAMILIES = tuple(ReadinessFamily)
 
-_FAMILY_ORDER = {item.value: index for index, item in enumerate(READINESS_FAMILIES)}
+_FAMILY_ORDER = MappingProxyType({item.value: index for index, item in enumerate(READINESS_FAMILIES)})
 
 
 @dataclass(frozen=True)

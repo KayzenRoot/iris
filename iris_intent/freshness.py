@@ -28,6 +28,7 @@ invalidate provider-neutral semantics" from a hope into a checked property.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from types import MappingProxyType
 from typing import Any, Iterable, Mapping
 
 from .base import Labeled, Record, of
@@ -113,7 +114,7 @@ class FreshnessDimension(Labeled):
 
 #: Which dimensions move the requirement and which only move its carriage. The two provider
 #: axes are the whole of the mapping half because nothing else in M03 is provider-facing.
-_DIMENSION_SCOPES: Mapping[FreshnessDimension, DerivedScope] = {
+_DIMENSION_SCOPES: Mapping[FreshnessDimension, DerivedScope] = MappingProxyType({
     FreshnessDimension.SOURCE_REVISION: DerivedScope.SEMANTICS,
     FreshnessDimension.SEMANTIC_MODEL: DerivedScope.SEMANTICS,
     FreshnessDimension.CONSTRAINT_BUNDLE: DerivedScope.SEMANTICS,
@@ -126,7 +127,7 @@ _DIMENSION_SCOPES: Mapping[FreshnessDimension, DerivedScope] = {
     FreshnessDimension.UPSTREAM_ARTIFACT: DerivedScope.SEMANTICS,
     FreshnessDimension.PROVIDER_CAPABILITY: DerivedScope.MAPPING,
     FreshnessDimension.PROVIDER_TRANSLATION: DerivedScope.MAPPING,
-}
+})
 
 
 class DerivedArtifactKind(Labeled):
@@ -209,7 +210,7 @@ class FreshnessEvidence(Labeled):
         return self is not FreshnessEvidence.UNAVAILABLE
 
 
-_EVIDENCE_BASES: Mapping[FreshnessEvidence, FreshnessBasis | None] = {
+_EVIDENCE_BASES: Mapping[FreshnessEvidence, FreshnessBasis | None] = MappingProxyType({
     FreshnessEvidence.DIGEST_MATCH: FreshnessBasis.DIGEST,
     FreshnessEvidence.DIGEST_MISMATCH: FreshnessBasis.DIGEST,
     FreshnessEvidence.VERSION_MATCH: FreshnessBasis.VERSION,
@@ -219,7 +220,7 @@ _EVIDENCE_BASES: Mapping[FreshnessEvidence, FreshnessBasis | None] = {
     FreshnessEvidence.PRESENT: FreshnessBasis.PRESENCE,
     FreshnessEvidence.ABSENT: FreshnessBasis.PRESENCE,
     FreshnessEvidence.UNAVAILABLE: None,
-}
+})
 
 
 class FreshnessState(Labeled):
@@ -256,15 +257,15 @@ class FreshnessState(Labeled):
         return _STATE_RANKS[self]
 
 
-_STATE_RANKS: Mapping[FreshnessState, int] = {
+_STATE_RANKS: Mapping[FreshnessState, int] = MappingProxyType({
     FreshnessState.CURRENT: 0,
     FreshnessState.STALE: 1,
     FreshnessState.EXPIRED: 2,
     FreshnessState.MISSING: 3,
     FreshnessState.UNKNOWN: 4,
-}
+})
 
-_EVIDENCE_STATES: Mapping[FreshnessEvidence, FreshnessState] = {
+_EVIDENCE_STATES: Mapping[FreshnessEvidence, FreshnessState] = MappingProxyType({
     FreshnessEvidence.DIGEST_MATCH: FreshnessState.CURRENT,
     FreshnessEvidence.DIGEST_MISMATCH: FreshnessState.STALE,
     FreshnessEvidence.VERSION_MATCH: FreshnessState.CURRENT,
@@ -274,7 +275,7 @@ _EVIDENCE_STATES: Mapping[FreshnessEvidence, FreshnessState] = {
     FreshnessEvidence.PRESENT: FreshnessState.CURRENT,
     FreshnessEvidence.ABSENT: FreshnessState.MISSING,
     FreshnessEvidence.UNAVAILABLE: FreshnessState.UNKNOWN,
-}
+})
 
 
 def require_revision_ordinal(value: Any, field_name: str) -> int:
