@@ -4,7 +4,7 @@
   "issue": 24,
   "branch": "iris-wo-0007-source-pack-reconciliation",
   "baseSha": "d65df7f239627f99941896451340f43ee1a887fd",
-  "status": "ACTIVE_RECONCILIATION",
+  "status": "CLOSED_APPROVED",
   "risk": "STANDARD",
   "purpose": "Reconcile stale canonical Source Pack truth before M04 planning.",
   "criticalSources": [
@@ -69,5 +69,13 @@
   "stopCondition": "Exact-head Governance + independent APPROVED + squash merge + exact-main Governance before M04 S01.",
   "supportingDocRewrites": [
     "README.md"
-  ]
+  ],
+  "reviewClosure": {
+    "verdict": "APPROVED",
+    "reviewedHead": "d0feba9435dfc0591feb96c72c920d99d86e90fd",
+    "governanceRun": 35680115768,
+    "governanceJob": 106595068454,
+    "tests": 2527,
+    "criticalHighBlockers": 0
+  }
 }
