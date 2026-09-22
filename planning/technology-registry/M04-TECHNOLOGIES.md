@@ -1,7 +1,7 @@
 # M04 Technology Registry
 
 Module: `M04 — Multimodal IR / Scene IR`
-Status: `S04_REGISTRY_ACTIVE`
+Status: `S01_S05_CANDIDATES_COMPLETE`
 Rule: proprietary candidates are design identifiers, not novelty/patentability claims until dedicated prior-art/legal review.
 
 ## External prior-art references
@@ -404,3 +404,97 @@ All `MIRX-061..090` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
 
 
 All `MIRX-091..120` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
+
+
+## IRIS-MIRX-121 — Multi-Axis Version Vector
+**Purpose:** separate contract/transport/core-schema/facet/lowering/validator versions.
+
+## IRIS-MIRX-122 — Canonical IR Envelope
+**Purpose:** bind canonical payload, manifests, versions and digests in one transport-neutral trust envelope.
+
+## IRIS-MIRX-123 — Canonical Byte Profile
+**Purpose:** deterministic finite-number-safe encoding for hashing/signing/fingerprints.
+
+## IRIS-MIRX-124 — Layered Validation Pipeline
+**Purpose:** transport -> schema -> structure -> refs -> semantics -> authority -> capability -> limits -> round trip.
+
+## IRIS-MIRX-125 — Stable Validation Finding Taxonomy
+**Purpose:** typed deterministic finding codes rather than free-form-only errors.
+
+## IRIS-MIRX-126 — Validation Profile
+**Purpose:** versioned phase/schema/limit/round-trip requirements for PREVIEW/FINAL/targets.
+
+## IRIS-MIRX-127 — Schema Evolution Ledger
+**Purpose:** family/version compatibility, deprecation, migration and behavior-change records.
+
+## IRIS-MIRX-128 — Directional Compatibility Declaration
+**Purpose:** READ/WRITE/ROUND_TRIP/BEHAVIOR/MIGRATION/INCOMPATIBLE/UNKNOWN status per version pair.
+
+## IRIS-MIRX-129 — Unknown Extension Policy
+**Purpose:** required fail-closed vs explicitly opaque-preservable optional data.
+
+## IRIS-MIRX-130 — Immutable Migration Plan
+**Purpose:** source/target schema conversion contract before execution.
+
+## IRIS-MIRX-131 — Immutable Migration Receipt
+**Purpose:** new revision + exact path/loss/evidence record while preserving historical source.
+
+## IRIS-MIRX-132 — Semantic Round-Trip Contract
+**Purpose:** per-family exact/tolerant/opaque/loss/one-way guarantees.
+
+## IRIS-MIRX-133 — Round-Trip Receipt
+**Purpose:** adapter chain and path-by-path semantic comparison evidence.
+
+## IRIS-MIRX-134 — Semantic Witness Set
+**Purpose:** canonical predeclared invariants that a round trip must preserve.
+
+## IRIS-MIRX-135 — IR Equivalence Profile
+**Purpose:** versioned exact/tolerant/unit/color/time comparison semantics.
+
+## IRIS-MIRX-136 — Witness Coverage Matrix
+**Purpose:** prove every mandatory obligation has an applicable round-trip witness.
+
+## IRIS-MIRX-137 — Canonical/Derived Data Firewall
+**Purpose:** prevent cache/observation/recomputed values from overwriting authored/lowered truth.
+
+## IRIS-MIRX-138 — Digest Profile Registry
+**Purpose:** versioned digest algorithms and canonical input definitions.
+
+## IRIS-MIRX-139 — Subgraph Integrity Digest
+**Purpose:** localized tamper/change detection without hashing unrelated graph regions.
+
+## IRIS-MIRX-140 — Resource Manifest Digest
+**Purpose:** pin external resource identity/integrity independently of mutable locations.
+
+## IRIS-MIRX-141 — Adversarial Complexity Shield
+**Purpose:** deterministic node/edge/depth/fanout/size/sample limits.
+
+## IRIS-MIRX-142 — Graph Cycle Policy Validator
+**Purpose:** edge-family-specific cycle legality with strict containment rejection.
+
+## IRIS-MIRX-143 — Reference Reachability Validator
+**Purpose:** required refs/provenance/lowering traces cannot dangle.
+
+## IRIS-MIRX-144 — Deterministic Finding Order
+**Purpose:** stable audit output for same input/profile/version.
+
+## IRIS-MIRX-145 — Adapter Qualification Contract
+**Purpose:** version/hash/profile/witness/loss corpus required before claiming round-trip support.
+
+## IRIS-MIRX-146 — Anti-Self-Certification Shield
+**Purpose:** adapter/provider output cannot declare its own equivalence/qualification authoritative.
+
+## IRIS-MIRX-147 — IR Release Readiness Evidence
+**Purpose:** aggregate M04 readiness without stealing downstream release/quality/security authority.
+
+## IRIS-MIRX-148 — Schema Downgrade Refusal
+**Purpose:** prevent automatic coercion into older/weaker schema without authorized migration/loss policy.
+
+## IRIS-MIRX-149 — Opaque Preservation Digest
+**Purpose:** prove unknown optional opaque extensions survived untouched when preservation is promised.
+
+## IRIS-MIRX-150 — Round-Trip Regression Corpus Contract
+**Purpose:** deterministic representative corpus/witness matrix for adapter qualification and schema evolution.
+
+
+All `MIRX-121..150` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
