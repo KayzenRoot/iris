@@ -1,7 +1,7 @@
 # M04 Technology Registry
 
 Module: `M04 — Multimodal IR / Scene IR`
-Status: `S01_REGISTRY_ACTIVE`
+Status: `S02_REGISTRY_ACTIVE`
 Rule: proprietary candidates are design identifiers, not novelty/patentability claims until dedicated prior-art/legal review.
 
 ## External prior-art references
@@ -122,3 +122,97 @@ No candidate is frozen until:
 3. external prior art is considered;
 4. M05-M60 Forward Compatibility Scan passes;
 5. Final Technology Review accepts/supersedes/rejects it.
+
+
+## IRIS-MIRX-031 — Unit-Safe Spatial Ledger
+**Purpose:** bind physical/spatial values to explicit dimensions, units and reference conventions.
+
+## IRIS-MIRX-032 — Coordinate Frame Registry
+**Purpose:** versioned named/scoped coordinate-frame semantics independent of DCC namespaces.
+
+## IRIS-MIRX-033 — Transform Intent Stack
+**Purpose:** preserve authored operation order separately from derived matrices.
+
+## IRIS-MIRX-034 — Spatial Conversion Receipt
+**Purpose:** prove source/target frames, units, version and loss for coordinate conversion.
+
+## IRIS-MIRX-035 — Physical Camera Envelope
+**Purpose:** portable physical camera semantics with typed units and projection model.
+
+## IRIS-MIRX-036 — Lens Model Extension Registry
+**Purpose:** fisheye/panoramic/calibrated/nonlinear lens extensions without polluting core.
+
+## IRIS-MIRX-037 — Framing Constraint Binding
+**Purpose:** bind M03 composition/framing intent to camera/subject/spatial IR.
+
+## IRIS-MIRX-038 — Focus & DOF Semantic Contract
+**Purpose:** explicit focus targets/distance/aperture intent independent of renderer knobs.
+
+## IRIS-MIRX-039 — Exposure Semantics Partition
+**Purpose:** keep physical exposure controls separate from tone/display transforms.
+
+## IRIS-MIRX-040 — Photometric Light Core
+**Purpose:** typed emitter and physically identified quantity/unit semantics.
+
+## IRIS-MIRX-041 — Spectral Intent Envelope
+**Purpose:** represent RGB/color-temperature/spectral intent with explicit basis and future spectral extension.
+
+## IRIS-MIRX-042 — Light Influence Set
+**Purpose:** typed include/exclude affected-subgraph semantics.
+
+## IRIS-MIRX-043 — Light Shaping Contract
+**Purpose:** provider-neutral cones/spread/profile/filter semantics.
+
+## IRIS-MIRX-044 — Shadow Intent Contract
+**Purpose:** separate artistic/physical shadow requirements from renderer parameters.
+
+## IRIS-MIRX-045 — Environment Illumination Envelope
+**Purpose:** environment/HDRI/procedural illumination resource + orientation/exposure/color contracts.
+
+## IRIS-MIRX-046 — Material Semantic Graph
+**Purpose:** typed target-neutral material network with deterministic port validation.
+
+## IRIS-MIRX-047 — Shading Dialect Registry
+**Purpose:** versioned extension families for advanced BSDF/volume/displacement semantics.
+
+## IRIS-MIRX-048 — Material Purpose Binding
+**Purpose:** FINAL/PREVIEW/utility bindings with explicit target/subset scope.
+
+## IRIS-MIRX-049 — Color-Space Tagged Value
+**Purpose:** make color-space/encoding/alpha semantics inseparable from correctness-critical color values.
+
+## IRIS-MIRX-050 — Color Pipeline Contract Ref
+**Purpose:** bind an admitted OCIO-like profile/config without taking color-management runtime ownership.
+
+## IRIS-MIRX-051 — Color Conversion Receipt
+**Purpose:** source/target color identity, transform version, tolerance and loss evidence.
+
+## IRIS-MIRX-052 — Texture Semantic Binding
+**Purpose:** coordinate set, channel role, encoding, alpha and sampling intent around texture resources.
+
+## IRIS-MIRX-053 — Material Coverage Graph
+**Purpose:** prove geometry/subset material coverage and reveal unbound/ambiguous regions.
+
+## IRIS-MIRX-054 — Physicality Classifier
+**Purpose:** tag PHYSICAL vs approximation vs artistic non-physical semantics.
+
+## IRIS-MIRX-055 — Preview/Final Separation Shield
+**Purpose:** prevent cheaper preview representations from silently satisfying final obligations.
+
+## IRIS-MIRX-056 — Spatial Dependency Closure
+**Purpose:** ensure subgraph slices include frames/transforms/coordinate dependencies required for correct interpretation.
+
+## IRIS-MIRX-057 — Camera Match Receipt
+**Purpose:** record semantic/calibration correspondence when importing/matching external cameras.
+
+## IRIS-MIRX-058 — Approximation Impact Map
+**Purpose:** enumerate exact IR paths/quality obligations affected by provider approximation.
+
+## IRIS-MIRX-059 — Projection Space Bridge
+**Purpose:** scoped named coordinate frames for projection painting/procedural material spaces.
+
+## IRIS-MIRX-060 — Spatial Staleness Vector
+**Purpose:** mark derived bounds/transforms/projections stale when correctness-relevant geometry/frame dependencies change.
+
+
+All `MIRX-031..060` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
