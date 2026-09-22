@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import uuid
 from dataclasses import dataclass
+from types import MappingProxyType
 from typing import Any, Mapping
 
 from .base import Labeled, Record, of
@@ -167,7 +168,7 @@ class AuthorityLevel(Labeled):
         return self in _SELF_AUTHORITY
 
 
-_AUTHORITY_RANKS: Mapping[AuthorityLevel, int] = {
+_AUTHORITY_RANKS: Mapping[AuthorityLevel, int] = MappingProxyType({
     AuthorityLevel.UNTRUSTED: 0,
     AuthorityLevel.PROVIDER_OBSERVED: 1,
     AuthorityLevel.RETRIEVED: 2,
@@ -176,7 +177,7 @@ _AUTHORITY_RANKS: Mapping[AuthorityLevel, int] = {
     AuthorityLevel.TEAM_ASSERTED: 5,
     AuthorityLevel.GOVERNED_POLICY: 6,
     AuthorityLevel.HUMAN_OWNER: 7,
-}
+})
 
 _SELF_AUTHORITY = frozenset({AuthorityLevel.GOVERNED_POLICY, AuthorityLevel.HUMAN_OWNER})
 
@@ -202,7 +203,7 @@ _TRUSTED_SOURCES = frozenset(
 )
 
 #: The authority a source kind can reach on its own, before any human admission.
-_SOURCE_CEILINGS: Mapping[SourceKind, AuthorityLevel] = {
+_SOURCE_CEILINGS: Mapping[SourceKind, AuthorityLevel] = MappingProxyType({
     SourceKind.HUMAN_MESSAGE: AuthorityLevel.HUMAN_OWNER,
     SourceKind.HUMAN_DOCUMENT: AuthorityLevel.HUMAN_OWNER,
     SourceKind.GOVERNED_POLICY: AuthorityLevel.GOVERNED_POLICY,
@@ -213,7 +214,7 @@ _SOURCE_CEILINGS: Mapping[SourceKind, AuthorityLevel] = {
     SourceKind.RETRIEVED_CONTEXT: AuthorityLevel.RETRIEVED,
     SourceKind.MODEL_OUTPUT: AuthorityLevel.MODEL_INFERRED,
     SourceKind.PROVIDER_RESULT: AuthorityLevel.PROVIDER_OBSERVED,
-}
+})
 
 
 #: Refs into namespaces whose members change under a stable id, so the id alone is not a pin.

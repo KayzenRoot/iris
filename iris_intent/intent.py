@@ -17,6 +17,7 @@ could rewrite an inference into an explicit truth is a new governed revision, wh
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from types import MappingProxyType
 from typing import Any, Iterable, Mapping
 
 from .base import Labeled, Record, of
@@ -135,22 +136,22 @@ class IntentOrigin(Labeled):
         return self in {IntentOrigin.DERIVED, IntentOrigin.INFERRED}
 
 
-_ORIGIN_CEILINGS: Mapping[IntentOrigin, AuthorityLevel] = {
+_ORIGIN_CEILINGS: Mapping[IntentOrigin, AuthorityLevel] = MappingProxyType({
     IntentOrigin.EXPLICIT: AuthorityLevel.HUMAN_OWNER,
     IntentOrigin.DERIVED: AuthorityLevel.GOVERNED_POLICY,
     IntentOrigin.INFERRED: AuthorityLevel.MODEL_INFERRED,
     # A default applied by governed policy is legitimately governed; a default applied by the
     # normaliser on its own initiative is not, and the ceiling is what keeps those apart.
     IntentOrigin.DEFAULTED: AuthorityLevel.GOVERNED_POLICY,
-}
+})
 
 #: The weakest authority an origin may hold, as well as the strongest.
-_ORIGIN_FLOORS: Mapping[IntentOrigin, AuthorityLevel] = {
+_ORIGIN_FLOORS: Mapping[IntentOrigin, AuthorityLevel] = MappingProxyType({
     IntentOrigin.EXPLICIT: AuthorityLevel.TEAM_ASSERTED,
     IntentOrigin.DERIVED: AuthorityLevel.PROJECT_RECORD,
     IntentOrigin.INFERRED: AuthorityLevel.UNTRUSTED,
     IntentOrigin.DEFAULTED: AuthorityLevel.PROJECT_RECORD,
-}
+})
 
 
 def authority_ceiling_for_origin(origin: Any) -> AuthorityLevel:

@@ -18,6 +18,7 @@ is the thing that was approved, and the receipt names that graph.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from types import MappingProxyType
 from typing import Any, Iterable, Mapping
 
 from .admission import detect_cycle
@@ -125,7 +126,7 @@ class OverrideAction(Labeled):
         return self is not OverrideAction.TEMPORARY_EXPERIMENT
 
 
-_ACTION_FLOORS: Mapping[OverrideAction, AuthorityLevel] = {
+_ACTION_FLOORS: Mapping[OverrideAction, AuthorityLevel] = MappingProxyType({
     OverrideAction.STRENGTHEN: AuthorityLevel.PROJECT_RECORD,
     OverrideAction.NARROW_SCOPE: AuthorityLevel.PROJECT_RECORD,
     OverrideAction.REPLACE: AuthorityLevel.TEAM_ASSERTED,
@@ -133,7 +134,7 @@ _ACTION_FLOORS: Mapping[OverrideAction, AuthorityLevel] = {
     OverrideAction.TEMPORARY_EXPERIMENT: AuthorityLevel.GOVERNED_POLICY,
     OverrideAction.RELAX: AuthorityLevel.GOVERNED_POLICY,
     OverrideAction.DISABLE: AuthorityLevel.HUMAN_OWNER,
-}
+})
 
 
 class ReservedBoundaryKind(Labeled):
@@ -168,14 +169,14 @@ class ReservedBoundaryKind(Labeled):
         return True
 
 
-_BOUNDARY_OWNERS: Mapping[ReservedBoundaryKind, str] = {
+_BOUNDARY_OWNERS: Mapping[ReservedBoundaryKind, str] = MappingProxyType({
     ReservedBoundaryKind.M01_FATAL_GATE: "M01 quality kernel",
     ReservedBoundaryKind.M01_EVALUATOR_AUTHORITY: "M01 evaluator registry",
     ReservedBoundaryKind.M02_IMMUTABLE_HISTORY: "M02 project OS",
     ReservedBoundaryKind.PROJECT_GOVERNANCE: "repository governance",
     ReservedBoundaryKind.RIGHTS_SECURITY: "M53/M54 rights and security policy",
     ReservedBoundaryKind.PLATFORM_LEGAL: "platform legal policy",
-}
+})
 
 #: The boundaries every admitted graph must carry. Dropping one from a policy document is the
 #: cheapest way to make M03 complicit in a bypass, so presence is checked, not assumed.
@@ -183,14 +184,14 @@ MANDATORY_RESERVED_KINDS: frozenset[ReservedBoundaryKind] = frozenset(ReservedBo
 
 #: Canonical rule classes per boundary. Callers may add more; these six always exist, because a
 #: graph that "forgot" to declare the fatal gate would otherwise have nothing to refuse with.
-_RESERVED_DEFAULT_RULE_CLASSES: Mapping[ReservedBoundaryKind, tuple[str, ...]] = {
+_RESERVED_DEFAULT_RULE_CLASSES: Mapping[ReservedBoundaryKind, tuple[str, ...]] = MappingProxyType({
     ReservedBoundaryKind.M01_FATAL_GATE: ("m01.fatal-gate",),
     ReservedBoundaryKind.M01_EVALUATOR_AUTHORITY: ("m01.evaluator-authority",),
     ReservedBoundaryKind.M02_IMMUTABLE_HISTORY: ("m02.immutable-history",),
     ReservedBoundaryKind.PROJECT_GOVERNANCE: ("governance.work-order",),
     ReservedBoundaryKind.RIGHTS_SECURITY: ("rights.security",),
     ReservedBoundaryKind.PLATFORM_LEGAL: ("platform.legal",),
-}
+})
 
 
 def _rule_classes(value: Any, name: str, *, limit: int) -> tuple[str, ...]:

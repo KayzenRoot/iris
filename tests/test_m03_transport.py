@@ -1448,6 +1448,30 @@ class PackageSurfaceTests(unittest.TestCase):
         self.assertEqual(versions.SUPPORTED_CONTRACT_VERSIONS, frozenset({CONTRACT_VERSION}))
         self.assertEqual(versions.SUPPORTED_SCHEMA_VERSIONS, frozenset({SCHEMA_VERSION}))
 
+    def test_authority_and_boundary_policy_lookups_are_read_only(self) -> None:
+        """Permission semantics cannot drift because a caller mutates an imported module constant."""
+
+        from iris_intent import authority, identity, intent, overrides, ports
+
+        protected = (
+            identity._AUTHORITY_RANKS,
+            identity._SOURCE_CEILINGS,
+            intent._ORIGIN_CEILINGS,
+            intent._ORIGIN_FLOORS,
+            authority._ACTION_FLOORS,
+            authority._BOUNDARY_OWNERS,
+            authority._RESERVED_DEFAULT_RULE_CLASSES,
+            ports._BOUNDARY_KINDS,
+            ports._BOUNDARY_CLAIMS,
+            ports._BOUNDARY_OWNERS,
+            overrides._ACTION_MOVEMENTS,
+        )
+        for table in protected:
+            with self.subTest(table=repr(table)[:80]):
+                self.assertIsInstance(table, MappingProxyType)
+                with self.assertRaises(TypeError):
+                    table[next(iter(table))] = object()
+
     def test_the_port_contract_tables_are_read_only(self) -> None:
         """The twelve extension contracts are frozen lookup data, never runtime authority state."""
 

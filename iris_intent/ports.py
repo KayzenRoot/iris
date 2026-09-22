@@ -147,7 +147,7 @@ class ExtensionBoundary(Labeled):
         return item.kind in self.ref_kinds
 
 
-_BOUNDARY_KINDS: Mapping[ExtensionBoundary, frozenset[str]] = {
+_BOUNDARY_KINDS: Mapping[ExtensionBoundary, frozenset[str]] = MappingProxyType({
     ExtensionBoundary.PROJECT_GRAPH: frozenset(
         {
             RefKind.M02_PROJECT.value,
@@ -200,9 +200,9 @@ _BOUNDARY_KINDS: Mapping[ExtensionBoundary, frozenset[str]] = {
     ExtensionBoundary.DOMAIN_VOCABULARY: frozenset(
         {RefKind.PREDICATE.value, RefKind.SEMANTIC_TYPE.value}
     ),
-}
+})
 
-_BOUNDARY_CLAIMS: Mapping[ExtensionBoundary, str] = {
+_BOUNDARY_CLAIMS: Mapping[ExtensionBoundary, str] = MappingProxyType({
     ExtensionBoundary.PROJECT_GRAPH: "project, production, branch, variant and build state",
     ExtensionBoundary.SEMANTIC_TYPE: "the semantic types and IR schemas a downstream compiler defines",
     ExtensionBoundary.IDENTITY_ANCHOR: "identity anchors and the DNA policy that binds them",
@@ -215,9 +215,9 @@ _BOUNDARY_CLAIMS: Mapping[ExtensionBoundary, str] = {
     ExtensionBoundary.DELIVERY_DESTINATION: "destinations and delivery profiles",
     ExtensionBoundary.EXPLANATION_EXPORT: "rendering M03's explanation graph for a viewer",
     ExtensionBoundary.DOMAIN_VOCABULARY: "domain semantic paths and predicate extensions",
-}
+})
 
-_BOUNDARY_OWNERS: Mapping[ExtensionBoundary, str] = {
+_BOUNDARY_OWNERS: Mapping[ExtensionBoundary, str] = MappingProxyType({
     ExtensionBoundary.PROJECT_GRAPH: "M02",
     ExtensionBoundary.SEMANTIC_TYPE: "M04",
     ExtensionBoundary.IDENTITY_ANCHOR: "M05/M20",
@@ -230,7 +230,7 @@ _BOUNDARY_OWNERS: Mapping[ExtensionBoundary, str] = {
     ExtensionBoundary.DELIVERY_DESTINATION: "M59",
     ExtensionBoundary.EXPLANATION_EXPORT: "M50/M60",
     ExtensionBoundary.DOMAIN_VOCABULARY: "the domain registry that owns the vocabulary",
-}
+})
 
 def boundaries_admitting(kind: Any) -> tuple[ExtensionBoundary, ...]:
     """Which boundaries will take an answer about a kind.

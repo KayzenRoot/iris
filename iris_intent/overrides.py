@@ -18,6 +18,7 @@ risky relaxation. The proposal type cannot become a receipt by having a field fl
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from types import MappingProxyType
 from typing import Any, Iterable, Mapping
 
 from .authority import (
@@ -736,7 +737,7 @@ def _scope_widened(requested: ConstraintScope, granted: ConstraintScope) -> tupl
     return tuple(violations)
 
 
-_ACTION_MOVEMENTS: Mapping[OverrideAction, frozenset[str]] = {
+_ACTION_MOVEMENTS: Mapping[OverrideAction, frozenset[str]] = MappingProxyType({
     OverrideAction.STRENGTHEN: frozenset({ChangeKind.STRENGTHENED.value}),
     OverrideAction.NARROW_SCOPE: frozenset({ChangeKind.RESCOPED.value}),
     OverrideAction.REPLACE: frozenset(
@@ -762,7 +763,7 @@ _ACTION_MOVEMENTS: Mapping[OverrideAction, frozenset[str]] = {
             ChangeKind.REMOVED.value,
         }
     ),
-}
+})
 
 
 @dataclass(frozen=True)
