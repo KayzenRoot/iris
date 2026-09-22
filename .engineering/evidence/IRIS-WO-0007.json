@@ -41,6 +41,13 @@
       "classification": "CHAT_FIXABLE",
       "status": "CORRECTED",
       "finding": "Backlog still listed already-completed WO-0002 promotion as next and M00 execution as an unqualified next-step gate."
+    },
+    {
+      "id": "SP-06",
+      "severity": "MEDIUM",
+      "classification": "CHAT_FIXABLE",
+      "status": "CORRECTED",
+      "finding": "Source Hierarchy still said BOOTSTRAP_ACTIVE and root README still advertised BOOTSTRAP_GEF_HIVE as current state."
     }
   ],
   "m00PlanningDebt": {
@@ -51,6 +58,7 @@
     "productKernelFiles": 0,
     "runtimeDependencies": 0,
     "canonicalDocs": [
+      ".engineering/SOURCE-HIERARCHY.md",
       "docs/project-brain/01-PROJECT-OVERVIEW.md",
       "docs/project-brain/03-SCOPE.md",
       "docs/project-brain/04-ARCHITECTURE.md",
@@ -58,6 +66,9 @@
       "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
       "docs/project-brain/12-LOCAL-DEPLOYMENT.md",
       "docs/project-brain/14-BACKLOG.md"
+    ],
+    "supportingDocs": [
+      "README.md"
     ]
   },
   "baselineEvidence": {
