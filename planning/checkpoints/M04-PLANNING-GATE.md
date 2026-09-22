@@ -1,6 +1,6 @@
 # IRIS M04 Planning Gate
 
-Status: `COMPAT_SCAN_PASS_CONTRACT_FREEZE_NEXT`
+Status: `CONTRACT_FREEZE_CANDIDATE_AUDIT_NEXT`
 Issue: `#26`
 Branch: `m04-multimodal-ir-planning`
 Authorized main baseline: `c231dd61a210fe6d315126e755b4642a4fd2e9a3`
@@ -77,7 +77,18 @@ S01-S05 complete. M04 implementation remains blocked.
 - Explicit overlap shields: M28 MaterialIR, M31 Camera/Light IR, M36/M38 Timeline/Color, M48 quality authority
 - M16 concrete Provider Compiler ownership preserved.
 
+## Module Contract Freeze Candidate
+- Target version: `m04-contract-v1.0`
+- Status: `FREEZE_CANDIDATE`
+- File: `planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md`
+- Hard invariants: 80
+- Consolidated technology families: 20
+- Domain-neutral synthetic targets: 7
+- Concrete Provider Compiler ownership: M16 only
+
 ## Next legal action
-Compile the **M04 Module Contract Freeze Candidate**. No implementation is authorized.
+Run exact-head Governance and an **independent planning audit**. Only an APPROVED planning audit may promote this candidate to `FROZEN_APPROVED`.
+
+M04 implementation remains blocked.
 
 Do not implement M04.
