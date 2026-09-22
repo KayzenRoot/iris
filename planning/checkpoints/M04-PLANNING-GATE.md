@@ -1,6 +1,6 @@
 # IRIS M04 Planning Gate
 
-Status: `S02_COMPLETE_S03_NEXT`
+Status: `S03_COMPLETE_S04_NEXT`
 Issue: `#26`
 Branch: `m04-multimodal-ir-planning`
 Authorized main baseline: `c231dd61a210fe6d315126e755b4642a4fd2e9a3`
@@ -8,8 +8,8 @@ Authorized main baseline: `c231dd61a210fe6d315126e755b4642a4fd2e9a3`
 ## Sessions
 - S01 — Scene, Character and Asset IR: COMPLETE_FOR_MODULE_PLANNING
 - S02 — Camera, Lighting, Material and Spatial IR: COMPLETE_FOR_MODULE_PLANNING
-- S03 — Motion, Audio, Music and Narrative IR: NEXT
-- S04 — Provider Compiler and capability downgrade planning: NOT_STARTED
+- S03 — Motion, Audio, Music and Narrative IR: COMPLETE_FOR_MODULE_PLANNING
+- S04 — Provider Compiler and capability downgrade planning: NEXT
 - S05 — IR validation, versioning and round-trip guarantees: NOT_STARTED
 
 ## Current guard
@@ -42,7 +42,12 @@ Planning only. No M04 implementation is authorized.
 - module plan: S02 in `planning/modules/M04-MULTIMODAL-SCENE-IR.md`
 - technologies: `IRIS-MIRX-031..060`
 
+## S03 artifacts
+- research: `planning/research/M04-S03-MOTION-AUDIO-MUSIC-NARRATIVE-IR-RESEARCH-2026-09-22.md`
+- module plan: S03 in `planning/modules/M04-MULTIMODAL-SCENE-IR.md`
+- technologies: `IRIS-MIRX-061..090`
+
 ## Next legal action
-Continue slow planning with **S03 — Motion, Audio, Music and Narrative IR**.
+Continue slow planning with **S04 — Provider Compiler and capability downgrade planning**.
 
 Do not implement M04.
