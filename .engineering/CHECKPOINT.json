@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M03_IMPLEMENTATION_MERGED",
-  "version": "m03-contract-v1.0",
-  "phase": "M04_PLANNING_READY",
-  "nextStep": "Start governed M04 planning with S01 — Scene, Character and Asset IR."
+  "status": "M04_PLANNING_APPROVED",
+  "version": "m04-contract-v1.0",
+  "phase": "M04_PLANNING_PROMOTION_PENDING_MERGE",
+  "nextStep": "Validate the exact promotion head, squash-merge PR #27, validate exact main, then compile the separate M04 implementation Work Order."
 }
