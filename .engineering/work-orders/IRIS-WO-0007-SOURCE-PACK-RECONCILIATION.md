@@ -16,6 +16,8 @@ The canonical checkpoint already records M01-M03 as implemented/merged and M04 p
 
 ## SCOPE
 
+- update root README current-state truth;
+- update Source Hierarchy lifecycle status while preserving its priority order;
 - update Project Overview current phase truth;
 - update Scope to the admitted M04 planning increment;
 - update Architecture to record frozen M01/M02/M03 authority layers and the planned M04 boundary;
@@ -74,7 +76,7 @@ The canonical checkpoint already records M01-M03 as implemented/merged and M04 p
 
 ## ACCEPTANCE CRITERIA
 
-1. No canonical Source Pack file states that bootstrap or M03 planning is the current phase.
+1. Root README and canonical Source Pack no longer state that bootstrap or M03 planning is the current phase.
 2. Scope truthfully names M04 planning as the admitted next product increment.
 3. Architecture records the already-frozen M01/M02/M03 boundaries.
 4. Backlog does not falsely declare M00 complete and does not block M04 contrary to the checkpoint.
@@ -94,7 +96,7 @@ The canonical checkpoint already records M01-M03 as implemented/merged and M04 p
 
 ## DELIVERABLES
 
-- reconciled canonical Source Pack documents;
+- reconciled root README and canonical Source Pack documents;
 - Work Order;
 - Context Lock;
 - Evidence Bundle;
