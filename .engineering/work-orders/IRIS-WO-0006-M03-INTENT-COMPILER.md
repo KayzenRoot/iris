@@ -415,3 +415,31 @@ DO NOT START M04.
 DO NOT implement provider/domain runtimes to satisfy ports.
 DO NOT lower QualityClass for hardware/provider scarcity.
 If the frozen contract cannot be satisfied without semantic change, STOP `BLOCKED_CONTRACT_CONFLICT`.
+
+
+## REVIEW CLOSURE
+
+Verdict: `APPROVED`
+
+- Independently reviewed/corrected code head: `c7b88bab561144ef6a55be61e60a9d8023246653`
+- Governance run/job: `35671496462 / 106568752831`
+- Exact-head suite: `2527/2527 OK`
+- M03 tests represented in the full suite: `722`
+- Required governance artifacts: `35`
+- Review findings: `6 CHAT_FIXABLE`, all CLOSED
+- EXECUTOR_REQUIRED findings: `0`
+- CRITICAL/HIGH blockers remaining: `0`
+- Frozen contract weakened: `false`
+- M01 quality authority preserved: `true`
+- M02 project/graph/release/ExecutionPlan authority preserved: `true`
+- M04 started: `false`
+
+Independent review hardened exact-content identity, canonical numeric serialization, immutable extension/authority/semantic lookup law and corrected the admission-time checkpoint pin. No Codex re-execution was required.
+
+The review itself temporarily produced failing test-only heads while patches were being corrected. Those heads are not approval evidence. The approval evidence is the exact head and Governance run above.
+
+## REVIEW STOP CONDITION
+
+Approved for a governance/documentation promotion delta, squash merge through `main-governance`, and post-merge `main` validation.
+
+Do not start M04 implementation before M03 is merged and the resulting `main` is validated.

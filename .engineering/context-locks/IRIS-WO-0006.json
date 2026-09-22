@@ -5,7 +5,7 @@
   "branch": "iris-wo-0006-m03-intent-compiler",
   "baseSha": "ee06358ee04de1d7aa2271ac05060247985f98dc",
   "baseTreeSha": "2dba5943ad546e6291996bf55b53fd89a8273a71",
-  "status": "READY_FOR_EXECUTOR",
+  "status": "CLOSED_APPROVED",
   "risk": "HIGH",
   "frozenContract": {
     "name": "m03-contract-v1.0",
@@ -40,7 +40,7 @@
     },
     {
       "path": "docs/project-brain/13-CHECKPOINT.md",
-      "sha": "90bb9b64422f01028ced83a91a6c36730ef54be9"
+      "sha": "2854f2606741da4664ecd1b01ed182ecc4381637"
     },
     {
       "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
@@ -113,5 +113,16 @@
       "version": "1.0.0",
       "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
     }
+  },
+  "reviewClosure": {
+    "verdict": "APPROVED",
+    "reviewedHead": "c7b88bab561144ef6a55be61e60a9d8023246653",
+    "governanceRun": 35671496462,
+    "governanceJob": 106568752831,
+    "tests": 2527,
+    "m03Tests": 722,
+    "criticalHighBlockers": 0,
+    "corrections": "CHAT_FIXABLE only; no Codex re-execution required",
+    "note": "The admission-time checkpoint pin was corrected from the pre-admission blob to the checkpoint blob created by the admission commit itself. Review corrections hardened exact-content refs, canonical numeric JSON, immutable port/authority/semantic law tables, and added regressions without weakening m03-contract-v1.0."
   }
 }

@@ -1,27 +1,31 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0006",
-  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "status": "APPROVED",
   "branch": "iris-wo-0006-m03-intent-compiler",
   "frozenContract": "m03-contract-v1.0",
   "baseSha": "ee06358ee04de1d7aa2271ac05060247985f98dc",
-  "headSha": "72b51adc389f69301247069b10be06741da07170",
-  "headShaBasis": "Tested candidate head: the last commit that changes code, tests, examples or documentation. The commit that records this Evidence Bundle necessarily follows that SHA, so this file states the head it was measured against rather than pretending a Git-tracked file can name its own commit. Exact-head CI on the PR head plus independent review binds the final candidate.",
+  "headSha": "c7b88bab561144ef6a55be61e60a9d8023246653",
+  "headShaBasis": "Independent-review-corrected code/test head. Governance run 35671496462 / job 106568752831 checked out this exact SHA and ran the complete suite. The evidence/promotion commits necessarily follow this SHA and are governance/documentation-only.",
   "headChain": {
     "admissionHead": "6b386d1720a2a575ef9d45a539bccc51bc71655f",
     "prBindingHead": "4f140cc889ba55ed73b471c39aab500a2bc7cc2c",
     "measuredCodeHeadBeforeExecutorTurn": "4dfb8835f71335765f19955f739abb96edf8a351",
     "testedHead": "72b51adc389f69301247069b10be06741da07170",
-    "note": "The Work Order PDF bound the branch head as measured at handoff (4dfb883). The executor added the S05 layers, the six profiles, the 717 M03 tests, the documentation and four kernel repairs on top of that head, all inside the admitted scope of IRIS-WO-0006; no commit rewrote the admission or PR-binding commits."
+    "note": "The Work Order PDF bound the branch head as measured at handoff (4dfb883). The executor added the S05 layers, the six profiles, the 717 M03 tests, the documentation and four kernel repairs on top of that head, all inside the admitted scope of IRIS-WO-0006; no commit rewrote the admission or PR-binding commits.",
+    "independentReviewCorrectedHead": "c7b88bab561144ef6a55be61e60a9d8023246653",
+    "reviewGovernanceRun": 35671496462,
+    "reviewGovernanceJob": 106568752831
   },
   "issue": 19,
   "pullRequest": {
     "number": 20,
     "url": "https://github.com/KayzenRoot/iris/pull/20",
     "base": "main",
-    "state": "OPEN",
+    "state": "OPEN_REVIEW_APPROVED_PROMOTION_PENDING",
     "merged": false,
-    "title": "IRIS-WO-0006 | Implement M03 Creative Brief, Intent & Constraint Compiler"
+    "title": "IRIS-WO-0006 | Implement M03 Creative Brief, Intent & Constraint Compiler",
+    "head": "c7b88bab561144ef6a55be61e60a9d8023246653"
   },
   "baseline": {
     "governanceRun": 35607568552,
@@ -40,12 +44,47 @@
     "publicSurfaceNames": 431,
     "publicSurfaceBasis": "437 module-level __all__ exports collapse to 431 distinct package names; six names (AuthorityLevel, MAX_ALIASES, MAX_ANCESTORS, MAX_PREDICATE_ARGUMENTS, MAX_REGISTRY_EXTENSIONS, MAX_STATEMENTS_PER_MODEL) are re-exported by two modules that mean the same object. iris_intent/__init__.py raises SchemaValidationError at import for a module that exports nothing, for a listed name that is not defined, and for two different objects under one name, so the documented surface cannot drift from the code.",
     "semanticAreas": {
-      "S01 brief/intent": ["identity", "intent", "briefs", "sources", "ambiguity"],
-      "S02 constraints": ["constraints", "predicates", "normalization", "admission", "slicing", "fingerprints", "freshness", "reuse"],
-      "S03 fidelity": ["fidelity"],
-      "S04 execution intent": ["execution", "explanation"],
-      "S05 conflicts/overrides/versioning": ["conflicts", "authority", "overrides", "merge", "migration", "readiness"],
-      "foundations and boundaries": ["errors", "base", "versions", "limits", "ports", "stores", "serialization"]
+      "S01 brief/intent": [
+        "identity",
+        "intent",
+        "briefs",
+        "sources",
+        "ambiguity"
+      ],
+      "S02 constraints": [
+        "constraints",
+        "predicates",
+        "normalization",
+        "admission",
+        "slicing",
+        "fingerprints",
+        "freshness",
+        "reuse"
+      ],
+      "S03 fidelity": [
+        "fidelity"
+      ],
+      "S04 execution intent": [
+        "execution",
+        "explanation"
+      ],
+      "S05 conflicts/overrides/versioning": [
+        "conflicts",
+        "authority",
+        "overrides",
+        "merge",
+        "migration",
+        "readiness"
+      ],
+      "foundations and boundaries": [
+        "errors",
+        "base",
+        "versions",
+        "limits",
+        "ports",
+        "stores",
+        "serialization"
+      ]
     },
     "dependencyChanges": "None. No requirement, lockfile or vendored dependency changed; the kernel's third-party surface is the two already-present in-repo packages iris_quality (M01) and no import of iris_project_os (M02).",
     "m01Surface": "Eight iris_quality submodules are imported, each for a stated reason: contracts (QualityClass, FidelityContract, DEFECT_CLASS_FIELDS), debt (QualityDebtPolicy), defects (DefectSeverity), errors (the M01 failure family M03 must recognise as not its own), registry (DomainProfile and EvaluatorRegistry as parameters it consults), serialization (envelope, from_envelope, validate_payload), versions (M01_CONTRACT_VERSION, ComponentVersion), zones (SemanticZone). iris_intent/versions.py re-exports M01's QualityClass by object identity rather than mirroring it.",
@@ -83,34 +122,39 @@
     {
       "command": "python examples/m03_synthetic_profiles.py",
       "result": "Six domains compiled through the same six kernel calls; table recorded under sixSyntheticProfiles"
+    },
+    {
+      "command": "GitHub Actions Governance exact-head independent-review validation",
+      "result": "run 35671496462 / job 106568752831: expected head = checked out head = c7b88bab561144ef6a55be61e60a9d8023246653; governance PASS; 35 required artifacts; Ran 2527 tests / OK"
     }
   ],
   "tests": {
     "runner": "python -m unittest discover -s tests -p \"test_*.py\"",
     "fullSuite": {
-      "run": 2522,
+      "run": 2527,
       "failures": 0,
       "errors": 0,
       "skipped": 0,
       "result": "OK"
     },
     "m03Only": {
-      "run": 717,
+      "run": 722,
       "files": 11,
-      "result": "OK"
+      "result": "OK",
+      "basis": "717 executor M03 tests + 5 independent-review regression tests; all 722 are included in exact-head full-suite run 35671496462."
     },
-    "countBasis": "1805 baseline tests + 717 new M03 tests = 2522 discovered, so no existing test was deleted, disabled or narrowed to reach green. The 1805 floor is reproduced exactly (2522 - 717).",
+    "countBasis": "1805 pre-M03 baseline + 717 executor M03 tests + 5 independent-review regression tests = 2527 exact-head discovered tests; no existing test was deleted or disabled.",
     "perFileMethods": {
       "test_m03_ambiguity.py": 54,
       "test_m03_conflicts.py": 52,
-      "test_m03_constraints.py": 95,
+      "test_m03_constraints.py": 97,
       "test_m03_domain_neutrality.py": 24,
       "test_m03_execution.py": 75,
       "test_m03_fidelity.py": 94,
       "test_m03_identity.py": 49,
       "test_m03_slicing.py": 106,
       "test_m03_synthetic_profiles.py": 18,
-      "test_m03_transport.py": 90,
+      "test_m03_transport.py": 93,
       "test_m03_versioning.py": 60
     },
     "families": [
@@ -203,7 +247,7 @@
     }
   ],
   "scopeDeviations": [
-    "Context Lock critical-source drift, one file of sixteen: docs/project-brain/13-CHECKPOINT.md is pinned at blob 90bb9b64422f01028ced83a91a6c36730ef54be9 and measures 2854f2606741da4664ecd1b01ed182ecc4381637. The change was introduced by the admission commit itself (6b386d1, which updated the checkpoint as part of admitting this Work Order), not by the executor, and the lock's own base/tree shas still match. Every other pinned source, including the frozen contract, the module spec, the review, the compatibility scan, the technology registry and both M01 files, hashes identically. The Context Lock file was not modified.",
+    "Context Lock admission-time checkpoint pin was stale because the admission commit itself changed that checkpoint. Independent review classified it CHAT_FIXABLE and corrected the pin to blob 2854f2606741da4664ecd1b01ed182ecc4381637; no frozen source or base SHA changed.",
     "No frozen semantic was weakened to reach green: m03-contract-v1.0 is byte-identical to its locked blob (66616ac94f9e4d02b680e9dc4e4f8a8fce21d34a), CONTRACT_VERSION and SCHEMA_VERSION supported sets remain single-member, and the five kernel repairs above narrow refusals or restore documented behaviour rather than relaxing an invariant."
   ],
   "risksAndDeferredWork": [
@@ -219,12 +263,82 @@
     "kernelCallCount": 6,
     "sharedRunner": "run_kernel(profile) - no branch on any profile identifier",
     "table": [
-      {"profile": "logo-brand-web", "channels": "IMAGE, BRAND", "statements": 4, "constraints": 4, "slice": "1/3", "conflicts": 0, "familiesAssessed": 7, "ready": true, "blockers": [], "intentDigestPrefix": "62b972f101ac"},
-      {"profile": "product-photography", "channels": "IMAGE", "statements": 3, "constraints": 3, "slice": "1/2", "conflicts": 1, "familiesAssessed": 7, "ready": false, "blockers": ["BLOCKING_CONFLICT"], "intentDigestPrefix": "10508e92bcf0"},
-      {"profile": "isometric-game-asset", "channels": "GEOMETRY, MATERIAL", "statements": 3, "constraints": 3, "slice": "1/1", "conflicts": 0, "familiesAssessed": 7, "ready": true, "blockers": [], "intentDigestPrefix": "435bd71c2ad3"},
-      {"profile": "film-commercial", "channels": "VIDEO, MOTION, AUDIO", "statements": 4, "constraints": 4, "slice": "1/1", "conflicts": 0, "familiesAssessed": 7, "ready": true, "blockers": [], "intentDigestPrefix": "0934e1acb17a"},
-      {"profile": "spokesperson-digital-human", "channels": "VIDEO, SPEECH, BRAND", "statements": 3, "constraints": 3, "slice": "1/1", "conflicts": 0, "familiesAssessed": 7, "ready": false, "blockers": ["HUMAN_DECISION_REQUIRED"], "intentDigestPrefix": "8dd450852f60"},
-      {"profile": "voice-narration-music", "channels": "SPEECH, MUSIC, TEXT", "statements": 3, "constraints": 3, "slice": "1/1", "conflicts": 0, "familiesAssessed": 7, "ready": true, "blockers": [], "intentDigestPrefix": "a72489a1cf44"}
+      {
+        "profile": "logo-brand-web",
+        "channels": "IMAGE, BRAND",
+        "statements": 4,
+        "constraints": 4,
+        "slice": "1/3",
+        "conflicts": 0,
+        "familiesAssessed": 7,
+        "ready": true,
+        "blockers": [],
+        "intentDigestPrefix": "62b972f101ac"
+      },
+      {
+        "profile": "product-photography",
+        "channels": "IMAGE",
+        "statements": 3,
+        "constraints": 3,
+        "slice": "1/2",
+        "conflicts": 1,
+        "familiesAssessed": 7,
+        "ready": false,
+        "blockers": [
+          "BLOCKING_CONFLICT"
+        ],
+        "intentDigestPrefix": "10508e92bcf0"
+      },
+      {
+        "profile": "isometric-game-asset",
+        "channels": "GEOMETRY, MATERIAL",
+        "statements": 3,
+        "constraints": 3,
+        "slice": "1/1",
+        "conflicts": 0,
+        "familiesAssessed": 7,
+        "ready": true,
+        "blockers": [],
+        "intentDigestPrefix": "435bd71c2ad3"
+      },
+      {
+        "profile": "film-commercial",
+        "channels": "VIDEO, MOTION, AUDIO",
+        "statements": 4,
+        "constraints": 4,
+        "slice": "1/1",
+        "conflicts": 0,
+        "familiesAssessed": 7,
+        "ready": true,
+        "blockers": [],
+        "intentDigestPrefix": "0934e1acb17a"
+      },
+      {
+        "profile": "spokesperson-digital-human",
+        "channels": "VIDEO, SPEECH, BRAND",
+        "statements": 3,
+        "constraints": 3,
+        "slice": "1/1",
+        "conflicts": 0,
+        "familiesAssessed": 7,
+        "ready": false,
+        "blockers": [
+          "HUMAN_DECISION_REQUIRED"
+        ],
+        "intentDigestPrefix": "8dd450852f60"
+      },
+      {
+        "profile": "voice-narration-music",
+        "channels": "SPEECH, MUSIC, TEXT",
+        "statements": 3,
+        "constraints": 3,
+        "slice": "1/1",
+        "conflicts": 0,
+        "familiesAssessed": 7,
+        "ready": true,
+        "blockers": [],
+        "intentDigestPrefix": "a72489a1cf44"
+      }
     ],
     "reading": "Six domains, six different intent digests, six different channel sets, and two different non-trivial verdicts - a contradiction that blocks a contract (product-photography) and a question only a human may answer (spokesperson-digital-human). film-commercial is the domain whose conditional rule activates only because the request carries a cut count, which is why the slice column is not a constant.",
     "provenBy": "tests/test_m03_synthetic_profiles.py (18) and tests/test_m03_domain_neutrality.py (24)"
@@ -251,7 +365,80 @@
     "merged": false,
     "m04Started": false,
     "contractWeakened": false,
-    "result": "READY_FOR_INDEPENDENT_REVIEW"
+    "result": "INDEPENDENT_REVIEW_APPROVED_PROMOTION_PENDING_MERGE"
   },
-  "admissionHead": "6b386d1720a2a575ef9d45a539bccc51bc71655f"
+  "admissionHead": "6b386d1720a2a575ef9d45a539bccc51bc71655f",
+  "reviewCorrections": [
+    {
+      "id": "IRIS-WO-0006-R01",
+      "severity": "MEDIUM",
+      "classification": "CHAT_FIXABLE",
+      "status": "CLOSED",
+      "finding": "SemanticRef.text truncated bound content digests to 16 hex characters even though the value participates in canonical identity/sorting/fingerprints.",
+      "correction": "Use the full content digest in canonical ref text and add a same-prefix/different-tail collision regression."
+    },
+    {
+      "id": "IRIS-WO-0006-R02",
+      "severity": "MEDIUM",
+      "classification": "CHAT_FIXABLE",
+      "status": "CLOSED",
+      "finding": "Canonical JSON, predicate numeric arguments and tolerance values admitted NaN/Infinity, which are not interoperable canonical JSON numbers.",
+      "correction": "Set allow_nan=False and reject every non-finite numeric predicate/tolerance value, including observed measurements."
+    },
+    {
+      "id": "IRIS-WO-0006-R03",
+      "severity": "MEDIUM",
+      "classification": "CHAT_FIXABLE",
+      "status": "CLOSED",
+      "finding": "PORT_PROTOCOLS and _PORT_SHAPES were mutable module dictionaries describing frozen extension contracts.",
+      "correction": "Wrap both in MappingProxyType and require mutation attempts to fail."
+    },
+    {
+      "id": "IRIS-WO-0006-R04",
+      "severity": "HIGH",
+      "classification": "CHAT_FIXABLE",
+      "status": "CLOSED",
+      "finding": "Authority rank/ceiling/floor, reserved-boundary and override-movement tables were mutable imported dictionaries, allowing in-process mutation of permission semantics.",
+      "correction": "Freeze authority, origin, boundary and override policy lookup tables with MappingProxyType and add mutation regressions."
+    },
+    {
+      "id": "IRIS-WO-0006-R05",
+      "severity": "MEDIUM",
+      "classification": "CHAT_FIXABLE",
+      "status": "CLOSED",
+      "finding": "Additional static semantic-law tables for ambiguity, conflicts, constraints, fidelity, execution deltas, explanations, freshness and readiness were mutable.",
+      "correction": "Freeze the static classification/mapping tables and add one cross-module immutability regression."
+    },
+    {
+      "id": "IRIS-WO-0006-R06",
+      "severity": "LOW",
+      "classification": "CHAT_FIXABLE",
+      "status": "CLOSED",
+      "finding": "Context Lock pinned the checkpoint blob that existed before the admission commit even though that same admission commit updated the checkpoint.",
+      "correction": "Pin docs/project-brain/13-CHECKPOINT.md to admission blob 2854f2606741da4664ecd1b01ed182ecc4381637 and record review closure."
+    }
+  ],
+  "reviewProcessNotes": [
+    "Review correction commits were made directly on PR #20 under REVIEW-AUTOFIX-POLICY.md; Codex was not re-invoked.",
+    "Two intermediate Governance runs (61 and 62) and the preceding review run 60 failed because the reviewer patch temporarily malformed only tests/test_m03_constraints.py. The review patch was repaired before approval; run 63 returned 2526/2526 and final run 68 returned 2527/2527. No failing review head is treated as evidence of approval."
+  ],
+  "reviewVerdict": {
+    "verdict": "APPROVED",
+    "reviewedHead": "c7b88bab561144ef6a55be61e60a9d8023246653",
+    "governanceRun": 35671496462,
+    "governanceJob": 106568752831,
+    "exactHead": true,
+    "tests": {
+      "run": 2527,
+      "failures": 0,
+      "errors": 0,
+      "result": "OK"
+    },
+    "m03Tests": 722,
+    "blockers": {
+      "critical": 0,
+      "high": 0
+    },
+    "executorRequiredFindings": 0
+  }
 }
