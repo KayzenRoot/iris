@@ -1,43 +1,50 @@
 # IRIS Checkpoint
 
 ## STATUS
-M03_PLANNING_APPROVED
+M03_IMPLEMENTATION_APPROVED
 
 ## VERSION
 m03-contract-v1.0
 
 ## PHASE
-M03_PLANNING_PROMOTION_PENDING_MERGE
+M03_IMPLEMENTATION_PROMOTION_PENDING_MERGE
 
 ## OBJECTIVE
-Merge the independently approved M03 planning/freeze package, validate the resulting hardened `main`, then admit a separate bounded M03 implementation Work Order.
+Promote the independently reviewed M03 Creative Brief, Intent & Constraint Compiler implementation through the protected PR flow, validate the resulting `main`, then admit M04 planning only.
 
 ## COMPLETED
 - M01 Quality Kernel: implemented, approved and merged.
 - M02 Project OS & Production Graph: implemented, approved and merged.
 - Repository hardening: active and validated.
-- M03 S01-S05 planning: complete and independently approved.
-- Final Technology Review: `APPROVED_FOR_FORWARD_COMPATIBILITY`.
-- Consolidated M03 technology families: `F-M03-01..16`.
-- M04-M60 Forward Compatibility Scan: `PASS_WITH_EXTENSION_PORTS`.
-- M03 contract: `FROZEN_APPROVED / m03-contract-v1.0`.
-- Independent planning audit head: `0c7098a4dfdd3db6e917da4378b5952061ce3fcd`.
-- Independent audit Governance: run `35607101679`, job `106356761740`, PASS.
-- Independent audit suite: 1805/1805 OK.
-- HIGH/CRITICAL planning blockers: 0.
-- No M03 product/kernel implementation in this planning PR.
+- M03 planning S01-S05: complete, approved and merged.
+- M03 frozen contract: `m03-contract-v1.0`.
+- IRIS-WO-0006 complete on PR #20.
+- M03 package: `iris_intent/`.
+- Six domain-neutral synthetic profiles implemented and tested.
+- M01 remains the sole quality decision/promotion authority.
+- M02 remains the Project OS / graph / branch / build / release / ExecutionPlan authority.
+- Independent review corrected head: `c7b88bab561144ef6a55be61e60a9d8023246653`.
+- Independent review Governance: run `35671496462`, job `106568752831`, PASS.
+- Independent review full suite: `2527/2527 OK`.
+- M03 tests represented in the full suite: `722`.
+- Required governance artifacts: 35.
+- Review findings: 6 `CHAT_FIXABLE`, all CLOSED.
+- EXECUTOR_REQUIRED findings: 0.
+- CRITICAL/HIGH blockers remaining: 0.
+- Evidence/Context Lock review closure commit: `fc5d87fcc92217be6cad00819f1928ddb5e0cfcb`.
+- M04 implementation has not started.
 
 ## IN PROGRESS
-Documentation/governance promotion delta for approved M03 planning. No product/kernel implementation is admitted in this delta.
+Governance/documentation promotion delta for the approved M03 implementation.
 
 ## BLOCKERS
-M03 implementation MUST NOT start until:
+M04 planning MUST NOT start until:
 1. this promotion delta passes exact-head Governance;
-2. PR #18 is squash-merged through `main-governance`;
-3. the resulting `main` SHA passes post-merge Governance;
-4. a separate M03 implementation Work Order / Context Lock / Evidence package is admitted.
+2. PR #20 is squash-merged through `main-governance`;
+3. the resulting exact `main` SHA passes post-merge Governance;
+4. the post-merge checkpoint is reconciled to record M03 as merged and M04 planning-ready.
 
-M04 implementation remains blocked until the M03 implementation itself later completes its governed lifecycle.
+M04 implementation remains blocked until its own planning/freeze lifecycle is later completed.
 
 ## NEXT STEP
-Validate the promotion delta, squash merge PR #18, validate the resulting `main`, then compile the separate M03 implementation Work Order.
+Validate this promotion delta, squash merge PR #20, validate the resulting `main`, then record the post-merge checkpoint and admit M04 planning.

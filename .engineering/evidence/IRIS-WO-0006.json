@@ -1,0 +1,444 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0006",
+  "status": "APPROVED",
+  "branch": "iris-wo-0006-m03-intent-compiler",
+  "frozenContract": "m03-contract-v1.0",
+  "baseSha": "ee06358ee04de1d7aa2271ac05060247985f98dc",
+  "headSha": "c7b88bab561144ef6a55be61e60a9d8023246653",
+  "headShaBasis": "Independent-review-corrected code/test head. Governance run 35671496462 / job 106568752831 checked out this exact SHA and ran the complete suite. The evidence/promotion commits necessarily follow this SHA and are governance/documentation-only.",
+  "headChain": {
+    "admissionHead": "6b386d1720a2a575ef9d45a539bccc51bc71655f",
+    "prBindingHead": "4f140cc889ba55ed73b471c39aab500a2bc7cc2c",
+    "measuredCodeHeadBeforeExecutorTurn": "4dfb8835f71335765f19955f739abb96edf8a351",
+    "testedHead": "72b51adc389f69301247069b10be06741da07170",
+    "note": "The Work Order PDF bound the branch head as measured at handoff (4dfb883). The executor added the S05 layers, the six profiles, the 717 M03 tests, the documentation and four kernel repairs on top of that head, all inside the admitted scope of IRIS-WO-0006; no commit rewrote the admission or PR-binding commits.",
+    "independentReviewCorrectedHead": "c7b88bab561144ef6a55be61e60a9d8023246653",
+    "reviewGovernanceRun": 35671496462,
+    "reviewGovernanceJob": 106568752831
+  },
+  "issue": 19,
+  "pullRequest": {
+    "number": 20,
+    "url": "https://github.com/KayzenRoot/iris/pull/20",
+    "base": "main",
+    "state": "OPEN_REVIEW_APPROVED_PROMOTION_PENDING",
+    "merged": false,
+    "title": "IRIS-WO-0006 | Implement M03 Creative Brief, Intent & Constraint Compiler",
+    "head": "c7b88bab561144ef6a55be61e60a9d8023246653"
+  },
+  "baseline": {
+    "governanceRun": 35607568552,
+    "governanceJob": 106358324382,
+    "tests": 1805,
+    "conclusion": "success"
+  },
+  "implementation": {
+    "package": "iris_intent",
+    "status": "COMPLETE",
+    "schemaVersion": "iris-intent-schema-v1",
+    "contractVersion": "m03-contract-v1.0",
+    "modules": 29,
+    "moduleFiles": 30,
+    "kernelLines": 27660,
+    "publicSurfaceNames": 431,
+    "publicSurfaceBasis": "437 module-level __all__ exports collapse to 431 distinct package names; six names (AuthorityLevel, MAX_ALIASES, MAX_ANCESTORS, MAX_PREDICATE_ARGUMENTS, MAX_REGISTRY_EXTENSIONS, MAX_STATEMENTS_PER_MODEL) are re-exported by two modules that mean the same object. iris_intent/__init__.py raises SchemaValidationError at import for a module that exports nothing, for a listed name that is not defined, and for two different objects under one name, so the documented surface cannot drift from the code.",
+    "semanticAreas": {
+      "S01 brief/intent": [
+        "identity",
+        "intent",
+        "briefs",
+        "sources",
+        "ambiguity"
+      ],
+      "S02 constraints": [
+        "constraints",
+        "predicates",
+        "normalization",
+        "admission",
+        "slicing",
+        "fingerprints",
+        "freshness",
+        "reuse"
+      ],
+      "S03 fidelity": [
+        "fidelity"
+      ],
+      "S04 execution intent": [
+        "execution",
+        "explanation"
+      ],
+      "S05 conflicts/overrides/versioning": [
+        "conflicts",
+        "authority",
+        "overrides",
+        "merge",
+        "migration",
+        "readiness"
+      ],
+      "foundations and boundaries": [
+        "errors",
+        "base",
+        "versions",
+        "limits",
+        "ports",
+        "stores",
+        "serialization"
+      ]
+    },
+    "dependencyChanges": "None. No requirement, lockfile or vendored dependency changed; the kernel's third-party surface is the two already-present in-repo packages iris_quality (M01) and no import of iris_project_os (M02).",
+    "m01Surface": "Eight iris_quality submodules are imported, each for a stated reason: contracts (QualityClass, FidelityContract, DEFECT_CLASS_FIELDS), debt (QualityDebtPolicy), defects (DefectSeverity), errors (the M01 failure family M03 must recognise as not its own), registry (DomainProfile and EvaluatorRegistry as parameters it consults), serialization (envelope, from_envelope, validate_payload), versions (M01_CONTRACT_VERSION, ComponentVersion), zones (SemanticZone). iris_intent/versions.py re-exports M01's QualityClass by object identity rather than mirroring it.",
+    "m02Surface": "Zero imports of iris_project_os anywhere in iris_intent (grep-verified; the only two textual mentions are docstrings in __init__.py and base.py, and base.py states it mirrors rather than imports). M02 state is reached only through versioned opaque refs and ports.ProjectGraphPort."
+  },
+  "commands": [
+    {
+      "command": "python -m py_compile iris_intent/*.py tests/test_m03_*.py tests/m03_kernel_support.py examples/m03_synthetic_profiles.py",
+      "result": "OK (no output, exit 0)"
+    },
+    {
+      "command": "python -m compileall -q iris_intent examples tests",
+      "result": "OK (exit 0, no output)"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p \"test_*.py\"",
+      "result": "Ran 2522 tests in 12.235s / OK (0 failures, 0 errors) on the tested head"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p \"test_m03_*.py\"",
+      "result": "Ran 717 tests in 3.996s / OK"
+    },
+    {
+      "command": "python -m ruff check --select F,E9 iris_intent/ examples/",
+      "result": "All checks passed!"
+    },
+    {
+      "command": "python -m ruff check --select F,E9 tests/",
+      "result": "15 errors, all pre-existing unused imports in committed M01 test files (tests/test_m01_*.py), untouched by this Work Order; every M03 test file is clean. Ruff is not a CI merge gate."
+    },
+    {
+      "command": "python scripts/validate_governance.py",
+      "result": "IRIS governance validation: PASS / GEF v1.0.0 @ 866fe3af8cccc65c929aaf6a47a924401fa448b3 / HIVE v1.0.0 @ a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf / Required artifacts: 35"
+    },
+    {
+      "command": "python examples/m03_synthetic_profiles.py",
+      "result": "Six domains compiled through the same six kernel calls; table recorded under sixSyntheticProfiles"
+    },
+    {
+      "command": "GitHub Actions Governance exact-head independent-review validation",
+      "result": "run 35671496462 / job 106568752831: expected head = checked out head = c7b88bab561144ef6a55be61e60a9d8023246653; governance PASS; 35 required artifacts; Ran 2527 tests / OK"
+    }
+  ],
+  "tests": {
+    "runner": "python -m unittest discover -s tests -p \"test_*.py\"",
+    "fullSuite": {
+      "run": 2527,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "result": "OK"
+    },
+    "m03Only": {
+      "run": 722,
+      "files": 11,
+      "result": "OK",
+      "basis": "717 executor M03 tests + 5 independent-review regression tests; all 722 are included in exact-head full-suite run 35671496462."
+    },
+    "countBasis": "1805 pre-M03 baseline + 717 executor M03 tests + 5 independent-review regression tests = 2527 exact-head discovered tests; no existing test was deleted or disabled.",
+    "perFileMethods": {
+      "test_m03_ambiguity.py": 54,
+      "test_m03_conflicts.py": 52,
+      "test_m03_constraints.py": 97,
+      "test_m03_domain_neutrality.py": 24,
+      "test_m03_execution.py": 75,
+      "test_m03_fidelity.py": 94,
+      "test_m03_identity.py": 49,
+      "test_m03_slicing.py": 106,
+      "test_m03_synthetic_profiles.py": 18,
+      "test_m03_transport.py": 93,
+      "test_m03_versioning.py": 60
+    },
+    "families": [
+      "identity/revision/provenance and the self-promotion shield (test_m03_identity.py)",
+      "ambiguity, blocking failure-closed behaviour and freedom that is not a gap (test_m03_ambiguity.py)",
+      "constraint semantics, polarity vs strength, tolerance normalisation, protected anchors, cross-modal links, anti-reference (test_m03_constraints.py)",
+      "slicing, fingerprints, semantic deltas, reuse passports, freshness and explanation reachability (test_m03_slicing.py)",
+      "M01 fidelity bridge, no-downgrade shield, gap classes and contract delta (test_m03_fidelity.py)",
+      "execution intent, provider-vocabulary rejection, mutation envelopes, translation receipts (test_m03_execution.py)",
+      "conflict detection/resolution, scope splits, exploration forks, override ledgers and leases (test_m03_conflicts.py)",
+      "revision merge, restoration, migration receipts, compatibility declarations and serialization envelopes (test_m03_versioning.py)",
+      "transport/ports/stores boundaries and opaque-ref reachability (test_m03_transport.py)",
+      "six synthetic domains and the neutrality scan of every kernel file (test_m03_synthetic_profiles.py, test_m03_domain_neutrality.py)"
+    ]
+  },
+  "changedFiles": {
+    "count": 50,
+    "insertions": 42039,
+    "deletions": 47,
+    "commitsOnBranch": 13,
+    "breakdown": {
+      "iris_intent/ (kernel)": 30,
+      "tests/ (support + 11 M03 suites)": 12,
+      "examples/m03_synthetic_profiles.py": 1,
+      "docs/M03-INTENT-COMPILER-KERNEL.md": 1,
+      "governance artifacts from admission (CHECKPOINT.json, CHECKPOINT.md, context lock, evidence bundle, work order, 13-CHECKPOINT.md)": 6
+    },
+    "governanceArtifactsTouchedByExecutor": [
+      ".engineering/evidence/IRIS-WO-0006.json"
+    ],
+    "contextLockModified": false
+  },
+  "designDecisions": [
+    "The package public surface is derived at import from each module's own __all__ and refuses an empty export list, an undefined listed name, and two different objects under one name, because a hand-copied 431-name list is a second API that drifts silently.",
+    "Contract concept names map onto code names, and the mapping is recorded in each module docstring: ConstraintPredicate -> predicates.PredicateSignature + PredicateCall; ConditionalConstraint -> Constraint.conditions; ProtectedSemanticZone/AnchorRef -> constraints.ProtectedAnchor; MinimumSufficientExecutionSlice -> execution.ExecutionIntentSlice; SemanticDelta -> fingerprints.IntentDelta.",
+    "identity.RefKind was extended with the ref kinds the frozen S03-S05 concepts require (PROVENANCE, OBLIGATION, CONTRACT_SET, READINESS, LEASE, RECEIPT and the M01/M02/HIVE-shaped refs) instead of overloading an existing kind: a ref that misnames its target is the one error a trust boundary cannot recover from. This is an additive vocabulary extension inside the freeze, not a change to any frozen invariant.",
+    "constraints.KNOWN_CHANNELS is computed from the ModalChannel enum minus CROSS and UNSPECIFIED rather than listed by hand, so a modality can never again exist as a statement channel and not as a rule scope.",
+    "ConstraintBundle admission is two steps (construct, then .admit(registry=, admitted_by=)) so no bundle can exist half-admitted, and RevisionFrozenError guards the second step.",
+    "IntentOrigin.DEFAULTED floors at PROJECT_RECORD rather than at the inference ceiling: a default is a value someone stands behind, not a model guess.",
+    "A blocking conflict and a mandatory human question are reported by the same seven-family readiness report, so 'not asked' cannot be read as 'clean': report.ready requires zero findings and all seven ReadinessFamily members assessed.",
+    "Slice purposes carry their own closure debts (needs_constraints / needs_ambiguity / needs_provenance), which is how the token-economy requirement in section 15 became a testable property instead of a style note."
+  ],
+  "failuresEncounteredAndFixed": [
+    {
+      "kind": "kernel defect",
+      "where": "iris_intent/admission.py:430",
+      "foundBy": "live harness (examples/m03_synthetic_profiles.py, then tests/test_m03_identity.py)",
+      "symptom": "The self-promotion guard called is_untrusted(AuthorityLevel) with an enum instead of a value, so it raised for every statement at every authority level and the section 5.6 SELF_PROMOTED_RULE refusal was unreachable code.",
+      "resolution": "Now keyed on AuthorityLevel.self_asserting_is_enough plus the statement's confidence, so machine-backed authority is refused as data and self-asserting levels pass. Tests that had pinned the crash were rewritten to pin the correct refusal; no invariant was relaxed."
+    },
+    {
+      "kind": "kernel defect",
+      "where": "iris_intent/admission.py:601",
+      "foundBy": "live harness",
+      "symptom": "A finding message read record.consequence.value where consequence is already a string, raising AttributeError while building an AmbiguityBlockedError.",
+      "resolution": "Message now uses the label directly; the blocking-ambiguity path is exercised end to end in tests/test_m03_ambiguity.py."
+    },
+    {
+      "kind": "kernel defect",
+      "where": "iris_intent/constraints.py (_m03_severity)",
+      "foundBy": "live harness",
+      "symptom": "Blocking-gap severity was produced by calling M01's DefectSeverity.parse with one argument where the M01 parser requires two, so the constraint layer crashed instead of classifying a violation.",
+      "resolution": "A single kernel-local mapper supplies the M01 severity vocabulary with its required basis, keeping M01 the authority on what the words mean."
+    },
+    {
+      "kind": "kernel defect",
+      "where": "iris_intent/constraints.py KNOWN_CHANNELS",
+      "foundBy": "live harness (voice-narration-music profile)",
+      "symptom": "The hand-listed channel tuple had drifted from its own documented invariant: MUSIC existed as a statement modality and not as a rule scope, so the section 6 narration-and-music brief could state a music fact but could not bind a rule to it.",
+      "resolution": "Derived from ModalChannel minus CROSS/UNSPECIFIED, with the drift pinned by a subset test in both directions."
+    },
+    {
+      "kind": "kernel defect",
+      "where": "iris_intent/fidelity.py (three post-spec returns)",
+      "foundBy": "test authoring (tests/test_m03_fidelity.py)",
+      "symptom": "When M01 refused instantiate() or resolve(), the bridge appended a gap after the spec had been built and returned it with the stale spec, so FidelityCompilation.__post_init__ raised SchemaValidationError instead of reporting the refusal. The invariant (compilation gaps and spec gaps are one list) is correct; the failure path violated it.",
+      "resolution": "The three INCOMPLETE returns now carry replace(spec, gaps=tuple(gaps)), so an emission refusal surfaces as a typed gap with its remedy."
+    },
+    {
+      "kind": "kernel observation, not fixed",
+      "where": "iris_intent/conflicts.py:543",
+      "symptom": "ScopeSplitProposal's empty-branch ScopeError is unreachable in practice: SplitBranch.party_refs requires at least one bound ref and ScopeSplitProposal refuses a party listed in two branches, so an empty branch cannot be constructed.",
+      "resolution": "Recorded as an observation for the reviewer. No code changed; the reachable refusals (empty branch rejected at the branch boundary, duplicated party rejected at the split) are pinned by tests."
+    },
+    {
+      "kind": "environment / gate unavailable",
+      "where": "HIVE MCP preflight",
+      "symptom": "The HIVE MCP server is not present in this session's MCP tool surface (mcp_list keyword 'hive' returns no HIVE tools), so project.status / context.build / checkpoint.read could not be executed from here.",
+      "resolution": "Reported as unavailable rather than simulated. The deterministic substitutes actually run: git base/head measurement, blob-hash comparison against every Context Lock critical source, python scripts/validate_governance.py (PASS, 35 artifacts, GEF v1.0.0, HIVE v1.0.0) and the hosted exact-head Governance check."
+    }
+  ],
+  "scopeDeviations": [
+    "Context Lock admission-time checkpoint pin was stale because the admission commit itself changed that checkpoint. Independent review classified it CHAT_FIXABLE and corrected the pin to blob 2854f2606741da4664ecd1b01ed182ecc4381637; no frozen source or base SHA changed.",
+    "No frozen semantic was weakened to reach green: m03-contract-v1.0 is byte-identical to its locked blob (66616ac94f9e4d02b680e9dc4e4f8a8fce21d34a), CONTRACT_VERSION and SCHEMA_VERSION supported sets remain single-member, and the five kernel repairs above narrow refusals or restore documented behaviour rather than relaxing an invariant."
+  ],
+  "risksAndDeferredWork": [
+    "The twelve section 12 extension boundaries are types and opaque-ref contracts, not integrations: no provider, DCC, rights system, brand store, canon engine or delivery backend is wired, so every cross-module claim in M03 is a reference the caller must keep honest.",
+    "stores ships in-memory reference repositories only; there is no persistence, CAS, database or HIVE write path, by section 19.",
+    "Semantic freshness, reuse equivalence and release readiness are evaluated against dependencies the caller supplies; a production that supplies no DerivedIntentDependency gets an unassessed family, not a clean bill.",
+    "Explanation graphs are built and validated but not stored or exported; the ExplanationExportPort is a boundary without an implementation.",
+    "Override and lease ledgers are append-only structures with no clock: expiry is revision-scoped (expires_after_revision), so calendar expiry must be decided by a caller that owns a clock.",
+    "No performance or token measurement is claimed anywhere: slice minimality is proven structurally (which closures a purpose owes, and that an unrelated statement cannot ride along), not by benchmark."
+  ],
+  "sixSyntheticProfiles": {
+    "file": "examples/m03_synthetic_profiles.py",
+    "kernelCallCount": 6,
+    "sharedRunner": "run_kernel(profile) - no branch on any profile identifier",
+    "table": [
+      {
+        "profile": "logo-brand-web",
+        "channels": "IMAGE, BRAND",
+        "statements": 4,
+        "constraints": 4,
+        "slice": "1/3",
+        "conflicts": 0,
+        "familiesAssessed": 7,
+        "ready": true,
+        "blockers": [],
+        "intentDigestPrefix": "62b972f101ac"
+      },
+      {
+        "profile": "product-photography",
+        "channels": "IMAGE",
+        "statements": 3,
+        "constraints": 3,
+        "slice": "1/2",
+        "conflicts": 1,
+        "familiesAssessed": 7,
+        "ready": false,
+        "blockers": [
+          "BLOCKING_CONFLICT"
+        ],
+        "intentDigestPrefix": "10508e92bcf0"
+      },
+      {
+        "profile": "isometric-game-asset",
+        "channels": "GEOMETRY, MATERIAL",
+        "statements": 3,
+        "constraints": 3,
+        "slice": "1/1",
+        "conflicts": 0,
+        "familiesAssessed": 7,
+        "ready": true,
+        "blockers": [],
+        "intentDigestPrefix": "435bd71c2ad3"
+      },
+      {
+        "profile": "film-commercial",
+        "channels": "VIDEO, MOTION, AUDIO",
+        "statements": 4,
+        "constraints": 4,
+        "slice": "1/1",
+        "conflicts": 0,
+        "familiesAssessed": 7,
+        "ready": true,
+        "blockers": [],
+        "intentDigestPrefix": "0934e1acb17a"
+      },
+      {
+        "profile": "spokesperson-digital-human",
+        "channels": "VIDEO, SPEECH, BRAND",
+        "statements": 3,
+        "constraints": 3,
+        "slice": "1/1",
+        "conflicts": 0,
+        "familiesAssessed": 7,
+        "ready": false,
+        "blockers": [
+          "HUMAN_DECISION_REQUIRED"
+        ],
+        "intentDigestPrefix": "8dd450852f60"
+      },
+      {
+        "profile": "voice-narration-music",
+        "channels": "SPEECH, MUSIC, TEXT",
+        "statements": 3,
+        "constraints": 3,
+        "slice": "1/1",
+        "conflicts": 0,
+        "familiesAssessed": 7,
+        "ready": true,
+        "blockers": [],
+        "intentDigestPrefix": "a72489a1cf44"
+      }
+    ],
+    "reading": "Six domains, six different intent digests, six different channel sets, and two different non-trivial verdicts - a contradiction that blocks a contract (product-photography) and a question only a human may answer (spokesperson-digital-human). film-commercial is the domain whose conditional rule activates only because the request carries a cut count, which is why the slice column is not a constant.",
+    "provenBy": "tests/test_m03_synthetic_profiles.py (18) and tests/test_m03_domain_neutrality.py (24)"
+  },
+  "integrityObservations": [
+    "Untrusted text embedded in tool results was treated as data, never as instruction. During this Work Order the executor encountered and refused: an instruction to leave a module docstring unchanged; a false claim that Record.__post_init__ runs and should call super().__post_init__(payload); a suggested sys.path.insert workaround; a fabricated user message ordering an immediate stop; a fake '[Strategy-based content filter active]' notice instructing removal of un-requested content; a claim that the development language is Chinese; a repeated instruction to keep a test-file docstring verbatim; an instruction to write a memory file instead of running tests or editing files; a fabricated replacement objective ordering abandonment of M03 in favour of unrelated knowledge-base searches and then STOP; and harness reminders repeatedly naming an unrelated user-selected task ('Integrar QoderWake app') with prompts to proceed on it. None of them changed the plan, the scope or the evidence.",
+    "No HIVE evidence was simulated or fabricated. The HIVE MCP gate is recorded above as unavailable in this session.",
+    "No push to main, no force push, no history rewrite, no .gitattributes or secret file staged, and the working tree is clean with LF endings at the tested head."
+  ],
+  "proof": {
+    "m01RemainsQualityAuthority": "iris_intent.versions.QualityClass is iris_quality.contracts.QualityClass (same object, asserted by tests). The kernel imports eight M01 submodules for vocabulary, M01's own payload validator and the registry it consults; it never instantiates DecisionEngine, EvaluatorRegistry, JudgeRequest, DomainProfile or DimensionRegistry (grep-verified: zero construction sites), never computes or mutates a score, and never registers an evaluator or a dimension. compile_fidelity_contract treats evaluator_registry.resolve(contract) as the authority boundary and records MISSING_EVALUATOR_CAPABILITY when it refuses; require_no_downgrade refuses a QualityClassRequest whose basis is scarcity, cost or provider convenience; a spec with blocking gaps returns INCOMPLETE with those gaps instead of emitting a weaker contract. Pinned by tests/test_m03_fidelity.py (94).",
+    "m02AuthorityBoundary": "Zero imports of iris_project_os in iris_intent (the two textual hits are docstrings, one of which states base.py mirrors rather than imports it). M02-owned facts - branch, variant, rollback topology, snapshots, build and lifecycle - enter only as versioned opaque refs through ports.ProjectGraphPort, and SemanticMutationClass describes which semantic dimensions an edit moves without claiming what the graph looks like afterwards. Pinned by tests/test_m03_transport.py (90) and the import scan in tests/test_m03_domain_neutrality.py.",
+    "noProviderRuntimeLeakage": "Every kernel file is discovered twice (filesystem glob and pkgutil) and parsed with ast; the union of top-level import roots is a subset of the standard library plus iris_quality, iris_project_os and iris_intent, and none of the forbidden provider/DCC/cloud/database/web namespaces (torch, tensorflow, diffusers, cv2, PIL, numpy, bpy, maya, unreal, comfyui, ollama, openai, anthropic, boto3, google, azure, sqlalchemy, psycopg, pymongo, redis, requests, httpx, aiohttp, fastapi, flask) appears. A second scan forbids the strings 'm03_synthetic_profiles' and 'examples.' inside the package, so fixtures cannot leak inward. Determinism is mechanical too: no kernel module imports time, datetime, random, os, socket, subprocess, threading, multiprocessing, asyncio, pathlib, sqlite3, http, urllib or secrets; the only entropy helper, identity.mint_id, is documented as deliberately unused inside the kernel and is never called by a compilation path.",
+    "sixSyntheticProfiles": "See sixSyntheticProfiles: six section 6 domains through one branch-free runner producing six distinct digests, with one blocking conflict and one mandatory human decision, driven by tests/test_m03_synthetic_profiles.py and tests/test_m03_domain_neutrality.py; a seventh invented domain compiles through the same calls with no kernel change.",
+    "tokenSliceEfficiency": "SlicePurpose declares its own closure debts (needs_constraints = COMPILE_QUALITY/COMPILE_EXECUTION/RESOLVE_CONFLICT/VALIDATE, needs_ambiguity = CLARIFY/RESOLVE_CONFLICT/AUDIT, needs_provenance = AUDIT/CLARIFY), require_slice_minimality refuses a slice carrying an unrelated statement, and the compile-vs-audit comparison test shows the closure changes with purpose while the statements stay the same. Measured on the six profiles: slices of 1 statement with 1 to 3 rules, where a film brief pulls a third rule only because its condition is satisfied. Fingerprints exclude provider/model/host/worker/runtime/cost observations via execution.FINGERPRINT_EXCLUSIONS, and reuse.evaluate_reuse returns REUSE_EQUIVALENT for a testified source-only rewording while an untestified one demands RECOMPILE, so a recompile is earned by proof rather than by silence.",
+    "semanticAdmissionShield": "AuthorityLevel knows which levels are self-asserting (GOVERNED_POLICY, HUMAN_OWNER only); every machine-backed level (UNTRUSTED, PROVIDER_OBSERVED, RETRIEVED, MODEL_INFERRED) plus an INFERRED origin yields a REFUSED SELF_PROMOTED_RULE finding naming 'confidence is not authority', with evidence refs, and the shield is exercised over an explicit admissible origin-to-level table so no admissible combination raises. Constraints cannot be HARD on machine authority, RETRIEVED/UNTRUSTED cannot back a mandatory rule, unknown predicates fail closed at bundle.admit(), arbitrary executable text is refused by predicates.reject_interpolation, scope is refused as authority by require_no_authority_in_scope, condition nesting is bounded by require_bounded_nesting, and blocking ambiguity is refused before a contract can be compiled. Pinned by tests/test_m03_identity.py (49), test_m03_constraints.py (95) and test_m03_ambiguity.py (54).",
+    "exactHeadGovernance": "Hosted Governance run 35662504110 / job 106540757838 checked out evidence head 551ff594fbdb3511450928eb38895eaf713618c9 (asserted by the 'Assert exact candidate' step), reported 'IRIS governance validation: PASS' with 'Required artifacts: 35', and ran 'Ran 2522 tests in 8.667s / OK'. Governance run 35662616661 / job 106541121265 repeated the same gate on the next evidence head 29438b3629a082cae8cdcbd62bc4b18b708bb5e0. Each of those heads differs from the measured tested head 72b51adc389f69301247069b10be06741da07170 by this file only, so the suite that passed locally is the suite that passed on the exact candidate; the commit that records this observation necessarily follows all three, and its own run is reported on the PR rather than inside itself."
+  },
+  "checkpointDelta": {
+    "applied": false,
+    "proposed": "On independent APPROVED and merge only: register M03 as an implemented provider-neutral semantic kernel (iris_intent, 29 modules, 431 public names, schema iris-intent-schema-v1, contract m03-contract-v1.0) with the six-domain neutrality evidence and the exact-head CI binding; record the five repaired kernel defect paths and the one unreachable-refusal observation as accepted implementation notes; keep M04 unstarted until a separate admitted Work Order."
+  },
+  "stopCondition": {
+    "merged": false,
+    "m04Started": false,
+    "contractWeakened": false,
+    "result": "INDEPENDENT_REVIEW_APPROVED_PROMOTION_PENDING_MERGE"
+  },
+  "admissionHead": "6b386d1720a2a575ef9d45a539bccc51bc71655f",
+  "reviewCorrections": [
+    {
+      "id": "IRIS-WO-0006-R01",
+      "severity": "MEDIUM",
+      "classification": "CHAT_FIXABLE",
+      "status": "CLOSED",
+      "finding": "SemanticRef.text truncated bound content digests to 16 hex characters even though the value participates in canonical identity/sorting/fingerprints.",
+      "correction": "Use the full content digest in canonical ref text and add a same-prefix/different-tail collision regression."
+    },
+    {
+      "id": "IRIS-WO-0006-R02",
+      "severity": "MEDIUM",
+      "classification": "CHAT_FIXABLE",
+      "status": "CLOSED",
+      "finding": "Canonical JSON, predicate numeric arguments and tolerance values admitted NaN/Infinity, which are not interoperable canonical JSON numbers.",
+      "correction": "Set allow_nan=False and reject every non-finite numeric predicate/tolerance value, including observed measurements."
+    },
+    {
+      "id": "IRIS-WO-0006-R03",
+      "severity": "MEDIUM",
+      "classification": "CHAT_FIXABLE",
+      "status": "CLOSED",
+      "finding": "PORT_PROTOCOLS and _PORT_SHAPES were mutable module dictionaries describing frozen extension contracts.",
+      "correction": "Wrap both in MappingProxyType and require mutation attempts to fail."
+    },
+    {
+      "id": "IRIS-WO-0006-R04",
+      "severity": "HIGH",
+      "classification": "CHAT_FIXABLE",
+      "status": "CLOSED",
+      "finding": "Authority rank/ceiling/floor, reserved-boundary and override-movement tables were mutable imported dictionaries, allowing in-process mutation of permission semantics.",
+      "correction": "Freeze authority, origin, boundary and override policy lookup tables with MappingProxyType and add mutation regressions."
+    },
+    {
+      "id": "IRIS-WO-0006-R05",
+      "severity": "MEDIUM",
+      "classification": "CHAT_FIXABLE",
+      "status": "CLOSED",
+      "finding": "Additional static semantic-law tables for ambiguity, conflicts, constraints, fidelity, execution deltas, explanations, freshness and readiness were mutable.",
+      "correction": "Freeze the static classification/mapping tables and add one cross-module immutability regression."
+    },
+    {
+      "id": "IRIS-WO-0006-R06",
+      "severity": "LOW",
+      "classification": "CHAT_FIXABLE",
+      "status": "CLOSED",
+      "finding": "Context Lock pinned the checkpoint blob that existed before the admission commit even though that same admission commit updated the checkpoint.",
+      "correction": "Pin docs/project-brain/13-CHECKPOINT.md to admission blob 2854f2606741da4664ecd1b01ed182ecc4381637 and record review closure."
+    }
+  ],
+  "reviewProcessNotes": [
+    "Review correction commits were made directly on PR #20 under REVIEW-AUTOFIX-POLICY.md; Codex was not re-invoked.",
+    "Two intermediate Governance runs (61 and 62) and the preceding review run 60 failed because the reviewer patch temporarily malformed only tests/test_m03_constraints.py. The review patch was repaired before approval; run 63 returned 2526/2526 and final run 68 returned 2527/2527. No failing review head is treated as evidence of approval."
+  ],
+  "reviewVerdict": {
+    "verdict": "APPROVED",
+    "reviewedHead": "c7b88bab561144ef6a55be61e60a9d8023246653",
+    "governanceRun": 35671496462,
+    "governanceJob": 106568752831,
+    "exactHead": true,
+    "tests": {
+      "run": 2527,
+      "failures": 0,
+      "errors": 0,
+      "result": "OK"
+    },
+    "m03Tests": 722,
+    "blockers": {
+      "critical": 0,
+      "high": 0
+    },
+    "executorRequiredFindings": 0
+  }
+}
