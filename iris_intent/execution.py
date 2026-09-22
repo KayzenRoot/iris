@@ -32,6 +32,7 @@ should be published" and the approval boundary it needs, and nothing in this mod
 from __future__ import annotations
 
 from dataclasses import dataclass, field, replace
+from types import MappingProxyType
 from typing import Any, Iterable, Mapping
 
 from .base import Labeled, Record, of
@@ -1824,16 +1825,16 @@ _DELTA_RECORD_VIEWS: tuple[str, ...] = (
 )
 
 #: What adding or removing a member of each collection means.
-_DELTA_ADDED_REMOVED: dict[str, ExecutionIntentChangeClass] = {
+_DELTA_ADDED_REMOVED: dict[str, ExecutionIntentChangeClass] = MappingProxyType({
     "operations": ExecutionIntentChangeClass.OPERATION_ADDED_REMOVED,
     "demands": ExecutionIntentChangeClass.CAPABILITY_DEMAND_CHANGE,
     "envelopes": ExecutionIntentChangeClass.MUTATION_ENVELOPE_CHANGE,
     "explorations": ExecutionIntentChangeClass.MUTATION_ENVELOPE_CHANGE,
     "loss_rules": ExecutionIntentChangeClass.CAPABILITY_DEMAND_CHANGE,
-}
+})
 
 #: What a change inside a collection means when the field itself says nothing narrower.
-_DELTA_VIEW_DEFAULTS: dict[str, ExecutionIntentChangeClass] = {
+_DELTA_VIEW_DEFAULTS: dict[str, ExecutionIntentChangeClass] = MappingProxyType({
     "operations": ExecutionIntentChangeClass.DELIVERABLE_INTENT_CHANGE,
     "demands": ExecutionIntentChangeClass.CAPABILITY_DEMAND_CHANGE,
     "envelopes": ExecutionIntentChangeClass.MUTATION_ENVELOPE_CHANGE,
@@ -1843,12 +1844,12 @@ _DELTA_VIEW_DEFAULTS: dict[str, ExecutionIntentChangeClass] = {
     "contracts": ExecutionIntentChangeClass.QUALITY_CONTRACT_REF_CHANGE,
     "deliverables": ExecutionIntentChangeClass.DELIVERABLE_INTENT_CHANGE,
     "slices": ExecutionIntentChangeClass.DELIVERABLE_INTENT_CHANGE,
-}
+})
 
 #: Fields whose move means something more specific than the collection carrying them. Classified by
 #: field name rather than by which record held it, because ``anchors`` is an anchor change whether an
 #: operation or a demand moved it.
-_DELTA_FIELD_CLASSES: dict[str, ExecutionIntentChangeClass] = {
+_DELTA_FIELD_CLASSES: dict[str, ExecutionIntentChangeClass] = MappingProxyType({
     "family": ExecutionIntentChangeClass.OPERATION_ADDED_REMOVED,
     "anchors": ExecutionIntentChangeClass.PROTECTED_ANCHOR_CHANGE,
     "preserved": ExecutionIntentChangeClass.PROTECTED_ANCHOR_CHANGE,
@@ -1866,7 +1867,7 @@ _DELTA_FIELD_CLASSES: dict[str, ExecutionIntentChangeClass] = {
     "axes": ExecutionIntentChangeClass.MUTATION_ENVELOPE_CHANGE,
     "shape": ExecutionIntentChangeClass.MUTATION_ENVELOPE_CHANGE,
     "branch_policy": ExecutionIntentChangeClass.MUTATION_ENVELOPE_CHANGE,
-}
+})
 
 #: Bundle-level collections compared as whole sets.
 _DELTA_SET_VIEWS: tuple[str, ...] = ("anchors", "contracts", "deliverables", "slices")

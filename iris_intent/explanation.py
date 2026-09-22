@@ -35,6 +35,7 @@ from __future__ import annotations
 
 from collections import deque
 from dataclasses import dataclass, field
+from types import MappingProxyType
 from typing import Any, Iterable, Mapping
 
 from .admission import detect_cycle
@@ -210,21 +211,21 @@ class ExplanationLevel(Labeled):
 
 #: Field richness permitted per level, enforced on every entry so a cheap projection cannot carry
 #: an expensive claim and an expensive one cannot quietly drop it.
-_ENTRY_FIELDS_BY_LEVEL: dict[str, frozenset[str]] = {
+_ENTRY_FIELDS_BY_LEVEL: dict[str, frozenset[str]] = MappingProxyType({
     ExplanationLevel.TRACE_ID_ONLY.value: frozenset({"relations"}),
     ExplanationLevel.COMPACT.value: frozenset({"relations", "label"}),
     ExplanationLevel.HUMAN.value: frozenset({"relations", "label", "narrative"}),
     ExplanationLevel.AUDIT.value: frozenset(
         {"relations", "label", "narrative", "provenance"}
     ),
-}
+})
 
 #: Which ground a ref of each namespace counts as, per §16's "admitted source semantics or policy".
 #: Total over the kinds that can legitimately stand behind a compiled claim; the kinds deliberately
 #: absent (``BUNDLE``, ``EXECUTION_BUNDLE``, ``RECEIPT``, ``DEBT``, ``FRESHNESS``, ``PASSPORT``,
 #: ``CAPABILITY``) are pointers into M03's own bookkeeping or into what was *demanded*, and a thing
 #: cannot be its own reason.
-ROOT_CLASSIFICATION: dict[str, str] = {
+ROOT_CLASSIFICATION: dict[str, str] = MappingProxyType({
     RefKind.SOURCE.value: ExplanationNodeKind.RAW_SOURCE.value,
     RefKind.PROVENANCE.value: ExplanationNodeKind.RAW_SOURCE.value,
     RefKind.CANON.value: ExplanationNodeKind.RAW_SOURCE.value,
@@ -256,7 +257,7 @@ ROOT_CLASSIFICATION: dict[str, str] = {
     RefKind.M02_SNAPSHOT.value: ExplanationNodeKind.RAW_SOURCE.value,
     RefKind.M02_BUILD.value: ExplanationNodeKind.RAW_SOURCE.value,
     RefKind.M02_RELEASE.value: ExplanationNodeKind.RAW_SOURCE.value,
-}
+})
 
 
 def ground_kind_for(ref: Any) -> str:
@@ -1636,13 +1637,13 @@ def project_explanation(
 
 
 #: How each emitted kind is described in a sentence, per §17's questions.
-_NARRATIVE: dict[str, str] = {
+_NARRATIVE: dict[str, str] = MappingProxyType({
     ExplanationNodeKind.INTENT_OPERATION.value: "this behaviour is required by the brief",
     ExplanationNodeKind.CAPABILITY_DEMAND.value: "this capability is demanded by an operation",
     ExplanationNodeKind.MUTATION_PROTECTION.value: "this protection bounds what may change",
     ExplanationNodeKind.EXECUTION_GAP.value: "this requirement has no representation yet",
     ExplanationNodeKind.PROVIDER_TRANSLATION_RECEIPT.value: "a provider reported this about its translation",
-}
+})
 
 
 def _narrative_for(node: ExplanationNode, relations: tuple[str, ...], facts: Mapping[str, tuple[str, ...]]) -> str:
