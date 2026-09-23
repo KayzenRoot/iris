@@ -1,6 +1,6 @@
 # IRIS M05 Planning Gate
 
-Status: `S02_COMPLETE_S03_NEXT`
+Status: `S03_COMPLETE_S04_NEXT`
 Issue: `#37`
 Branch: `m05-asset-dna-planning`
 Authorized main baseline: `6f2311b59f5da91778d3fc9d9fe1572953a0c60b`
@@ -9,8 +9,8 @@ Authorized main baseline: `6f2311b59f5da91778d3fc9d9fe1572953a0c60b`
 
 - S01 — Asset DNA schema and identity invariants: COMPLETE_FOR_MODULE_PLANNING
 - S02 — Character, creature, object, product and environment DNA: COMPLETE_FOR_MODULE_PLANNING
-- S03 — SceneDNA, Motion DNA, Voice DNA and Brand DNA links: NEXT
-- S04 — Identity anchors, mutation boundaries and drift detection: NOT_STARTED
+- S03 — SceneDNA, Motion DNA, Voice DNA and Brand DNA links: COMPLETE_FOR_MODULE_PLANNING
+- S04 — Identity anchors, mutation boundaries and drift detection: NEXT
 - S05 — DNA branching, compatibility and reusable DNA marketplace contract: NOT_STARTED
 
 ## Current guard
@@ -63,13 +63,30 @@ Planning/docs only. No M05 implementation is authorized.
 - EnvironmentDNA remains distinct from M04 SceneIR;
 - family reclassification requires explicit migration/projection semantics.
 
+## S03 artifacts
+
+- research: `planning/research/M05-S03-CROSS-MODAL-DNA-LINKS-RESEARCH-2026-09-23.md`
+- module plan: S03 in `planning/modules/M05-ASSET-DNA-CROSS-MODAL-IDENTITY.md`
+- technology registry: `IRIS-DNAX-061..090`
+
+## S03 boundary decisions
+
+- M30 owns MotionDNA; M05 stores revision-pinned MotionDNALink;
+- M40 owns VoiceDNA; M05 stores revision-pinned VoiceDNALink;
+- M46 owns BrandDNA; M05 stores revision-pinned BrandDNALink;
+- M45 Campaign DNA remains advertising authority and is not BrandDNA;
+- SceneIdentityDNA is reusable identity composition, not M04 SceneIR or M43 Canon truth;
+- cross-modal bindings/obligations do not transfer mutation or quality authority;
+- external links never silently follow latest revisions;
+- future domain-DNA families use the same owner/family/revision link fabric.
+
 ## Candidate planning invariants
 
-S01-S02 record 60 candidate hard invariants. These remain planning candidates until S03-S05 consolidation and final contract freeze.
+S01-S03 record 90 candidate hard invariants. These remain planning candidates until S04-S05 consolidation and final contract freeze.
 
 ## Technology candidates
 
-`IRIS-DNAX-001..060` registered as design-history candidates.
+`IRIS-DNAX-001..090` registered as design-history candidates.
 
 ## External references
 
@@ -82,7 +99,7 @@ References only. No new runtime dependency.
 
 ## Next legal action
 
-Plan S03 SceneDNA, Motion DNA, Voice DNA and Brand DNA links on this same branch/issue, preserving S01-S02 authority boundaries.
+Plan S04 identity anchors, mutation boundaries and drift detection on this same branch/issue, preserving S01-S03 authority boundaries.
 
 Do not implement M05.
 Do not freeze the M05 contract yet.
