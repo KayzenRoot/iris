@@ -1,6 +1,6 @@
 # IRIS Backlog
 
-Status: `M05_FROZEN_APPROVED_PLANNING_MERGE_NEXT`
+Status: `M05_PLANNING_MERGED_MAIN_VALIDATED`
 
 ## COMPLETED FOUNDATION
 - M01 planning/freeze/implementation merged.
@@ -22,11 +22,11 @@ Status: `M05_FROZEN_APPROVED_PLANNING_MERGE_NEXT`
 - `m05-contract-v1.0` freeze candidate created with 150 invariants, 25 consolidated families and 22 extension/ref ports.
 
 ## NECESSARY NEXT
-1. Pass exact-head Governance on the frozen-planning promotion head.
-2. Protected squash-merge PR #38.
-3. Validate resulting exact `main`.
-4. Reconcile canonical checkpoint to merged/main-validated state if required.
-5. Only then create a separate M05 implementation Work Order / Context Lock / Evidence package.
+1. Create a separate bounded M05 implementation Work Order from exact validated main.
+2. Create and admit its Context Lock.
+3. Define implementation Evidence obligations and preflight.
+4. Implement only the frozen `m05-contract-v1.0` semantic kernel.
+5. Independent implementation review before merge.
 
 ## RECORDED PLANNING DEBT
 The separate M00 S01-S05 constitution freeze artifact remains historical planning debt.
@@ -42,4 +42,12 @@ No M05 product/kernel code is authorized during this planning cycle.
 - 150 hard invariants
 - 25 consolidated technology families
 - 22 forward extension/ref ports
+- implementation: not started
+
+
+## M05 PLANNING PROMOTION
+- PR #38: squash-merged
+- merge SHA: `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`
+- exact-main Governance: `35843109186 / 107122673542` — PASS
+- exact-main full suite: `2677/2677 OK`
 - implementation: not started
