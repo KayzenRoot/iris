@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0009",
-  "status": "ADMISSION_CANDIDATE",
+  "status": "ADMITTED_FOR_EXECUTION",
   "branch": "iris-wo-0009-m05-asset-dna",
   "frozenContract": "m05-contract-v1.0",
   "issue": 41,
@@ -19,13 +19,13 @@
   },
   "admission": {
     "contextLock": ".engineering/context-locks/IRIS-WO-0009.json",
-    "criticalSourceFingerprintMismatches": null,
-    "governanceRun": null,
-    "governanceJob": null,
-    "governanceConclusion": "PENDING",
+    "criticalSourceFingerprintMismatches": 0,
+    "governanceRun": 35843881845,
+    "governanceJob": 107125219417,
+    "governanceConclusion": "success",
     "baselineTests": 2677,
     "requiredArtifacts": 35,
-    "contextDisposition": "Canonical repository sources, exact Git bindings and frozen planning artifacts are authoritative. No external executor/context evidence is claimed yet."
+    "contextDisposition": "All 24 locked critical-source fingerprints matched the admission tree. Exact-head Governance passed. Implementation may begin only on the admitted branch and frozen scope."
   },
   "baseline": {
     "baseSha": "ad56aade6ad2459eb632b30bd9fdd332263a5d67",
@@ -138,14 +138,14 @@
       "result": "NOT_RUN"
     },
     "governance": {
-      "result": "ADMISSION_PENDING",
+      "result": "PASS_AT_ADMISSION",
       "requiredArtifacts": 35
     },
     "exactHeadGitHubGovernance": {
-      "head": null,
-      "run": null,
-      "job": null,
-      "result": "PENDING"
+      "head": "e0a545f6203f8685f0d452e6aae4ae00fb7b6ad4",
+      "run": 35843881845,
+      "job": 107125219417,
+      "result": "PASS"
     }
   },
   "failuresEncounteredAndFixed": [],
