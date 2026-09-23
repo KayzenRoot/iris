@@ -1169,9 +1169,261 @@ S04 is complete for module planning when:
 
 # S05 — DNA branching, compatibility and reusable DNA marketplace contract
 
-Status: `NOT_STARTED`
+Status: `COMPLETE_FOR_MODULE_PLANNING`
 
-Will freeze compatibility/equivalence, package portability, reusable DNA contract, marketplace safety boundaries and final versioning/migration semantics.
+## 1. S05 goals
+
+S05 completes M05 functional planning by defining identity lineage, compatibility, migration, reusable DNA package semantics and marketplace-facing contracts.
+
+M05 remains semantic identity authority only.
+
+## 2. Identity lineage versus M02 branches
+
+M05 identity-lineage relationships may include:
+- `SAME_IDENTITY_REVISION`;
+- `VARIANT_DERIVATION`;
+- `ARCHETYPE_DERIVATION`;
+- `IDENTITY_BREAK_DERIVATION`;
+- `SPLIT_CHILD`;
+- `CONSOLIDATION_CONTINUATION`;
+- `TEMPLATE_INSTANTIATION`.
+
+These relations never create or replace M02 project/production branches, snapshots or rollback.
+
+## 3. M06 production-versioning firewall
+
+M06 owns:
+- content-addressed production revisions;
+- immutable masters;
+- dependency fingerprints;
+- incremental rebuild/reconstruction;
+- rollback/release state.
+
+M05 DNA revisions remain semantic identity revisions.
+
+A build/master may reference DNA, but build hashes are not persistent subject IDs.
+
+## 4. DNACompatibilityProfile
+
+Compatibility is directional and multi-axis.
+
+Axes include:
+- schema;
+- family/profile;
+- canonical traits;
+- components;
+- anchors;
+- cross-modal links;
+- extensions;
+- consumer capability;
+- rights/policy refs.
+
+Outcomes:
+- `EXACT`;
+- `COMPATIBLE`;
+- `COMPATIBLE_WITH_LOSS`;
+- `REQUIRES_MIGRATION`;
+- `BREAKING`;
+- `INDETERMINATE`.
+
+A version number alone never proves compatibility.
+
+## 5. DNAMigrationPlan
+
+A migration plan declares:
+- source/target schema-family-version;
+- transformed/preserved/dropped trait paths;
+- defaults;
+- anchor/link changes;
+- loss declarations;
+- identity-continuity expectation;
+- policy/authority refs;
+- deterministic receipt requirements.
+
+Unknown mandatory semantics fail closed.
+
+Migration cannot silently turn an identity break into same-identity compatibility.
+
+## 6. ReusableDNAPackageManifest
+
+A reusable package manifest may reference:
+- package ID/version;
+- M05 DNA identities/revisions;
+- family/profile schemas;
+- canonical fingerprints;
+- required/optional domain-DNA refs;
+- compatibility profile;
+- migration capabilities;
+- dependency closure;
+- rights/license/consent refs;
+- provenance refs;
+- security classification/policy refs;
+- conformance requirements;
+- human-readable metadata.
+
+Package identity is not dna_id.
+
+## 7. Portable package levels
+
+Candidate levels:
+- `INTERFACE_ONLY`;
+- `PORTABLE_CANONICAL`;
+- `PRODUCTION_REFERENCE`;
+- `RESTRICTED_REFERENCE`.
+
+Sensitive evidence remains referenced rather than copied unless its owning security/rights policy explicitly allows inclusion.
+
+## 8. DNAMarketplaceContract
+
+M05 defines exchange metadata/conformance only.
+
+It may expose:
+- package identity/version;
+- subject family/profile;
+- compatibility claims;
+- required consumer capabilities;
+- rights/license/consent refs;
+- provenance refs;
+- security classification;
+- use/role/geographic restrictions as policy refs;
+- allowed mutation/derivative classes;
+- attribution refs;
+- deprecation/support status.
+
+It does not own payment, pricing, rankings, storefronts, hosting, taxes or commercial settlement.
+
+## 9. Rights/security/storage/delivery firewalls
+
+- M53 owns rights/license/consent/provenance/C2PA authority.
+- M54 owns security/restricted-content/permissions/sandbox authority.
+- M55 owns storage/CAS/cache/archive.
+- M58 may own APIs/SDK/MCP/import/export/conformance surfaces.
+- M59 owns concrete export/publishing/delivery compilation.
+
+M05 package metadata references these authorities but cannot replace them.
+
+## 10. Dependency closure
+
+Typed package dependency classes:
+- `REQUIRED_CANONICAL`;
+- `REQUIRED_EXTERNAL_DNA`;
+- `OPTIONAL_EXTERNAL_DNA`;
+- `POLICY_REF`;
+- `SCHEMA_REF`;
+- `EVIDENCE_REF`;
+- `TOOLING_CAPABILITY`.
+
+Missing required dependencies fail closed.
+
+## 11. Import admission
+
+Import state machine:
+- `PARSED`;
+- `VALIDATED`;
+- `COMPATIBILITY_CHECKED`;
+- `POLICY_CHECKED`;
+- `QUARANTINED`;
+- `ADMISSION_PROPOSED`;
+- `ADMITTED`;
+- `REJECTED`.
+
+Parsing/import never silently overwrites canonical DNA.
+
+Identity collisions/equivalence claims route through S04.
+
+## 12. DNAPackageConformanceReport
+
+Checks:
+- manifest integrity;
+- schema/version support;
+- fingerprints;
+- dependency closure;
+- compatibility declarations;
+- required domain links;
+- provenance/rights/security refs;
+- restricted-payload policy;
+- deterministic serialization;
+- unknown mandatory extension handling.
+
+Conformance proves format/contract behavior, not legal rights or safe-content truth.
+
+## 13. Package lifecycle
+
+Candidate lifecycle:
+- `ACTIVE`;
+- `DEPRECATED`;
+- `SECURITY_RESTRICTED`;
+- `RETIRED`.
+
+Deprecation never rewrites historical DNA/package revisions and carries explicit migration/replacement refs.
+
+## 14. Supply-chain default
+
+Canonical DNA packages do not require executable code.
+
+Rules:
+- arbitrary scripts/plugins are forbidden by default;
+- tooling is referenced as capability metadata;
+- package identity/fingerprints are deterministic;
+- dependencies are explicit;
+- unknown mandatory semantics fail closed;
+- protected evidence is not copied by default.
+
+## 15. S05 candidate hard invariants
+
+121. M05 lineage relations cannot create or replace M02 project/production branches.
+122. M02 remains branch/snapshot/rollback authority.
+123. M06 remains production-state/content-addressed build/version authority.
+124. build/master/content hashes cannot become persistent dna_id automatically.
+125. DNA compatibility is directional.
+126. DNA compatibility is multi-axis and cannot be proven by version number alone.
+127. compatibility outcome preserves unknown/indeterminate distinct from compatible.
+128. lossy compatibility must be explicit.
+129. DNAMigrationPlan declares transformed/preserved/dropped/defaulted paths.
+130. migration loss cannot be hidden.
+131. migration cannot silently convert identity break into same-identity continuation.
+132. unknown mandatory schema/extension semantics fail closed during migration/import.
+133. reusable package ID/version is distinct from subject dna_id/revision.
+134. repackaging cannot redefine subject identity by itself.
+135. a package may contain multiple DNA identities only when explicitly declared.
+136. package dependency closure distinguishes required and optional dependencies.
+137. missing required package dependency fails closed.
+138. marketplace contract cannot self-authorize rights/license/consent.
+139. M53 remains rights/license/consent/provenance authority.
+140. package security classification cannot self-prove safety.
+141. M54 remains security/restricted-content/permission authority.
+142. M55 remains storage/CAS/cache/archive authority.
+143. M59 remains concrete export/publishing/delivery authority.
+144. import parsing/validation cannot overwrite existing canonical DNA silently.
+145. imported identity collision/equivalence routes through governed S04 semantics.
+146. restricted biometric/private evidence is referenced/minimized unless explicit policy permits inclusion.
+147. canonical reusable DNA package requires no arbitrary executable code.
+148. deprecation/retirement never rewrites historical package/DNA revisions.
+149. conformance report proves contract/schema conformance, not legal rights or semantic identity equivalence by itself.
+150. HIVE/agents may discover/package/propose compatibility but cannot directly admit imported canonical identity or protected mutations.
+
+These extend S01-S04 invariants 1–120 and remain candidates until Final Technology Review and contract freeze.
+
+## 16. S05 proprietary candidates
+
+S05 adds `IRIS-DNAX-121..150`.
+
+## S05 STOP CONDITION
+
+S05 is complete for module planning when:
+- M02/M06 branching/versioning boundaries are explicit;
+- directional multi-axis compatibility is explicit;
+- migration/loss semantics are explicit;
+- reusable DNA package manifest is explicit;
+- marketplace contract boundaries are explicit;
+- M53/M54/M55/M58/M59 firewalls are explicit;
+- import admission and conformance semantics are explicit;
+- supply-chain default is non-executable/fail-closed;
+- candidate invariants 121–150 are recorded;
+- DNAX-121..150 are registered;
+- S01-S05 functional planning is complete;
+- next step becomes Final Technology Review;
+- no M05 implementation code is introduced.
 
 ## S01 STOP CONDITION
 
