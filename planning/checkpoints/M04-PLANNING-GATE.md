@@ -92,7 +92,7 @@ S01-S05 complete. M04 implementation remains blocked.
 - Reviewed head: `86a75307c7e50b47702ed2fede74a92ca6ea5e5a`
 - Governance: `35681272803 / 106598537403` — PASS
 - Full suite: `2527/2527 OK`
-- Findings: 2 CHAT_FIXABLE, both CLOSED
+- Findings: 4 CHAT_FIXABLE, all CLOSED
 - HIGH/CRITICAL blockers: 0
 
 ## Promotion state
