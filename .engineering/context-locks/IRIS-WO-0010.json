@@ -4,7 +4,7 @@
   "issue": 47,
   "branch": "iris-wo-0010-m06-production-state",
   "baseSha": "e3eaa8386e5ee0f7712e8849a160d253bd2461fe",
-  "status": "ADMISSION_CANDIDATE",
+  "status": "ADMITTED_FOR_EXECUTION",
   "risk": "ELEVATED",
   "frozenContract": {
     "name": "m06-contract-v1.0",
@@ -19,7 +19,7 @@
   "criticalSources": [
     {
       "path": ".engineering/work-orders/IRIS-WO-0010-M06-PRODUCTION-STATE.md",
-      "sha": "b921a5b5cf38182676b8793a3b5d037575534b94"
+      "sha": "e3e04505f1263bd6933bb8e45e0beec8b64ddc2e"
     },
     {
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
@@ -98,5 +98,20 @@
     "semantic contract changes"
   ],
   "stopCondition": "STOP after the complete frozen M06 operational production-state kernel is implemented, tested, documented, evidenced and ready for independent review. Do not merge. Do not start M07.",
-  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md."
+  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md.",
+  "admissionValidation": {
+    "head": "4c331decee73cee8658ce4816a7ca1622681ee0f",
+    "criticalSources": 16,
+    "fingerprintMismatches": 0,
+    "governanceRun": 35866052316,
+    "governanceJob": 107197781973,
+    "baselineTests": 2724,
+    "result": "PASS"
+  },
+  "reconciliation": {
+    "reason": "Admission promotion changed the Work Order from ADMISSION_CANDIDATE to ADMITTED_FOR_EXECUTION; reconcile the Context Lock Work Order fingerprint without changing frozen M06 scope.",
+    "staleFingerprint": "b921a5b5cf38182676b8793a3b5d037575534b94",
+    "admittedWorkOrderFingerprint": "e3e04505f1263bd6933bb8e45e0beec8b64ddc2e",
+    "sourcePromotionHead": "1e6b2935ce33830d97fdd16b9b1fb3ecf72e5fca"
+  }
 }
