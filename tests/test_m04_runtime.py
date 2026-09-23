@@ -292,7 +292,7 @@ class RuntimeAndTransportAcceptanceTests(unittest.TestCase):
         profile = IREquivalenceProfile(
             "tolerant.color",
             EquivalenceKind.TOLERANT,
-            (ComparisonTolerance(f"color_values/{SOURCE.text}", 0.02, "COLOR", "float32", color_space="linear-srgb"),),
+            (ComparisonTolerance("color_values/index.0", 0.02, "COLOR", "float32", color_space="linear-srgb"),),
         )
         contract = build_round_trip_contract(
             revision,
@@ -316,6 +316,21 @@ class RuntimeAndTransportAcceptanceTests(unittest.TestCase):
             receipt_id="roundtrip.tolerant.color.wrong-space",
         )
         self.assertFalse(rejected.semantic_match)
+
+    def test_color_witness_paths_do_not_collide_for_shared_semantic_origin(self):
+        revision = multimodal_revision()
+        first = revision.color_values[0]
+        second = replace(first, components=(0.4, 0.3, 0.2, 1.0))
+        revision = replace(revision, color_values=(first, second))
+        contract = build_round_trip_contract(
+            revision,
+            IREquivalenceProfile("exact.colors", EquivalenceKind.EXACT),
+            contract_id="roundtrip.colors.shared-origin",
+            adapter_ref=ExternalIdentityRef("m04.adapter_identity", "adapter.fixture", "1"),
+        )
+        paths = {witness.path for witness in contract.witness_set.witnesses}
+        self.assertIn("color_values/index.0", paths)
+        self.assertIn("color_values/index.1", paths)
 
     def test_tolerant_round_trip_is_time_reference_aware(self):
         revision = multimodal_revision()
