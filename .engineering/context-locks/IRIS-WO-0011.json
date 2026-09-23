@@ -4,7 +4,7 @@
   "issue": 53,
   "branch": "iris-wo-0011-m07-hardware-genome",
   "baseSha": "db8a39237c26d85f62cdf02a29c29136d4d6ed63",
-  "status": "ADMISSION_CANDIDATE",
+  "status": "ADMITTED_FOR_EXECUTION",
   "risk": "ELEVATED",
   "frozenContract": {
     "name": "m07-contract-v1.0",
@@ -85,5 +85,14 @@
     "semantic contract changes"
   ],
   "stopCondition": "STOP after complete frozen M07 kernel is implemented, tested, documented, evidenced and ready for independent review. Do not merge. Do not start M08.",
-  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md."
+  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md.",
+  "admissionValidation": {
+    "head": "5ccd124072abbd0c919530eb07a8eda5eba7eca7",
+    "criticalSources": 11,
+    "fingerprintMismatches": 0,
+    "governanceRun": 35886529033,
+    "governanceJob": 107267962093,
+    "baselineTests": 2770,
+    "result": "PASS"
+  }
 }
