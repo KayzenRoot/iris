@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0010",
-  "status": "CORRECTED_AND_HOSTED_QUALIFIED_FOR_FINAL_AUDIT",
+  "status": "IMPLEMENTED_MERGED_MAIN_VALIDATED",
   "branch": "iris-wo-0010-m06-production-state",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
@@ -11,7 +11,9 @@
     "number": 48,
     "url": "https://github.com/KayzenRoot/iris/pull/48",
     "base": "main",
-    "merge": "DO_NOT_MERGE"
+    "merge": "MERGED_AS_PR_48",
+    "reviewedHead": "84531decf8254aea242ef9e7fc1a94afe671de67",
+    "mergeSha": "19f439837136cfd1e4882b085426ff6d91ad62f0"
   },
   "baseHeadChain": {
     "authorizedBaseSha": "e3eaa8386e5ee0f7712e8849a160d253bd2461fe",
@@ -22,7 +24,13 @@
     "evidenceCommitFollowsImplementationCommit": true,
     "auditCorrectionCodeHeadSha": "e90812afa1c086e6bc07dfaa42827200a3dba8c0",
     "auditCorrectionHostedRun": 35880940093,
-    "auditCorrectionHostedJob": 107248896891
+    "auditCorrectionHostedJob": 107248896891,
+    "finalApprovedHeadSha": "84531decf8254aea242ef9e7fc1a94afe671de67",
+    "finalApprovedHeadGovernanceRun": 35881249417,
+    "finalApprovedHeadGovernanceJob": 107249960889,
+    "mergeSha": "19f439837136cfd1e4882b085426ff6d91ad62f0",
+    "exactMainGovernanceRun": 35881369542,
+    "exactMainGovernanceJob": 107250376754
   },
   "baseline": {
     "governanceRun": 35865548802,
@@ -43,7 +51,7 @@
     "prBaseConfirmed": "main"
   },
   "implementation": {
-    "state": "CORRECTED_HOSTED_VALIDATION",
+    "state": "MERGED_EXACT_MAIN_VALIDATED",
     "package": "iris_production_state/",
     "implementationCommitSha": "18099553987a668185a415aad12ab5cc7bbd0704",
     "changedFiles": [
@@ -168,9 +176,9 @@
       "The first audit-correction hosted run exposed a deterministic-fixture no-op release snapshot; the fixture and rollback guard were corrected rather than weakening the M02 invariant."
     ],
     "deferredPortsAndRisks": [
-      "The 20 versioned ports define evidence contracts; system-specific adapters remain deferred.",
-      "Independent review and checkpoint promotion remain pending.",
-      "M06 intentionally does not provide physical persistence, generation, provider execution, quality judging, rights/security decisions, deletion, or publishing."
+      "The 20 versioned ports define evidence contracts; system-specific adapters remain deferred to their owning modules and future admitted increments.",
+      "M06 intentionally does not provide physical persistence, generation, provider execution, quality judging, rights/security decisions, deletion, or publishing.",
+      "M07 remains separately gated behind canonical post-merge reconciliation and its own planning/admission flow."
     ]
   },
   "localValidation": {
@@ -208,31 +216,37 @@
     },
     "staticBoundaries": "PASS; test_m06_serialization_security.py checks forbidden imports, no eval/exec, strict reference versions, and bounded inputs.",
     "exactHeadHostedGovernance": {
-      "requiredTarget": "current PR #48 head SHA",
+      "requiredTarget": "final reviewed PR #48 head SHA",
       "repository": "KayzenRoot/iris",
-      "lastValidatedCodeHeadSha": "e90812afa1c086e6bc07dfaa42827200a3dba8c0",
-      "governanceRun": 35880940093,
-      "governanceJob": 107248896891,
+      "validatedHeadSha": "84531decf8254aea242ef9e7fc1a94afe671de67",
+      "governanceRun": 35881249417,
+      "governanceJob": 107249960889,
       "conclusion": "success",
       "fullTestsPassed": 2770,
-      "conclusionSource": "GitHub Governance check attached to the audited correction code head",
-      "localGovernanceIsSubstitute": false,
-      "finalMetadataHeadRequiresFreshRun": true
+      "conclusionSource": "GitHub Governance check attached to the final independently reviewed PR head",
+      "localGovernanceIsSubstitute": false
     }
   },
   "independentReview": {
-    "status": "CORRECTIONS_VALIDATED_AWAITING_FINAL_EXACT_HEAD_AUDIT",
+    "status": "APPROVED",
     "initialVerdict": "CORRECTION_REQUIRED",
     "initialReviewCommentId": 5797460684,
-    "highFindingsRemaining": 0,
-    "criticalFindingsRemaining": 0,
-    "merge": "DO_NOT_MERGE_UNTIL_FINAL_EXACT_HEAD_GREEN"
+    "finalApprovalCommentId": 5797610693,
+    "reviewedHeadSha": "84531decf8254aea242ef9e7fc1a94afe671de67",
+    "finalGovernanceRun": 35881249417,
+    "finalGovernanceJob": 107249960889,
+    "highFindingsInitially": 8,
+    "criticalFindingsInitially": 0,
+    "highCriticalFindingsRemaining": 0,
+    "merge": "MERGED_AS_PR_48",
+    "note": "All bounded review findings were corrected in the same Work Order / PR and independently re-audited before merge."
   },
   "proposedCheckpointDelta": {
-    "status": "PROPOSED_NOT_PROMOTED",
-    "summary": "M06 contract implementation is locally complete and qualified for independent exact-head audit; keep M01/M02/M03/M04/M05/M16 authorities intact, record M06 kernel availability, and do not start M07 until separate review and approval."
+    "status": "HISTORICAL_EXECUTOR_PROPOSAL_SUPERSEDED",
+    "summary": "The executor-time proposal was superseded by independent audit, correction, final approval, squash merge and exact-main validation.",
+    "promotion": "Promoted by the dedicated M06 post-merge reconciliation after objective main validation."
   },
-  "stopCondition": "M06 corrections are implemented, documented and evidenced on PR #48. Obtain a fresh exact-head hosted Governance pass, then complete independent audit. Do not start M07 before approval, merge, exact-main validation and canonical checkpoint reconciliation.",
+  "stopCondition": "SATISFIED_HISTORICAL: IRIS-WO-0010 reached executor readiness, independent audit required and validated corrections, PR #48 was approved and squash-merged, and exact main passed Governance with 2770/2770 tests. Canonical post-merge reconciliation is the remaining governance step before M07 planning.",
   "reviewCorrectionValidation": {
     "initialVerdict": "CORRECTION_REQUIRED",
     "initialReviewCommentId": 5797460684,
@@ -247,6 +261,39 @@
       "result": "PASS"
     },
     "focusedResult": "PASS via hosted full-suite run; all affected M06 family tests passed",
-    "note": "Documentation/evidence reconciliation follows the validated correction code head and requires a fresh exact-head hosted Governance run before final approval/merge."
+    "note": "All eight audit findings were corrected, final exact-head Governance passed, independent re-audit approved the PR, and the merged main SHA subsequently passed exact-main Governance.",
+    "finalReviewedHeadSha": "84531decf8254aea242ef9e7fc1a94afe671de67",
+    "finalHostedGovernanceRun": 35881249417,
+    "finalHostedGovernanceJob": 107249960889,
+    "finalHostedConclusion": "success",
+    "finalFullRepositoryTests": {
+      "passed": 2770,
+      "result": "PASS"
+    }
+  },
+  "postMergeValidation": {
+    "mergeMethod": "squash",
+    "mergeSha": "19f439837136cfd1e4882b085426ff6d91ad62f0",
+    "exactMainGovernanceRun": 35881369542,
+    "exactMainGovernanceJob": 107250376754,
+    "exactMainConclusion": "success",
+    "fullRepositoryTests": {
+      "passed": 2770,
+      "result": "PASS"
+    },
+    "exactMainValidated": true
+  },
+  "checkpointDelta": {
+    "status": "PROMOTED_BY_POST_MERGE_RECONCILIATION",
+    "targetStatus": "M06_IMPLEMENTATION_MERGED_MAIN_VALIDATED",
+    "reconciliationBranch": "iris-wo-0010-m06-postmerge-reconciliation",
+    "sourceMergeSha": "19f439837136cfd1e4882b085426ff6d91ad62f0",
+    "sourceExactMainGovernance": {
+      "run": 35881369542,
+      "job": 107250376754,
+      "conclusion": "success",
+      "testsPassed": 2770
+    },
+    "note": "Canonical checkpoint promotion occurs only after independent audit, merge and exact-main validation. The reconciliation PR itself still requires review, merge and exact-main validation before M07 planning begins."
   }
 }
