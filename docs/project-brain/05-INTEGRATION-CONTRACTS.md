@@ -1,6 +1,6 @@
 # IRIS Integration Contracts
 
-Status: `FOUNDATION_ACTIVE_M04_FROZEN`
+Status: `FOUNDATION_ACTIVE_M05_PLANNING`
 
 ## HIVE v1.0.0
 Repository-contract integration includes canonical governance paths, registration/inspection/index/corpus sync client, read-only MCP launcher and project-scoped Codex config.
@@ -19,7 +19,8 @@ Project governance/adoption profile is pinned to the stable release; GEF workspa
 - M04 exposes frozen provider-neutral Multimodal IR / Scene IR contracts through `m04-contract-v1.0`.
 - M04 consumes M01/M02/M03 boundaries without superseding them.
 - M16 is the sole owner of concrete provider/workflow compilation; M04 emits provider-neutral capability/legality/lowering contracts only.
-- M05+ identities, persistence, DCC/runtime, rendering, editorial, audio/music/story, rights/security and delivery remain extension/ref boundaries until their owning modules are admitted.
+- M05 S01 now defines the planning boundary for persistent DNA identity, immutable DNA revisions, identity traits, anchors and projection contracts. M05 implementation remains unadmitted.
+- M06+ persistence, DCC/runtime, rendering, editorial, audio/music/story, rights/security and delivery remain extension/ref boundaries until their owning modules are admitted.
 
 ## CORE
 Approved target relationship, but protocol/API/event contracts remain `NOT_YET_PLANNED`.
