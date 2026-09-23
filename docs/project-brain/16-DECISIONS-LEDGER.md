@@ -141,3 +141,8 @@ Reusable DNA package and marketplace contracts define portable identity metadata
 ## ADR-0033 - M05 Final Technology Review consolidates 150 DNAX candidates into 25 families
 Status: `APPROVED`
 `IRIS-DNAX-001..150` remain design-history references and are consolidated exactly once into `F-M05-01..25`. The freeze candidate and later implementation should depend on the consolidated families rather than create 150 independent classes/services. Final Technology Review verdict is `APPROVED_FOR_FORWARD_COMPATIBILITY`; no implementation or contract freeze is authorized until the M06-M60 Forward Compatibility Scan and independent planning audit complete.
+
+
+## ADR-0034 - M05 Forward Compatibility Scan passes with explicit extension ports
+Status: `APPROVED`
+The M06-M60 Forward Compatibility Scan reviewed all 55 downstream modules against `F-M05-01..25` and passed with `PASS_WITH_EXTENSION_PORTS`. No HIGH/CRITICAL downstream ownership conflict remains. M02 remains semantic project/build/version lifecycle authority with M06 operational persistence/reconstruction under those contracts; M39 persona continuity is explicitly bound to the M05 generic identity root. Twenty-two future extension/ref families are required so downstream modules can consume identity without rewriting M05 authority. A frozen-invariant change later requires a versioned M05 contract amendment and renewed compatibility review.
