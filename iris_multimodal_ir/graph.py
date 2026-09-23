@@ -799,23 +799,26 @@ def validate_graph(
 
 def _require_acyclic(adjacency: Mapping[Any, set[Any]], label: str, *, max_depth: int = DEFAULT_LIMITS.max_depth) -> None:
     visiting: set[Any] = set()
-    visited: set[Any] = set()
+    depth_by_node: dict[Any, int] = {}
 
-    def visit(node: Any, depth: int) -> None:
-        if depth > max_depth:
-            raise IRLimitError(f"{label} depth exceeds max_depth")
+    def visit(node: Any) -> int:
         if node in visiting:
             raise IRIntegrityError(f"{label} graph contains a cycle")
-        if node in visited:
-            return
+        cached = depth_by_node.get(node)
+        if cached is not None:
+            return cached
         visiting.add(node)
+        depth = 0
         for child in sorted(adjacency.get(node, ()), key=repr):
-            visit(child, depth + 1)
+            depth = max(depth, 1 + visit(child))
         visiting.remove(node)
-        visited.add(node)
+        if depth > max_depth:
+            raise IRLimitError(f"{label} depth exceeds max_depth")
+        depth_by_node[node] = depth
+        return depth
 
     for node in sorted(adjacency, key=repr):
-        visit(node, 0)
+        visit(node)
 
 
 def find_transform_path(nodes: tuple[IRNode, ...], edges: tuple[ContainmentEdge, ...], source: IRNodeRef, target: IRNodeRef) -> tuple[IRNodeRef, ...] | None:
