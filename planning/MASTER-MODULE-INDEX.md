@@ -317,7 +317,7 @@ No module is implemented merely because it appears in this index.
 ## AREA G — DIGITAL HUMANS & AUDIO
 
 ### M39 — Digital Humans & Virtual Identity
-- S01 — S01 Persistent Identity Engine and canonical persona
+- S01 — S01 M05-bound Persona Continuity Engine and canonical persona
 - S02 — S02 Face/body/hair/skin/clothing consistency
 - S03 — S03 Expression, gesture, mannerism and acting system
 - S04 — S04 Cross-modal identity binding for image/3D/video/voice

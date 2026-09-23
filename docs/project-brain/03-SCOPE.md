@@ -1,39 +1,79 @@
 # IRIS Scope
 
-Status: `M04_COMPLETE_M05_PLANNING_READY`
+Status: `M05_FROZEN_APPROVED`
 
-## Completed governed increment — IRIS-WO-0008 / M04
+## Current governed increment — M05 planning
 
-M04 `m04-contract-v1.0` is implemented, independently reviewed, squash-merged and exact-main validated.
+M05 Asset DNA 2.0 & Cross-Modal Identity has completed S01-S05 functional planning. It is not implemented. Its planning contract is frozen as `m05-contract-v1.0`.
 
-Verified result:
-- `iris_multimodal_ir/` provider-neutral semantic kernel;
-- 20/20 frozen families;
-- 80/80 hard invariants;
-- 150 focused M04 test inventory;
-- 2677/2677 exact-main full suite;
-- seven domain-neutral synthetic profiles;
-- deterministic serialization/schema/migration/round-trip;
-- unit/color/time-aware tolerant equivalence;
-- deterministic resource/depth/fanout/sample limits;
-- preserved M01/M02/M03/M16 authority boundaries;
-- zero remaining HIGH/CRITICAL findings.
+### S01
+Persistent identity substrate, immutable revisions, typed traits, applicability states, canonical/evidence partition, anchors and projection contracts.
 
-## Next possible increment
+### S02
+Character/Creature/Object/Product/Environment profiles, semantic identity levels, persistent components, variants and persistent/contextual appearance separation.
 
-M05 Asset/Persona DNA may enter planning through its own lifecycle after this post-merge reconciliation is merged and exact-main validated.
+### S03
+Revision-pinned Scene/Motion/Voice/Brand cross-modal links, SceneIdentityDNA, bindings/obligations and domain-ownership firewalls.
 
-### NOT YET ADMITTED
-- M05 implementation;
-- M06/M55 persistence/CAS/storage backend;
-- M16 concrete provider/workflow compilation;
-- Blender/Maya/ComfyUI/provider/model runtime;
-- GPU scheduling;
-- media generation/rendering/editing;
-- quality judging;
-- rights/security engines;
-- publishing/export execution.
+### S04
+Anchor authority/lifecycle, typed multi-dimensional drift evidence, repair-vs-mutation firewall, mutation decisions, identity break/split/consolidation and privacy-minimized evidence.
+
+### S05
+- semantic DNA lineage separate from M02 branches;
+- M02 semantic build/version lifecycle plus M06 operational persistence/reconstruction firewall;
+- directional multi-axis `DNACompatibilityProfile`;
+- explicit `DNAMigrationPlan` with preservation/loss/defaults;
+- `ReusableDNAPackageManifest`;
+- portable package levels;
+- `DNAMarketplaceContract` as exchange/conformance metadata only;
+- M53 rights/provenance authority;
+- M54 security/restricted-content authority;
+- M55 storage/CAS authority;
+- M58 API/SDK/MCP/conformance surface boundary;
+- M59 concrete export/publishing/delivery authority;
+- typed dependency closure;
+- staged import admission;
+- deterministic `DNAPackageConformanceReport`;
+- non-executable/fail-closed supply-chain default.
+
+### Final Technology Review
+- verdict: **APPROVED_FOR_FORWARD_COMPATIBILITY**;
+- design-history candidates: **IRIS-DNAX-001..150**;
+- consolidated freeze-candidate families: **F-M05-01..25**;
+- mapping: **150/150 exactly once, 0 missing, 0 duplicates**;
+- implementation code: **0**.
+
+### Forward Compatibility Scan
+- modules scanned: **M06-M60 (55)**;
+- verdict: **PASS_WITH_EXTENSION_PORTS**;
+- critical ownership conflicts remaining: **0**;
+- corrected conflicts: **M02/M06 authority wording**, **M39 competing identity-root wording**;
+- required extension/ref families: **22**.
+
+### Frozen planning contract
+- contract: **`m05-contract-v1.0`**;
+- artifact: `planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md`;
+- status: **FROZEN_APPROVED**;
+- independent planning audit: **APPROVED**;
+- hard invariants: **150**;
+- consolidated families: **25**;
+- extension/ref ports: **22**;
+- implementation code: **0**.
+
+### Next governed step
+Exact-head Governance, protected planning merge and exact-main validation.
+
+### NOT ADMITTED
+- M05 implementation package;
+- project/VCS branching inside M05;
+- production build/version authority;
+- marketplace payments/storefront/ranking;
+- rights/license/consent decision authority;
+- security scanning/restricted-content enforcement runtime;
+- storage/CAS runtime;
+- publishing/export runtime;
+- executable package payloads by default.
 
 ## IRIS 1.0 product scope
 
-IRIS 1.0 continues to include the capabilities represented by M00–M60. Completion of M04 does not reduce or silently admit later modules.
+IRIS 1.0 continues to include M00-M60. Completion of M05 functional planning does not silently admit implementation or later modules.

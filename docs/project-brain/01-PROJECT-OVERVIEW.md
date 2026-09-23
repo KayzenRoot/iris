@@ -21,6 +21,6 @@ Target roles:
 - Repository governance is protected by the active `main-governance` ruleset.
 - The canonical checkpoint is the sole project-state authority.
 
-M05 is planning-ready only after this reconciliation reaches exact main. M05 implementation is not admitted.
+M05 planning on Issue #37 / PR #38 is approved and frozen as `m05-contract-v1.0`. S01-S05, Final Technology Review, M06-M60 Forward Compatibility Scan and Independent Planning Audit are complete. The frozen contract carries 150 hard invariants, 25 consolidated technology families and 22 extension/ref ports. Planning merge/exact-main validation is next; M05 implementation is not admitted.
 
 No provider/DCC/media-generation runtime is implied by the semantic kernels. M04 remains provider-neutral/runtime-neutral; M16 is the sole concrete provider/workflow compiler owner.

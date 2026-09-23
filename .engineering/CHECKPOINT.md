@@ -1,45 +1,46 @@
 # IRIS Checkpoint
 
 ## STATUS
-M04_IMPLEMENTATION_MERGED
+M05_PLANNING_APPROVED
 
 ## VERSION
-m04-contract-v1.0
+m05-contract-v1.0
 
 ## PHASE
-M05_PLANNING_READY
+M05_FROZEN_APPROVED_PLANNING_MERGE_NEXT
 
 ## OBJECTIVE
-Treat the reviewed M04 Multimodal IR / Scene IR kernel as merged canonical truth and admit M05 only through its own planning, contract, Work Order, Context Lock and evidence lifecycle.
+Promote the approved M05 planning/freeze package through protected merge and exact-main validation before implementation admission.
 
 ## COMPLETED
 - M01 Quality Kernel: implemented, approved and merged.
 - M02 Project OS & Production Graph: implemented, approved and merged.
 - M03 Creative Brief / Intent / Constraint Compiler: implemented, approved and merged.
-- M04 planning/freeze/review package: complete and merged.
-- M04 contract: `FROZEN_APPROVED / m04-contract-v1.0`.
-- IRIS-WO-0008 implementation: complete.
-- Independent M04 implementation review: APPROVED.
-- Independent findings: 6 `CHAT_FIXABLE`, all CLOSED.
-- Independent `EXECUTOR_REQUIRED` findings: 0.
-- Remaining HIGH/CRITICAL findings: 0.
-- M04 implementation PR #34: squash-merged.
-- M04 merge SHA: `8dd188fcea7fa0874fab214867e1f5f6ce23e8cd`.
-- Exact-main Governance: `35814014969 / 107031546003` — PASS.
-- Exact-main suite: `2677/2677 OK`.
-- Required governance artifacts: 35.
-- Frozen families: `20/20`.
-- Hard invariants: `80/80`.
-- Seven synthetic domain profiles: PASS.
-- M05 implementation has not started.
+- M04 Multimodal IR / Scene IR: implemented, independently reviewed, merged and exact-main validated.
+- M05 S01-S05 functional planning: complete.
+- Final Technology Review: `APPROVED_FOR_FORWARD_COMPATIBILITY`.
+- M06-M60 Forward Compatibility: `PASS_WITH_EXTENSION_PORTS`.
+- Hard invariants: 150/150.
+- Consolidated technology families: 25/25.
+- Future extension/ref families: 22/22.
+- DNAX mapping: 150/150 exactly once; 0 missing; 0 duplicates.
+- Independent Planning Audit: `APPROVED`.
+- Audit reviewed head: `2f3102b4701fd0f3a9113f1a7d9cef924c9cc6fa`.
+- Audit Governance: `35842498444 / 107120660586` — PASS.
+- Audit full suite: `2677/2677 OK`.
+- Contract: `FROZEN_APPROVED / m05-contract-v1.0`.
+- M05 implementation code has not started.
 
 ## IN PROGRESS
-Post-merge source-truth reconciliation only.
+Freeze-promotion / planning-merge gate on Issue #37 / PR #38 / branch `m05-asset-dna-planning`.
 
 ## BLOCKERS
-No M04 implementation blocker remains.
-
-M05 implementation is not admitted by this reconciliation. M05 must first complete its own governed planning/admission lifecycle.
+M05 implementation remains blocked until:
+1. this freeze-promotion head passes exact-head Governance;
+2. PR #38 merges through protected main;
+3. resulting exact main passes Governance;
+4. canonical checkpoint reflects merged/main-validated state;
+5. a separate implementation Work Order / Context Lock / Evidence package is admitted.
 
 ## NEXT STEP
-Begin M05 planning discovery from this exact reconciled main only after this reconciliation PR is merged and exact-main validated. Do not implement M05 without its own frozen contract, Work Order, Context Lock and evidence.
+Pass exact-head Governance on the `FROZEN_APPROVED / m05-contract-v1.0` promotion head, then protected squash-merge PR #38 and validate exact `main`. Do not implement M05 before merged/main-validated canonical state.
