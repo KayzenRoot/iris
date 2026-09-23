@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M07_IMPLEMENTATION_MERGED_MAIN_VALIDATED",
-  "version": "m07-contract-v1.0",
-  "phase": "M07_POSTMERGE_RECONCILIATION",
-  "nextStep": "Complete and independently audit the M07 post-merge reconciliation PR, merge it, and validate exact main. Do not start M08 until that closure is durable."
+  "status": "M08_PLANNING_MERGED_MAIN_VALIDATED",
+  "version": "m08-contract-v1.0",
+  "phase": "M08_PLANNING_POST_MERGE_RECONCILIATION",
+  "nextStep": "Complete the M08 planning post-merge reconciliation audit/merge/exact-main validation, then compile the separate M08 implementation admission package. Do not start M09 implementation."
 }
