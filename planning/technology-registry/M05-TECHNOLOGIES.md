@@ -1,7 +1,7 @@
 # M05 Technology Registry
 
 Module: `M05 — Asset DNA 2.0 & Cross-Modal Identity`
-Status: `S01_ACTIVE_REGISTRY`
+Status: `S02_ACTIVE_REGISTRY`
 Rule: IRIS technology names are design candidates. They are not novelty, patentability or legal claims until dedicated review.
 
 ## External prior-art references
@@ -121,3 +121,106 @@ Final disposition requires:
 5. Final Technology Review;
 6. frozen M05 contract candidate;
 7. independent planning audit.
+
+
+## S02 domain-family candidates
+
+## IRIS-DNAX-031 — Semantic Identity Level Lattice
+CLASS / ARCHETYPE / INDIVIDUAL / VARIANT separation with governed transitions.
+
+## IRIS-DNAX-032 — DNA Family Profile Fabric
+One common DNA engine with typed family-profile specialization.
+
+## IRIS-DNAX-033 — Trait Bundle Composer
+Versioned composable family trait bundles without monolithic subject records.
+
+## IRIS-DNAX-034 — Persistent Component Identity Mesh
+DNA-scoped continuity for meaningful subcomponents independent of array/order/name churn.
+
+## IRIS-DNAX-035 — Component Replacement Ledger
+Explicit replacement/substitution/split/merge semantics for persistent components.
+
+## IRIS-DNAX-036 — Appearance Persistence Partition
+Persistent versus contextual versus observed appearance firewall.
+
+## IRIS-DNAX-037 — Character Signature Envelope
+Typed persistent face/body/signature traits without owning acting/rig/voice runtime.
+
+## IRIS-DNAX-038 — Morphology Continuity Map
+Cross-representation body/form continuity traits with typed tolerances/criticality.
+
+## IRIS-DNAX-039 — Character Context Firewall
+Prevents pose, expression, camera, lighting and temporary styling from silently becoming identity.
+
+## IRIS-DNAX-040 — Creature Morphology Graph
+Variable-count/asymmetric/non-humanoid anatomy identity graph.
+
+## IRIS-DNAX-041 — Species / Individual Separation Gate
+Explicit barrier between taxonomic/archetype identity and one persistent creature.
+
+## IRIS-DNAX-042 — Procedural Creature Anchor
+Stable identity for procedurally represented creatures independent of generated topology instances.
+
+## IRIS-DNAX-043 — Object Form Identity Envelope
+Persistent object form/part/function identity independent of scene state.
+
+## IRIS-DNAX-044 — Functional Geometry Signature
+Identity-relevant functional geometry semantics separated from raw mesh topology.
+
+## IRIS-DNAX-045 — Articulation Identity Map
+Persistent component/articulation relation semantics independent of current pose/state.
+
+## IRIS-DNAX-046 — Product Identity Level Graph
+Product family/model/SKU/package/physical-instance distinction.
+
+## IRIS-DNAX-047 — Product Variant Inheritance Contract
+Explicit inherited/overridden trait surfaces for model/colorway/package variants.
+
+## IRIS-DNAX-048 — External Commerce Identifier Bridge
+Versioned SKU/GTIN/MPN/serial mappings without treating them as universal DNA identity.
+
+## IRIS-DNAX-049 — Packaging Identity Boundary
+Separates core product identity from governed package-variant identity.
+
+## IRIS-DNAX-050 — Product Dimensional Signature
+Typed dimensional/proportion identity traits independent of camera/representation scale artifacts.
+
+## IRIS-DNAX-051 — Environment Topology DNA
+Persistent layout/zone/connectivity semantics independent of one SceneIR snapshot.
+
+## IRIS-DNAX-052 — Landmark Identity Mesh
+Stable environment landmark/component identities and protected relations.
+
+## IRIS-DNAX-053 — Environmental Context Firewall
+Separates weather/time/lighting/crowd/temporary state from persistent place identity.
+
+## IRIS-DNAX-054 — Ecology Signature Envelope
+Optional persistent ecological identity traits without freezing every transient organism/state.
+
+## IRIS-DNAX-055 — Family Reclassification Gate
+Explicit migration/review when canonical subject family changes.
+
+## IRIS-DNAX-056 — Generic Projection Without Reclassification
+Expose a generic Object/Asset/Scene view while preserving source DNA family ownership.
+
+## IRIS-DNAX-057 — Family Namespace Version Matrix
+Versioned domain trait namespaces with fail-closed mandatory semantics.
+
+## IRIS-DNAX-058 — Family Fingerprint Surface
+Deterministic family/profile + trait-bundle contribution to canonical DNA fingerprints.
+
+## IRIS-DNAX-059 — Variant Compatibility Surface
+Declares compatibility expectations among archetype, model and governed variants.
+
+## IRIS-DNAX-060 — Domain Identity Threat Radar
+Typed findings for class/individual collapse, component churn and contextual-state leakage.
+
+---
+
+## S02 registry disposition
+
+`IRIS-DNAX-031..060` are `DESIGN_HISTORY_CANDIDATES`.
+
+Together with S01, M05 now has `IRIS-DNAX-001..060` design-history candidates.
+
+No candidate is frozen until S01-S05, consolidation, forward compatibility, Final Technology Review and independent planning audit complete.
