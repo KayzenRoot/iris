@@ -13,21 +13,38 @@
     "state": "OPEN",
     "merged": false,
     "headBranch": "iris-wo-0008-m04-multimodal-ir-r2",
-    "implementationHead": "846f946f67b6dd88c6b1dc5159daba1b31950781"
+    "implementationHead": "4b96a2cae650d3bcecba707fc6b824a6d0f8308d"
   },
   "headChain": {
     "authorizedBase": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
     "originMainAtPreflight": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
     "admissionHead": "2bd2584a354f9cc01abef3eb4d5a8eaa6ccb17f5",
     "admissionParent": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
-    "implementationHead": "846f946f67b6dd88c6b1dc5159daba1b31950781",
-    "implementationParent": "2bd2584a354f9cc01abef3eb4d5a8eaa6ccb17f5",
-    "implementationHeadExactGovernance": {
+    "initialImplementationCommit": "846f946f67b6dd88c6b1dc5159daba1b31950781",
+    "initialImplementationParent": "2bd2584a354f9cc01abef3eb4d5a8eaa6ccb17f5",
+    "initialImplementationExactGovernance": {
       "run": 35811685743,
       "job": 107024446271,
       "conclusion": "success",
       "exactCandidateAssertion": "success",
       "url": "https://github.com/KayzenRoot/iris/actions/runs/35811685743"
+    },
+    "intermediateEvidenceHead": "b62ad376d80e6c744f88f004325a59f061e882a4",
+    "intermediateEvidenceHeadExactGovernance": {
+      "run": 35812016884,
+      "job": 107025459857,
+      "conclusion": "success",
+      "exactCandidateAssertion": "success",
+      "url": "https://github.com/KayzenRoot/iris/actions/runs/35812016884"
+    },
+    "implementationHead": "4b96a2cae650d3bcecba707fc6b824a6d0f8308d",
+    "implementationParent": "b62ad376d80e6c744f88f004325a59f061e882a4",
+    "implementationHeadExactGovernance": {
+      "run": 35812188424,
+      "job": 107025964814,
+      "conclusion": "success",
+      "exactCandidateAssertion": "success",
+      "url": "https://github.com/KayzenRoot/iris/actions/runs/35812188424"
     },
     "evidenceCommitSelfShaEmbedded": false,
     "evidenceCommitBinding": "Evidence commit follows the implementation head; its exact-head Governance is reported on PR #34 and in the executor handoff to avoid self-referencing this bundle."
@@ -197,7 +214,7 @@
       "requiredArtifacts": 35
     },
     "whitespace": "git diff --cached --check PASS before implementation commit",
-    "exactHeadGitHubGovernance": {"head": "846f946f67b6dd88c6b1dc5159daba1b31950781", "run": 35811685743, "job": 107024446271, "result": "PASS"}
+    "exactHeadGitHubGovernance": {"head": "4b96a2cae650d3bcecba707fc6b824a6d0f8308d", "run": 35812188424, "job": 107025964814, "result": "PASS"}
   },
   "failuresEncounteredAndFixed": [
     "Corrected an initial round-trip witness mapping that did not compare path-scoped multimodal records, including transform/camera/material/time/sync semantics.",
@@ -207,7 +224,8 @@
     "Expanded M03-to-M04 trace collection across all semantic refs and made untraced correctness-relevant refs fail closed.",
     "Corrected frozen invariant family assignments after comparing each numbered invariant with the contract's 20 family descriptions.",
     "Ruff identified 53 unused imports in new sources/tests; removed 52 stale imports and exported content_digest intentionally in __all__; final Ruff check passes.",
-    "Direct-file invocation of the example did not resolve repository imports; documented and verified module invocation from repository root."
+    "Direct-file invocation of the example did not resolve repository imports; documented and verified module invocation from repository root.",
+    "Strengthened the static boundary test from a forbidden-module blacklist to a standard-library/IRIS import allowlist, including dynamic-import and process-execution checks."
   ],
   "changedFiles": {
     "implementationCommitFiles": 34,
