@@ -85,6 +85,13 @@ class M06RevisionMasterTests(unittest.TestCase):
         with self.assertRaises(ProductionStateIntegrityError):
             IntegrityReceipt(material, content_digest(b"different"), IntegrityState.VERIFIED, 2)
 
+        unrelated = materialization(operational_revision("op-avs-other"), "mat-avs-other")
+        unrelated_verified = IntegrityReceipt(unrelated, unrelated.content_digest, IntegrityState.VERIFIED, 3)
+        with self.assertRaises(ProductionStateIntegrityError):
+            AvailabilityReceipt(material, AvailabilityState.KNOWN_AVAILABLE, unrelated_verified, 3)
+        with self.assertRaises(ProductionStateAdmissionError):
+            AvailabilityReceipt(revision, AvailabilityState.KNOWN_AVAILABLE, verified, 4)
+
 
 if __name__ == "__main__":
     unittest.main()
