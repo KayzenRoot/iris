@@ -170,7 +170,7 @@ def build_witness_set(revision: IRRevision, profile: IREquivalenceProfile, *, se
         ("timelines", revision.timelines, "timeline_id"),
         ("sync_relations", revision.sync_relations, "relation_id"),
     ):
-        for item in records:
+        for item_index, item in enumerate(records):
             if key_name is not None:
                 item_key = str(getattr(item, key_name))
             elif field_name == "cameras":
@@ -181,7 +181,7 @@ def build_witness_set(revision: IRRevision, profile: IREquivalenceProfile, *, se
                 item_key = item.resource.resource_id
             elif field_name == "color_values":
                 semantic_ref = getattr(item, "semantic_ref", None)
-                item_key = semantic_ref.text if semantic_ref is not None else f"index.{records.index(item)}"
+                item_key = semantic_ref.text if semantic_ref is not None else f"index.{item_index}"
             else:
                 item_key = content_digest(item)
             values[f"{field_name}/{item_key}"] = (field_name.upper(), item, True)
