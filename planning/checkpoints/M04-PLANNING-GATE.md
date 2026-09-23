@@ -1,6 +1,6 @@
 # IRIS M04 Planning Gate
 
-Status: `M04_PLANNING_APPROVED_PROMOTION_PENDING_MERGE`
+Status: `M04_PLANNING_MERGED_MAIN_VALIDATED`
 Issue: `#26`
 Branch: `m04-multimodal-ir-planning`
 Authorized main baseline: `c231dd61a210fe6d315126e755b4642a4fd2e9a3`
@@ -98,12 +98,17 @@ S01-S05 complete. M04 implementation remains blocked.
 ## Promotion state
 - Frozen contract: `m04-contract-v1.0`
 - Planning implementation: none
-- PR: #27
-- Promotion delta: governance/docs only
+- PR #27: squash-merged
+- Promotion head: `31087f22fc737987a6b9bea507b9022a85aa6c0f`
+- Promotion Governance: `35801199962 / 106991702750` — PASS
+- Merge SHA on `main`: `9ae6a8b8e7ba15730d8e216fb4cc524cc895adf4`
+- Post-merge Governance: `35801333080 / 106992107984` — PASS
+- Post-merge suite: `2527/2527 OK`
+- Planning gate: CLOSED / MAIN VALIDATED
 
 ## Next legal action
-Pass exact-head Governance on this promotion delta, squash-merge PR #27 through `main-governance`, validate the resulting exact `main`, then compile a separate M04 implementation Work Order / Context Lock / Evidence package.
+Promote this checkpoint reconciliation through exact-head Governance, protected squash merge and exact-main validation. Then compile a separate M04 implementation Work Order / Context Lock / Evidence package from that validated `main`.
 
-M04 implementation remains blocked until that post-merge validation and implementation admission.
+M04 implementation remains blocked until that separate implementation package is admitted and preflight passes.
 
-Do not implement M04 on this branch.
+Do not implement M04 on this reconciliation branch.
