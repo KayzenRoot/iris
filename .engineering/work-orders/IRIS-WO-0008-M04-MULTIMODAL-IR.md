@@ -405,7 +405,18 @@ Return final executor review in Brazilian Portuguese with:
 - proposed Checkpoint Delta;
 - STOP CONDITION.
 
+## ADMISSION VALIDATION
+
+- Admission candidate head: `1339a8ae1d39e787d51f719b5004b9bcf4c859f2`
+- Governance: `35802899954 / 106997061796` — PASS
+- Exact-head assertion: PASS
+- Required governance artifacts: 35
+- Full suite: `2527/2527 OK`
+- Implementation code at admission validation: not started
+- Next gate: final executor-ready head Governance after canonical status/fingerprint promotion
+
 ## STOP CONDITION
+
 
 STOP only when:
 - the complete frozen M04 kernel is implemented;
