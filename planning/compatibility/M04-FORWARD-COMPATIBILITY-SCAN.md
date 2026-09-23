@@ -135,6 +135,6 @@ The M04 contract freeze MUST explicitly state:
 
 No HIGH/CRITICAL future-ownership conflict remains.
 
-Next legal gate: **M04 Module Contract Freeze Candidate**.
+Compatibility review and contract freeze are complete. Current legal gate: **exact-head Governance for promotion, protected squash merge, then exact-main validation**.
 
 No M04 implementation is authorized.
