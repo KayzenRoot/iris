@@ -1,6 +1,6 @@
 # IRIS Backlog
 
-Status: `M07_CONTRACT_FREEZE_CANDIDATE`
+Status: `M07_PLANNING_MERGED_MAIN_VALIDATED`
 
 ## COMPLETED FOUNDATION
 - M01 planning/freeze/implementation merged.
@@ -34,13 +34,16 @@ Status: `M07_CONTRACT_FREEZE_CANDIDATE`
 - Future modules scanned: 53/53.
 - Freeze-candidate hard invariants after compatibility scan: 235.
 - M07 Module Contract Freeze candidate: `m07-contract-v1.0`.
-- Freeze candidate verdict: `M07_CONTRACT_V1_0_READY_FOR_INDEPENDENT_AUDIT`.
+- Frozen planning contract: `FROZEN_APPROVED / m07-contract-v1.0`.
+- Independent final planning audit: **APPROVED**, residual HIGH/CRITICAL: 0.
+- PR #51 squash-merged as `cbdf9071ca2980d4ff9823d7fbbd271cc15935b7`; exact-main Governance `35885688381 / 107265126344` PASS with 2770/2770 tests.
 - Product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-1. Perform the independent final M07 planning audit against `m07-contract-v1.0`.
-2. If and only if APPROVED with zero HIGH/CRITICAL findings, merge the approved M07 planning package and validate exact main.
-3. Only then compile a separate bounded M07 implementation Work Order, Context Lock, Evidence obligations and executor PDF.
+1. Review and merge the M07 planning post-merge reconciliation.
+2. Validate the reconciliation merge on exact main.
+3. Compile and admit a separate bounded M07 implementation Work Order, Context Lock and Evidence package against `m07-contract-v1.0`.
+4. Only after admission may M07 implementation begin.
 
 ## IMPLEMENTATION GATE
 No M07 product/runtime code is authorized during the active planning cycle. M08+ deep planning/implementation is also out of scope until M07 reaches an explicit planning/implementation state.

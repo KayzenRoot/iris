@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M06_IMPLEMENTATION_MERGED_MAIN_VALIDATED",
-  "version": "m06-contract-v1.0",
-  "phase": "M06_POST_MERGE_RECONCILIATION",
-  "nextStep": "Review and merge this M06 post-merge reconciliation. After exact-main validation, compile the next necessary M07 planning increment from the new canonical main under its own Work Order, Context Lock and Evidence package. Do not implement M07 before its planning, freeze and admission gates pass."
+  "status": "M07_PLANNING_MERGED_MAIN_VALIDATED",
+  "version": "m07-contract-v1.0",
+  "phase": "M07_PLANNING_POST_MERGE_RECONCILIATION",
+  "nextStep": "Review and merge this M07 planning post-merge reconciliation. After exact-main validation, compile and admit a separate bounded M07 implementation Work Order, Context Lock and Evidence package against frozen contract m07-contract-v1.0. Do not implement M08+."
 }
