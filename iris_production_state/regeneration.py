@@ -104,6 +104,7 @@ class ReuseAdmissionReceipt(CanonicalRecord):
     m02_build_ref: Any
     m02_node_id: str
     m02_reuse_receipt: Any
+    evidence_dimensions: tuple[ReuseEvidenceDimension, ...]
     evidence_refs: tuple[Any, ...]
     equivalence: EquivalenceState
     admitted_at_ms: int
@@ -125,9 +126,35 @@ class ReuseAdmissionReceipt(CanonicalRecord):
             raise ProductionStateIntegrityError("M06 reuse receipt must preserve its exact admitted M02 reuse evidence")
         if self.candidate_materialization_ref.content_digest.algorithm != "sha256" or self.candidate_materialization_ref.content_digest.value != self.m02_reuse_receipt.result_digest:
             raise ProductionStateIntegrityError("M06 materialization digest must remain bound to M02 admitted output bytes")
+        dimensions = require_sequence(
+            self.evidence_dimensions,
+            "evidence_dimensions",
+            maximum=DEFAULT_LIMITS.max_fingerprint_dimensions,
+            item_type=ReuseEvidenceDimension,
+        )
+        if len({item.name for item in dimensions}) != len(dimensions):
+            raise ProductionStateValidationError("reuse admission evidence dimension names must be unique")
+        required_dimension_names = {
+            item.key
+            for item in self.dependency_fingerprint.dimensions
+            if item.mandatory and item.materiality.value == "MATERIAL"
+        }
+        verified_material_names = {
+            item.name
+            for item in dimensions
+            if item.material and item.state == ReuseEvidenceState.VERIFIED
+        }
+        if not required_dimension_names.issubset(verified_material_names):
+            raise ProductionStateAdmissionError("reuse admission must retain VERIFIED evidence for every mandatory material dimension")
+        if any(item.material and item.state != ReuseEvidenceState.VERIFIED for item in dimensions):
+            raise ProductionStateAdmissionError("reuse admission cannot retain stale, failed or unknown material evidence")
+        object.__setattr__(self, "evidence_dimensions", dimensions)
         refs = require_sequence(self.evidence_refs, "evidence_refs", maximum=DEFAULT_LIMITS.max_fingerprint_dimensions)
         for index, ref in enumerate(refs):
             require_exact_ref(ref, f"evidence_refs[{index}]")
+        expected_refs = tuple(item.evidence_ref for item in dimensions if item.material)
+        if refs != expected_refs:
+            raise ProductionStateIntegrityError("reuse admission evidence refs must exactly match its retained material evidence dimensions")
         object.__setattr__(self, "evidence_refs", refs)
         if not isinstance(self.equivalence, EquivalenceState):
             object.__setattr__(self, "equivalence", EquivalenceState(self.equivalence))
@@ -274,6 +301,7 @@ def admit_reuse(proof: ReuseProof, *, receipt_id: str, decision_id: str, admitte
         proof.m02_build_ref,
         proof.m02_node_id,
         _m02_build_step(proof.m02_build_ref, proof.m02_node_id).receipt,
+        proof.dimensions,
         tuple(item.evidence_ref for item in required),
         EquivalenceState.PROVEN,
         admitted_at_ms,
@@ -283,6 +311,7 @@ def admit_reuse(proof: ReuseProof, *, receipt_id: str, decision_id: str, admitte
 def decide_work(
     requested: WorkDisposition,
     *,
+    decision_id: str | None = None,
     impact: ImpactConeReceipt | None = None,
     reuse_receipt: ReuseAdmissionReceipt | None = None,
     verification: VerificationReceipt | None = None,
@@ -292,6 +321,8 @@ def decide_work(
     """Return the safest disposition justified by supplied positive evidence."""
     if not isinstance(requested, WorkDisposition):
         requested = WorkDisposition(requested)
+    if decision_id is not None:
+        require_identifier(decision_id, "decision_id")
     if not mandatory_state_known:
         return WorkDisposition.BLOCKED
     if requested is WorkDisposition.NO_WORK_PROVEN:
@@ -302,16 +333,34 @@ def decide_work(
     if requested in {WorkDisposition.REUSE_EXACT, WorkDisposition.REUSE_WITH_VERIFICATION}:
         if reuse_receipt is None or type(reuse_receipt) is not ReuseAdmissionReceipt:
             return WorkDisposition.BLOCKED
-        if requested is WorkDisposition.REUSE_WITH_VERIFICATION and (
-            verification is None or verification.result is not EquivalenceState.PROVEN
-        ):
-            return WorkDisposition.VERIFY_ONLY
+        if decision_id is None or reuse_receipt.decision_id != decision_id:
+            return WorkDisposition.BLOCKED
+        if requested is WorkDisposition.REUSE_WITH_VERIFICATION:
+            if (
+                verification is None
+                or type(verification) is not VerificationReceipt
+                or verification.result is not EquivalenceState.PROVEN
+                or verification.subject_ref != reuse_receipt.candidate_materialization_ref
+            ):
+                return WorkDisposition.VERIFY_ONLY
         return requested
     if requested is WorkDisposition.REBUILD_PARTIAL:
         return requested if type(boundary) is RebuildBoundary else WorkDisposition.REBUILD_FULL_TARGET
     if requested is WorkDisposition.VERIFY_ONLY:
         return requested if verification is not None else WorkDisposition.VERIFY_ONLY
     return requested
+
+
+_DISPOSITION_CONSERVATISM = {
+    WorkDisposition.NO_WORK_PROVEN: 0,
+    WorkDisposition.REUSE_EXACT: 1,
+    WorkDisposition.REUSE_WITH_VERIFICATION: 2,
+    WorkDisposition.VERIFY_ONLY: 3,
+    WorkDisposition.REPAIR_CANDIDATE: 4,
+    WorkDisposition.REBUILD_PARTIAL: 5,
+    WorkDisposition.REBUILD_FULL_TARGET: 6,
+    WorkDisposition.BLOCKED: 7,
+}
 
 
 def expand_frontier(previous: WorkFrontier, next_frontier: WorkFrontier) -> WorkFrontier:
@@ -323,7 +372,7 @@ def expand_frontier(previous: WorkFrontier, next_frontier: WorkFrontier) -> Work
     new = {exact_ref_key(value) for value in next_frontier.candidate_refs + next_frontier.uncertain_refs}
     if not old.issubset(new) or next_frontier.generation <= previous.generation:
         raise ProductionStateIntegrityError("frontier growth must be monotone and increment its generation")
-    if next_frontier.disposition in {WorkDisposition.REUSE_EXACT, WorkDisposition.NO_WORK_PROVEN} and next_frontier.disposition is not previous.disposition:
+    if _DISPOSITION_CONSERVATISM[next_frontier.disposition] < _DISPOSITION_CONSERVATISM[previous.disposition]:
         raise ProductionStateAdmissionError("a less conservative disposition requires a separate stronger evidence admission")
     return next_frontier
 
