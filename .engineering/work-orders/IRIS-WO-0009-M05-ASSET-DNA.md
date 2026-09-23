@@ -1,6 +1,6 @@
 # IRIS-WO-0009 — Implement M05 Asset DNA 2.0 & Cross-Modal Identity
 
-Status: `ADMISSION_CANDIDATE`
+Status: `ADMITTED_FOR_EXECUTION`
 Risk: `ELEVATED`
 Issue: `#41`
 Branch: `iris-wo-0009-m05-asset-dna`
@@ -20,6 +20,18 @@ The implementation MUST satisfy:
 - all frozen authority firewalls.
 
 This is a complete M05 implementation increment, not an MVP slice.
+
+## ADMISSION
+
+Admission candidate head: `e0a545f6203f8685f0d452e6aae4ae00fb7b6ad4`
+
+Admission proof:
+- critical source fingerprints: **24/24 matched**
+- mismatches: **0**
+- Governance: `35843881845 / 107125219417` — **PASS**
+- required artifacts: **35**
+- baseline/full admission suite: **2677/2677 OK**
+- result: `ADMITTED_FOR_EXECUTION`
 
 ## AUTHORIZED BASELINE
 
