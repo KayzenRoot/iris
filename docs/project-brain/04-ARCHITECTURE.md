@@ -49,7 +49,7 @@ S01 freezes these architectural directions:
 - M02 keeps project/branch/history authority;
 - M06 keeps persistence/CAS/storage authority;
 - M53/M54 keep rights/provenance/privacy/security authority;
-- M39/M40/M41/M43/M45 keep domain production/canon/brand authority.
+- M39/M40/M41/M43/M46 keep domain production/canon/brand authority.
 
 S02 adds typed family profiles while preserving one common identity engine:
 - CLASS / ARCHETYPE / INDIVIDUAL / VARIANT are distinct semantic levels;
