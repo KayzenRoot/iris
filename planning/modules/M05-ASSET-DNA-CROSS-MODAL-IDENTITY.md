@@ -1190,18 +1190,22 @@ M05 identity-lineage relationships may include:
 
 These relations never create or replace M02 project/production branches, snapshots or rollback.
 
-## 3. M06 production-versioning firewall
+## 3. M02/M06 production-versioning firewall
 
-M06 owns:
-- content-addressed production revisions;
+M02 remains the canonical semantic authority for project/production identity, branch/variant/snapshot/rollback, incremental-build/reuse semantics and promotion/release/archive lifecycle.
+
+M06 may operationalize those contracts through:
+- content-addressed persistence/revisions;
 - immutable masters;
-- dependency fingerprints;
-- incremental rebuild/reconstruction;
-- rollback/release state.
+- dependency fingerprints/indexes;
+- reconstruction/rebuild execution;
+- cleanup and rollback execution.
+
+M06 must implement/extend M02 contracts rather than create a competing state/version/build model.
 
 M05 DNA revisions remain semantic identity revisions.
 
-A build/master may reference DNA, but build hashes are not persistent subject IDs.
+A build/master may reference DNA, but build/content hashes are not persistent subject IDs.
 
 ## 4. DNACompatibilityProfile
 
@@ -1373,7 +1377,7 @@ Rules:
 
 121. M05 lineage relations cannot create or replace M02 project/production branches.
 122. M02 remains branch/snapshot/rollback authority.
-123. M06 remains production-state/content-addressed build/version authority.
+123. M06 operational persistence/reconstruction/versioning must implement M02 semantic build/version/rollback contracts rather than create competing authority.
 124. build/master/content hashes cannot become persistent dna_id automatically.
 125. DNA compatibility is directional.
 126. DNA compatibility is multi-axis and cannot be proven by version number alone.
