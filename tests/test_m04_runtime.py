@@ -200,6 +200,13 @@ class RuntimeAndTransportAcceptanceTests(unittest.TestCase):
         self.assertEqual(decoded.document.head.revision_digest, revision.revision_digest)
         self.assertEqual(canonical_digest(decoded.document.head), revision.revision_digest)
 
+    def test_deserialize_enforces_caller_graph_limits(self):
+        revision = multimodal_revision()
+        envelope = IRDocumentEnvelope(M04.MultimodalIRDocument(DOCUMENT_ID, (revision,)))
+        encoded = serialize_envelope(envelope)
+        with self.assertRaises(IRLimitError):
+            deserialize_envelope(encoded, limits=IRLimits(max_nodes=1))
+
     def test_semantic_witnesses_detect_transform_camera_material_time_and_sync_loss(self):
         revision = multimodal_revision()
         profile = IREquivalenceProfile("exact", EquivalenceKind.EXACT)
