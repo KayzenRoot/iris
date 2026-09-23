@@ -1,6 +1,6 @@
 # IRIS M05 Planning Gate
 
-Status: `CONTRACT_FREEZE_CANDIDATE_AUDIT_NEXT`
+Status: `FROZEN_APPROVED_PLANNING_MERGE_NEXT`
 Issue: `#37`
 Branch: `m05-asset-dna-planning`
 Authorized main baseline: `6f2311b59f5da91778d3fc9d9fe1572953a0c60b`
@@ -160,20 +160,35 @@ References only. No new runtime dependency.
 - M39 S01 renamed to M05-bound Persona Continuity Engine
 - no implementation admitted
 
-## Module Contract Freeze Candidate
+## Module Contract Freeze
 
-- target version: `m05-contract-v1.0`
-- status: `FREEZE_CANDIDATE_AUDIT_REQUIRED`
+- frozen version: `m05-contract-v1.0`
+- status: `FROZEN_APPROVED`
 - file: `planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md`
 - hard invariants: **150**
 - consolidated technology families: **25**
 - required future extension/ref families: **22**
-- independent planning audit: **PENDING**
+- independent planning audit: `APPROVED`
 - product/kernel implementation: **0**
+
+## Independent Planning Audit
+
+- verdict: `APPROVED`
+- file: `planning/reviews/M05-INDEPENDENT-PLANNING-AUDIT.md`
+- reviewed candidate head: `2f3102b4701fd0f3a9113f1a7d9cef924c9cc6fa`
+- Governance: `35842498444 / 107120660586` — PASS
+- full suite: `2677/2677 OK`
+- HIGH/CRITICAL blockers: **0**
+
+## Promotion state
+
+- frozen contract: `m05-contract-v1.0`
+- status: `FROZEN_APPROVED`
+- planning implementation: none
+- PR #38: OPEN / merge pending exact-head Governance
 
 ## Next legal action
 
-Run the independent M05 planning audit against the exact freeze-candidate head.
+Pass exact-head Governance on this freeze-promotion head, then protected squash-merge PR #38 and validate exact `main`.
 
-Do not implement M05.
-Do not promote to `FROZEN_APPROVED` before the audit.
+Do not implement M05 before merged/main-validated canonical state.
