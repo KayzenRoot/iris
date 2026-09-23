@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import replace
 import unittest
 import uuid
 
@@ -113,7 +114,10 @@ class M06LineageReleaseTests(unittest.TestCase):
 
     def test_family_rrb(self) -> None:
         current = LOGO_PROFILE.commit()
-        target = LOGO_PROFILE.commit()
+        target = replace(
+            current,
+            snapshot_id=str(uuid.uuid5(uuid.NAMESPACE_URL, "iris-m06:rollback-target-snapshot")),
+        )
         previous = operational_revision("rollback-current")
         with self.assertRaises(ProductionStateIntegrityError):
             RollbackPlan(
@@ -162,7 +166,10 @@ class M06LineageReleaseTests(unittest.TestCase):
 
     def test_family_rsc(self) -> None:
         candidate = LOGO_PROFILE.commit()
-        release_snapshot = LOGO_PROFILE.commit()
+        release_snapshot = replace(
+            candidate,
+            snapshot_id=str(uuid.uuid5(uuid.NAMESPACE_URL, "iris-m06:release-package-snapshot")),
+        )
         transaction = ReleaseTransaction(
             str(uuid.uuid5(uuid.NAMESPACE_URL, "iris-m06:release-m06")),
             LOGO_PROFILE.production_id,
