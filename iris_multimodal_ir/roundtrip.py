@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from collections.abc import Mapping
+from dataclasses import dataclass, fields, is_dataclass
 from typing import Any, ClassVar
 
 from .base import IRRecord, many, one
@@ -179,7 +180,8 @@ def build_witness_set(revision: IRRevision, profile: IREquivalenceProfile, *, se
             elif field_name == "texture_resources":
                 item_key = item.resource.resource_id
             elif field_name == "color_values":
-                item_key = content_digest(item)
+                semantic_ref = getattr(item, "semantic_ref", None)
+                item_key = semantic_ref.text if semantic_ref is not None else f"index.{records.index(item)}"
             else:
                 item_key = content_digest(item)
             values[f"{field_name}/{item_key}"] = (field_name.upper(), item, True)
@@ -299,7 +301,7 @@ def verify_round_trip(contract: RoundTripContract, adapted_revision: IRRevision,
         if expected.value_digest == observed.value_digest:
             continue
         tolerance = tolerated.get(path) if contract.profile.kind.value == "TOLERANT" else None
-        if tolerance is not None and _within_tolerance(expected.value, observed.value, tolerance.amount):
+        if tolerance is not None and _within_tolerance(expected.value, observed.value, tolerance):
             differences.append(RoundTripDifference(path, expected.value_digest, observed.value_digest, "TOLERATED", f"difference falls within declared {tolerance.domain} tolerance {tolerance.amount} {tolerance.unit_or_reference}"))
         elif expected.opaque and path in contract.profile.opaque_paths:
             differences.append(RoundTripDifference(path, expected.value_digest, observed.value_digest, "LOSS", "opaque payload preservation digest changed"))
@@ -312,9 +314,118 @@ def verify_round_trip(contract: RoundTripContract, adapted_revision: IRRevision,
     )
 
 
-def _within_tolerance(expected: Any, observed: Any, tolerance: float) -> bool:
-    if isinstance(expected, (int, float)) and not isinstance(expected, bool) and isinstance(observed, (int, float)) and not isinstance(observed, bool):
-        return abs(float(expected) - float(observed)) <= tolerance
-    if isinstance(expected, (tuple, list)) and isinstance(observed, (tuple, list)) and len(expected) == len(observed):
-        return all(_within_tolerance(left, right, tolerance) for left, right in zip(expected, observed))
-    return False
+def _within_tolerance(expected: Any, observed: Any, tolerance: ComparisonTolerance) -> bool:
+    """Compare one witness under an explicit semantic domain and reference pin."""
+    tolerance = ComparisonTolerance.coerce(tolerance, "tolerance")
+    return _compare_tolerant_value(expected, observed, tolerance)
+
+
+def _compare_tolerant_value(expected: Any, observed: Any, tolerance: ComparisonTolerance) -> bool:
+    from .materials import ColorValueIR
+    from .spatial import QuantityIR, TransformOperation, convert_quantity
+    from .temporal import DurationIR, TimePointIR, TimeRangeIR
+
+    if type(expected) is not type(observed):
+        return False
+
+    if tolerance.domain in {"LENGTH", "ANGLE"} and isinstance(expected, QuantityIR):
+        expected_dimension = "LENGTH" if tolerance.domain == "LENGTH" else "ANGLE"
+        if expected.dimension.value != expected_dimension or observed.dimension != expected.dimension:
+            return False
+        try:
+            left, _ = convert_quantity(expected, tolerance.unit_or_reference, "roundtrip.tolerance.left")
+            right, _ = convert_quantity(observed, tolerance.unit_or_reference, "roundtrip.tolerance.right")
+        except (IRIntegrityError, IRSchemaError):
+            return False
+        if left.semantic_ref != right.semantic_ref:
+            return False
+        return abs(float(left.value) - float(right.value)) <= tolerance.amount
+
+    if tolerance.domain == "COLOR" and isinstance(expected, ColorValueIR):
+        if (
+            expected.color_space != observed.color_space
+            or expected.color_space != tolerance.color_space
+            or expected.encoding != observed.encoding
+            or expected.encoding != tolerance.unit_or_reference
+            or expected.alpha_mode != observed.alpha_mode
+            or expected.semantic_ref != observed.semantic_ref
+            or len(expected.components) != len(observed.components)
+        ):
+            return False
+        return all(abs(left - right) <= tolerance.amount for left, right in zip(expected.components, observed.components))
+
+    if tolerance.domain == "TIME" and isinstance(expected, TimePointIR):
+        if (
+            expected.reference_id != observed.reference_id
+            or expected.reference_id != tolerance.unit_or_reference
+            or expected.layer != observed.layer
+        ):
+            return False
+        return abs(float(expected.ticks - observed.ticks)) <= tolerance.amount
+
+    if tolerance.domain == "TIME" and isinstance(expected, DurationIR):
+        if expected.reference_id != observed.reference_id or expected.reference_id != tolerance.unit_or_reference:
+            return False
+        return abs(float(expected.ticks - observed.ticks)) <= tolerance.amount
+
+    if tolerance.domain == "TIME" and isinstance(expected, TimeRangeIR):
+        return (
+            _compare_tolerant_value(expected.start, observed.start, tolerance)
+            and _compare_tolerant_value(expected.end, observed.end, tolerance)
+        )
+
+    if tolerance.domain == "TRANSFORM" and isinstance(expected, TransformOperation):
+        if (
+            expected.operation_id != observed.operation_id
+            or expected.operation != observed.operation
+            or len(expected.values) != len(observed.values)
+        ):
+            return False
+        if expected.operation == "scale":
+            if observed.unit is not None or expected.unit is not None or tolerance.unit_or_reference not in {"1", "unitless"}:
+                return False
+            return all(abs(left - right) <= tolerance.amount for left, right in zip(expected.values, observed.values))
+        dimension = "LENGTH" if expected.operation == "translate" else "ANGLE"
+        if expected.unit is None or observed.unit is None:
+            return False
+        try:
+            left_values = tuple(
+                float(convert_quantity(QuantityIR(value, expected.unit, dimension), tolerance.unit_or_reference, f"roundtrip.transform.left.{index}")[0].value)
+                for index, value in enumerate(expected.values)
+            )
+            right_values = tuple(
+                float(convert_quantity(QuantityIR(value, observed.unit, dimension), tolerance.unit_or_reference, f"roundtrip.transform.right.{index}")[0].value)
+                for index, value in enumerate(observed.values)
+            )
+        except (IRIntegrityError, IRSchemaError):
+            return False
+        return all(abs(left - right) <= tolerance.amount for left, right in zip(left_values, right_values))
+
+    if tolerance.domain == "SCALAR" and _is_number(expected) and _is_number(observed):
+        return abs(float(expected) - float(observed)) <= tolerance.amount
+
+    if is_dataclass(expected) and not isinstance(expected, type):
+        return all(
+            _compare_tolerant_value(getattr(expected, item.name), getattr(observed, item.name), tolerance)
+            for item in fields(expected)
+        )
+
+    if isinstance(expected, Mapping):
+        if set(expected) != set(observed):
+            return False
+        return all(_compare_tolerant_value(expected[key], observed[key], tolerance) for key in sorted(expected))
+
+    if isinstance(expected, (tuple, list)):
+        return len(expected) == len(observed) and all(
+            _compare_tolerant_value(left, right, tolerance)
+            for left, right in zip(expected, observed)
+        )
+
+    return canonical_value(expected) == canonical_value(observed)
+
+
+def _is_number(value: Any) -> bool:
+    from fractions import Fraction
+    from decimal import Decimal
+
+    return not isinstance(value, bool) and isinstance(value, (int, float, Fraction, Decimal))
