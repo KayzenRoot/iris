@@ -388,9 +388,270 @@ These are S01 planning invariants and may be consolidated or expanded by S02-S05
 
 # S02 — Character, creature, object, product and environment DNA
 
-Status: `NOT_STARTED`
+Status: `COMPLETE_FOR_MODULE_PLANNING`
 
-Will specialize the S01 substrate by subject family while preserving one cross-domain identity core.
+## 1. S02 goals
+
+S02 specializes the S01 identity substrate without creating separate incompatible identity engines.
+
+The same `AssetDNAIdentity`, `DNARevision`, trait law, anchor law and evidence firewall remain canonical.
+
+S02 adds:
+- family profiles;
+- semantic identity levels;
+- persistent component identity;
+- trait bundles;
+- family-specific namespaces;
+- variant/archetype semantics;
+- persistent-vs-contextual appearance partitions.
+
+## 2. Semantic identity levels
+
+M05 distinguishes:
+- `CLASS` — broad semantic category;
+- `ARCHETYPE` — reusable species/model/design pattern;
+- `INDIVIDUAL` — one persistent subject;
+- `VARIANT` — governed derivative identity/configuration.
+
+Similarity cannot promote or collapse these levels.
+
+## 3. DNAFamilyProfile
+
+A `DNAFamilyProfile` declares:
+- family ID/version;
+- supported semantic levels;
+- required/optional namespaces;
+- allowed component roles;
+- default criticality/mutability guidance;
+- extension namespaces;
+- projection obligations;
+- compatibility rules.
+
+Defaults never silently override explicit trait policy.
+
+## 4. DNATraitBundle
+
+A `DNATraitBundle` groups versioned typed traits under one family/profile.
+
+It carries:
+- bundle ID;
+- subject DNA ref;
+- family/profile ref;
+- trait path set;
+- required/optional declarations;
+- provenance/policy refs;
+- compatibility refs.
+
+Bundles are composition units, not new identities.
+
+## 5. DNAComponentIdentity
+
+Persistent subcomponents may receive DNA-scoped identity when their continuity matters.
+
+Component identity:
+- is stable under ordering/index changes;
+- is not derived from display name;
+- is not automatically an M04 node ID;
+- may bind to M04 representation anchors;
+- supports governed replacement/split/merge;
+- excludes derived LOD/proxy fragments by default.
+
+## 6. CharacterDNA profile
+
+Candidate namespaces:
+- `character.identity.*`;
+- `character.anatomy.*`;
+- `character.face.*`;
+- `character.body.*`;
+- `character.hair.*`;
+- `character.signature.*`;
+- `character.costume_binding.*`;
+- `character.relationship_role.*`.
+
+Persistent candidates:
+- defining face/body morphology where policy requires it;
+- stable marks/scars/signatures;
+- component identities;
+- identity-bearing proportions;
+- explicit archetype/species refs.
+
+Contextual candidates:
+- pose;
+- expression;
+- camera/light;
+- temporary clothing/props;
+- dirt/wetness/damage state;
+- temporary styling permitted by policy.
+
+M39 owns digital-human production/acting continuity.
+M29/M30 own rigging/motion production.
+M40 owns voice production.
+M43 owns canon/story truth.
+
+## 7. CreatureDNA profile
+
+Candidate namespaces:
+- `creature.taxonomy.*`;
+- `creature.morphology.*`;
+- `creature.anatomy.*`;
+- `creature.appendage.*`;
+- `creature.surface.*`;
+- `creature.pattern.*`;
+- `creature.signature.*`.
+
+Creature DNA must support:
+- non-humanoid anatomy;
+- variable component counts;
+- bilateral and asymmetric forms;
+- procedural/species archetypes;
+- individual signatures.
+
+Species/archetype identity never implies individual identity.
+
+## 8. ObjectDNA profile
+
+Candidate namespaces:
+- `object.form.*`;
+- `object.part.*`;
+- `object.function.*`;
+- `object.articulation.*`;
+- `object.surface_identity.*`;
+- `object.signature.*`.
+
+Persistent identity may include stable form, component topology, articulation structure, unique marks and function-critical geometry.
+
+Scene placement, open/closed state, transform and transient wear remain contextual unless explicitly admitted otherwise.
+
+## 9. ProductDNA profile
+
+Identity levels may include:
+- `PRODUCT_FAMILY`;
+- `MODEL`;
+- `VARIANT_SKU`;
+- `PACKAGE_VARIANT`;
+- `PHYSICAL_INSTANCE`.
+
+Candidate namespaces:
+- `product.model.*`;
+- `product.geometry.*`;
+- `product.variant.*`;
+- `product.packaging.*`;
+- `product.marking.*`;
+- `product.dimension.*`;
+- `product.external_identifier.*`.
+
+SKU/GTIN/MPN/serial values are governed external identity refs, not universal substitutes for M05 DNA identity.
+
+M45 remains Brand authority.
+
+## 10. EnvironmentDNA profile
+
+Candidate namespaces:
+- `environment.layout.*`;
+- `environment.zone.*`;
+- `environment.landmark.*`;
+- `environment.architecture.*`;
+- `environment.signature.*`;
+- `environment.ecology.*`;
+- `environment.context_boundary.*`.
+
+Persistent candidates:
+- topology/layout;
+- landmark set;
+- stable zone relationships;
+- defining architecture/ecology;
+- protected spatial relationships.
+
+Contextual candidates:
+- time of day;
+- weather;
+- temporary props/crowds;
+- lighting/camera;
+- temporary damage;
+- growth/seasonal state unless identity policy says otherwise.
+
+M04 SceneIR remains representation authority.
+
+## 11. Persistent appearance partition
+
+S02 introduces three explicit roles:
+- `PersistentAppearanceTrait`;
+- `ContextualAppearanceState`;
+- `AppearanceObservation`.
+
+Lighting, renderer, camera, pose and output-model artifacts must not leak into persistent identity.
+
+## 12. Variant and archetype relation
+
+A governed variant relation declares:
+- parent/archetype ref;
+- relation role;
+- inherited trait paths;
+- overridden trait paths;
+- compatibility expectation;
+- resulting identity relationship.
+
+Inheritance is semantic, not shared mutable storage.
+
+## 13. Family reclassification
+
+Changing family/profile is not an ordinary field edit.
+
+Character ↔ Creature, Product ↔ Object or Environment ↔ generic Scene use requires an explicit migration/projection decision.
+
+A projection can expose a generic view without changing canonical family identity.
+
+## 14. S02 candidate hard invariants
+
+31. family specialization must reuse the S01 identity core rather than create an independent identity engine.
+32. CLASS, ARCHETYPE, INDIVIDUAL and VARIANT remain semantically distinct.
+33. visual similarity cannot infer semantic identity level.
+34. family-profile defaults cannot silently override explicit trait criticality/mutability.
+35. trait bundles cannot become independent subject identities.
+36. component index/order/name never defines component identity.
+37. M04 node identity cannot silently define M05 component identity.
+38. component replacement/split/merge requires explicit governed semantics.
+39. derived LOD/proxy fragments do not become new persistent components by default.
+40. CharacterDNA cannot treat pose/expression/camera/light as persistent identity by default.
+41. CharacterDNA cannot seize M39 acting/digital-human production authority.
+42. CreatureDNA cannot require human anatomy or fixed human component slots.
+43. species/archetype identity cannot imply creature individual identity.
+44. ObjectDNA separates persistent form/components from contextual scene state.
+45. Product family/model/SKU/package/physical-instance identity levels cannot be collapsed implicitly.
+46. SKU/GTIN/MPN/serial refs are external mappings, not universal DNA IDs.
+47. Product variant changes declare inherited and overridden trait surfaces.
+48. M45 remains brand-system production/brand authority.
+49. EnvironmentDNA cannot silently absorb M04 SceneIR representation authority.
+50. weather/time/camera/lighting are contextual environment state unless explicitly identity-defining.
+51. environment topology/landmark identity must be represented as typed traits/relations, not file paths.
+52. persistent appearance is distinct from contextual appearance and observations.
+53. renderer/provider/model differences cannot redefine persistent appearance automatically.
+54. family reclassification requires explicit migration/projection semantics.
+55. cross-family generic projection cannot rewrite canonical source-family identity.
+56. family extensions use versioned namespaces and fail closed for unknown mandatory semantics.
+57. family-specific traits preserve S01 provenance/policy reachability.
+58. downstream provider scarcity cannot downgrade family-specific identity protections.
+59. family/profile changes participate in deterministic canonical fingerprint/change-surface evidence.
+60. HIVE/agents may propose family classification but cannot canonically reclassify DNA without authority.
+
+These extend S01 invariants 1–30 and remain candidates until final contract freeze.
+
+## 15. S02 proprietary candidates
+
+S02 adds `IRIS-DNAX-031..060` to the technology registry.
+
+## S02 STOP CONDITION
+
+S02 is complete for module planning when:
+- one common identity core is preserved;
+- CLASS/ARCHETYPE/INDIVIDUAL/VARIANT is explicit;
+- Character/Creature/Object/Product/Environment profiles are explicit;
+- component identity and variant semantics are explicit;
+- persistent/contextual/observed appearance separation is explicit;
+- candidate invariants 31–60 are recorded;
+- DNAX-031..060 are registered;
+- planning checkpoint advances to S03;
+- no M05 implementation code is introduced.
 
 # S03 — SceneDNA, Motion DNA, Voice DNA and Brand DNA links
 
