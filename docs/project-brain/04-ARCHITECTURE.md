@@ -60,6 +60,15 @@ S02 adds typed family profiles while preserving one common identity engine:
 - EnvironmentDNA persists place identity while M04 SceneIR remains current representation authority;
 - family reclassification requires explicit migration/projection semantics.
 
+S03 adds cross-modal identity links without transferring domain authority:
+- M30 owns MotionDNA and motion production; M05 owns only revision-pinned MotionDNALink relations;
+- M40 owns VoiceDNA and voice production; M05 owns only revision-pinned VoiceDNALink relations;
+- M46 owns BrandDNA / Brand & IP; M05 owns only BrandDNALink relations;
+- M45 owns Campaign DNA / Creative Genome and advertising, which is explicitly distinct from BrandDNA;
+- SceneIdentityDNA is persistent reusable composition identity, not M04 SceneIR state or M43 Canon truth;
+- cross-modal links are owner/family/revision pinned and never silently follow latest;
+- CrossModalDNAGraph is an identity-link graph, not M02 Production Graph, M04 Scene Graph or M43 Canon Graph.
+
 No M05 implementation package is admitted yet.
 
 ## Dependency direction
