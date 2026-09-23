@@ -51,7 +51,7 @@ The implementation uses only the Python standard library at runtime. No physical
 4. First-run protocols are individually bounded and `validate_first_run_batch` caps their cumulative wall-clock budget. Stress/destructive protocols are rejected; first-run sustained protocols are rejected.
 5. Unknown telemetry, contamination, cancellation, thermal/resource abort, unsupported, partial and stale states remain distinct. None can be silently promoted to positive capability evidence.
 
-The default local ceilings include 15 seconds per first-run protocol, 60 seconds per first-run batch, 20,000 iterations, 256 MiB host/device allocation, eight-way concurrency, one retry, 64 boundary-search attempts, 4 MiB inline payloads, 2,000 raw samples per result, 4,096 fixtures, 4,096 probes and bounded invalidation graphs. Callers may tighten these ceilings but may not exceed the hard ceilings in `limits.py`. A zero device-allocation budget is valid for CPU-only subjects.
+The default local ceilings include 15 seconds per first-run protocol, 60 seconds per first-run batch, 20,000 iterations, 256 MiB host/device allocation, eight-way concurrency, one retry, 64 boundary-search attempts, 4,000,000 inline payload bytes, 2,000 raw samples per result, 2,048 fixtures, 4,096 probes, 20,000 invalidation nodes and 40,000 invalidation edges. Callers may tighten these ceilings but may not exceed the hard ceilings in `limits.py`. A zero device-allocation budget is valid for CPU-only subjects.
 
 The semantic kernel does not launch work. `BackendAdapterCapsule` declares backend mechanics only and contains no execute/schedule/allocate method. External adapters remain deferred and must enforce the admitted protocol budgets before any measurement occurs.
 
