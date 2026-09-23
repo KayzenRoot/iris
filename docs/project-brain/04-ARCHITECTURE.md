@@ -51,6 +51,15 @@ S01 freezes these architectural directions:
 - M53/M54 keep rights/provenance/privacy/security authority;
 - M39/M40/M41/M43/M45 keep domain production/canon/brand authority.
 
+S02 adds typed family profiles while preserving one common identity engine:
+- CLASS / ARCHETYPE / INDIVIDUAL / VARIANT are distinct semantic levels;
+- Character, Creature, Object, Product and Environment use typed profile/trait bundles;
+- persistent component identity is independent of array order, names and M04 node IDs;
+- persistent appearance is separated from contextual appearance and observations;
+- product model/SKU/package/physical-instance identities remain distinct;
+- EnvironmentDNA persists place identity while M04 SceneIR remains current representation authority;
+- family reclassification requires explicit migration/projection semantics.
+
 No M05 implementation package is admitted yet.
 
 ## Dependency direction
