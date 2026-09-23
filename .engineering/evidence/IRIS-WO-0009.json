@@ -1,0 +1,176 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0009",
+  "status": "ADMISSION_CANDIDATE",
+  "branch": "iris-wo-0009-m05-asset-dna",
+  "frozenContract": "m05-contract-v1.0",
+  "issue": 41,
+  "baseSha": "ad56aade6ad2459eb632b30bd9fdd332263a5d67",
+  "pullRequest": {
+    "number": 42,
+    "url": "https://github.com/KayzenRoot/iris/pull/42",
+    "base": "main",
+    "state": "OPEN",
+    "merged": false,
+    "headBranch": "iris-wo-0009-m05-asset-dna",
+    "implementationHead": null,
+    "reviewedCodeHead": null,
+    "mergeSha": null
+  },
+  "admission": {
+    "contextLock": ".engineering/context-locks/IRIS-WO-0009.json",
+    "criticalSourceFingerprintMismatches": null,
+    "governanceRun": null,
+    "governanceJob": null,
+    "governanceConclusion": "PENDING",
+    "baselineTests": 2677,
+    "requiredArtifacts": 35,
+    "contextDisposition": "Canonical repository sources, exact Git bindings and frozen planning artifacts are authoritative. No external executor/context evidence is claimed yet."
+  },
+  "baseline": {
+    "baseSha": "ad56aade6ad2459eb632b30bd9fdd332263a5d67",
+    "governanceRun": 35843465664,
+    "governanceJob": 107123844096,
+    "tests": 2677,
+    "requiredArtifacts": 35,
+    "conclusion": "success"
+  },
+  "implementation": {
+    "package": "iris_asset_dna/",
+    "state": "NOT_STARTED",
+    "runtimeDependenciesAdded": 0,
+    "frozenFamilies": {
+      "required": 25,
+      "represented": 0,
+      "ids": [
+        "F-M05-01",
+        "F-M05-02",
+        "F-M05-03",
+        "F-M05-04",
+        "F-M05-05",
+        "F-M05-06",
+        "F-M05-07",
+        "F-M05-08",
+        "F-M05-09",
+        "F-M05-10",
+        "F-M05-11",
+        "F-M05-12",
+        "F-M05-13",
+        "F-M05-14",
+        "F-M05-15",
+        "F-M05-16",
+        "F-M05-17",
+        "F-M05-18",
+        "F-M05-19",
+        "F-M05-20",
+        "F-M05-21",
+        "F-M05-22",
+        "F-M05-23",
+        "F-M05-24",
+        "F-M05-25"
+      ]
+    },
+    "hardInvariants": {
+      "required": 150,
+      "indexed": 0,
+      "directTestIds": null,
+      "proofIndexValidation": "PENDING"
+    },
+    "extensionRefPorts": {
+      "required": 22,
+      "represented": 0,
+      "mapping": "PENDING"
+    },
+    "syntheticProfiles": {
+      "required": 8,
+      "passed": 0,
+      "profiles": [
+        "corporate.spokesperson",
+        "asymmetric.creature",
+        "generic.object",
+        "product.identity.levels",
+        "persistent.environment",
+        "crossmodal.character",
+        "scene.identity.roles",
+        "portable.dna.package"
+      ]
+    }
+  },
+  "authorityBoundaryEvidence": {
+    "M01": "PENDING",
+    "M02": "PENDING",
+    "M03": "PENDING",
+    "M04": "PENDING",
+    "M06": "PENDING",
+    "M30": "PENDING",
+    "M37": "PENDING",
+    "M39": "PENDING",
+    "M40": "PENDING",
+    "M41": "PENDING",
+    "M43": "PENDING",
+    "M45": "PENDING",
+    "M46": "PENDING",
+    "M52": "PENDING",
+    "M53": "PENDING",
+    "M54": "PENDING",
+    "M55": "PENDING",
+    "M58": "PENDING",
+    "M59": "PENDING",
+    "M60": "PENDING"
+  },
+  "validation": {
+    "baseline": {
+      "tests": 2677,
+      "result": "OK"
+    },
+    "focusedM05": {
+      "tests": 0,
+      "result": "NOT_RUN"
+    },
+    "fullSuite": {
+      "tests": 2677,
+      "result": "BASELINE_ONLY"
+    },
+    "compile": {
+      "result": "NOT_RUN"
+    },
+    "lint": {
+      "result": "NOT_RUN"
+    },
+    "governance": {
+      "result": "ADMISSION_PENDING",
+      "requiredArtifacts": 35
+    },
+    "exactHeadGitHubGovernance": {
+      "head": null,
+      "run": null,
+      "job": null,
+      "result": "PENDING"
+    }
+  },
+  "failuresEncounteredAndFixed": [],
+  "changedFiles": {
+    "implementationFiles": 0,
+    "files": [
+      ".engineering/work-orders/IRIS-WO-0009-M05-ASSET-DNA.md",
+      ".engineering/context-locks/IRIS-WO-0009.json",
+      ".engineering/evidence/IRIS-WO-0009.json"
+    ]
+  },
+  "risksAndDeferredPorts": [
+    "Implementation has not started.",
+    "All 22 extension/ref ports are contracts only; downstream modules must not be implemented here.",
+    "No performance/token-savings claim is admitted without benchmark evidence.",
+    "No biometric authentication, provider/DCC runtime, database/storage backend, payment/storefront or media-generation runtime is in M05 core scope."
+  ],
+  "proposedCheckpointDelta": {
+    "status": "NOT_PROPOSED",
+    "proposal": "To be written only after implementation evidence is complete."
+  },
+  "independentReview": {
+    "status": "NOT_STARTED",
+    "findings": null,
+    "merge": "DO_NOT_MERGE"
+  },
+  "stopCondition": "IRIS-WO-0009 remains open until the complete frozen M05 kernel is implemented, tested, documented, evidenced and independently reviewed. Do not merge. Do not start M06."
+}
