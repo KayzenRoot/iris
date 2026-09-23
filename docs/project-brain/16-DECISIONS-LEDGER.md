@@ -132,7 +132,7 @@ Identity drift evidence, similarity scores, provider output and agent/model prop
 
 ## ADR-0031 - M05 semantic lineage is not M02 branching or M06 production versioning
 Status: `APPROVED`
-M05 identity lineage describes semantic relationships such as same-identity revision, variant derivation, identity break, split and consolidation. M02 remains project/Production Graph/branch/snapshot/rollback authority. M06 remains production-state/content-addressed revision/build/reconstruction authority. Build/content hashes do not become persistent subject identity automatically.
+M05 identity lineage describes semantic relationships such as same-identity revision, variant derivation, identity break, split and consolidation. M02 remains canonical semantic authority for project/Production Graph/branch/snapshot/rollback and incremental-build/reuse lifecycle. M06 operationalizes content-addressed persistence, dependency indexing, reconstruction, cleanup and rollback execution under those M02 contracts. Build/content hashes do not become persistent subject identity automatically.
 
 ## ADR-0032 - M05 package and marketplace contracts are semantic, non-executable and authority-referenced
 Status: `APPROVED`
