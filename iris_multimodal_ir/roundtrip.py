@@ -1,0 +1,320 @@
+"""Semantic witnesses and externally qualified round-trip comparison."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, ClassVar
+
+from .base import IRRecord, many, one
+from .common import deep_freeze, require_enum
+from .enums import EquivalenceKind
+from .errors import IRAdmissionError, IRIntegrityError, IRSchemaError
+from .graph import IRRevision
+from .identity import ExternalIdentityRef
+from .versions import VALIDATOR_VERSION, canonical_value, content_digest, require_digest, require_finite_number, require_identifier, require_text, require_version
+
+__all__ = [
+    "ComparisonTolerance", "IREquivalenceProfile", "SemanticWitness", "SemanticWitnessSet",
+    "RoundTripContract", "RoundTripDifference", "RoundTripReceipt", "build_witness_set",
+    "build_round_trip_contract", "verify_round_trip",
+]
+
+
+@dataclass(frozen=True)
+class ComparisonTolerance(IRRecord):
+    path: str
+    amount: float
+    domain: str
+    unit_or_reference: str
+    color_space: str | None = None
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "path", require_text(self.path, "path", maximum=1024))
+        amount = float(require_finite_number(self.amount, "amount"))
+        if amount < 0:
+            raise IRSchemaError("comparison tolerance cannot be negative")
+        object.__setattr__(self, "amount", amount)
+        object.__setattr__(self, "domain", require_text(self.domain, "domain", maximum=32))
+        if self.domain not in {"SCALAR", "LENGTH", "ANGLE", "COLOR", "TIME", "TRANSFORM"}:
+            raise IRSchemaError("unknown tolerant comparison domain")
+        object.__setattr__(self, "unit_or_reference", require_identifier(self.unit_or_reference, "unit_or_reference"))
+        if self.domain == "COLOR" and self.color_space is None:
+            raise IRSchemaError("color tolerance must pin a color space")
+        if self.color_space is not None:
+            object.__setattr__(self, "color_space", require_identifier(self.color_space, "color_space"))
+
+
+@dataclass(frozen=True)
+class IREquivalenceProfile(IRRecord):
+    profile_id: str
+    kind: EquivalenceKind
+    tolerances: tuple[ComparisonTolerance, ...] = ()
+    opaque_paths: tuple[str, ...] = ()
+    one_way_reason: str | None = None
+
+    NESTED: ClassVar = {"tolerances": many(ComparisonTolerance)}
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "profile_id", require_identifier(self.profile_id, "profile_id"))
+        object.__setattr__(self, "kind", require_enum(self.kind, EquivalenceKind, "kind"))
+        tolerances = tuple(ComparisonTolerance.coerce(item, "tolerances[]") for item in self.tolerances)
+        if len({item.path for item in tolerances}) != len(tolerances):
+            raise IRSchemaError("comparison tolerance paths must be unique")
+        if tolerances and self.kind is not EquivalenceKind.TOLERANT:
+            raise IRSchemaError("unit-aware tolerances require TOLERANT equivalence class")
+        object.__setattr__(self, "tolerances", tuple(sorted(tolerances, key=lambda item: item.path)))
+        object.__setattr__(self, "opaque_paths", tuple(sorted(set(require_text(item, "opaque_paths[]", maximum=1024) for item in self.opaque_paths))))
+        if self.kind is EquivalenceKind.ONE_WAY and not self.one_way_reason:
+            raise IRSchemaError("ONE_WAY equivalence requires an explicit reason")
+        if self.one_way_reason is not None:
+            object.__setattr__(self, "one_way_reason", require_text(self.one_way_reason, "one_way_reason", maximum=1024))
+
+
+@dataclass(frozen=True)
+class SemanticWitness(IRRecord):
+    path: str
+    semantic_kind: str
+    value: Any
+    value_digest: str
+    required: bool = True
+    opaque: bool = False
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "path", require_text(self.path, "path", maximum=1024))
+        object.__setattr__(self, "semantic_kind", require_text(self.semantic_kind, "semantic_kind", maximum=128))
+        frozen = deep_freeze(self.value, "value")
+        object.__setattr__(self, "value", frozen)
+        object.__setattr__(self, "value_digest", require_digest(self.value_digest, "value_digest"))
+        if content_digest(canonical_value(frozen)) != self.value_digest:
+            raise IRIntegrityError("semantic witness digest does not match its value")
+        if not isinstance(self.required, bool) or not isinstance(self.opaque, bool):
+            raise IRSchemaError("witness flags must be bool")
+
+
+@dataclass(frozen=True)
+class SemanticWitnessSet(IRRecord):
+    set_id: str
+    source_revision_digest: str
+    profile_id: str
+    witnesses: tuple[SemanticWitness, ...]
+    generated_before_adapter_inspection: bool = True
+    witness_digest: str | None = None
+
+    NESTED: ClassVar = {"witnesses": many(SemanticWitness)}
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "set_id", require_identifier(self.set_id, "set_id"))
+        object.__setattr__(self, "source_revision_digest", require_digest(self.source_revision_digest, "source_revision_digest"))
+        object.__setattr__(self, "profile_id", require_identifier(self.profile_id, "profile_id"))
+        witnesses = tuple(SemanticWitness.coerce(item, "witnesses[]") for item in self.witnesses)
+        if len({item.path for item in witnesses}) != len(witnesses):
+            raise IRSchemaError("semantic witness paths must be unique")
+        object.__setattr__(self, "witnesses", tuple(sorted(witnesses, key=lambda item: item.path)))
+        if self.generated_before_adapter_inspection is not True:
+            raise IRIntegrityError("witness set must be derived before adapter-result inspection")
+        if self.witness_digest is not None and self.witness_digest != self.digest:
+            raise IRIntegrityError("witness-set digest mismatch")
+
+    @property
+    def digest(self) -> str:
+        return content_digest({"set_id": self.set_id, "source_revision_digest": self.source_revision_digest, "profile_id": self.profile_id, "witnesses": self.witnesses, "phase": "PRE_ADAPTER_RESULT"})
+
+
+def build_witness_set(revision: IRRevision, profile: IREquivalenceProfile, *, set_id: str) -> SemanticWitnessSet:
+    """Derive expected canonical witnesses only from admitted source revision and profile."""
+    revision, profile = IRRevision.coerce(revision, "revision"), IREquivalenceProfile.coerce(profile, "profile")
+    values: dict[str, tuple[str, Any, bool]] = {}
+    values["scene/representation"] = ("SCENE_REPRESENTATION", revision.scene, True)
+    for node in revision.nodes:
+        prefix = f"nodes/{node.ref.node_id}"
+        values[f"{prefix}/representation"] = ("NODE_REPRESENTATION", node, True)
+        values[f"{prefix}/kind"] = ("NODE_KIND", node.kind.value, True)
+        values[f"{prefix}/attributes"] = ("NODE_ATTRIBUTES", node.attributes or {}, True)
+        values[f"{prefix}/semantic_refs"] = ("SEMANTIC_REFS", tuple(item.text for item in node.semantic_refs), True)
+        values[f"{prefix}/trace"] = ("TRACE", node.trace, True)
+        values[f"{prefix}/quality_obligations"] = ("M01_OBLIGATIONS", tuple(item.text for item in node.quality_obligation_refs), True)
+        values[f"{prefix}/resources"] = ("RESOURCE_REFS", tuple(sorted((item.identity_key for item in node.resource_refs), key=repr)), True)
+        if node.interface is not None:
+            values[f"{prefix}/interface"] = ("INTERFACE", node.interface, True)
+    values["graph/containment"] = ("CONTAINMENT", revision.containment, True)
+    values["graph/relationships"] = ("RELATIONSHIPS", revision.relationships, True)
+    for field_name, records, key_name in (
+        ("fragments", revision.fragments, "fragment_id"),
+        ("prototypes", revision.prototypes, "prototype_id"),
+        ("instances", revision.instances, "instance_id"),
+        ("extensions", revision.extensions, None),
+        ("spatial_references", revision.spatial_references, "reference_id"),
+        ("coordinate_frames", revision.coordinate_frames, "frame_id"),
+        ("transform_chains", revision.transform_chains, "chain_id"),
+        ("spatial_conversion_receipts", revision.spatial_conversion_receipts, "conversion_id"),
+        ("cameras", revision.cameras, None),
+        ("lights", revision.lights, None),
+        ("spatial_regions", revision.spatial_regions, "region_id"),
+        ("materials", revision.materials, "material_id"),
+        ("texture_resources", revision.texture_resources, None),
+        ("material_bindings", revision.material_bindings, "binding_id"),
+        ("color_values", revision.color_values, None),
+        ("color_conversion_receipts", revision.color_conversion_receipts, "receipt_id"),
+        ("temporal_references", revision.temporal_references, "reference_id"),
+        ("temporal_markers", revision.temporal_markers, "marker_id"),
+        ("temporal_relations", revision.temporal_relations, "relation_id"),
+        ("temporal_samplings", revision.temporal_samplings, "sampling_id"),
+        ("temporal_conversion_receipts", revision.temporal_conversion_receipts, "receipt_id"),
+        ("motions", revision.motions, "motion_id"),
+        ("motion_layers", revision.motion_layers, "layer_id"),
+        ("audio", revision.audio, "audio_id"),
+        ("audio_bindings", revision.audio_bindings, "binding_id"),
+        ("music", revision.music, "music_id"),
+        ("narrative_projections", revision.narrative_projections, "projection_id"),
+        ("timelines", revision.timelines, "timeline_id"),
+        ("sync_relations", revision.sync_relations, "relation_id"),
+    ):
+        for item in records:
+            if key_name is not None:
+                item_key = str(getattr(item, key_name))
+            elif field_name == "cameras":
+                item_key = item.camera_ref.node_id
+            elif field_name == "lights":
+                item_key = item.light_ref.node_id
+            elif field_name == "texture_resources":
+                item_key = item.resource.resource_id
+            elif field_name == "color_values":
+                item_key = content_digest(item)
+            else:
+                item_key = content_digest(item)
+            values[f"{field_name}/{item_key}"] = (field_name.upper(), item, True)
+    values["schema/manifest"] = ("SCHEMA_MANIFEST", revision.schema_manifest, True)
+    opaque_paths = set(profile.opaque_paths)
+    witnesses = tuple(
+        SemanticWitness(path, kind, value, content_digest(canonical_value(value)), required=required, opaque=path in opaque_paths)
+        for path, (kind, value, required) in sorted(values.items())
+    )
+    return SemanticWitnessSet(set_id, revision.revision_digest, profile.profile_id, witnesses)
+
+
+@dataclass(frozen=True)
+class RoundTripContract(IRRecord):
+    contract_id: str
+    source_revision_digest: str
+    witness_set: SemanticWitnessSet
+    profile: IREquivalenceProfile
+    adapter_ref: ExternalIdentityRef
+    independent_qualification_refs: tuple[ExternalIdentityRef, ...] = ()
+    contract_version: str = "roundtrip-v1"
+
+    NESTED: ClassVar = {"witness_set": one(SemanticWitnessSet), "profile": one(IREquivalenceProfile), "adapter_ref": one(ExternalIdentityRef), "independent_qualification_refs": many(ExternalIdentityRef)}
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "contract_id", require_identifier(self.contract_id, "contract_id"))
+        object.__setattr__(self, "source_revision_digest", require_digest(self.source_revision_digest, "source_revision_digest"))
+        object.__setattr__(self, "witness_set", SemanticWitnessSet.coerce(self.witness_set, "witness_set"))
+        object.__setattr__(self, "profile", IREquivalenceProfile.coerce(self.profile, "profile"))
+        if self.witness_set.source_revision_digest != self.source_revision_digest or self.witness_set.profile_id != self.profile.profile_id:
+            raise IRIntegrityError("round-trip contract must bind the precomputed witness set/profile/source")
+        adapter = ExternalIdentityRef.coerce(self.adapter_ref, "adapter_ref")
+        if adapter.authority != "m04.adapter_identity":
+            raise IRSchemaError("adapter ref must be an opaque adapter identity")
+        object.__setattr__(self, "adapter_ref", adapter)
+        evidence = tuple(ExternalIdentityRef.coerce(item, "independent_qualification_refs[]") for item in self.independent_qualification_refs)
+        if any(item.authority != "m04.independent_qualification" for item in evidence):
+            raise IRSchemaError("round-trip qualification evidence must come from the independent qualification namespace")
+        object.__setattr__(self, "independent_qualification_refs", tuple(sorted(evidence, key=lambda item: (item.ref_id, item.version))))
+        object.__setattr__(self, "contract_version", require_version(self.contract_version))
+
+    @property
+    def digest(self) -> str:
+        return content_digest(self.to_payload())
+
+
+@dataclass(frozen=True, order=True)
+class RoundTripDifference(IRRecord):
+    path: str
+    expected_digest: str | None
+    actual_digest: str | None
+    classification: str
+    detail: str
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "path", require_text(self.path, "path", maximum=1024))
+        for name in ("expected_digest", "actual_digest"):
+            value = getattr(self, name)
+            if value is not None:
+                object.__setattr__(self, name, require_digest(value, name))
+        object.__setattr__(self, "classification", require_text(self.classification, "classification", maximum=32))
+        if self.classification not in {"LOSS", "MISSING", "UNEXPECTED", "TOLERATED"}:
+            raise IRSchemaError("unknown round-trip difference classification")
+        object.__setattr__(self, "detail", require_text(self.detail, "detail", maximum=1024))
+
+
+@dataclass(frozen=True)
+class RoundTripReceipt(IRRecord):
+    receipt_id: str
+    contract_digest: str
+    source_revision_digest: str
+    adapted_revision_digest: str
+    differences: tuple[RoundTripDifference, ...]
+    semantic_match: bool
+    independently_qualified: bool
+    verifier_version: str = VALIDATOR_VERSION
+
+    NESTED: ClassVar = {"differences": many(RoundTripDifference)}
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "receipt_id", require_identifier(self.receipt_id, "receipt_id"))
+        for name in ("contract_digest", "source_revision_digest", "adapted_revision_digest"):
+            object.__setattr__(self, name, require_digest(getattr(self, name), name))
+        differences = tuple(RoundTripDifference.coerce(item, "differences[]") for item in self.differences)
+        object.__setattr__(self, "differences", tuple(sorted(differences, key=lambda item: (item.path, item.classification))))
+        if not isinstance(self.semantic_match, bool) or not isinstance(self.independently_qualified, bool):
+            raise IRSchemaError("round-trip outcome flags must be bool")
+        if self.independently_qualified:
+            raise IRAdmissionError("the semantic IR kernel cannot self-certify independent adapter qualification")
+        if self.semantic_match != (not any(item.classification in {"LOSS", "MISSING", "UNEXPECTED"} for item in differences)):
+            raise IRIntegrityError("round-trip semantic_match does not agree with path differences")
+        object.__setattr__(self, "verifier_version", require_version(self.verifier_version))
+
+
+def build_round_trip_contract(revision: IRRevision, profile: IREquivalenceProfile, *, contract_id: str, adapter_ref: ExternalIdentityRef, independent_qualification_refs: tuple[ExternalIdentityRef, ...] = ()) -> RoundTripContract:
+    witnesses = build_witness_set(revision, profile, set_id=f"witness.{contract_id}")
+    return RoundTripContract(contract_id, revision.revision_digest, witnesses, profile, adapter_ref, independent_qualification_refs)
+
+
+def verify_round_trip(contract: RoundTripContract, adapted_revision: IRRevision, *, receipt_id: str) -> RoundTripReceipt:
+    """Compare an adapter result against pre-result witnesses; adapter claims are not inputs."""
+    contract, adapted_revision = RoundTripContract.coerce(contract, "contract"), IRRevision.coerce(adapted_revision, "adapted_revision")
+    if contract.witness_set.digest is None:
+        raise IRIntegrityError("round-trip witness digest is unavailable")
+    actual = build_witness_set(adapted_revision, contract.profile, set_id=f"result.{receipt_id}")
+    expected_by_path = {item.path: item for item in contract.witness_set.witnesses}
+    actual_by_path = {item.path: item for item in actual.witnesses}
+    differences: list[RoundTripDifference] = []
+    tolerated = {item.path: item for item in contract.profile.tolerances}
+    for path in sorted(set(expected_by_path) | set(actual_by_path)):
+        expected, observed = expected_by_path.get(path), actual_by_path.get(path)
+        if expected is None or observed is None:
+            witness = expected or observed
+            if witness is not None and (witness.required or not witness.opaque):
+                differences.append(RoundTripDifference(path, expected.value_digest if expected else None, observed.value_digest if observed else None, "MISSING" if expected else "UNEXPECTED", "required canonical witness path is absent or newly introduced"))
+            continue
+        if expected.value_digest == observed.value_digest:
+            continue
+        tolerance = tolerated.get(path) if contract.profile.kind.value == "TOLERANT" else None
+        if tolerance is not None and _within_tolerance(expected.value, observed.value, tolerance.amount):
+            differences.append(RoundTripDifference(path, expected.value_digest, observed.value_digest, "TOLERATED", f"difference falls within declared {tolerance.domain} tolerance {tolerance.amount} {tolerance.unit_or_reference}"))
+        elif expected.opaque and path in contract.profile.opaque_paths:
+            differences.append(RoundTripDifference(path, expected.value_digest, observed.value_digest, "LOSS", "opaque payload preservation digest changed"))
+        else:
+            differences.append(RoundTripDifference(path, expected.value_digest, observed.value_digest, "LOSS", "canonical semantic witness changed"))
+    semantic_match = not any(item.classification in {"LOSS", "MISSING", "UNEXPECTED"} for item in differences)
+    return RoundTripReceipt(
+        receipt_id, contract.digest, contract.source_revision_digest, adapted_revision.revision_digest,
+        tuple(differences), semantic_match, False,
+    )
+
+
+def _within_tolerance(expected: Any, observed: Any, tolerance: float) -> bool:
+    if isinstance(expected, (int, float)) and not isinstance(expected, bool) and isinstance(observed, (int, float)) and not isinstance(observed, bool):
+        return abs(float(expected) - float(observed)) <= tolerance
+    if isinstance(expected, (tuple, list)) and isinstance(observed, (tuple, list)) and len(expected) == len(observed):
+        return all(_within_tolerance(left, right, tolerance) for left, right in zip(expected, observed))
+    return False
