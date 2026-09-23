@@ -533,7 +533,7 @@ class IRRevision(IRRecord):
                 raise IRIntegrityError("instance refers to a missing prototype")
             instance.validate_against(prototype)
 
-    def _validate_cross_references(self) -> None:
+    def _validate_cross_references(self, *, limits: IRLimits = DEFAULT_LIMITS) -> None:
         node_by_ref = {node.identity_key: node for node in self.nodes}
         for root in self.scene.root_node_refs:
             if (root.document_id, root.node_id) not in node_by_ref:
@@ -582,7 +582,7 @@ class IRRevision(IRRecord):
                 raise IRIntegrityError(f"coordinate frame {frame.frame_id} references an unknown spatial reference")
             if frame.parent_frame_id is not None and frame.parent_frame_id not in frames:
                 raise IRIntegrityError(f"coordinate frame {frame.frame_id} has a dangling parent frame")
-        _require_acyclic({key: ({frames[key].parent_frame_id} if frames[key].parent_frame_id else set()) for key in frames}, "coordinate frame")
+        _require_acyclic({key: ({frames[key].parent_frame_id} if frames[key].parent_frame_id else set()) for key in frames}, "coordinate frame", max_depth=limits.max_depth)
         transform_ids = {item.chain_id for item in self.transform_chains}
         for node in self.nodes:
             if isinstance(node, EntityIR) and node.transform_chain_id is not None and node.transform_chain_id not in transform_ids:
@@ -768,7 +768,7 @@ def validate_graph(
         if parent not in node_map or child not in node_map:
             raise IRIntegrityError("containment edge has a dangling node ref")
         adjacency[parent].add(child)
-    _require_acyclic(adjacency, "containment/transform")
+    _require_acyclic(adjacency, "containment/transform", max_depth=limits.max_depth)
     counts: dict[tuple[str, str], int] = {}
     for source, targets in adjacency.items():
         counts[source] = len(targets)
@@ -794,15 +794,15 @@ def validate_graph(
         family_graph[source].add(target)
     for family, graph in grouped.items():
         if policies_by_family[family] is CyclePolicy.ACYCLIC:
-            _require_acyclic(graph, f"relationship family {family}")
+            _require_acyclic(graph, f"relationship family {family}", max_depth=limits.max_depth)
 
 
-def _require_acyclic(adjacency: Mapping[Any, set[Any]], label: str) -> None:
+def _require_acyclic(adjacency: Mapping[Any, set[Any]], label: str, *, max_depth: int = DEFAULT_LIMITS.max_depth) -> None:
     visiting: set[Any] = set()
     visited: set[Any] = set()
 
     def visit(node: Any, depth: int) -> None:
-        if depth > DEFAULT_LIMITS.max_depth:
+        if depth > max_depth:
             raise IRLimitError(f"{label} depth exceeds max_depth")
         if node in visiting:
             raise IRIntegrityError(f"{label} graph contains a cycle")
