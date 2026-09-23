@@ -142,6 +142,14 @@
     "migration": "declarative immutable migration with exact parent lineage and loss receipt",
     "roundTrip": "canonical encode/decode and semantic Genome identity covered by tests/test_m07_genome.py"
   },
+  "contextAndSlices": {
+    "contract": "ProjectionContract names and versions the consumer, explicitly selects fact keys, declares required fact keys, and gates capability inclusion.",
+    "omissionAccounting": ["NOT_SELECTED_BY_CONTRACT", "NOT_CAPTURED_IN_SOURCE"],
+    "validation": "validate_projection recomputes selected facts, omission reasons and fingerprint against the exact source Genome and contract.",
+    "m06Boundary": "project_to_m06 requires consumer_id M06 and exact fact materiality_declared_by equal to the named contract_id.",
+    "efficiencyClaim": "Projection payload contains selected fact envelopes and declared capability IDs only; no token-count or measured context-size claim is made.",
+    "proof": "tests/test_m07_authority.py::TestProjectionAndRecovery"
+  },
   "profiles": [
     {"id": "cpu-only", "kind": "synthetic", "result": "PASS"},
     {"id": "gpu-8gb", "kind": "synthetic", "result": "PASS"},
@@ -216,7 +224,8 @@
     "baseSha": "db8a39237c26d85f62cdf02a29c29136d4d6ed63",
     "admissionShaGovernanceIsNotClaimedAsImplementationGovernance": true,
     "implementationHead": {"sha": "e9729ca29eb2f2c2c69e24c0983e4b741bebe12a", "workflowRun": 35902187532, "job": 107320897576, "result": "PASS"},
-    "evidenceUpdateHead": {"sha": "5d54904c489899e8b26939624b0832a8c8534701", "workflowRun": 35902454320, "job": 107321785516, "result": "PASS"}
+    "evidenceUpdateHead": {"sha": "5d54904c489899e8b26939624b0832a8c8534701", "workflowRun": 35902454320, "job": 107321785516, "result": "PASS"},
+    "latestVerifiedHeadAtEvidenceRevision": {"sha": "d12fb946166cc69c686f7a8446b27ce2776bdf57", "workflowRun": 35902826218, "job": 107323026812, "result": "PASS"}
   },
   "stopCondition": "Implementation, docs and Evidence Bundle are pushed and ready for independent audit. PR #54 remains open and unmerged; no M08 work is authorized."
 }
