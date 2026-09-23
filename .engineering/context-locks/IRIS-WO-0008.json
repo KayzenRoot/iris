@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0008",
+  "issue": 30,
+  "branch": "iris-wo-0008-m04-multimodal-ir",
+  "baseSha": "bb875a958a88a844bfa62cdfec694fe148590a41",
+  "baseTreeSha": "f6b481533e4f54000cae7c64660cadf6d5d1853a",
+  "status": "ADMISSION_PENDING_GOVERNANCE",
+  "risk": "ELEVATED",
+  "frozenContract": {
+    "name": "m04-contract-v1.0",
+    "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md"
+  },
+  "postMergeBaseline": {
+    "governanceRun": 35801705128,
+    "governanceJob": 106993294512,
+    "conclusion": "success",
+    "tests": 2527,
+    "requiredArtifacts": 35
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "sha": "5cec1114366b24d7889ac4b27ff2727439294eb3"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "sha": "f9e4689f42601eea7730e8ca4d9905eb80b75ebc"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0008-M04-MULTIMODAL-IR.md",
+      "sha": "2b39a1117cb16694f175b1d5fe1f22b2be2d3746"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "sha": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "sha": "469d0aa666fe434f0530ec0641e1237b7ed0cb88"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "sha": "c26fcd2b82cb8ca1ee93b1d2351eaf63d42ee241"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "sha": "5a4e98ca65126c2813fefe57da39c173d98025ce"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "sha": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "sha": "bf02dc53964dde3ecb0a68550f62d1fe3d1311f7"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "sha": "521003849fe159eeb892fcbd81e178930249bcd6"
+    },
+    {
+      "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "sha": "c4b39c03f86f7a8e112d22a25ca91169c02c5e4d"
+    },
+    {
+      "path": "planning/modules/M04-MULTIMODAL-SCENE-IR.md",
+      "sha": "9a6f2560e1a39e1b50807d33b9a8253e45cc7dfd"
+    },
+    {
+      "path": "planning/reviews/M04-FINAL-TECHNOLOGY-REVIEW.md",
+      "sha": "02f5eb44a384597b72313720947cdf6cfb064889"
+    },
+    {
+      "path": "planning/compatibility/M04-FORWARD-COMPATIBILITY-SCAN.md",
+      "sha": "1a32387ad2bf338968cedfceea12d57e60bcb48e"
+    },
+    {
+      "path": "planning/technology-registry/M04-TECHNOLOGIES.md",
+      "sha": "c5c4d592558a0cd7cdb9e7b242f1b8fe6620a89a"
+    },
+    {
+      "path": "iris_quality/contracts.py",
+      "sha": "bfd147c18c23c17894309fc41f1ab08a8a799a9e"
+    },
+    {
+      "path": "iris_project_os/ports.py",
+      "sha": "0aef39b7581446d0f4f7f661c38dc873b979983a"
+    },
+    {
+      "path": "iris_intent/ports.py",
+      "sha": "c117889cfd9ed775360a453dafff7e6efa344967"
+    },
+    {
+      "path": "iris_intent/execution.py",
+      "sha": "8ceae0bf4bf4a8cddea93b10142c0c56b4f46b89"
+    },
+    {
+      "path": "iris_intent/versions.py",
+      "sha": "490c78927a2b317f93a147cc6d9a0c15389f1de4"
+    }
+  ],
+  "inScope": [
+    "Complete provider-neutral iris_multimodal_ir kernel for all frozen M04 S01-S05 contracts",
+    "All 20 F-M04 families and all 80 hard invariants",
+    "M03-to-M04 semantic lowering traces without weakening M03",
+    "Scene/entity/asset/character and cross-modal representation",
+    "Spatial/camera/light/material/color and temporal/motion/audio/music/narrative/timeline representation",
+    "Capability/legality/provider-neutral lowering with M16 concrete compiler firewall",
+    "Schema/version/validation/migration and semantic round-trip proof",
+    "Minimum-sufficient slices/fingerprints/deltas",
+    "Seven synthetic production domains"
+  ],
+  "outOfScope": [
+    "M05 and later module implementation",
+    "Concrete provider/workflow compiler or provider qualification runtime",
+    "Blender/Maya/ComfyUI/provider/model execution",
+    "Hardware/GPU/VRAM/worker scheduling",
+    "Persistence/CAS/database/storage backend",
+    "Media generation/rendering/editing/mixing/mastering",
+    "Persistent Asset/Persona DNA policy",
+    "Real quality judges",
+    "Rights/security engines",
+    "HIVE retrieval implementation",
+    "Publishing/export/delivery execution"
+  ],
+  "stopCondition": "STOP after the complete m04-contract-v1.0 semantic IR kernel is implemented, fully tested/documented/evidenced, pushed to the admitted branch and the same PR is ready for independent review. Do not merge. Do not start M05. Report BLOCKED_CONTRACT_CONFLICT rather than weakening frozen M04 semantics.",
+  "upstream": {
+    "gef": {
+      "version": "1.0.0",
+      "sha": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
+    },
+    "hive": {
+      "version": "1.0.0",
+      "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
+    }
+  }
+}
