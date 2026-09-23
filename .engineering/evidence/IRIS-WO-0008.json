@@ -6,7 +6,14 @@
   "frozenContract": "m04-contract-v1.0",
   "baseSha": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
   "issue": 30,
-  "pullRequest": null,
+  "pullRequest": {
+    "number": 34,
+    "url": "https://github.com/KayzenRoot/iris/pull/34",
+    "base": "main",
+    "state": "OPEN",
+    "merged": false,
+    "title": "IRIS-WO-0008 | Recompiled M04 admission after PDF prompt policy"
+  },
   "supersededPullRequest": 31,
   "baseline": {
     "governanceRun": 35803397206,
