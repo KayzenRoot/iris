@@ -4,7 +4,7 @@
   "issue": 58,
   "branch": "iris-wo-0012-m08-microbenchmark-lab",
   "baseSha": "6e2aea630208f6f18656803735426ba99d9b3cc7",
-  "status": "ADMISSION_CANDIDATE",
+  "status": "ADMITTED_FOR_EXECUTION",
   "risk": "ELEVATED",
   "frozenContract": {
     "name": "m08-contract-v1.0",
@@ -94,5 +94,14 @@
     "release acceptance"
   ],
   "stopCondition": "STOP after complete frozen M08 kernel is implemented, tested, documented, evidenced and ready for independent review. Do not merge. Do not start M09.",
-  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md."
+  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md.",
+  "admissionValidation": {
+    "head": "9010f2c7b9bc9ea1a53ae521ad40f05e7a0161a4",
+    "criticalSources": 13,
+    "fingerprintMismatches": 0,
+    "governanceRun": 35909286994,
+    "governanceJob": 107344738312,
+    "baselineTests": 2834,
+    "result": "PASS"
+  }
 }
