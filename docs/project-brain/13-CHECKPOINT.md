@@ -1,48 +1,45 @@
 # IRIS Checkpoint
 
 ## STATUS
-M05_PLANNING_MERGED_MAIN_VALIDATED
+M05_IMPLEMENTATION_MERGED_MAIN_VALIDATED
 
 ## VERSION
 m05-contract-v1.0
 
 ## PHASE
-M05_IMPLEMENTATION_PACKAGE_READY
+M05_POST_MERGE_RECONCILIATION
 
 ## OBJECTIVE
-Prepare a separate bounded implementation package for the frozen M05 Asset DNA 2.0 & Cross-Modal Identity contract.
+Record the independently audited M05 Asset DNA 2.0 & Cross-Modal Identity implementation as canonical after protected merge and exact-main validation.
 
 ## COMPLETED
 - M01 Quality Kernel: implemented, approved and merged.
 - M02 Project OS & Production Graph: implemented, approved and merged.
 - M03 Creative Brief / Intent / Constraint Compiler: implemented, approved and merged.
 - M04 Multimodal IR / Scene IR: implemented, independently reviewed, merged and exact-main validated.
-- M05 S01-S05 functional planning: complete.
-- Final Technology Review: `APPROVED_FOR_FORWARD_COMPATIBILITY`.
-- M06-M60 Forward Compatibility: `PASS_WITH_EXTENSION_PORTS`.
-- Hard invariants: 150/150.
-- Consolidated technology families: 25/25.
-- Future extension/ref families: 22/22.
-- DNAX mapping: 150/150 exactly once; 0 missing; 0 duplicates.
-- Independent Planning Audit: `APPROVED`.
-- Contract: `FROZEN_APPROVED / m05-contract-v1.0`.
-- PR #38 squash-merged.
-- M05 planning merge SHA: `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`.
-- Exact-main Governance: `35843109186 / 107122673542` — PASS.
-- Exact-main required artifacts: 35.
-- Exact-main full suite: `2677/2677 OK`.
-- M05 implementation code has not started.
+- M05 planning: complete, independently audited and frozen as `m05-contract-v1.0`.
+- M05 implementation Work Order: `IRIS-WO-0009`.
+- M05 implementation package: complete in `iris_asset_dna/`.
+- Frozen technology families: 25/25 represented.
+- Frozen hard invariants: 150/150 indexed with executable proof targets.
+- Extension/ref ports: 22/22 represented.
+- Synthetic domain-neutral profiles: 8/8 through the shared kernel.
+- Focused M05 suite at reviewed implementation head: 47/47 PASS.
+- Full suite at reviewed implementation head: 2724/2724 PASS; previous baseline 2677 (+47).
+- Independent audit verdict: `APPROVED`; 0 HIGH/CRITICAL findings.
+- PR #42 squash-merged.
+- M05 implementation merge SHA: `5036aae492a5bd713672150f5fb83b3915974a04`.
+- Exact-main Governance: `35860201266 / 107178265001` — PASS.
+- Exact-main governance candidate assertion, governance validation and GEF/HIVE bridge tests: PASS.
 
 ## IN PROGRESS
-Checkpoint reconciliation on Issue #39 / branch `m05-planning-reconciliation`.
+Post-merge canonical reconciliation of M05 checkpoint/decision/evidence truth on branch `iris-wo-0009-m05-postmerge-reconciliation`.
 
 ## BLOCKERS
-M05 implementation remains blocked until:
-1. this reconciliation lands on protected main and exact-main validation remains green;
-2. a separate M05 implementation Work Order is admitted;
-3. its Context Lock is admitted;
-4. implementation Evidence obligations are defined;
-5. implementation preflight passes.
+M06 planning/implementation remains blocked until:
+1. this post-merge reconciliation is independently reviewed and protected-merged;
+2. the reconciliation merge is exact-main validated;
+3. the next bounded M06 planning/implementation increment is compiled from that validated main under a new Work Order and Context Lock.
 
 ## NEXT STEP
-Compile a separate bounded M05 implementation Work Order / Context Lock / Evidence package from exact validated main `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`. Do not implement M05 until that package is admitted and preflight passes.
+Review and merge the M05 post-merge reconciliation. After exact-main validation, compile the next necessary M06 increment from the new canonical main. Do not implement M06 before its own admitted Work Order / Context Lock / Evidence package.

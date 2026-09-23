@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M05_PLANNING_MERGED_MAIN_VALIDATED",
+  "status": "M05_IMPLEMENTATION_MERGED_MAIN_VALIDATED",
   "version": "m05-contract-v1.0",
-  "phase": "M05_IMPLEMENTATION_PACKAGE_READY",
-  "nextStep": "Compile a separate bounded M05 implementation Work Order / Context Lock / Evidence package from exact validated main `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`. Do not implement M05 until that package is admitted and preflight passes."
+  "phase": "M05_POST_MERGE_RECONCILIATION",
+  "nextStep": "Review and merge the M05 post-merge reconciliation. After exact-main validation, compile the next necessary M06 increment from the new canonical main. Do not implement M06 before its own admitted Work Order / Context Lock / Evidence package."
 }
