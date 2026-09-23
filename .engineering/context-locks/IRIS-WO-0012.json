@@ -18,7 +18,7 @@
   "criticalSources": [
     {
       "path": ".engineering/work-orders/IRIS-WO-0012-M08-MICROBENCHMARK-LAB.md",
-      "sha": "740766a23ad4f4f4971a3cb8c178e8ae146bf334"
+      "sha": "274aef4c9bb375c24bc74085ab4df38a8afeb547"
     },
     {
       "path": "planning/modules/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
@@ -46,7 +46,7 @@
     },
     {
       "path": "docs/project-brain/13-CHECKPOINT.md",
-      "sha": "194d47b3ac5f48a32b31eb95cc019c87015c24d1"
+      "sha": "70890db989002dd029e93c64b4a7ac088974ae92"
     },
     {
       "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
@@ -103,5 +103,24 @@
     "governanceJob": 107344738312,
     "baselineTests": 2834,
     "result": "PASS"
+  },
+  "reconciliation": {
+    "reason": "CHAT_FIXABLE: admission promotion intentionally changed the Work Order status/admission proof and canonical checkpoint after candidate fingerprints were captured.",
+    "promotedHead": "2319dd20339a85aff2f7ce410fb1218c425d412e",
+    "promotedHeadGovernance": {
+      "run": 35909505068,
+      "job": 107345479963,
+      "result": "PASS"
+    },
+    "fingerprintCheck": {
+      "matchedBeforeRefresh": 11,
+      "total": 13,
+      "mismatches": [
+        ".engineering/work-orders/IRIS-WO-0012-M08-MICROBENCHMARK-LAB.md",
+        "docs/project-brain/13-CHECKPOINT.md"
+      ],
+      "semanticUnexpectedMismatches": 0
+    },
+    "status": "REFRESHED_PENDING_EXACT_HEAD_VALIDATION"
   }
 }
