@@ -1,6 +1,6 @@
 # IRIS M05 Planning Gate
 
-Status: `FORWARD_COMPAT_PASS_CONTRACT_FREEZE_NEXT`
+Status: `CONTRACT_FREEZE_CANDIDATE_AUDIT_NEXT`
 Issue: `#37`
 Branch: `m05-asset-dna-planning`
 Authorized main baseline: `6f2311b59f5da91778d3fc9d9fe1572953a0c60b`
@@ -109,7 +109,7 @@ Planning/docs only. No M05 implementation is authorized.
 ## S05 boundary decisions
 
 - M05 DNA lineage is semantic identity lineage, not M02 project branching;
-- M06 owns content-addressed production revisions/builds;
+- M02 owns semantic project/build/version lifecycle; M06 operationalizes content-addressed production-state persistence/reconstruction under M02 contracts;
 - compatibility is directional and multi-axis;
 - migrations declare explicit preservation/loss/defaults and identity continuity impact;
 - reusable DNA package identity is distinct from dna_id;
@@ -160,8 +160,20 @@ References only. No new runtime dependency.
 - M39 S01 renamed to M05-bound Persona Continuity Engine
 - no implementation admitted
 
+## Module Contract Freeze Candidate
+
+- target version: `m05-contract-v1.0`
+- status: `FREEZE_CANDIDATE_AUDIT_REQUIRED`
+- file: `planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md`
+- hard invariants: **150**
+- consolidated technology families: **25**
+- required future extension/ref families: **22**
+- independent planning audit: **PENDING**
+- product/kernel implementation: **0**
+
 ## Next legal action
 
-Prepare the M05 contract freeze candidate from S01-S05 + Final Technology Review + Forward Compatibility Scan.
+Run the independent M05 planning audit against the exact freeze-candidate head.
 
 Do not implement M05.
+Do not promote to `FROZEN_APPROVED` before the audit.
