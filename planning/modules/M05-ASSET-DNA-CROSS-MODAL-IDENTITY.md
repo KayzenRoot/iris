@@ -36,7 +36,7 @@ M05 must let IRIS answer:
 - M02 project/build/branch/release topology;
 - M03 creative intent and constraints;
 - M04 provider-neutral scene/media representation;
-- M06 persistence, CAS, database or content-addressed storage;
+- M06 operational production-state/content-addressed revision persistence and reconstruction;
 - M16 provider/workflow compilation;
 - M39 digital-human generation/acting/appearance runtime;
 - M40 voice production/cloning;
@@ -51,7 +51,7 @@ M05 must let IRIS answer:
 M04 describes **what is represented now**.
 M05 states **which semantic identity must persist across representations and authorized mutations**.
 M02 states **which project/build/branch event produced or owns a revision**.
-M06 later states **where immutable content/revisions are persisted**.
+M06 later operationalizes production-state/content-addressed revision persistence and reconstruction under M02 semantic contracts; M55 owns media CAS/storage/cache/archive backends.
 M39/M40/M41/M46 and other domain modules consume/project DNA but do not silently rewrite M05 canonical identity.
 
 ---
@@ -359,7 +359,7 @@ No external standard becomes a mandatory M05 runtime dependency in S01.
 6. embeddings/perceptual hashes/similarity scores are evidence only.
 7. DNA revisions are immutable.
 8. M02 remains branch/project/history authority.
-9. M06 remains persistence/CAS/storage authority.
+9. M06 operational production-state/content-addressed persistence/reconstruction and M55 media CAS/storage/cache/archive remain external authorities; M05 owns neither.
 10. M04 remains provider-neutral representation authority.
 11. canonical traits declare schema family/version.
 12. canonical traits declare identity criticality.
