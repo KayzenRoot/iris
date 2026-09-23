@@ -8,7 +8,7 @@ from iris_project_os.identity import EntityKind, ExternalRef
 from iris_project_os.release import ReleaseTransaction
 
 from iris_production_state.enums import CleanupState, DeletionAuthorizationState, DeletionState, IndexState, ReproducibilityClass, RollbackState
-from iris_production_state.errors import ProductionStateAdmissionError
+from iris_production_state.errors import ProductionStateAdmissionError, ProductionStateIntegrityError
 from iris_production_state.invariants import M06_INVARIANTS
 from iris_production_state.lineage import (
     LineageEdge,
@@ -78,18 +78,54 @@ class M06LineageReleaseTests(unittest.TestCase):
             current_policy_ref=external("current-policy"),
             authorized_at_ms=12,
         )
-        self.assertEqual(revalidate_deletion_authorization(authorization, graph, current_policy_authorized=True), DeletionAuthorizationState.AUTHORIZED)
-        completion = record_deletion_completion(authorization, physical_result_ref=external("m55-delete-result"), success=True, completed_at_ms=13, receipt_id="delete-complete")
+        revalidation = revalidate_deletion_authorization(
+            authorization,
+            graph,
+            current_protected_closures=_closures(root),
+            current_policy_ref=authorization.current_policy_ref,
+            current_policy_authorized=True,
+            receipt_id="deletion-revalidation",
+            revalidated_at_ms=13,
+        )
+        self.assertEqual(revalidation.state, DeletionAuthorizationState.AUTHORIZED)
+        completion = record_deletion_completion(
+            authorization,
+            revalidation,
+            physical_result_ref=external("m55-delete-result"),
+            success=True,
+            completed_at_ms=14,
+            receipt_id="delete-complete",
+        )
         self.assertEqual(completion.state, DeletionState.COMPLETED)
-        failed = record_deletion_completion(authorization, physical_result_ref=external("m55-delete-failed"), success=False, completed_at_ms=14, receipt_id="delete-failed")
+        failed = record_deletion_completion(
+            authorization,
+            revalidation,
+            physical_result_ref=external("m55-delete-failed"),
+            success=False,
+            completed_at_ms=15,
+            receipt_id="delete-failed",
+        )
         self.assertEqual(failed.state, DeletionState.FAILED)
         with self.assertRaises(ProductionStateAdmissionError):
             evaluate_cleanup(target, (root,), graph, protected_closures=(), receipt_id="missing-closure-proof", checked_at_ms=15)
 
     def test_family_rrb(self) -> None:
         current = LOGO_PROFILE.commit()
-        target = AUDIO_PROFILE.commit()
+        target = LOGO_PROFILE.commit()
         previous = operational_revision("rollback-current")
+        with self.assertRaises(ProductionStateIntegrityError):
+            RollbackPlan(
+                "rollback-cross-production",
+                current,
+                AUDIO_PROFILE.commit(),
+                previous,
+                ExternalRef(EntityKind.RECEIPT, "m02-rollback-cross-production", version="1"),
+                ExternalRef(EntityKind.RIGHTS, "rights-current-cross", version="2"),
+                ExternalRef(EntityKind.POLICY, "security-current-cross", version="5"),
+                True,
+                True,
+                19,
+            )
         plan = RollbackPlan(
             "rollback-plan",
             current,
@@ -109,6 +145,16 @@ class M06LineageReleaseTests(unittest.TestCase):
         receipt = RollbackReceipt("rollback-result", plan, RollbackState.COMPLETE, reproducibility.output_revision_ref, reproducibility, None, 22)
         self.assertIs(record_rollback(receipt), receipt)
         self.assertNotEqual(receipt.resulting_revision_ref, previous)
+        with self.assertRaises(ProductionStateIntegrityError):
+            RollbackReceipt(
+                "rollback-mismatched-proof",
+                plan,
+                RollbackState.COMPLETE,
+                operational_revision("rollback-unproven-result"),
+                reproducibility,
+                None,
+                22,
+            )
         with self.assertRaises(ProductionStateAdmissionError):
             RollbackReceipt("rollback-blocked", plan, RollbackState.BLOCKED, None, None, None, 23)
 
@@ -158,8 +204,35 @@ class M06LineageReleaseTests(unittest.TestCase):
             authorized_at_ms=3,
         )
         changed = _complete_graph("lineage-race", "epoch-after", (LineageEdge(root, target, "RETENTION"),))
-        self.assertEqual(revalidate_deletion_authorization(authorization, changed, current_policy_authorized=True), DeletionAuthorizationState.STALE)
-        self.assertEqual(revalidate_deletion_authorization(authorization, graph, current_policy_authorized=False), DeletionAuthorizationState.REVOKED)
+        stale = revalidate_deletion_authorization(
+            authorization,
+            changed,
+            current_protected_closures=_closures(root),
+            current_policy_ref=authorization.current_policy_ref,
+            current_policy_authorized=True,
+            receipt_id="race-revalidation-stale",
+            revalidated_at_ms=4,
+        )
+        self.assertEqual(stale.state, DeletionAuthorizationState.STALE)
+        revoked = revalidate_deletion_authorization(
+            authorization,
+            graph,
+            current_protected_closures=_closures(root),
+            current_policy_ref=authorization.current_policy_ref,
+            current_policy_authorized=False,
+            receipt_id="race-revalidation-revoked",
+            revalidated_at_ms=4,
+        )
+        self.assertEqual(revoked.state, DeletionAuthorizationState.REVOKED)
+        with self.assertRaises(ProductionStateAdmissionError):
+            record_deletion_completion(
+                authorization,
+                stale,
+                physical_result_ref=external("m55-stale-delete-result"),
+                success=True,
+                completed_at_ms=5,
+                receipt_id="race-delete-blocked",
+            )
 
 
 if __name__ == "__main__":
