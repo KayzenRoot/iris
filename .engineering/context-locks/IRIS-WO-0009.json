@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0009",
+  "issue": 41,
+  "branch": "iris-wo-0009-m05-asset-dna",
+  "baseSha": "ad56aade6ad2459eb632b30bd9fdd332263a5d67",
+  "baseTreeSha": "a8fd1912cb98d9ab5be197e1b1a87a8ae2e331b9",
+  "status": "ADMISSION_CANDIDATE",
+  "risk": "ELEVATED",
+  "frozenContract": {
+    "name": "m05-contract-v1.0",
+    "path": "planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md"
+  },
+  "baseline": {
+    "governanceRun": 35843465664,
+    "governanceJob": 107123844096,
+    "tests": 2677,
+    "requiredArtifacts": 35,
+    "conclusion": "success"
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "sha": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "sha": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "sha": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0009-M05-ASSET-DNA.md",
+      "sha": "5350b562a0887d43e4cfca8c6bfaf47dcb791cbb"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "sha": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "sha": "4826a9aba9e4178abef5d7f38ecdb8b33bbf2706"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "sha": "84b089697338f32b703ab09b2ab80593fc099e0d"
+    },
+    {
+      "path": "docs/project-brain/05-INTEGRATION-CONTRACTS.md",
+      "sha": "1c2d0e3462794cee64f83831ea07d9f9ac120663"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "sha": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "sha": "eef789b0b73ecc67a7de1a7656f3aa0d7ef5b0f3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "sha": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "sha": "c58f0c272c28d42a800ea685e35886bf95f2e195"
+    },
+    {
+      "path": "planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "sha": "97e8ed228b29c47911e3d3a0ed10ade91f76d723"
+    },
+    {
+      "path": "planning/reviews/M05-INDEPENDENT-PLANNING-AUDIT.md",
+      "sha": "fd3c9196109116796929722ac020e957313d7291"
+    },
+    {
+      "path": "planning/reviews/M05-FINAL-TECHNOLOGY-REVIEW.md",
+      "sha": "f3d8e2bb74972cd3be9aa9080e933216ed3506d6"
+    },
+    {
+      "path": "planning/compatibility/M05-FORWARD-COMPATIBILITY-SCAN.md",
+      "sha": "ade9cd7662ce0b777c633bcf07db98fa510809c5"
+    },
+    {
+      "path": "planning/modules/M05-ASSET-DNA-CROSS-MODAL-IDENTITY.md",
+      "sha": "22160605cd8f8d90b18418b316653adcd4d9b30e"
+    },
+    {
+      "path": "planning/technology-registry/M05-TECHNOLOGIES.md",
+      "sha": "b39fff97a2fc835954a966c60949da4ebeb3ab41"
+    },
+    {
+      "path": "iris_quality/contracts.py",
+      "sha": "bfd147c18c23c17894309fc41f1ab08a8a799a9e"
+    },
+    {
+      "path": "iris_project_os/ports.py",
+      "sha": "0aef39b7581446d0f4f7f661c38dc873b979983a"
+    },
+    {
+      "path": "iris_intent/ports.py",
+      "sha": "c117889cfd9ed775360a453dafff7e6efa344967"
+    },
+    {
+      "path": "iris_multimodal_ir/__init__.py",
+      "sha": "7d1cdf07cb9457c25aec45e473452b1940e0d07f"
+    },
+    {
+      "path": "iris_multimodal_ir/identity.py",
+      "sha": "c03a5e38696fbe810053afacc52ccc454e2c5570"
+    },
+    {
+      "path": "iris_multimodal_ir/versions.py",
+      "sha": "58737f629ff4278ec2bdcc8348dc6b07894fdb27"
+    }
+  ],
+  "inScope": [
+    "Complete frozen m05-contract-v1.0 in iris_asset_dna",
+    "25 F-M05 families",
+    "150 hard invariants",
+    "22 extension/ref ports",
+    "eight domain-neutral synthetic profiles",
+    "M01/M02/M03/M04 and downstream authority-firewall preservation"
+  ],
+  "outOfScope": [
+    "M06+ implementation",
+    "provider/DCC runtime",
+    "GPU/worker scheduling",
+    "database/media storage backend",
+    "biometric authentication",
+    "marketplace commerce runtime",
+    "media generation",
+    "semantic contract changes"
+  ],
+  "stopCondition": "STOP after the complete frozen M05 semantic identity kernel is implemented, tested, documented, evidenced and ready for independent review. Do not merge. Do not start M06.",
+  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md."
+}
