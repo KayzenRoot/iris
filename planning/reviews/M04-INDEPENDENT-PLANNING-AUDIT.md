@@ -64,6 +64,37 @@ MIRX-100 Representation Gap Ledger was mapped to both F-M04-16 and F-M04-17, mak
 Correction:
 - keep MIRX-100 only in `F-M04-17 Semantic Lowering & Compiler Boundary Fabric`.
 
+### M04-PLAN-R03
+Severity: `LOW`
+Classification: `CHAT_FIXABLE`
+Status: `CLOSED`
+
+The M04 module plan and compatibility scan still advertised already-completed lifecycle gates (`TECH_REVIEW_NEXT` / Module Contract Freeze next), which conflicted with the approved freeze/promotion state.
+
+Correction:
+- synchronize the module status to `PLANNING_APPROVED_FREEZE_PROMOTION_PENDING_MERGE`;
+- replace stale next-gate language with exact-head Governance, protected squash merge and exact-main validation.
+
+### M04-PLAN-R04
+Severity: `LOW`
+Classification: `CHAT_FIXABLE`
+Status: `CLOSED`
+
+The technology registry still labelled all five MIRX ranges as `CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW` after the Final Technology Review had already completed.
+
+Correction:
+- retain MIRX-001..150 as `DESIGN_HISTORY_CANDIDATES`;
+- point authoritative disposition to `planning/reviews/M04-FINAL-TECHNOLOGY-REVIEW.md`.
+
+## Promotion follow-up proof
+
+- corrected planning/documentation head: `7401aedc25e053b069f924aea35fd7f2b6ea0209`;
+- exact-head Governance: `35800996638 / 106991058103` — PASS;
+- exact-head assertion matched `7401aedc25e053b069f924aea35fd7f2b6ea0209`;
+- governance artifacts: 35;
+- full suite: **2527/2527 OK**;
+- R03/R04 introduced no product/kernel/runtime change.
+
 ## Post-correction proof
 
 Programmatic mapping check on reviewed head:
@@ -91,7 +122,7 @@ Exact-head Governance:
 
 ## Risk / deviations
 
-- No executor/runtime capability was required; both findings were safely corrected in-chat under the Review Auto-Fix policy.
+- No executor/runtime capability was required; all four findings were safely corrected in-chat under the Review Auto-Fix policy.
 - No external standard is made a mandatory M04 core runtime dependency.
 - M00 separate contract-freeze remains prior recorded planning debt and is not changed by M04.
 - This audit approves planning/freeze only, not M04 implementation.
