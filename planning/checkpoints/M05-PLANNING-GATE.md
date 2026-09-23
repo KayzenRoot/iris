@@ -42,7 +42,7 @@ Planning/docs only. No M05 implementation is authorized.
 - cross-modal anchors and projection contracts;
 - observations cannot self-promote to canonical truth;
 - M02 remains project/history authority;
-- M06 remains persistence/CAS authority;
+- M06 retains operational production-state/content-addressed persistence/reconstruction under M02; M55 retains media CAS/storage/cache/archive authority;
 - M53/M54 remain rights/provenance/privacy/security authority;
 - M39/M40/M41/M43/M46 remain domain runtime/authority owners.
 
