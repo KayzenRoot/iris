@@ -90,6 +90,10 @@ S05 completes the functional planning boundary:
 - package import is staged and cannot overwrite canonical identity;
 - canonical DNA packages are non-executable by default and unknown mandatory semantics fail closed.
 
+Final Technology Review consolidates the 150 DNAX design-history candidates into `F-M05-01..25` with exact-once coverage (150/150, 0 missing, 0 duplicate assignments). The consolidated families, not 150 independent implementation classes, are the freeze-candidate architecture surface.
+
+The next required gate is the M06-M60 Forward Compatibility Scan, with explicit revalidation of M06, M30, M37, M39, M40, M41, M45, M46 and M52-M60 ownership/dependency boundaries.
+
 No M05 implementation package is admitted yet.
 
 ## Dependency direction
