@@ -1,0 +1,268 @@
+"""Closed vocabularies for M08 protocols, empirical evidence and lineage."""
+
+from __future__ import annotations
+
+from enum import Enum
+
+__all__ = [
+    "BenchmarkClass", "ResultState", "Domain", "ProbeDirection", "TimingSource",
+    "QuantityKind", "Directionality", "Aggregation", "CorrectnessState", "InterferenceState",
+    "AbortReason", "CapabilityRegion", "DerivationMethod", "SearchStrategy", "SearchOutcome",
+    "SustainabilityClass", "QualificationState", "ComparabilityState", "DriftClass",
+    "FreshnessState", "InvalidationReason", "CalibrationKind", "MigrationOperation",
+    "CompatibilityLevel", "PrivacyClass", "TransferDirection", "MemorySemantics",
+    "VideoPath", "AudioSampleFormat", "FixtureKind", "AuthorizationState", "AutomationKind", "EvidenceOrigin",
+]
+
+
+class BenchmarkClass(str, Enum):
+    TINY = "TINY"
+    BOUNDED = "BOUNDED"
+    SUSTAINED = "SUSTAINED"
+    DESTRUCTIVE_OR_STRESS = "DESTRUCTIVE_OR_STRESS"
+
+
+class ResultState(str, Enum):
+    VALID = "VALID"
+    INVALID_INTERFERENCE = "INVALID_INTERFERENCE"
+    INVALID_THERMAL_ABORT = "INVALID_THERMAL_ABORT"
+    INVALID_RESOURCE_ABORT = "INVALID_RESOURCE_ABORT"
+    INVALID_PROTOCOL = "INVALID_PROTOCOL"
+    CANCELLED = "CANCELLED"
+    UNSUPPORTED = "UNSUPPORTED"
+    UNAVAILABLE = "UNAVAILABLE"
+    STALE = "STALE"
+    PARTIAL = "PARTIAL"
+
+
+class Domain(str, Enum):
+    SYSTEM = "SYSTEM"
+    IMAGE = "IMAGE"
+    VIDEO = "VIDEO"
+    THREE_D = "THREE_D"
+    AUDIO = "AUDIO"
+
+
+class ProbeDirection(str, Enum):
+    ENCODE = "ENCODE"
+    DECODE = "DECODE"
+    TRANSFORM = "TRANSFORM"
+    UPLOAD = "UPLOAD"
+    DOWNLOAD = "DOWNLOAD"
+    DISPATCH = "DISPATCH"
+    PROCESS = "PROCESS"
+
+
+class TimingSource(str, Enum):
+    MONOTONIC_HOST = "MONOTONIC_HOST"
+    DEVICE_EVENT = "DEVICE_EVENT"
+    SYNCHRONIZED_DEVICE_EVENT = "SYNCHRONIZED_DEVICE_EVENT"
+    EXTERNAL_REFERENCE = "EXTERNAL_REFERENCE"
+    UNKNOWN = "UNKNOWN"
+
+
+class QuantityKind(str, Enum):
+    DURATION = "DURATION"
+    THROUGHPUT = "THROUGHPUT"
+    BANDWIDTH = "BANDWIDTH"
+    COUNT = "COUNT"
+    MEMORY = "MEMORY"
+    RATIO = "RATIO"
+
+
+class Directionality(str, Enum):
+    HIGHER_IS_BETTER = "HIGHER_IS_BETTER"
+    LOWER_IS_BETTER = "LOWER_IS_BETTER"
+    NEUTRAL = "NEUTRAL"
+
+
+class Aggregation(str, Enum):
+    MINIMUM = "MINIMUM"
+    MAXIMUM = "MAXIMUM"
+    MEAN = "MEAN"
+    MEDIAN = "MEDIAN"
+    P95 = "P95"
+    TOTAL = "TOTAL"
+
+
+class CorrectnessState(str, Enum):
+    PASS = "PASS"
+    FAIL = "FAIL"
+    UNSUPPORTED = "UNSUPPORTED"
+    NOT_CHECKED = "NOT_CHECKED"
+
+
+class InterferenceState(str, Enum):
+    WITHIN_TOLERANCE = "WITHIN_TOLERANCE"
+    CONTAMINATED = "CONTAMINATED"
+    UNKNOWN_TELEMETRY = "UNKNOWN_TELEMETRY"
+    NOT_OBSERVED = "NOT_OBSERVED"
+
+
+class AbortReason(str, Enum):
+    USER_CANCELLED = "USER_CANCELLED"
+    THERMAL_LIMIT = "THERMAL_LIMIT"
+    RESOURCE_LIMIT = "RESOURCE_LIMIT"
+    INTERFERENCE = "INTERFERENCE"
+    TIME_BUDGET = "TIME_BUDGET"
+    PROTOCOL_VIOLATION = "PROTOCOL_VIOLATION"
+    SECURITY_DENIED = "SECURITY_DENIED"
+
+
+class CapabilityRegion(str, Enum):
+    DEMONSTRATED = "DEMONSTRATED"
+    CONSERVATIVE_BOUND = "CONSERVATIVE_BOUND"
+    UNKNOWN = "UNKNOWN"
+    UNSUPPORTED_PROTOCOL = "UNSUPPORTED_PROTOCOL"
+    INVALIDATED = "INVALIDATED"
+
+
+class DerivationMethod(str, Enum):
+    DIRECT_OBSERVATION = "DIRECT_OBSERVATION"
+    INTERPOLATION = "INTERPOLATION"
+    EXTRAPOLATION = "EXTRAPOLATION"
+    CONSERVATIVE_MARGIN = "CONSERVATIVE_MARGIN"
+
+
+class SearchStrategy(str, Enum):
+    BOUNDED_GRID = "BOUNDED_GRID"
+    SPARSE_SAMPLING = "SPARSE_SAMPLING"
+    BRACKETED_MONOTONIC = "BRACKETED_MONOTONIC"
+    ADAPTIVE_REFINEMENT = "ADAPTIVE_REFINEMENT"
+
+
+class SearchOutcome(str, Enum):
+    SUCCESS = "SUCCESS"
+    FAILURE = "FAILURE"
+    ABORTED = "ABORTED"
+    UNSUPPORTED = "UNSUPPORTED"
+
+
+class SustainabilityClass(str, Enum):
+    BURST = "BURST"
+    SHORT_STEADY = "SHORT_STEADY"
+    SUSTAINED_OBSERVED = "SUSTAINED_OBSERVED"
+    UNKNOWN_SUSTAINABILITY = "UNKNOWN_SUSTAINABILITY"
+
+
+class QualificationState(str, Enum):
+    SATISFIED = "SATISFIED"
+    UNSATISFIED = "UNSATISFIED"
+    UNKNOWN = "UNKNOWN"
+    INCOMPARABLE = "INCOMPARABLE"
+
+
+class ComparabilityState(str, Enum):
+    COMPARABLE = "COMPARABLE"
+    CONDITIONALLY_COMPARABLE = "CONDITIONALLY_COMPARABLE"
+    INCOMPARABLE = "INCOMPARABLE"
+
+
+class DriftClass(str, Enum):
+    NO_MATERIAL_DRIFT = "NO_MATERIAL_DRIFT"
+    PERFORMANCE_SHIFT = "PERFORMANCE_SHIFT"
+    VARIANCE_SHIFT = "VARIANCE_SHIFT"
+    CAPABILITY_REGION_CHANGE = "CAPABILITY_REGION_CHANGE"
+    ENVIRONMENT_CHANGED = "ENVIRONMENT_CHANGED"
+    INCOMPARABLE = "INCOMPARABLE"
+    INSUFFICIENT_EVIDENCE = "INSUFFICIENT_EVIDENCE"
+    STALE_BASELINE = "STALE_BASELINE"
+
+
+class FreshnessState(str, Enum):
+    CURRENT = "CURRENT"
+    AGING = "AGING"
+    STALE = "STALE"
+    INVALIDATED = "INVALIDATED"
+    SUPERSEDED = "SUPERSEDED"
+    UNKNOWN_FRESHNESS = "UNKNOWN_FRESHNESS"
+
+
+class InvalidationReason(str, Enum):
+    MATERIAL_CONTEXT_CHANGE = "MATERIAL_CONTEXT_CHANGE"
+    INCOMPATIBLE_PROTOCOL = "INCOMPATIBLE_PROTOCOL"
+    CALIBRATION_DEFECT = "CALIBRATION_DEFECT"
+    FIXTURE_DEFECT = "FIXTURE_DEFECT"
+    TIMING_SOURCE_DEFECT = "TIMING_SOURCE_DEFECT"
+    CORRECTNESS_ORACLE_DEFECT = "CORRECTNESS_ORACLE_DEFECT"
+    PROVENANCE_DEFECT = "PROVENANCE_DEFECT"
+    LATE_CONTAMINATION = "LATE_CONTAMINATION"
+    GOVERNED_ADMINISTRATIVE = "GOVERNED_ADMINISTRATIVE"
+
+
+class CalibrationKind(str, Enum):
+    QUALIFICATION = "QUALIFICATION"
+    CORRECTION = "CORRECTION"
+    NORMALIZATION = "NORMALIZATION"
+    REJECTION = "REJECTION"
+
+
+class MigrationOperation(str, Enum):
+    ADD_OPTIONAL_EXTENSION = "ADD_OPTIONAL_EXTENSION"
+    RENAME_OPTIONAL_EXTENSION = "RENAME_OPTIONAL_EXTENSION"
+    DROP_OPTIONAL_EXTENSION = "DROP_OPTIONAL_EXTENSION"
+    CLARIFY_METADATA = "CLARIFY_METADATA"
+
+
+class CompatibilityLevel(str, Enum):
+    PATCH = "PATCH"
+    MINOR = "MINOR"
+    MAJOR = "MAJOR"
+
+
+class PrivacyClass(str, Enum):
+    SYNTHETIC = "SYNTHETIC"
+    PUBLIC = "PUBLIC"
+    LOCAL = "LOCAL"
+    SENSITIVE = "SENSITIVE"
+
+
+class TransferDirection(str, Enum):
+    HOST_TO_HOST = "HOST_TO_HOST"
+    HOST_TO_DEVICE = "HOST_TO_DEVICE"
+    DEVICE_TO_HOST = "DEVICE_TO_HOST"
+    DEVICE_LOCAL = "DEVICE_LOCAL"
+    PEER_TO_PEER = "PEER_TO_PEER"
+
+
+class MemorySemantics(str, Enum):
+    PINNED = "PINNED"
+    PAGEABLE = "PAGEABLE"
+    UNIFIED = "UNIFIED"
+    NOT_APPLICABLE = "NOT_APPLICABLE"
+
+
+class VideoPath(str, Enum):
+    SOFTWARE = "SOFTWARE"
+    HARDWARE_ENGINE = "HARDWARE_ENGINE"
+
+
+class AudioSampleFormat(str, Enum):
+    S16 = "S16"
+    S24 = "S24"
+    S32 = "S32"
+    F32 = "F32"
+    F64 = "F64"
+
+
+class FixtureKind(str, Enum):
+    DETERMINISTIC_SYNTHETIC = "DETERMINISTIC_SYNTHETIC"
+    REDISTRIBUTABLE = "REDISTRIBUTABLE"
+
+
+class AuthorizationState(str, Enum):
+    GRANTED = "GRANTED"
+    DENIED = "DENIED"
+    EXPIRED = "EXPIRED"
+    REVOKED = "REVOKED"
+
+
+class AutomationKind(str, Enum):
+    INTERACTIVE = "INTERACTIVE"
+    AGENT = "AGENT"
+    SCHEDULED_REQUEST = "SCHEDULED_REQUEST"
+
+
+class EvidenceOrigin(str, Enum):
+    SYNTHETIC_SEMANTIC_FIXTURE = "SYNTHETIC_SEMANTIC_FIXTURE"
+    EXTERNAL_MEASUREMENT_REFERENCE = "EXTERNAL_MEASUREMENT_REFERENCE"
