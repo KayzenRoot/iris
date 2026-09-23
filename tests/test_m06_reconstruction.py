@@ -183,7 +183,55 @@ class M06ReconstructionTests(unittest.TestCase):
     def test_family_esb(self) -> None:
         with self.assertRaises(ProductionStateAdmissionError):
             _manifest(ReproducibilityClass.EQUIVALENT_WITHIN_CONTRACT, equivalence=False)
-        self.assertIsInstance(_manifest(ReproducibilityClass.EQUIVALENT_WITHIN_CONTRACT, equivalence=True), ReconstructionManifest)
+        manifest = _manifest(ReproducibilityClass.EQUIVALENT_WITHIN_CONTRACT, equivalence=True)
+        self.assertIsInstance(manifest, ReconstructionManifest)
+
+        verification = external("equivalence-verification")
+        failure = DivergenceEvidence(
+            DivergenceKind.EQUIVALENCE_CONTRACT_FAILURE,
+            None,
+            None,
+            external("equivalence-failure"),
+            "external evaluator rejected the equivalence contract",
+        )
+        with self.assertRaises(ProductionStateAdmissionError):
+            ReproducibilityReceipt(
+                "equivalence-failed",
+                manifest,
+                ReproducibilityClass.EQUIVALENT_WITHIN_CONTRACT,
+                operational_revision("equivalence-failed-output"),
+                None,
+                failure,
+                (verification,),
+                9,
+                True,
+                True,
+                None,
+                equivalence_verification_ref=verification,
+            )
+
+        byte_difference = DivergenceEvidence(
+            DivergenceKind.BYTE_DIVERGENCE,
+            content_digest(b"equivalence-source"),
+            content_digest(b"equivalence-result"),
+            external("equivalence-byte-observation"),
+            "bytes differ but the external contract evaluator admitted equivalence",
+        )
+        accepted = ReproducibilityReceipt(
+            "equivalence-accepted",
+            manifest,
+            ReproducibilityClass.EQUIVALENT_WITHIN_CONTRACT,
+            operational_revision("equivalence-accepted-output"),
+            None,
+            byte_difference,
+            (verification,),
+            10,
+            True,
+            True,
+            None,
+            equivalence_verification_ref=verification,
+        )
+        self.assertEqual(accepted.achieved_class, ReproducibilityClass.EQUIVALENT_WITHIN_CONTRACT)
 
     def test_family_hpr(self) -> None:
         evidence = HistoricalPermissionEvidence(
