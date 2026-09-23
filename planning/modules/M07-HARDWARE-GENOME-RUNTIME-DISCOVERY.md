@@ -399,3 +399,347 @@ S01 is complete for module planning when:
 - five S01 proprietary technology candidates are registered for later review;
 - planning may advance to M07 S02 capability mapping;
 - no M07 product/runtime implementation is introduced.
+
+
+# S02 — CUDA / ROCm / DirectML / Metal capability mapping
+
+## 21. Goal
+
+S02 converts raw S01 discovery facts into **versioned capability assertions with explicit evidence and scope**. A backend name, installed driver, shared library, environment variable or importable package is never sufficient by itself to prove end-to-end workload capability.
+
+S02 remains descriptive. It answers “what interface/capability is evidenced here?” rather than “how fast is it?”, “how much can we allocate?”, or “which route should IRIS choose?”.
+
+## 22. Capability evidence ladder
+
+Capability assertions are stratified so downstream modules cannot mistake weak evidence for strong evidence:
+
+- `DECLARED`: a trusted source reports the capability/version, but no runtime binding was observed;
+- `LOADABLE`: the admitted runtime/API can be loaded or opened through a bounded non-stress probe;
+- `DEVICE_BOUND`: the runtime/API can enumerate or bind the exact M07 hardware subject;
+- `FEATURE_REPORTED`: the bound runtime reports an exact feature/limit/format/precision capability;
+- `SMOKE_VERIFIED`: a narrowly bounded, non-benchmark conformance probe verifies that the feature is operational;
+- `UNKNOWN`, `UNAVAILABLE`, `UNSUPPORTED`, `PERMISSION_DENIED`, `CONFLICTING`, `STALE`: explicit non-positive states.
+
+Evidence strength is monotonic. `DECLARED` cannot be promoted to `SMOKE_VERIFIED` without new evidence.
+
+A smoke probe is a conformance check only. It must be tiny, bounded and excluded from performance ranking. Throughput, latency, sustained memory limits, thermal stability and safe production envelopes remain M08+ concerns.
+
+## 23. Capability subject and binding
+
+Every capability assertion binds:
+- exact M07 hardware subject;
+- exact runtime substrate snapshot;
+- backend family;
+- backend/runtime/driver versions when observable;
+- probe/source adapter version;
+- capability key and normalized value;
+- evidence-strength level;
+- observation time/freshness;
+- visibility scope;
+- evidence reference/digest.
+
+Capability evidence for device A cannot authorize device B. Evidence observed inside one container/VM/WSL/runtime scope cannot silently authorize another scope.
+
+## 24. Backend-family neutrality
+
+M07 must represent at least these backend families without making one canonical:
+
+### NVIDIA / CUDA family
+Candidate observations:
+- driver/runtime API availability and reported versions;
+- CUDA-visible device binding;
+- compute capability/SM architecture as reported by admitted APIs;
+- runtime/device feature flags and hard limits;
+- library/runtime presence as separate facts;
+- NVENC/NVDEC presence only as reported capability evidence, with detailed codec/session mapping deferred to S03.
+
+### AMD / ROCm family
+Candidate observations:
+- ROCm/HIP runtime availability and versions;
+- exact bound device/agent;
+- reported GFX target/architecture;
+- runtime/device feature flags and hard limits;
+- relevant runtime libraries as separate facts;
+- Linux/Windows/platform support state represented explicitly rather than assumed from vendor identity.
+
+### Windows / DirectML family
+Candidate observations:
+- DirectML/DXGI/D3D runtime availability;
+- adapter LUID binding to the exact M07 subject;
+- reported feature levels/capability properties;
+- dedicated/shared memory facts cross-checked against S01 identity evidence;
+- software/WARP adapters kept distinguishable from hardware adapters.
+
+### Apple / Metal family
+Candidate observations:
+- Metal device binding;
+- registry/device relationship evidence where available;
+- reported GPU family/feature support;
+- unified-memory classification;
+- Metal/runtime/OS version facts;
+- capability evidence scoped to the exact observed Apple runtime substrate.
+
+### Generic CPU / portable backends
+CPU-only and portable execution surfaces remain representable. M07 does not require a discrete GPU or one of the four named vendor APIs to form a valid Hardware Genome.
+
+Future backends may be added through versioned adapters without changing the semantic meaning of existing capability keys.
+
+## 25. Version semantics
+
+M07 records distinct version facts rather than one ambiguous “CUDA/ROCm/Metal version” string.
+
+Candidate version dimensions:
+- kernel/display/compute driver version;
+- user-space runtime version;
+- loader/API version;
+- toolkit/SDK version when actually observable;
+- library version;
+- framework/backend binding version;
+- OS runtime version;
+- device firmware version where legitimately exposed and material.
+
+Presence of a toolkit does not prove a compatible driver/device. A driver-reported maximum runtime level does not prove that a specific user-space toolkit/library is installed. A framework compiled for a backend does not prove that the current hardware/runtime can bind it.
+
+Conflicting version sources remain explicit evidence conflicts until governed resolution.
+
+## 26. Normalized capability vocabulary
+
+S02 introduces a provider-neutral capability vocabulary with namespaced extensions.
+
+Core capability families may include:
+- `compute.api`;
+- `compute.architecture`;
+- `compute.queue_or_stream_model`;
+- `compute.max_workgroup_or_block`;
+- `compute.shared_or_local_memory`;
+- `compute.atomic_features`;
+- `compute.tensor_or_matrix_acceleration_reported`;
+- `memory.dedicated`;
+- `memory.unified`;
+- `memory.host_visible`;
+- `memory.peer_access_reported`;
+- `precision.fp64`;
+- `precision.fp32`;
+- `precision.tf32`;
+- `precision.fp16`;
+- `precision.bf16`;
+- `precision.fp8_family`;
+- `precision.int8`;
+- `precision.int4_family`;
+- `interop.graphics_compute`;
+- `interop.external_memory`;
+- `interop.external_semaphore`.
+
+A capability key states **what was evidenced**, not expected quality, speed, numerical suitability for a particular model, or scheduler preference.
+
+Vendor-specific facts that do not yet have a safe normalized semantic live under versioned namespaces such as `nvidia.*`, `amd.*`, `directml.*`, `metal.*` instead of being forced into a misleading common field.
+
+## 27. Precision capability semantics
+
+Precision support is multidimensional. S02 must not collapse it into a boolean.
+
+Where evidence exists, a precision assertion may distinguish:
+- storage/representation support;
+- arithmetic support;
+- accelerated arithmetic reported;
+- accumulation mode reported;
+- conversion support;
+- framework/backend exposure;
+- smoke-verified execution.
+
+Reported tensor/matrix acceleration is not benchmark proof and not model-quality proof.
+
+S02 does not decide that FP16/BF16/FP8/INT8/INT4 is acceptable for a workload. M01 protects quality, M14 owns empirical model evidence, and M10 later chooses execution routes under those constraints.
+
+## 28. Compatibility graph
+
+M07 may represent an evidence-backed compatibility graph connecting:
+- hardware subject;
+- driver/runtime;
+- backend API;
+- feature/capability;
+- runtime substrate.
+
+Edges carry evidence strength and freshness.
+
+The graph may prove:
+- “this runtime bound this device and reported feature X”;
+- “this backend cannot be observed in the current scope”;
+- “these two evidence sources conflict”.
+
+It may not prove:
+- workload performance;
+- production-safe VRAM headroom;
+- model quality;
+- preferred provider;
+- scheduler placement;
+- maximum sustainable concurrency.
+
+## 29. Cross-source reconciliation
+
+Where multiple adapters report the same normalized capability:
+- exact agreement may increase evidence confidence later under S05;
+- disagreement becomes `CONFLICTING`;
+- source priority can select a presentation preference but cannot erase the disagreement;
+- a weaker source cannot overwrite a stronger, fresher exact-subject observation;
+- stale evidence cannot silently override current evidence.
+
+Cross-vendor naming is normalized only when semantics are demonstrably equivalent. Similar marketing names are not sufficient.
+
+## 30. Safe smoke verification
+
+Optional `SMOKE_VERIFIED` evidence must:
+- bind the exact subject/runtime/backend;
+- use a fixed allowlisted conformance operation;
+- have strict memory/time/output bounds;
+- avoid stress, sustained load and performance scoring;
+- avoid persistent cache/config mutation where practical;
+- record failure state rather than retrying unboundedly;
+- never be required merely to enumerate valid low-resource hardware.
+
+Examples of acceptable planning intent include tiny device-open/buffer/copy/arithmetic conformance. Exact implementation remains deferred.
+
+If a smoke check could materially heat, stress, allocate large memory, benchmark throughput or interfere with workstation use, it belongs outside S02.
+
+## 31. 8 GB and low-resource compatibility
+
+An 8 GB VRAM device can have rich capability evidence without being benchmarked or rejected.
+
+S02 therefore separates:
+- feature support;
+- static memory capacity;
+- runtime binding;
+- empirical workload fit.
+
+A backend with feature support but insufficient memory for a future workload remains a valid capability mapping. M08-M10 determine workload envelopes/routes later.
+
+No capability map may encode “low VRAM = low quality.”
+
+## 32. Multi-backend and multi-device systems
+
+One physical device may expose multiple runtime paths. One host may expose multiple devices/vendors.
+
+M07 must retain:
+- one-to-many device→backend relationships;
+- separate evidence per path;
+- runtime-scope differences;
+- software/emulated adapters;
+- partitions/virtual devices;
+- cross-device peer/interconnect facts only when explicitly evidenced.
+
+“CUDA available on host” cannot be promoted into “all NVIDIA devices are CUDA-operational.” The same rule applies across ROCm, DirectML, Metal and portable backends.
+
+## 33. Capability freshness and invalidation
+
+Capability evidence may become stale after:
+- driver/runtime/toolkit update;
+- OS update;
+- device reset/hot-plug;
+- container/image change;
+- VM/WSL boundary change;
+- backend/framework update;
+- topology/partition change.
+
+S02 capability snapshots are immutable. Revalidation produces new evidence.
+
+Downstream consumers requiring current capability must reject stale evidence according to the final S05 freshness/confidence contract.
+
+## 34. Security and privacy
+
+Capability probes inherit S01's read-only, allowlisted, bounded execution rules.
+
+Additionally:
+- library search paths are treated as untrusted input;
+- discovery must not load arbitrary project-local binaries merely because they match a runtime filename;
+- environment variables are observations, not trusted executable instructions;
+- untrusted plugin/model/DCC content cannot register privileged hardware probes;
+- raw device identifiers remain privacy-minimized;
+- driver/runtime errors are normalized without leaking unnecessary host secrets.
+
+M54 remains the security authority; M07 exposes evidence needed for policy decisions.
+
+## 35. S02 hard-invariant candidates
+
+31. Backend/package presence alone cannot prove operational device capability.
+32. Capability evidence is exact-subject bound.
+33. Capability evidence is exact-runtime-scope bound.
+34. Evidence strength cannot increase without new evidence.
+35. Smoke verification cannot be treated as a benchmark.
+36. M07 cannot convert capability evidence into scheduler preference.
+37. M07 cannot convert capability evidence into workload-safe memory limits.
+38. Driver version, runtime version, toolkit version and library version remain distinct facts.
+39. A driver-reported compatibility level does not prove a matching toolkit/library installation.
+40. Framework backend availability does not prove device binding.
+41. Vendor identity does not prove backend availability.
+42. Software/emulated adapters remain distinguishable from physical hardware adapters.
+43. CUDA/ROCm/DirectML/Metal are peer backend families in the M07 schema, not a priority order.
+44. CPU-only/portable backends remain valid capability subjects.
+45. Precision support cannot be represented safely as one undifferentiated boolean.
+46. Reported acceleration is not empirical performance proof.
+47. Precision capability cannot authorize a quality downgrade.
+48. Vendor marketing names cannot establish normalized semantic equivalence.
+49. Conflicting normalized capability evidence remains explicit.
+50. A weaker/staler source cannot silently overwrite stronger/fresher exact-subject evidence.
+51. One device may expose multiple backend paths without identity collapse.
+52. Host-level backend presence cannot be broadcast to every device.
+53. Cross-device peer/interconnect support requires explicit exact-pair evidence.
+54. Capability snapshots are immutable.
+55. Driver/runtime/topology changes can invalidate capability freshness.
+56. Untrusted library paths cannot become privileged discovery execution.
+57. Environment variables are evidence, not commands.
+58. Optional conformance probes must be bounded and non-stress.
+59. 8 GB VRAM-class hardware cannot be rejected solely because a later workload may exceed capacity.
+60. Capability mapping cannot claim M08 benchmark envelopes, M09 resource policy, M10 execution plans or M14 empirical model fitness.
+
+These remain candidates until final M07 contract freeze.
+
+## 36. Proprietary technology candidates
+
+### IRIS-CEL — Capability Evidence Ladder
+Typed evidence-strength model separating declaration, loadability, exact-device binding, reported features and bounded smoke verification so downstream modules cannot accidentally upgrade weak evidence.
+
+### IRIS-BRM — Backend Relationship Matrix
+Provider-neutral one-to-many graph connecting devices, runtime substrates and CUDA/ROCm/DirectML/Metal/portable paths without inventing a single preferred backend.
+
+### IRIS-PDM — Precision Dimensional Matrix
+Capability model that separates representation, arithmetic, acceleration, accumulation, conversion, backend exposure and smoke verification for each precision family.
+
+### IRIS-VSF — Version Separation Fabric
+Explicit version topology for driver, runtime, toolkit, library, framework binding and OS substrate, preventing ambiguous “backend version” claims.
+
+### IRIS-CCG — Capability Conflict Graph
+Evidence-preserving reconciliation layer for normalized capability disagreements across OS, vendor and framework/runtime sources.
+
+All remain planning candidates pending Final Technology Review and prior-art review.
+
+## 37. S02 acceptance-evidence targets
+
+Later implementation must prove at minimum:
+- exact-subject and exact-runtime binding for every positive capability assertion;
+- declared/loadable/device-bound/feature-reported/smoke-verified evidence levels remain distinct;
+- driver/runtime/toolkit/library/framework versions do not collapse;
+- CUDA, ROCm, DirectML, Metal and CPU/portable fixtures share one provider-neutral semantic model;
+- software/emulated adapters remain explicit;
+- multi-device hosts do not receive host-wide capability broadcast;
+- one device can retain multiple backend paths;
+- precision support is multidimensional;
+- conflict preservation across independent sources;
+- stale evidence invalidates current-capability claims;
+- optional smoke probes remain bounded and excluded from benchmark results;
+- malicious/untrusted library paths or environment values cannot become arbitrary execution;
+- 8 GB hardware remains valid without benchmark or quality downgrade;
+- M08/M09/M10/M14 authority remains external.
+
+## S02 STOP CONDITION
+
+S02 is complete for module planning when:
+- capability evidence strength and exact subject/runtime binding are explicit;
+- CUDA/ROCm/DirectML/Metal/portable backend mappings are provider-neutral;
+- version dimensions are separated;
+- precision capability semantics are multidimensional;
+- cross-source conflicts and freshness invalidation are explicit;
+- smoke verification is bounded and cannot become benchmarking;
+- 30 additional hard-invariant candidates are recorded (60 cumulative);
+- five additional proprietary technology candidates are registered (10 cumulative);
+- planning may advance to M07 S03 driver/precision/encoder/decoder/topology detection;
+- no M07 product/runtime implementation is introduced.
