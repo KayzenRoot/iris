@@ -1,0 +1,1556 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0009",
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "branch": "iris-wo-0009-m05-asset-dna",
+  "frozenContract": "m05-contract-v1.0",
+  "issue": 41,
+  "baseSha": "ad56aade6ad2459eb632b30bd9fdd332263a5d67",
+  "pullRequest": {
+    "number": 42,
+    "url": "https://github.com/KayzenRoot/iris/pull/42",
+    "base": "main",
+    "state": "OPEN",
+    "merged": false,
+    "headBranch": "iris-wo-0009-m05-asset-dna",
+    "implementationHead": "405ac905613cefad6d7e0d2301ab869da0813cec",
+    "reviewedCodeHead": null,
+    "mergeSha": null
+  },
+  "admission": {
+    "contextLock": ".engineering/context-locks/IRIS-WO-0009.json",
+    "criticalSourceFingerprintMismatches": 0,
+    "governanceRun": 35843881845,
+    "governanceJob": 107125219417,
+    "governanceConclusion": "success",
+    "baselineTests": 2677,
+    "requiredArtifacts": 35,
+    "contextDisposition": "All 24 locked critical-source fingerprints matched the admission tree. Exact-head Governance passed. Implementation may begin only on the admitted branch and frozen scope."
+  },
+  "baseline": {
+    "baseSha": "ad56aade6ad2459eb632b30bd9fdd332263a5d67",
+    "governanceRun": 35843465664,
+    "governanceJob": 107123844096,
+    "tests": 2677,
+    "requiredArtifacts": 35,
+    "conclusion": "success"
+  },
+  "implementation": {
+    "package": "iris_asset_dna/",
+    "state": "COMPLETE",
+    "implementationHead": "405ac905613cefad6d7e0d2301ab869da0813cec",
+    "runtimeDependenciesAdded": 0,
+    "publicSurface": {
+      "rootPublicSymbols": 224,
+      "packageModules": 25,
+      "canonicalRecordTypesInClosedTransportRegistry": 112,
+      "surfaceRule": "Root exports are derived from each module __all__; import fails on ambiguous or undefined exports."
+    },
+    "frozenFamilies": {
+      "required": 25,
+      "represented": 25,
+      "coverage": [
+        {
+          "id": "F-M05-01",
+          "name": "Persistent Identity & Revision Core",
+          "implementationModules": [
+            "identity",
+            "versions"
+          ],
+          "proofMethod": "test_family_01_behavior"
+        },
+        {
+          "id": "F-M05-02",
+          "name": "Trait Semantics & Applicability Fabric",
+          "implementationModules": [
+            "traits",
+            "enums"
+          ],
+          "proofMethod": "test_family_02_behavior"
+        },
+        {
+          "id": "F-M05-03",
+          "name": "Canonical / Evidence Authority Fabric",
+          "implementationModules": [
+            "identity",
+            "traits",
+            "drift"
+          ],
+          "proofMethod": "test_family_03_behavior"
+        },
+        {
+          "id": "F-M05-04",
+          "name": "Anchor & Projection Authority Fabric",
+          "implementationModules": [
+            "anchors"
+          ],
+          "proofMethod": "test_family_04_behavior"
+        },
+        {
+          "id": "F-M05-05",
+          "name": "Identity Resolution, Alias & Consolidation Fabric",
+          "implementationModules": [
+            "analysis",
+            "lineage",
+            "imports"
+          ],
+          "proofMethod": "test_family_05_behavior"
+        },
+        {
+          "id": "F-M05-06",
+          "name": "Interface Capsule & Minimum Context Fabric",
+          "implementationModules": [
+            "context"
+          ],
+          "proofMethod": "test_family_06_behavior"
+        },
+        {
+          "id": "F-M05-07",
+          "name": "Family / Profile / Extension Fabric",
+          "implementationModules": [
+            "families",
+            "traits"
+          ],
+          "proofMethod": "test_family_07_behavior"
+        },
+        {
+          "id": "F-M05-08",
+          "name": "Persistent Component Identity Fabric",
+          "implementationModules": [
+            "families"
+          ],
+          "proofMethod": "test_family_08_behavior"
+        },
+        {
+          "id": "F-M05-09",
+          "name": "Character & Creature Identity Profile Fabric",
+          "implementationModules": [
+            "families"
+          ],
+          "proofMethod": "test_family_09_behavior"
+        },
+        {
+          "id": "F-M05-10",
+          "name": "Object & Product Identity Profile Fabric",
+          "implementationModules": [
+            "families"
+          ],
+          "proofMethod": "test_family_10_behavior"
+        },
+        {
+          "id": "F-M05-11",
+          "name": "Environment Identity Profile Fabric",
+          "implementationModules": [
+            "families"
+          ],
+          "proofMethod": "test_family_11_behavior"
+        },
+        {
+          "id": "F-M05-12",
+          "name": "Cross-Domain DNA Link Fabric",
+          "implementationModules": [
+            "cross_modal",
+            "ports"
+          ],
+          "proofMethod": "test_family_12_behavior"
+        },
+        {
+          "id": "F-M05-13",
+          "name": "Scene Identity Composition Fabric",
+          "implementationModules": [
+            "cross_modal"
+          ],
+          "proofMethod": "test_family_13_behavior"
+        },
+        {
+          "id": "F-M05-14",
+          "name": "Motion / Voice / Brand Link Firewall Fabric",
+          "implementationModules": [
+            "cross_modal",
+            "ports"
+          ],
+          "proofMethod": "test_family_14_behavior"
+        },
+        {
+          "id": "F-M05-15",
+          "name": "Cross-Modal Binding & Obligation Graph",
+          "implementationModules": [
+            "cross_modal"
+          ],
+          "proofMethod": "test_family_15_behavior"
+        },
+        {
+          "id": "F-M05-16",
+          "name": "Drift Evidence & Continuity Analysis Fabric",
+          "implementationModules": [
+            "drift",
+            "lineage"
+          ],
+          "proofMethod": "test_family_16_behavior"
+        },
+        {
+          "id": "F-M05-17",
+          "name": "Mutation Admission & Same-Identity Revision Fabric",
+          "implementationModules": [
+            "transitions"
+          ],
+          "proofMethod": "test_family_17_behavior"
+        },
+        {
+          "id": "F-M05-18",
+          "name": "Identity Break & Split Fabric",
+          "implementationModules": [
+            "lineage",
+            "transitions"
+          ],
+          "proofMethod": "test_family_18_behavior"
+        },
+        {
+          "id": "F-M05-19",
+          "name": "Protected Identity Evidence & Authority Bridge",
+          "implementationModules": [
+            "traits",
+            "analysis",
+            "risk"
+          ],
+          "proofMethod": "test_family_19_behavior"
+        },
+        {
+          "id": "F-M05-20",
+          "name": "Semantic Identity Lineage & Versioning Firewall",
+          "implementationModules": [
+            "lineage"
+          ],
+          "proofMethod": "test_family_20_behavior"
+        },
+        {
+          "id": "F-M05-21",
+          "name": "Directional Compatibility & Migration Fabric",
+          "implementationModules": [
+            "compatibility",
+            "migration",
+            "analysis"
+          ],
+          "proofMethod": "test_family_21_behavior"
+        },
+        {
+          "id": "F-M05-22",
+          "name": "Reusable DNA Package & Dependency Fabric",
+          "implementationModules": [
+            "packages"
+          ],
+          "proofMethod": "test_family_22_behavior"
+        },
+        {
+          "id": "F-M05-23",
+          "name": "Marketplace / Storage / Delivery Boundary Fabric",
+          "implementationModules": [
+            "packages",
+            "ports"
+          ],
+          "proofMethod": "test_family_23_behavior"
+        },
+        {
+          "id": "F-M05-24",
+          "name": "Import / Conformance / Package Lifecycle Fabric",
+          "implementationModules": [
+            "imports",
+            "packages"
+          ],
+          "proofMethod": "test_family_24_behavior"
+        },
+        {
+          "id": "F-M05-25",
+          "name": "Identity Risk & Threat Radar Fabric",
+          "implementationModules": [
+            "risk"
+          ],
+          "proofMethod": "test_family_25_behavior"
+        }
+      ]
+    },
+    "hardInvariants": {
+      "required": 150,
+      "indexed": 150,
+      "catalogMatchesFrozenContractStatements": true,
+      "proofIndexValidation": "PASS",
+      "proofMap": [
+        {
+          "id": "IRIS-DNAX-001",
+          "family": "F-M05-01",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_01_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-002",
+          "family": "F-M05-01",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_01_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-003",
+          "family": "F-M05-01",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_01_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-004",
+          "family": "F-M05-02",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_02_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-005",
+          "family": "F-M05-02",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_02_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-006",
+          "family": "F-M05-02",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_02_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-007",
+          "family": "F-M05-03",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_03_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-008",
+          "family": "F-M05-04",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_04_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-009",
+          "family": "F-M05-04",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_04_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-010",
+          "family": "F-M05-03",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_03_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-011",
+          "family": "F-M05-02",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_02_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-012",
+          "family": "F-M05-02",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_02_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-013",
+          "family": "F-M05-02",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_02_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-014",
+          "family": "F-M05-02",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_02_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-015",
+          "family": "F-M05-06",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_06_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-016",
+          "family": "F-M05-06",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_06_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-017",
+          "family": "F-M05-01",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_01_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-018",
+          "family": "F-M05-01",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_01_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-019",
+          "family": "F-M05-04",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_04_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-020",
+          "family": "F-M05-04",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_04_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-021",
+          "family": "F-M05-05",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_05_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-022",
+          "family": "F-M05-03",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_03_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-023",
+          "family": "F-M05-03",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_03_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-024",
+          "family": "F-M05-19",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_19_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-025",
+          "family": "F-M05-19",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_19_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-026",
+          "family": "F-M05-05",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_05_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-027",
+          "family": "F-M05-05",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_05_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-028",
+          "family": "F-M05-05",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_05_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-029",
+          "family": "F-M05-22",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_22_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-030",
+          "family": "F-M05-07",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_07_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-031",
+          "family": "F-M05-07",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_07_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-032",
+          "family": "F-M05-07",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_07_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-033",
+          "family": "F-M05-07",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_07_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-034",
+          "family": "F-M05-08",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_08_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-035",
+          "family": "F-M05-08",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_08_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-036",
+          "family": "F-M05-09",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_09_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-037",
+          "family": "F-M05-09",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_09_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-038",
+          "family": "F-M05-09",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_09_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-039",
+          "family": "F-M05-09",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_09_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-040",
+          "family": "F-M05-09",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_09_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-041",
+          "family": "F-M05-09",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_09_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-042",
+          "family": "F-M05-09",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_09_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-043",
+          "family": "F-M05-10",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_10_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-044",
+          "family": "F-M05-10",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_10_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-045",
+          "family": "F-M05-08",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_08_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-046",
+          "family": "F-M05-10",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_10_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-047",
+          "family": "F-M05-10",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_10_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-048",
+          "family": "F-M05-10",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_10_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-049",
+          "family": "F-M05-10",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_10_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-050",
+          "family": "F-M05-10",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_10_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-051",
+          "family": "F-M05-11",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_11_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-052",
+          "family": "F-M05-11",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_11_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-053",
+          "family": "F-M05-11",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_11_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-054",
+          "family": "F-M05-11",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_11_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-055",
+          "family": "F-M05-07",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_07_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-056",
+          "family": "F-M05-07",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_07_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-057",
+          "family": "F-M05-07",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_07_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-058",
+          "family": "F-M05-07",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_07_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-059",
+          "family": "F-M05-21",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_21_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-060",
+          "family": "F-M05-25",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_25_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-061",
+          "family": "F-M05-12",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_12_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-062",
+          "family": "F-M05-13",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_13_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-063",
+          "family": "F-M05-13",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_13_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-064",
+          "family": "F-M05-13",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_13_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-065",
+          "family": "F-M05-12",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_12_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-066",
+          "family": "F-M05-14",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_14_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-067",
+          "family": "F-M05-14",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_14_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-068",
+          "family": "F-M05-12",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_12_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-069",
+          "family": "F-M05-14",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_14_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-070",
+          "family": "F-M05-19",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_19_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-071",
+          "family": "F-M05-14",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_14_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-072",
+          "family": "F-M05-12",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_12_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-073",
+          "family": "F-M05-14",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_14_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-074",
+          "family": "F-M05-14",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_14_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-075",
+          "family": "F-M05-15",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_15_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-076",
+          "family": "F-M05-15",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_15_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-077",
+          "family": "F-M05-12",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_12_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-078",
+          "family": "F-M05-12",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_12_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-079",
+          "family": "F-M05-15",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_15_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-080",
+          "family": "F-M05-15",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_15_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-081",
+          "family": "F-M05-15",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_15_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-082",
+          "family": "F-M05-12",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_12_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-083",
+          "family": "F-M05-12",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_12_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-084",
+          "family": "F-M05-12",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_12_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-085",
+          "family": "F-M05-13",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_13_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-086",
+          "family": "F-M05-13",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_13_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-087",
+          "family": "F-M05-13",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_13_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-088",
+          "family": "F-M05-15",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_15_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-089",
+          "family": "F-M05-12",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_12_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-090",
+          "family": "F-M05-25",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_25_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-091",
+          "family": "F-M05-04",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_04_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-092",
+          "family": "F-M05-04",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_04_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-093",
+          "family": "F-M05-04",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_04_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-094",
+          "family": "F-M05-03",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_03_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-095",
+          "family": "F-M05-16",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_16_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-096",
+          "family": "F-M05-16",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_16_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-097",
+          "family": "F-M05-16",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_16_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-098",
+          "family": "F-M05-16",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_16_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-099",
+          "family": "F-M05-16",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_16_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-100",
+          "family": "F-M05-16",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_16_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-101",
+          "family": "F-M05-17",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_17_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-102",
+          "family": "F-M05-17",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_17_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-103",
+          "family": "F-M05-17",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_17_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-104",
+          "family": "F-M05-17",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_17_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-105",
+          "family": "F-M05-17",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_17_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-106",
+          "family": "F-M05-18",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_18_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-107",
+          "family": "F-M05-18",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_18_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-108",
+          "family": "F-M05-18",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_18_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-109",
+          "family": "F-M05-05",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_05_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-110",
+          "family": "F-M05-05",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_05_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-111",
+          "family": "F-M05-16",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_16_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-112",
+          "family": "F-M05-16",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_16_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-113",
+          "family": "F-M05-19",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_19_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-114",
+          "family": "F-M05-16",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_16_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-115",
+          "family": "F-M05-19",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_19_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-116",
+          "family": "F-M05-16",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_16_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-117",
+          "family": "F-M05-16",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_16_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-118",
+          "family": "F-M05-16",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_16_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-119",
+          "family": "F-M05-17",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_17_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-120",
+          "family": "F-M05-25",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_25_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-121",
+          "family": "F-M05-20",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_20_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-122",
+          "family": "F-M05-20",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_20_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-123",
+          "family": "F-M05-20",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_20_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-124",
+          "family": "F-M05-21",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_21_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-125",
+          "family": "F-M05-21",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_21_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-126",
+          "family": "F-M05-21",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_21_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-127",
+          "family": "F-M05-21",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_21_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-128",
+          "family": "F-M05-21",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_21_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-129",
+          "family": "F-M05-21",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_21_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-130",
+          "family": "F-M05-21",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_21_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-131",
+          "family": "F-M05-22",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_22_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-132",
+          "family": "F-M05-22",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_22_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-133",
+          "family": "F-M05-22",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_22_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-134",
+          "family": "F-M05-22",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_22_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-135",
+          "family": "F-M05-22",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_22_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-136",
+          "family": "F-M05-22",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_22_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-137",
+          "family": "F-M05-23",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_23_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-138",
+          "family": "F-M05-19",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_19_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-139",
+          "family": "F-M05-19",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_19_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-140",
+          "family": "F-M05-23",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_23_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-141",
+          "family": "F-M05-23",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_23_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-142",
+          "family": "F-M05-24",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_24_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-143",
+          "family": "F-M05-24",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_24_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-144",
+          "family": "F-M05-24",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_24_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-145",
+          "family": "F-M05-19",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_19_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-146",
+          "family": "F-M05-23",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_23_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-147",
+          "family": "F-M05-19",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_19_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-148",
+          "family": "F-M05-24",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_24_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-149",
+          "family": "F-M05-21",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_21_behavior"
+        },
+        {
+          "id": "IRIS-DNAX-150",
+          "family": "F-M05-25",
+          "proofTestId": "test_m05_invariants.TestFrozenInvariantFamilies.test_family_25_behavior"
+        }
+      ],
+      "catalogTest": "test_m05_invariants.TestFrozenInvariantFamilies.test_catalog_proofs_are_bound_to_existing_family_tests"
+    },
+    "extensionRefPorts": {
+      "required": 22,
+      "represented": 22,
+      "portVersion": "iris-m05-ports-v1",
+      "names": [
+        "APIExportRecoveryIdentityPort",
+        "CanonContentCampaignBrandPort",
+        "ConcreteWorkflowIdentityProjectionPort",
+        "DCCIdentityBindingPort",
+        "DeliveryProjectionCompatibilityPort",
+        "DigitalHumanPersonaBindingPort",
+        "GeometryAppearanceIdentityPort",
+        "HIVEMemoryIdentitySlicePort",
+        "HardwareExecutionConstraintRef",
+        "ImageReferenceIdentityEvidencePort",
+        "LocalizationIdentityPreservationPort",
+        "ModelCapabilityIdentityEvidencePort",
+        "MotionDNARefPort",
+        "ProductionStateRefPort",
+        "QualityRepairProposalPort",
+        "RenderObservationPort",
+        "RightsSecurityEvidencePort",
+        "StorageObservabilityAutomationPort",
+        "TemporalContinuityEvidencePort",
+        "TrainingIdentityDatasetRefPort",
+        "VoiceMusicAudioDomainDNAPort",
+        "WorkerPlacementIdentityContextPort"
+      ],
+      "roundtrip": "22/22 version-pinned port records serialize and deserialize identically."
+    },
+    "syntheticProfiles": {
+      "required": 8,
+      "passed": 8,
+      "sameBuilder": true,
+      "totalSubjects": 13,
+      "packageConformance": {
+        "portable.dna.package": true
+      },
+      "profiles": [
+        "corporate.spokesperson",
+        "asymmetric.creature",
+        "generic.object",
+        "product.identity.levels",
+        "persistent.environment",
+        "crossmodal.character",
+        "scene.identity.roles",
+        "portable.dna.package"
+      ]
+    },
+    "familyMappingSource": "planning/reviews/M05-FINAL-TECHNOLOGY-REVIEW.md"
+  },
+  "authorityBoundaryEvidence": {
+    "M01": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/readiness.py",
+        "tests/test_m05_authority_ports.py::TestM05AuthorityPorts.test_quality_and_release_authority_are_not_m05_readiness"
+      ]
+    },
+    "M02": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/lineage.py",
+        "iris_asset_dna/ports.py::ProductionStateRefPort",
+        "tests/test_m05_authority_ports.py"
+      ]
+    },
+    "M03": {
+      "result": "PASS",
+      "evidence": [
+        "M03 package is not imported by the kernel; neighbor-import boundary test passes.",
+        "iris_asset_dna/ports.py::ExtensionRefPort"
+      ]
+    },
+    "M04": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/anchors.py::DNAProjectionContract",
+        "iris_asset_dna/ports.py::GeometryAppearanceIdentityPort",
+        "tests/test_m05_authority_ports.py::TestM05AuthorityPorts.test_m04_and_provider_refs_remain_external_pinned_inputs"
+      ]
+    },
+    "M06": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/ports.py::ProductionStateRefPort",
+        "No persistence/reconstruction backend import or implementation exists in iris_asset_dna/."
+      ]
+    },
+    "M30": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/cross_modal.py::MotionDNALink",
+        "iris_asset_dna/ports.py::MotionDNARefPort"
+      ]
+    },
+    "M37": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/ports.py::TemporalContinuityEvidencePort"
+      ]
+    },
+    "M39": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/ports.py::DigitalHumanPersonaBindingPort"
+      ]
+    },
+    "M40": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/cross_modal.py::VoiceDNALink",
+        "iris_asset_dna/ports.py::VoiceMusicAudioDomainDNAPort"
+      ]
+    },
+    "M41": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/ports.py::VoiceMusicAudioDomainDNAPort"
+      ]
+    },
+    "M43": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/cross_modal.py::SceneIdentityDNA",
+        "iris_asset_dna/ports.py::CanonContentCampaignBrandPort"
+      ]
+    },
+    "M45": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/ports.py::CanonContentCampaignBrandPort"
+      ]
+    },
+    "M46": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/cross_modal.py::BrandDNALink",
+        "iris_asset_dna/ports.py::CanonContentCampaignBrandPort"
+      ]
+    },
+    "M52": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/context.py::MinimumSufficientDNASlice",
+        "iris_asset_dna/ports.py::HIVEMemoryIdentitySlicePort"
+      ]
+    },
+    "M53": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/identity.py",
+        "iris_asset_dna/traits.py",
+        "iris_asset_dna/ports.py::RightsSecurityEvidencePort"
+      ]
+    },
+    "M54": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/traits.py",
+        "iris_asset_dna/packages.py",
+        "iris_asset_dna/ports.py::RightsSecurityEvidencePort"
+      ]
+    },
+    "M55": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/ports.py::StorageObservabilityAutomationPort",
+        "No storage/CAS/backend import or implementation exists in the kernel."
+      ]
+    },
+    "M58": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/ports.py::APIExportRecoveryIdentityPort"
+      ]
+    },
+    "M59": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/ports.py::DeliveryProjectionCompatibilityPort",
+        "iris_asset_dna/ports.py::APIExportRecoveryIdentityPort"
+      ]
+    },
+    "M60": {
+      "result": "PASS",
+      "evidence": [
+        "iris_asset_dna/ports.py::APIExportRecoveryIdentityPort"
+      ]
+    },
+    "firewallTest": "tests/test_m05_authority_ports.py::TestM05AuthorityPorts.test_kernel_does_not_import_authority_neighbor_implementations"
+  },
+  "validation": {
+    "baseline": {
+      "head": "ad56aade6ad2459eb632b30bd9fdd332263a5d67",
+      "tests": 2677,
+      "result": "PASS"
+    },
+    "focusedM05": {
+      "head": "405ac905613cefad6d7e0d2301ab869da0813cec",
+      "tests": 47,
+      "result": "PASS",
+      "command": "python -m unittest discover -s tests -p \"test_m05_*.py\"",
+      "directTestIds": [
+        "test_m05_authority_ports.TestM05AuthorityPorts.test_frozen_authorities_map_to_versioned_non_executable_ports",
+        "test_m05_authority_ports.TestM05AuthorityPorts.test_kernel_does_not_import_authority_neighbor_implementations",
+        "test_m05_authority_ports.TestM05AuthorityPorts.test_m04_and_provider_refs_remain_external_pinned_inputs",
+        "test_m05_authority_ports.TestM05AuthorityPorts.test_quality_and_release_authority_are_not_m05_readiness",
+        "test_m05_compatibility_packages.TestM05CompatibilityAndPackages.test_adversarial_limits_bound_migration_packages_and_identity_history",
+        "test_m05_compatibility_packages.TestM05CompatibilityAndPackages.test_explicit_loss_and_identity_break_are_never_hidden",
+        "test_m05_compatibility_packages.TestM05CompatibilityAndPackages.test_interface_projection_and_lifecycle_preserve_authority_and_history",
+        "test_m05_compatibility_packages.TestM05CompatibilityAndPackages.test_lossy_compatibility_requires_a_path_surface_and_unknown_stays_unknown",
+        "test_m05_compatibility_packages.TestM05CompatibilityAndPackages.test_migration_preserves_renames_drops_and_defaults_as_separate_surfaces",
+        "test_m05_compatibility_packages.TestM05CompatibilityAndPackages.test_package_extensions_dependencies_and_conformance_fail_closed",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_catalog_proofs_are_bound_to_existing_family_tests",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_01_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_02_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_03_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_04_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_05_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_06_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_07_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_08_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_09_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_10_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_11_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_12_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_13_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_14_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_15_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_16_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_17_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_18_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_19_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_20_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_21_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_22_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_23_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_24_behavior",
+        "test_m05_invariants.TestFrozenInvariantFamilies.test_family_25_behavior",
+        "test_m05_serialization_security.TestM05SerializationSecurityAndBoundaries.test_canonical_json_is_deterministic_and_roundtrips_nested_records",
+        "test_m05_serialization_security.TestM05SerializationSecurityAndBoundaries.test_canonicalization_rejects_custom_behavior_objects_without_iterating_them",
+        "test_m05_serialization_security.TestM05SerializationSecurityAndBoundaries.test_digest_bearing_witnesses_and_reports_reject_recomputed_inconsistency",
+        "test_m05_serialization_security.TestM05SerializationSecurityAndBoundaries.test_eight_synthetic_profiles_use_the_single_builder",
+        "test_m05_serialization_security.TestM05SerializationSecurityAndBoundaries.test_every_extension_port_is_a_versioned_roundtrip_record",
+        "test_m05_serialization_security.TestM05SerializationSecurityAndBoundaries.test_kernel_import_boundaries_exclude_providers_io_and_execution",
+        "test_m05_serialization_security.TestM05SerializationSecurityAndBoundaries.test_malformed_or_hostile_transport_fails_closed_without_dynamic_import",
+        "test_m05_serialization_security.TestM05SerializationSecurityAndBoundaries.test_path_level_change_surface_and_equivalence_decisions",
+        "test_m05_serialization_security.TestM05SerializationSecurityAndBoundaries.test_public_surface_and_transport_registry_are_closed_and_unambiguous",
+        "test_m05_serialization_security.TestM05SerializationSecurityAndBoundaries.test_revision_package_validation_and_readiness_records_roundtrip",
+        "test_m05_serialization_security.TestM05SerializationSecurityAndBoundaries.test_unknown_required_schemas_and_wrong_expected_types_fail_closed"
+      ]
+    },
+    "fullSuite": {
+      "head": "405ac905613cefad6d7e0d2301ab869da0813cec",
+      "tests": 2724,
+      "baseline": 2677,
+      "increase": 47,
+      "result": "PASS",
+      "command": "python -m unittest discover -s tests -p \"test_*.py\""
+    },
+    "compile": {
+      "head": "405ac905613cefad6d7e0d2301ab869da0813cec",
+      "paths": [
+        "iris_asset_dna",
+        "tests",
+        "examples"
+      ],
+      "result": "PASS",
+      "command": "compileall.compile_dir on each listed directory"
+    },
+    "lint": {
+      "head": "405ac905613cefad6d7e0d2301ab869da0813cec",
+      "tool": "ruff",
+      "result": "PASS",
+      "command": "ruff check iris_asset_dna tests/m05_support.py tests/test_m05_authority_ports.py tests/test_m05_compatibility_packages.py tests/test_m05_invariants.py tests/test_m05_serialization_security.py examples/m05_synthetic_profiles.py"
+    },
+    "syntheticProfiles": {
+      "head": "405ac905613cefad6d7e0d2301ab869da0813cec",
+      "count": 8,
+      "result": "PASS",
+      "command": "python -m examples.m05_synthetic_profiles"
+    },
+    "localGovernance": {
+      "head": "405ac905613cefad6d7e0d2301ab869da0813cec",
+      "result": "PASS",
+      "command": "python scripts/validate_governance.py",
+      "requiredArtifacts": 35,
+      "gef": {
+        "version": "v1.0.0",
+        "sha": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
+      },
+      "hive": {
+        "version": "v1.0.0",
+        "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
+      }
+    },
+    "exactHeadGitHubGovernance": {
+      "head": "405ac905613cefad6d7e0d2301ab869da0813cec",
+      "run": 35858243563,
+      "job": 107171827895,
+      "conclusion": "success",
+      "result": "PASS"
+    }
+  },
+  "failuresEncounteredAndFixed": [
+    {
+      "finding": "Initial Ruff pass reported 31 diagnostics: 30 unused imports and one unresolved Any annotation.",
+      "correction": "Removed only introduced unused imports and added the missing typing import.",
+      "verification": "Final Ruff pass at implementation head passed."
+    },
+    {
+      "finding": "Renaming synthetic profile IDs to the frozen contract names exposed one stale expected package-conformance key.",
+      "correction": "Updated the assertion to portable.dna.package and asserted the complete eight-profile ID set.",
+      "verification": "Focused M05 suite and all 2724 repository tests passed."
+    },
+    {
+      "finding": "Security review identified custom Mapping and forged digest surfaces that needed explicit rejection/consistency checks.",
+      "correction": "Added inert-container rejection, static type registration checks, report/fingerprint digest validation and slice graph-depth limits.",
+      "verification": "Hostile-object and tampered-report tests pass; full suite and AST boundary scan pass."
+    }
+  ],
+  "changedFiles": {
+    "implementationFiles": 33,
+    "pullRequestFilesAtImplementationHead": 36,
+    "files": [
+      ".engineering/context-locks/IRIS-WO-0009.json",
+      ".engineering/evidence/IRIS-WO-0009.json",
+      ".engineering/work-orders/IRIS-WO-0009-M05-ASSET-DNA.md",
+      "docs/M05-ASSET-DNA-KERNEL.md",
+      "examples/m05_synthetic_profiles.py",
+      "iris_asset_dna/__init__.py",
+      "iris_asset_dna/analysis.py",
+      "iris_asset_dna/anchors.py",
+      "iris_asset_dna/base.py",
+      "iris_asset_dna/compatibility.py",
+      "iris_asset_dna/context.py",
+      "iris_asset_dna/cross_modal.py",
+      "iris_asset_dna/drift.py",
+      "iris_asset_dna/enums.py",
+      "iris_asset_dna/errors.py",
+      "iris_asset_dna/families.py",
+      "iris_asset_dna/identity.py",
+      "iris_asset_dna/imports.py",
+      "iris_asset_dna/invariants.py",
+      "iris_asset_dna/limits.py",
+      "iris_asset_dna/lineage.py",
+      "iris_asset_dna/migration.py",
+      "iris_asset_dna/packages.py",
+      "iris_asset_dna/ports.py",
+      "iris_asset_dna/readiness.py",
+      "iris_asset_dna/risk.py",
+      "iris_asset_dna/serialization.py",
+      "iris_asset_dna/traits.py",
+      "iris_asset_dna/transitions.py",
+      "iris_asset_dna/validation.py",
+      "iris_asset_dna/versions.py",
+      "tests/m05_support.py",
+      "tests/test_m05_authority_ports.py",
+      "tests/test_m05_compatibility_packages.py",
+      "tests/test_m05_invariants.py",
+      "tests/test_m05_serialization_security.py"
+    ],
+    "implementationCommitFiles": [
+      "docs/M05-ASSET-DNA-KERNEL.md",
+      "examples/m05_synthetic_profiles.py",
+      "iris_asset_dna/__init__.py",
+      "iris_asset_dna/analysis.py",
+      "iris_asset_dna/anchors.py",
+      "iris_asset_dna/base.py",
+      "iris_asset_dna/compatibility.py",
+      "iris_asset_dna/context.py",
+      "iris_asset_dna/cross_modal.py",
+      "iris_asset_dna/drift.py",
+      "iris_asset_dna/enums.py",
+      "iris_asset_dna/errors.py",
+      "iris_asset_dna/families.py",
+      "iris_asset_dna/identity.py",
+      "iris_asset_dna/imports.py",
+      "iris_asset_dna/invariants.py",
+      "iris_asset_dna/limits.py",
+      "iris_asset_dna/lineage.py",
+      "iris_asset_dna/migration.py",
+      "iris_asset_dna/packages.py",
+      "iris_asset_dna/ports.py",
+      "iris_asset_dna/readiness.py",
+      "iris_asset_dna/risk.py",
+      "iris_asset_dna/serialization.py",
+      "iris_asset_dna/traits.py",
+      "iris_asset_dna/transitions.py",
+      "iris_asset_dna/validation.py",
+      "iris_asset_dna/versions.py",
+      "tests/m05_support.py",
+      "tests/test_m05_authority_ports.py",
+      "tests/test_m05_compatibility_packages.py",
+      "tests/test_m05_invariants.py",
+      "tests/test_m05_serialization_security.py"
+    ]
+  },
+  "risksAndDeferredPorts": [
+    "HIVE project.list returned seven projects and did not include IRIS; the bounded result does not establish global absence, and no HIVE resolution evidence is claimed.",
+    "All 22 extension/ref ports are semantic contracts only; downstream module implementations remain deferred.",
+    "No benchmark was run and no context-efficiency or token-savings claim is made.",
+    "No biometric authentication, provider/DCC runtime, persistence/CAS/database backend, marketplace commerce, media generation, legal-rights engine, security engine or quality judge is in M05 core scope.",
+    "Independent implementation audit/review remains to be performed; PR #42 remains unmerged."
+  ],
+  "proposedCheckpointDelta": {
+    "status": "PROPOSED_NOT_PROMOTED",
+    "proposal": {
+      "workOrder": "IRIS-WO-0009",
+      "contract": "m05-contract-v1.0",
+      "implementationHead": "405ac905613cefad6d7e0d2301ab869da0813cec",
+      "result": "25/25 families; 150/150 invariant statements mapped exactly to the frozen contract and 25 family test methods; 22/22 ports; 8/8 synthetic profiles; 2724/2724 tests.",
+      "validation": "Compile, Ruff, local governance and exact implementation-head GitHub Governance all PASS.",
+      "checkpointAction": "Record the M05 implementation and evidence as ready for independent review only after reviewing this Evidence Bundle; do not advance the project checkpoint automatically.",
+      "promotion": "Not promoted by executor."
+    }
+  },
+  "independentReview": {
+    "status": "NOT_STARTED",
+    "findings": null,
+    "merge": "DO_NOT_MERGE"
+  },
+  "stopCondition": "STOP when the complete frozen M05 kernel is functional, tested, documented, evidence-bundled, pushed on the authorized branch, and ready for independent review. Do not merge. Do not start M06.",
+  "headChain": {
+    "authorizedBase": "ad56aade6ad2459eb632b30bd9fdd332263a5d67",
+    "contextLockReconciliationHead": "65a4edc64d43c3c34928949e6f5d9b85c01c1dcf",
+    "implementationCodeHead": "405ac905613cefad6d7e0d2301ab869da0813cec",
+    "implementationCommitParents": [
+      "65a4edc64d43c3c34928949e6f5d9b85c01c1dcf"
+    ],
+    "implementationCommitSubject": "feat(m05): implement asset dna identity kernel",
+    "evidenceFile": ".engineering/evidence/IRIS-WO-0009.json",
+    "historyRewritten": false
+  },
+  "hivePreflight": {
+    "bridgeVersion": "v1.0.0",
+    "governanceValidation": "PASS",
+    "projectLookup": "project.list returned seven projects; IRIS was not present in that bounded result set",
+    "disposition": "No HIVE project-resolution evidence was fabricated; canonical repository sources and static Git/test evidence were used."
+  },
+  "dependencyAndImportSurface": {
+    "runtimeDependenciesAdded": 0,
+    "kernelImports": "Python standard library and relative iris_asset_dna modules only.",
+    "externalImportRoots": [],
+    "forbiddenExecutableCalls": [],
+    "forbiddenBoundaryTest": "tests/test_m05_serialization_security.py::TestM05SerializationSecurityAndBoundaries.test_kernel_import_boundaries_exclude_providers_io_and_execution",
+    "staticAstScan": "PASS; provider/DCC, network, shell, database, model SDK and dynamic execution roots/calls absent."
+  },
+  "schemaVersioning": {
+    "contract": "m05-contract-v1.0",
+    "coreSchema": "iris-m05-core-v1",
+    "transport": "iris-m05-json-v1",
+    "validator": "iris-m05-validator-v1",
+    "ports": "iris-m05-ports-v1",
+    "recordRegistry": {
+      "count": 112,
+      "selection": "closed module __all__ registry; no payload-driven imports"
+    }
+  },
+  "serializationFingerprintDelta": {
+    "canonicalTransport": "Deterministic normalized JSON, sorted keys and compact separators.",
+    "recordRoundtripSamples": 8,
+    "recordRoundtripSampleKinds": [
+      "DNARevision",
+      "DNAFingerprintWitness",
+      "DNARevisionComparison",
+      "IdentityEquivalenceDecision",
+      "DNAValidationReport",
+      "DNAReadinessAssessment",
+      "ReusableDNAPackageManifest",
+      "DNAPackageConformanceReport"
+    ],
+    "portsRoundtripped": "22/22",
+    "fingerprintExclusions": [
+      "display metadata",
+      "evidence refs",
+      "revision labels",
+      "history refs",
+      "storage/location metadata",
+      "opaque dna_id"
+    ],
+    "pathLevelDelta": "Trait, anchor, component and domain-link changes are recorded as path/ref surfaces; a semantic change or identity change requires governed decision.",
+    "witnesses": "SHA-256 witness digests verified; inconsistent recomputed witness/report surfaces rejected.",
+    "hostileTransport": "PASS for duplicate JSON keys, NaN, unknown record kinds/fields, wrong expected type, payload limits and non-registered behavior objects."
+  },
+  "migrationRoundtrip": {
+    "scenarios": [
+      "preserve/rename/default",
+      "declared drop/loss",
+      "identity break with a new dna_id"
+    ],
+    "receiptVerification": "PASS via verify_migration_receipt",
+    "sourceImmutability": "PASS; source canonical revision remains unchanged",
+    "identityBreakLineage": "PASS; source and new identity are distinct and linked explicitly",
+    "compatibility": "Directional multi-axis outcomes preserve INDETERMINATE and explicit LOSS."
+  },
+  "securityResourceLimits": {
+    "untrustedFormat": "JSON data only; duplicate keys and non-finite numbers rejected.",
+    "dynamicTypeLoading": "No; type resolution is a static registry lookup.",
+    "evalExecImports": "No eval/exec/compile/__import__ calls in kernel; static scan passed.",
+    "customObjectExecution": "Hostile Mapping and CanonicalRecord-like objects are rejected without invoking their methods.",
+    "bounds": [
+      "trait count",
+      "anchor/component/domain-link counts",
+      "lineage/dependency edges",
+      "graph/canonical depth",
+      "inline transport bytes",
+      "text length",
+      "profile/package counts"
+    ],
+    "limitTests": "PASS for payload bytes, canonical depth, text length, migration trait count and slice dependency graph depth.",
+    "privacy": "Restricted identity evidence and rights/security data remain minimized SemanticRef values; no payload copy is added by evidence reports."
+  },
+  "contextAndSlices": {
+    "interfaceCapsule": "DNAInterfaceCapsule exposes pinned identity interface, fingerprint and selected paths/refs.",
+    "minimumSufficientSlice": "Requested path closure includes declared dependencies, related anchors/links and associated provenance/policy refs.",
+    "adversarialBounds": "Dependency count, trait closure and graph depth are bounded; unsupported custom mappings are rejected.",
+    "benchmark": "No performance or token-savings claim; no benchmark was run."
+  },
+  "projectPromptRule": {
+    "source": "AGENTS.md, PDF work-order execution section",
+    "rule": "Read attached execution PDFs completely and execute the authorized full scope from beginning to end unless the user requests analysis-only; respect explicit stop conditions and governance.",
+    "applied": true
+  }
+}
