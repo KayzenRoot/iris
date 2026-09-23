@@ -1,7 +1,7 @@
 # M05 Module Contract Freeze Candidate — Asset DNA 2.0 & Cross-Modal Identity
 
-Status: `FREEZE_CANDIDATE_AUDIT_REQUIRED`
-Target frozen version: `m05-contract-v1.0`
+Status: `FROZEN_APPROVED`
+Frozen version: `m05-contract-v1.0`
 Module: `M05`
 Issue: `#37`
 PR: `#38`
@@ -886,7 +886,7 @@ Any semantic change after freeze requires a versioned M05 contract amendment + r
 ## 30. Freeze candidate state
 
 - Target contract: `m05-contract-v1.0`
-- Current status: `FREEZE_CANDIDATE_AUDIT_REQUIRED`
+- Status: `FROZEN_APPROVED`
 - S01-S05: complete
 - Hard invariants: 150
 - Consolidated technology families: 25
@@ -894,8 +894,28 @@ Any semantic change after freeze requires a versioned M05 contract amendment + r
 - Future extension/ref families: 22
 - Final Technology Review: approved for forward compatibility
 - Forward Compatibility Scan: pass with extension ports
-- Independent planning audit: **PENDING**
+- Independent planning audit: `APPROVED`
 - Product/kernel implementation: not started
 - HIGH/CRITICAL blockers known at candidate creation: 0
 
 The independent planning audit must review the exact candidate head before promotion to `FROZEN_APPROVED`.
+
+
+## 31. Freeze closure
+
+- Contract: `m05-contract-v1.0`
+- Status: `FROZEN_APPROVED`
+- Independent planning audit: `APPROVED`
+- Reviewed freeze-candidate head: `2f3102b4701fd0f3a9113f1a7d9cef924c9cc6fa`
+- Reviewed Governance: `35842498444 / 107120660586` — PASS
+- Reviewed full suite: `2677/2677 OK`
+- Hard invariants: `150/150`
+- Consolidated families: `25/25`
+- Future extension/ref families: `22/22`
+- DNAX mapping: `150/150 exactly once`
+- HIGH/CRITICAL planning blockers: `0`
+- Product/kernel implementation: not started
+
+This freeze-promotion delta is governance/documentation-only and must pass exact-head Governance before planning merge.
+
+Any semantic contract change after this point requires a versioned M05 contract amendment and renewed compatibility review.
