@@ -1,6 +1,6 @@
 # IRIS Test & Benchmark Plan
 
-Status: `M04_MERGED_BASELINE_ACTIVE`
+Status: `M05_PLANNING_BASELINE_ACTIVE`
 
 ## Current repository gate
 Every admitted code or governance increment must use risk-appropriate checks and exact-head GitHub Governance, including exact-candidate SHA assertion and post-merge exact-main validation.
@@ -31,4 +31,4 @@ The pre-M04 implementation baseline was 2527 tests. The reviewed M04 state adds 
 - no provider/DCC/network/shell/database runtime dependency.
 
 ## Next-module rule
-M05 must establish its own thresholds, fixtures and exact-head gates before implementation. No M04 test result automatically proves M05 correctness.
+M05 planning starts from the 2677-test exact-main baseline. S01 defines future proof obligations around persistent identity, immutable DNA revisioning, trait criticality/mutability, canonical/evidence separation, anchor integrity, fail-closed schema handling and anti-auto-merge identity safety. Concrete M05 implementation tests are not admitted until contract freeze.
