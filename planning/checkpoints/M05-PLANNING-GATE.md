@@ -1,6 +1,6 @@
 # IRIS M05 Planning Gate
 
-Status: `FINAL_TECH_REVIEW_APPROVED_FORWARD_COMPAT_NEXT`
+Status: `FORWARD_COMPAT_PASS_CONTRACT_FREEZE_NEXT`
 Issue: `#37`
 Branch: `m05-asset-dna-planning`
 Authorized main baseline: `6f2311b59f5da91778d3fc9d9fe1572953a0c60b`
@@ -148,9 +148,20 @@ S01-S05 record 150 candidate hard invariants. Final Technology Review is complet
 
 References only. No new runtime dependency.
 
+## Forward Compatibility Scan
+
+- artifact: `planning/compatibility/M05-FORWARD-COMPATIBILITY-SCAN.md`
+- modules scanned: **M06-M60 (55 modules)**
+- verdict: `PASS_WITH_EXTENSION_PORTS`
+- critical ownership conflicts remaining: **0**
+- chat-fixable conflicts corrected: **2**
+- future extension/ref families: **22**
+- M02/M06 semantic-vs-operational build/version wording aligned
+- M39 S01 renamed to M05-bound Persona Continuity Engine
+- no implementation admitted
+
 ## Next legal action
 
-Run the M06-M60 Forward Compatibility Scan on this same branch/issue. Revalidate ownership, dependencies, future module contracts and upgrade paths before contract freeze.
+Prepare the M05 contract freeze candidate from S01-S05 + Final Technology Review + Forward Compatibility Scan.
 
 Do not implement M05.
-Do not freeze the M05 contract yet.
