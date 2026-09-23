@@ -1,6 +1,6 @@
 # IRIS Backlog
 
-Status: `M07_S04_PLANNING_COMPLETE`
+Status: `M07_S05_PLANNING_COMPLETE`
 
 ## COMPLETED FOUNDATION
 - M01 planning/freeze/implementation merged.
@@ -24,17 +24,18 @@ Status: `M07_S04_PLANNING_COMPLETE`
 - S02 CUDA/ROCm/DirectML/Metal capability mapping: **COMPLETE_FOR_MODULE_PLANNING**.
 - S03 driver, precision, encoder/decoder and topology detection: **COMPLETE_FOR_MODULE_PLANNING**.
 - S04 thermal, power and memory-pressure telemetry: **COMPLETE_FOR_MODULE_PLANNING**.
-- Cumulative candidate hard invariants: 150.
-- Cumulative proprietary technology candidates: 20.
+- S05 Hardware Genome schema, versioning and confidence: **COMPLETE_FOR_MODULE_PLANNING**.
+- All five canonical M07 sessions: **COMPLETE_FOR_MODULE_PLANNING**.
+- Cumulative candidate hard invariants: 210.
+- Cumulative proprietary technology candidates: 25.
 - Product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-1. Deep-plan M07 S05 — Hardware Genome schema, versioning and confidence.
-2. Perform M07 Final Technology Review and consolidate candidate technologies.
-3. Run M08-M60 Forward Compatibility Scan without deep-planning future module internals.
-4. Produce the M07 Module Contract Freeze candidate and independent planning audit.
-5. Merge the approved M07 planning package and validate exact main.
-6. Only then compile a separate bounded M07 implementation Work Order, Context Lock, Evidence obligations and executor PDF.
+1. Perform M07 Final Technology Review and consolidate candidate technologies.
+2. Run M08-M60 Forward Compatibility Scan without deep-planning future module internals.
+3. Produce the M07 Module Contract Freeze candidate and independent planning audit.
+4. Merge the approved M07 planning package and validate exact main.
+5. Only then compile a separate bounded M07 implementation Work Order, Context Lock, Evidence obligations and executor PDF.
 
 ## IMPLEMENTATION GATE
 No M07 product/runtime code is authorized during the active planning cycle. M08+ deep planning/implementation is also out of scope until M07 reaches an explicit planning/implementation state.
