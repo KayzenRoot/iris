@@ -5,7 +5,7 @@
   "branch": "iris-wo-0008-m04-multimodal-ir-r2",
   "baseSha": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
   "baseTreeSha": "e4712065ee92644765c7821a4704d327d38a360b",
-  "status": "ADMISSION_RECOMPILED_PENDING_VALIDATION",
+  "status": "ADMITTED_FOR_EXECUTION",
   "risk": "ELEVATED",
   "frozenContract": {
     "name": "m04-contract-v1.0",
@@ -37,7 +37,7 @@
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0008-M04-MULTIMODAL-IR.md",
-      "sha": "4398b4120ef14e7b70d6a91dd4150dcae08d945d"
+      "sha": "db99057acfaa2cf2d32723e1e7a20cbfd240c487"
     },
     {
       "path": "docs/project-brain/02-REQUIREMENTS.md",
@@ -57,7 +57,7 @@
     },
     {
       "path": "docs/project-brain/13-CHECKPOINT.md",
-      "sha": "88456d9d0063f7bbdbc910fe3e22f752140183fe"
+      "sha": "f2d4aef8e3635c3b706f713e27f4fb89f2147966"
     },
     {
       "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
@@ -124,5 +124,13 @@
     "semantic contract changes"
   ],
   "stopCondition": "STOP after implementation is complete, tested, documented, evidenced and ready for independent review. Do not merge. Do not start M05.",
-  "promptDelivery": "Complete executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md."
+  "promptDelivery": "Complete executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md.",
+  "recompiledAdmissionValidation": {
+    "head": "18fcfc0e9c47e4a2a2bdb02df32b7be2bfe11a88",
+    "governanceRun": 35803708948,
+    "governanceJob": 106999640802,
+    "tests": 2527,
+    "requiredArtifacts": 35,
+    "result": "PASS"
+  }
 }
