@@ -1,7 +1,7 @@
 # M06 Module Contract Freeze Candidate — Production State, Versioning & Incremental Media Build
 
-Status: `FREEZE_CANDIDATE_PENDING_VALIDATION`
-Target frozen version: `m06-contract-v1.0`
+Status: `FROZEN_APPROVED`
+Frozen version: `m06-contract-v1.0`
 Module: `M06`
 Issue: `#44`
 Planning base: `bac62c5e59ff926c6b80a5ec86a91b0410f35fea`
@@ -367,7 +367,7 @@ Any semantic change after freeze requires a versioned M06 contract amendment and
 ## 22. Freeze candidate state
 
 - Target contract: `m06-contract-v1.0`
-- Status: `FREEZE_CANDIDATE_PENDING_VALIDATION`
+- Status: `FROZEN_APPROVED`
 - S01–S05: complete
 - Hard invariants: 150
 - Technology families: 25
@@ -381,3 +381,27 @@ Any semantic change after freeze requires a versioned M06 contract amendment and
 - Known HIGH/CRITICAL planning blockers: 0
 
 The exact candidate head must pass governance and independent audit before promotion to `FROZEN_APPROVED`.
+
+
+## 23. Freeze promotion evidence
+
+- Contract: `m06-contract-v1.0`
+- Status: `FROZEN_APPROVED`
+- Independent planning audit: `APPROVED`
+- Reviewed freeze-candidate head: `c23037ef0ebf606e5bc8a39e5217d84fc860df3d`
+- Reviewed Governance: `35863883262 / 107190498132` — PASS
+- Governance exact-candidate checkout/assertion: PASS
+- GEF/HIVE bridge tests: PASS
+- Planning diff at reviewed head: 4 files, planning-only
+- Hard invariants: `150/150`, unique, no gaps
+- Technology families: `25/25`
+- Future extension/ref ports: `20/20`
+- Final Technology Review: `APPROVED_FOR_CONTRACT_FREEZE`
+- Forward Compatibility Scan: `PASS_WITH_EXTENSION_PORTS`
+- HIGH/CRITICAL planning blockers: `0`
+- Product/kernel implementation: not started
+- PR audit comment: `5795284105`
+
+This freeze-promotion delta is planning/governance-only. It MUST pass a new exact-head Governance run before protected planning merge.
+
+Any semantic contract change after this promotion requires a versioned M06 contract amendment and renewed compatibility review.
