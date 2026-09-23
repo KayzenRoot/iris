@@ -42,7 +42,7 @@ M05 must let IRIS answer:
 - M40 voice production/cloning;
 - M41 music production;
 - M43 story/canon authority;
-- M45 brand-system production authority;
+- M46 Brand & IP Studio authority;
 - M53 provenance/rights decision authority;
 - M54 security/privacy enforcement runtime.
 
@@ -52,7 +52,7 @@ M04 describes **what is represented now**.
 M05 states **which semantic identity must persist across representations and authorized mutations**.
 M02 states **which project/build/branch event produced or owns a revision**.
 M06 later states **where immutable content/revisions are persisted**.
-M39/M40/M41/M45 and other domain modules consume/project DNA but do not silently rewrite M05 canonical identity.
+M39/M40/M41/M46 and other domain modules consume/project DNA but do not silently rewrite M05 canonical identity.
 
 ---
 
@@ -224,7 +224,7 @@ Examples:
 - M04 CharacterIR binds to one DNA anchor;
 - later M39 digital-human representation consumes persona/character DNA;
 - M40 voice runtime consumes VoiceDNA links admitted in S03;
-- M45 brand runtime consumes BrandDNA links admitted in S03.
+- M46 Brand & IP Studio consumes BrandDNA links admitted in S03.
 
 Projection requirements:
 - source DNA revision is explicit;
@@ -542,7 +542,7 @@ Candidate namespaces:
 
 SKU/GTIN/MPN/serial values are governed external identity refs, not universal substitutes for M05 DNA identity.
 
-M45 remains Brand authority.
+M46 remains Brand & IP authority.
 
 ## 10. EnvironmentDNA profile
 
@@ -620,7 +620,7 @@ A projection can expose a generic view without changing canonical family identit
 45. Product family/model/SKU/package/physical-instance identity levels cannot be collapsed implicitly.
 46. SKU/GTIN/MPN/serial refs are external mappings, not universal DNA IDs.
 47. Product variant changes declare inherited and overridden trait surfaces.
-48. M45 remains brand-system production/brand authority.
+48. M46 remains Brand & IP Studio production/brand authority.
 49. EnvironmentDNA cannot silently absorb M04 SceneIR representation authority.
 50. weather/time/camera/lighting are contextual environment state unless explicitly identity-defining.
 51. environment topology/landmark identity must be represented as typed traits/relations, not file paths.
@@ -657,7 +657,7 @@ S02 is complete for module planning when:
 
 Status: `NOT_STARTED`
 
-Will define cross-modal linked DNA families and ownership firewalls with M30/M40/M41/M43/M45.
+Will define cross-modal linked DNA families and ownership firewalls with M30/M40/M41/M43/M46.
 
 # S04 — Identity anchors, mutation boundaries and drift detection
 
@@ -678,7 +678,7 @@ S01 is complete for module planning when:
 - canonical/evidence separation is explicit;
 - identity anchors and cross-modal projection boundaries are explicit;
 - 30 candidate invariants are recorded;
-- M02/M04/M06/M39/M40/M41/M43/M45/M53/M54 ownership boundaries are protected;
+- M02/M04/M06/M39/M40/M41/M43/M46/M53/M54 ownership boundaries are protected;
 - technology candidates and prior-art references are registered;
 - planning checkpoint advances to S02;
 - no M05 implementation code is introduced.
