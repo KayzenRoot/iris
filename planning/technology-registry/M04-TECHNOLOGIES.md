@@ -114,7 +114,7 @@ No external technology above becomes a mandatory M04 runtime dependency by this 
 
 ## S01 registry disposition
 
-All `MIRX-001..030` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
+All `MIRX-001..030` are retained as **DESIGN_HISTORY_CANDIDATES**; authoritative disposition is recorded in `planning/reviews/M04-FINAL-TECHNOLOGY-REVIEW.md`.
 
 No candidate is frozen until:
 1. S01-S05 planning completes;
@@ -215,7 +215,7 @@ No candidate is frozen until:
 **Purpose:** mark derived bounds/transforms/projections stale when correctness-relevant geometry/frame dependencies change.
 
 
-All `MIRX-031..060` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
+All `MIRX-031..060` are retained as **DESIGN_HISTORY_CANDIDATES**; authoritative disposition is recorded in `planning/reviews/M04-FINAL-TECHNOLOGY-REVIEW.md`.
 
 
 ## IRIS-MIRX-061 — Unified Temporal Reference Fabric
@@ -309,7 +309,7 @@ All `MIRX-031..060` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
 **Purpose:** time-window + dependency-closure slices for localized temporal work.
 
 
-All `MIRX-061..090` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
+All `MIRX-061..090` are retained as **DESIGN_HISTORY_CANDIDATES**; authoritative disposition is recorded in `planning/reviews/M04-FINAL-TECHNOLOGY-REVIEW.md`.
 
 
 ## IRIS-MIRX-091 — Representation Capability Manifest
@@ -403,7 +403,7 @@ All `MIRX-061..090` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
 **Purpose:** frozen interface handed from M04 to M16: source IR + capability manifest + lowering plan + obligations + validation requirements.
 
 
-All `MIRX-091..120` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
+All `MIRX-091..120` are retained as **DESIGN_HISTORY_CANDIDATES**; authoritative disposition is recorded in `planning/reviews/M04-FINAL-TECHNOLOGY-REVIEW.md`.
 
 
 ## IRIS-MIRX-121 — Multi-Axis Version Vector
@@ -497,7 +497,7 @@ All `MIRX-091..120` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
 **Purpose:** deterministic representative corpus/witness matrix for adapter qualification and schema evolution.
 
 
-All `MIRX-121..150` remain **CANDIDATE_FOR_FINAL_TECHNOLOGY_REVIEW**.
+All `MIRX-121..150` are retained as **DESIGN_HISTORY_CANDIDATES**; authoritative disposition is recorded in `planning/reviews/M04-FINAL-TECHNOLOGY-REVIEW.md`.
 
 
 ---
