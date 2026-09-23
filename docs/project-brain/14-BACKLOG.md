@@ -1,6 +1,6 @@
 # IRIS Backlog
 
-Status: `M07_FINAL_TECH_REVIEW_COMPLETE`
+Status: `M07_FORWARD_COMPATIBILITY_SCAN_COMPLETE`
 
 ## COMPLETED FOUNDATION
 - M01 planning/freeze/implementation merged.
@@ -30,13 +30,15 @@ Status: `M07_FINAL_TECH_REVIEW_COMPLETE`
 - Cumulative proprietary technology candidates: 25.
 - Final Technology Review: **APPROVED_FOR_FORWARD_COMPATIBILITY_SCAN**.
 - Consolidated independent technology surfaces: 20 ADOPT + 5 ADOPT_AS_COMPONENT.
+- M08-M60 Forward Compatibility Scan: **APPROVED_FOR_MODULE_CONTRACT_FREEZE**.
+- Future modules scanned: 53/53.
+- Freeze-candidate hard invariants after compatibility scan: 235.
 - Product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-1. Run M08-M60 Forward Compatibility Scan without deep-planning future module internals.
-2. Produce the M07 Module Contract Freeze candidate and independent planning audit.
-3. Merge the approved M07 planning package and validate exact main.
-4. Only then compile a separate bounded M07 implementation Work Order, Context Lock, Evidence obligations and executor PDF.
+1. Produce the M07 Module Contract Freeze candidate and independent planning audit.
+2. Merge the approved M07 planning package and validate exact main.
+3. Only then compile a separate bounded M07 implementation Work Order, Context Lock, Evidence obligations and executor PDF.
 
 ## IMPLEMENTATION GATE
 No M07 product/runtime code is authorized during the active planning cycle. M08+ deep planning/implementation is also out of scope until M07 reaches an explicit planning/implementation state.
