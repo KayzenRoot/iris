@@ -1,10 +1,10 @@
 # IRIS Scope
 
-Status: `M05_CONTRACT_FREEZE_CANDIDATE`
+Status: `M05_FROZEN_APPROVED`
 
 ## Current governed increment — M05 planning
 
-M05 Asset DNA 2.0 & Cross-Modal Identity has completed S01-S05 functional planning. It is not implemented or contract-frozen yet.
+M05 Asset DNA 2.0 & Cross-Modal Identity has completed S01-S05 functional planning. It is not implemented. Its planning contract is frozen as `m05-contract-v1.0`.
 
 ### S01
 Persistent identity substrate, immutable revisions, typed traits, applicability states, canonical/evidence partition, anchors and projection contracts.
@@ -50,17 +50,18 @@ Anchor authority/lifecycle, typed multi-dimensional drift evidence, repair-vs-mu
 - corrected conflicts: **M02/M06 authority wording**, **M39 competing identity-root wording**;
 - required extension/ref families: **22**.
 
-### Contract freeze candidate
-- target: **`m05-contract-v1.0`**;
+### Frozen planning contract
+- contract: **`m05-contract-v1.0`**;
 - artifact: `planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md`;
-- status: **FREEZE_CANDIDATE_AUDIT_REQUIRED**;
+- status: **FROZEN_APPROVED**;
+- independent planning audit: **APPROVED**;
 - hard invariants: **150**;
 - consolidated families: **25**;
 - extension/ref ports: **22**;
 - implementation code: **0**.
 
 ### Next governed step
-Independent M05 planning audit, then freeze promotion if approved.
+Exact-head Governance, protected planning merge and exact-main validation.
 
 ### NOT ADMITTED
 - M05 implementation package;
