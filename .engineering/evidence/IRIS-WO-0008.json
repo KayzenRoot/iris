@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0008",
+  "status": "ADMISSION_RECOMPILED_PENDING_VALIDATION",
+  "branch": "iris-wo-0008-m04-multimodal-ir-r2",
+  "frozenContract": "m04-contract-v1.0",
+  "baseSha": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
+  "issue": 30,
+  "pullRequest": null,
+  "supersededPullRequest": 31,
+  "baseline": {
+    "governanceRun": 35803397206,
+    "governanceJob": 106998641283,
+    "tests": 2527,
+    "requiredArtifacts": 35,
+    "conclusion": "success"
+  },
+  "implementation": {
+    "package": "iris_multimodal_ir",
+    "status": "NOT_STARTED",
+    "frozenFamilies": 20,
+    "hardInvariants": 80,
+    "syntheticProfilesRequired": 7
+  },
+  "promptDeliveryPolicy": ".engineering/PROMPT-DELIVERY-POLICY.md",
+  "commands": [],
+  "tests": {
+    "baseline": 2527,
+    "focusedM04": null,
+    "fullSuite": null
+  },
+  "failuresEncounteredAndFixed": [],
+  "changedFiles": null,
+  "risksAndDeferredWork": [
+    "Prior admission was invalidated before implementation because critical governance policy changed on main; no product code was lost."
+  ],
+  "proposedCheckpointDelta": null,
+  "stopCondition": "Executor stops at independently reviewable PR. No merge and no M05."
+}
