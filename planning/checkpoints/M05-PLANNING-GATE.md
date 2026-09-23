@@ -1,6 +1,6 @@
 # IRIS M05 Planning Gate
 
-Status: `S04_COMPLETE_S05_NEXT`
+Status: `S01_S05_COMPLETE_FINAL_TECH_REVIEW_NEXT`
 Issue: `#37`
 Branch: `m05-asset-dna-planning`
 Authorized main baseline: `6f2311b59f5da91778d3fc9d9fe1572953a0c60b`
@@ -11,7 +11,7 @@ Authorized main baseline: `6f2311b59f5da91778d3fc9d9fe1572953a0c60b`
 - S02 — Character, creature, object, product and environment DNA: COMPLETE_FOR_MODULE_PLANNING
 - S03 — SceneDNA, Motion DNA, Voice DNA and Brand DNA links: COMPLETE_FOR_MODULE_PLANNING
 - S04 — Identity anchors, mutation boundaries and drift detection: COMPLETE_FOR_MODULE_PLANNING
-- S05 — DNA branching, compatibility and reusable DNA marketplace contract: NEXT
+- S05 — DNA branching, compatibility and reusable DNA marketplace contract: COMPLETE_FOR_MODULE_PLANNING
 
 ## Current guard
 
@@ -100,13 +100,34 @@ Planning/docs only. No M05 implementation is authorized.
 - M05 remains the generic persistent identity root;
 - M53/M54 retain protected provenance/rights/security authority.
 
+## S05 artifacts
+
+- research: `planning/research/M05-S05-BRANCHING-COMPATIBILITY-MARKETPLACE-RESEARCH-2026-09-23.md`
+- module plan: S05 in `planning/modules/M05-ASSET-DNA-CROSS-MODAL-IDENTITY.md`
+- technology registry: `IRIS-DNAX-121..150`
+
+## S05 boundary decisions
+
+- M05 DNA lineage is semantic identity lineage, not M02 project branching;
+- M06 owns content-addressed production revisions/builds;
+- compatibility is directional and multi-axis;
+- migrations declare explicit preservation/loss/defaults and identity continuity impact;
+- reusable DNA package identity is distinct from dna_id;
+- M53 owns rights/license/consent/provenance;
+- M54 owns security/restricted-content policy;
+- M55 owns storage/CAS;
+- M58 may expose APIs/conformance tooling;
+- M59 owns concrete export/publishing/delivery;
+- package import is staged and cannot overwrite canonical DNA;
+- canonical DNA packages are non-executable by default.
+
 ## Candidate planning invariants
 
-S01-S04 record 120 candidate hard invariants. These remain planning candidates until S05 consolidation and final contract freeze.
+S01-S05 record 150 candidate hard invariants. Functional planning is complete; invariants remain candidates until Final Technology Review and contract freeze.
 
 ## Technology candidates
 
-`IRIS-DNAX-001..120` registered as design-history candidates.
+`IRIS-DNAX-001..150` registered as design-history candidates.
 
 ## External references
 
@@ -119,7 +140,7 @@ References only. No new runtime dependency.
 
 ## Next legal action
 
-Plan S05 DNA branching, compatibility and reusable DNA marketplace contract on this same branch/issue, preserving S01-S04 authority boundaries.
+Run the M05 Final Technology Review on this same branch/issue. Consolidate/merge/reject DNAX candidates before Forward Compatibility Scan.
 
 Do not implement M05.
 Do not freeze the M05 contract yet.
