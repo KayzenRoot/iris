@@ -260,3 +260,211 @@ Future implementation must prove at minimum:
 ## 10. S01 checkpoint
 
 S01 Slow Planning establishes the empirical/safety substrate only. No M08 implementation is admitted. Next permitted work is S02 planning after independent review of this S01 delta.
+
+# S02 — Image / Video / 3D / Audio Benchmark Probes
+
+Status: `S02_SLOW_PLANNING_ACTIVE`
+
+## 11. S02 objective
+
+S02 defines domain-specific empirical probes that characterize compute, memory-transfer and media-engine behavior while preserving the S01 safety/provenance substrate. These probes measure bounded hardware/runtime behavior. They do not grade generated content, rank models, select workflows, or claim production-safe limits before S03.
+
+## 12. Cross-domain probe contract
+
+Every S02 probe must additionally declare:
+- domain and operation family;
+- synthetic or redistributable deterministic fixture identity;
+- input shape/format;
+- output shape/format when applicable;
+- precision/data type;
+- warm-up and measured phases;
+- synchronization semantics;
+- host-to-device/device-to-host/device-local transfer scope where relevant;
+- measured latency/throughput quantities;
+- peak observed benchmark allocation as evidence, not M09 reservation policy;
+- correctness/conformance predicate sufficient to reject meaningless speed;
+- provider/backend adapter identity;
+- protocol-specific comparability dimensions.
+
+A fast but incorrect operation is not a valid performance result.
+
+## 13. Image probe families
+
+Candidate bounded families:
+- decode/encode for admitted image codecs;
+- resize/resample;
+- colorspace conversion;
+- tensor upload/download;
+- convolution-like/tensor primitives where backend-neutral semantics can be defined;
+- tiled image transform with deterministic tile geometry;
+- bounded high-resolution allocation/transfer probe.
+
+Image probes must not become image-quality evaluation, model inference ranking or M16 workflow compilation.
+
+## 14. Video probe families
+
+Candidate bounded families:
+- codec decode throughput/latency;
+- codec encode throughput/latency;
+- frame upload/download;
+- colorspace/pixel-format conversion;
+- bounded frame-pipeline concurrency;
+- hardware-engine session admission/conformance;
+- short GOP/container-independent elementary-stream fixtures where licensing permits.
+
+Video probes must distinguish:
+- codec from container;
+- encode from decode;
+- software path from hardware-engine path;
+- bit depth/chroma/profile/level;
+- single-stream from bounded multi-stream evidence.
+
+S02 cannot infer sustained production session capacity from a short probe; S03 owns safe-envelope derivation.
+
+## 15. 3D probe families
+
+Candidate bounded families:
+- buffer upload/download;
+- texture upload/readback;
+- shader/kernel dispatch latency;
+- raster fill/fragment bounded probe;
+- geometry/vertex throughput proxy;
+- compute primitive;
+- bounded ray-query/ray-tracing capability probe only where an admitted backend exposes it;
+- synchronization/fence overhead.
+
+3D probes measure runtime/hardware primitives, not scene artistic quality, renderer choice or production-frame performance for arbitrary scenes.
+
+## 16. Audio probe families
+
+Candidate bounded families:
+- PCM transform/copy;
+- sample-rate conversion;
+- FFT/spectral primitive;
+- bounded convolution;
+- codec encode/decode where admitted;
+- device-independent buffer processing latency;
+- CPU vectorization/backend primitive where semantically stable.
+
+Audio probes must not access microphones, speakers or private user media merely to obtain a benchmark. Synthetic deterministic fixtures are preferred.
+
+## 17. Transfer and bandwidth semantics
+
+M08 may now measure the bandwidth that M07 deliberately refused to infer. Each bandwidth result must name the exact path:
+- host ↔ host;
+- host → device;
+- device → host;
+- device-local;
+- peer → peer where explicitly supported and safely admitted.
+
+Measured bandwidth cannot be attached back onto M07 topology as discovery truth. Direction, payload size, synchronization, pinned/pageable semantics, topology binding and protocol version remain explicit.
+
+## 18. Correctness-before-speed gate
+
+Each probe has a bounded correctness oracle appropriate to the primitive:
+- exact digest for deterministic byte-preserving operations;
+- bounded numeric tolerance for floating-point primitives;
+- structural decode/encode validation for media;
+- explicit unsupported state when a required semantic cannot be verified.
+
+A timing sample is discarded or invalidated when its correctness oracle fails. M08 never rewards wrong output for speed.
+
+## 19. Domain technology candidates
+
+### IRIS-MPB — Multimodal Probe Bank
+Versioned registry of image/video/3D/audio primitive protocols with deterministic fixture manifests.
+
+### IRIS-COG — Correctness Oracle Gate
+Separates successful execution from semantically valid benchmark evidence.
+
+### IRIS-TPE — Transfer Path Examiner
+Measures explicitly named directional memory/data paths without mutating M07 topology.
+
+### IRIS-MEE — Media Engine Examiner
+Measures bounded codec-engine behavior with exact codec/profile/bit-depth/chroma/direction/session provenance.
+
+### IRIS-GPK — Graphics Primitive Kernel
+Backend-qualified 3D primitive probes that avoid scene/renderer policy authority.
+
+### IRIS-APK — Audio Primitive Kernel
+Deterministic audio DSP/codec primitive probes without private media/device capture.
+
+### IRIS-DFM — Deterministic Fixture Manifest
+Content-addressed benchmark fixtures with generator/version/license/privacy metadata.
+
+### IRIS-BAC — Backend Adapter Capsule
+Pins provider/backend adapter identity and translates only protocol mechanics; it cannot redefine benchmark semantics.
+
+## 20. S02 hard-invariant candidates
+
+51. Every S02 result identifies exactly one benchmark domain and operation family.
+52. Every probe binds an immutable deterministic fixture identity.
+53. Private user media is not required for benchmark fixtures.
+54. Fixture generation is versioned and reproducible.
+55. Fixture licensing/redistribution metadata is explicit where persisted/distributed.
+56. Correctness is checked independently of timing.
+57. Incorrect output cannot produce VALID performance evidence.
+58. Floating-point correctness tolerances are protocol-versioned.
+59. Timing excludes or includes setup only as explicitly declared by protocol.
+60. Synchronization semantics are explicit for asynchronous devices.
+61. Device timings cannot be inferred from host enqueue latency alone.
+62. Transfer measurements name exact direction.
+63. Transfer measurements name payload size.
+64. Transfer measurements name synchronization policy.
+65. Pinned/pageable or equivalent host-memory semantics are explicit when material.
+66. Device-local bandwidth cannot masquerade as host-device bandwidth.
+67. Peer bandwidth requires exact source and destination subject identity.
+68. M08 measured bandwidth cannot mutate M07 topology evidence.
+69. Image codec probes identify codec and relevant format/profile semantics.
+70. Image transforms identify dimensions, channels and data type.
+71. Image benchmark evidence cannot become image-quality judgment.
+72. Video encode and decode evidence remain separate.
+73. Video codec and container semantics remain separate.
+74. Hardware and software video paths remain separate.
+75. Video bit depth/chroma/profile are explicit when material.
+76. Single-stream evidence cannot prove multi-stream capacity.
+77. Short video probes cannot prove sustained production capacity.
+78. Multi-stream probes have explicit bounded concurrency.
+79. Media-engine session failures remain evidence, not generalized hardware absence.
+80. 3D buffer/texture transfer evidence remains path-specific.
+81. Shader/compute dispatch timing declares synchronization semantics.
+82. Raster proxy evidence cannot claim arbitrary-scene FPS.
+83. Geometry proxy evidence cannot claim renderer fitness.
+84. Ray capability probes cannot claim production ray-tracing capacity.
+85. 3D probes cannot select a renderer.
+86. Audio fixtures are deterministic and non-private by default.
+87. Audio sample rate/channel layout/sample format are explicit.
+88. Audio DSP numeric tolerance is explicit where non-exact.
+89. Audio benchmark evidence cannot become perceptual/audio-quality judgment.
+90. Audio probes cannot require microphone capture.
+91. Audio probes cannot require speaker playback.
+92. Provider adapters cannot redefine canonical metric semantics.
+93. Adapter version is part of empirical provenance.
+94. Backend fallback cannot silently merge results with the requested backend.
+95. CPU fallback is reported as CPU fallback.
+96. Peak observed benchmark allocation is evidence, not an M09 lease/reservation.
+97. Probe concurrency is benchmark-local and cannot become M12 placement policy.
+98. Domain probes inherit all S01 abort/interference/budget rules.
+99. Synthetic fixture results are explicitly labeled synthetic empirical evidence.
+100. S02 cannot derive S03 safe workload envelopes prematurely.
+
+## 21. S02 proof obligations for later implementation
+
+Future implementation must prove:
+- deterministic fixture generation and digest stability;
+- correctness gate rejects fast-but-wrong results;
+- async timing cannot use enqueue-only latency as device execution time;
+- directional transfer metrics remain distinct;
+- codec/container and encode/decode separation;
+- software/hardware media path separation;
+- single-stream evidence does not imply multi-stream capacity;
+- 3D proxy results cannot claim arbitrary scene FPS;
+- audio probes use synthetic data without capture devices;
+- backend fallback is provenance-visible;
+- peak benchmark allocation does not create M09 state.
+
+## 22. S02 checkpoint
+
+S01 independent audit: `APPROVED`.  
+S02 adds domain probe semantics and invariants 51-100. No implementation is admitted. Next permitted work after independent S02 review is S03 Capability Envelope and safe workload limits.
+
