@@ -1,16 +1,16 @@
 # IRIS Checkpoint
 
 ## STATUS
-M05_PLANNING_APPROVED
+M05_PLANNING_MERGED_MAIN_VALIDATED
 
 ## VERSION
 m05-contract-v1.0
 
 ## PHASE
-M05_FROZEN_APPROVED_PLANNING_MERGE_NEXT
+M05_IMPLEMENTATION_PACKAGE_READY
 
 ## OBJECTIVE
-Promote the approved M05 planning/freeze package through protected merge and exact-main validation before implementation admission.
+Prepare a separate bounded implementation package for the frozen M05 Asset DNA 2.0 & Cross-Modal Identity contract.
 
 ## COMPLETED
 - M01 Quality Kernel: implemented, approved and merged.
@@ -25,22 +25,24 @@ Promote the approved M05 planning/freeze package through protected merge and exa
 - Future extension/ref families: 22/22.
 - DNAX mapping: 150/150 exactly once; 0 missing; 0 duplicates.
 - Independent Planning Audit: `APPROVED`.
-- Audit reviewed head: `2f3102b4701fd0f3a9113f1a7d9cef924c9cc6fa`.
-- Audit Governance: `35842498444 / 107120660586` — PASS.
-- Audit full suite: `2677/2677 OK`.
 - Contract: `FROZEN_APPROVED / m05-contract-v1.0`.
+- PR #38 squash-merged.
+- M05 planning merge SHA: `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`.
+- Exact-main Governance: `35843109186 / 107122673542` — PASS.
+- Exact-main required artifacts: 35.
+- Exact-main full suite: `2677/2677 OK`.
 - M05 implementation code has not started.
 
 ## IN PROGRESS
-Freeze-promotion / planning-merge gate on Issue #37 / PR #38 / branch `m05-asset-dna-planning`.
+Checkpoint reconciliation on Issue #39 / branch `m05-planning-reconciliation`.
 
 ## BLOCKERS
 M05 implementation remains blocked until:
-1. this freeze-promotion head passes exact-head Governance;
-2. PR #38 merges through protected main;
-3. resulting exact main passes Governance;
-4. canonical checkpoint reflects merged/main-validated state;
-5. a separate implementation Work Order / Context Lock / Evidence package is admitted.
+1. this reconciliation lands on protected main and exact-main validation remains green;
+2. a separate M05 implementation Work Order is admitted;
+3. its Context Lock is admitted;
+4. implementation Evidence obligations are defined;
+5. implementation preflight passes.
 
 ## NEXT STEP
-Pass exact-head Governance on the `FROZEN_APPROVED / m05-contract-v1.0` promotion head, then protected squash-merge PR #38 and validate exact `main`. Do not implement M05 before merged/main-validated canonical state.
+Compile a separate bounded M05 implementation Work Order / Context Lock / Evidence package from exact validated main `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`. Do not implement M05 until that package is admitted and preflight passes.

@@ -919,3 +919,17 @@ The independent planning audit must review the exact candidate head before promo
 This freeze-promotion delta is governance/documentation-only and must pass exact-head Governance before planning merge.
 
 Any semantic contract change after this point requires a versioned M05 contract amendment and renewed compatibility review.
+
+
+## 32. Planning merge / exact-main validation
+
+- Planning PR: `#38`
+- Merge method: `squash`
+- Merge SHA: `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`
+- Exact-main Governance: `35843109186 / 107122673542` — PASS
+- Required artifacts: `35`
+- Exact-main full suite: `2677/2677 OK`
+- Planning state: `MERGED_MAIN_VALIDATED`
+- M05 implementation: not started
+
+The frozen contract is now the only admissible semantic source for a later M05 implementation package.

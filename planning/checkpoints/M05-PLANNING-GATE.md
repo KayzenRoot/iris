@@ -1,6 +1,6 @@
 # IRIS M05 Planning Gate
 
-Status: `FROZEN_APPROVED_PLANNING_MERGE_NEXT`
+Status: `M05_PLANNING_MERGED_MAIN_VALIDATED`
 Issue: `#37`
 Branch: `m05-asset-dna-planning`
 Authorized main baseline: `6f2311b59f5da91778d3fc9d9fe1572953a0c60b`
@@ -185,10 +185,15 @@ References only. No new runtime dependency.
 - frozen contract: `m05-contract-v1.0`
 - status: `FROZEN_APPROVED`
 - planning implementation: none
-- PR #38: OPEN / merge pending exact-head Governance
+- PR #38: squash-merged
+- planning merge SHA: `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`
+- post-merge Governance: `35843109186 / 107122673542` — PASS
+- post-merge required artifacts: **35**
+- post-merge full suite: `2677/2677 OK`
+- planning gate: CLOSED / MAIN VALIDATED
 
 ## Next legal action
 
-Pass exact-head Governance on this freeze-promotion head, then protected squash-merge PR #38 and validate exact `main`.
+Compile a separate bounded M05 implementation Work Order / Context Lock / Evidence package from exact validated main.
 
-Do not implement M05 before merged/main-validated canonical state.
+Do not implement M05 until that separate implementation package is admitted and preflight passes.

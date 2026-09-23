@@ -32,3 +32,17 @@ The pre-M04 implementation baseline was 2527 tests. The reviewed M04 state adds 
 
 ## Next-module rule
 M05 planning starts from the 2677-test exact-main baseline. Final Technology Review consolidates all future proof obligations into `F-M05-01..25`, covering all 150 DNAX design-history candidates exactly once. The M06-M60 Forward Compatibility Scan passed across 55 modules with 0 critical ownership conflicts and 22 required extension/ref families. The frozen contract must therefore preserve these ports and future implementation tests must prove all 150 invariants through consolidated proof families, including authority firewalls for M02/M06/M30/M37/M39-M41/M43/M45-M46/M52-M60. The frozen `m05-contract-v1.0` defines 150 hard invariants, 25 consolidated proof families and 22 extension/ref ports. Independent Planning Audit is approved. Concrete M05 implementation tests remain unadmitted until planning merge and exact-main validation complete and a separate implementation package is admitted.
+
+
+## M05 frozen planning baseline
+- contract: `m05-contract-v1.0`
+- planning merge SHA: `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`
+- exact-main Governance: `35843109186 / 107122673542` — PASS
+- required artifacts: 35
+- full suite: **2677/2677 OK**
+- hard invariants: 150
+- consolidated proof families: 25
+- future extension/ref ports: 22
+- implementation tests: not yet admitted
+
+A separate M05 implementation package must add focused tests without deleting or weakening the 2677-test baseline.

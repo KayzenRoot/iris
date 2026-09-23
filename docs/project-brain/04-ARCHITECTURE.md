@@ -92,7 +92,7 @@ S05 completes the functional planning boundary:
 
 Final Technology Review consolidates the 150 DNAX design-history candidates into `F-M05-01..25` with exact-once coverage (150/150, 0 missing, 0 duplicate assignments). The consolidated families, not 150 independent implementation classes, are the freeze-candidate architecture surface.
 
-The M06-M60 Forward Compatibility Scan and Independent Planning Audit are complete. The architecture is frozen in `m05-contract-v1.0`; protected planning merge and exact-main validation are the next gates.
+The M06-M60 Forward Compatibility Scan and Independent Planning Audit are complete. The architecture is frozen in `m05-contract-v1.0`, planning PR #38 is merged, and exact main is validated. A separate bounded M05 implementation package is the next gate.
 
 Forward Compatibility Scan result:
 - M06-M60 scanned: 55 modules;
