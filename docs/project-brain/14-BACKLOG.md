@@ -1,6 +1,6 @@
 # IRIS Backlog
 
-Status: `M05_S04_COMPLETE_S05_NEXT`
+Status: `M05_S01_S05_COMPLETE_FINAL_TECH_REVIEW_NEXT`
 
 ## COMPLETED FOUNDATION
 - M01 planning/freeze/implementation merged.
@@ -12,18 +12,18 @@ Status: `M05_S04_COMPLETE_S05_NEXT`
 - M05 S02 complete.
 - M05 S03 complete.
 - M05 S04 complete.
-- S01-S04 candidate invariants: 120.
-- Technology registry: `IRIS-DNAX-001..120`.
-- M05/M39 root-identity overlap explicitly bounded for forward-compatibility review.
+- M05 S05 complete.
+- S01-S05 candidate invariants: 150.
+- Technology registry: `IRIS-DNAX-001..150`.
+- M02/M06/M53/M54/M55/M58/M59 authority boundaries explicitly protected.
 
 ## NECESSARY NEXT
-1. Complete M05 S05 branching, compatibility and reusable DNA marketplace contract.
-2. Run Final Technology Review and consolidate DNAX candidates.
-3. Run M06-M60 Forward Compatibility Scan, explicitly rechecking M39/M40/M46/M53/M54.
-4. Freeze M05 contract candidate.
-5. Independent planning audit.
-6. Protected planning merge + exact-main reconciliation.
-7. Only then create a separate M05 implementation Work Order / Context Lock / Evidence package.
+1. Run M05 Final Technology Review and consolidate `IRIS-DNAX-001..150`.
+2. Run M06-M60 Forward Compatibility Scan, with explicit review of M06, M30, M37, M39, M40, M41, M45, M46, M52-M60.
+3. Produce M05 frozen contract candidate.
+4. Independent planning audit.
+5. Protected planning merge + exact-main reconciliation.
+6. Only then create a separate M05 implementation Work Order / Context Lock / Evidence package.
 
 ## RECORDED PLANNING DEBT
 The separate M00 S01-S05 constitution freeze artifact remains historical planning debt.
