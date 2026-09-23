@@ -1115,3 +1115,453 @@ S03 is complete for module planning when:
 - five additional proprietary technology candidates are registered (15 cumulative);
 - planning may advance to M07 S04 thermal, power and memory-pressure telemetry;
 - no M07 product/runtime implementation is introduced.
+
+
+# S04 — Thermal, power and memory-pressure telemetry
+
+## 57. Goal
+
+S04 defines bounded, read-only telemetry evidence for dynamic hardware state:
+- temperature;
+- power;
+- clocks and throttling indicators;
+- utilization;
+- device and host memory pressure;
+- selected health/availability signals.
+
+S04 observes. It does not tune clocks, power limits, fan curves, process priority, memory policy, scheduler placement, workload concurrency or quality.
+
+Dynamic telemetry is explicitly separated from the relatively static discovery/capability facts of S01-S03.
+
+## 58. Telemetry sample model
+
+A telemetry observation binds:
+- exact HardwareSubjectRef;
+- exact RuntimeSubjectRef when runtime visibility matters;
+- metric key;
+- value and unit;
+- source/probe;
+- monotonic capture sequence;
+- wall-clock timestamp when available;
+- sampling window or instantaneous semantics;
+- freshness/expiry;
+- evidence digest;
+- visibility scope;
+- source confidence/status.
+
+A sample without subject, unit or time semantics cannot become admitted telemetry truth.
+
+## 59. Metric semantic classes
+
+Metrics are classified before interpretation:
+- instantaneous gauge;
+- cumulative counter;
+- monotonic counter;
+- bounded percentage/rate;
+- reported limit;
+- current configured limit;
+- event/flag;
+- derived value.
+
+Counters are not treated as rates without a valid interval.
+Reported maximums are not current values.
+Configured limits are not measured consumption.
+
+## 60. Temperature evidence
+
+Candidate temperature facts include:
+- GPU core/device temperature;
+- hotspot/junction temperature;
+- memory temperature where exposed;
+- CPU package/core temperature;
+- storage temperature where safely available;
+- platform thermal-zone readings.
+
+Temperature sensors remain individually identified where semantics differ.
+
+M07 must not fabricate a single “system temperature” by averaging unrelated sensors.
+
+Missing hotspot/memory sensors remain unavailable/unsupported, not zero.
+
+## 61. Thermal limits and throttling
+
+Authoritatively reported thermal limits/targets may be recorded separately from current temperature.
+
+Throttling evidence can include:
+- thermal throttle active/reason;
+- power-limit throttle active/reason;
+- reliability/voltage/current limit reasons;
+- clock-cap reasons;
+- platform thermal-pressure states.
+
+A lower observed clock alone cannot prove throttling cause.
+
+M07 reports the evidence. M10 later decides whether execution should adapt.
+
+## 62. Power evidence
+
+Candidate power facts:
+- instantaneous device/package power;
+- energy counters;
+- reported/default/configured power limits;
+- board/package power where semantically distinct;
+- battery/AC/platform power state when relevant to execution context.
+
+Power units and measurement domains remain explicit.
+
+An energy counter delta may derive average power only when timestamps and counter semantics are valid.
+
+M07 cannot change a power limit.
+
+## 63. Clock telemetry
+
+Candidate clock domains:
+- GPU graphics/core;
+- GPU memory;
+- GPU video/media;
+- CPU effective/core;
+- fabric/interconnect where exposed.
+
+Current clock, requested clock, base/default clock, boost limit and maximum reported capability remain separate.
+
+Clock telemetry is not a benchmark.
+
+## 64. Utilization telemetry
+
+Utilization can include:
+- GPU compute/graphics utilization;
+- media encode/decode utilization;
+- memory-controller utilization;
+- CPU utilization;
+- storage I/O utilization where relevant.
+
+A utilization percentage must preserve source semantics and sampling window.
+
+Different vendor/API utilization metrics are not assumed numerically equivalent merely because both use percent.
+
+## 65. Device-memory telemetry
+
+Dynamic memory evidence may include:
+- total visible device memory;
+- currently used;
+- currently free/available as reported;
+- reserved;
+- committed;
+- process-local allocation where legitimately visible;
+- shared/host-visible allocation where semantically exposed;
+- eviction/page-fault/pressure indicators where exposed.
+
+S04 dynamic memory telemetry does not supersede S01/S03 static topology/capacity facts.
+
+“Free VRAM” is a transient observation, not a safe allocation budget.
+
+## 66. Host-memory pressure
+
+Candidate host evidence:
+- physical RAM total/available;
+- committed memory and commit limit;
+- swap/pagefile capacity and use;
+- memory pressure state;
+- major paging/fault signals where supported;
+- cgroup/container memory limit/current use;
+- VM/guest-visible memory limits.
+
+Host “free memory” and “available memory” remain distinct where the platform exposes both.
+
+Container/guest limits override assumptions based on physical host capacity for that runtime scope.
+
+## 67. Memory-pressure semantics
+
+Pressure is represented as evidence, not inferred from one arbitrary threshold.
+
+Candidate states:
+- NORMAL_REPORTED;
+- PRESSURE_REPORTED;
+- CRITICAL_REPORTED;
+- UNKNOWN;
+- UNAVAILABLE;
+- CONFLICTING;
+- STALE.
+
+Derived pressure classification is allowed only when a versioned M07 derivation rule explicitly identifies inputs, units, thresholds and scope. Such a classification remains M07 evidence, not an execution-policy decision.
+
+## 68. Process visibility and privacy
+
+Process-level telemetry is optional and least-privilege.
+
+M07 should prefer aggregate device/runtime evidence when sufficient.
+
+If process attribution is necessary, retained facts should minimize identity:
+- opaque process/workload reference;
+- resource quantity;
+- scope;
+- timestamp.
+
+Command lines, environment contents, user document paths and unrelated process metadata are not hardware telemetry.
+
+## 69. Sampling discipline
+
+Sampling must be bounded and configurable by contract.
+
+The design must define:
+- minimum supported interval;
+- maximum frequency;
+- maximum sample count/window;
+- timeout;
+- jitter/timestamp semantics;
+- backpressure/drop behavior.
+
+No busy-loop polling.
+
+A telemetry consumer cannot silently force privileged or high-frequency sampling.
+
+## 70. Observation windows
+
+S04 distinguishes:
+- single snapshot;
+- bounded short window;
+- historical series reference.
+
+M07 can create bounded evidence windows for discovery/validation.
+
+Long-term retention, aggregation, dashboarding and observability pipelines belong to M56 and storage/retention governance.
+
+## 71. Derived telemetry
+
+Allowed derived examples:
+- energy-counter delta to average power;
+- used/total ratio;
+- bounded temperature delta;
+- clock ratio to an explicitly identified reference;
+- rate from a monotonic counter.
+
+Every derived metric binds:
+- source sample IDs;
+- derivation rule/version;
+- units;
+- interval;
+- validity conditions.
+
+Derived telemetry never erases raw evidence.
+
+## 72. Missing and impossible values
+
+Telemetry parsers must reject or explicitly classify:
+- NaN/Infinity when semantically invalid;
+- negative memory or impossible percentages;
+- unitless values when units are required;
+- counter regressions unless reset/wrap semantics explain them;
+- timestamps outside admitted ordering bounds;
+- stale samples represented as current;
+- sentinel values misread as real measurements.
+
+Zero is a valid value only when the source contract says zero is meaningful.
+
+## 73. Sensor identity and reconciliation
+
+Multiple sources may expose apparently similar sensors.
+
+Reconciliation requires semantic identity evidence, not just similar labels.
+
+Examples:
+- GPU “temperature” versus hotspot;
+- CPU package versus per-core;
+- board power versus chip power;
+- committed versus resident memory.
+
+Conflicting sources remain visible and evidence-bound.
+
+## 74. Telemetry freshness
+
+Dynamic telemetry has shorter freshness than hardware identity/capability facts.
+
+Freshness can be metric-class specific.
+
+Consumers must be able to determine:
+- capture time/window;
+- expiration;
+- whether the subject/runtime changed since capture;
+- whether the sampling source remained available.
+
+A stale sample cannot authorize a current-state claim.
+
+## 75. Event-driven invalidation
+
+Telemetry windows terminate or become non-current when material context changes, including:
+- device reset/removal;
+- runtime restart when scope-bound;
+- suspend/resume when metric semantics require it;
+- driver reset/update;
+- partition reconfiguration;
+- VM/container boundary change;
+- telemetry source failure;
+- monotonic clock discontinuity relevant to interval math.
+
+Historical evidence remains immutable.
+
+## 76. Safety boundaries
+
+S04 probes must be observational.
+
+They cannot:
+- set fan speed;
+- change voltage;
+- overclock/underclock;
+- change power caps;
+- toggle performance modes;
+- kill/suspend processes;
+- evict allocations;
+- clear caches;
+- force garbage collection in unrelated runtimes;
+- allocate large buffers to “measure pressure”;
+- run stress workloads.
+
+Any active microbenchmark or stress-based characterization belongs to M08 under its own bounded contract.
+
+## 77. 8 GB and constrained systems
+
+An 8 GB VRAM device is not classified as deficient merely because transient free memory is low.
+
+S04 reports:
+- capacity/topology references;
+- current dynamic usage;
+- pressure evidence;
+- freshness.
+
+Later modules may use that evidence to plan execution without silently lowering canonical quality.
+
+## 78. Multi-device telemetry
+
+Telemetry is exact-device scoped.
+
+For multi-GPU systems:
+- each device has independent metrics;
+- shared rails/sensors remain explicitly shared;
+- aggregate values require an explicit derivation;
+- one hot/pressured device cannot silently contaminate another device’s state;
+- pair/interconnect telemetry, when available, remains pair scoped.
+
+## 79. Heterogeneous metric vocabulary
+
+Provider-neutral metric keys define semantic intent, while source-specific extensions preserve vendor detail.
+
+Normalization cannot erase:
+- different sensor domains;
+- different averaging windows;
+- different utilization definitions;
+- different power domains;
+- different memory accounting semantics.
+
+Cross-vendor comparability must be declared only where semantics genuinely align.
+
+## 80. S04 hard-invariant candidates
+
+101. Dynamic telemetry remains distinct from static hardware/capability facts.
+102. Every admitted sample binds exact subject, metric, unit and time semantics.
+103. Counters cannot become rates without a valid interval.
+104. Reported limits cannot masquerade as current measurements.
+105. Configured limits cannot masquerade as consumption.
+106. Distinct thermal sensors cannot be silently averaged into “system temperature.”
+107. Missing sensors cannot become zero.
+108. Lower clocks alone cannot prove throttling cause.
+109. Throttling reasons remain evidence-bound.
+110. Power measurement domains and units remain explicit.
+111. Energy-derived power requires valid counter and interval semantics.
+112. M07 cannot mutate power limits.
+113. Current/requested/base/boost/max clocks remain distinct.
+114. Clock telemetry cannot become benchmark evidence.
+115. Utilization metrics retain source sampling semantics.
+116. Same-unit vendor metrics cannot be assumed semantically equivalent.
+117. Dynamic free VRAM cannot become a safe allocation budget.
+118. Device-memory telemetry cannot overwrite static capacity/topology truth.
+119. Host free and available memory remain distinct where supported.
+120. Container/guest memory limits remain authoritative for their runtime scope.
+121. Memory pressure cannot be inferred from an undocumented arbitrary threshold.
+122. Derived pressure states require a versioned derivation rule.
+123. Pressure evidence cannot directly become execution policy.
+124. Process telemetry follows least privilege and identity minimization.
+125. Hardware telemetry cannot retain unrelated command lines/environment/user paths.
+126. Sampling frequency and window are bounded.
+127. Busy-loop telemetry polling is prohibited.
+128. Consumers cannot silently escalate telemetry privilege/frequency.
+129. M07 telemetry windows remain bounded; long-term observability belongs to M56.
+130. Derived telemetry binds source samples and derivation version.
+131. Derived telemetry cannot erase raw evidence.
+132. Invalid NaN/Infinity/impossible values cannot enter admitted truth.
+133. Unit-required metrics cannot be admitted unitless.
+134. Counter reset/wrap/regression semantics must be explicit.
+135. Stale samples cannot represent current state.
+136. Zero is accepted only when source semantics make zero meaningful.
+137. Sensor reconciliation requires semantic identity evidence.
+138. Conflicting sensors/sources remain explicit.
+139. Telemetry freshness may vary by metric class.
+140. Material subject/runtime/source changes invalidate current telemetry windows.
+141. Historical telemetry evidence remains immutable after invalidation.
+142. S04 probes cannot tune fans, voltage, clocks, power or performance modes.
+143. S04 probes cannot kill/suspend processes or evict unrelated allocations.
+144. S04 cannot allocate large buffers or stress hardware to infer pressure.
+145. Active performance characterization remains M08 authority.
+146. Low transient free VRAM cannot classify an 8 GB device as categorically deficient.
+147. Quality cannot be silently lowered from pressure telemetry.
+148. Multi-device telemetry remains exact-device scoped.
+149. Shared sensor/rail values remain explicitly shared rather than duplicated as device-local truth.
+150. Cross-vendor normalization cannot erase materially different metric semantics.
+
+These remain candidates until final M07 contract freeze.
+
+## 81. Proprietary technology candidates
+
+### IRIS-TSL — Telemetry Semantics Ledger
+Versioned registry of metric meaning, unit, source window, freshness and validity rules, preventing same-name/same-unit metrics from becoming false equivalents.
+
+### IRIS-MPF — Memory Pressure Fabric
+Evidence model combining device, host and runtime-scope memory observations without turning transient “free memory” into allocation policy.
+
+### IRIS-TCR — Thermal Causality Resolver
+Conflict-aware representation of temperatures, clocks and authoritative throttle reasons that prevents low-clock observations from inventing thermal causality.
+
+### IRIS-EDE — Evidence Derivation Engine
+Deterministic versioned derivation layer that produces ratios, rates and bounded classifications while retaining exact source-sample lineage.
+
+### IRIS-SWG — Sampling Window Governor
+Contract-level governor for frequency, duration, privilege, backpressure and invalidation of telemetry sampling, designed to keep discovery bounded and non-invasive.
+
+All remain planning candidates pending Final Technology Review and prior-art review.
+
+## 82. S04 acceptance-evidence targets
+
+Later implementation must prove at minimum:
+- telemetry samples require exact subject/unit/time semantics;
+- static discovery and dynamic telemetry remain separate;
+- temperature sensors preserve distinct semantics;
+- missing sensors never become zero;
+- throttling causes require authoritative evidence;
+- power/energy domains and derivations are explicit;
+- clock classes remain distinct;
+- utilization preserves source window semantics;
+- transient free VRAM never becomes allocation budget;
+- host/container/guest memory scopes remain explicit;
+- pressure derivations are versioned and non-prescriptive;
+- process metadata is minimized;
+- sampling is bounded and cannot busy-loop;
+- derived telemetry retains source lineage;
+- invalid/sentinel/stale values fail closed;
+- sensor conflicts remain explicit;
+- telemetry windows invalidate on material context change;
+- probes cannot mutate clocks/power/fans/processes/memory state;
+- stress/benchmark behavior remains outside S04;
+- 8 GB systems remain first-class;
+- multi-device and shared-sensor semantics remain exact;
+- M08/M09/M10/M56 authority remains external.
+
+## S04 STOP CONDITION
+
+S04 is complete for module planning when:
+- thermal, power, clocks, utilization and memory-pressure telemetry semantics are explicit;
+- samples, windows, freshness, derivations and invalidation are evidence-bound;
+- observation is non-invasive and bounded;
+- pressure telemetry remains separate from allocation/execution policy;
+- 50 additional hard-invariant candidates are recorded (150 cumulative);
+- five additional proprietary technology candidates are registered (20 cumulative);
+- planning may advance to M07 S05 Hardware Genome schema, versioning and confidence;
+- no M07 product/runtime implementation is introduced.
