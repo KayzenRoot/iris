@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0012",
+  "frozenContract": "m08-contract-v1.0",
+  "status": "ADMISSION_CANDIDATE",
+  "capturePhase": "admission",
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0012-m08-microbenchmark-lab",
+  "issue": 58,
+  "authorizedBaseSha": "6e2aea630208f6f18656803735426ba99d9b3cc7",
+  "baseline": {
+    "exactMainGovernance": {
+      "run": 35908538554,
+      "result": "PASS"
+    },
+    "tests": 2834
+  },
+  "criticalFingerprints": {
+    "required": 13,
+    "matched": 13,
+    "mismatched": 0
+  },
+  "implementation": {
+    "state": "NOT_STARTED",
+    "package": "iris_microbenchmark/",
+    "hardInvariants": 330,
+    "technologySurfaces": 40,
+    "absorbedComponents": 15
+  },
+  "stopCondition": "No product code until admission candidate exact-head Governance passes and admission is explicitly promoted."
+}
