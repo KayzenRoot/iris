@@ -2,8 +2,8 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0011",
   "frozenContract": "m07-contract-v1.0",
-  "status": "READY_FOR_FINAL_INDEPENDENT_AUDIT",
-  "capturePhase": "post-push update with implementation and evidence commit Governance results verified",
+  "status": "IMPLEMENTATION_MERGED_MAIN_VALIDATED_RECONCILIATION_PENDING",
+  "capturePhase": "post-merge reconciliation",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
   "branch": "iris-wo-0011-m07-hardware-genome",
@@ -11,10 +11,11 @@
   "pullRequest": {
     "number": 54,
     "url": "https://github.com/KayzenRoot/iris/pull/54",
-    "stateAtCapture": "open",
+    "stateAtCapture": "closed",
     "base": "main",
-    "headAtCapture": "57c5cdc1e53f0e5bd9885d7f5dd20df21062d6ac",
-    "merged": false
+    "headAtCapture": "39ab5202e444641dfe17caf1bf1ebd16c975ebc5",
+    "merged": true,
+    "mergeCommitSha": "a933a7abc8c553470737a5b558faa461708bac6f"
   },
   "baseHeadChain": {
     "authorizedBaseSha": "db8a39237c26d85f62cdf02a29c29136d4d6ed63",
@@ -372,9 +373,9 @@
     "M08 performance characterization and M16 concrete provider execution remain deferred by scope."
   ],
   "checkpointDeltaProposed": {
-    "state": "PROPOSED_ONLY_NOT_PROMOTED",
-    "proposal": "IRIS-WO-0011 M07 Hardware Genome and Runtime Discovery kernel locally qualified and exact-head GitHub Governance passed at implementation head e9729ca and evidence head 5d54904; 20/20 surfaces, 5/5 absorbed components and 235/235 invariant inventory; 2,834 full tests pass from 2,770 baseline; independent audit remains pending.",
-    "checkpointModified": false
+    "state": "PROMOTED_TO_RECONCILIATION_BRANCH",
+    "proposal": "M07 implementation independently approved, squash-merged and exact-main validated; durable closure pending reconciliation PR audit/merge/exact-main validation.",
+    "checkpointModified": true
   },
   "hostedExactHeadGovernance": {
     "pullRequest": 54,
@@ -406,9 +407,9 @@
       "result": "PASS"
     }
   },
-  "stopCondition": "Independent audit found two HIGH findings and corrected both directly in PR #54. Final exact-head Governance after this evidence update is required before approval; PR remains open/unmerged and M08 remains unauthorized.",
+  "stopCondition": "M07 implementation is merged and exact-main validated. M08 remains unauthorized until this post-merge reconciliation is independently audited, merged, and exact-main validated.",
   "independentAudit": {
-    "phase": "CORRECTION_PASS_1",
+    "phase": "FINAL",
     "auditedImplementationHead": "47b035230333b480eb25e648743291dbff07ead8",
     "findingsAtAudit": {
       "critical": 0,
@@ -429,6 +430,25 @@
       "critical": 0,
       "high": 0
     },
-    "verdict": "PENDING_FINAL_EXACT_HEAD_AFTER_EVIDENCE_UPDATE"
+    "verdict": "APPROVED_FOR_MERGE",
+    "finalAuditedHead": "39ab5202e444641dfe17caf1bf1ebd16c975ebc5",
+    "finalExactHeadGovernance": {
+      "run": 35904907550,
+      "job": 107330035212,
+      "result": "PASS",
+      "tests": 2834
+    }
+  },
+  "postMerge": {
+    "mergeMethod": "squash",
+    "mergeCommitSha": "a933a7abc8c553470737a5b558faa461708bac6f",
+    "exactMainGovernance": {
+      "run": 35905214414,
+      "job": 107331077828,
+      "result": "PASS",
+      "tests": 2834
+    },
+    "reconciliationBranch": "iris-wo-0011-m07-postmerge-reconciliation",
+    "reconciliationState": "PENDING_INDEPENDENT_AUDIT_MERGE_AND_EXACT_MAIN"
   }
 }
