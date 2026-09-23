@@ -1,36 +1,34 @@
 # IRIS Canonical Checkpoint
 
 ## STATUS
-M07_IMPLEMENTATION_ADMITTED
+M07_IMPLEMENTATION_MERGED_MAIN_VALIDATED
 
 ## VERSION
 m07-contract-v1.0
 
 ## PHASE
-M07_IMPLEMENTATION_EXECUTION
+M07_POSTMERGE_RECONCILIATION
 
 ## OBJECTIVE
-Execute IRIS-WO-0011 against the frozen M07 Hardware Genome & Runtime Discovery contract without changing frozen semantics or entering M08+ implementation.
+Reconcile canonical checkpoint and evidence after the independently approved M07 implementation was squash-merged and exact `main` validated.
 
 ## COMPLETED
 - M01-M06 remain durably closed at their previously validated states.
-- M07 planning contract `m07-contract-v1.0` is independently audited, squash-merged and exact-main validated.
-- M07 planning post-merge reconciliation PR #52 squash-merged as `db8a39237c26d85f62cdf02a29c29136d4d6ed63`.
-- Reconciliation exact-main Governance `35886068741 / 107266406625` PASS with 2770/2770 tests.
-- IRIS-WO-0011, Context Lock and Evidence Bundle created for issue #53 / PR #54.
-- Initial stale-context event was detected before product code; no M07 implementation was produced under stale context.
-- Work Order self-fingerprint and canonical checkpoints were reconciled directly in PR #54.
-- Corrected admission head `5b183ff7aaabd01e08b932f96378a99a40323afe` proved 11/11 critical-source fingerprints with 0 mismatches.
-- Corrected-head Governance `35889754292 / 107278937488` PASS with 2770/2770 tests.
-- IRIS-WO-0011 is admitted for execution.
+- M07 planning contract `m07-contract-v1.0` remains frozen and canonical.
+- IRIS-WO-0011 implemented the provider-neutral Hardware Genome & Runtime Discovery kernel.
+- Independent implementation audit found 2 HIGH findings and 0 CRITICAL findings.
+- Both HIGH findings were corrected directly in PR #54: measured PCIe bandwidth was returned to M08 authority, and all 20 mandatory technology surfaces were rebound to real executable proof targets with a fail-closed validator.
+- Final audited PR head `39ab5202e444641dfe17caf1bf1ebd16c975ebc5` had 0 residual HIGH/CRITICAL findings.
+- Final PR exact-head Governance `35904907550 / 107330035212` PASS with 2834/2834 tests.
+- PR #54 was squash-merged as `a933a7abc8c553470737a5b558faa461708bac6f`.
+- Exact-main Governance `35905214414 / 107331077828` PASS with 2834/2834 tests.
+- M07 implementation is merged and validated on main.
 
 ## IN PROGRESS
-Implement the complete frozen M07 kernel under IRIS-WO-0011 and collect objective evidence.
+Post-merge reconciliation of checkpoint, decisions ledger and IRIS-WO-0011 evidence.
 
 ## BLOCKERS
-None for M07 implementation under the admitted Work Order.
-
-M08+ implementation remains out of scope.
+M08 remains blocked until this reconciliation PR is independently audited, merged and exact-main validated.
 
 ## NEXT STEP
-Resume IRIS-WO-0011 implementation on PR #54 from the current remote branch head. Complete the frozen M07 kernel, tests, documentation and evidence. Do not merge and do not start M08.
+Complete and independently audit the M07 post-merge reconciliation PR, merge it, and validate exact main. Do not start M08 until that closure is durable.
