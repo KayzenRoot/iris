@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0011",
+  "issue": 53,
+  "branch": "iris-wo-0011-m07-hardware-genome",
+  "baseSha": "db8a39237c26d85f62cdf02a29c29136d4d6ed63",
+  "status": "ADMITTED_FOR_EXECUTION",
+  "risk": "ELEVATED",
+  "frozenContract": {
+    "name": "m07-contract-v1.0",
+    "path": "planning/modules/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md"
+  },
+  "baseline": {
+    "governanceRun": 35886068741,
+    "governanceJob": 107266406625,
+    "tests": 2770,
+    "conclusion": "success"
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0011-M07-HARDWARE-GENOME.md",
+      "sha": "36371c1289285e7802d381d19042f8e11353acdb"
+    },
+    {
+      "path": "planning/modules/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "sha": "d5006fef0643fc0c3c8a7a015d4288dda58b89ec"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "sha": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "sha": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "sha": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "sha": "9557f29b7f7b3f084491a4b02d0fc91c5d008e1b"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "sha": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "sha": "a580ae625e77ffb46701a1c4b5e8b982e4b6dbd0"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "sha": "7078c01d1178729aee6b5e142d570f29eb2aa266"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "sha": "f7941d6abe5d0bcfbd2e44c66436c95b22961300"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "sha": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    }
+  ],
+  "inScope": [
+    "Complete frozen m07-contract-v1.0 in iris_hardware_genome",
+    "20 independent mandatory M07 technology surfaces",
+    "5 mandatory absorbed components",
+    "235 hard invariants",
+    "bounded read-only discovery and telemetry",
+    "Hardware Genome schema/confidence/delta/projection semantics"
+  ],
+  "outOfScope": [
+    "M08+ implementation",
+    "benchmarks/performance envelopes",
+    "resource leases/residency/offload",
+    "execution planning/OOM/thermal policy",
+    "worker/process lifecycle",
+    "compute scheduling/placement",
+    "physical storage/deletion/tiering",
+    "dashboard aggregation/history/alerts",
+    "quality downgrade policy",
+    "driver/firmware/fan/power/clock mutation",
+    "arbitrary shell/dynamic code execution",
+    "semantic contract changes"
+  ],
+  "stopCondition": "STOP after complete frozen M07 kernel is implemented, tested, documented, evidenced and ready for independent review. Do not merge. Do not start M08.",
+  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md.",
+  "admissionValidation": {
+    "head": "5b183ff7aaabd01e08b932f96378a99a40323afe",
+    "criticalSources": 11,
+    "fingerprintMismatches": 0,
+    "governanceRun": 35889754292,
+    "governanceJob": 107278937488,
+    "baselineTests": 2770,
+    "result": "PASS"
+  },
+  "reconciliation": {
+    "reason": "CHAT_FIXABLE: Work Order was promoted after the original self-fingerprint was captured, and canonical checkpoint still described the already-completed planning reconciliation.",
+    "staleExecutorFinding": "STALE_CONTEXT before product code; 10/11 fingerprints matched; Work Order self-fingerprint mismatched; checkpoint wording stale.",
+    "correctedWorkOrderSha": "36371c1289285e7802d381d19042f8e11353acdb",
+    "correctedCheckpointSha": "01d46e90cb90b1da9be9b0e16735acc80a832905",
+    "priorAdmissionHead": "5ccd124072abbd0c919530eb07a8eda5eba7eca7",
+    "priorAdmissionGovernance": {
+      "run": 35886529033,
+      "job": 107267962093,
+      "result": "PASS",
+      "tests": 2770
+    },
+    "status": "PASS",
+    "validatedHead": "5b183ff7aaabd01e08b932f96378a99a40323afe",
+    "governanceRun": 35889754292,
+    "governanceJob": 107278937488,
+    "tests": 2770
+  }
+}
