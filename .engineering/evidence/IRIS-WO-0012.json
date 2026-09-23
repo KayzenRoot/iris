@@ -27,7 +27,8 @@
     "correctionImplementationCommit": "28580ed81e3e50022b957e22d2960210cbbd3471",
     "correctionImplementationParent": "c567ce61a674803e6c5ec716fcad5adbbf74e49f",
     "codeValidationHead": "28580ed81e3e50022b957e22d2960210cbbd3471",
-    "evidenceBundleParent": "28580ed81e3e50022b957e22d2960210cbbd3471"
+    "evidenceBundleParent": "746a6ead7bf6a58548dfa91afe6b0bb6367de361",
+    "previousEvidenceBundleCommit": "746a6ead7bf6a58548dfa91afe6b0bb6367de361"
   },
   "admission": {
     "criticalSourcesRequired": 13,
@@ -333,7 +334,8 @@
     "medium01": {
       "implementationChangedFileCount": 37,
       "prChangedFileCount": 42,
-      "separatesImplementationFromFullPRInventory": true
+      "separatesImplementationFromFullPRInventory": true,
+      "githubApiVerified": true
     }
   },
   "implementationChangedFiles": [
@@ -421,5 +423,6 @@
     "tests/test_m08_schema_migration.py"
   ],
   "prChangedFileCount": 42,
-  "prInventoryBasis": "Exact local git diff from authorized origin/main to correction implementation head 28580ed81e3e50022b957e22d2960210cbbd3471; GitHub PR API confirmation follows push."
+  "prInventoryBasis": "GitHub PR #59 changed-filename API returned this exact 42-path inventory at head 746a6ead7bf6a58548dfa91afe6b0bb6367de361; cross-checked against the authorized-base git diff.",
+  "prInventoryVerifiedHead": "746a6ead7bf6a58548dfa91afe6b0bb6367de361"
 }
