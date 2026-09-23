@@ -4,10 +4,10 @@
 M05_PLANNING_ACTIVE
 
 ## VERSION
-m05-planning-s03
+m05-planning-s04
 
 ## PHASE
-M05_S03_COMPLETE_S04_NEXT
+M05_S04_COMPLETE_S05_NEXT
 
 ## OBJECTIVE
 Plan and freeze M05 Asset DNA 2.0 & Cross-Modal Identity through S01-S05 before any implementation admission.
@@ -25,13 +25,15 @@ Plan and freeze M05 Asset DNA 2.0 & Cross-Modal Identity through S01-S05 before 
 - S01 Asset DNA schema and identity invariants: COMPLETE_FOR_MODULE_PLANNING.
 - S02 Character/Creature/Object/Product/Environment DNA: COMPLETE_FOR_MODULE_PLANNING.
 - S03 SceneDNA/MotionDNA/VoiceDNA/BrandDNA links: COMPLETE_FOR_MODULE_PLANNING.
-- Brand authority correction applied: M46 owns Brand & IP / BrandDNA; M45 owns Advertising/Campaign DNA.
-- Cross-modal link architecture freezes M30 MotionDNA, M40 VoiceDNA and M46 BrandDNA ownership.
-- SceneIdentityDNA is distinct from M04 SceneIR and M43 Canon.
-- External DNA links are owner/family/revision pinned and never silently follow latest.
-- CrossModalIdentityBinding / CrossModalIdentityObligation / CrossModalDNAGraph are explicit.
-- S01-S03 candidate hard invariants: 90.
-- Technology registry: `IRIS-DNAX-001..090`.
+- S04 Identity anchors, mutation boundaries and drift detection: COMPLETE_FOR_MODULE_PLANNING.
+- Anchor authority/lifecycle is explicit.
+- Drift evidence is path-level, typed and multi-dimensional.
+- Repair versus canonical mutation is explicit.
+- Same-identity mutation, identity break, split and consolidation semantics are explicit.
+- M05 remains generic persistent identity root; M39 remains digital-human/persona production authority.
+- M01/M37/M39/M53/M54 firewalls are explicit.
+- S01-S04 candidate hard invariants: 120.
+- Technology registry: `IRIS-DNAX-001..120`.
 - M05 implementation code has not started.
 
 ## IN PROGRESS
@@ -48,4 +50,4 @@ M05 implementation remains blocked until:
 7. a separate implementation Work Order / Context Lock / Evidence package is admitted.
 
 ## NEXT STEP
-Plan M05 S04 — identity anchors, mutation boundaries and drift detection. Preserve S01-S03 authority firewalls and do not implement M05.
+Plan M05 S05 — DNA branching, compatibility and reusable DNA marketplace contract. Preserve S01-S04 authority firewalls and do not implement M05.
