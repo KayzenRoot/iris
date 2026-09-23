@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M04_IMPLEMENTATION_ADMISSION_RECOMPILED_PENDING_VALIDATION",
+  "status": "M04_IMPLEMENTATION_ADMITTED",
   "version": "m04-contract-v1.0",
-  "phase": "IRIS-WO-0008_RECOMPILE_AFTER_PROMPT_POLICY",
-  "nextStep": "Finish the recompiled IRIS-WO-0008 admission on the replacement PR, validate exact head, then deliver the executor prompt only as a downloadable PDF and execute M04."
+  "phase": "IRIS-WO-0008_EXECUTOR_READY",
+  "nextStep": "Run IRIS-WO-0008 executor preflight, implement and test the complete frozen M04 kernel on PR #34, then stop for independent review without merging or starting M05."
 }
