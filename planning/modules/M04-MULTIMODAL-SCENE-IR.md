@@ -1,6 +1,6 @@
 # M04 — Multimodal IR / Scene IR
 
-Status: `PLANNING_COMPLETE_TECH_REVIEW_NEXT`
+Status: `PLANNING_APPROVED_FREEZE_PROMOTION_PENDING_MERGE`
 Module: `M04`
 Area: `B — Semantic Production Representation`
 Planning issue: `#26`
@@ -2173,4 +2173,4 @@ Later implementation must prove:
 
 S01-S05 are now complete for planning.
 
-Next legal gate: **Final Technology Review**. No M04 implementation is authorized.
+Final Technology Review, M05-M60 compatibility scan, contract freeze and independent planning audit are complete. Current legal gate: **exact-head Governance, protected squash merge, then exact-main validation**. No M04 implementation is authorized.
