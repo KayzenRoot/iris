@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M04_PLANNING_MERGED",
+  "status": "M04_IMPLEMENTATION_ADMISSION_RECOMPILED_PENDING_VALIDATION",
   "version": "m04-contract-v1.0",
-  "phase": "M04_IMPLEMENTATION_WORK_ORDER_READY",
-  "nextStep": "Promote this reconciliation through protected merge and exact-main validation, then compile the separate M04 implementation Work Order / Context Lock / Evidence package."
+  "phase": "IRIS-WO-0008_RECOMPILE_AFTER_PROMPT_POLICY",
+  "nextStep": "Finish the recompiled IRIS-WO-0008 admission on the replacement PR, validate exact head, then deliver the executor prompt only as a downloadable PDF and execute M04."
 }
