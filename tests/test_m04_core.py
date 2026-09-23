@@ -263,6 +263,57 @@ class SchemaAndSerializationBoundaryTests(unittest.TestCase):
         self.assertTrue(permissive.valid)
         self.assertIn("UNKNOWN_EXTENSION", {finding.code for finding in permissive.findings})
 
+    def test_unknown_mandatory_schema_facet_and_extension_fail_closed(self):
+        future_schema = replace(
+            fixture_revision(),
+            schema_manifest=SchemaManifest(core_schema_version="future-core-v2"),
+        )
+        self.assertFalse(validate_revision(future_schema).valid)
+
+        mandatory_facet = replace(
+            fixture_revision(),
+            schema_manifest=SchemaManifest(facets=(FacetRef("vendor.required", "1", mandatory=True),)),
+        )
+        self.assertFalse(validate_revision(mandatory_facet).valid)
+
+        mandatory_extension = replace(
+            fixture_revision(),
+            extensions=(ExtensionValue(SchemaFamilyRef("vendor.required.extension", "1"), {"value": "opaque"}, mandatory=True),),
+        )
+        self.assertFalse(validate_revision(mandatory_extension).valid)
+
+    def test_optional_unknown_facet_and_extension_require_explicit_opaque_policy(self):
+        revision = replace(
+            fixture_revision(),
+            schema_manifest=SchemaManifest(
+                facets=(FacetRef("vendor.optional", "1", preserve_opaque=True),),
+                unknown_policy=SchemaUnknownPolicy.PRESERVE_OPTIONAL_OPAQUE,
+            ),
+            extensions=(
+                ExtensionValue(
+                    SchemaFamilyRef("vendor.optional.extension", "1"),
+                    {"value": "opaque"},
+                    preserve_opaque=True,
+                ),
+            ),
+        )
+        strict = validate_revision(revision, IRValidationProfile("strict.opaque", "1"))
+        self.assertFalse(strict.valid)
+        permissive = validate_revision(
+            revision,
+            IRValidationProfile(
+                "permissive.opaque",
+                "1",
+                unknown_policy=SchemaUnknownPolicy.PRESERVE_OPTIONAL_OPAQUE,
+            ),
+        )
+        self.assertTrue(permissive.valid)
+        self.assertEqual(
+            {finding.code for finding in permissive.findings},
+            {"UNKNOWN_FACET", "UNKNOWN_EXTENSION"},
+        )
+
+
 
 if __name__ == "__main__":
     unittest.main()
