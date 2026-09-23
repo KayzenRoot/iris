@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0008",
-  "status": "INDEPENDENT_REVIEW_APPROVED_PENDING_MERGE",
+  "status": "MERGED_EXACT_MAIN_VALIDATED",
   "branch": "iris-wo-0008-m04-multimodal-ir-r2",
   "frozenContract": "m04-contract-v1.0",
   "issue": 30,
@@ -10,11 +10,12 @@
     "number": 34,
     "url": "https://github.com/KayzenRoot/iris/pull/34",
     "base": "main",
-    "state": "OPEN",
-    "merged": false,
+    "state": "MERGED",
+    "merged": true,
     "headBranch": "iris-wo-0008-m04-multimodal-ir-r2",
     "implementationHead": "4b96a2cae650d3bcecba707fc6b824a6d0f8308d",
-    "reviewedCodeHead": "7d3237a3ea39a1006fca8137046587077de29602"
+    "reviewedCodeHead": "7d3237a3ea39a1006fca8137046587077de29602",
+    "mergeSha": "8dd188fcea7fa0874fab214867e1f5f6ce23e8cd"
   },
   "headChain": {
     "authorizedBase": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
@@ -386,8 +387,8 @@
     "HIVE MCP/CLI was unavailable during preflight; repository-canonical sources and deterministic local/GitHub evidence were used."
   ],
   "proposedCheckpointDelta": {
-    "status": "APPLYING_IN_REVIEW_PR",
-    "proposal": "Promote M04 to independent-review-approved pending merge, recording PR #34, 20/20 families, 80/80 invariants, 150 focused M04 tests represented in the 2677/2677 exact-head full suite, six closed CHAT_FIXABLE findings, zero EXECUTOR_REQUIRED findings and zero remaining HIGH/CRITICAL findings. Keep M05 blocked until exact-main post-merge reconciliation."
+    "status": "APPLIED_BY_POST_MERGE_RECONCILIATION",
+    "proposal": "M04 is merged canonical truth. Expose M05 planning readiness only after this reconciliation itself is merged and exact-main validated."
   },
   "independentReview": {
     "status": "APPROVED",
@@ -469,8 +470,18 @@
     ],
     "remainingKnownCriticalOrHigh": 0,
     "executorEscalationRequired": false,
-    "merge": "READY_AFTER_FINAL_CHECKPOINT_HEAD_GOVERNANCE",
+    "merge": "MERGED_AND_EXACT_MAIN_VALIDATED",
     "M05": "NOT_STARTED"
   },
-  "stopCondition": "Independent review is APPROVED at reviewed code head 7d3237a3ea39a1006fca8137046587077de29602. Apply the checkpoint delta in PR #34, validate that final checkpoint/evidence head exactly, merge through governed PR #34, validate exact main, and keep M05 blocked until post-merge reconciliation."
+  "stopCondition": "IRIS-WO-0008 is complete: reviewed M04 implementation merged as 8dd188fcea7fa0874fab214867e1f5f6ce23e8cd and exact-main validated. This reconciliation must merge and validate before M05 planning begins. M05 implementation remains unadmitted.",
+  "postMergeValidation": {
+    "mainSha": "8dd188fcea7fa0874fab214867e1f5f6ce23e8cd",
+    "governanceRun": 35814014969,
+    "governanceJob": 107031546003,
+    "result": "PASS",
+    "tests": 2677,
+    "failures": 0,
+    "errors": 0,
+    "requiredArtifacts": 35
+  }
 }

@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M04_IMPLEMENTATION_REVIEW_APPROVED_PENDING_MERGE",
+  "status": "M04_IMPLEMENTATION_MERGED",
   "version": "m04-contract-v1.0",
-  "phase": "IRIS-WO-0008_MERGE_READY",
-  "nextStep": "Validate this final review/checkpoint head exactly, squash-merge PR #34 through governed main, validate exact main, then reconcile M04 as merged. Do not start M05 before that reconciliation."
+  "phase": "M05_PLANNING_READY",
+  "nextStep": "Begin M05 planning discovery from this exact reconciled main only after this reconciliation PR is merged and exact-main validated. Do not implement M05 without its own frozen contract, Work Order, Context Lock and evidence."
 }
