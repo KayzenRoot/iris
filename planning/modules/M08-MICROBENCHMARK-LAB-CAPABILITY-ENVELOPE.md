@@ -1176,3 +1176,179 @@ Updated planning inventory:
 
 Next permitted action: compile the M08 Module Contract Freeze candidate. No implementation is admitted.
 
+# M08 Module Contract Freeze
+
+Freeze ID: `m08-contract-v1.0`  
+Freeze status: `CONTRACT_FREEZE_CANDIDATE`  
+Implementation: **NOT ADMITTED**
+
+## 61. Frozen mission
+
+M08 is the empirical hardware/runtime performance-characterization authority. It owns bounded microbenchmark protocols/results, hardware-capability envelopes, performance fingerprints/drift and calibration/freshness/invalidation semantics, all bound to exact M07 hardware/runtime provenance.
+
+M08 does not own hardware discovery, production resource allocation, execution planning, process lifecycle, placement/orchestration, model/workflow/creative-quality ranking, physical storage, observability presentation, security policy, or release acceptance.
+
+## 62. Frozen session scope
+
+The contract freezes the five canonical sessions:
+1. S01 — First-run safe microbenchmarks.
+2. S02 — Image/video/3D/audio benchmark probes.
+3. S03 — Capability Envelope and safe workload limits.
+4. S04 — Continuous performance fingerprint and drift.
+5. S05 — Benchmark calibration, aging and invalidation.
+
+## 63. Frozen evidence doctrine
+
+M08 evidence is:
+- protocol-versioned;
+- correctness-gated;
+- exact-provenance-bound;
+- immutable at the raw layer;
+- uncertainty/interference aware;
+- freshness/invalidation aware;
+- purpose-qualified;
+- authority-namespaced as `hardware-capability`;
+- auditable through derived lineage.
+
+Unknown, unsupported, invalid, stale, cancelled, aborted, incomparable and insufficient states cannot be promoted into positive capability claims.
+
+## 64. Frozen safety doctrine
+
+Active measurement is bounded before execution. M08 cannot:
+- escalate privilege merely to benchmark;
+- change voltage/clocks/fans/OS power policy;
+- kill/suspend unrelated processes;
+- evict unrelated allocations;
+- run unbounded allocation/retry/search/time loops;
+- silently turn first-run into stress testing;
+- bypass authorization/security policy for automated callers.
+
+Cancellation, interference, thermal/resource abort and missing telemetry remain explicit evidence states.
+
+## 65. Frozen capability-envelope doctrine
+
+Capability envelopes are multidimensional empirical artifacts. They preserve unknown dimensions and distinguish demonstrated evidence from conservative derivation. A safe workload limit is context-bound evidence, not:
+- a production SLA;
+- guaranteed OOM avoidance;
+- guaranteed thermal stability;
+- an execution plan;
+- a scheduler/placement decision;
+- a quality/model/workflow recommendation.
+
+## 66. Frozen fingerprint/drift doctrine
+
+Performance fingerprints are projection/version scoped and privacy-conscious. Drift requires compatible evidence, metric-specific materiality and sufficient statistical support. Baselines are immutable and explicitly promoted/superseded. Missing or failed rechecks never mean “no drift”. Correlation does not become causal hardware-health diagnosis.
+
+## 67. Frozen calibration/aging doctrine
+
+Raw evidence is immutable. Calibration/correction creates lineage-bound derived artifacts. CURRENT, AGING, STALE, INVALIDATED, SUPERSEDED and UNKNOWN_FRESHNESS remain distinct. Invalidation is scoped, reasoned and append-only. Recalibration cannot fabricate missing raw dimensions.
+
+## 68. Frozen authority shields
+
+- M07: discovery/Hardware Genome truth.
+- M09: VRAM/RAM leases, residency, spill/offload/resource state.
+- M10: hardware-aware execution plans and predictive OOM/thermal/quality-risk policy.
+- M11: worker/process lifecycle.
+- M12: placement/orchestration/scheduling.
+- M13: production performance/cache/compiler optimization.
+- M14: model identity, empirical model cards and model fitness.
+- M16/M17: workflow/provider/runtime integration.
+- M24/M48: creative-quality evaluation.
+- M50: cost-to-quality optimization.
+- M51: broader model/workflow/quality benchmark and eval governance.
+- M53: media provenance/rights/C2PA.
+- M54: security/identity/restricted-content policy.
+- M55: physical storage/retention/deletion.
+- M56: observability/dashboard aggregation.
+- M57: automation/agent orchestration.
+- M58: API/SDK/MCP ecosystem lifecycle.
+- M60: final release acceptance.
+- M01: canonical creative-quality authority.
+- M02/M06: project/build/release and production-state/reproducibility authority.
+
+## 69. Frozen technology inventory
+
+Independent mandatory technology surfaces: **40**:
+BPF, SBG, EPB, ICD, AEG, CMF, UQF, FRB, MPB, COG, TPE, MEE, GPK, APK, DFM, BAC, CEF, CBD, BSE, MEM, CCM, SCM, ECC, ELF, PFF, DED, BLR, RTE, NGF, DAG, PFP, DCP, CAF, EAL, IAG, RCF, TCB, FDF, FPE, NNF.
+
+Mandatory absorbed components: **15**:
+1. Benchmark Authorization Receipt.
+2. Metric Semantics Registry.
+3. Measurement Clock Descriptor.
+4. Envelope Invalidation Dependency Map.
+5. Evidence Consumer Projection Descriptor.
+6. Evidence Purpose Descriptor.
+7. Execution Context Descriptor.
+8. Requirement Qualification Handshake.
+9. External Invalidation Reference.
+10. Authority Namespace Descriptor.
+11. Provenance Export Digest.
+12. Security Authorization Reference.
+13. Automation Origin Descriptor.
+14. External Schema Projection.
+15. Acceptance Evidence Bundle.
+
+Internal technology labels do not assert patentability or external novelty.
+
+## 70. Frozen invariant set
+
+The contract adopts **hard invariants 1-330** exactly as enumerated in this planning document.
+
+Freeze requirements:
+- numbering is unique and contiguous;
+- implementation evidence must map every invariant to concrete proof;
+- no invariant may be silently weakened, skipped or reinterpreted;
+- contract conflict requires governed change proposal rather than implementation-side improvisation.
+
+## 71. Frozen implementation proof floor
+
+A future M08 implementation Work Order must require, at minimum:
+- deterministic protocol/fixture/artifact serialization and identity;
+- exact M07 Genome/projection provenance;
+- all active-measurement safety budgets and cancellation/abort paths;
+- correctness-before-speed;
+- async timing and clock qualification;
+- transfer/media/3D/audio domain separation;
+- deterministic capability-envelope derivation and bounded search;
+- unknown-dimension and unsupported-extrapolation barriers;
+- immutable fingerprints/baselines/calibration/raw evidence;
+- drift/noise/comparability guards;
+- freshness/invalidation/recalibration lineage;
+- privacy/security/automation authorization hooks;
+- consumer qualification and external schema projections;
+- CPU-only and 8 GB VRAM first-class fixtures/tests;
+- complete 330-invariant proof map;
+- complete 40-surface + 15-absorbed-component implementation map;
+- authority-firewall tests proving no M09+ control leakage;
+- focused M08 tests that increase the repository test floor;
+- full repository suite and Governance on exact head;
+- evidence bundle and changed-file/test accounting.
+
+Synthetic fixtures may prove software semantics but cannot masquerade as physical benchmark measurements.
+
+## 72. Frozen forward-compatibility result
+
+M09-M60 scan: **52/52 modules**.  
+Incorporated findings: **FC-08-01..FC-08-10**.  
+Resulting invariant set: **330**.  
+Residual HIGH: **0**.  
+Residual CRITICAL: **0**.
+
+## 73. Change control
+
+After protected merge, `m08-contract-v1.0` may change only through an explicit governed contract-change proposal with rationale, compatibility analysis, independent review, version update and exact-main validation. Implementation code cannot silently redefine the contract.
+
+## 74. Freeze candidate verdict
+
+**M08 `m08-contract-v1.0` is a CONTRACT FREEZE CANDIDATE.**
+
+Before the freeze becomes durable:
+1. Governance must pass on the exact freeze-candidate head.
+2. An independent final planning audit must verify all five sessions, 330 invariants, 40 mandatory surfaces, 15 absorbed components, 52/52 forward scan and authority shields.
+3. Residual HIGH/CRITICAL findings must be zero.
+4. The planning PR must merge through protected policy.
+5. Governance must pass on exact `main`.
+6. Post-merge checkpoint/decision reconciliation must complete under repository policy.
+
+Until those gates pass, M08 implementation remains **NOT ADMITTED** and M09 implementation is forbidden.
+
