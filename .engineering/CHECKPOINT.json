@@ -2,7 +2,7 @@
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "M05_PLANNING_ACTIVE",
-  "version": "m05-planning-s03",
-  "phase": "M05_S03_COMPLETE_S04_NEXT",
-  "nextStep": "Plan M05 S04 — identity anchors, mutation boundaries and drift detection. Preserve S01-S03 authority firewalls and do not implement M05."
+  "version": "m05-planning-s04",
+  "phase": "M05_S04_COMPLETE_S05_NEXT",
+  "nextStep": "Plan M05 S05 — DNA branching, compatibility and reusable DNA marketplace contract. Preserve S01-S04 authority firewalls and do not implement M05."
 }
