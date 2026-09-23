@@ -42,9 +42,9 @@ Read in this order and treat higher sources as authoritative:
 12. `planning/reviews/M04-FINAL-TECHNOLOGY-REVIEW.md`
 13. `planning/compatibility/M04-FORWARD-COMPATIBILITY-SCAN.md`
 14. `planning/technology-registry/M04-TECHNOLOGIES.md`
-14. public/stable M01 interfaces actually consumed;
-15. public/stable M02 refs/ports actually consumed;
-16. public/stable M03 interfaces actually consumed.
+15. public/stable M01 interfaces actually consumed;
+16. public/stable M02 refs/ports actually consumed;
+17. public/stable M03 interfaces actually consumed.
 
 Git/code/tests/evidence outrank conversation memory.
 
