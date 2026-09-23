@@ -245,7 +245,7 @@ class RuntimeAndTransportAcceptanceTests(unittest.TestCase):
         profile = IREquivalenceProfile(
             "tolerant.color",
             EquivalenceKind.TOLERANT,
-            (ComparisonTolerance("color_values/index.0", 0.02, "COLOR", "float32", color_space="linear-srgb"),),
+            (ComparisonTolerance(f"color_values/{SOURCE.text}", 0.02, "COLOR", "float32", color_space="linear-srgb"),),
         )
         contract = build_round_trip_contract(
             revision,
