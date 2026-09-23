@@ -2,8 +2,8 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0011",
   "frozenContract": "m07-contract-v1.0",
-  "status": "LOCAL_QUALIFICATION_PASS_AWAITING_PUSH",
-  "capturePhase": "pre-push",
+  "status": "IMPLEMENTATION_QUALIFIED_EVIDENCE_COMMIT_PENDING",
+  "capturePhase": "implementation-head-pushed-and-governed; evidence-only commit pending",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
   "branch": "iris-wo-0011-m07-hardware-genome",
@@ -51,6 +51,8 @@
   },
   "implementation": {
     "state": "implemented_and_locally_qualified",
+    "testedImplementationHeadSha": "e9729ca29eb2f2c2c69e24c0983e4b741bebe12a",
+    "testedImplementationTreeSha": "db2cb6ef7e133937f32cc75973aaf716dd660f65",
     "package": "iris_hardware_genome/",
     "version": "1.0.0",
     "publicModules": [
@@ -202,12 +204,19 @@
   ],
   "checkpointDeltaProposed": {
     "state": "PROPOSED_ONLY_NOT_PROMOTED",
-    "proposal": "IRIS-WO-0011 M07 Hardware Genome and Runtime Discovery kernel locally qualified; 20/20 surfaces, 5/5 absorbed components and 235/235 invariant inventory; 2,834 full tests pass from 2,770 baseline; awaiting push and exact-head GitHub Governance plus independent audit.",
+    "proposal": "IRIS-WO-0011 M07 Hardware Genome and Runtime Discovery kernel locally qualified and exact-head GitHub Governance passed at implementation head e9729ca; 20/20 surfaces, 5/5 absorbed components and 235/235 invariant inventory; 2,834 full tests pass from 2,770 baseline; independent audit remains pending.",
     "checkpointModified": false
   },
   "hostedExactHeadGovernance": {
-    "atEvidenceCapture": "PENDING_PUSH",
-    "admissionShaGovernanceIsNotClaimedAsImplementationGovernance": true
+    "testedHeadSha": "e9729ca29eb2f2c2c69e24c0983e4b741bebe12a",
+    "workflowRun": 35902187532,
+    "job": 107320897576,
+    "result": "PASS",
+    "pullRequest": 54,
+    "baseRef": "main",
+    "baseSha": "db8a39237c26d85f62cdf02a29c29136d4d6ed63",
+    "admissionShaGovernanceIsNotClaimedAsImplementationGovernance": true,
+    "evidenceOnlyCommitFinalHeadGovernance": "to be verified after this evidence update is pushed"
   },
-  "stopCondition": "NOT_YET_MET: local implementation, tests, documentation and evidence are complete; push, PR update and exact final-head Governance remain. Do not merge or start M08."
+  "stopCondition": "Implementation is locally qualified, pushed and exact-head governed; finish publishing this governance evidence, verify Governance on the final evidence commit, update PR #54, and stop before merge or M08."
 }
