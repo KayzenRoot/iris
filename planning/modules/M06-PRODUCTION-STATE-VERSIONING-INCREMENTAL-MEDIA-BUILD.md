@@ -1,6 +1,6 @@
 # M06 — Production State, Versioning & Incremental Media Build
 
-Status: `S02_COMPLETE_FOR_MODULE_PLANNING`
+Status: `S03_COMPLETE_FOR_MODULE_PLANNING`
 Planning model: `FULL_VERSION_NO_MVP`
 Issue: #44
 Planning base: `bac62c5e59ff926c6b80a5ec86a91b0410f35fea`
@@ -438,4 +438,210 @@ S02 is complete for module planning when:
 - invariants 31–60 are recorded;
 - S02 proprietary candidates are registered;
 - checkpoint may advance to M06 S03 planning;
+- no M06 product implementation is introduced.
+
+
+# S03 — Incremental regeneration and selective rebuild
+
+Status: `COMPLETE_FOR_MODULE_PLANNING`
+
+## 1. Goal
+
+Turn S02 impact evidence into a correctness-first selective-build decision layer that reuses, verifies, repairs or rebuilds only what is justified, while preserving M02 build semantics and M01 final-quality authority.
+
+## 2. Authority boundary
+
+M02 remains canonical for BuildDelta, DirtyFrontier, RepairFrontier, WorkDisposition, ReuseClass, ReuseReceipt, BuildPlan and BuildExplainTrace.
+
+M06 operationalizes these contracts using exact revision/materialization state, S02 fingerprints and impact receipts. It may not invent a second build lifecycle or treat cache presence as reuse authority.
+
+M01 remains authority for quality/evaluation/promotion. M49 owns actual repair engines. M13 owns runtime cache/performance optimization. M55 owns physical storage/cache.
+
+## 3. Selective work dispositions
+
+Operational dispositions:
+- `REUSE_EXACT`: reuse is fully admitted for the required semantics/reproducibility class.
+- `REUSE_WITH_VERIFICATION`: candidate reuse requires declared integrity/freshness/quality checks before admission.
+- `VERIFY_ONLY`: bytes need not regenerate, but blocking evidence must be refreshed.
+- `REPAIR_CANDIDATE`: bounded defect/change may be handled through M49-compatible repair semantics.
+- `REBUILD_PARTIAL`: regenerate an admitted slice/subgraph.
+- `REBUILD_FULL_TARGET`: regenerate the complete target.
+- `BLOCKED`: insufficient/unsafe evidence prevents work admission.
+- `NO_WORK_PROVEN`: positive proof that the target remains valid.
+
+These refine operational execution decisions and map to M02 semantics rather than replacing them.
+
+## 4. Reuse admission
+
+Reuse requires positive evidence across all material dimensions:
+- exact semantic/revision binding;
+- compatible S02 causal fingerprint scope;
+- materialization integrity/availability;
+- required quality evidence freshness;
+- identity-sensitive refs;
+- policy/rights/security freshness where material;
+- reproducibility/reuse class;
+- no unresolved hidden dependency;
+- no incompatible schema/toolchain change.
+
+A cache hit, matching filename, matching content digest or provider claim alone never admits reuse.
+
+## 5. Selective rebuild
+
+A partial rebuild is legal only when:
+- the target exposes an admitted rebuild boundary;
+- dependency selectors/slices prove the boundary;
+- unchanged inputs outside the boundary remain compatible;
+- output composition semantics define how rebuilt and reused parts combine;
+- protected identity/quality constraints survive recomposition;
+- reconstruction evidence can explain the mixed result.
+
+If any mandatory boundary is unknown, escalate to a larger safe rebuild frontier.
+
+## 6. Rebuild frontier expansion
+
+Frontiers expand monotonically when evidence becomes less certain.
+
+Candidate escalation:
+`NO_WORK_PROVEN -> VERIFY_ONLY -> REUSE_WITH_VERIFICATION -> REPAIR_CANDIDATE / REBUILD_PARTIAL -> REBUILD_FULL_TARGET -> BLOCKED`.
+
+The system may choose a more conservative action, but cannot choose a less conservative action without evidence.
+
+## 7. Reuse receipts
+
+Every admitted reuse emits a receipt binding:
+- reused exact materialization/revision;
+- target build;
+- causal fingerprint comparison;
+- reuse class;
+- required verification results;
+- quality/policy freshness refs;
+- decision reason codes;
+- authority/version of the admission rule.
+
+Receipts are immutable evidence and never imply future reuse automatically.
+
+## 8. Partial regeneration receipts
+
+Mixed rebuilt/reused outputs must declare:
+- rebuilt slices/components;
+- reused slices/components;
+- source revisions/materializations;
+- composition/reassembly rule version;
+- resulting digest/materialization ref;
+- unresolved uncertainty;
+- verification/evaluation obligations.
+
+A partial rebuild cannot hide its reused ancestry.
+
+## 9. Stochastic work
+
+For stochastic/non-exactly-replayable operations:
+- fingerprint equality does not claim byte-identical replay;
+- reuse class must state what equivalence is promised;
+- seeds/parameters are recorded when available but do not overclaim determinism;
+- quality/identity acceptance remains evidence-driven;
+- selective rebuild may create a new valid variant/materialization without pretending it reproduces historical bytes.
+
+## 10. Repair boundary
+
+M06 can identify `REPAIR_CANDIDATE` and carry repair frontier/evidence. M49 owns defect localization and actual repair strategy/execution.
+
+Repair must:
+- create new history;
+- preserve source ancestry;
+- obey M03 constraints/M05 protected identity;
+- return through M01/M02 validation gates;
+- never overwrite an immutable master.
+
+## 11. Failure recovery
+
+Interrupted/failed selective builds:
+- do not corrupt previously admitted masters;
+- keep incomplete outputs quarantined/unadmitted;
+- record completed units and receipts;
+- may resume only when exact dependencies/fingerprints remain valid;
+- invalidate resumability when material causal inputs changed;
+- distinguish retry, resume, rebuild and repair.
+
+## 12. S03 hard invariants
+
+61. Selective rebuild decisions must map to M02 build semantics.
+62. Cache presence alone never authorizes reuse.
+63. Content digest equality alone never authorizes semantic reuse.
+64. Reuse requires positive evidence for all mandatory material dimensions.
+65. Unknown mandatory reuse evidence blocks reuse.
+66. Reuse receipts bind exact revisions/materializations.
+67. Reuse admission is scoped to one decision and does not authorize future reuse automatically.
+68. Stale quality/policy evidence cannot be silently reused when materially invalidated.
+69. Partial rebuild requires an admitted rebuild boundary.
+70. Unknown rebuild boundaries escalate conservatively.
+71. A partial rebuild declares both rebuilt and reused ancestry.
+72. Recomposition rules are explicit/versioned.
+73. Recomposition cannot silently weaken protected identity constraints.
+74. Recomposition cannot silently lower M01-required final quality.
+75. Dirty frontier minimization occurs only after correctness proof.
+76. Frontier expansion is conservative when uncertainty increases.
+77. A less conservative disposition requires stronger evidence.
+78. `NO_WORK_PROVEN` requires positive proof.
+79. `VERIFY_ONLY` cannot be converted to no-work without successful required verification.
+80. Failed/incomplete outputs cannot become admitted masters.
+81. Interrupted work cannot mutate an existing admitted master.
+82. Resume requires unchanged material causal bindings.
+83. Material input change invalidates incompatible resume state.
+84. Retry, resume, repair and rebuild remain distinct operations.
+85. Stochastic fingerprint equality cannot claim byte-identical replay.
+86. Reuse class explicitly states the equivalence guarantee.
+87. Seeds/parameters cannot turn stochastic work into falsely deterministic history.
+88. M49 remains repair execution authority.
+89. Repair creates new history and preserves ancestry.
+90. HIVE/agents may propose selective work but cannot self-admit unsafe reuse or promotion.
+
+These extend S01-S02 invariants 1–60 and remain candidates until final M06 contract freeze.
+
+## 13. Proprietary technology candidates
+
+### IRIS-SRE — Selective Regeneration Engine
+Evidence-driven planner mapping causal impact into exact reuse/verify/repair/rebuild dispositions while preserving M02 authority.
+
+### IRIS-RAP — Reuse Admission Passport
+Immutable, scoped reuse receipt carrying fingerprints, freshness, equivalence class and authority evidence so a cache hit can never masquerade as correctness.
+
+### IRIS-FEX — Frontier Expansion Matrix
+Conservative escalation mechanism that widens a rebuild frontier as uncertainty or invalidation increases.
+
+### IRIS-MXR — Mixed Reconstruction Receipt
+Ancestry-preserving receipt for outputs assembled from rebuilt and reused components, making partial regeneration fully explainable.
+
+### IRIS-SDS — Stochastic Determinism Shield
+Firewall preventing seeds/fingerprint equality from overclaiming exact reproducibility for stochastic generation.
+
+All remain candidates pending Technology Review and prior-art review.
+
+## 14. S03 acceptance evidence targets
+
+Later implementation must prove:
+- disposition mapping and conservative escalation;
+- cache-hit rejection without reuse evidence;
+- exact reuse receipt round-trip;
+- partial rebuild ancestry and recomposition proof;
+- protected M05 identity and M01 quality constraints across recomposition;
+- stochastic reuse semantics without false deterministic claims;
+- interruption/quarantine/resume invalidation behavior;
+- M49 repair authority boundary;
+- deterministic explain traces for work decisions;
+- domain-neutral selective rebuild across image, 3D, video, audio and metadata-only examples.
+
+## S03 STOP CONDITION
+
+S03 is complete for module planning when:
+- selective work dispositions and reuse admission are explicit;
+- partial rebuild/recomposition boundaries are explicit;
+- conservative frontier expansion is explicit;
+- stochastic work cannot overclaim determinism;
+- repair authority remains M49;
+- interruption/resume semantics are fail-safe;
+- invariants 61–90 are recorded;
+- S03 proprietary candidates are registered;
+- checkpoint may advance to M06 S04 planning;
 - no M06 product implementation is introduced.
