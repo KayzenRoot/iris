@@ -2037,3 +2037,211 @@ S05 is complete for module planning when:
 - all five canonical M07 sessions are complete for module planning;
 - the next permitted work is M07 Final Technology Review, followed by the M08-M60 Forward Compatibility Scan and Module Contract Freeze;
 - no M07 product/runtime implementation is introduced.
+
+
+# Final Technology Review
+
+## 111. Review purpose
+
+This review consolidates the 25 M07 proprietary technology candidates created during S01-S05.
+
+The names are internal architecture labels only. This review makes no novelty, patentability or freedom-to-operate claim. Any external IP claim requires separate prior-art/legal review.
+
+Classification:
+- **ADOPT** — necessary enough to enter the M07 frozen contract.
+- **ADOPT_AS_COMPONENT** — useful semantic/component pattern, retained under a broader adopted technology rather than as a separate subsystem.
+- **DEFER** — potentially useful, but implementation is not necessary for the first bounded M07 implementation.
+- **REJECT_AS_DUPLICATE** — semantics are absorbed elsewhere.
+
+## 112. Consolidated technology decisions
+
+### S01 candidates
+
+1. **IRIS-HDF — Hardware Discovery Fabric: ADOPT**
+   - Core bounded probe orchestration and evidence admission surface.
+   - Must remain allowlisted, read-only and deterministic.
+
+2. **IRIS-ODG — Opaque Device Graph: ADOPT**
+   - Canonical identity/locator separation and hardware relationship substrate.
+   - Extended by TGE rather than replaced by it.
+
+3. **IRIS-NAF — Negative Assertion Firewall: ADOPT**
+   - Mandatory guard against converting unknown/unavailable/unsupported into absence.
+
+4. **IRIS-RSP — Runtime Substrate Passport: ADOPT**
+   - Required for host/container/VM/WSL/runtime visibility truth.
+
+5. **IRIS-DCF — Discovery Conflict Fabric: ADOPT_AS_COMPONENT**
+   - Conflict semantics remain mandatory but are incorporated into HGX/MCD evidence envelopes rather than implemented as an independent service.
+
+### S02 candidates
+
+6. **IRIS-CEL — Capability Evidence Ladder: ADOPT**
+   - Core capability evidence-strength contract.
+
+7. **IRIS-BRM — Backend Relationship Matrix: ADOPT**
+   - Required to preserve device/backend/runtime/version relationships without false capability broadcast.
+
+8. **IRIS-PDM — Precision Dimensional Matrix: ADOPT_AS_COMPONENT**
+   - Retained as the provider-neutral precision vocabulary feeding PFX.
+
+9. **IRIS-VSF — Version Separation Fabric: ADOPT**
+   - Required to prevent driver/runtime/toolkit/library/framework version collapse.
+
+10. **IRIS-CCG — Capability Conflict Graph: ADOPT_AS_COMPONENT**
+    - Conflict graph semantics are retained under HGX/BRM rather than a separate first-release subsystem.
+
+### S03 candidates
+
+11. **IRIS-DSG — Driver Skew Graph: ADOPT**
+    - Required for host/kernel/container/guest/framework active-path skew.
+
+12. **IRIS-PFX — Precision Feature Lattice: ADOPT**
+    - Superset execution of PDM semantics; exact precision evidence remains dimensional.
+
+13. **IRIS-MEC — Media Engine Capability Matrix: ADOPT**
+    - Required for exact-device/path encode/decode capability truth.
+
+14. **IRIS-TGE — Topology Graph Evidence: ADOPT**
+    - Evidence layer extending ODG with topology/interconnect semantics.
+
+15. **IRIS-P2P — Pairwise Path Proof: ADOPT_AS_COMPONENT**
+    - Exact directional peer proof retained inside TGE.
+
+### S04 candidates
+
+16. **IRIS-TSL — Telemetry Semantics Ledger: ADOPT**
+    - Required to prevent cross-provider metric semantic collapse.
+
+17. **IRIS-MPF — Memory Pressure Fabric: ADOPT**
+    - Required dynamic evidence surface, explicitly non-prescriptive.
+
+18. **IRIS-TCR — Thermal Causality Resolver: ADOPT_AS_COMPONENT**
+    - Causality guard retained under TSL rather than an independent subsystem.
+
+19. **IRIS-EDE — Evidence Derivation Engine: ADOPT**
+    - Required deterministic derivation lineage for rates/ratios/classifications.
+
+20. **IRIS-SWG — Sampling Window Governor: ADOPT**
+    - Required safety/boundedness governor for dynamic telemetry.
+
+### S05 candidates
+
+21. **IRIS-HGX — Hardware Genome Exchange: ADOPT**
+    - Canonical schema/exchange contract for admitted M07 truth.
+
+22. **IRIS-MCD — Multidimensional Confidence Descriptor: ADOPT**
+    - Required non-scalar confidence representation.
+
+23. **IRIS-GDL — Genome Delta Ledger: ADOPT**
+    - Required exact base/target change representation.
+
+24. **IRIS-RFP — Reproducibility Fingerprint Projection: ADOPT**
+    - Required controlled M07→M06 projection boundary.
+
+25. **IRIS-SCB — Schema Compatibility Barrier: ADOPT**
+    - Required fail-closed schema reader/writer/migration compatibility gate.
+
+## 113. Consolidation result
+
+Final disposition:
+- ADOPT: 20
+- ADOPT_AS_COMPONENT: 5
+- DEFER: 0
+- REJECT_AS_DUPLICATE: 0
+
+The 25 candidate concepts therefore remain represented, but only 20 are independent frozen technology surfaces. Five become mandatory components of broader surfaces to reduce subsystem fragmentation.
+
+## 114. Dependency graph
+
+Core dependency direction:
+- HDF → admitted probe evidence.
+- ODG + RSP → exact subject/runtime identity.
+- NAF → negative/absence admission safety.
+- CEL + BRM + VSF → capability/runtime truth.
+- DSG + PFX + MEC + TGE → specialized driver/precision/media/topology evidence.
+- TSL + MPF + EDE + SWG → bounded dynamic telemetry evidence.
+- HGX consumes admitted evidence from all preceding surfaces.
+- MCD annotates evidence quality without changing semantics.
+- GDL compares immutable HGX snapshots.
+- RFP emits explicitly contracted reproducibility projections to M06.
+- SCB guards schema compatibility, readers, writers and migrations.
+
+No dependency edge permits a downstream component to strengthen upstream evidence.
+
+## 115. Implementation criticality
+
+**Foundation-critical for first implementation slice**
+- HDF
+- ODG
+- NAF
+- RSP
+- CEL
+- VSF
+- HGX
+- MCD
+- SCB
+
+**Necessary specialized capability surfaces**
+- BRM
+- DSG
+- PFX
+- MEC
+- TGE
+
+**Necessary dynamic telemetry surfaces**
+- TSL
+- MPF
+- EDE
+- SWG
+
+**Necessary lifecycle/integration surfaces**
+- GDL
+- RFP
+
+Implementation may be staged, but a staged implementation cannot claim complete M07 conformance until all frozen mandatory surfaces and acceptance evidence pass.
+
+## 116. Technology risk review
+
+Principal risks and controls:
+
+- **Vendor semantic drift**: versioned probes, source contracts and fail-closed unknown states.
+- **False equivalence across APIs/vendors**: provider-neutral vocabulary plus namespaced extensions and semantic identity requirements.
+- **Probe privilege creep**: HDF allowlist, read-only contract and SWG bounds.
+- **Confidence laundering**: MCD dimensions cannot strengthen semantic evidence.
+- **Schema drift**: SCB semantic versioning and compatibility gates.
+- **Identity/privacy leakage**: ODG identity/locator separation and redacted HGX views.
+- **Telemetry becoming policy**: TSL/MPF remain observational; M09/M10/M12 retain decision authority.
+- **Discovery becoming benchmark**: smoke/conformance remains bounded; M08 owns empirical performance.
+- **M06 authority leakage**: RFP is explicit projection only.
+- **Subsystem proliferation**: five candidates collapsed into mandatory components rather than independent services.
+
+## 117. 8 GB / heterogeneous hardware review
+
+The consolidated design preserves:
+- 8 GB discrete GPUs as first-class;
+- CPU-only hosts as first-class;
+- AMD/NVIDIA/Intel/Apple/generic backends without one vendor becoming canonical;
+- VM/container/WSL/partitioned devices as valid subjects;
+- missing capabilities as explicit evidence states rather than product exclusion;
+- no automatic quality downgrade from constrained hardware.
+
+## 118. Final Technology Review verdict
+
+**APPROVED_FOR_FORWARD_COMPATIBILITY_SCAN**
+
+Conditions:
+- all 210 candidate invariants remain subject to final contract freeze wording;
+- the 20 independent adopted technology surfaces and five absorbed components remain semantically represented;
+- no implementation begins before the M08-M60 Forward Compatibility Scan, contract freeze, independent planning audit, merge and exact-main validation;
+- no novelty/patentability claim is made by this review.
+
+## Final Technology Review STOP CONDITION
+
+The technology review is complete when:
+- every candidate has a disposition;
+- overlaps are consolidated;
+- dependency direction and implementation criticality are explicit;
+- risk controls and authority boundaries remain intact;
+- constrained/heterogeneous hardware remains first-class;
+- the next permitted planning action is the M08-M60 Forward Compatibility Scan.
