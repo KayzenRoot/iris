@@ -116,3 +116,28 @@ Transport version, core schema version, facet/dialect versions and validation/lo
 ## ADR-0027 - Round-trip fidelity is semantic and independently evidenced
 Status: `APPROVED`
 M04 round-trip contracts define exact, structural, semantic, tolerant, opaque-preservation or allowed-loss expectations per semantic family/path. Witness sets are derived from canonical obligations before adapter output. Adapters/providers cannot self-certify equivalence or promotion; M04 readiness remains evidence only.
+
+
+## ADR-0028 - M05 owns generic persistent semantic identity
+Status: `APPROVED`
+M05 is the canonical generic authority for persistent Asset/Persona semantic identity across representations, providers and admitted mutations. Names, file paths, content hashes, provider IDs, prompts, embeddings and similarity scores are not sufficient identity authority. M39 and other domain modules may define domain persona/profile continuity, but must bind to the M05 generic identity root rather than create a competing root identity model.
+
+## ADR-0029 - M05 cross-modal links do not transfer domain ownership
+Status: `APPROVED`
+M05 may bind persistent identity to revision-pinned domain DNA references, but M30 remains MotionDNA/motion authority, M40 VoiceDNA/voice authority, M46 BrandDNA/Brand & IP authority, M45 Campaign DNA/advertising authority, M41 Music/Artist DNA authority and M43 Canon authority. M05 links are owner/family/revision-pinned and never silently follow latest.
+
+## ADR-0030 - M05 identity mutation is proposal- and authority-governed
+Status: `APPROVED`
+Identity drift evidence, similarity scores, provider output and agent/model proposals cannot directly mutate canonical DNA. Representation repair is distinct from canonical mutation. Same-identity mutation creates a new immutable DNA revision; identity break creates a new dna_id with explicit lineage; split/consolidation preserve auditable source history.
+
+## ADR-0031 - M05 semantic lineage is not M02 branching or M06 production versioning
+Status: `APPROVED`
+M05 identity lineage describes semantic relationships such as same-identity revision, variant derivation, identity break, split and consolidation. M02 remains project/Production Graph/branch/snapshot/rollback authority. M06 remains production-state/content-addressed revision/build/reconstruction authority. Build/content hashes do not become persistent subject identity automatically.
+
+## ADR-0032 - M05 package and marketplace contracts are semantic, non-executable and authority-referenced
+Status: `APPROVED`
+Reusable DNA package and marketplace contracts define portable identity metadata, dependencies, compatibility and external policy references only. M53 retains rights/license/consent/provenance authority, M54 security/restricted-content authority, M55 storage/CAS authority, M58 API/SDK/MCP/conformance surfaces and M59 concrete export/publishing/delivery. Canonical DNA packages require no arbitrary executable payloads and imports cannot silently overwrite canonical identities.
+
+## ADR-0033 - M05 Final Technology Review consolidates 150 DNAX candidates into 25 families
+Status: `APPROVED`
+`IRIS-DNAX-001..150` remain design-history references and are consolidated exactly once into `F-M05-01..25`. The freeze candidate and later implementation should depend on the consolidated families rather than create 150 independent classes/services. Final Technology Review verdict is `APPROVED_FOR_FORWARD_COMPATIBILITY`; no implementation or contract freeze is authorized until the M06-M60 Forward Compatibility Scan and independent planning audit complete.
