@@ -1,10 +1,10 @@
 # IRIS Scope
 
-Status: `M05_PLANNING_MERGED_MAIN_VALIDATED`
+Status: `M06_IMPLEMENTATION_ADMITTED`
 
-## Current governed increment — M05 planning
+## Current governed increment — M06 implementation
 
-M05 Asset DNA 2.0 & Cross-Modal Identity has completed S01-S05 functional planning. It is not implemented. Its planning contract is frozen as `m05-contract-v1.0`.
+M05 Asset DNA 2.0 & Cross-Modal Identity is implemented, independently audited, merged and exact-main validated under `m05-contract-v1.0`. M06 Production State, Versioning & Incremental Media Build planning is frozen as `m06-contract-v1.0`, and IRIS-WO-0010 is admitted for implementation.
 
 ### S01
 Persistent identity substrate, immutable revisions, typed traits, applicability states, canonical/evidence partition, anchors and projection contracts.
@@ -67,10 +67,10 @@ Anchor authority/lifecycle, typed multi-dimensional drift evidence, repair-vs-mu
 - exact-main suite: **2677/2677 OK**.
 
 ### Next governed step
-Prepare a separate bounded M05 implementation Work Order / Context Lock / Evidence package.
+Execute the admitted IRIS-WO-0010 M06 implementation under its frozen Context Lock and Evidence Bundle. Do not start M07.
 
 ### NOT ADMITTED
-- M05 implementation package;
+- M07+ implementation;
 - project/VCS branching inside M05;
 - production build/version authority;
 - marketplace payments/storefront/ranking;
@@ -82,4 +82,4 @@ Prepare a separate bounded M05 implementation Work Order / Context Lock / Eviden
 
 ## IRIS 1.0 product scope
 
-IRIS 1.0 continues to include M00-M60. Completion of M05 functional planning does not silently admit implementation or later modules.
+IRIS 1.0 continues to include M00-M60. M05 implementation is complete. M06 implementation is separately admitted by IRIS-WO-0010; later modules remain gated.
