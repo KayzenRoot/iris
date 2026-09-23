@@ -19,7 +19,7 @@ Project governance/adoption profile is pinned to the stable release; GEF workspa
 - M04 exposes frozen provider-neutral Multimodal IR / Scene IR contracts through `m04-contract-v1.0`.
 - M04 consumes M01/M02/M03 boundaries without superseding them.
 - M16 is the sole owner of concrete provider/workflow compilation; M04 emits provider-neutral capability/legality/lowering contracts only.
-- M05 S01 now defines the planning boundary for persistent DNA identity, immutable DNA revisions, identity traits, anchors and projection contracts. M05 implementation remains unadmitted.
+- M05 S01-S02 define the planning boundary for persistent DNA identity, immutable revisions, typed traits, family profiles, persistent components, variant/archetype levels, anchors and projection contracts. M05 implementation remains unadmitted.
 - M06+ persistence, DCC/runtime, rendering, editorial, audio/music/story, rights/security and delivery remain extension/ref boundaries until their owning modules are admitted.
 
 ## CORE
