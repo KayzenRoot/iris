@@ -1,6 +1,6 @@
 # IRIS Scope
 
-Status: `M06_IMPLEMENTATION_ADMITTED`
+Status: `M07_PLANNING_CONTRACT_FREEZE_CANDIDATE`
 
 ## Current governed increment — M06 implementation
 
