@@ -348,6 +348,8 @@ class RollbackPlan(CanonicalRecord):
             or self.current_snapshot.production_id != self.target_snapshot.production_id
         ):
             raise ProductionStateIntegrityError("rollback current and target snapshots must belong to the same project and production")
+        if self.current_snapshot.snapshot_id == self.target_snapshot.snapshot_id:
+            raise ProductionStateAdmissionError("rollback target must be a distinct exact historical snapshot")
         if type(self.previous_current_revision_ref) is not OperationalRevisionRef:
             raise ProductionStateValidationError("previous_current_revision_ref must be an exact M06 operational revision")
         require_exact_ref(self.m02_rollback_ref, "m02_rollback_ref")
