@@ -1,6 +1,6 @@
 # M06 — Production State, Versioning & Incremental Media Build
 
-Status: `S01_COMPLETE_FOR_MODULE_PLANNING`
+Status: `S02_COMPLETE_FOR_MODULE_PLANNING`
 Planning model: `FULL_VERSION_NO_MVP`
 Issue: #44
 Planning base: `bac62c5e59ff926c6b80a5ec86a91b0410f35fea`
@@ -204,4 +204,238 @@ S01 is complete for module planning when:
 - 30 candidate hard invariants are recorded;
 - S01 proprietary candidates are registered for later review;
 - checkpoint may advance to M06 S02 planning;
+- no M06 product implementation is introduced.
+
+
+# S02 — Dependency fingerprints and impact analysis
+
+Status: `COMPLETE_FOR_MODULE_PLANNING`
+
+## 1. Goal
+
+Define the operational dependency-observation, fingerprint and impact-analysis layer that turns M02 dependency semantics into exact, explainable rebuild evidence without allowing M06 to invent semantic dependencies or silently omit observed material causality.
+
+## 2. Authority boundary
+
+M02 remains canonical for Production Graph edges, DependencyFacet, DependencySelector/Slice, CausalFingerprint, ImpactCone, DependencyDiscoveryReceipt, BuildDelta and DirtyFrontier semantics.
+
+M06 operationalizes those contracts by:
+- recording exact dependency observations for a materialization/revision;
+- computing versioned operational fingerprints over admitted dependency slices;
+- indexing reverse dependency evidence;
+- comparing prior/current observations;
+- projecting candidate affected sets under M02 rules;
+- emitting explainable impact receipts for later S03 selective rebuild.
+
+M06 does not mutate an M02 graph merely because runtime observation discovers a dependency. An undeclared material dependency becomes a governed discovery/conflict requiring M02-compatible admission.
+
+## 3. DependencyObservation
+
+A dependency observation binds:
+- consumer semantic/revision ref;
+- producer/dependency exact ref;
+- dependency facet and selector/slice;
+- observation source/capability;
+- required/optional/observed-only classification;
+- exact version/schema of interpretation;
+- observation confidence/state;
+- evidence ref;
+- deterministic observation fingerprint.
+
+Observation is evidence, not automatic graph authority.
+
+## 4. OperationalDependencyFingerprint
+
+Fingerprints are multidimensional and typed rather than one opaque cache key.
+
+Candidate dimensions:
+- semantic input refs;
+- exact dependency revisions;
+- selected facets/slices;
+- M03 intent/constraint refs;
+- M04 representation refs;
+- M05 identity/DNA refs where consumed;
+- qualified model/workflow/toolchain refs when execution-relevant;
+- policy/rights/security refs when they materially affect admissible output;
+- reconstruction parameters/seeds where applicable;
+- environment/capability refs only when declared material to reproducibility;
+- schema/fingerprint algorithm versions.
+
+Non-material telemetry, storage location and display metadata cannot dirty a build unless a governing contract explicitly classifies them as material.
+
+## 5. Fingerprint scopes
+
+Required scopes:
+- `FULL_CAUSAL`: complete admitted material dependency closure for a target.
+- `SELECTED_SLICE`: one declared dependency slice/facet.
+- `RECONSTRUCTION`: inputs required to reconstruct a specific materialization class.
+- `POLICY_SENSITIVE`: authority/policy refs whose change can invalidate admissibility.
+- `IDENTITY_SENSITIVE`: protected M05 identity refs consumed by the target.
+- `TOOLCHAIN_SENSITIVE`: admitted execution semantics whose version affects reproducibility.
+
+Scopes are explicit and cannot be compared as equivalent accidentally.
+
+## 6. ChangeSet and FingerprintDelta
+
+A delta records:
+- previous/current fingerprint versions;
+- changed dimensions;
+- added/removed/changed exact refs;
+- unknown/unresolvable dimensions;
+- materiality classification;
+- affected selectors/slices;
+- evidence explaining every classification.
+
+Unknown materiality on a mandatory dependency is blocking for safe reuse.
+
+## 7. Reverse dependency index
+
+M06 may maintain a durable operational reverse index from exact dependency refs/fingerprints to consumers.
+
+Rules:
+- the index is derived from canonical/observed receipts;
+- it is rebuildable;
+- it is not canonical semantic graph authority;
+- stale/partial index state is explicit;
+- absence from an incomplete index never proves no impact;
+- index corruption cannot silently authorize reuse.
+
+M55 may store the index bytes, but M06 owns its operational semantics.
+
+## 8. Impact analysis
+
+Impact analysis starts from a typed change set and produces:
+- directly affected consumers;
+- transitive candidate impact cone;
+- exact causal paths;
+- unaffected proof candidates where sufficient evidence exists;
+- unknown impact frontier;
+- policy/identity-sensitive invalidations;
+- reason codes for each edge/target.
+
+The result is an analysis receipt, not an execution plan. S03 consumes it to decide selective rebuild under M02 Build semantics.
+
+## 9. Hidden and dynamic dependencies
+
+Runtime/provider discovery may reveal undeclared dependencies.
+
+Required behavior:
+- record the observation;
+- mark affected prior reuse assumptions stale where material;
+- create a `DependencyDiscoveryReceipt` compatible with M02;
+- block unsafe reuse until dependency authority is reconciled;
+- never silently mutate frozen graph history;
+- never discard a material hidden dependency because it is inconvenient or expensive.
+
+Dynamic dependencies require explicit bounded discovery semantics and cannot be represented by an unbounded wildcard that falsely claims completeness.
+
+## 10. Minimum sufficient invalidation
+
+The optimization objective is not "invalidate as little as possible." It is "invalidate no less than correctness requires, then minimize unnecessary work with proof."
+
+A target may be classified unaffected only when:
+- all material dependency dimensions relevant to that target are known;
+- selectors/slices prove the changed portion is outside its dependency;
+- fingerprint algorithms/schemas are supported;
+- no blocking hidden/unknown dependency exists;
+- required authority/policy evidence remains fresh.
+
+## 11. Explainability
+
+Every impact decision must be reproducible from a bounded receipt containing:
+- source change;
+- traversed dependency paths;
+- selector/slice reasoning;
+- prior/current fingerprints;
+- unknowns;
+- final impact state and reason codes.
+
+Required impact states:
+- `AFFECTED`;
+- `UNAFFECTED_PROVEN`;
+- `POTENTIALLY_AFFECTED`;
+- `UNKNOWN`;
+- `BLOCKED_BY_STALE_EVIDENCE`.
+
+## 12. S02 hard invariants
+
+31. M06 dependency observations cannot silently redefine M02 graph semantics.
+32. Observed material hidden dependencies cannot be discarded silently.
+33. Dependency fingerprints are versioned and schema-qualified.
+34. Fingerprints bind exact refs rather than implicit latest.
+35. Fingerprint scope is explicit.
+36. Different fingerprint scopes cannot be treated as equivalent automatically.
+37. Storage locator changes are non-material unless an admitted semantic contract says otherwise.
+38. Display-name/path changes cannot invalidate semantic work by default.
+39. A content hash alone is insufficient as a complete causal fingerprint.
+40. Dependency slices/facets must preserve their M02 meaning.
+41. Unknown mandatory dependency state blocks safe reuse.
+42. Unknown materiality cannot be coerced to non-material.
+43. Absence from a partial reverse index cannot prove unaffected.
+44. Reverse dependency indexes are derived/rebuildable operational state.
+45. Index corruption cannot authorize reuse.
+46. Impact analysis must expose direct and transitive causal paths.
+47. Impact analysis must preserve an unknown frontier.
+48. `UNAFFECTED_PROVEN` requires positive sufficient evidence.
+49. Affected and potentially affected are distinct.
+50. Stale evidence cannot prove unaffected.
+51. Hidden dependency discovery invalidates incompatible prior reuse assumptions.
+52. Dependency discovery creates new evidence/history rather than rewriting old receipts.
+53. Dynamic dependency discovery must be bounded and explicit.
+54. Wildcards cannot falsely claim complete dependency closure.
+55. Policy/rights/security refs may be material to admissibility without being media bytes.
+56. M05 identity-sensitive refs may invalidate consumers without transferring identity authority to M06.
+57. Toolchain/environment facts affect fingerprints only when declared materially relevant.
+58. Hardware/performance changes cannot silently change semantic dependency truth.
+59. Impact receipts are analysis evidence, not execution/promotion authority.
+60. HIVE/agents may suggest dependency relationships but cannot self-admit them as canonical material dependencies.
+
+These extend S01 invariants 1–30 and remain candidates until final M06 contract freeze.
+
+## 13. Proprietary technology candidates
+
+### IRIS-CFM — Causal Fingerprint Matrix
+Typed multidimensional fingerprints that preserve semantic, identity, policy, toolchain and reconstruction dimensions independently instead of flattening causality into one cache key.
+
+### IRIS-MSI — Minimum Sufficient Invalidation
+Proof-oriented invalidation engine that computes the smallest safe dirty frontier only after correctness evidence establishes what is unaffected.
+
+### IRIS-HDS — Hidden Dependency Sentinel
+Runtime observation firewall that detects undeclared material dependencies, invalidates unsafe reuse assumptions and emits governed discovery receipts.
+
+### IRIS-ICX — Impact Cone Explainer
+Deterministic causal-path receipt format explaining why each target is affected, proven unaffected, uncertain or blocked.
+
+### IRIS-RDI — Rebuildable Dependency Index
+Derived reverse-dependency index with completeness/freshness state so index absence can never masquerade as proof of no impact.
+
+All remain planning candidates pending Technology Review and prior-art review.
+
+## 14. S02 acceptance evidence targets
+
+Later implementation must prove:
+- deterministic versioned fingerprints;
+- facet/slice-specific invalidation;
+- direct/transitive impact correctness;
+- positive proof requirement for `UNAFFECTED_PROVEN`;
+- hidden dependency discovery blocks unsafe reuse;
+- partial/stale/corrupt index behavior fails closed;
+- exact-ref versus implicit-latest regression;
+- policy/identity-sensitive invalidation;
+- non-material locator/display changes do not cause false rebuilds;
+- impact explanation round-trip and deterministic reason paths;
+- domain-neutral behavior across image, 3D, video, audio and metadata-only productions.
+
+## S02 STOP CONDITION
+
+S02 is complete for module planning when:
+- M02 dependency authority is preserved;
+- dependency observation/fingerprint/delta semantics are explicit;
+- reverse-index completeness/freshness semantics are explicit;
+- hidden/dynamic dependency behavior fails closed;
+- impact states and explainability are explicit;
+- minimum-sufficient invalidation is correctness-first;
+- invariants 31–60 are recorded;
+- S02 proprietary candidates are registered;
+- checkpoint may advance to M06 S03 planning;
 - no M06 product implementation is introduced.
