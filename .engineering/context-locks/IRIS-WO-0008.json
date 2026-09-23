@@ -5,7 +5,7 @@
   "branch": "iris-wo-0008-m04-multimodal-ir",
   "baseSha": "bb875a958a88a844bfa62cdfec694fe148590a41",
   "baseTreeSha": "f6b481533e4f54000cae7c64660cadf6d5d1853a",
-  "status": "EXECUTOR_READY",
+  "status": "ADMITTED_FOR_EXECUTION",
   "risk": "ELEVATED",
   "frozenContract": {
     "name": "m04-contract-v1.0",
@@ -136,12 +136,11 @@
     }
   },
   "admissionValidation": {
-    "candidateHead": "1339a8ae1d39e787d51f719b5004b9bcf4c859f2",
+    "head": "1339a8ae1d39e787d51f719b5004b9bcf4c859f2",
     "governanceRun": 35802899954,
     "governanceJob": 106997061796,
     "tests": 2527,
     "requiredArtifacts": 35,
-    "conclusion": "success",
-    "finalExecutorReadyGovernance": "REQUIRED_ON_CURRENT_HEAD"
+    "result": "PASS"
   }
 }
