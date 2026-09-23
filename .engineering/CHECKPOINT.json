@@ -3,6 +3,6 @@
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "M04_IMPLEMENTATION_ADMITTED",
   "version": "m04-contract-v1.0",
-  "phase": "IRIS-WO-0008_EXECUTION_READY",
-  "nextStep": "Execute IRIS-WO-0008 on branch `iris-wo-0008-m04-multimodal-ir` / PR #31, then stop before merge for independent review."
+  "phase": "IRIS-WO-0008_EXECUTOR_READY",
+  "nextStep": "Run IRIS-WO-0008 executor preflight, implement and test the complete frozen M04 kernel on PR #31, then stop for independent review without merging or starting M05."
 }
