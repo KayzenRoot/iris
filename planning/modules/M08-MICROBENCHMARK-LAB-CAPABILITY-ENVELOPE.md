@@ -1150,3 +1150,29 @@ Next permitted work:
 
 No M08 implementation and no M09 deep planning/implementation are admitted before those gates.
 
+# M09-M60 Forward Compatibility Incorporation
+
+Status: `FORWARD_COMPATIBILITY_FINDINGS_INCORPORATED`
+
+The 52/52 downstream-module scan is recorded in `planning/compatibility/M08-FORWARD-COMPATIBILITY-SCAN.md`. Ten findings are incorporated as hard invariants:
+
+321. Consumer-facing M08 projections declare evidence purpose/use semantics; materially different reuse requires explicit qualification.
+322. Benchmark provenance can bind a versioned execution-context descriptor without making M08 owner of the referenced application/runtime.
+323. M08 exposes a versioned requirement/qualification contract returning satisfied/unsatisfied/unknown/incomparable with reasons; consumer policy remains external.
+324. Invalidation dependencies support opaque versioned external-context references in addition to M07 material-change references.
+325. M08 protocol/result identities carry the `hardware-capability` authority namespace; M51 artifacts cannot masquerade as M08 capability evidence without admitted M08 protocol binding.
+326. M08 exposes immutable provenance references/digests suitable for later M53 lineage binding while retaining privacy/evidence semantics.
+327. Active benchmark admission includes an opaque security/permission authorization reference when required; absence/denial fails closed and M08 cannot weaken M54 policy.
+328. Automated/agent-originated benchmark requests obey the same authorization, safety, cancellation and provenance requirements as interactive requests.
+329. External M08 projections are schema-versioned, capability-negotiable and governed by explicit compatibility policy; internal representation is not the API contract.
+330. M08 can emit a deterministic acceptance evidence bundle binding exact protocols, fixtures, Genome projection, results, envelopes, calibration/freshness and validity state without deciding M60 release acceptance.
+
+Updated planning inventory:
+- hard-invariant candidates: **330**;
+- independent mandatory technology surfaces: **40**;
+- mandatory absorbed components: **15**;
+- downstream modules scanned: **52/52**;
+- residual HIGH/CRITICAL findings: **0/0**.
+
+Next permitted action: compile the M08 Module Contract Freeze candidate. No implementation is admitted.
+
