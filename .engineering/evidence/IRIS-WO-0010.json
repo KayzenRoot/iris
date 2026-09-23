@@ -1,11 +1,26 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0010",
-  "status": "ADMITTED_FOR_EXECUTION",
+  "status": "IMPLEMENTED_AND_LOCALLY_QUALIFIED",
   "branch": "iris-wo-0010-m06-production-state",
+  "repository": "KayzenRoot/iris",
+  "origin": "https://github.com/KayzenRoot/iris.git",
   "frozenContract": "m06-contract-v1.0",
   "issue": 47,
-  "baseSha": "e3eaa8386e5ee0f7712e8849a160d253bd2461fe",
+  "pullRequest": {
+    "number": 48,
+    "url": "https://github.com/KayzenRoot/iris/pull/48",
+    "base": "main",
+    "merge": "DO_NOT_MERGE"
+  },
+  "baseHeadChain": {
+    "authorizedBaseSha": "e3eaa8386e5ee0f7712e8849a160d253bd2461fe",
+    "originMainShaAtPreflight": "e3eaa8386e5ee0f7712e8849a160d253bd2461fe",
+    "mergeBaseShaAtPreflight": "e3eaa8386e5ee0f7712e8849a160d253bd2461fe",
+    "admittedHeadSha": "861280ccda788586367baabf1e805024245b890d",
+    "implementationCommitSha": "18099553987a668185a415aad12ab5cc7bbd0704",
+    "evidenceCommitFollowsImplementationCommit": true
+  },
   "baseline": {
     "governanceRun": 35865548802,
     "governanceJob": 107196079547,
@@ -16,31 +31,174 @@
     "contextLock": ".engineering/context-locks/IRIS-WO-0010.json",
     "criticalSources": 16,
     "criticalSourceFingerprintMismatches": 0,
-    "governanceRun": 35866052316,
-    "governanceJob": 107197781973,
+    "governanceRun": 35868534038,
+    "governanceJob": 107206239344,
     "governanceConclusion": "success",
-    "candidateHead": "4c331decee73cee8658ce4816a7ca1622681ee0f",
+    "candidateHead": "861280ccda788586367baabf1e805024245b890d",
     "result": "PASS",
-    "reconciliation": "Canonical Scope/Architecture/Checkpoint stale-state wording repaired after executor preflight; frozen contract/scope unchanged. Context Lock fingerprints refreshed; exact-head Governance revalidation required.",
-    "revalidationGovernanceRun": 35868355292,
-    "revalidationGovernanceJob": 107205629591,
-    "revalidationResult": "PASS",
-    "reconciledHead": "82b2a9ed08310895899270423f7296cda5e404a4"
+    "reconciliation": "Canonical source wording and Context Lock were reconciled without changing the frozen M06 contract or scope.",
+    "prBaseConfirmed": "main"
   },
   "implementation": {
-    "state": "NOT_STARTED",
+    "state": "COMPLETE_LOCAL_VALIDATION",
     "package": "iris_production_state/",
-    "frozenFamilies": {
-      "required": 25,
-      "represented": 0
+    "implementationCommitSha": "18099553987a668185a415aad12ab5cc7bbd0704",
+    "changedFiles": [
+      ".engineering/evidence/IRIS-WO-0010.json",
+      "docs/M06-PRODUCTION-STATE-KERNEL.md",
+      "examples/m06_domain_neutral_profiles.py",
+      "iris_production_state/__init__.py",
+      "iris_production_state/base.py",
+      "iris_production_state/dependencies.py",
+      "iris_production_state/enums.py",
+      "iris_production_state/errors.py",
+      "iris_production_state/families.py",
+      "iris_production_state/invariants.py",
+      "iris_production_state/limits.py",
+      "iris_production_state/lineage.py",
+      "iris_production_state/migration.py",
+      "iris_production_state/ports.py",
+      "iris_production_state/reconstruction.py",
+      "iris_production_state/regeneration.py",
+      "iris_production_state/release.py",
+      "iris_production_state/revisions.py",
+      "iris_production_state/serialization.py",
+      "iris_production_state/validation.py",
+      "iris_production_state/versions.py",
+      "tests/m06_support.py",
+      "tests/test_m06_dependencies.py",
+      "tests/test_m06_invariants.py",
+      "tests/test_m06_lineage_release.py",
+      "tests/test_m06_reconstruction.py",
+      "tests/test_m06_regeneration.py",
+      "tests/test_m06_revisions.py",
+      "tests/test_m06_serialization_security.py"
+    ],
+    "publicSurface": {
+      "exports": 179,
+      "frozenFamilies": {
+        "required": 25,
+        "represented": 25
+      },
+      "hardInvariants": {
+        "required": 150,
+        "indexedVerbatimFromCanonicalPlan": 150,
+        "mappedToExistingFamilyProof": 150
+      },
+      "versionedEvidencePorts": {
+        "required": 20,
+        "represented": 20
+      }
     },
-    "hardInvariants": {
-      "required": 150,
-      "indexed": 0
+    "dependencies": {
+      "newRuntimeDependencies": [],
+      "repositoryPackages": ["iris_project_os", "iris_asset_dna"],
+      "otherImports": "Python standard library"
     },
-    "ports": {
-      "required": 20,
-      "represented": 0
+    "schemaVersioning": {
+      "contract": "m06-contract-v1.0",
+      "coreSchema": "iris-m06-core-v1",
+      "transport": "iris-m06-json-v1",
+      "validator": "iris-m06-validator-v1",
+      "ports": "iris-m06-ports-v1",
+      "fingerprints": "iris-m06-fingerprint-v1",
+      "operationalRevision": "iris-m06-operational-revision-v1",
+      "contentDigest": "iris-m06-content-digest-v1"
+    },
+    "authorityBoundaries": {
+      "M01": "Quality evidence and promotion remain M01-owned.",
+      "M02": "Project/build/ExecutionPlan/snapshot/release authority remains M02-owned; M06 binds exact BuildPlan, DependencySlice, ReuseReceipt, Snapshot, and ReleaseTransaction records.",
+      "M03": "Creative intent, constraints, and overrides remain M03-owned.",
+      "M04": "Provider-neutral structured representation remains M04-owned.",
+      "M05": "Persistent Asset/Persona DNA remains M05-owned; M06 consumes exact identity refs.",
+      "M16": "Concrete provider/workflow compilation remains exclusively M16-owned; M06 workflow ports exchange evidence only.",
+      "M53_M54_M55": "Current rights/security and physical storage/deletion are external authorities; M06 records evidence and does not execute them."
+    },
+    "profiles": [
+      "image-partial-repair-lineage",
+      "3d-mesh-material-lod",
+      "video-mixed-rebuilt-reused-segments",
+      "audio-voice-music",
+      "metadata-only-canon-dependent",
+      "stochastic-production",
+      "retained-materialization-restoration",
+      "release-archive-rollback-cleanup"
+    ],
+    "serializationAndContext": {
+      "canonicalSerialization": "Deterministic UTF-8 JSON with stable ordering and a closed typed registry.",
+      "fingerprintDelta": "Versioned causal fingerprints, scope-aware deltas, and explicit materiality.",
+      "slices": "Every dimension is included or omitted with positive non-material evidence; repair slices bind exact M02 DependencySlice records.",
+      "migration": "Immutable literal-data migration with bounded rename/default/drop operations.",
+      "semanticRoundTrip": "M02, M05, and M06 typed records preserve equality and canonical fingerprint in focused tests."
+    },
+    "securityAndResourceLimits": {
+      "dynamicEvaluation": "No eval/exec or arbitrary payload-directed import execution.",
+      "forbiddenIntegrations": "No shell, network, database, DCC, provider SDK, GPU, media generation, quality judge, rights engine, security engine, or publishing runtime.",
+      "positiveBounds": {
+        "records": 100000,
+        "referencesPerRecord": 20000,
+        "dependencies": 50000,
+        "lineageNodes": 100000,
+        "lineageEdges": 200000,
+        "fingerprintDimensions": 512,
+        "fingerprintRefs": 20000,
+        "jsonDepth": 64,
+        "jsonItems": 100000,
+        "textChars": 16384,
+        "inlinePayloadBytes": 8388608
+      },
+      "impactLimitBehavior": "Unknown frontier is returned when bounded graph traversal cannot prove closure."
+    },
+    "correctedFindings": [
+      "The image synthetic profile initially used an unknown reverse-index state; it now supplies complete-fresh state and exact closure evidence.",
+      "Ruff identified unused imports and an undefined impact traversal frontier reference; imports were removed and the node-limit path now returns an explicit unknown frontier with a focused regression test.",
+      "Exact-byte restoration now binds a retained materialization digest to the new output; exact semantic-state claims require versioned contract and verification evidence."
+    ],
+    "deferredPortsAndRisks": [
+      "The 20 versioned ports define evidence contracts; system-specific adapters remain deferred.",
+      "Independent review and checkpoint promotion remain pending.",
+      "M06 intentionally does not provide physical persistence, generation, provider execution, quality judging, rights/security decisions, deletion, or publishing."
+    ]
+  },
+  "localValidation": {
+    "compile": {
+      "command": "python -m compileall -q iris_production_state tests examples",
+      "result": "PASS"
+    },
+    "focusedTests": {
+      "command": "python -m unittest discover -s tests -p \"test_m06_*.py\"",
+      "passed": 46,
+      "result": "PASS"
+    },
+    "fullTests": {
+      "command": "python -m unittest discover -s tests -p \"test_*.py\"",
+      "passed": 2770,
+      "baseline": 2724,
+      "delta": 46,
+      "result": "PASS"
+    },
+    "syntheticProfiles": {
+      "command": "python -m examples.m06_domain_neutral_profiles",
+      "passed": 8,
+      "result": "PASS"
+    },
+    "lint": {
+      "command": "ruff check iris_production_state tests/test_m06_*.py tests/m06_support.py examples/m06_domain_neutral_profiles.py",
+      "result": "PASS"
+    },
+    "governance": {
+      "command": "python scripts/validate_governance.py",
+      "result": "PASS",
+      "requiredArtifacts": 35,
+      "gefVersion": "v1.0.0",
+      "hiveVersion": "v1.0.0"
+    },
+    "staticBoundaries": "PASS; test_m06_serialization_security.py checks forbidden imports, no eval/exec, strict reference versions, and bounded inputs.",
+    "exactHeadHostedGovernance": {
+      "requiredTarget": "current PR #48 head SHA",
+      "repository": "KayzenRoot/iris",
+      "conclusionSource": "GitHub Governance check attached to the PR head",
+      "localGovernanceIsSubstitute": false
     }
   },
   "independentReview": {
@@ -48,7 +206,8 @@
     "merge": "DO_NOT_MERGE"
   },
   "proposedCheckpointDelta": {
-    "status": "NOT_PROPOSED"
+    "status": "PROPOSED_NOT_PROMOTED",
+    "summary": "M06 contract implementation is locally complete and qualified for independent exact-head audit; keep M01/M02/M03/M04/M05/M16 authorities intact, record M06 kernel availability, and do not start M07 until separate review and approval."
   },
-  "stopCondition": "Implementation admitted after canonical-state reconciliation. Execute complete M06 and stop ready for independent review; do not merge or start M07."
+  "stopCondition": "Stop with M06 implemented, locally validated, documented, evidenced, pushed on the existing branch, and ready for independent audit. Do not merge and do not start M07."
 }
