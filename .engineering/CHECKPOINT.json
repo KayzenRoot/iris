@@ -2,7 +2,7 @@
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "M05_PLANNING_ACTIVE",
-  "version": "m05-planning-s02",
-  "phase": "M05_S02_COMPLETE_S03_NEXT",
-  "nextStep": "Plan M05 S03 — SceneDNA, Motion DNA, Voice DNA and Brand DNA links. Preserve S01-S02 ownership boundaries and do not implement M05."
+  "version": "m05-planning-s03",
+  "phase": "M05_S03_COMPLETE_S04_NEXT",
+  "nextStep": "Plan M05 S04 — identity anchors, mutation boundaries and drift detection. Preserve S01-S03 authority firewalls and do not implement M05."
 }
