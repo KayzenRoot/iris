@@ -1565,3 +1565,475 @@ S04 is complete for module planning when:
 - five additional proprietary technology candidates are registered (20 cumulative);
 - planning may advance to M07 S05 Hardware Genome schema, versioning and confidence;
 - no M07 product/runtime implementation is introduced.
+
+
+# S05 — Hardware Genome schema, versioning and confidence
+
+## 83. Goal
+
+S05 defines the canonical Hardware Genome representation that packages admitted M07 discovery evidence without erasing provenance, uncertainty, conflicts, visibility scope or freshness.
+
+The Hardware Genome is an evidence product, not a scheduler profile, benchmark score, hardware ranking or optimization policy.
+
+## 84. Genome identity
+
+Every canonical genome binds:
+- GenomeId;
+- schema identifier and semantic version;
+- exact discovery snapshot/session lineage;
+- HardwareSubjectRef set;
+- RuntimeSubjectRef set;
+- capture interval;
+- producer implementation/version;
+- admitted probe-set version;
+- evidence-root digest;
+- creation timestamp;
+- current/historical status.
+
+Genome identity is content/evidence anchored. A mutable display name cannot identify canonical hardware truth.
+
+## 85. Canonical sections
+
+The schema may contain versioned sections for:
+- host/runtime substrate;
+- CPU;
+- memory;
+- GPU/accelerators;
+- storage visibility facts;
+- backend/runtime capability assertions;
+- driver/runtime relationships;
+- precision capabilities;
+- media engines;
+- topology/interconnect;
+- bounded dynamic telemetry references;
+- conflicts;
+- unknown/unavailable facts;
+- provenance/evidence references;
+- confidence descriptors;
+- extensions.
+
+Sections are independently evolvable under compatibility rules.
+
+## 86. Fact envelope
+
+Every admitted fact uses a common envelope containing at minimum:
+- canonical fact key;
+- subject reference;
+- value/state;
+- unit/semantic type when applicable;
+- source/probe;
+- evidence strength;
+- confidence descriptor;
+- capture/freshness metadata;
+- visibility scope;
+- evidence reference/digest;
+- conflict/supersession metadata where applicable.
+
+Raw source payloads may be retained by evidence storage policy, but cannot replace normalized fact envelopes.
+
+## 87. Unknown as first-class data
+
+The genome preserves explicit states such as:
+- UNKNOWN;
+- UNAVAILABLE;
+- UNSUPPORTED_PROBE;
+- PERMISSION_DENIED;
+- CONFLICTING;
+- STALE;
+- PARTIAL;
+- NOT_PRESENT_PROVEN.
+
+Unknown is not schema omission when the contract requires a field/state to be represented.
+
+Consumers can therefore distinguish “not asked,” “not observable,” “not supported,” and “proven absent.”
+
+## 88. Confidence model
+
+Confidence is multidimensional rather than one opaque percentage.
+
+Candidate dimensions:
+- source authority;
+- subject-binding strength;
+- evidence strength;
+- freshness;
+- cross-source agreement;
+- semantic completeness;
+- visibility completeness;
+- derivation depth.
+
+Each dimension uses a versioned ordinal/enumerated scale with explicit meaning.
+
+A composite display score may exist only as a derived convenience. It cannot replace dimensions or authorize a stronger semantic claim.
+
+## 89. Confidence monotonicity
+
+Confidence cannot increase merely because:
+- more weak sources repeat the same claim;
+- a marketing/product-name lookup agrees;
+- a newer timestamp exists without stronger evidence;
+- unknown fields are omitted;
+- conflicts are hidden;
+- a derived fact is rounded or normalized.
+
+Confidence promotion requires contract-defined evidence improvement.
+
+## 90. Confidence and conflict
+
+A conflict cannot be “averaged away.”
+
+When authoritative sources disagree:
+- both claims remain traceable;
+- conflict state is explicit;
+- confidence dimensions reflect disagreement;
+- a governed preferred interpretation may be projected separately;
+- the underlying evidence remains immutable.
+
+Consumers must be able to request conflict-preserving form.
+
+## 91. Schema versioning
+
+Hardware Genome uses semantic schema versioning:
+- PATCH: clarification/additive metadata that does not alter admitted semantics;
+- MINOR: backward-compatible additive fields/states/capabilities;
+- MAJOR: incompatible semantic or structural change.
+
+The exact compatibility rules are machine-readable and versioned.
+
+Producer version and schema version remain separate.
+
+## 92. Reader compatibility
+
+A reader declares:
+- supported schema major/minor range;
+- understood required feature flags;
+- understood extension namespaces;
+- behavior for unknown optional fields;
+- behavior for unknown required semantics.
+
+Unknown optional fields may be preserved/ignored according to contract.
+Unknown required semantics fail closed.
+
+A reader cannot silently reinterpret a newer semantic state as an older familiar one.
+
+## 93. Writer compatibility
+
+Writers:
+- emit one explicit schema version;
+- cannot claim an older schema while embedding newer incompatible semantics;
+- preserve unknown fields when performing contract-defined lossless transformations where required;
+- identify lossy export explicitly.
+
+Canonical storage never depends on lossy downgrade.
+
+## 94. Extensions
+
+Vendor/provider/platform extensions use namespaced keys.
+
+Extensions cannot:
+- override canonical keys;
+- weaken canonical invariants;
+- redefine canonical units/states;
+- inject executable behavior;
+- become mandatory for generic readers without a schema revision.
+
+Promoted extensions require explicit governance and compatibility review.
+
+## 95. Genome snapshots
+
+A genome snapshot is immutable once admitted.
+
+A newer snapshot:
+- references prior lineage when applicable;
+- may supersede current-state projections;
+- never rewrites historical evidence;
+- can identify material change categories.
+
+Snapshots are valid even when incomplete, provided incompleteness is explicit and required admission rules are satisfied.
+
+## 96. Genome delta
+
+A delta can represent change between compatible snapshots.
+
+Every delta binds:
+- exact base GenomeId;
+- exact target GenomeId;
+- schema compatibility;
+- changed fact envelopes;
+- additions/removals;
+- state transitions;
+- invalidations;
+- conflict changes.
+
+A delta is not independently authoritative without its bound base/target context.
+
+## 97. Material-change classes
+
+Candidate change classes:
+- identity;
+- runtime substrate;
+- driver/runtime;
+- capability;
+- topology;
+- memory/capacity;
+- media/precision;
+- telemetry-only;
+- visibility/permission;
+- confidence/evidence;
+- schema-only.
+
+Downstream consumers can subscribe to change classes without M07 deciding their reaction.
+
+## 98. Fingerprints
+
+M07 may expose privacy-preserving fingerprints for:
+- whole genome;
+- static hardware identity subset;
+- runtime/capability subset;
+- topology subset;
+- explicitly declared M06 reproducibility-material subset.
+
+Fingerprints bind canonicalized admitted facts and schema/canonicalization version.
+
+They cannot include unstable telemetry unless the fingerprint contract explicitly calls for it.
+
+## 99. Reproducibility projection
+
+M06 receives only an explicitly declared projection of M07 facts that are material to a reproducibility contract.
+
+Rules:
+- M07 does not decide which hardware differences are materially acceptable for a production artifact;
+- M06 does not manufacture hardware facts;
+- the projection binds exact GenomeId/fingerprint/schema;
+- omitted dynamic telemetry cannot later be implied as captured;
+- equivalence policies remain owned by the consuming contract.
+
+## 100. Canonicalization
+
+Canonical hashing requires deterministic:
+- field ordering;
+- encoding;
+- number/unit representation;
+- state representation;
+- extension ordering;
+- absent versus explicit-unknown handling.
+
+Presentation formatting cannot affect canonical identity.
+
+Floating telemetry is excluded from static fingerprints unless explicitly included by a separate contract.
+
+## 101. Redaction and privacy views
+
+A genome may have derived redacted views.
+
+Redaction can remove/minimize:
+- serial numbers;
+- stable platform identifiers;
+- hostnames;
+- sensitive device locators;
+- process/user identifiers.
+
+A redacted view:
+- identifies its source GenomeId;
+- identifies redaction policy/version;
+- cannot claim byte/content identity with the canonical genome;
+- preserves semantic states needed by the consumer.
+
+## 102. Trust and signatures
+
+Genome/evidence envelopes may support cryptographic integrity/authenticity metadata.
+
+Trust metadata can identify:
+- producer identity;
+- signer/key reference;
+- digest algorithm;
+- signature;
+- verification state.
+
+Cryptographic validity proves integrity/authenticity under the trust model, not semantic truth of a lying or defective probe.
+
+## 103. Merge and federation
+
+Two genomes are not silently merged because they appear to describe the same machine.
+
+Federation requires explicit subject-identity reconciliation and provenance preservation.
+
+Conflicting snapshots/sources remain distinguishable.
+
+A fleet view is a derived collection, not one giant hardware genome.
+
+## 104. Storage and retention boundary
+
+M07 defines logical evidence/genome semantics, identifiers and integrity requirements.
+
+Physical retention, deletion, tiering and storage placement remain M55 authority.
+
+M07 cannot promise indefinite retention unless the owning storage policy does.
+
+## 105. Consumer contract
+
+Consumers must declare which facts/states they require.
+
+A consumer cannot:
+- treat unknown as false/zero;
+- ignore stale/conflicting state where contract marks it material;
+- strengthen evidence;
+- overwrite canonical genome facts;
+- infer benchmark capability from discovery facts;
+- convert confidence into execution authorization without its own policy.
+
+## 106. Migration
+
+Schema migration is explicit and testable.
+
+A migration binds:
+- source schema;
+- target schema;
+- migration implementation/version;
+- lossless/lossy classification;
+- transformed fields/states;
+- evidence lineage.
+
+Lossy migration cannot replace the canonical source genome.
+
+## 107. Deterministic fixtures
+
+M07 planning requires future fixtures covering:
+- NVIDIA/CUDA;
+- AMD/ROCm;
+- Windows DirectML;
+- Apple Metal;
+- CPU-only;
+- 8 GB discrete GPU;
+- multi-GPU;
+- partitioned/vGPU;
+- container/VM/WSL;
+- missing permissions;
+- conflicting sources;
+- stale evidence;
+- partial/unknown data;
+- schema upgrade/downgrade;
+- redacted views.
+
+Fixtures are synthetic or sanitized and deterministic.
+
+## 108. S05 hard-invariant candidates
+
+151. Canonical GenomeId is evidence/content anchored, not display-name anchored.
+152. Schema version and producer version remain separate.
+153. Canonical genome sections preserve provenance and uncertainty.
+154. Every admitted fact uses a normalized evidence envelope.
+155. Raw payloads cannot replace normalized fact envelopes.
+156. Required unknown states cannot disappear through field omission.
+157. NOT_PRESENT_PROVEN remains distinct from unknown/unavailable.
+158. Confidence is multidimensional, not one opaque percentage.
+159. Composite confidence cannot strengthen semantic claims.
+160. Repetition of weak evidence cannot automatically promote confidence.
+161. Newer timestamp alone cannot promote evidence strength.
+162. Hidden unknowns/conflicts cannot increase confidence.
+163. Conflicts cannot be averaged away.
+164. Preferred projections cannot erase conflicting source evidence.
+165. Schema compatibility rules are machine-readable and versioned.
+166. PATCH cannot alter admitted semantics.
+167. MINOR remains backward-compatible under declared reader rules.
+168. Incompatible semantics require MAJOR versioning.
+169. Unknown required semantics fail closed.
+170. Readers cannot silently reinterpret newer semantic states.
+171. Writers cannot mislabel incompatible semantics as an older schema.
+172. Canonical storage cannot depend on lossy downgrade.
+173. Extensions are namespaced.
+174. Extensions cannot override or weaken canonical semantics.
+175. Extensions cannot inject executable behavior.
+176. Extension promotion requires governance/compatibility review.
+177. Admitted genome snapshots are immutable.
+178. New snapshots supersede projections, not historical evidence.
+179. Incomplete snapshots remain explicitly incomplete.
+180. Deltas bind exact base and target genomes.
+181. Deltas are not authoritative outside bound base/target context.
+182. Material-change classes do not prescribe downstream reactions.
+183. Fingerprints bind canonicalization and schema versions.
+184. Static fingerprints exclude unstable telemetry unless explicitly contracted.
+185. M06 reproducibility receives only explicitly declared M07 projections.
+186. M07 cannot decide M06 hardware-equivalence policy.
+187. M06 cannot manufacture M07 hardware facts.
+188. Canonical hashing is independent of presentation formatting.
+189. Absent and explicit-unknown handling is deterministic.
+190. Redacted views identify source genome and redaction policy.
+191. Redacted views cannot claim canonical content identity.
+192. Cryptographic validity cannot prove semantic truth of probe claims.
+193. Genome federation requires explicit subject reconciliation.
+194. Fleet collections cannot masquerade as one hardware subject.
+195. Physical retention/deletion/tiering remains M55 authority.
+196. Consumers declare material fact/state requirements.
+197. Consumers cannot strengthen M07 evidence.
+198. Consumers cannot overwrite canonical genome facts.
+199. Confidence alone cannot authorize execution.
+200. Schema migrations bind source/target/version and loss classification.
+201. Lossy migration cannot replace canonical source genome.
+202. Deterministic fixtures cover heterogeneous and constrained hardware classes.
+203. 8 GB discrete GPUs remain first-class canonical genome subjects.
+204. CPU-only systems remain first-class canonical genome subjects.
+205. Missing permissions remain explicit evidence states.
+206. Stale evidence cannot become current during serialization/migration.
+207. Conflict state survives serialization, redaction and compatible migration.
+208. Privacy redaction cannot silently alter capability semantics.
+209. Hardware Genome cannot become a benchmark ranking.
+210. Hardware Genome cannot become scheduler/placement policy.
+
+These remain candidates until final M07 contract freeze.
+
+## 109. Proprietary technology candidates
+
+### IRIS-HGX — Hardware Genome Exchange
+Canonical evidence-preserving schema and exchange contract for heterogeneous hardware/runtime truth, including unknowns, conflicts, provenance and redacted projections.
+
+### IRIS-MCD — Multidimensional Confidence Descriptor
+Non-scalar confidence representation across source authority, binding, evidence strength, freshness, agreement, completeness and derivation depth.
+
+### IRIS-GDL — Genome Delta Ledger
+Immutable base/target-bound change representation for hardware/runtime evolution without rewriting historical snapshots.
+
+### IRIS-RFP — Reproducibility Fingerprint Projection
+Contract-controlled projection from Hardware Genome into reproducibility-material fingerprints without allowing M07 to own M06 equivalence policy.
+
+### IRIS-SCB — Schema Compatibility Barrier
+Machine-readable reader/writer/migration compatibility gate that fails closed on unknown required semantics and prevents semantic downgrade masquerading as compatibility.
+
+All remain planning candidates pending Final Technology Review and prior-art review.
+
+## 110. S05 acceptance-evidence targets
+
+Later implementation must prove at minimum:
+- canonical genome identity is deterministic and evidence anchored;
+- normalized fact envelopes preserve state/provenance/freshness/conflict;
+- explicit unknown states survive round-trip serialization;
+- confidence remains multidimensional;
+- weak repeated evidence cannot self-promote;
+- conflicts survive projections and serialization;
+- schema PATCH/MINOR/MAJOR rules are enforced;
+- unknown required semantics fail closed;
+- extensions cannot override canonical semantics;
+- snapshots are immutable;
+- deltas require exact compatible base/target;
+- fingerprints are deterministic and contract scoped;
+- M06 projections are explicit and do not transfer authority;
+- redaction preserves semantic states while removing sensitive identifiers;
+- cryptographic verification remains distinct from semantic confidence;
+- federation requires subject reconciliation;
+- consumers cannot strengthen evidence;
+- migration loss is explicit;
+- deterministic heterogeneous fixtures exist;
+- 8 GB and CPU-only systems remain first-class;
+- M08/M09/M10/M12/M14/M55/M56 authority remains external.
+
+## S05 STOP CONDITION
+
+S05 is complete for module planning when:
+- Hardware Genome identity, schema, fact envelope and sections are explicit;
+- unknown/conflict/freshness/provenance survive canonical representation;
+- confidence is multidimensional and cannot manufacture certainty;
+- schema compatibility, extensions, snapshots, deltas, fingerprints, redaction and migrations are governed;
+- 60 additional hard-invariant candidates are recorded (210 cumulative);
+- five additional proprietary technology candidates are registered (25 cumulative);
+- all five canonical M07 sessions are complete for module planning;
+- the next permitted work is M07 Final Technology Review, followed by the M08-M60 Forward Compatibility Scan and Module Contract Freeze;
+- no M07 product/runtime implementation is introduced.
