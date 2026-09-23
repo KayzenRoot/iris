@@ -1,34 +1,33 @@
 # IRIS Canonical Checkpoint
 
 ## STATUS
-M07_IMPLEMENTATION_MERGED_MAIN_VALIDATED
+M08_PLANNING_MERGED_MAIN_VALIDATED
 
 ## VERSION
-m07-contract-v1.0
+m08-contract-v1.0
 
 ## PHASE
-M07_POSTMERGE_RECONCILIATION
+M08_PLANNING_POST_MERGE_RECONCILIATION
 
 ## OBJECTIVE
-Reconcile canonical checkpoint and evidence after the independently approved M07 implementation was squash-merged and exact `main` validated.
+Reconcile canonical checkpoint, decisions ledger and backlog after the independently approved M08 planning contract was squash-merged and exact `main` validated.
 
 ## COMPLETED
-- M01-M06 remain durably closed at their previously validated states.
-- M07 planning contract `m07-contract-v1.0` remains frozen and canonical.
-- IRIS-WO-0011 implemented the provider-neutral Hardware Genome & Runtime Discovery kernel.
-- Independent implementation audit found 2 HIGH findings and 0 CRITICAL findings.
-- Both HIGH findings were corrected directly in PR #54: measured PCIe bandwidth was returned to M08 authority, and all 20 mandatory technology surfaces were rebound to real executable proof targets with a fail-closed validator.
-- Final audited PR head `39ab5202e444641dfe17caf1bf1ebd16c975ebc5` had 0 residual HIGH/CRITICAL findings.
-- Final PR exact-head Governance `35904907550 / 107330035212` PASS with 2834/2834 tests.
-- PR #54 was squash-merged as `a933a7abc8c553470737a5b558faa461708bac6f`.
-- Exact-main Governance `35905214414 / 107331077828` PASS with 2834/2834 tests.
-- M07 implementation is merged and validated on main.
+- M01-M07 remain durably closed at their previously validated states.
+- M08 completed S01-S05 planning, Final Technology Review and the M09-M60 Forward Compatibility Scan.
+- Frozen contract `m08-contract-v1.0` contains 330 hard invariants, 40 independent mandatory technology surfaces and 15 mandatory absorbed components.
+- Forward Compatibility Scan covered 52/52 downstream modules and incorporated FC-08-01..10.
+- Final planning audit approved exact head `f6ac4feee869bedaa9df34de113d06e6966d2440` with residual HIGH/CRITICAL 0/0.
+- Exact-head Governance `35907668353 / 107339306266` PASS.
+- PR #56 squash-merged as `5303788f60dc0591fab350270e6b9fe02ac7a45a`.
+- Exact-main Governance `35907947242` PASS.
+- No M08 product/runtime implementation has been admitted or introduced.
 
 ## IN PROGRESS
-Post-merge reconciliation of checkpoint, decisions ledger and IRIS-WO-0011 evidence.
+Post-merge reconciliation of canonical checkpoint, decisions ledger and backlog for M08 planning.
 
 ## BLOCKERS
-M08 remains blocked until this reconciliation PR is independently audited, merged and exact-main validated.
+M08 implementation remains blocked until this reconciliation is independently audited, protected-merged, exact-main validated, and a separate bounded implementation Work Order / Context Lock / Evidence package is admitted.
 
 ## NEXT STEP
-Complete and independently audit the M07 post-merge reconciliation PR, merge it, and validate exact main. Do not start M08 until that closure is durable.
+Complete the M08 planning post-merge reconciliation audit/merge/exact-main validation, then compile the separate M08 implementation admission package. Do not start M09 implementation.
