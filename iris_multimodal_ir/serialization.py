@@ -8,6 +8,7 @@ from typing import Any
 from .errors import IRLimitError, IRSchemaError
 from .graph import IRDocumentEnvelope
 from .limits import DEFAULT_LIMITS, IRLimits
+from .validation import enforce_revision_limits
 from .versions import TRANSPORT_VERSION, canonical_json, content_digest
 
 __all__ = ["canonical_bytes", "serialize_envelope", "deserialize_envelope", "canonical_digest"]
@@ -60,6 +61,8 @@ def deserialize_envelope(data: bytes | bytearray | str, *, limits: IRLimits = DE
         raise IRSchemaError(f"canonical envelope payload is invalid: {error}") from error
     if envelope.transport_version != TRANSPORT_VERSION:
         raise IRSchemaError(f"unsupported transport version {envelope.transport_version}")
+    for revision in envelope.document.revisions:
+        enforce_revision_limits(revision, limits)
     # Re-encoding is part of admission: permissive spellings/number encodings are rejected.
     if serialize_envelope(envelope) != raw:
         raise IRSchemaError("transport bytes are valid JSON but not canonical M04 serialization")
