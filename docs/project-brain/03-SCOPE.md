@@ -1,6 +1,6 @@
 # IRIS Scope
 
-Status: `M04_IMPLEMENTATION_ADMISSION`
+Status: `M04_IMPLEMENTATION_ADMITTED`
 
 ## Current admitted increment — IRIS-WO-0008 / M04 implementation
 
