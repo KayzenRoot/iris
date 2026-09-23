@@ -1,12 +1,19 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0008",
-  "status": "ADMISSION_PENDING_VALIDATION",
+  "status": "ADMITTED_FOR_EXECUTION",
   "branch": "iris-wo-0008-m04-multimodal-ir",
   "frozenContract": "m04-contract-v1.0",
   "baseSha": "bb875a958a88a844bfa62cdfec694fe148590a41",
   "issue": 30,
-  "pullRequest": null,
+  "pullRequest": {
+    "number": 31,
+    "url": "https://github.com/KayzenRoot/iris/pull/31",
+    "base": "main",
+    "branch": "iris-wo-0008-m04-multimodal-ir",
+    "state": "OPEN",
+    "merged": false
+  },
   "baseline": {
     "governanceRun": 35801705128,
     "governanceJob": 106993294512,
@@ -53,5 +60,13 @@
     "M05 identity/DNA, M43 Canon and later domain engines remain opaque extension/ref boundaries."
   ],
   "proposedCheckpointDelta": null,
-  "stopCondition": "Executor must stop with branch/PR ready for independent review and must not merge or start M05."
+  "stopCondition": "Executor must stop with branch/PR ready for independent review and must not merge or start M05.",
+  "admissionValidation": {
+    "head": "1339a8ae1d39e787d51f719b5004b9bcf4c859f2",
+    "governanceRun": 35802899954,
+    "governanceJob": 106997061796,
+    "requiredArtifacts": 35,
+    "tests": 2527,
+    "result": "PASS"
+  }
 }
