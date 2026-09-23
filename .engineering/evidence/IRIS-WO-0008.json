@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0008",
-  "status": "INDEPENDENT_REVIEW_APPROVED_PENDING_FINAL_EXACT_HEAD",
+  "status": "INDEPENDENT_REVIEW_APPROVED_PENDING_MERGE",
   "branch": "iris-wo-0008-m04-multimodal-ir-r2",
   "frozenContract": "m04-contract-v1.0",
   "issue": 30,
@@ -14,7 +14,7 @@
     "merged": false,
     "headBranch": "iris-wo-0008-m04-multimodal-ir-r2",
     "implementationHead": "4b96a2cae650d3bcecba707fc6b824a6d0f8308d",
-    "reviewedCodeHead": "bd39b4d61765769b3873938f24e9321f545a3ad9"
+    "reviewedCodeHead": "7d3237a3ea39a1006fca8137046587077de29602"
   },
   "headChain": {
     "authorizedBase": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
@@ -243,7 +243,8 @@
       ],
       "unitAwareTolerance": true,
       "colorSpaceAwareTolerance": true,
-      "timeReferenceAwareTolerance": true
+      "timeReferenceAwareTolerance": true,
+      "collisionFreeAnonymousColorWitnessPaths": true
     },
     "contextEfficiency": {
       "minimumSufficientIRSlice": true,
@@ -281,17 +282,17 @@
     },
     "focusedM04": {
       "command": "python -m unittest discover -s tests -p \"test_m04_*.py\"",
-      "tests": 149,
+      "tests": 150,
       "result": "COVERED_BY_FULL_SUITE_AT_REVIEW_HEAD",
-      "note": "Executor focused baseline was 138; independent review added 11 M04 regression tests."
+      "note": "Executor focused baseline was 138; independent review added 12 M04 regression tests."
     },
     "fullSuite": {
       "command": "python -m unittest discover -s tests -p \"test_*.py\"",
-      "tests": 2676,
+      "tests": 2677,
       "result": "OK",
       "failures": 0,
       "errors": 0,
-      "head": "bd39b4d61765769b3873938f24e9321f545a3ad9"
+      "head": "7d3237a3ea39a1006fca8137046587077de29602"
     },
     "compile": {
       "command": "python -m compileall -q iris_multimodal_ir tests examples",
@@ -311,9 +312,9 @@
     },
     "whitespace": "git diff --cached --check PASS before implementation commit",
     "exactHeadGitHubGovernance": {
-      "head": "bd39b4d61765769b3873938f24e9321f545a3ad9",
-      "run": 35813567337,
-      "job": 107030174337,
+      "head": "7d3237a3ea39a1006fca8137046587077de29602",
+      "run": 35813813456,
+      "job": 107030932340,
       "result": "PASS",
       "requiredArtifacts": 35
     }
@@ -332,7 +333,8 @@
     "Independent review corrected traversal-order-dependent graph depth limits and applied caller-selected limits during deserialization.",
     "Independent review implemented unit-aware, color-space-aware and time-reference-aware tolerant round-trip comparison.",
     "Independent review extended resource limits across nested non-node ResourceRef occurrences.",
-    "Independent review strengthened frozen invariant proof targets to match the full composite contract wording."
+    "Independent review strengthened frozen invariant proof targets to match the full composite contract wording.",
+    "Independent review changed anonymous color witness addressing to stable positional paths so shared semantic origins cannot collide."
   ],
   "changedFiles": {
     "implementationCommitFiles": 34,
@@ -384,27 +386,27 @@
     "HIVE MCP/CLI was unavailable during preflight; repository-canonical sources and deterministic local/GitHub evidence were used."
   ],
   "proposedCheckpointDelta": {
-    "status": "READY_TO_APPLY_AFTER_FINAL_EVIDENCE_HEAD_GOVERNANCE",
-    "proposal": "Promote M04 to independent-review-approved pending merge, recording PR #34, 20/20 families, 80/80 invariants, 149 focused M04 tests represented in the 2676/2676 exact-head full suite, and zero remaining HIGH/CRITICAL findings. Keep M05 blocked until post-merge reconciliation."
+    "status": "APPLYING_IN_REVIEW_PR",
+    "proposal": "Promote M04 to independent-review-approved pending merge, recording PR #34, 20/20 families, 80/80 invariants, 150 focused M04 tests represented in the 2677/2677 exact-head full suite, six closed CHAT_FIXABLE findings, zero EXECUTOR_REQUIRED findings and zero remaining HIGH/CRITICAL findings. Keep M05 blocked until exact-main post-merge reconciliation."
   },
   "independentReview": {
-    "status": "APPROVED_PENDING_EVIDENCE_HEAD_VALIDATION",
+    "status": "APPROVED",
     "reviewer": "ChatGPT independent repository audit",
-    "reviewedCodeHead": "bd39b4d61765769b3873938f24e9321f545a3ad9",
+    "reviewedCodeHead": "7d3237a3ea39a1006fca8137046587077de29602",
     "exactHeadGovernance": {
-      "run": 35813567337,
-      "job": 107030174337,
+      "run": 35813813456,
+      "job": 107030932340,
       "result": "PASS",
-      "tests": 2676,
+      "tests": 2677,
       "failures": 0,
       "errors": 0,
       "requiredArtifacts": 35
     },
     "findings": {
-      "total": 5,
+      "total": 6,
       "critical": 0,
       "high": 0,
-      "chatFixableClosed": 5,
+      "chatFixableClosed": 6,
       "executorRequired": 0,
       "items": [
         {
@@ -441,6 +443,13 @@
           "status": "CLOSED",
           "finding": "Composite invariant proof targets for unknown schema/facet/extension handling and resource/depth/fanout/sample limits were narrower than the frozen invariant wording.",
           "correction": "Added complete composite proof tests and rebound the frozen invariant proof index to those tests."
+        },
+        {
+          "id": "IRIS-M04-R10",
+          "classification": "CHAT_FIXABLE",
+          "status": "CLOSED",
+          "finding": "Color round-trip witness paths could collide when multiple valid ColorValueIR records shared the same semantic origin reference.",
+          "correction": "Color witnesses now use stable positional paths; regression proves two colors with a shared semantic origin remain independently addressable."
         }
       ]
     },
@@ -460,8 +469,8 @@
     ],
     "remainingKnownCriticalOrHigh": 0,
     "executorEscalationRequired": false,
-    "merge": "PENDING_FINAL_EVIDENCE_HEAD_GOVERNANCE",
+    "merge": "READY_AFTER_FINAL_CHECKPOINT_HEAD_GOVERNANCE",
     "M05": "NOT_STARTED"
   },
-  "stopCondition": "Independent review is approved at reviewed code head bd39b4d61765769b3873938f24e9321f545a3ad9. Validate the evidence-update head exactly, promote the checkpoint delta, merge only through governed PR #34, validate exact main, and keep M05 blocked until post-merge reconciliation."
+  "stopCondition": "Independent review is APPROVED at reviewed code head 7d3237a3ea39a1006fca8137046587077de29602. Apply the checkpoint delta in PR #34, validate that final checkpoint/evidence head exactly, merge through governed PR #34, validate exact main, and keep M05 blocked until post-merge reconciliation."
 }
