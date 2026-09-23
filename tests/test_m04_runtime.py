@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import ast
+import sys
 import unittest
 from dataclasses import fields, replace
 from fractions import Fraction
@@ -309,20 +310,25 @@ class RuntimeAndTransportAcceptanceTests(unittest.TestCase):
         self.assertFalse(revision_fields & {"execution_plan", "quality_class", "quality_score", "release_authorized", "provider_workflow", "provider_model"})
         self.assertFalse(M04.IRReleaseReadinessReport.__dataclass_fields__["release_authorized"].default)
         source_root = Path(M04.__file__).resolve().parent
-        allowed_roots = {"iris_intent", "iris_multimodal_ir"}
-        forbidden = {"socket", "urllib", "http", "requests", "subprocess", "sqlite3", "sqlalchemy", "blender", "maya", "comfyui", "torch"}
+        allowed_roots = set(sys.stdlib_module_names) | {"iris_intent", "iris_multimodal_ir"}
+        forbidden = {"socket", "urllib", "http", "requests", "subprocess", "sqlite3", "sqlalchemy", "blender", "maya", "comfyui", "torch", "ctypes"}
         for path in source_root.glob("*.py"):
             tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
             for node in ast.walk(tree):
                 if isinstance(node, ast.Import):
                     roots = {alias.name.split(".")[0] for alias in node.names}
                     self.assertFalse(roots & forbidden, f"forbidden import in {path.name}: {roots & forbidden}")
+                    self.assertLessEqual(roots, allowed_roots, f"unapproved import in {path.name}: {roots - allowed_roots}")
                 elif isinstance(node, ast.ImportFrom) and node.module:
                     root = node.module.split(".")[0]
                     self.assertNotIn(root, forbidden, f"forbidden import in {path.name}: {root}")
+                    if node.level == 0:
+                        self.assertIn(root, allowed_roots, f"unapproved import in {path.name}: {root}")
                 elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
-                    self.assertNotIn(node.func.id, {"eval", "exec"}, f"dynamic execution in {path.name}")
-        self.assertEqual(allowed_roots, {"iris_intent", "iris_multimodal_ir"})
+                    self.assertNotIn(node.func.id, {"eval", "exec", "__import__"}, f"dynamic execution/import in {path.name}")
+                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute) and isinstance(node.func.value, ast.Name):
+                    if node.func.value.id == "os":
+                        self.assertNotIn(node.func.attr, {"system", "popen", "spawnl", "spawnv", "execv", "execve"}, f"process execution in {path.name}")
 
     def test_public_surface_is_unique_complete_and_uses_typed_failures(self):
         self.assertEqual(len(M04.__all__), len(set(M04.__all__)))
