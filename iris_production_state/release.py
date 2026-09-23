@@ -10,10 +10,10 @@ from iris_project_os.release import ReleaseTransaction
 from iris_project_os.snapshots import Snapshot
 
 from .base import CanonicalRecord, require_exact_ref, require_sequence
-from .enums import IntegrityState, ReleaseClosureState
+from .enums import AvailabilityState, IntegrityState, ReleaseClosureState
 from .errors import ProductionStateAdmissionError, ProductionStateIntegrityError, ProductionStateValidationError
 from .limits import DEFAULT_LIMITS
-from .revisions import IntegrityReceipt, MasterManifest
+from .revisions import AvailabilityReceipt, IntegrityReceipt, MasterManifest
 from .versions import CORE_SCHEMA_VERSION, require_identifier, require_version
 
 __all__ = ["ReleaseStateCapsule", "ReleaseSupersessionReceipt", "validate_release_state_closure"]
@@ -28,6 +28,7 @@ class ReleaseStateCapsule(CanonicalRecord):
     master_manifest: MasterManifest
     dependency_fingerprint: str
     integrity_receipts: tuple[IntegrityReceipt, ...]
+    availability_receipts: tuple[AvailabilityReceipt, ...]
     current_authority_refs: tuple[Any, ...]
     state: ReleaseClosureState
     recorded_at_ms: int
@@ -44,6 +45,8 @@ class ReleaseStateCapsule(CanonicalRecord):
             raise ProductionStateValidationError("dependency_fingerprint must be sha256")
         integrity = require_sequence(self.integrity_receipts, "integrity_receipts", maximum=DEFAULT_LIMITS.max_records, item_type=IntegrityReceipt)
         object.__setattr__(self, "integrity_receipts", integrity)
+        availability = require_sequence(self.availability_receipts, "availability_receipts", maximum=DEFAULT_LIMITS.max_records, item_type=AvailabilityReceipt)
+        object.__setattr__(self, "availability_receipts", availability)
         authorities = require_sequence(self.current_authority_refs, "current_authority_refs", maximum=DEFAULT_LIMITS.max_fingerprint_dimensions)
         for index, value in enumerate(authorities):
             require_exact_ref(value, f"current_authority_refs[{index}]")
@@ -59,6 +62,14 @@ class ReleaseStateCapsule(CanonicalRecord):
                 raise ProductionStateIntegrityError("release capsule cannot supersede itself")
         if self.transaction.release_snapshot_id != self.release_snapshot.snapshot_id:
             raise ProductionStateIntegrityError("release transaction and snapshot must bind the same immutable snapshot id")
+        if self.transaction.production_id != self.release_snapshot.production_id:
+            raise ProductionStateIntegrityError("release transaction and snapshot must bind the same production")
+        if self.transaction.project_id is not None and self.transaction.project_id != self.release_snapshot.project_id:
+            raise ProductionStateIntegrityError("release transaction and snapshot must bind the same project")
+        if self.build_plan.graph_id != self.release_snapshot.revision.graph_id:
+            raise ProductionStateIntegrityError("release build plan must bind the exact graph carried by the release snapshot")
+        if self.build_plan.target_revision.reference != self.release_snapshot.revision.revision_id:
+            raise ProductionStateIntegrityError("release build plan target revision must match the release snapshot graph revision")
         if self.state is ReleaseClosureState.CLOSED:
             self._require_closed_evidence()
 
@@ -70,6 +81,17 @@ class ReleaseStateCapsule(CanonicalRecord):
         }
         if any(item not in checked for item in self.master_manifest.materializations):
             raise ProductionStateAdmissionError("closed release state requires verified integrity for every master materialization")
+        available = {
+            item.subject_ref: item
+            for item in self.availability_receipts
+            if item.state is AvailabilityState.KNOWN_AVAILABLE
+        }
+        for materialization in self.master_manifest.materializations:
+            receipt = available.get(materialization)
+            if receipt is None:
+                raise ProductionStateAdmissionError("closed release state requires current known availability for every master materialization")
+            if receipt.integrity_receipt not in self.integrity_receipts:
+                raise ProductionStateIntegrityError("release availability must be backed by integrity evidence retained in the same capsule")
         if not self.current_authority_refs:
             raise ProductionStateAdmissionError("closed release state requires current external authority refs")
         if self.build_plan.blocked:
