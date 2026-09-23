@@ -19,6 +19,7 @@ from iris_multimodal_ir import (
     CameraIR,
     CameraOpticsIR,
     ColorValueIR,
+    ComparisonTolerance,
     CurveKeyIR,
     DurationIR,
     EquivalenceKind,
@@ -70,6 +71,7 @@ from iris_multimodal_ir import (
     SyncKind,
     SyncRelationIR,
     TemporalLayer,
+    TemporalMarkerIR,
     TemporalReferenceIR,
     TextureResourceIR,
     TimePointIR,
@@ -206,6 +208,95 @@ class RuntimeAndTransportAcceptanceTests(unittest.TestCase):
         encoded = serialize_envelope(envelope)
         with self.assertRaises(IRLimitError):
             deserialize_envelope(encoded, limits=IRLimits(max_nodes=1))
+
+    def test_tolerant_round_trip_is_unit_aware_for_camera_lengths(self):
+        revision = multimodal_revision()
+        profile = IREquivalenceProfile(
+            "tolerant.camera.length",
+            EquivalenceKind.TOLERANT,
+            (ComparisonTolerance("cameras/camera.primary", 0.2, "LENGTH", "mm"),),
+        )
+        contract = build_round_trip_contract(
+            revision,
+            profile,
+            contract_id="roundtrip.tolerant.camera",
+            adapter_ref=ExternalIdentityRef("m04.adapter_identity", "adapter.fixture", "1"),
+        )
+        changed_optics = replace(
+            revision.cameras[0].optics,
+            focal_length=QuantityIR(5.01, "cm", QuantityDimension.LENGTH),
+        )
+        adapted = replace(revision, cameras=(replace(revision.cameras[0], optics=changed_optics),))
+        receipt = verify_round_trip(contract, adapted, receipt_id="roundtrip.tolerant.camera.result")
+        self.assertTrue(receipt.semantic_match)
+        self.assertEqual({item.classification for item in receipt.differences}, {"TOLERATED"})
+
+    def test_tolerant_round_trip_is_color_space_and_encoding_aware(self):
+        revision = multimodal_revision()
+        profile = IREquivalenceProfile(
+            "tolerant.color",
+            EquivalenceKind.TOLERANT,
+            (ComparisonTolerance("color_values/index.0", 0.02, "COLOR", "float32", color_space="linear-srgb"),),
+        )
+        contract = build_round_trip_contract(
+            revision,
+            profile,
+            contract_id="roundtrip.tolerant.color",
+            adapter_ref=ExternalIdentityRef("m04.adapter_identity", "adapter.fixture", "1"),
+        )
+        source_color = revision.color_values[0]
+        adapted_color = replace(source_color, components=(0.11, 0.19, 0.3, 1.0))
+        receipt = verify_round_trip(
+            contract,
+            replace(revision, color_values=(adapted_color,)),
+            receipt_id="roundtrip.tolerant.color.result",
+        )
+        self.assertTrue(receipt.semantic_match)
+        self.assertEqual({item.classification for item in receipt.differences}, {"TOLERATED"})
+        wrong_space = replace(source_color, color_space="display-p3")
+        rejected = verify_round_trip(
+            contract,
+            replace(revision, color_values=(wrong_space,)),
+            receipt_id="roundtrip.tolerant.color.wrong-space",
+        )
+        self.assertFalse(rejected.semantic_match)
+
+    def test_tolerant_round_trip_is_time_reference_aware(self):
+        revision = multimodal_revision()
+        marker = TemporalMarkerIR(
+            "marker.tolerant",
+            TimePointIR("time.base", Fraction(2), TemporalLayer.AUTHORED),
+            "beat",
+        )
+        revision = replace(revision, temporal_markers=(marker,))
+        profile = IREquivalenceProfile(
+            "tolerant.time",
+            EquivalenceKind.TOLERANT,
+            (ComparisonTolerance("temporal_markers/marker.tolerant", 0.5, "TIME", "time.base"),),
+        )
+        contract = build_round_trip_contract(
+            revision,
+            profile,
+            contract_id="roundtrip.tolerant.time",
+            adapter_ref=ExternalIdentityRef("m04.adapter_identity", "adapter.fixture", "1"),
+        )
+        adapted_marker = replace(
+            marker,
+            time=TimePointIR("time.base", Fraction(9, 4), TemporalLayer.AUTHORED),
+        )
+        receipt = verify_round_trip(
+            contract,
+            replace(revision, temporal_markers=(adapted_marker,)),
+            receipt_id="roundtrip.tolerant.time.result",
+        )
+        self.assertTrue(receipt.semantic_match)
+        self.assertEqual({item.classification for item in receipt.differences}, {"TOLERATED"})
+        wrong_reference = replace(
+            marker,
+            time=TimePointIR("time.other", Fraction(9, 4), TemporalLayer.AUTHORED),
+        )
+        with self.assertRaises(M04.IRIntegrityError):
+            replace(revision, temporal_markers=(wrong_reference,))
 
     def test_semantic_witnesses_detect_transform_camera_material_time_and_sync_loss(self):
         revision = multimodal_revision()
