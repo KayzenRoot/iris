@@ -209,6 +209,15 @@ class RuntimeAndTransportAcceptanceTests(unittest.TestCase):
         with self.assertRaises(IRLimitError):
             deserialize_envelope(encoded, limits=IRLimits(max_nodes=1))
 
+    def test_validation_resource_limit_counts_non_node_resources(self):
+        revision = multimodal_revision()
+        report = validate_revision(
+            revision,
+            M04.IRValidationProfile("resource.limit", "1", limits=IRLimits(max_resource_refs=1)),
+        )
+        self.assertFalse(report.valid)
+        self.assertIn("REVISION_INTEGRITY_OR_LIMIT", {finding.code for finding in report.findings})
+
     def test_tolerant_round_trip_is_unit_aware_for_camera_lengths(self):
         revision = multimodal_revision()
         profile = IREquivalenceProfile(
