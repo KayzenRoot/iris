@@ -4,13 +4,13 @@
 M05_PLANNING_ACTIVE
 
 ## VERSION
-m05-planning-s04
+m05-planning-s05
 
 ## PHASE
-M05_S04_COMPLETE_S05_NEXT
+M05_S01_S05_COMPLETE_FINAL_TECH_REVIEW_NEXT
 
 ## OBJECTIVE
-Plan and freeze M05 Asset DNA 2.0 & Cross-Modal Identity through S01-S05 before any implementation admission.
+Complete M05 planning/freeze lifecycle before any implementation admission.
 
 ## COMPLETED
 - M01 Quality Kernel: implemented, approved and merged.
@@ -26,28 +26,29 @@ Plan and freeze M05 Asset DNA 2.0 & Cross-Modal Identity through S01-S05 before 
 - S02 Character/Creature/Object/Product/Environment DNA: COMPLETE_FOR_MODULE_PLANNING.
 - S03 SceneDNA/MotionDNA/VoiceDNA/BrandDNA links: COMPLETE_FOR_MODULE_PLANNING.
 - S04 Identity anchors, mutation boundaries and drift detection: COMPLETE_FOR_MODULE_PLANNING.
-- Anchor authority/lifecycle is explicit.
-- Drift evidence is path-level, typed and multi-dimensional.
-- Repair versus canonical mutation is explicit.
-- Same-identity mutation, identity break, split and consolidation semantics are explicit.
-- M05 remains generic persistent identity root; M39 remains digital-human/persona production authority.
-- M01/M37/M39/M53/M54 firewalls are explicit.
-- S01-S04 candidate hard invariants: 120.
-- Technology registry: `IRIS-DNAX-001..120`.
+- S05 DNA branching, compatibility and reusable DNA marketplace contract: COMPLETE_FOR_MODULE_PLANNING.
+- S01-S05 candidate hard invariants: 150.
+- Technology registry: `IRIS-DNAX-001..150`.
+- Identity lineage is distinct from M02 project branching.
+- M06 retains production-state/content-addressed versioning.
+- Compatibility is directional and multi-axis with explicit loss/migration states.
+- Reusable DNA package identity is distinct from dna_id.
+- M53/M54/M55/M58/M59 authority firewalls are explicit.
+- Package import/conformance is staged, fail-closed and non-destructive.
+- Canonical DNA packages are non-executable by default.
 - M05 implementation code has not started.
 
 ## IN PROGRESS
-M05 planning cycle on Issue #37 / PR #38 / branch `m05-asset-dna-planning`.
+Post-S05 planning review on Issue #37 / PR #38 / branch `m05-asset-dna-planning`.
 
 ## BLOCKERS
 M05 implementation remains blocked until:
-1. S01-S05 complete;
-2. Final Technology Review completes;
-3. M06-M60 Forward Compatibility Scan passes;
-4. M05 contract is frozen;
-5. independent planning audit approves;
-6. planning PR merges and exact main is validated;
-7. a separate implementation Work Order / Context Lock / Evidence package is admitted.
+1. Final Technology Review completes;
+2. M06-M60 Forward Compatibility Scan passes;
+3. M05 contract is frozen;
+4. independent planning audit approves;
+5. planning PR merges and exact main is validated;
+6. a separate implementation Work Order / Context Lock / Evidence package is admitted.
 
 ## NEXT STEP
-Plan M05 S05 — DNA branching, compatibility and reusable DNA marketplace contract. Preserve S01-S04 authority firewalls and do not implement M05.
+Run the M05 Final Technology Review. Consolidate, merge, retain or reject `IRIS-DNAX-001..150`, resolve overlap/dependency risks, then run the M06-M60 Forward Compatibility Scan. Do not implement M05.
