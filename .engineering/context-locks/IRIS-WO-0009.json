@@ -33,7 +33,7 @@
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0009-M05-ASSET-DNA.md",
-      "sha": "5350b562a0887d43e4cfca8c6bfaf47dcb791cbb"
+      "sha": "0ef805660a3ac8f65bccee81661dbc0dec78fddf"
     },
     {
       "path": "docs/project-brain/02-REQUIREMENTS.md",
@@ -146,5 +146,11 @@
     "tests": 2677,
     "requiredArtifacts": 35,
     "result": "PASS"
+  },
+  "reconciliation": {
+    "reason": "Admission promotion changed the Work Order from ADMISSION_CANDIDATE to ADMITTED_FOR_EXECUTION; the Context Lock critical-source fingerprint is reconciled to the admitted Work Order blob without changing the frozen M05 contract or implementation scope.",
+    "staleFingerprint": "5350b562a0887d43e4cfca8c6bfaf47dcb791cbb",
+    "admittedWorkOrderFingerprint": "0ef805660a3ac8f65bccee81661dbc0dec78fddf",
+    "sourcePromotionHead": "1d41b295b4367052c0abeba71766518af29e2223"
   }
 }
