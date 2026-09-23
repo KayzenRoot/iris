@@ -1,6 +1,6 @@
 # IRIS Scope
 
-Status: `M05_FROZEN_APPROVED`
+Status: `M05_PLANNING_MERGED_MAIN_VALIDATED`
 
 ## Current governed increment — M05 planning
 
@@ -60,8 +60,14 @@ Anchor authority/lifecycle, typed multi-dimensional drift evidence, repair-vs-mu
 - extension/ref ports: **22**;
 - implementation code: **0**.
 
+### Planning promotion
+- PR #38: **squash-merged**;
+- merge SHA: `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`;
+- exact-main Governance: `35843109186 / 107122673542` — **PASS**;
+- exact-main suite: **2677/2677 OK**.
+
 ### Next governed step
-Exact-head Governance, protected planning merge and exact-main validation.
+Prepare a separate bounded M05 implementation Work Order / Context Lock / Evidence package.
 
 ### NOT ADMITTED
 - M05 implementation package;
