@@ -2571,3 +2571,327 @@ The scan is complete when:
 - future-domain authority remains outside M07;
 - cross-module compatibility findings are incorporated into the freeze candidate;
 - the next permitted action is M07 Module Contract Freeze and final independent planning audit.
+
+
+# M07 Module Contract Freeze
+
+Freeze ID: `m07-contract-v1.0`
+Freeze status: `FROZEN_CANDIDATE_PENDING_FINAL_AUDIT`
+
+## 133. Frozen mission
+
+M07 owns evidence-bound discovery and representation of hardware/runtime truth.
+
+It discovers and versions:
+- GPU/CPU/RAM/storage/runtime visibility;
+- CUDA/ROCm/DirectML/Metal and generic capability evidence;
+- driver/runtime/precision/media/topology facts;
+- bounded thermal/power/utilization/memory-pressure telemetry;
+- Hardware Genome identity, schema, confidence, snapshots, deltas, projections and compatibility.
+
+M07 does not benchmark workloads, allocate resources, plan execution, control workers, schedule compute, rank models, choose creative quality, manage physical storage or own dashboard aggregation.
+
+## 134. Frozen authority boundaries
+
+- M06 owns production/reproducibility policy; M07 supplies explicit hardware projections only.
+- M08 owns empirical microbenchmarks and capability envelopes.
+- M09 owns resource digital twin, VRAM leases/residency/offload.
+- M10 owns hardware-aware execution planning and OOM/thermal decisions.
+- M11 owns worker/process lifecycle.
+- M12 owns placement, queues, federation and scheduling.
+- M14 owns empirical model capability/compatibility truth.
+- M55 owns physical retention/deletion/tiering.
+- M56 owns observability aggregation/history/UI.
+- M01/M24/M48 own output-quality semantics/evidence, not M07 confidence.
+
+## 135. Frozen canonical concepts
+
+Required concepts include:
+- DiscoverySessionRef;
+- HardwareSubjectRef;
+- RuntimeSubjectRef;
+- DiscoveryObservation;
+- DiscoverySnapshot;
+- ProbeDescriptor;
+- ProbeEvidenceRef;
+- ObservationState;
+- DiscoveryConflict;
+- FreshnessClass;
+- RuntimeSubstrate;
+- DeviceLocatorEvidence;
+- PrivacyClass;
+- Hardware Genome / GenomeId;
+- normalized Fact Envelope;
+- multidimensional confidence descriptor;
+- schema compatibility descriptor;
+- immutable genome snapshot;
+- exact base/target genome delta;
+- named/versioned consumer projection;
+- canonical fingerprint;
+- redacted capability advertisement;
+- material-change event/reference.
+
+Names may evolve only through a later governed contract revision; semantics cannot be silently weakened.
+
+## 136. Frozen evidence-state semantics
+
+At minimum the contract preserves:
+- OBSERVED;
+- NOT_PRESENT_PROVEN;
+- UNKNOWN;
+- UNSUPPORTED_PROBE;
+- PERMISSION_DENIED;
+- UNAVAILABLE;
+- CONFLICTING;
+- STALE;
+- PARTIAL.
+
+Unknown/unavailable/unsupported/permission-denied/partial cannot become absence.
+
+Stale cannot become current through serialization, migration, retrieval or projection.
+
+## 137. Frozen capability evidence ladder
+
+Capability evidence strength preserves:
+- DECLARED;
+- LOADABLE;
+- DEVICE_BOUND;
+- FEATURE_REPORTED;
+- SMOKE_VERIFIED;
+plus explicit non-proof/error states.
+
+Evidence strength is monotonic only when stronger new evidence is admitted. Tiny smoke verification is conformance evidence, never workload-performance evidence.
+
+## 138. Frozen probe safety contract
+
+M07 probes are:
+- allowlisted;
+- versioned;
+- bounded;
+- read-only;
+- timeout/resource constrained;
+- permission-addressable;
+- non-arbitrary;
+- provenance producing.
+
+M07 probes cannot install/configure drivers, execute arbitrary project binaries, stress hardware, mutate clocks/fans/power, kill workers/processes, evict unrelated memory or silently escalate privilege.
+
+Plugin/provider registration cannot grant probe privilege.
+
+## 139. Frozen identity and privacy contract
+
+Canonical identity remains separate from mutable locator/display information.
+
+Raw serials, hostnames, user paths, command lines and unrelated process metadata are minimized.
+
+Federated/API advertisement uses a privacy-safe redacted profile that preserves claim evidence strength, freshness and semantic state without assuming globally stable raw device identifiers.
+
+## 140. Frozen backend/version contract
+
+Backend relationships are exact-subject scoped.
+
+Driver, user runtime, loader/API, toolkit/SDK, library/framework binding, OS runtime and firmware facts remain semantically separate.
+
+Installed components remain distinct from active/bound components.
+
+One backend/device fact cannot be broadcast to other devices or the host.
+
+## 141. Frozen precision/media/topology contract
+
+Precision remains multidimensional across storage, arithmetic, acceleration, accumulation, conversion, exposure and verification.
+
+Encode/decode facts remain direction/path/device/profile/level/bit-depth/chroma scoped.
+
+Codec conformance cannot become throughput/session-concurrency proof.
+
+Topology preserves physical/virtual/partitioned subjects, PCIe capability versus negotiated state versus measured performance, exact-pair directional peer evidence and distinct memory/interconnect semantics.
+
+## 142. Frozen telemetry contract
+
+Dynamic telemetry remains distinct from static discovery.
+
+Every admitted sample binds subject, metric semantics, unit, time/window, freshness and evidence.
+
+Transient free VRAM is not a safe allocation budget.
+
+Sampling is bounded and non-invasive.
+
+Derived metrics preserve source lineage and derivation version.
+
+Telemetry evidence does not itself authorize execution/resource/quality policy.
+
+## 143. Frozen Hardware Genome contract
+
+A canonical genome is:
+- evidence/content anchored;
+- schema-versioned independently from producer version;
+- immutable once admitted;
+- provenance/conflict/unknown/freshness preserving;
+- deterministic under canonical serialization;
+- extension-safe;
+- redaction-capable;
+- migration-aware.
+
+PATCH/MINOR/MAJOR compatibility is governed and machine-readable.
+
+Unknown required semantics fail closed.
+
+Extensions are namespaced and cannot override canonical keys, units, states, invariants or inject executable behavior.
+
+## 144. Frozen confidence contract
+
+Confidence is multidimensional.
+
+A scalar/composite presentation cannot strengthen evidence or semantic claims.
+
+Repeated weak evidence, newer timestamps, omitted unknowns or hidden conflicts cannot manufacture confidence.
+
+Cryptographic integrity/authenticity is distinct from semantic truth.
+
+Hardware-evidence confidence is distinct from output-quality confidence.
+
+## 145. Frozen snapshot/delta/projection contract
+
+Snapshots are immutable.
+
+Deltas bind exact base and target genomes and are not authoritative outside that context.
+
+Consumer projections are named/versioned and cannot:
+- strengthen source evidence;
+- imply omitted facts;
+- transfer M07 authority to a consumer or consumer authority to M07.
+
+M06 reproducibility, M14 model evidence, M16 workflows, M51 benchmarks, M53 provenance, M58 APIs and M60 acceptance can bind exact projections/fingerprints under their own policies.
+
+## 146. Frozen semantic registry contract
+
+Canonical capability/metric keys use a versioned machine-readable registry or governed namespace.
+
+Registry entries define, where applicable:
+- semantic type;
+- unit;
+- evidence requirements;
+- allowed states;
+- freshness class;
+- canonicalization rules.
+
+Provider/plugin extensions cannot shadow canonical keys.
+
+## 147. Frozen change contract
+
+Material changes use versioned classes and bind exact prior/current genome or delta identity.
+
+Change events report evidence change, not downstream policy action.
+
+Delivery infrastructure remains outside M07.
+
+Historical restoration never creates a current-state claim; fresh discovery is required for current truth after recovery.
+
+## 148. Frozen constrained-hardware doctrine
+
+8 GB discrete GPUs and CPU-only systems are first-class supported Hardware Genome subjects.
+
+Scarcity or transient pressure can expose explicit evidence/gaps/routes but cannot silently lower canonical output quality.
+
+Mixed-vendor, multi-GPU, partitioned/vGPU, VM/container/WSL and generic runtimes remain first-class discovery cases.
+
+## 149. Frozen technology surfaces
+
+Independent mandatory surfaces:
+1. IRIS-HDF — Hardware Discovery Fabric
+2. IRIS-ODG — Opaque Device Graph
+3. IRIS-NAF — Negative Assertion Firewall
+4. IRIS-RSP — Runtime Substrate Passport
+5. IRIS-CEL — Capability Evidence Ladder
+6. IRIS-BRM — Backend Relationship Matrix
+7. IRIS-VSF — Version Separation Fabric
+8. IRIS-DSG — Driver Skew Graph
+9. IRIS-PFX — Precision Feature Lattice
+10. IRIS-MEC — Media Engine Capability Matrix
+11. IRIS-TGE — Topology Graph Evidence
+12. IRIS-TSL — Telemetry Semantics Ledger
+13. IRIS-MPF — Memory Pressure Fabric
+14. IRIS-EDE — Evidence Derivation Engine
+15. IRIS-SWG — Sampling Window Governor
+16. IRIS-HGX — Hardware Genome Exchange
+17. IRIS-MCD — Multidimensional Confidence Descriptor
+18. IRIS-GDL — Genome Delta Ledger
+19. IRIS-RFP — Reproducibility Fingerprint Projection
+20. IRIS-SCB — Schema Compatibility Barrier
+
+Mandatory absorbed components:
+- IRIS-DCF under HGX/MCD conflict semantics;
+- IRIS-PDM under PFX;
+- IRIS-CCG under HGX/BRM;
+- IRIS-P2P under TGE;
+- IRIS-TCR under TSL.
+
+These are internal architecture labels, not novelty/patentability claims.
+
+## 150. Frozen invariant set
+
+The freeze adopts hard invariants **1-235** from S01-S05 plus the Forward Compatibility Scan.
+
+Later implementation must encode/test the invariants relevant to each implementation slice and provide traceable evidence.
+
+An implementation cannot claim complete M07 conformance while any applicable frozen invariant is unimplemented, untested, contradicted or waived without a governed contract revision.
+
+## 151. Frozen acceptance evidence
+
+Complete M07 implementation must eventually prove:
+- deterministic bounded discovery;
+- exact subject/runtime/evidence binding;
+- negative-assertion safety;
+- backend/version/precision/media/topology correctness;
+- bounded non-invasive telemetry;
+- static/dynamic fact separation;
+- explicit unknown/conflict/stale handling;
+- deterministic Hardware Genome serialization/identity;
+- schema compatibility and migration behavior;
+- multidimensional confidence behavior;
+- privacy-safe redaction/advertisement;
+- exact snapshot/delta/projection behavior;
+- semantic registry governance;
+- permission-addressable probe safety;
+- deterministic heterogeneous fixtures;
+- 8 GB and CPU-only first-class behavior;
+- authority boundaries against M06/M08/M09/M10/M11/M12/M14/M55/M56;
+- full repository regression evidence.
+
+## 152. Implementation staging rule
+
+The implementation Work Order may stage delivery to reduce risk, but:
+- every stage must have explicit frozen-contract coverage;
+- partial implementation must identify unsupported/unimplemented surfaces honestly;
+- no placeholder can claim admitted hardware truth;
+- no stage can weaken frozen invariants to make tests pass;
+- final M07 completion requires all mandatory surfaces and applicable acceptance evidence.
+
+## 153. Freeze change control
+
+After `m07-contract-v1.0` is approved and merged, changes to frozen semantics require:
+1. explicit change proposal;
+2. affected invariant/interface list;
+3. cross-module impact analysis;
+4. compatibility/migration analysis;
+5. independent review;
+6. new contract version when semantics change;
+7. exact-main validation.
+
+Editorial clarification that does not alter semantics may follow PATCH governance.
+
+## 154. Freeze verdict candidate
+
+Candidate verdict: `M07_CONTRACT_V1_0_READY_FOR_INDEPENDENT_AUDIT`.
+
+No implementation authorization is implied.
+
+## M07 CONTRACT FREEZE STOP CONDITION
+
+The freeze candidate is complete when:
+- canonical M07 scope and authority are explicit;
+- all 235 invariants are adopted;
+- all 20 independent surfaces and five mandatory components are dispositioned;
+- acceptance evidence and implementation staging rules are explicit;
+- change control is explicit;
+- an independent final planning audit is the only remaining pre-merge planning gate.
