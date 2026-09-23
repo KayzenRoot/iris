@@ -1,6 +1,6 @@
 # IRIS Backlog
 
-Status: `M07_FORWARD_COMPATIBILITY_SCAN_COMPLETE`
+Status: `M07_CONTRACT_FREEZE_CANDIDATE`
 
 ## COMPLETED FOUNDATION
 - M01 planning/freeze/implementation merged.
@@ -33,11 +33,13 @@ Status: `M07_FORWARD_COMPATIBILITY_SCAN_COMPLETE`
 - M08-M60 Forward Compatibility Scan: **APPROVED_FOR_MODULE_CONTRACT_FREEZE**.
 - Future modules scanned: 53/53.
 - Freeze-candidate hard invariants after compatibility scan: 235.
+- M07 Module Contract Freeze candidate: `m07-contract-v1.0`.
+- Freeze candidate verdict: `M07_CONTRACT_V1_0_READY_FOR_INDEPENDENT_AUDIT`.
 - Product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-1. Produce the M07 Module Contract Freeze candidate and independent planning audit.
-2. Merge the approved M07 planning package and validate exact main.
+1. Perform the independent final M07 planning audit against `m07-contract-v1.0`.
+2. If and only if APPROVED with zero HIGH/CRITICAL findings, merge the approved M07 planning package and validate exact main.
 3. Only then compile a separate bounded M07 implementation Work Order, Context Lock, Evidence obligations and executor PDF.
 
 ## IMPLEMENTATION GATE
