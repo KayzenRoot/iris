@@ -11,6 +11,7 @@ from iris_production_state.regeneration import (
     ReuseEvidenceDimension,
     ReuseEvidenceState,
     ReuseProof,
+    VerificationReceipt,
     WorkFrontier,
     MixedReconstructionReceipt,
     admit_mixed_reconstruction,
@@ -47,7 +48,15 @@ class M06RegenerationTests(unittest.TestCase):
 
     def test_family_sre(self) -> None:
         receipt = admit_reuse(_reuse_proof("sre"), receipt_id="reuse-sre", decision_id="decision-sre", admitted_at_ms=1)
-        self.assertEqual(decide_work(WorkDisposition.REUSE_EXACT, reuse_receipt=receipt), WorkDisposition.REUSE_EXACT)
+        self.assertEqual(
+            decide_work(WorkDisposition.REUSE_EXACT, decision_id="decision-sre", reuse_receipt=receipt),
+            WorkDisposition.REUSE_EXACT,
+        )
+        self.assertEqual(decide_work(WorkDisposition.REUSE_EXACT, reuse_receipt=receipt), WorkDisposition.BLOCKED)
+        self.assertEqual(
+            decide_work(WorkDisposition.REUSE_EXACT, decision_id="different-decision", reuse_receipt=receipt),
+            WorkDisposition.BLOCKED,
+        )
         self.assertEqual(decide_work(WorkDisposition.REUSE_EXACT), WorkDisposition.BLOCKED)
         with self.assertRaises(ProductionStateAdmissionError):
             decide_work(WorkDisposition.NO_WORK_PROVEN)
@@ -92,6 +101,9 @@ class M06RegenerationTests(unittest.TestCase):
         less_conservative = WorkFrontier("decision-frontier", (one,), (two,), (), 3, WorkDisposition.NO_WORK_PROVEN, plan)
         with self.assertRaises(ProductionStateAdmissionError):
             expand_frontier(expanded, less_conservative)
+        partial = WorkFrontier("decision-frontier", (one,), (two,), (), 3, WorkDisposition.REBUILD_PARTIAL, plan)
+        with self.assertRaises(ProductionStateAdmissionError):
+            expand_frontier(expanded, partial)
 
     def test_family_mxr(self) -> None:
         reused_proof = _reuse_proof("mxr-reused")
@@ -123,7 +135,46 @@ class M06RegenerationTests(unittest.TestCase):
         self.assertIs(admit_mixed_reconstruction(receipt), receipt)
         self.assertEqual(decide_work(WorkDisposition.REBUILD_PARTIAL, boundary=boundary), WorkDisposition.REBUILD_PARTIAL)
         self.assertEqual(decide_work(WorkDisposition.REBUILD_PARTIAL), WorkDisposition.REBUILD_FULL_TARGET)
-        self.assertEqual(decide_work(WorkDisposition.REUSE_WITH_VERIFICATION, reuse_receipt=reuse_receipt), WorkDisposition.VERIFY_ONLY)
+        self.assertEqual(
+            decide_work(
+                WorkDisposition.REUSE_WITH_VERIFICATION,
+                decision_id="decision-mxr",
+                reuse_receipt=reuse_receipt,
+            ),
+            WorkDisposition.VERIFY_ONLY,
+        )
+        unrelated_verification = VerificationReceipt(
+            "verification-unrelated",
+            operational_revision("verification-other-subject"),
+            EquivalenceState.PROVEN,
+            external("verification-unrelated-evidence"),
+            2,
+        )
+        self.assertEqual(
+            decide_work(
+                WorkDisposition.REUSE_WITH_VERIFICATION,
+                decision_id="decision-mxr",
+                reuse_receipt=reuse_receipt,
+                verification=unrelated_verification,
+            ),
+            WorkDisposition.VERIFY_ONLY,
+        )
+        matching_verification = VerificationReceipt(
+            "verification-mxr",
+            reuse_receipt.candidate_materialization_ref,
+            EquivalenceState.PROVEN,
+            external("verification-mxr-evidence"),
+            3,
+        )
+        self.assertEqual(
+            decide_work(
+                WorkDisposition.REUSE_WITH_VERIFICATION,
+                decision_id="decision-mxr",
+                reuse_receipt=reuse_receipt,
+                verification=matching_verification,
+            ),
+            WorkDisposition.REUSE_WITH_VERIFICATION,
+        )
 
 
 if __name__ == "__main__":
