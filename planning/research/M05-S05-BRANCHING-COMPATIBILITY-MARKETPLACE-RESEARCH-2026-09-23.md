@@ -9,7 +9,7 @@ Authorized baseline: `6f2311b59f5da91778d3fc9d9fe1572953a0c60b`
 
 ## Research question
 
-How should IRIS represent identity lineage, compatibility, portable/reusable DNA packages and marketplace exchange without duplicating M02 branch/history authority, M06 production versioning, M53 rights, M54 security, M55 storage or M59 publishing?
+How should IRIS represent identity lineage, compatibility, portable/reusable DNA packages and marketplace exchange without duplicating M02 semantic project/build/version authority, M06 operational persistence/reconstruction ownership, M53 rights, M54 security, M55 storage or M59 publishing?
 
 ## Key conclusion
 
@@ -49,15 +49,19 @@ These relationships say how identities relate, not where commits live.
 
 No M05 lineage operation creates a Git branch, M02 production branch or rollback state.
 
-## M06 boundary
+## M02 / M06 boundary
 
-M06 owns production-state versioning, content-addressed revisions, immutable masters, dependency fingerprints, rebuild/reconstruction and rollback.
+M02 is the canonical semantic authority for production branches, snapshots, rollback, incremental-build/reuse and promotion/release/archive lifecycle.
+
+M06 deepens those contracts operationally through content-addressed persistence/revisions, immutable masters, dependency fingerprints/indexes, reconstruction/rebuild execution, cleanup and rollback execution.
+
+M06 must not create a second semantic build/version model.
 
 M05 DNA revisions remain semantic identity revisions.
 
 A future M06 build/master may reference one M05 DNA revision, but:
 - M05 does not own build artifacts;
-- M06 does not redefine identity semantics;
+- M06 does not redefine M02 build/version semantics or M05 identity semantics;
 - content-addressed build IDs are not persistent subject IDs.
 
 ## DNA compatibility model
