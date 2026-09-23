@@ -1,6 +1,6 @@
 # IRIS Scope
 
-Status: `M05_PLANNING_S01_COMPLETE`
+Status: `M05_PLANNING_S02_COMPLETE`
 
 ## Current governed increment — M05 planning
 
@@ -11,26 +11,36 @@ M05 Asset DNA 2.0 & Cross-Modal Identity is in planning only.
 - immutable DNA revisions;
 - typed canonical trait substrate;
 - explicit identity criticality and mutability;
-- PRESENT / UNKNOWN / NOT_APPLICABLE / INTENTIONALLY_UNCONSTRAINED states;
+- four-state applicability semantics;
 - canonical/evidence twin-plane architecture;
 - cross-modal identity anchors and DNA projection contracts;
-- names/paths/content hashes/provider IDs/prompts/embeddings/similarity explicitly excluded as canonical identity bases;
-- identity collision, alias and equivalence claim boundaries;
-- minimum-sufficient DNA slices;
-- privacy-minimized evidence refs;
-- 30 candidate S01 hard invariants;
-- `IRIS-DNAX-001..030` design candidates.
+- observations/hashes/embeddings/similarity excluded from canonical identity authority;
+- identity collision/alias/equivalence boundaries;
+- minimum-sufficient DNA slices.
+
+### S02 complete
+- one common DNA identity core specialized through `DNAFamilyProfile`;
+- CLASS / ARCHETYPE / INDIVIDUAL / VARIANT semantic levels;
+- typed `DNATraitBundle` composition;
+- persistent component identity independent of order/name/index;
+- CharacterDNA, CreatureDNA, ObjectDNA, ProductDNA and EnvironmentDNA profiles;
+- persistent vs contextual vs observed appearance partition;
+- Product family/model/SKU/package/physical-instance separation;
+- EnvironmentDNA kept distinct from M04 SceneIR;
+- explicit family reclassification/migration boundary;
+- S01-S02 candidate hard invariants: 60;
+- `IRIS-DNAX-001..060` design-history candidates.
 
 ### Next planning session
-M05 S02 — Character, creature, object, product and environment DNA.
+M05 S03 — SceneDNA, Motion DNA, Voice DNA and Brand DNA links.
 
 ### NOT ADMITTED
-- any `iris_asset_dna` implementation package;
-- storage/CAS/database implementation;
-- biometric authentication;
-- digital-human/voice/music/brand generation runtime;
+- any M05 implementation package;
+- automatic DNA classification/reclassification from model output;
 - automatic identity merge from similarity;
-- provider/DCC-specific identity logic.
+- provider/DCC-specific identity logic;
+- digital-human, voice, music or brand generation runtime;
+- persistence/CAS/database implementation.
 
 ## IRIS 1.0 product scope
 
