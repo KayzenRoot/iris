@@ -1,6 +1,6 @@
 # M06 — Production State, Versioning & Incremental Media Build
 
-Status: `CONTRACT_FREEZE_CANDIDATE_PENDING_VALIDATION`
+Status: `CONTRACT_FROZEN_APPROVED_PENDING_PLANNING_MERGE`
 Planning model: `FULL_VERSION_NO_MVP`
 Issue: #44
 Planning base: `bac62c5e59ff926c6b80a5ec86a91b0410f35fea`
