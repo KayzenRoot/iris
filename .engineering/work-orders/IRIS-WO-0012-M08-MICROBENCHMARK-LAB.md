@@ -1,6 +1,6 @@
 # IRIS-WO-0012 — Implement M08 Microbenchmark Lab & Capability Envelope
 
-Status: `ADMISSION_CANDIDATE`
+Status: `ADMITTED_FOR_EXECUTION`
 Risk: `ELEVATED`
 Issue: `#58`
 Branch: `iris-wo-0012-m08-microbenchmark-lab`
@@ -12,6 +12,18 @@ Implementation package: `iris_microbenchmark/`
 Implement the complete frozen M08 empirical hardware/runtime performance-characterization kernel. This is not an MVP slice.
 
 The final implementation MUST satisfy all **330** hard invariants, all **40** independent mandatory technology surfaces and all **15** mandatory absorbed components frozen in `planning/modules/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md`.
+
+## ADMISSION
+
+Admission candidate head: `9010f2c7b9bc9ea1a53ae521ad40f05e7a0161a4`
+
+Admission proof:
+- critical source fingerprints: **13/13 matched**
+- mismatches: **0**
+- authorized base/main: `6e2aea630208f6f18656803735426ba99d9b3cc7`
+- Governance: `35909286994 / 107344738312` — **PASS**
+- baseline/full-suite floor: **2834 tests**
+- result: `ADMITTED_FOR_EXECUTION`
 
 ## AUTHORITY LAW
 M08 owns bounded microbenchmark protocols/results, hardware-capability envelopes, performance fingerprints/drift and calibration/freshness/invalidation semantics bound to exact M07 provenance.
