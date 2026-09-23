@@ -2,7 +2,7 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0011",
   "frozenContract": "m07-contract-v1.0",
-  "status": "READY_FOR_INDEPENDENT_AUDIT",
+  "status": "READY_FOR_FINAL_INDEPENDENT_AUDIT",
   "capturePhase": "post-push update with implementation and evidence commit Governance results verified",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
@@ -35,7 +35,11 @@
     "originMainAndMergeBaseUnchanged": true,
     "contextLock": ".engineering/context-locks/IRIS-WO-0011.json",
     "contextLockSha256": "bd2b4abeb58aad7c62987e9baae352ef2908942f89e2311cbe731a9c201210d0",
-    "criticalFingerprints": {"required": 11, "matched": 11, "mismatched": 0},
+    "criticalFingerprints": {
+      "required": 11,
+      "matched": 11,
+      "mismatched": 0
+    },
     "workOrderSha256": "f4921de435d63a8d67b89dbbeebb79ee7229a943aa746bf2da44c3a677d600407",
     "frozenPlanningSourceSha256": "f646ef757070ee892fbd55c749f3a4043b45f939ed4835769dda9183c900f949",
     "checkpointSha256": "aca74898f44f3c60f04fd86ed1b6b0b43061754373888cd72bd0515f4c33e2fd",
@@ -61,25 +65,82 @@
     "package": "iris_hardware_genome/",
     "version": "1.0.0",
     "publicModules": [
-      "base", "versions", "limits", "errors", "enums", "families", "subjects", "evidence", "discovery", "ports",
-      "capabilities", "precision", "media", "topology", "registry", "telemetry", "schema", "genome", "deltas",
-      "projections", "redaction", "migration", "recovery", "validation", "invariants", "serialization"
+      "base",
+      "versions",
+      "limits",
+      "errors",
+      "enums",
+      "families",
+      "subjects",
+      "evidence",
+      "discovery",
+      "ports",
+      "capabilities",
+      "precision",
+      "media",
+      "topology",
+      "registry",
+      "telemetry",
+      "schema",
+      "genome",
+      "deltas",
+      "projections",
+      "redaction",
+      "migration",
+      "recovery",
+      "validation",
+      "invariants",
+      "serialization"
     ],
     "runtimeDependenciesAdded": [],
     "technologySurfaces": {
       "required": 20,
       "represented": 20,
-      "codes": ["HDF", "ODG", "NAF", "RSP", "CEL", "BRM", "VSF", "DSG", "PFX", "MEC", "TGE", "TSL", "MPF", "EDE", "SWG", "HGX", "MCD", "GDL", "RFP", "SCB"]
+      "codes": [
+        "HDF",
+        "ODG",
+        "NAF",
+        "RSP",
+        "CEL",
+        "BRM",
+        "VSF",
+        "DSG",
+        "PFX",
+        "MEC",
+        "TGE",
+        "TSL",
+        "MPF",
+        "EDE",
+        "SWG",
+        "HGX",
+        "MCD",
+        "GDL",
+        "RFP",
+        "SCB"
+      ]
     },
     "absorbedComponents": {
       "required": 5,
       "represented": 5,
-      "codes": ["DCF", "PDM", "CCG", "P2P", "TCR"]
+      "codes": [
+        "DCF",
+        "PDM",
+        "CCG",
+        "P2P",
+        "TCR"
+      ]
     },
     "hardInvariants": {
       "required": 235,
       "literalInventory": 235,
-      "sections": {"S01": 30, "S02": 30, "S03": 40, "S04": 50, "S05": 60, "FC": 25},
+      "sections": {
+        "S01": 30,
+        "S02": 30,
+        "S03": 40,
+        "S04": 50,
+        "S05": 60,
+        "FC": 25
+      },
       "exactTextAndOrderValidator": "scripts/validate_m07_invariants.py",
       "proofTargets": [
         "tests/test_m07_discovery.py::TestDiscovery",
@@ -92,25 +153,76 @@
       "validation": "235/235 exact, unique, indexed; PASS"
     },
     "conceptMap": {
-      "opaque_subject_runtime_and_evidence": ["subjects.py", "evidence.py", "discovery.py"],
-      "capability_versions_backend_skew_precision_media": ["capabilities.py", "precision.py", "media.py"],
-      "topology_memory_telemetry_sampling_derivation": ["topology.py", "telemetry.py", "registry.py"],
-      "immutable_genome_confidence_schema_serialization": ["genome.py", "schema.py", "serialization.py", "validation.py"],
-      "delta_projection_redaction_migration_recovery": ["deltas.py", "projections.py", "redaction.py", "migration.py", "recovery.py"]
+      "opaque_subject_runtime_and_evidence": [
+        "subjects.py",
+        "evidence.py",
+        "discovery.py"
+      ],
+      "capability_versions_backend_skew_precision_media": [
+        "capabilities.py",
+        "precision.py",
+        "media.py"
+      ],
+      "topology_memory_telemetry_sampling_derivation": [
+        "topology.py",
+        "telemetry.py",
+        "registry.py"
+      ],
+      "immutable_genome_confidence_schema_serialization": [
+        "genome.py",
+        "schema.py",
+        "serialization.py",
+        "validation.py"
+      ],
+      "delta_projection_redaction_migration_recovery": [
+        "deltas.py",
+        "projections.py",
+        "redaction.py",
+        "migration.py",
+        "recovery.py"
+      ]
     }
   },
   "changedFiles": [
-    "iris_hardware_genome/__init__.py", "iris_hardware_genome/base.py", "iris_hardware_genome/capabilities.py", "iris_hardware_genome/deltas.py",
-    "iris_hardware_genome/discovery.py", "iris_hardware_genome/enums.py", "iris_hardware_genome/errors.py", "iris_hardware_genome/evidence.py",
-    "iris_hardware_genome/families.py", "iris_hardware_genome/genome.py", "iris_hardware_genome/invariants.py", "iris_hardware_genome/limits.py",
-    "iris_hardware_genome/media.py", "iris_hardware_genome/migration.py", "iris_hardware_genome/ports.py", "iris_hardware_genome/precision.py",
-    "iris_hardware_genome/projections.py", "iris_hardware_genome/recovery.py", "iris_hardware_genome/redaction.py", "iris_hardware_genome/registry.py",
-    "iris_hardware_genome/schema.py", "iris_hardware_genome/serialization.py", "iris_hardware_genome/subjects.py", "iris_hardware_genome/telemetry.py",
-    "iris_hardware_genome/topology.py", "iris_hardware_genome/validation.py", "iris_hardware_genome/versions.py",
-    "tests/m07_support.py", "tests/test_m07_authority.py", "tests/test_m07_capabilities.py", "tests/test_m07_discovery.py",
-    "tests/test_m07_genome.py", "tests/test_m07_hardware_surfaces.py", "tests/test_m07_telemetry.py",
-    "examples/m07_domain_neutral_profiles.py", "scripts/validate_m07_invariants.py", "scripts/validate_m07_boundaries.py",
-    "docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md", ".engineering/evidence/IRIS-WO-0011.json"
+    "iris_hardware_genome/__init__.py",
+    "iris_hardware_genome/base.py",
+    "iris_hardware_genome/capabilities.py",
+    "iris_hardware_genome/deltas.py",
+    "iris_hardware_genome/discovery.py",
+    "iris_hardware_genome/enums.py",
+    "iris_hardware_genome/errors.py",
+    "iris_hardware_genome/evidence.py",
+    "iris_hardware_genome/families.py",
+    "iris_hardware_genome/genome.py",
+    "iris_hardware_genome/invariants.py",
+    "iris_hardware_genome/limits.py",
+    "iris_hardware_genome/media.py",
+    "iris_hardware_genome/migration.py",
+    "iris_hardware_genome/ports.py",
+    "iris_hardware_genome/precision.py",
+    "iris_hardware_genome/projections.py",
+    "iris_hardware_genome/recovery.py",
+    "iris_hardware_genome/redaction.py",
+    "iris_hardware_genome/registry.py",
+    "iris_hardware_genome/schema.py",
+    "iris_hardware_genome/serialization.py",
+    "iris_hardware_genome/subjects.py",
+    "iris_hardware_genome/telemetry.py",
+    "iris_hardware_genome/topology.py",
+    "iris_hardware_genome/validation.py",
+    "iris_hardware_genome/versions.py",
+    "tests/m07_support.py",
+    "tests/test_m07_authority.py",
+    "tests/test_m07_capabilities.py",
+    "tests/test_m07_discovery.py",
+    "tests/test_m07_genome.py",
+    "tests/test_m07_hardware_surfaces.py",
+    "tests/test_m07_telemetry.py",
+    "examples/m07_domain_neutral_profiles.py",
+    "scripts/validate_m07_invariants.py",
+    "scripts/validate_m07_boundaries.py",
+    "docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+    ".engineering/evidence/IRIS-WO-0011.json"
   ],
   "validation": {
     "python": "3.12.10 system Python",
@@ -146,20 +258,51 @@
   },
   "contextAndSlices": {
     "contract": "ProjectionContract names and versions the consumer, explicitly selects fact keys, declares required fact keys, and gates capability inclusion.",
-    "omissionAccounting": ["NOT_SELECTED_BY_CONTRACT", "NOT_CAPTURED_IN_SOURCE"],
+    "omissionAccounting": [
+      "NOT_SELECTED_BY_CONTRACT",
+      "NOT_CAPTURED_IN_SOURCE"
+    ],
     "validation": "validate_projection recomputes selected facts, omission reasons and fingerprint against the exact source Genome and contract.",
     "m06Boundary": "project_to_m06 requires consumer_id M06 and exact fact materiality_declared_by equal to the named contract_id.",
     "efficiencyClaim": "Projection payload contains selected fact envelopes and declared capability IDs only; no token-count or measured context-size claim is made.",
     "proof": "tests/test_m07_authority.py::TestProjectionAndRecovery"
   },
   "profiles": [
-    {"id": "cpu-only", "kind": "synthetic", "result": "PASS"},
-    {"id": "gpu-8gb", "kind": "synthetic", "result": "PASS"},
-    {"id": "multi-adapter", "kind": "synthetic", "result": "PASS"},
-    {"id": "shared-and-dedicated-memory", "kind": "synthetic", "result": "PASS"},
-    {"id": "guest-partial", "kind": "synthetic", "result": "PASS"},
-    {"id": "permission-limited", "kind": "synthetic", "result": "PASS"},
-    {"id": "conflicting-stale-telemetry", "kind": "synthetic", "result": "PASS"}
+    {
+      "id": "cpu-only",
+      "kind": "synthetic",
+      "result": "PASS"
+    },
+    {
+      "id": "gpu-8gb",
+      "kind": "synthetic",
+      "result": "PASS"
+    },
+    {
+      "id": "multi-adapter",
+      "kind": "synthetic",
+      "result": "PASS"
+    },
+    {
+      "id": "shared-and-dedicated-memory",
+      "kind": "synthetic",
+      "result": "PASS"
+    },
+    {
+      "id": "guest-partial",
+      "kind": "synthetic",
+      "result": "PASS"
+    },
+    {
+      "id": "permission-limited",
+      "kind": "synthetic",
+      "result": "PASS"
+    },
+    {
+      "id": "conflicting-stale-telemetry",
+      "kind": "synthetic",
+      "result": "PASS"
+    }
   ],
   "authorityBoundaries": {
     "M01": "quality/evaluator/promotion authority retained; M07 makes no quality decision",
@@ -169,7 +312,17 @@
     "M05": "persistent Asset/Persona DNA authority retained; M07 subjects are not persistent asset identities",
     "M06": "reconstruction material requires explicit named materiality; no M06 contract is inferred",
     "M16": "only concrete provider/workflow compiler; M07 has no provider compiler or SDK dependency",
-    "excluded": ["M08+ implementation", "hardware performance benchmarking", "provider execution", "GPU/VRAM scheduling", "persistence/CAS/database", "media generation", "quality judges", "rights/security engines", "publishing/export runtime"]
+    "excluded": [
+      "M08+ implementation",
+      "hardware performance benchmarking",
+      "provider execution",
+      "GPU/VRAM scheduling",
+      "persistence/CAS/database",
+      "media generation",
+      "quality judges",
+      "rights/security engines",
+      "publishing/export runtime"
+    ]
   },
   "securityAndComplexity": {
     "hardwareDiscoveryExecuted": false,
@@ -207,7 +360,10 @@
     "static fingerprint included dynamic telemetry",
     "semantic registry scope and telemetry metric unit/state mismatch",
     "custom complexity limits not applied consistently",
-    "thermal evidence validator type narrowing and tests passing raw permission strings instead of closed enums"
+    "thermal evidence validator type narrowing and tests passing raw permission strings instead of closed enums",
+    "independent audit: removed measured PCIe bandwidth from M07 TopologyLinkEvidence because empirical bandwidth is M08 authority",
+    "independent audit: replaced 20 orphan technology-surface proof target labels with concrete existing test-method references",
+    "independent audit: invariant validator now rejects orphan mandatory technology-surface proof targets"
   ],
   "risksAndDeferredPorts": [
     "Platform-specific adapter implementations and hardware claims require independent source validation; no physical probe ran.",
@@ -225,9 +381,54 @@
     "baseRef": "main",
     "baseSha": "db8a39237c26d85f62cdf02a29c29136d4d6ed63",
     "admissionShaGovernanceIsNotClaimedAsImplementationGovernance": true,
-    "implementationHead": {"sha": "e9729ca29eb2f2c2c69e24c0983e4b741bebe12a", "workflowRun": 35902187532, "job": 107320897576, "result": "PASS"},
-    "evidenceUpdateHead": {"sha": "5d54904c489899e8b26939624b0832a8c8534701", "workflowRun": 35902454320, "job": 107321785516, "result": "PASS"},
-    "latestVerifiedHeadAtEvidenceRevision": {"sha": "57c5cdc1e53f0e5bd9885d7f5dd20df21062d6ac", "workflowRun": 35903131630, "job": 107324040867, "result": "PASS"}
+    "implementationHead": {
+      "sha": "e9729ca29eb2f2c2c69e24c0983e4b741bebe12a",
+      "workflowRun": 35902187532,
+      "job": 107320897576,
+      "result": "PASS"
+    },
+    "evidenceUpdateHead": {
+      "sha": "5d54904c489899e8b26939624b0832a8c8534701",
+      "workflowRun": 35902454320,
+      "job": 107321785516,
+      "result": "PASS"
+    },
+    "latestVerifiedHeadAtEvidenceRevision": {
+      "sha": "57c5cdc1e53f0e5bd9885d7f5dd20df21062d6ac",
+      "workflowRun": 35903131630,
+      "job": 107324040867,
+      "result": "PASS"
+    },
+    "latestCorrectedImplementationHead": {
+      "sha": "37d06b5cb9bd137b74a9d425428dc875aba0c33d",
+      "workflowRun": 35904800262,
+      "job": 107329666169,
+      "result": "PASS"
+    }
   },
-  "stopCondition": "Implementation, docs and Evidence Bundle are pushed and ready for independent audit. PR #54 remains open and unmerged; no M08 work is authorized."
+  "stopCondition": "Independent audit found two HIGH findings and corrected both directly in PR #54. Final exact-head Governance after this evidence update is required before approval; PR remains open/unmerged and M08 remains unauthorized.",
+  "independentAudit": {
+    "phase": "CORRECTION_PASS_1",
+    "auditedImplementationHead": "47b035230333b480eb25e648743291dbff07ead8",
+    "findingsAtAudit": {
+      "critical": 0,
+      "high": 2
+    },
+    "corrections": {
+      "measuredBandwidthAuthorityLeak": "FIXED: M07 now models only PCIe maximum capability and negotiated state; measured bandwidth remains M08 authority.",
+      "orphanTechnologyProofTargets": "FIXED: 20/20 mandatory surfaces resolve to concrete existing focused test methods; validator fails closed on orphan targets."
+    },
+    "correctedHead": "37d06b5cb9bd137b74a9d425428dc875aba0c33d",
+    "correctedHeadGovernance": {
+      "run": 35904800262,
+      "job": 107329666169,
+      "result": "PASS",
+      "tests": 2834
+    },
+    "residualKnownFindings": {
+      "critical": 0,
+      "high": 0
+    },
+    "verdict": "PENDING_FINAL_EXACT_HEAD_AFTER_EVIDENCE_UPDATE"
+  }
 }
