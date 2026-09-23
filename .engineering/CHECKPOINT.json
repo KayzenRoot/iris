@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M07_IMPLEMENTATION_ADMITTED",
+  "status": "M07_IMPLEMENTATION_MERGED_MAIN_VALIDATED",
   "version": "m07-contract-v1.0",
-  "phase": "M07_IMPLEMENTATION_EXECUTION",
-  "nextStep": "Resume IRIS-WO-0011 implementation on PR #54 from the current remote branch head. Complete the frozen M07 kernel, tests, documentation and evidence. Do not merge and do not start M08."
+  "phase": "M07_POSTMERGE_RECONCILIATION",
+  "nextStep": "Complete and independently audit the M07 post-merge reconciliation PR, merge it, and validate exact main. Do not start M08 until that closure is durable."
 }
