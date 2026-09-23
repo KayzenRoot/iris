@@ -1,44 +1,34 @@
 # IRIS Test & Benchmark Plan
 
-Status: `M04_IMPLEMENTATION_REVIEWED_MERGE_GATE`
+Status: `M04_MERGED_BASELINE_ACTIVE`
 
 ## Current repository gate
-Every admitted code or governance increment must use risk-appropriate checks and exact-head GitHub Governance. The current gate includes:
-- Python compile/static syntax checks for governed tooling and affected packages;
-- `scripts/validate_governance.py`;
-- full `unittest` discovery;
-- focused module regressions where applicable;
-- exact-candidate SHA assertion in GitHub Actions;
-- post-merge exact-`main` Governance validation.
+Every admitted code or governance increment must use risk-appropriate checks and exact-head GitHub Governance, including exact-candidate SHA assertion and post-merge exact-main validation.
 
-The authorized M04 implementation baseline at `58e4201f1d76d261e9e213b7aab91ae8734188a5` passed Governance `35803397206 / 106998641283` with **2527/2527 tests OK** and 35 required governance artifacts.
+## Current canonical baseline
 
-The independently reviewed M04 code head `7d3237a3ea39a1006fca8137046587077de29602` passed Governance `35813813456 / 107030932340` with **2677/2677 tests OK** and 35 required governance artifacts.
+M04 reviewed implementation merge:
+- main SHA: `8dd188fcea7fa0874fab214867e1f5f6ce23e8cd`;
+- Governance: `35814014969 / 107031546003` — PASS;
+- required governance artifacts: 35;
+- full suite: **2677/2677 OK**.
 
-Independent review added 12 M04 regression tests beyond the executor's 138-test focused baseline, covering extension fail-closed policy, caller-selected structural limits, full-revision resource limits, unit/color/time-aware tolerant round trips, collision-free color witness paths and composite invariant proof alignment.
+The pre-M04 implementation baseline was 2527 tests. The reviewed M04 state adds 150 focused M04 tests without deleting or weakening the baseline suite.
 
-## M04 implementation obligations
-The reviewed implementation proves the acceptance families frozen by `m04-contract-v1.0`, including:
+## M04 proof areas
 - all 80 hard invariants;
-- deterministic canonical serialization/digests;
-- identity, graph, composition and reference integrity;
-- M03→M04 trace/lowering integrity with no silent mandatory-semantic loss;
-- schema/facet/extension/versioning/migration fail-closed behavior;
-- spatial/camera/light/material/color semantics;
-- temporal/motion/audio/music/narrative/timeline semantics;
-- capability/legality/lowering boundary with zero M16 concrete workflow leakage;
-- round-trip witness/equivalence and anti-self-certification behavior;
-- adversarial graph/resource/depth/fanout/sample limits;
-- minimum-sufficient slices, localized fingerprints/deltas and interface-only inspection;
-- seven domain-neutral fixtures using the same core;
-- static/import proof of no provider/DCC/cloud/database/network/shell runtime dependency.
+- deterministic serialization/digests;
+- graph/composition/reference integrity;
+- schema/facet/extension fail-closed behavior;
+- migration and compatibility;
+- spatial/camera/light/material/color;
+- temporal/motion/audio/music/narrative/timeline;
+- M03 lowering and M16 firewall;
+- semantic round-trip, unit/color/time-aware tolerance and anti-self-certification;
+- resource/depth/fanout/sample limits;
+- slices/fingerprints/deltas;
+- seven domain-neutral fixtures;
+- no provider/DCC/network/shell/database runtime dependency.
 
-No arbitrary performance/token percentage is claimed without measured evidence.
-
-## Risk posture
-M04 implementation remains `ELEVATED` until protected merge plus exact-main validation. No known HIGH/CRITICAL review findings remain.
-
-## Future product validation
-Unit/integration/E2E; visual/reference quality; anatomy/pose/rig/deformation; temporal consistency/motion smoothness; geometry/topology/material/shader; audio; GPU/VRAM/RAM performance/fallback; DCC integration; export/import reproducibility.
-
-Thresholds/datasets are frozen by the owning modules before their implementations can claim completion.
+## Next-module rule
+M05 must establish its own thresholds, fixtures and exact-head gates before implementation. No M04 test result automatically proves M05 correctness.
