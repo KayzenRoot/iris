@@ -83,7 +83,7 @@ S04 adds identity transition semantics without absorbing evaluator or downstream
 
 S05 completes the functional planning boundary:
 - M05 lineage relations are semantic identity lineage only; M02 remains project/production branch authority;
-- M06 owns production-state/content-addressed revision, rebuild and rollback semantics;
+- M02 retains semantic branch/snapshot/rollback/build-reuse lifecycle authority; M06 operationalizes content-addressed persistence, dependency indexing, reconstruction and rollback execution under M02 contracts;
 - compatibility is directional and multi-axis, with explicit loss/migration/indeterminate outcomes;
 - reusable DNA package identity remains distinct from persistent subject identity;
 - M53 owns rights/license/consent/provenance, M54 security/restricted-content, M55 storage/CAS, M58 API/conformance surfaces and M59 concrete export/publishing;
