@@ -18,13 +18,12 @@ Recompile IRIS-WO-0008 on the validated main that includes the repository-canoni
 - M03 Creative Brief / Intent / Constraint Compiler: implemented, approved and merged.
 - M04 planning/freeze/review package: complete and merged.
 - M04 contract: `FROZEN_APPROVED / m04-contract-v1.0`.
-- Prompt Delivery Policy PR #33: merged and exact-main validated.
-- New authorized implementation base: `58e4201f1d76d261e9e213b7aab91ae8734188a5`.
+- Prompt Delivery Policy PR #33: merged as `58e4201f1d76d261e9e213b7aab91ae8734188a5` and exact-main validated.
 - New baseline Governance: `35803397206 / 106998641283` — PASS.
 - New baseline suite: `2527/2527 OK`.
 - Required governance artifacts: 35.
 - IRIS-WO-0008 issue remains #30.
-- Prior implementation PR #31 was admitted on an older critical-policy baseline and is stale by Context Lock rules.
+- Prior PR #31 is stale because it was admitted before the critical prompt/review policies changed.
 - M04 implementation code has not started.
 
 ## IN PROGRESS
