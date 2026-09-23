@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M05_PLANNING_ACTIVE",
+  "status": "M05_PLANNING_APPROVED",
   "version": "m05-contract-v1.0",
-  "phase": "M05_CONTRACT_FREEZE_CANDIDATE_AUDIT_NEXT",
-  "nextStep": "Run the independent M05 planning audit against the exact `m05-contract-v1.0` freeze-candidate head. Audit 150 invariants, 25 consolidated families, 22 extension/ref ports, authority shields, planning-only diff and Governance evidence. Do not implement M05."
+  "phase": "M05_FROZEN_APPROVED_PLANNING_MERGE_NEXT",
+  "nextStep": "Pass exact-head Governance on the `FROZEN_APPROVED / m05-contract-v1.0` promotion head, then protected squash-merge PR #38 and validate exact `main`. Do not implement M05 before merged/main-validated canonical state."
 }
