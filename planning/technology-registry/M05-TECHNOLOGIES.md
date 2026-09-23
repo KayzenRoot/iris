@@ -1,7 +1,7 @@
 # M05 Technology Registry
 
 Module: `M05 — Asset DNA 2.0 & Cross-Modal Identity`
-Status: `S04_ACTIVE_REGISTRY`
+Status: `S05_FUNCTIONAL_PLANNING_COMPLETE`
 Rule: IRIS technology names are design candidates. They are not novelty, patentability or legal claims until dedicated review.
 
 ## External prior-art references
@@ -430,3 +430,106 @@ Findings for auto-merge, hidden mutation, stale anchor, history erasure and auth
 M05 now records `IRIS-DNAX-001..120` design-history candidates across S01-S04.
 
 No candidate is frozen until S01-S05, consolidation, forward compatibility, Final Technology Review and independent planning audit complete.
+
+
+## S05 portability/compatibility candidates
+
+## IRIS-DNAX-121 — Identity Lineage Relation Matrix
+Semantic DNA ancestry/variant/break/split/consolidation relations separate from M02 branches.
+
+## IRIS-DNAX-122 — Project-Branch Firewall
+Prevents DNA lineage semantics from becoming a parallel M02 VCS/rollback system.
+
+## IRIS-DNAX-123 — Build-Version Firewall
+Prevents M06 build/master/content-addressed revisions from becoming persistent subject identity.
+
+## IRIS-DNAX-124 — Directional DNA Compatibility Profile
+Source-to-consumer multi-axis compatibility contract.
+
+## IRIS-DNAX-125 — Compatibility Axis Matrix
+Schema/family/trait/component/anchor/link/capability/policy compatibility dimensions.
+
+## IRIS-DNAX-126 — Explicit Loss Compatibility
+COMPATIBLE_WITH_LOSS state with mandatory loss surface.
+
+## IRIS-DNAX-127 — Indeterminate Compatibility Guard
+Unknown evidence/support never collapses into compatible.
+
+## IRIS-DNAX-128 — DNA Migration Plan
+Typed source-to-target semantic migration with explicit preservation/loss/defaults.
+
+## IRIS-DNAX-129 — Migration Identity Continuity Gate
+Migration cannot silently preserve identity when continuity policy says break.
+
+## IRIS-DNAX-130 — Deterministic Migration Receipt
+Stable evidence of migration inputs, change surface and resulting fingerprint.
+
+## IRIS-DNAX-131 — Reusable DNA Package Manifest
+Portable contract for DNA identities/revisions, schemas, refs and policy metadata.
+
+## IRIS-DNAX-132 — Package / Subject Identity Firewall
+Package IDs and package versions remain distinct from dna_id/revision identity.
+
+## IRIS-DNAX-133 — Multi-Identity Package Envelope
+Explicit packaging of multiple identities without merging them.
+
+## IRIS-DNAX-134 — DNA Portability Level Matrix
+INTERFACE_ONLY / PORTABLE_CANONICAL / PRODUCTION_REFERENCE / RESTRICTED_REFERENCE.
+
+## IRIS-DNAX-135 — Typed Dependency Closure
+Required/optional DNA/schema/policy/evidence/tooling dependency classes.
+
+## IRIS-DNAX-136 — Required Dependency Gate
+Fail-closed import/use when required dependencies are unresolved.
+
+## IRIS-DNAX-137 — DNA Marketplace Contract
+Exchange-facing metadata, compatibility and policy refs without commerce ownership.
+
+## IRIS-DNAX-138 — Rights Authority Bridge
+Immutable refs to M53 rights/license/consent/provenance records.
+
+## IRIS-DNAX-139 — Security Authority Bridge
+Policy/security classification refs to M54 without self-declared safety.
+
+## IRIS-DNAX-140 — Storage Authority Firewall
+Portable DNA semantics stay independent of M55 CAS/storage location.
+
+## IRIS-DNAX-141 — Delivery Authority Firewall
+M59 owns concrete export/publishing while M05 owns package semantics only.
+
+## IRIS-DNAX-142 — DNA Import Admission State Machine
+Parse/validate/compatibility/policy/quarantine/propose/admit/reject states.
+
+## IRIS-DNAX-143 — Collision-Safe Import Gate
+Existing dna_id/equivalence collisions route to S04 instead of overwrite.
+
+## IRIS-DNAX-144 — DNA Package Conformance Report
+Deterministic schema/dependency/fingerprint/ref conformance proof.
+
+## IRIS-DNAX-145 — Contract / Legal Truth Firewall
+Conformance cannot prove rights, consent, safety or identity equivalence by itself.
+
+## IRIS-DNAX-146 — Non-Executable DNA Supply Chain
+Canonical package format forbids arbitrary executable payloads by default.
+
+## IRIS-DNAX-147 — Restricted Evidence Reference Capsule
+Portable package references protected evidence without copying it by default.
+
+## IRIS-DNAX-148 — DNA Package Lifecycle
+ACTIVE / DEPRECATED / SECURITY_RESTRICTED / RETIRED with explicit replacement refs.
+
+## IRIS-DNAX-149 — Compatibility Deprecation Bridge
+Preserves old consumer behavior/audit while routing to supported schema/package versions.
+
+## IRIS-DNAX-150 — Portable DNA Threat Radar
+Findings for hidden loss, missing dependencies, rights stripping, executable payloads and import overwrite.
+
+---
+
+## S05 registry disposition
+
+`IRIS-DNAX-121..150` are `DESIGN_HISTORY_CANDIDATES`.
+
+M05 functional planning now records `IRIS-DNAX-001..150` across S01-S05.
+
+No candidate is frozen yet. Next required step is Final Technology Review, followed by M06-M60 Forward Compatibility Scan, contract freeze and independent planning audit.
