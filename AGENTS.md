@@ -18,3 +18,10 @@ Stable HIVE tools: `project.list`, `project.status`, `context.build`, `context.s
 `ANALYZE -> SOURCE CHECK -> NEXT NECESSARY INCREMENT -> WORK ORDER -> CONTEXT LOCK -> PREFLIGHT -> EXECUTOR -> TESTS/EVIDENCE -> PR -> AUDIT -> VERDICT -> CHECKPOINT DELTA -> MERGE -> NEXT`
 
 Verdicts: `APPROVED`, `CORRECTION REQUIRED`, `BLOCKED`. No known HIGH/CRITICAL defect may be promoted.
+
+
+## Prompt delivery
+
+Resolve prompt-delivery rules through `.engineering/PROMPT-DELIVERY-POLICY.md`.
+
+Complete prompts intended for Codex/Coder/Zcode or another executor MUST be delivered to the user as a downloadable PDF artifact, not as a copyable writing box or long inline prompt. Inline text may summarize the work. Do not generate an executor PDF when the finding is safely `CHAT_FIXABLE`.
