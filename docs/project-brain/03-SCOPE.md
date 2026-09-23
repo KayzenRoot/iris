@@ -1,47 +1,58 @@
 # IRIS Scope
 
-Status: `M05_PLANNING_S02_COMPLETE`
+Status: `M05_PLANNING_S03_COMPLETE`
 
 ## Current governed increment — M05 planning
 
-M05 Asset DNA 2.0 & Cross-Modal Identity is in planning only.
+M05 Asset DNA 2.0 & Cross-Modal Identity remains planning-only.
 
 ### S01 complete
-- persistent semantic DNA identity separate from M04 representation identity;
+- persistent semantic identity separate from representation/storage/provider identity;
 - immutable DNA revisions;
-- typed canonical trait substrate;
-- explicit identity criticality and mutability;
-- four-state applicability semantics;
-- canonical/evidence twin-plane architecture;
-- cross-modal identity anchors and DNA projection contracts;
-- observations/hashes/embeddings/similarity excluded from canonical identity authority;
-- identity collision/alias/equivalence boundaries;
-- minimum-sufficient DNA slices.
+- typed trait criticality/mutability;
+- four-state applicability;
+- canonical/evidence twin-plane;
+- identity anchors/projection contracts;
+- anti-auto-merge collision/equivalence boundaries.
 
 ### S02 complete
-- one common DNA identity core specialized through `DNAFamilyProfile`;
-- CLASS / ARCHETYPE / INDIVIDUAL / VARIANT semantic levels;
-- typed `DNATraitBundle` composition;
-- persistent component identity independent of order/name/index;
-- CharacterDNA, CreatureDNA, ObjectDNA, ProductDNA and EnvironmentDNA profiles;
-- persistent vs contextual vs observed appearance partition;
-- Product family/model/SKU/package/physical-instance separation;
-- EnvironmentDNA kept distinct from M04 SceneIR;
-- explicit family reclassification/migration boundary;
-- S01-S02 candidate hard invariants: 60;
-- `IRIS-DNAX-001..060` design-history candidates.
+- common DNA core specialized by family profiles;
+- CLASS / ARCHETYPE / INDIVIDUAL / VARIANT separation;
+- persistent components;
+- Character/Creature/Object/Product/Environment DNA profiles;
+- persistent/contextual/observed appearance partition;
+- product identity levels;
+- explicit family reclassification boundary.
+
+### S03 complete
+- `LinkedDomainDNARef` owner/family/revision pinning;
+- `SceneIdentityDNA` reusable identity composition distinct from SceneIR/Canon;
+- `IdentityRoleSlot` governed member substitution;
+- `MotionDNALink` to M30-owned MotionDNA;
+- `VoiceDNALink` to M40-owned VoiceDNA;
+- `BrandDNALink` to M46-owned BrandDNA;
+- M45 Campaign DNA / Creative Genome kept separate from BrandDNA;
+- `CrossModalIdentityBinding`;
+- `CrossModalIdentityObligation`;
+- `CrossModalDNAGraph` separated from Production Graph, Scene Graph and Canon Graph;
+- external DNA link freshness/staleness semantics;
+- generic future-domain DNA ports;
+- S01-S03 candidate hard invariants: 90;
+- `IRIS-DNAX-001..090` design-history candidates.
 
 ### Next planning session
-M05 S03 — SceneDNA, Motion DNA, Voice DNA and Brand DNA links.
+M05 S04 — identity anchors, mutation boundaries and drift detection.
 
 ### NOT ADMITTED
 - any M05 implementation package;
-- automatic DNA classification/reclassification from model output;
-- automatic identity merge from similarity;
-- provider/DCC-specific identity logic;
-- digital-human, voice, music or brand generation runtime;
-- persistence/CAS/database implementation.
+- automatic canonical mutation from similarity/drift score;
+- motion/voice/brand generation runtime;
+- biometric authentication runtime;
+- M04 SceneIR ownership;
+- M43 Canon ownership;
+- M30/M40/M46 domain DNA contents;
+- persistence/CAS/database runtime.
 
 ## IRIS 1.0 product scope
 
-IRIS 1.0 continues to include M00-M60. M05 planning does not silently implement or freeze later modules.
+IRIS 1.0 continues to include M00-M60. M05 planning does not silently implement/freeze downstream modules.
