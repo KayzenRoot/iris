@@ -47,7 +47,7 @@ S01 freezes these architectural directions:
 - cross-modal identity anchors and projection contracts;
 - observation/embedding/hash/provider outputs remain evidence, never self-authorizing canonical truth;
 - M02 keeps project/branch/history authority;
-- M06 keeps persistence/CAS/storage authority;
+- M06 keeps operational production-state/content-addressed persistence/reconstruction under M02 contracts; M55 keeps media CAS/storage/cache/archive authority;
 - M53/M54 keep rights/provenance/privacy/security authority;
 - M39/M40/M41/M43/M46 keep domain production/canon/brand authority.
 
