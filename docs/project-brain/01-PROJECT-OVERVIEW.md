@@ -16,7 +16,9 @@ IRIS is past bootstrap-only status.
 - M01 Extreme Quality / Fidelity kernel is implemented, approved and merged.
 - M02 Project OS / Production Graph kernel is implemented, approved and merged.
 - M03 Creative Brief / Intent / Constraint Compiler is implemented, approved and merged.
+- M04 Multimodal IR / Scene IR planning is complete, independently audited, merged and exact-main validated.
+- M04 contract `m04-contract-v1.0` is `FROZEN_APPROVED`.
+- IRIS-WO-0008 is the bounded implementation increment for the complete M04 semantic kernel.
 - Repository governance is protected by the active `main-governance` ruleset.
-- The canonical checkpoint is `M04_PLANNING_READY`.
 
-No provider/DCC/media-generation runtime is implied by those semantic kernels. M04 planning is the next admitted product step; M04 implementation remains blocked until its own planning/freeze/review lifecycle completes.
+No provider/DCC/media-generation runtime is implied by these semantic kernels. M04 implementation is provider-neutral and runtime-neutral; M16 remains the sole future concrete provider/workflow compiler owner. M05 and later implementations remain blocked until their own governed lifecycle admits them.
