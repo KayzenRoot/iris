@@ -920,3 +920,233 @@ Future implementation must prove:
 S03 independent audit: `APPROVED`.  
 S04 adds fingerprint/drift semantics and invariants 176-250. No implementation is admitted. Next permitted work after independent S04 review is S05 Benchmark calibration, aging and invalidation.
 
+# S05 — Benchmark Calibration, Aging & Invalidation
+
+Status: `S05_SLOW_PLANNING_ACTIVE`
+
+## 48. S05 objective
+
+S05 defines how M08 empirical evidence remains interpretable over time. It separates raw measurement, calibration metadata, derived correction, evidence age, freshness policy, supersession and invalidation. Historical evidence is never rewritten merely because a newer calibration or environment exists.
+
+## 49. Calibration model
+
+Calibration is a versioned evidence transformation or qualification process. It must declare:
+- calibration ID/version;
+- target protocol/metric scope;
+- calibration source/reference;
+- applicable hardware/runtime/backend dimensions;
+- method and parameters;
+- uncertainty/error budget;
+- validity interval/dependencies;
+- provenance;
+- whether it qualifies, corrects, normalizes or rejects evidence.
+
+Calibration cannot silently alter raw samples.
+
+## 50. Raw, qualified and corrected evidence
+
+S05 separates:
+- `RAW`: original immutable empirical samples/result;
+- `QUALIFIED`: raw evidence plus calibration/validity assessment;
+- `CORRECTED_DERIVED`: a new derived value with exact raw + calibration lineage;
+- `REJECTED`: evidence found unsuitable for the intended comparison/use.
+
+Consumers must be able to recover the raw source from any derived artifact.
+
+## 51. Aging and freshness
+
+Age alone does not make evidence false. Freshness is a consumer/protocol policy over:
+- elapsed time;
+- relevant M07 material changes;
+- runtime/backend/driver changes;
+- protocol revision;
+- calibration revision;
+- observed drift;
+- consumer-required freshness.
+
+Candidate states:
+- `CURRENT`;
+- `AGING`;
+- `STALE`;
+- `INVALIDATED`;
+- `SUPERSEDED`;
+- `UNKNOWN_FRESHNESS`.
+
+A stale result remains historical evidence but cannot silently satisfy a current-evidence requirement.
+
+## 52. Invalidation semantics
+
+Invalidation requires a versioned reason and scope. Candidate reasons:
+- material hardware/runtime change;
+- incompatible protocol revision;
+- calibration defect/revision;
+- fixture defect;
+- timing-source defect;
+- correctness-oracle defect;
+- provenance defect;
+- contamination discovered later;
+- explicit governed administrative invalidation.
+
+Invalidation is append-only lineage. It does not delete or mutate the original result.
+
+## 53. Supersession vs invalidation
+
+Supersession means a newer preferred evidence artifact exists. It does not imply the older evidence was wrong. Invalidation means the older artifact is no longer valid for a declared scope/reason. These states must never collapse.
+
+## 54. Recalibration and backfill
+
+A newer calibration may be applied to historical raw evidence only when:
+- applicability is explicit;
+- source raw evidence is intact;
+- transformation is deterministic/versioned;
+- uncertainty is retained;
+- a new derived artifact is created;
+- original qualified/corrected artifacts remain auditable.
+
+Backfill cannot fabricate missing raw dimensions.
+
+## 55. Clock and timing calibration
+
+Timing calibration must preserve:
+- timing source identity;
+- resolution;
+- monotonicity assumptions;
+- synchronization method;
+- device/host clock relationship when material;
+- calibration timestamp/version.
+
+Wall clock is not automatically suitable for duration measurement. Device event timing is not automatically comparable across backends.
+
+## 56. Cross-machine normalization
+
+S05 may define protocol-specific normalization only when a stable reference semantics exists. It must not create a universal “hardware score”. Cross-machine comparisons retain exact machine/device identity, protocol and calibration context.
+
+## 57. Calibration technology candidates
+
+### IRIS-CAF — Calibration Artifact Fabric
+Immutable versioned calibration artifacts with applicability, method, uncertainty and provenance.
+
+### IRIS-EAL — Evidence Aging Ledger
+Tracks freshness state and reasons without rewriting empirical history.
+
+### IRIS-IAG — Invalidation Graph
+Append-only scoped invalidation/supersession lineage over results, envelopes, fingerprints and baselines.
+
+### IRIS-RCF — Recalibration Fabric
+Creates new derived evidence from intact raw evidence and applicable calibration artifacts.
+
+### IRIS-TCB — Timing Calibration Binder
+Qualifies timing sources, synchronization and cross-clock semantics.
+
+### IRIS-FDF — Fixture Defect Firewall
+Propagates discovered fixture/correctness defects to dependent evidence without deleting history.
+
+### IRIS-FPE — Freshness Policy Evaluator
+Evaluates consumer/protocol freshness requirements without scheduling benchmark execution.
+
+### IRIS-NNF — Non-Normative Normalization Fabric
+Allows explicitly qualified protocol normalization while prohibiting universal hardware rankings.
+
+## 58. S05 hard-invariant candidates
+
+251. Raw benchmark evidence is immutable.
+252. Calibration cannot overwrite raw samples.
+253. Every calibration artifact has immutable identity/version.
+254. Calibration applicability is explicit.
+255. Calibration method/parameters are explicit.
+256. Calibration uncertainty/error budget is explicit when material.
+257. Corrected values are new derived artifacts.
+258. Corrected artifacts retain raw-source lineage.
+259. Corrected artifacts retain calibration lineage.
+260. Qualification without numeric correction remains distinguishable from correction.
+261. Rejection remains distinguishable from invalidation.
+262. Evidence age alone does not prove evidence false.
+263. Freshness policy is explicit and versioned.
+264. CURRENT/AGING/STALE/INVALIDATED/SUPERSEDED remain distinct.
+265. UNKNOWN_FRESHNESS cannot satisfy a mandatory-current requirement.
+266. Stale evidence remains historical/auditable.
+267. Stale evidence cannot silently satisfy current-evidence requirements.
+268. Invalidation has explicit reason.
+269. Invalidation has explicit scope.
+270. Invalidation is append-only lineage.
+271. Invalidation cannot delete original empirical evidence.
+272. Supersession does not imply invalidity.
+273. Invalidation does not imply a newer replacement exists.
+274. Relevant M07 material change can invalidate declared dependent scope.
+275. Irrelevant M07 change cannot automatically invalidate all M08 evidence.
+276. Protocol-breaking revision invalidates only declared incompatible scope.
+277. Calibration revision does not silently rewrite old results.
+278. Fixture defect propagates to dependent evidence by lineage.
+279. Correctness-oracle defect propagates to dependent evidence by lineage.
+280. Timing-source defect propagates to dependent evidence by lineage.
+281. Provenance defect can invalidate affected evidence.
+282. Late-discovered contamination can invalidate affected evidence.
+283. Administrative invalidation is explicit, attributable and governed.
+284. Recalibration requires intact raw evidence.
+285. Recalibration applicability is checked before derivation.
+286. Recalibration creates a new artifact identity.
+287. Recalibration cannot fabricate missing dimensions.
+288. Recalibration cannot erase original derived artifacts.
+289. Recalibration retains uncertainty.
+290. Timing source identity is explicit.
+291. Timing resolution is explicit when material.
+292. Timing monotonicity assumptions are explicit.
+293. Synchronization semantics are explicit.
+294. Host and device clocks are not assumed interchangeable.
+295. Device timing from different backends is not assumed directly comparable.
+296. Wall-clock timestamps are not automatically duration clocks.
+297. Calibration timestamp/version is retained.
+298. Cross-machine normalization requires explicit stable reference semantics.
+299. Normalization cannot erase machine/device identity.
+300. Normalization cannot create a universal hardware score.
+301. Normalization cannot become M14 model ranking.
+302. Normalization cannot become M01 quality ranking.
+303. Freshness evaluation cannot schedule workers.
+304. Freshness evaluation cannot bypass S01 authorization/safety.
+305. Aging cannot auto-trigger unsafe stress benchmarks.
+306. Invalidation can request reevaluation but cannot execute downstream policy.
+307. Invalidated envelope cannot silently remain CURRENT.
+308. Invalidated source propagates according to declared dependency graph.
+309. Dependency propagation is deterministic/versioned.
+310. Partial invalidation preserves unaffected dimensions where provenance proves independence.
+311. Global invalidation requires evidence that scope is global.
+312. Baseline invalidation preserves baseline lineage.
+313. Fingerprint invalidation preserves fingerprint lineage.
+314. Superseded baselines remain queryable/auditable.
+315. Consumer freshness projections cannot add authority.
+316. M06 materiality use of M08 evidence is explicit.
+317. M51 consumption cannot redefine M08 calibration semantics.
+318. M56 display/aggregation cannot redefine freshness/invalidation semantics.
+319. Physical deletion/retention remains M55 authority.
+320. S05 cannot silently absorb M09/M10/M11/M12/M14/M51/M55/M56 authority.
+
+## 59. S05 proof obligations for later implementation
+
+Future implementation must prove:
+- raw evidence immutability;
+- calibration/correction creates new lineage-bound artifacts;
+- stale vs invalidated vs superseded distinction;
+- scoped deterministic invalidation propagation;
+- partial invalidation preserves independent dimensions;
+- recalibration cannot fabricate absent raw data;
+- timing-source qualification and cross-clock barriers;
+- no universal hardware score;
+- freshness evaluation cannot schedule/execute benchmarks;
+- history remains auditable.
+
+## 60. S05 checkpoint
+
+S04 independent audit: `APPROVED`.  
+S05 completes the five regular M08 planning sessions with invariants 251-320. No implementation is admitted.
+
+Next permitted work:
+1. independent S05 planning audit;
+2. M08 Final Technology Review;
+3. M09-M60 Forward Compatibility Scan;
+4. Module Contract Freeze candidate;
+5. independent final planning audit;
+6. protected planning merge and exact-main validation;
+7. separate M08 implementation Work Order / Context Lock / Evidence package.
+
+No M08 implementation and no M09 deep planning/implementation are admitted before those gates.
+
