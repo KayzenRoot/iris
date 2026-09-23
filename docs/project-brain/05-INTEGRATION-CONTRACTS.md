@@ -19,7 +19,7 @@ Project governance/adoption profile is pinned to the stable release; GEF workspa
 - M04 exposes frozen provider-neutral Multimodal IR / Scene IR contracts through `m04-contract-v1.0`.
 - M04 consumes M01/M02/M03 boundaries without superseding them.
 - M16 is the sole owner of concrete provider/workflow compilation; M04 emits provider-neutral capability/legality/lowering contracts only.
-- M05 S01-S05 functional planning defines persistent identity/family profiles, revision-pinned cross-modal links, anchor/mutation/drift semantics, directional compatibility, semantic lineage and reusable package/import contracts. M02 retains project branching; M06 production versioning; M53 rights/provenance; M54 security; M55 storage/CAS; M58 API/conformance surfaces; M59 concrete export/publishing. M05 implementation remains unadmitted.
+- M05 S01-S05 functional planning and Final Technology Review are complete. `IRIS-DNAX-001..150` are consolidated exactly once into `F-M05-01..25`. M02 retains project branching; M06 production versioning; M30/M40/M46 retain MotionDNA/VoiceDNA/BrandDNA domain authority; M37 continuity QA; M39 digital-human/persona production; M53 rights/provenance; M54 security; M55 storage/CAS; M58 API/conformance surfaces; M59 concrete export/publishing. Forward Compatibility Scan is required before freeze. M05 implementation remains unadmitted.
 - M06+ persistence, DCC/runtime, rendering, editorial, audio/music/story, rights/security and delivery remain extension/ref boundaries until their owning modules are admitted.
 
 ## CORE
