@@ -1435,7 +1435,7 @@
     "Independent implementation audit/review remains to be performed; PR #42 remains unmerged."
   ],
   "proposedCheckpointDelta": {
-    "status": "PROPOSED_NOT_PROMOTED",
+    "status": "HISTORICAL_EXECUTOR_PROPOSAL_SUPERSEDED",
     "proposal": {
       "workOrder": "IRIS-WO-0009",
       "contract": "m05-contract-v1.0",
@@ -1444,14 +1444,17 @@
       "validation": "Compile, Ruff, local governance and exact implementation-head GitHub Governance all PASS.",
       "checkpointAction": "Record the M05 implementation and evidence as ready for independent review only after reviewing this Evidence Bundle; do not advance the project checkpoint automatically.",
       "promotion": "Not promoted by executor."
-    }
+    },
+    "promotion": "Promoted after independent audit, protected merge, exact-main validation and post-merge reconciliation."
   },
   "independentReview": {
-    "status": "NOT_STARTED",
-    "findings": null,
-    "merge": "DO_NOT_MERGE"
+    "status": "APPROVED",
+    "reviewedCodeHead": "2a81bbbf70ddf0dc7c3e73f1d70c6067dabf1151",
+    "highCriticalFindings": 0,
+    "merge": "MERGED_AS_PR_42",
+    "note": "Supersedes the executor-time NOT_STARTED state; historical pre-review state is preserved by Git history."
   },
-  "stopCondition": "STOP when the complete frozen M05 kernel is functional, tested, documented, evidence-bundled, pushed on the authorized branch, and ready for independent review. Do not merge. Do not start M06.",
+  "stopCondition": "SATISFIED_HISTORICAL: executor STOP condition was reached, then independent audit approved, PR #42 merged, exact-main validated, and PR #43 reconciled canonical post-merge state. M06 implementation remains separately gated.",
   "headChain": {
     "authorizedBase": "ad56aade6ad2459eb632b30bd9fdd332263a5d67",
     "contextLockReconciliationHead": "65a4edc64d43c3c34928949e6f5d9b85c01c1dcf",
@@ -1565,9 +1568,15 @@
     "highCriticalFindings": 0
   },
   "checkpointDelta": {
-    "status": "PROMOTED_BY_POST_MERGE_RECONCILIATION",
+    "status": "CLOSED_AND_SUPERSEDED_BY_M06_PLANNING_CHECKPOINT",
     "targetStatus": "M05_IMPLEMENTATION_MERGED_MAIN_VALIDATED",
     "reconciliationBranch": "iris-wo-0009-m05-postmerge-reconciliation",
-    "note": "Canonical checkpoint promotion is performed only after independent audit, protected merge and exact-main Governance success."
+    "reconciliationMergeSha": "bac62c5e59ff926c6b80a5ec86a91b0410f35fea",
+    "reconciliationExactMainGovernance": {
+      "run": 35861243917,
+      "job": 107181715237,
+      "conclusion": "success"
+    },
+    "note": "M05 closure is durable. The canonical project checkpoint has since advanced to M06 planning merged/exact-main validated."
   }
 }
