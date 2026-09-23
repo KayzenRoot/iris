@@ -18,19 +18,19 @@ Execute IRIS-WO-0011 against the frozen M07 Hardware Genome & Runtime Discovery 
 - M07 planning post-merge reconciliation PR #52 squash-merged as `db8a39237c26d85f62cdf02a29c29136d4d6ed63`.
 - Reconciliation exact-main Governance `35886068741 / 107266406625` PASS with 2770/2770 tests.
 - IRIS-WO-0011, Context Lock and Evidence Bundle created for issue #53 / PR #54.
-- Initial admission candidate `5ccd124072abbd0c919530eb07a8eda5eba7eca7` passed Governance `35886529033 / 107267962093` with 2770/2770 tests and 11/11 critical-source fingerprints at that candidate.
-- A post-admission self-fingerprint mismatch was detected before product code and is being reconciled in PR #54. No M07 implementation code was produced under stale context.
+- Initial stale-context event was detected before product code; no M07 implementation was produced under stale context.
+- Work Order self-fingerprint and canonical checkpoints were reconciled directly in PR #54.
+- Corrected admission head `5b183ff7aaabd01e08b932f96378a99a40323afe` proved 11/11 critical-source fingerprints with 0 mismatches.
+- Corrected-head Governance `35889754292 / 107278937488` PASS with 2770/2770 tests.
+- IRIS-WO-0011 is admitted for execution.
 
 ## IN PROGRESS
-Reconcile the IRIS-WO-0011 self-fingerprint and canonical checkpoint, then revalidate the exact corrected admission head before executor implementation resumes.
+Implement the complete frozen M07 kernel under IRIS-WO-0011 and collect objective evidence.
 
 ## BLOCKERS
-M07 implementation remains paused until the corrected admission head proves:
-1. all critical-source fingerprints match;
-2. Governance passes on the exact corrected head;
-3. full baseline suite remains at least 2770/2770 PASS.
+None for M07 implementation under the admitted Work Order.
 
 M08+ implementation remains out of scope.
 
 ## NEXT STEP
-Validate the corrected IRIS-WO-0011 admission head. If all fingerprints and Governance pass, resume M07 implementation on PR #54. Do not merge and do not start M08.
+Resume IRIS-WO-0011 implementation on PR #54 from the current remote branch head. Complete the frozen M07 kernel, tests, documentation and evidence. Do not merge and do not start M08.
