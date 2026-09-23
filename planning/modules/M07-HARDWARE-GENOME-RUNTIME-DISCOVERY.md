@@ -2245,3 +2245,329 @@ The technology review is complete when:
 - risk controls and authority boundaries remain intact;
 - constrained/heterogeneous hardware remains first-class;
 - the next permitted planning action is the M08-M60 Forward Compatibility Scan.
+
+
+# M08-M60 Forward Compatibility Scan
+
+## 119. Scan method
+
+This scan checks whether the M07 contract leaves sufficient stable interfaces for later modules without deep-planning those modules or importing their authority into M07.
+
+Result vocabulary:
+- **DIRECT_CONSUMER** — expected to consume M07 facts/genome/projections directly.
+- **INDIRECT_CONSUMER** — likely receives M07-derived decisions through another owning module.
+- **BOUNDARY_ONLY** — M07 must preserve a boundary/identifier but should not provide the module's domain decision.
+- **NO_NEW_M07_CONTRACT** — current M07 contract is sufficient; no extra interface is required now.
+
+## 120. Area B scan — M08-M13
+
+### M08 — Microbenchmark Lab & Capability Envelope
+**DIRECT_CONSUMER.**
+Needs exact subject/runtime IDs, capability evidence, topology, freshness and bounded probe safety. M08 adds empirical performance/capability envelopes and must not rewrite M07 discovery facts.
+
+**M07 contract requirement:** stable GenomeId/HardwareSubjectRef/RuntimeSubjectRef, evidence references and change invalidation hooks.
+
+### M09 — Resource Digital Twin & Dynamic VRAM Governor
+**DIRECT_CONSUMER.**
+Consumes static capacity/topology plus fresh telemetry/pressure. M09 owns leases, reservations, residency, spill/offload and cleanup policy.
+
+**Requirement:** distinguish static capacity from transient usage and expose freshness/source semantics.
+
+### M10 — Adaptive Execution Planner
+**DIRECT_CONSUMER.**
+Consumes M07 truth plus M08 envelopes and M09 resource state. M10 owns workload plans, OOM/thermal policy and quality-aware adaptation.
+
+**Requirement:** no prescriptive “recommended execution mode” field in M07.
+
+### M11 — Background Worker Fabric
+**BOUNDARY_ONLY.**
+Worker lifecycle may use runtime/device identifiers and health visibility but owns process lifecycle/concurrency.
+
+**Requirement:** stable opaque subject/runtime refs; M07 cannot kill/restart workers.
+
+### M12 — Compute Orchestration
+**DIRECT_CONSUMER.**
+Consumes capability/topology advertisements but owns placement, federation, trust, queues and quotas.
+
+**Requirement:** genome supports redacted capability advertisement and exact node-local subject identity without assuming global identity equivalence.
+
+### M13 — Performance, Cache & Execution Efficiency
+**INDIRECT_CONSUMER.**
+Consumes M08/M10 performance decisions and may use M07 fingerprints for invalidation.
+
+**Requirement:** material-change classes/fingerprints remain stable; no cache policy in M07.
+
+## 121. Area C scan — M14-M19
+
+### M14 — Model Registry & Empirical Model Cards
+**DIRECT_CONSUMER.**
+Needs hardware/runtime fingerprints to bind empirical model compatibility evidence.
+
+**Requirement:** RFP-like projections can be consumer-specific without M07 asserting model compatibility.
+
+### M15 — Multi-Model Director
+**INDIRECT_CONSUMER.**
+Uses M14/M10 evidence. No direct routing authority belongs in M07.
+
+### M16 — Workflow Registry & Provider Compiler
+**DIRECT_CONSUMER.**
+May declare hardware/backend capability requirements against provider-neutral M07 vocabulary.
+
+**Requirement:** capability keys are versioned and extensible; workflow compatibility remains M16-owned.
+
+### M17 — ComfyUI Runtime Integration
+**DIRECT_CONSUMER.**
+Needs runtime/backend/device visibility and version relationships for qualification/recovery.
+
+**Requirement:** extensions can represent ComfyUI-specific runtime facts without making ComfyUI canonical.
+
+### M18 — Model Acquisition/Supply Chain
+**BOUNDARY_ONLY.**
+May use capacity/storage visibility facts for planning, but downloads, licenses and package trust remain M18.
+
+### M19 — Training
+**DIRECT_CONSUMER.**
+Needs exact precision/backend/memory/topology evidence. Training feasibility/performance remains M19/M08/M10.
+
+## 122. Area D scan — M20-M24
+
+M20 Image Studio, M21 Reference Fusion, M22 Design Intelligence, M23 Image Repair and M24 Image Quality Evals are primarily **INDIRECT_CONSUMER** modules.
+
+They consume hardware-aware choices through M10/M14/M16 and quality authority through M01/M24/M48.
+
+**M07 requirement:** no image-domain capability promises are embedded in Hardware Genome. Consumer-specific projections may bind exact hardware evidence without claiming creative quality.
+
+## 123. Area E scan — M25-M35
+
+### M25-M30
+3D asset, geometry, materials, rigging and animation modules are **INDIRECT_CONSUMER** modules. Hardware execution choices flow through M10/M16/M26.
+
+### M26 — Blender Automation
+**DIRECT_CONSUMER.**
+Needs CPU/GPU/backend/runtime identity and capability facts to qualify headless renderer/runtime visibility.
+
+**Requirement:** DCC-specific extension namespace, no DCC process control in M07.
+
+### M31 — Camera, Lighting & Rendering
+**DIRECT_CONSUMER.**
+Renderer choice may consume M07 capability truth plus M08 empirical evidence.
+
+**Requirement:** M07 reports backend/precision/device/media facts, never chooses Cycles/EEVEE or render settings.
+
+### M32 — VFX/Physics
+**INDIRECT_CONSUMER.**
+Hardware strategy is downstream of M10/M16/M26.
+
+### M33 — Maya/DCC Interoperability
+**DIRECT_CONSUMER.**
+Requires extension-friendly DCC capability discovery and runtime version evidence.
+
+### M34 — Web 3D/WebGPU
+**BOUNDARY_ONLY.**
+Local production hardware may affect compilation, but destination-device profiles belong to M34/M59.
+
+### M35 — Game Engine Asset Delivery
+**BOUNDARY_ONLY.**
+Engine destination compatibility is not workstation hardware truth.
+
+## 124. Area F scan — M36-M38
+
+### M36-M37
+Video generation/continuity are **INDIRECT_CONSUMER** modules using M10/M14/M16.
+
+### M38 — Editing, Compositing, Color & Encode
+**DIRECT_CONSUMER.**
+Needs MEC exact encode/decode/profile/bit-depth/chroma evidence.
+
+**Requirement:** codec capability schema remains extensible and distinguishes static/report/smoke evidence from M08 empirical throughput. M38 owns codec/container/bitrate strategy.
+
+## 125. Area G scan — M39-M42
+
+Digital humans, voice, music and sound are **INDIRECT_CONSUMER** modules.
+
+Audio/video hardware acceleration facts may be consumed through M10/M14/M16/M38, but M07 must not define voice/music/audio quality or creative capability.
+
+**No new M07 contract required.**
+
+## 126. Area H scan — M43-M47
+
+Narrative, faceless content, advertising, brand and localization are **INDIRECT_CONSUMER** modules.
+
+Their hardware awareness is execution infrastructure, not domain truth.
+
+**No new M07 contract required.**
+
+## 127. Area I scan — M48-M51
+
+### M48 — Quality Court
+**BOUNDARY_ONLY.**
+May inspect whether evidence was produced under a known hardware/runtime genome, but hardware confidence cannot substitute for output-quality confidence.
+
+### M49 — Self-Correction
+**INDIRECT_CONSUMER.**
+Repair planning uses M10/M14/M48.
+
+### M50 — Cost-to-Quality Optimization
+**INDIRECT_CONSUMER.**
+Uses M08/M10/M14 and cost evidence. M07 cannot assign compute ROI.
+
+### M51 — Benchmark Lab/Evals
+**DIRECT_CONSUMER.**
+Needs stable GenomeId/fingerprints for comparative benchmark provenance.
+
+**Requirement:** M51 benchmark results bind exact M07 genome/projection; M07 remains non-benchmarking.
+
+## 128. Area J scan — M52-M55
+
+### M52 — HIVE Memory
+**DIRECT_CONSUMER / BOUNDARY_ONLY.**
+May index/retrieve redacted genome metadata and checkpoint references.
+
+**Requirement:** redacted views and stable IDs; HIVE cannot become source of current hardware truth without fresh M07 evidence.
+
+### M53 — Provenance/Rights/C2PA
+**DIRECT_CONSUMER.**
+May include Hardware Genome/reproducibility references in provenance.
+
+**Requirement:** stable digest/signature metadata and privacy-safe projections. Hardware identity does not imply rights/consent.
+
+### M54 — Security/Identity
+**DIRECT_CONSUMER.**
+Owns trust/RBAC/secrets/sandbox policy and may constrain M07 probe permissions.
+
+**Requirement:** HDF probe capabilities are permission-addressable and extensions cannot inject executable behavior.
+
+### M55 — Storage/Cache/Archive
+**DIRECT_CONSUMER / AUTHORITY_BOUNDARY.**
+Stores M07 evidence/genomes according to retention/tiering policy.
+
+**Requirement:** immutable logical IDs/digests plus externalized retention references. M07 cannot own physical deletion/tiering.
+
+## 129. Area K scan — M56-M60
+
+### M56 — Observability/Control Center
+**DIRECT_CONSUMER.**
+Consumes S04 telemetry and genome state for dashboards/analytics.
+
+**Requirement:** TSL metric semantics, freshness and zero-invented-data behavior remain machine-readable. M56 owns aggregation/history/UI.
+
+### M57 — Automation/Agents
+**BOUNDARY_ONLY.**
+Agents may request/read M07 discovery but cannot manufacture hardware truth or bypass probe bounds.
+
+### M58 — API/SDK/MCP/Plugin Ecosystem
+**DIRECT_CONSUMER.**
+Exposes stable M07 domain APIs.
+
+**Requirement:** HGX/SCB schemas, extension namespaces, compatibility rules and redacted views must be API-safe. Plugin probes remain governed by HDF/M54 permissions.
+
+### M59 — Export/Adaptive Delivery
+**BOUNDARY_ONLY.**
+May use local codec capabilities for production, but destination capability profiles are M59-owned.
+
+### M60 — Deployment/Recovery/Final Acceptance
+**DIRECT_CONSUMER.**
+Needs install-time/runtime discovery, migrations, backup/restore semantics and 8 GB acceptance evidence.
+
+**Requirement:** deterministic fixtures, schema migration, genome reconstruction and exact hardware-class evidence must be testable. Deployment may invoke discovery but cannot weaken M07 truth rules.
+
+## 130. Cross-module compatibility findings
+
+### Finding FC-01 — Consumer-specific projections
+**IMPORTANT / ADMIT TO FREEZE.**
+RFP must support named/versioned consumer projection contracts, not only M06. This permits M14/M16/M51/M53/M58/M60 to bind the minimum required M07 facts without copying the full genome.
+
+Authority remains with each consumer for its domain interpretation.
+
+### Finding FC-02 — Machine-readable capability vocabulary registry
+**NECESSARY / ADMIT TO FREEZE.**
+CEL/BRM/PFX/MEC/TSL keys require a versioned registry with semantic type, unit, evidence requirements and extension namespace rules so M16/M38/M56/M58 can safely consume them.
+
+### Finding FC-03 — Permission-addressable probe classes
+**NECESSARY / ADMIT TO FREEZE.**
+HDF probe descriptors need explicit capability/permission classes for M54/M58 plugin governance. A plugin cannot gain discovery privilege merely by registering a probe.
+
+### Finding FC-04 — Redacted advertisement profile
+**NECESSARY / ADMIT TO FREEZE.**
+HGX needs a standard privacy-safe capability-advertisement view for M12 federation and M58 APIs. It must preserve evidence strength/freshness while minimizing stable identifiers.
+
+### Finding FC-05 — Change subscription contract
+**IMPORTANT / ADMIT TO FREEZE.**
+GDL/material-change classes need a versioned event/reference contract so M08/M09/M13/M56 can invalidate derived state without polling or interpreting raw deltas ad hoc.
+
+This defines event semantics only; M11/M56 own delivery infrastructure.
+
+### Finding FC-06 — Domain extension isolation
+**NECESSARY / ALREADY SATISFIED; REINFORCE.**
+ComfyUI, Blender, Maya, codecs and future plugins require namespaced extensions that cannot override canonical M07 semantics.
+
+### Finding FC-07 — Benchmark provenance binding
+**NECESSARY / ADMIT TO FREEZE.**
+M08/M14/M51 empirical evidence must be able to bind exact GenomeId plus a named hardware projection/fingerprint and freshness/change context.
+
+M07 still does not own benchmark results.
+
+### Finding FC-08 — Quality-confidence separation
+**NECESSARY / ALREADY SATISFIED; REINFORCE.**
+MCD hardware-evidence confidence must never be interpreted as M01/M24/M48 output-quality confidence.
+
+### Finding FC-09 — Destination capability separation
+**NECESSARY / ALREADY SATISFIED; REINFORCE.**
+Workstation Hardware Genome cannot absorb web/mobile/game/social destination-device profiles from M34/M35/M59.
+
+### Finding FC-10 — Recovery reconstruction contract
+**IMPORTANT / ADMIT TO FREEZE.**
+M60 requires reconstruction/import validation that can restore a stored genome/evidence package as historical evidence while requiring fresh discovery before current-state claims.
+
+## 131. Scan-induced invariant candidates
+
+211. Consumer-specific projections are named and versioned.
+212. A consumer projection cannot strengthen source genome evidence.
+213. Projection omission cannot imply an uncaptured fact.
+214. Capability/metric keys come from a versioned semantic registry or governed namespace.
+215. Registry entries declare semantic type/unit/evidence requirements where applicable.
+216. Plugin/provider extensions cannot shadow canonical registry keys.
+217. Probe descriptors declare explicit permission/capability classes.
+218. Probe registration cannot grant execution privilege.
+219. Federated capability advertisements use privacy-safe redacted profiles.
+220. Redaction cannot remove evidence state/freshness needed for advertised claims.
+221. Change notifications bind exact prior/current genome or delta identity.
+222. Change events describe evidence change, not downstream policy action.
+223. Benchmark/model/workflow evidence can bind exact genome projection/fingerprint.
+224. Benchmark bindings cannot convert M07 discovery into benchmark truth.
+225. Hardware-evidence confidence remains distinct from output-quality confidence.
+226. Destination-device capability profiles remain outside M07 authority.
+227. Historical genome restoration cannot create a current-state claim.
+228. Recovery requires fresh discovery for current hardware truth.
+229. HIVE retrieval cannot override fresher admitted M07 evidence.
+230. Agents/plugins cannot manufacture or strengthen M07 evidence.
+231. DCC/provider extensions remain namespaced and non-authoritative over canonical keys.
+232. M56 may aggregate telemetry but cannot invent missing M07 samples.
+233. M55 retention/deletion actions cannot rewrite genome/evidence semantic history.
+234. M12 federation cannot assume globally stable raw device identifiers.
+235. M60 acceptance can require hardware-class evidence without redefining M07 fact semantics.
+
+These are added to the freeze candidate because they are required to keep M07 forward-compatible without deep-planning future modules.
+
+## 132. Forward Compatibility Scan verdict
+
+Modules scanned: **53/53 (M08-M60)**.
+
+Result:
+- no future module requires M07 to take over another module's authority;
+- 10 compatibility findings identified;
+- 6 findings add/reinforce concrete freeze requirements;
+- 4 findings reinforce already-planned boundaries;
+- 25 additional invariant candidates admitted, bringing the freeze-candidate total to **235**;
+- no product/runtime implementation is introduced.
+
+**Verdict: APPROVED_FOR_MODULE_CONTRACT_FREEZE.**
+
+## Forward Compatibility Scan STOP CONDITION
+
+The scan is complete when:
+- M08-M60 have each been classified by relationship to M07;
+- direct consumers have a stable interface path;
+- future-domain authority remains outside M07;
+- cross-module compatibility findings are incorporated into the freeze candidate;
+- the next permitted action is M07 Module Contract Freeze and final independent planning audit.
