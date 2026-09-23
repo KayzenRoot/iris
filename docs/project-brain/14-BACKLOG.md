@@ -1,29 +1,31 @@
 # IRIS Backlog
 
-Status: `M04_COMPLETE_M05_PLANNING_READY`
+Status: `M05_S01_COMPLETE_S02_NEXT`
 
 ## COMPLETED FOUNDATION
-- IRIS-WO-0002 promoted the M00-M60 master module map and product discovery baseline.
-- M01 planning/freeze/implementation is complete and merged.
-- M02 planning/freeze/implementation is complete and merged.
-- Repository professional governance hardening is complete.
-- M03 planning/freeze/implementation is complete and merged.
-- M04 planning, contract freeze, implementation, independent review, protected merge and exact-main validation are complete.
-- M04 merge SHA: `8dd188fcea7fa0874fab214867e1f5f6ce23e8cd`.
-- M04 exact-main suite: `2677/2677 OK`.
-- M04 independent review: 6 CHAT_FIXABLE closed, 0 EXECUTOR_REQUIRED, 0 remaining HIGH/CRITICAL.
+- M01 planning/freeze/implementation merged.
+- M02 planning/freeze/implementation merged.
+- M03 planning/freeze/implementation merged.
+- M04 planning/freeze/implementation/review/reconciliation merged and exact-main validated.
+- M05 planning Issue #37 opened from exact validated main.
+- M05 S01 Asset DNA schema and identity invariants complete for module planning.
+- M05 S01 research/module/technology/gate artifacts created.
+- 30 S01 candidate invariants and `IRIS-DNAX-001..030` recorded.
 
 ## NECESSARY NEXT
-1. Merge this post-M04 reconciliation and validate its exact main.
-2. Admit M05 planning/discovery through the normal S01-S05 / technology review / compatibility / freeze lifecycle.
-3. Do not create M05 implementation code before its own contract and Work Order are admitted.
-4. Freeze HIVE<->CORE<->IRIS runtime contracts before integration code that depends on them.
+1. Complete M05 S02 domain DNA families.
+2. Complete S03 cross-modal DNA links.
+3. Complete S04 mutation/drift architecture.
+4. Complete S05 compatibility/branching/marketplace contract.
+5. Run Final Technology Review and consolidate DNAX candidates.
+6. Run M06-M60 Forward Compatibility Scan.
+7. Freeze M05 contract candidate.
+8. Independent planning audit.
+9. Protected planning merge + exact-main reconciliation.
+10. Only then create a separate M05 implementation Work Order/Context Lock/Evidence package.
 
 ## RECORDED PLANNING DEBT
-The earlier backlog called for a separate M00 S01-S05 constitution freeze. Repository history still lacks a separate approved M00 contract-freeze artifact. This remains explicit planning debt and must not be inferred complete.
-
-## PLANNING QUEUE
-Canonical module/session queue: `planning/MASTER-MODULE-INDEX.md`.
+The separate M00 S01-S05 constitution freeze artifact remains historical planning debt.
 
 ## IMPLEMENTATION GATE
-No later module may inherit M04 approval. Each module requires its own planning, frozen contract, Work Order, Context Lock, evidence, tests, independent review and protected merge.
+No M05 product/kernel code is authorized during this planning cycle.
