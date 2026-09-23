@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M04_IMPLEMENTATION_MERGED",
-  "version": "m04-contract-v1.0",
-  "phase": "M05_PLANNING_READY",
-  "nextStep": "Begin M05 planning discovery from this exact reconciled main only after this reconciliation PR is merged and exact-main validated. Do not implement M05 without its own frozen contract, Work Order, Context Lock and evidence."
+  "status": "M05_PLANNING_ACTIVE",
+  "version": "m05-planning-s01",
+  "phase": "M05_S01_COMPLETE_S02_NEXT",
+  "nextStep": "Plan M05 S02 — Character, creature, object, product and environment DNA. Preserve the S01 domain-neutral identity core and do not implement M05."
 }
