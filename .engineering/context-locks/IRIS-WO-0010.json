@@ -4,7 +4,7 @@
   "issue": 47,
   "branch": "iris-wo-0010-m06-production-state",
   "baseSha": "e3eaa8386e5ee0f7712e8849a160d253bd2461fe",
-  "status": "ADMISSION_RECONCILIATION_CANDIDATE",
+  "status": "ADMITTED_FOR_EXECUTION",
   "risk": "ELEVATED",
   "frozenContract": {
     "name": "m06-contract-v1.0",
@@ -133,6 +133,14 @@
       "job": 107198333248,
       "result": "PASS"
     },
-    "status": "PENDING_REVALIDATION"
+    "status": "REVALIDATED",
+    "revalidation": {
+      "head": "82b2a9ed08310895899270423f7296cda5e404a4",
+      "governanceRun": 35868355292,
+      "governanceJob": 107205629591,
+      "result": "PASS",
+      "criticalSources": "16/16",
+      "mismatches": 0
+    }
   }
 }
