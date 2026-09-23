@@ -44,7 +44,7 @@ Planning/docs only. No M05 implementation is authorized.
 - M02 remains project/history authority;
 - M06 remains persistence/CAS authority;
 - M53/M54 remain rights/provenance/privacy/security authority;
-- M39/M40/M41/M43/M45 remain domain runtime/authority owners.
+- M39/M40/M41/M43/M46 remain domain runtime/authority owners.
 
 ## S02 artifacts
 
