@@ -188,7 +188,7 @@ Candidate namespaces:
 
 External product identifiers such as SKU/GTIN/MPN may be governed external refs. They are not universal substitutes for M05 identity.
 
-Brand meaning/logo rules remain M45 authority; M05 may hold versioned BrandDNA links later in S03.
+Brand meaning/logo rules remain M46 Brand & IP Studio authority; M05 may hold versioned BrandDNA links later in S03.
 
 ## Environment DNA
 
