@@ -1,6 +1,6 @@
 # IRIS Scope
 
-Status: `M05_FINAL_TECH_REVIEW_APPROVED`
+Status: `M05_FORWARD_COMPAT_PASS`
 
 ## Current governed increment — M05 planning
 
@@ -43,8 +43,15 @@ Anchor authority/lifecycle, typed multi-dimensional drift evidence, repair-vs-mu
 - mapping: **150/150 exactly once, 0 missing, 0 duplicates**;
 - implementation code: **0**.
 
+### Forward Compatibility Scan
+- modules scanned: **M06-M60 (55)**;
+- verdict: **PASS_WITH_EXTENSION_PORTS**;
+- critical ownership conflicts remaining: **0**;
+- corrected conflicts: **M02/M06 authority wording**, **M39 competing identity-root wording**;
+- required extension/ref families: **22**.
+
 ### Next governed step
-M06-M60 Forward Compatibility Scan, followed by contract freeze and independent planning audit.
+Prepare `m05-contract-v1.0`, then run the independent planning audit.
 
 ### NOT ADMITTED
 - M05 implementation package;
