@@ -2,7 +2,7 @@
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "M05_PLANNING_ACTIVE",
-  "version": "m05-planning-s05",
-  "phase": "M05_S01_S05_COMPLETE_FINAL_TECH_REVIEW_NEXT",
-  "nextStep": "Run the M05 Final Technology Review. Consolidate, merge, retain or reject `IRIS-DNAX-001..150`, resolve overlap/dependency risks, then run the M06-M60 Forward Compatibility Scan. Do not implement M05."
+  "version": "m05-final-tech-review",
+  "phase": "M05_FINAL_TECH_REVIEW_APPROVED_FORWARD_COMPAT_NEXT",
+  "nextStep": "Run the M06-M60 Forward Compatibility Scan. Revalidate `F-M05-01..25` against downstream module ownership, dependencies and future contracts, resolve conflicts, then prepare the M05 contract freeze candidate. Do not implement M05."
 }
