@@ -701,3 +701,222 @@ Future implementation must prove:
 S02 independent audit: `APPROVED`.  
 S03 adds capability-envelope semantics and invariants 101-175. No implementation is admitted. Next permitted work after independent S03 review is S04 Continuous performance fingerprint and drift.
 
+# S04 — Continuous Performance Fingerprint & Drift
+
+Status: `S04_SLOW_PLANNING_ACTIVE`
+
+## 36. S04 objective
+
+S04 defines stable, privacy-conscious performance fingerprints and evidence-based drift detection over qualified M08 results. It detects meaningful empirical change without converting M08 into an always-on stress agent, observability backend, anomaly-response controller, scheduler, or hardware-health oracle.
+
+## 37. Performance fingerprint
+
+A performance fingerprint is a versioned projection over explicitly selected compatible benchmark evidence. It must declare:
+- fingerprint schema/version;
+- included protocol/metric identities;
+- exact M07 Genome/projection binding;
+- environment/runtime/backend dimensions;
+- normalization rules, if any;
+- ordering/canonicalization;
+- validity/freshness;
+- excluded dimensions;
+- privacy/redaction policy;
+- source result IDs.
+
+Fingerprint equality means equality under that exact projection/version only. It does not mean identical hardware or identical future performance.
+
+## 38. Drift model
+
+Drift is an evidence-backed difference between comparable fingerprints/result windows. Candidate classes:
+- `NO_MATERIAL_DRIFT`;
+- `PERFORMANCE_SHIFT`;
+- `VARIANCE_SHIFT`;
+- `CAPABILITY_REGION_CHANGE`;
+- `ENVIRONMENT_CHANGED`;
+- `INCOMPARABLE`;
+- `INSUFFICIENT_EVIDENCE`;
+- `STALE_BASELINE`.
+
+Thresholds are protocol/metric/version specific. A universal percentage threshold is prohibited.
+
+## 39. Baseline semantics
+
+A baseline is an immutable named reference, not “the truth forever”. It records:
+- exact source fingerprint;
+- creation policy/version;
+- creation time;
+- environment binding;
+- validity dependencies;
+- promotion evidence;
+- supersession lineage.
+
+A new result cannot silently replace a baseline. Baseline promotion is explicit and auditable.
+
+## 40. Continuous does not mean constant
+
+S04 “continuous” means lifecycle-aware repeatability, not nonstop benchmarking. Rechecks may be triggered by:
+- relevant M07 material-change event;
+- protocol/calibration change;
+- explicit user/policy request;
+- age/freshness threshold;
+- consumer-required validation;
+- sufficiently idle/eligible window under future scheduling policy.
+
+M08 defines benchmark eligibility evidence and cadence semantics, but does not own M12 scheduling or background worker lifecycle.
+
+## 41. Drift attribution
+
+S04 may correlate drift with declared context changes such as:
+- driver/runtime/backend version;
+- thermal/power observation context;
+- topology/material hardware change;
+- protocol/calibration revision;
+- interference class.
+
+Correlation is not causation. M08 must not claim a root cause unless the protocol supplies evidence sufficient for that claim.
+
+## 42. Noise and statistical guardrails
+
+Drift logic must account for:
+- measurement dispersion;
+- sample/window sufficiency;
+- repeated-measures semantics;
+- multiple metrics;
+- censoring/invalid samples;
+- minimum meaningful effect;
+- confidence/uncertainty.
+
+A tiny numeric difference is not automatically material drift.
+
+## 43. Privacy and fingerprintability
+
+Performance fingerprints can become device identifiers. Therefore:
+- consumer projections use minimum necessary dimensions;
+- raw stable hardware identifiers are not added merely to strengthen fingerprint uniqueness;
+- external/export projections support redaction/pseudonymous binding;
+- benchmark fingerprints are not authentication credentials;
+- cross-user/device correlation requires explicit authority outside M08;
+- retention/export remains governed by appropriate storage/privacy modules.
+
+## 44. Drift technology candidates
+
+### IRIS-PFF — Performance Fingerprint Fabric
+Canonical versioned projection of compatible empirical evidence.
+
+### IRIS-DED — Drift Evidence Detector
+Compares qualified windows/fingerprints using metric-specific materiality and uncertainty.
+
+### IRIS-BLR — Baseline Lineage Registry
+Immutable named baselines with explicit promotion, supersession and validity lineage.
+
+### IRIS-RTE — Recheck Trigger Evaluator
+Determines that benchmark evidence is eligible/required for refresh without scheduling workers itself.
+
+### IRIS-NGF — Noise Guard Fabric
+Prevents ordinary variance and insufficient samples from becoming false drift.
+
+### IRIS-DAG — Drift Attribution Graph
+Links observed shifts to context-change evidence without inventing causation.
+
+### IRIS-PFP — Privacy Fingerprint Projector
+Produces consumer-specific minimum-necessary/redacted performance projections.
+
+### IRIS-DCP — Drift Compatibility Protocol
+Fails closed when baseline/current evidence cannot be validly compared.
+
+## 45. S04 hard-invariant candidates
+
+176. Every performance fingerprint has an explicit schema/version.
+177. Every fingerprint names included metric/protocol identities.
+178. Every fingerprint retains exact source-result lineage.
+179. Fingerprint canonicalization is deterministic.
+180. Fingerprint equality is projection/version scoped.
+181. Fingerprint equality cannot prove identical hardware.
+182. Fingerprint inequality cannot by itself prove hardware failure.
+183. Fingerprints cannot become authentication credentials.
+184. Raw stable identifiers are not added solely to increase uniqueness.
+185. Export projections support minimum-necessary disclosure.
+186. Redaction cannot silently change fingerprint semantics.
+187. Drift comparison requires compatible protocol semantics.
+188. Drift comparison requires compatible metric semantics.
+189. Incompatible evidence produces INCOMPARABLE, not a numeric drift.
+190. Insufficient evidence produces INSUFFICIENT_EVIDENCE.
+191. Stale baseline state is explicit.
+192. Drift thresholds are metric/protocol specific.
+193. A universal drift percentage is prohibited.
+194. Measurement dispersion participates where required.
+195. Sample/window sufficiency is explicit.
+196. Invalid/censored samples cannot silently become valid drift inputs.
+197. Tiny numeric difference cannot automatically become material drift.
+198. Multiple-metric drift preserves per-metric evidence.
+199. Aggregate drift cannot erase contradictory dimensions.
+200. Baselines are immutable once issued.
+201. Baseline promotion is explicit.
+202. Baseline replacement is not implicit on new measurement.
+203. Baseline supersession preserves lineage.
+204. Baseline creation policy/version is recorded.
+205. Baseline validity dependencies are recorded.
+206. Relevant M07 material change can invalidate baseline comparability.
+207. Protocol-breaking change can invalidate baseline comparability.
+208. Calibration-breaking change can invalidate baseline comparability.
+209. Driver/runtime/backend changes remain visible in drift context.
+210. Context correlation cannot be claimed as causation.
+211. Root-cause claims require protocol-supported evidence.
+212. “Continuous” cannot require nonstop benchmarking.
+213. Rechecks inherit S01 safety budgets.
+214. Rechecks cannot bypass user/policy authorization.
+215. M08 cannot own worker lifecycle for periodic rechecks.
+216. M08 cannot become M12 scheduling authority.
+217. Idle-window eligibility cannot become process-killing/preemption authority.
+218. Drift detection cannot modify clocks/power/fans.
+219. Drift detection cannot auto-tune production workloads.
+220. Drift detection cannot auto-lower creative quality.
+221. Drift evidence cannot directly mutate M09 resource state.
+222. Drift evidence cannot directly emit M10 execution plans.
+223. Drift evidence cannot directly rank M14 models.
+224. Performance shift is not hardware-health diagnosis.
+225. Performance shift is not proof of hardware degradation.
+226. Thermal-context correlation is not proof of thermal causation.
+227. Variance shift remains distinct from mean/median performance shift.
+228. Capability-region change retains source envelope lineage.
+229. Drift artifacts are immutable and auditable.
+230. Drift recalculation uses versioned logic.
+231. Logic-version change produces a distinguishable derived artifact.
+232. Consumer projections cannot add absent authority.
+233. Cross-machine comparison preserves each machine identity.
+234. Cross-device comparison preserves each device identity.
+235. Cross-user correlation is outside M08 authority unless separately governed.
+236. Benchmark fingerprints cannot expose private fixture content.
+237. Synthetic fixtures remain labeled in fingerprint provenance.
+238. Missing telemetry cannot be interpreted as unchanged environment.
+239. A missing recheck cannot be interpreted as no drift.
+240. A cancelled recheck cannot be interpreted as no drift.
+241. A failed recheck cannot silently invalidate a valid baseline without policy.
+242. Stale evidence cannot silently remain current.
+243. Freshness policy is explicit and versioned.
+244. Consumer-required freshness cannot force unsafe benchmarking.
+245. Drift evidence can trigger a request for reevaluation but not execute downstream policy.
+246. M56 may aggregate/display M08 drift but does not redefine M08 evidence.
+247. M51 may consume benchmark evidence for evals but cannot rewrite M08 baseline lineage.
+248. M06 materiality binding remains explicit when performance drift matters to reproducibility.
+249. Privacy/redaction policy is part of exported fingerprint semantics.
+250. S04 cannot silently absorb S05 calibration, aging or invalidation policy.
+
+## 46. S04 proof obligations for later implementation
+
+Future implementation must prove:
+- deterministic fingerprint projection/canonicalization;
+- incompatible comparison fails closed;
+- immutable baseline promotion/supersession;
+- noise guard rejects underpowered/tiny differences;
+- missing/cancelled/failed recheck is not “no drift”;
+- material-change/freshness trigger semantics without scheduler authority;
+- correlation cannot become causal diagnosis;
+- privacy projection minimizes stable identifying dimensions;
+- no auto-tuning/resource mutation/quality lowering.
+
+## 47. S04 checkpoint
+
+S03 independent audit: `APPROVED`.  
+S04 adds fingerprint/drift semantics and invariants 176-250. No implementation is admitted. Next permitted work after independent S04 review is S05 Benchmark calibration, aging and invalidation.
+
