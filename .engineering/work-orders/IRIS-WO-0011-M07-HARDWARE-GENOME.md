@@ -1,6 +1,6 @@
 # IRIS-WO-0011 — Implement M07 Hardware Genome & Runtime Discovery
 
-Status: `ADMISSION_CANDIDATE`
+Status: `ADMITTED_FOR_EXECUTION`
 Risk: `ELEVATED`
 Issue: `#53`
 Branch: `iris-wo-0011-m07-hardware-genome`
@@ -15,6 +15,17 @@ Implement the complete frozen M07 provider-neutral Hardware Genome & Runtime Dis
 The implementation MUST satisfy all **235** frozen hard invariants, all **20** independent mandatory technology surfaces, all **5** mandatory absorbed components and all frozen acceptance-evidence obligations in `planning/modules/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md`.
 
 This is a complete M07 implementation increment, not an MVP slice. Internal staging is allowed only when every partial state is honest and the final PR satisfies the complete frozen contract.
+
+## ADMISSION
+
+Admission candidate head: `5ccd124072abbd0c919530eb07a8eda5eba7eca7`
+
+Admission proof:
+- critical source fingerprints: **11/11 matched**
+- mismatches: **0**
+- Governance: `35886529033 / 107267962093` — **PASS**
+- baseline/full admission suite: **2770/2770 PASS**
+- result: `ADMITTED_FOR_EXECUTION`
 
 ## AUTHORITY LAW
 
