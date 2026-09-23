@@ -146,7 +146,7 @@ Notes:
 Sources: DNAX-121, 122, 123.
 Status: ACCEPT_WITH_OWNERSHIP_SHIELD.
 Purpose: semantic identity lineage distinct from project and production versioning.
-Boundaries: M02 owns branches/snapshots/rollback; M06 owns production-state/content-addressed revision/build semantics.
+Boundaries: M02 owns semantic branch/snapshot/rollback/build-reuse lifecycle; M06 operationalizes content-addressed persistence/revisions, dependency indexing, reconstruction and rollback execution under M02 contracts.
 
 ### F-M05-21 — Directional Compatibility & Migration Fabric
 Sources: DNAX-059, 124, 125, 126, 127, 128, 129, 130, 149.
@@ -212,7 +212,7 @@ This exact-once property is mandatory for the freeze candidate.
 3. M03 remains creative intent/constraint/override authority.
 4. M04 remains provider-neutral representation authority.
 5. M05 is the generic persistent semantic Asset/Persona identity authority.
-6. M06 remains production-state/content-addressed revision/build/reconstruction authority.
+6. M06 remains operational content-addressed persistence/dependency/reconstruction/rollback-execution owner under M02 semantic build/version contracts.
 7. M16 solely owns concrete provider/workflow compilation.
 8. M30 owns MotionDNA and motion production.
 9. M37 owns temporal/shot continuity QA.
@@ -249,7 +249,7 @@ Forward-scan requirement: revalidate M39 S01-S05 wording.
 ### M05-PLAN-R03 — M02/M06 branching/versioning overlap
 Classification: CHAT_FIXABLE / CLOSED_FOR_FORWARD_SCAN.
 Finding: M05 S05 "DNA branching" could be mistaken for project/VCS or production versioning.
-Correction: M05 owns semantic identity lineage only. M02 owns project branches/snapshots/rollback; M06 owns production-state/content-addressed version/build semantics.
+Correction: M05 owns semantic identity lineage only. M02 owns project/production branch/snapshot/rollback/build-reuse semantics; M06 operationalizes content-addressed persistence, dependency indexing, reconstruction and rollback execution under M02 contracts.
 
 ### M05-PLAN-R04 — Early package/rights/compatibility seeds overlap final S05 forms
 Classification: CHAT_FIXABLE / CLOSED.
