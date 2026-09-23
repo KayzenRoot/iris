@@ -16,6 +16,7 @@ Status: `ACTIVE`
 - FUTURE_WORK: `docs/project-brain/14-BACKLOG.md`.
 - EXECUTION: active admitted Work Order under `.engineering/work-orders/`, when an execution increment is active.
 - REVIEW_POLICY: `.engineering/REVIEW-AUTOFIX-POLICY.md`.
+- PROMPT_DELIVERY: `.engineering/PROMPT-DELIVERY-POLICY.md`.
 
 Startup order: `Checkpoint -> Decisions -> Scope -> DoD -> Architecture -> Requirements -> other applicable sources`.
 
