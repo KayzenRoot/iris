@@ -1,6 +1,6 @@
 # IRIS-WO-0010 — Implement M06 Production State, Versioning & Incremental Media Build
 
-Status: `ADMISSION_CANDIDATE`
+Status: `ADMITTED_FOR_EXECUTION`
 Risk: `ELEVATED`
 Issue: `#47`
 Branch: `iris-wo-0010-m06-production-state`
@@ -15,6 +15,17 @@ Implement the complete frozen M06 provider-neutral operational production-state 
 The implementation MUST satisfy all **25** frozen technology families, all **150** hard invariants, all **20** forward extension/ref ports and all acceptance families in `planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md`.
 
 This is a complete M06 implementation increment, not an MVP slice.
+
+## ADMISSION
+
+Admission candidate head: `4c331decee73cee8658ce4816a7ca1622681ee0f`
+
+Admission proof:
+- critical source fingerprints: **16/16 matched**
+- mismatches: **0**
+- Governance: `35866052316 / 107197781973` — **PASS**
+- baseline/full admission suite floor: **2724**
+- result: `ADMITTED_FOR_EXECUTION`
 
 ## AUTHORITY LAW
 
