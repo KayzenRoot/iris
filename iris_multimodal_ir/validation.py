@@ -13,7 +13,7 @@ from .graph import IRDocumentEnvelope, IRRevision, validate_graph
 from .limits import DEFAULT_LIMITS, IRLimits
 from .versions import CORE_SCHEMA_VERSION, TRANSPORT_VERSION, VALIDATOR_VERSION, content_digest, require_identifier, require_text, require_version
 
-__all__ = ["IRValidationProfile", "IRValidationFinding", "IRValidationReport", "validate_revision", "validate_envelope"]
+__all__ = ["IRValidationProfile", "IRValidationFinding", "IRValidationReport", "enforce_revision_limits", "validate_revision", "validate_envelope"]
 
 
 @dataclass(frozen=True)
@@ -85,15 +85,28 @@ class IRValidationReport(IRRecord):
         return content_digest(self.to_payload())
 
 
+def enforce_revision_limits(revision: IRRevision, limits: IRLimits = DEFAULT_LIMITS) -> None:
+    """Apply caller-selected deterministic structural/resource limits to a revision."""
+    revision = IRRevision.coerce(revision, "revision")
+    if not isinstance(limits, IRLimits):
+        raise IRSchemaError("limits must be IRLimits")
+    validate_graph(revision.nodes, revision.containment, revision.relationships, revision.relationship_policies, limits=limits)
+    revision._validate_cross_references(limits=limits)
+    limits.require("max_facets", len(revision.schema_manifest.facets) + len(revision.schema_manifest.dialects) + len(revision.extensions))
+    limits.require("max_resource_refs", sum(len(node.resource_refs) for node in revision.nodes))
+    limits.require("max_properties", sum(len(node.attributes or {}) for node in revision.nodes))
+    limits.require("max_temporal_samples", sum(item.sample_count for item in revision.temporal_samplings))
+
+
 def validate_revision(revision: IRRevision, profile: IRValidationProfile | None = None) -> IRValidationReport:
     revision = IRRevision.coerce(revision, "revision")
     profile = profile or IRValidationProfile("default", "1")
     profile = IRValidationProfile.coerce(profile, "profile")
     findings: list[IRValidationFinding] = []
     try:
-        validate_graph(revision.nodes, revision.containment, revision.relationships, revision.relationship_policies, limits=profile.limits)
+        enforce_revision_limits(revision, profile.limits)
     except IRKernelError as error:
-        findings.append(_finding("graph.integrity", "GRAPH_INTEGRITY", ValidationSeverity.FATAL, "revision.graph", str(error)))
+        findings.append(_finding("revision.integrity", "REVISION_INTEGRITY_OR_LIMIT", ValidationSeverity.FATAL, "revision", str(error)))
     schema = revision.schema_manifest
     if schema.core_schema_version != CORE_SCHEMA_VERSION:
         findings.append(_finding("schema.core.unknown", "UNKNOWN_CORE_SCHEMA", ValidationSeverity.FATAL, "revision.schema_manifest.core_schema_version", f"unsupported core schema {schema.core_schema_version}"))
@@ -106,12 +119,18 @@ def validate_revision(revision: IRRevision, profile: IRValidationProfile | None 
     for dialect in schema.dialects:
         if (dialect.dialect_id, dialect.version) not in set(profile.known_dialects) and dialect.mandatory:
             findings.append(_finding(f"dialect.{dialect.dialect_id}", "UNKNOWN_MANDATORY_DIALECT", ValidationSeverity.FATAL, f"revision.schema_manifest.dialects.{dialect.dialect_id}", f"unknown mandatory dialect {dialect.dialect_id}@{dialect.version}"))
-    resource_count = sum(len(node.resource_refs) for node in revision.nodes)
-    if resource_count > profile.limits.max_resource_refs:
-        findings.append(_finding("limits.resources", "RESOURCE_LIMIT", ValidationSeverity.FATAL, "revision.nodes.resource_refs", "resource ref count exceeds configured limit"))
-    property_count = sum(len(node.attributes or {}) for node in revision.nodes)
-    if property_count > profile.limits.max_properties:
-        findings.append(_finding("limits.properties", "PROPERTY_LIMIT", ValidationSeverity.FATAL, "revision.nodes.attributes", "attribute count exceeds configured limit"))
+    known_extensions = set(profile.known_extension_families)
+    for extension in revision.extensions:
+        pair = (extension.family.family_id, extension.family.version)
+        if pair not in known_extensions:
+            severity = ValidationSeverity.FATAL if extension.mandatory or not extension.preserve_opaque or profile.unknown_policy is SchemaUnknownPolicy.FAIL_CLOSED else ValidationSeverity.WARNING
+            findings.append(_finding(
+                f"extension.{extension.family.family_id}",
+                "UNKNOWN_EXTENSION",
+                severity,
+                f"revision.extensions.{extension.family.family_id}",
+                f"unknown extension {extension.family.family_id}@{extension.family.version}",
+            ))
     findings.sort(key=lambda item: (item.path, item.code, item.finding_id))
     if not findings:
         findings.append(_finding("validation.ok", "VALID", ValidationSeverity.INFO, "revision", "revision passes deterministic M04 structural/schema checks"))
