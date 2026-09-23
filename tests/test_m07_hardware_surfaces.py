@@ -167,7 +167,7 @@ class TestPrecisionMediaTopology(unittest.TestCase):
         validate_topology_graph(TopologyGraph("unknown-peer", (a, b), (pair,)))
         self.assertIs(pair.state, ObservationState.UNKNOWN)
 
-    def test_pcie_maximum_negotiated_and_measured_bandwidth_are_distinct(self):
+    def test_pcie_capability_and_negotiated_state_do_not_claim_measured_bandwidth(self):
         maximum = observation(
             "topology.pcie.link-0.maximum", observation_id="pcie-max",
             value={"generation": 5, "lane_width": 16},
@@ -181,18 +181,8 @@ class TestPrecisionMediaTopology(unittest.TestCase):
         )
         self.assertEqual(link.maximum_generation, 5)
         self.assertEqual(link.negotiated_generation, 4)
-        self.assertIsNone(link.measured_bandwidth_bytes_per_second)
-        bandwidth_observation = observation(
-            "topology.pcie.link-0.bandwidth", observation_id="pcie-bandwidth", value=12_000_000_000,
-            unit="byte_per_second",
-        )
-        measured = TopologyLinkEvidence(
-            "link-0", SUBJECT.subject_id, RUNTIME.runtime_id, 5, 16, maximum, 4, 8, negotiated,
-            12_000_000_000, bandwidth_observation,
-        )
-        self.assertEqual(measured.measured_bandwidth_bytes_per_second, 12_000_000_000)
-        with self.assertRaises(HardwareGenomeIntegrityError):
-            TopologyLinkEvidence("link-0", SUBJECT.subject_id, RUNTIME.runtime_id, 5, 16, maximum, 4, 8, maximum)
+        self.assertFalse(hasattr(link, "measured_bandwidth_bytes_per_second"))
+        self.assertFalse(hasattr(link, "bandwidth_observation"))
 
 
 if __name__ == "__main__":
