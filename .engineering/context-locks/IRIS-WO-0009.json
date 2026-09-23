@@ -5,7 +5,7 @@
   "branch": "iris-wo-0009-m05-asset-dna",
   "baseSha": "ad56aade6ad2459eb632b30bd9fdd332263a5d67",
   "baseTreeSha": "a8fd1912cb98d9ab5be197e1b1a87a8ae2e331b9",
-  "status": "ADMISSION_CANDIDATE",
+  "status": "ADMITTED_FOR_EXECUTION",
   "risk": "ELEVATED",
   "frozenContract": {
     "name": "m05-contract-v1.0",
@@ -135,5 +135,16 @@
     "semantic contract changes"
   ],
   "stopCondition": "STOP after the complete frozen M05 semantic identity kernel is implemented, tested, documented, evidenced and ready for independent review. Do not merge. Do not start M06.",
-  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md."
+  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md.",
+  "admissionValidation": {
+    "head": "e0a545f6203f8685f0d452e6aae4ae00fb7b6ad4",
+    "treeSha": "a24d5aa390a0bdcb77b690068a94eee4ecc1efde",
+    "criticalSources": 24,
+    "fingerprintMismatches": 0,
+    "governanceRun": 35843881845,
+    "governanceJob": 107125219417,
+    "tests": 2677,
+    "requiredArtifacts": 35,
+    "result": "PASS"
+  }
 }
