@@ -151,3 +151,8 @@ The M06-M60 Forward Compatibility Scan reviewed all 55 downstream modules agains
 ## ADR-0035 - M05 contract frozen as m05-contract-v1.0 after independent planning audit
 Status: `APPROVED`
 The M05 independent planning audit approved the exact freeze candidate with 150/150 hard invariants, 25/25 consolidated technology families, 22/22 forward extension/ref ports, exact-once DNAX mapping and zero HIGH/CRITICAL planning blockers. The planning contract is promoted to `FROZEN_APPROVED / m05-contract-v1.0`. No M05 implementation is admitted until the frozen planning package is protected-merged, exact `main` validates, and a separate bounded implementation Work Order / Context Lock / Evidence package is admitted.
+
+
+## ADR-0036 - M05 frozen planning package merged and exact-main validated
+Status: `APPROVED`
+PR #38 was squash-merged as `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`. Exact-main Governance `35843109186 / 107122673542` passed with 35 required artifacts and `2677/2677` tests. M05 planning is therefore canonical on main as `FROZEN_APPROVED / m05-contract-v1.0`. Implementation remains blocked until a separate bounded Work Order / Context Lock / Evidence package is admitted from this validated baseline.
