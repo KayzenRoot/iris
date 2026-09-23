@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0010",
-  "status": "IMPLEMENTED_AND_LOCALLY_QUALIFIED",
+  "status": "CORRECTED_AND_HOSTED_QUALIFIED_FOR_FINAL_AUDIT",
   "branch": "iris-wo-0010-m06-production-state",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
@@ -19,7 +19,10 @@
     "mergeBaseShaAtPreflight": "e3eaa8386e5ee0f7712e8849a160d253bd2461fe",
     "admittedHeadSha": "861280ccda788586367baabf1e805024245b890d",
     "implementationCommitSha": "18099553987a668185a415aad12ab5cc7bbd0704",
-    "evidenceCommitFollowsImplementationCommit": true
+    "evidenceCommitFollowsImplementationCommit": true,
+    "auditCorrectionCodeHeadSha": "e90812afa1c086e6bc07dfaa42827200a3dba8c0",
+    "auditCorrectionHostedRun": 35880940093,
+    "auditCorrectionHostedJob": 107248896891
   },
   "baseline": {
     "governanceRun": 35865548802,
@@ -40,7 +43,7 @@
     "prBaseConfirmed": "main"
   },
   "implementation": {
-    "state": "COMPLETE_LOCAL_VALIDATION",
+    "state": "CORRECTED_HOSTED_VALIDATION",
     "package": "iris_production_state/",
     "implementationCommitSha": "18099553987a668185a415aad12ab5cc7bbd0704",
     "changedFiles": [
@@ -92,7 +95,10 @@
     },
     "dependencies": {
       "newRuntimeDependencies": [],
-      "repositoryPackages": ["iris_project_os", "iris_asset_dna"],
+      "repositoryPackages": [
+        "iris_project_os",
+        "iris_asset_dna"
+      ],
       "otherImports": "Python standard library"
     },
     "schemaVersioning": {
@@ -152,7 +158,14 @@
     "correctedFindings": [
       "The image synthetic profile initially used an unknown reverse-index state; it now supplies complete-fresh state and exact closure evidence.",
       "Ruff identified unused imports and an undefined impact traversal frontier reference; imports were removed and the node-limit path now returns an explicit unknown frontier with a focused regression test.",
-      "Exact-byte restoration now binds a retained materialization digest to the new output; exact semantic-state claims require versioned contract and verification evidence."
+      "Exact-byte restoration now binds a retained materialization digest to the new output; exact semantic-state claims require versioned contract and verification evidence.",
+      "Independent audit found that positive availability could cite VERIFIED integrity for a different subject; KNOWN_AVAILABLE now requires the exact same MaterializationRef and focused regressions reject cross-subject proof.",
+      "Reuse admission now retains material evidence dimensions, requires the active decision_id to match, binds verification to the exact candidate materialization, and prevents less-conservative frontier movement without a stronger admission.",
+      "EQUIVALENT_WITHIN_CONTRACT now requires explicit observed equivalence-verification evidence and rejects semantic/equivalence failure, unavailable dependency/toolchain, policy-blocked, or unknown divergence as success.",
+      "Deletion completion now embeds exact authorization plus current revalidation. Revalidation recomputes eligibility against current lineage, protected closure, retention-pin, and policy evidence; stale or revoked authorization cannot record physical completion.",
+      "Rollback current/target snapshots must remain in one project/production, the target must be a distinct historical snapshot, and COMPLETE binds the exact output proven by an explicit ROLLBACK reconstruction manifest citing that target snapshot.",
+      "ReleaseStateCapsule now rejects cross-project/cross-production closure, binds the build graph/target revision to the release snapshot, and requires current KNOWN_AVAILABLE evidence backed by integrity evidence retained in the same capsule.",
+      "The first audit-correction hosted run exposed a deterministic-fixture no-op release snapshot; the fixture and rollback guard were corrected rather than weakening the M02 invariant."
     ],
     "deferredPortsAndRisks": [
       "The 20 versioned ports define evidence contracts; system-specific adapters remain deferred.",
@@ -197,17 +210,43 @@
     "exactHeadHostedGovernance": {
       "requiredTarget": "current PR #48 head SHA",
       "repository": "KayzenRoot/iris",
-      "conclusionSource": "GitHub Governance check attached to the PR head",
-      "localGovernanceIsSubstitute": false
+      "lastValidatedCodeHeadSha": "e90812afa1c086e6bc07dfaa42827200a3dba8c0",
+      "governanceRun": 35880940093,
+      "governanceJob": 107248896891,
+      "conclusion": "success",
+      "fullTestsPassed": 2770,
+      "conclusionSource": "GitHub Governance check attached to the audited correction code head",
+      "localGovernanceIsSubstitute": false,
+      "finalMetadataHeadRequiresFreshRun": true
     }
   },
   "independentReview": {
-    "status": "NOT_STARTED",
-    "merge": "DO_NOT_MERGE"
+    "status": "CORRECTIONS_VALIDATED_AWAITING_FINAL_EXACT_HEAD_AUDIT",
+    "initialVerdict": "CORRECTION_REQUIRED",
+    "initialReviewCommentId": 5797460684,
+    "highFindingsRemaining": 0,
+    "criticalFindingsRemaining": 0,
+    "merge": "DO_NOT_MERGE_UNTIL_FINAL_EXACT_HEAD_GREEN"
   },
   "proposedCheckpointDelta": {
     "status": "PROPOSED_NOT_PROMOTED",
     "summary": "M06 contract implementation is locally complete and qualified for independent exact-head audit; keep M01/M02/M03/M04/M05/M16 authorities intact, record M06 kernel availability, and do not start M07 until separate review and approval."
   },
-  "stopCondition": "Stop with M06 implemented, locally validated, documented, evidenced, pushed on the existing branch, and ready for independent audit. Do not merge and do not start M07."
+  "stopCondition": "M06 corrections are implemented, documented and evidenced on PR #48. Obtain a fresh exact-head hosted Governance pass, then complete independent audit. Do not start M07 before approval, merge, exact-main validation and canonical checkpoint reconciliation.",
+  "reviewCorrectionValidation": {
+    "initialVerdict": "CORRECTION_REQUIRED",
+    "initialReviewCommentId": 5797460684,
+    "highFindings": 8,
+    "criticalFindings": 0,
+    "correctionCodeHeadSha": "e90812afa1c086e6bc07dfaa42827200a3dba8c0",
+    "hostedGovernanceRun": 35880940093,
+    "hostedGovernanceJob": 107248896891,
+    "hostedConclusion": "success",
+    "fullRepositoryTests": {
+      "passed": 2770,
+      "result": "PASS"
+    },
+    "focusedResult": "PASS via hosted full-suite run; all affected M06 family tests passed",
+    "note": "Documentation/evidence reconciliation follows the validated correction code head and requires a fresh exact-head hosted Governance run before final approval/merge."
+  }
 }
