@@ -180,8 +180,7 @@ def build_witness_set(revision: IRRevision, profile: IREquivalenceProfile, *, se
             elif field_name == "texture_resources":
                 item_key = item.resource.resource_id
             elif field_name == "color_values":
-                semantic_ref = getattr(item, "semantic_ref", None)
-                item_key = semantic_ref.text if semantic_ref is not None else f"index.{item_index}"
+                item_key = f"index.{item_index}"
             else:
                 item_key = content_digest(item)
             values[f"{field_name}/{item_key}"] = (field_name.upper(), item, True)
