@@ -37,7 +37,7 @@ M04 must not:
 The historical M04 S04 / M16 Provider Compiler overlap is resolved: **M04 owns Representation Capability & Semantic Lowering; M16 solely owns concrete workflow/provider compilation and qualification.**
 
 ### M05 — Asset DNA 2.0 & Cross-Modal Identity authority
-M05 planning is frozen as `m05-contract-v1.0`. Its domain-neutral core owns persistent semantic identity across representations and authorized mutations.
+M05 is implemented, independently audited, merged and exact-main validated as `m05-contract-v1.0`. Its domain-neutral core owns persistent semantic identity across representations and authorized mutations.
 
 S01 freezes these architectural directions:
 - stable opaque DNA subject identity separate from M04 representation identity;
@@ -92,7 +92,7 @@ S05 completes the functional planning boundary:
 
 Final Technology Review consolidates the 150 DNAX design-history candidates into `F-M05-01..25` with exact-once coverage (150/150, 0 missing, 0 duplicate assignments). The consolidated families, not 150 independent implementation classes, are the freeze-candidate architecture surface.
 
-The M06-M60 Forward Compatibility Scan and Independent Planning Audit are complete. The architecture is frozen in `m05-contract-v1.0`, planning PR #38 is merged, and exact main is validated. A separate bounded M05 implementation package is the next gate.
+The M06-M60 Forward Compatibility Scan and Independent Planning Audit are complete. M05 is implemented and durably closed. M06 planning is frozen as `m06-contract-v1.0`, merged and exact-main validated; its separate bounded implementation package IRIS-WO-0010 is admitted for execution.
 
 Forward Compatibility Scan result:
 - M06-M60 scanned: 55 modules;
@@ -103,7 +103,7 @@ Forward Compatibility Scan result:
 - M39 persona continuity explicitly bound to the M05 generic identity root;
 - frozen M05 invariants may only change through a versioned contract amendment and renewed compatibility review.
 
-No M05 implementation package is admitted yet.
+M05 implementation is complete. M06 implementation is admitted only through IRIS-WO-0010; M07+ implementation remains gated.
 
 ## Dependency direction
 
