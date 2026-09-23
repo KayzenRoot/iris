@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M05_PLANNING_APPROVED",
+  "status": "M05_PLANNING_MERGED_MAIN_VALIDATED",
   "version": "m05-contract-v1.0",
-  "phase": "M05_FROZEN_APPROVED_PLANNING_MERGE_NEXT",
-  "nextStep": "Pass exact-head Governance on the `FROZEN_APPROVED / m05-contract-v1.0` promotion head, then protected squash-merge PR #38 and validate exact `main`. Do not implement M05 before merged/main-validated canonical state."
+  "phase": "M05_IMPLEMENTATION_PACKAGE_READY",
+  "nextStep": "Compile a separate bounded M05 implementation Work Order / Context Lock / Evidence package from exact validated main `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`. Do not implement M05 until that package is admitted and preflight passes."
 }
