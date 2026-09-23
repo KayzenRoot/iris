@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0008",
-  "status": "ADMISSION_RECOMPILED_PENDING_VALIDATION",
+  "status": "EXECUTOR_READY",
   "branch": "iris-wo-0008-m04-multimodal-ir-r2",
   "frozenContract": "m04-contract-v1.0",
   "baseSha": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
@@ -42,5 +42,14 @@
     "Prior admission was invalidated before implementation because critical governance policy changed on main; no product code was lost."
   ],
   "proposedCheckpointDelta": null,
-  "stopCondition": "Executor stops at independently reviewable PR. No merge and no M05."
+  "stopCondition": "Executor stops at independently reviewable PR. No merge and no M05.",
+  "admissionValidation": {
+    "head": "18fcfc0e9c47e4a2a2bdb02df32b7be2bfe11a88",
+    "governanceRun": 35803708948,
+    "governanceJob": 106999640802,
+    "tests": 2527,
+    "requiredArtifacts": 35,
+    "result": "PASS"
+  },
+  "localWorkspaceNote": "Prior stale Codex run left AGENTS.md modified locally. Executor must inspect that diff before cleanup; discard it only if it contains no user-authored work and only the obsolete local PDF-rule edit."
 }
