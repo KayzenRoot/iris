@@ -21,6 +21,6 @@ Target roles:
 - Repository governance is protected by the active `main-governance` ruleset.
 - The canonical checkpoint is the sole project-state authority.
 
-M05 planning is active on Issue #37 / PR #38. S01-S05 functional planning is complete with 150 candidate invariants and IRIS-DNAX-001..150; Final Technology Review is next. M05 implementation is not admitted.
+M05 planning is active on Issue #37 / PR #38. S01-S05 functional planning and Final Technology Review are complete. IRIS-DNAX-001..150 are consolidated exactly once into F-M05-01..25; the M06-M60 Forward Compatibility Scan is next. M05 implementation is not admitted.
 
 No provider/DCC/media-generation runtime is implied by the semantic kernels. M04 remains provider-neutral/runtime-neutral; M16 is the sole concrete provider/workflow compiler owner.
