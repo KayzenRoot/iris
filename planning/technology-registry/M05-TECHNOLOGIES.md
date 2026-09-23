@@ -1,7 +1,7 @@
 # M05 Technology Registry
 
 Module: `M05 — Asset DNA 2.0 & Cross-Modal Identity`
-Status: `FINAL_TECH_REVIEW_APPROVED_FORWARD_COMPAT_NEXT`
+Status: `CONTRACT_FREEZE_CANDIDATE_AUDIT_NEXT`
 Rule: IRIS technology names are design candidates. They are not novelty, patentability or legal claims until dedicated review.
 
 ## External prior-art references
@@ -577,4 +577,4 @@ Special consolidation:
 - DNAX-059 is superseded by F-M05-21;
 - DNAX-060/090/120/150 consolidate into F-M05-25.
 
-The next legal step is the M06-M60 Forward Compatibility Scan. No implementation and no contract freeze yet.
+The M06-M60 Forward Compatibility Scan passed. `m05-contract-v1.0` now exists as `FREEZE_CANDIDATE_AUDIT_REQUIRED`; the next legal step is the independent planning audit. No implementation is admitted.
