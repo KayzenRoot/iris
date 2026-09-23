@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0011",
-  "status": "ADMISSION_REVALIDATION_REQUIRED",
+  "status": "ADMITTED_FOR_EXECUTION",
   "branch": "iris-wo-0011-m07-hardware-genome",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
@@ -24,18 +24,24 @@
     "contextLock": ".engineering/context-locks/IRIS-WO-0011.json",
     "criticalSources": 11,
     "criticalSourceFingerprintMismatches": 0,
-    "governanceRun": 35886529033,
-    "governanceJob": 107267962093,
+    "governanceRun": 35889754292,
+    "governanceJob": 107278937488,
     "governanceConclusion": "success",
-    "candidateHead": "5ccd124072abbd0c919530eb07a8eda5eba7eca7",
+    "candidateHead": "5b183ff7aaabd01e08b932f96378a99a40323afe",
     "result": "PASS",
     "reconciliation": {
-      "executorPreflight": "STALE_CONTEXT",
+      "executorPreflight": "STALE_CONTEXT_CORRECTLY_STOPPED",
       "productCodeChanged": false,
       "staleWorkOrderFingerprint": true,
       "staleCheckpointWording": true,
-      "correction": "Work Order fingerprint and canonical checkpoint refreshed directly in PR #54; exact-head revalidation required.",
-      "result": "PENDING"
+      "correction": "Work Order fingerprint and canonical checkpoints reconciled directly in PR #54.",
+      "validatedHead": "5b183ff7aaabd01e08b932f96378a99a40323afe",
+      "criticalSourcesMatched": 11,
+      "fingerprintMismatches": 0,
+      "governanceRun": 35889754292,
+      "governanceJob": 107278937488,
+      "tests": 2770,
+      "result": "PASS"
     }
   },
   "implementation": {
