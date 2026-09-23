@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0008",
+  "status": "ADMISSION_PENDING_VALIDATION",
+  "branch": "iris-wo-0008-m04-multimodal-ir",
+  "frozenContract": "m04-contract-v1.0",
+  "baseSha": "bb875a958a88a844bfa62cdfec694fe148590a41",
+  "issue": 30,
+  "pullRequest": null,
+  "baseline": {
+    "governanceRun": 35801705128,
+    "governanceJob": 106993294512,
+    "tests": 2527,
+    "requiredArtifacts": 35,
+    "conclusion": "success"
+  },
+  "implementation": {
+    "package": "iris_multimodal_ir",
+    "status": "NOT_STARTED",
+    "contractVersion": "m04-contract-v1.0",
+    "frozenFamilies": 20,
+    "hardInvariants": 80,
+    "syntheticProfilesRequired": 7
+  },
+  "proofObligations": [
+    "20/20 frozen F-M04 families implemented or mapped to exact documented equivalents",
+    "80/80 hard invariants directly tested or deterministically proved",
+    "M01/M02/M03/M16 authority boundaries preserved",
+    "deterministic canonical serialization and finite-number-safe digests",
+    "dual graph, composition, identity and reference integrity",
+    "M03 lowering trace coverage with no silent mandatory semantic loss",
+    "schema/version/migration immutability and directional compatibility",
+    "round-trip witness/equivalence and anti-self-certification",
+    "adversarial resource limits and fail-closed validation",
+    "seven domain-neutral profiles on one core",
+    "closed runtime: no provider/DCC/network/shell/database dependency",
+    "minimum-sufficient slices and locality-preserving fingerprints/deltas"
+  ],
+  "commands": [],
+  "tests": {
+    "baseline": 2527,
+    "focusedM04": null,
+    "fullSuite": null
+  },
+  "failuresEncounteredAndFixed": [],
+  "changedFiles": null,
+  "designDecisions": [
+    "Implementation package name iris_multimodal_ir is an implementation-level naming decision aligned with the frozen Multimodal IR / Scene IR module; it does not alter m04-contract-v1.0."
+  ],
+  "risksAndDeferredWork": [
+    "All provider/DCC/runtime adapters and concrete workflow compilation remain later-module work.",
+    "Persistence/CAS/storage location remains outside M04.",
+    "M05 identity/DNA, M43 Canon and later domain engines remain opaque extension/ref boundaries."
+  ],
+  "proposedCheckpointDelta": null,
+  "stopCondition": "Executor must stop with branch/PR ready for independent review and must not merge or start M05."
+}
