@@ -69,6 +69,18 @@ S03 adds cross-modal identity links without transferring domain authority:
 - cross-modal links are owner/family/revision pinned and never silently follow latest;
 - CrossModalDNAGraph is an identity-link graph, not M02 Production Graph, M04 Scene Graph or M43 Canon Graph.
 
+S04 adds identity transition semantics without absorbing evaluator or downstream runtime authority:
+- anchors have explicit authority classes and auditable lifecycle;
+- drift is path-level, typed and multi-dimensional, never one similarity score;
+- representation repair cannot mutate canonical DNA;
+- protected canonical mutation requires proposal, policy/authority and explicit decision;
+- same-identity mutation creates a new immutable revision;
+- identity break creates a new dna_id with explicit lineage;
+- split/consolidation preserve source histories and provenance;
+- M01 retains quality/evaluator authority and M37 temporal-continuity authority;
+- M05 remains the generic persistent identity root while M39 owns digital-human/persona production continuity;
+- M53/M54 retain provenance/rights/consent/security authority for protected evidence.
+
 No M05 implementation package is admitted yet.
 
 ## Dependency direction
