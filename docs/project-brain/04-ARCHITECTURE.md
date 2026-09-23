@@ -37,7 +37,7 @@ M04 must not:
 The historical M04 S04 / M16 Provider Compiler overlap is resolved: **M04 owns Representation Capability & Semantic Lowering; M16 solely owns concrete workflow/provider compilation and qualification.**
 
 ### M05 — Asset DNA 2.0 & Cross-Modal Identity authority
-M05 planning is active. Its domain-neutral core owns persistent semantic identity across representations and authorized mutations.
+M05 planning is frozen as `m05-contract-v1.0`. Its domain-neutral core owns persistent semantic identity across representations and authorized mutations.
 
 S01 freezes these architectural directions:
 - stable opaque DNA subject identity separate from M04 representation identity;
@@ -92,7 +92,7 @@ S05 completes the functional planning boundary:
 
 Final Technology Review consolidates the 150 DNAX design-history candidates into `F-M05-01..25` with exact-once coverage (150/150, 0 missing, 0 duplicate assignments). The consolidated families, not 150 independent implementation classes, are the freeze-candidate architecture surface.
 
-The M06-M60 Forward Compatibility Scan is complete. The architecture is now materialized in the `m05-contract-v1.0` freeze candidate; independent planning audit is the next required gate.
+The M06-M60 Forward Compatibility Scan and Independent Planning Audit are complete. The architecture is frozen in `m05-contract-v1.0`; protected planning merge and exact-main validation are the next gates.
 
 Forward Compatibility Scan result:
 - M06-M60 scanned: 55 modules;
