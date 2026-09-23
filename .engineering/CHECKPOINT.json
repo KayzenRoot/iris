@@ -4,5 +4,5 @@
   "status": "M06_PLANNING_MERGED_MAIN_VALIDATED",
   "version": "m06-contract-v1.0",
   "phase": "M06_IMPLEMENTATION_ADMISSION",
-  "nextStep": "Compile and admit the bounded M06 implementation Work Order / Context Lock / Evidence package from exact main b8fba47a15936813835e35c530f905044e27d2cd. Do not implement M06 before admission gates pass."
+  "nextStep": "Compile and admit the bounded M06 implementation Work Order / Context Lock / Evidence package from exact main `b8fba47a15936813835e35c530f905044e27d2cd`. Do not implement M06 before admission gates pass."
 }
