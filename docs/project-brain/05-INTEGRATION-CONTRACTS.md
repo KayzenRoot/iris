@@ -7,21 +7,19 @@ Repository-contract integration includes canonical governance paths, registratio
 
 Stable tools: `project.list`, `project.status`, `context.build`, `context.search`, `memory.search`, `memory.get`, `checkpoint.read`.
 
-HIVE remains derived context and never supersedes canonical Git/Project Brain truth. HIVE/agents may supply context or proposals but cannot directly mutate canonical M04 truth.
+HIVE remains derived context and never supersedes canonical Git/Project Brain truth. HIVE/agents may propose or derive M04 context but cannot mutate canonical M04 truth directly.
 
 ## GEF v1.0.0
 Project governance/adoption profile is pinned to the stable release; GEF workspace source is not copied into IRIS.
 
 ## Internal semantic boundaries
-- M01 exposes the frozen quality/Fidelity authority consumed by later modules.
+- M01 exposes frozen quality/Fidelity authority.
 - M02 exposes project/production/graph/build/release and ExecutionPlan authority.
-- M03 exposes versioned creative intent/constraint/execution-intent semantics and future-facing opaque refs/ports.
-- M04 frozen contract `m04-contract-v1.0` owns provider-neutral structured production representation, semantic lowering evidence, representation capability/legality, schema/version/migration and semantic round-trip contracts.
-- M04 consumes M01/M02/M03 contracts without superseding their authority.
-- M04 exposes only provider-neutral boundaries toward M05+ and M16.
-- M16 remains the sole owner of concrete provider/workflow compilation and provider qualification.
-
-Provider/DCC/storage/GPU/runtime SDKs are not M04 core dependencies.
+- M03 exposes versioned creative intent/constraint/execution-intent semantics.
+- M04 exposes frozen provider-neutral Multimodal IR / Scene IR contracts through `m04-contract-v1.0`.
+- M04 consumes M01/M02/M03 boundaries without superseding them.
+- M16 is the sole owner of concrete provider/workflow compilation; M04 emits provider-neutral capability/legality/lowering contracts only.
+- M05+ identities, persistence, DCC/runtime, rendering, editorial, audio/music/story, rights/security and delivery remain extension/ref boundaries until their owning modules are admitted.
 
 ## CORE
 Approved target relationship, but protocol/API/event contracts remain `NOT_YET_PLANNED`.
