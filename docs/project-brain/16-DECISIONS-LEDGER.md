@@ -146,3 +146,8 @@ Status: `APPROVED`
 ## ADR-0034 - M05 Forward Compatibility Scan passes with explicit extension ports
 Status: `APPROVED`
 The M06-M60 Forward Compatibility Scan reviewed all 55 downstream modules against `F-M05-01..25` and passed with `PASS_WITH_EXTENSION_PORTS`. No HIGH/CRITICAL downstream ownership conflict remains. M02 remains semantic project/build/version lifecycle authority with M06 operational persistence/reconstruction under those contracts; M39 persona continuity is explicitly bound to the M05 generic identity root. Twenty-two future extension/ref families are required so downstream modules can consume identity without rewriting M05 authority. A frozen-invariant change later requires a versioned M05 contract amendment and renewed compatibility review.
+
+
+## ADR-0035 - M05 contract frozen as m05-contract-v1.0 after independent planning audit
+Status: `APPROVED`
+The M05 independent planning audit approved the exact freeze candidate with 150/150 hard invariants, 25/25 consolidated technology families, 22/22 forward extension/ref ports, exact-once DNAX mapping and zero HIGH/CRITICAL planning blockers. The planning contract is promoted to `FROZEN_APPROVED / m05-contract-v1.0`. No M05 implementation is admitted until the frozen planning package is protected-merged, exact `main` validates, and a separate bounded implementation Work Order / Context Lock / Evidence package is admitted.
