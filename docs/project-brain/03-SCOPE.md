@@ -1,6 +1,6 @@
 # IRIS Scope
 
-Status: `M05_FORWARD_COMPAT_PASS`
+Status: `M05_CONTRACT_FREEZE_CANDIDATE`
 
 ## Current governed increment — M05 planning
 
@@ -50,8 +50,17 @@ Anchor authority/lifecycle, typed multi-dimensional drift evidence, repair-vs-mu
 - corrected conflicts: **M02/M06 authority wording**, **M39 competing identity-root wording**;
 - required extension/ref families: **22**.
 
+### Contract freeze candidate
+- target: **`m05-contract-v1.0`**;
+- artifact: `planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md`;
+- status: **FREEZE_CANDIDATE_AUDIT_REQUIRED**;
+- hard invariants: **150**;
+- consolidated families: **25**;
+- extension/ref ports: **22**;
+- implementation code: **0**.
+
 ### Next governed step
-Prepare `m05-contract-v1.0`, then run the independent planning audit.
+Independent M05 planning audit, then freeze promotion if approved.
 
 ### NOT ADMITTED
 - M05 implementation package;
