@@ -1,7 +1,7 @@
 # M05 Technology Registry
 
 Module: `M05 — Asset DNA 2.0 & Cross-Modal Identity`
-Status: `S05_FUNCTIONAL_PLANNING_COMPLETE`
+Status: `FINAL_TECH_REVIEW_APPROVED_FORWARD_COMPAT_NEXT`
 Rule: IRIS technology names are design candidates. They are not novelty, patentability or legal claims until dedicated review.
 
 ## External prior-art references
@@ -533,3 +533,48 @@ Findings for hidden loss, missing dependencies, rights stripping, executable pay
 M05 functional planning now records `IRIS-DNAX-001..150` across S01-S05.
 
 No candidate is frozen yet. Next required step is Final Technology Review, followed by M06-M60 Forward Compatibility Scan, contract freeze and independent planning audit.
+
+
+# Final Technology Review consolidation
+
+Final review: `planning/reviews/M05-FINAL-TECHNOLOGY-REVIEW.md`
+
+Verdict: `APPROVED_FOR_FORWARD_COMPATIBILITY`
+
+The 150 design-history candidates are consolidated into 25 freeze-candidate technology families:
+
+1. F-M05-01 Persistent Identity & Revision Core
+2. F-M05-02 Trait Semantics & Applicability Fabric
+3. F-M05-03 Canonical / Evidence Authority Fabric
+4. F-M05-04 Anchor & Projection Authority Fabric
+5. F-M05-05 Identity Resolution, Alias & Consolidation Fabric
+6. F-M05-06 Interface Capsule & Minimum Context Fabric
+7. F-M05-07 Family / Profile / Extension Fabric
+8. F-M05-08 Persistent Component Identity Fabric
+9. F-M05-09 Character & Creature Identity Profile Fabric
+10. F-M05-10 Object & Product Identity Profile Fabric
+11. F-M05-11 Environment Identity Profile Fabric
+12. F-M05-12 Cross-Domain DNA Link Fabric
+13. F-M05-13 Scene Identity Composition Fabric
+14. F-M05-14 Motion / Voice / Brand Link Firewall Fabric
+15. F-M05-15 Cross-Modal Binding & Obligation Graph
+16. F-M05-16 Drift Evidence & Continuity Analysis Fabric
+17. F-M05-17 Mutation Admission & Same-Identity Revision Fabric
+18. F-M05-18 Identity Break & Split Fabric
+19. F-M05-19 Protected Identity Evidence & Authority Bridge
+20. F-M05-20 Semantic Identity Lineage & Versioning Firewall
+21. F-M05-21 Directional Compatibility & Migration Fabric
+22. F-M05-22 Reusable DNA Package & Dependency Fabric
+23. F-M05-23 Marketplace / Storage / Delivery Boundary Fabric
+24. F-M05-24 Import / Conformance / Package Lifecycle Fabric
+25. F-M05-25 Identity Risk & Threat Radar Fabric
+
+Mapping integrity: `DNAX-001..150` mapped exactly once; 0 missing; 0 duplicates.
+
+Special consolidation:
+- DNAX-025 is superseded in detail by F-M05-19;
+- DNAX-029 is superseded by F-M05-22;
+- DNAX-059 is superseded by F-M05-21;
+- DNAX-060/090/120/150 consolidate into F-M05-25.
+
+The next legal step is the M06-M60 Forward Compatibility Scan. No implementation and no contract freeze yet.
