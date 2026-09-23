@@ -900,9 +900,272 @@ S03 is complete for module planning when:
 
 # S04 — Identity anchors, mutation boundaries and drift detection
 
-Status: `NOT_STARTED`
+Status: `COMPLETE_FOR_MODULE_PLANNING`
 
-Will freeze drift evidence, mutation admission, identity break/split/merge semantics and repair proposals.
+## 1. S04 goals
+
+S04 defines how IRIS distinguishes allowed variation, representation drift, canonical mutation and identity break.
+
+M05 owns identity-transition semantics. It does not become M01 quality authority, M37 temporal-continuity authority or M39 digital-human production authority.
+
+## 2. IdentityAnchor authority classes
+
+Anchors are explicitly classified:
+- `CANONICAL`;
+- `BOUND_EXTERNAL`;
+- `REPRESENTATION`;
+- `PROVENANCE`;
+- `OBSERVATION`;
+- `PROPOSED`;
+- `REVOKED`.
+
+Confidence/similarity cannot upgrade an anchor's authority class.
+
+## 3. Anchor lifecycle
+
+Governed anchor operations:
+- ADD;
+- REBIND;
+- SUPERSEDE;
+- REVOKE;
+- RESTORE;
+- EXPIRE;
+- INVALIDATE_EVIDENCE.
+
+Operations preserve source revision, authority/policy, reason and evidence.
+
+Deletion never erases historical identity evidence.
+
+## 4. IdentityDriftEvidence
+
+Path-level typed evidence records:
+- canonical expected trait/anchor;
+- observation;
+- comparison domain;
+- semantic/numeric delta;
+- uncertainty;
+- modality/source;
+- provenance;
+- evaluator owner;
+- impacted criticality/mutability;
+- scope.
+
+Evidence is noncanonical until admitted through mutation authority.
+
+## 5. Drift dimensions
+
+Required semantic dimensions:
+- numeric/unit-aware;
+- categorical;
+- structural/component;
+- topology/relation;
+- anchor/link;
+- cross-modal;
+- missing-required;
+- family/profile;
+- collision/split evidence.
+
+M05 forbids reducing all identity continuity to one scalar score.
+
+## 6. Drift status
+
+Candidate semantic states:
+- `NO_DRIFT`;
+- `WITHIN_DECLARED_VARIATION`;
+- `OBSERVATION_UNCERTAIN`;
+- `REPRESENTATION_DRIFT`;
+- `IDENTITY_RELEVANT_DRIFT`;
+- `MUTATION_CANDIDATE`;
+- `IDENTITY_BREAK_CANDIDATE`;
+- `COLLISION_OR_SPLIT_CANDIDATE`.
+
+These are identity semantics, not M01 quality grades.
+
+## 7. Repair boundary
+
+Repair targets a representation/output back toward the same canonical DNA revision.
+
+Repair:
+- does not mutate DNA;
+- does not create canonical traits;
+- does not authorize protected changes;
+- may consume drift evidence;
+- may produce new representation evidence.
+
+## 8. DNAMutationProposal
+
+A mutation proposal names:
+- proposal ID;
+- stable dna_id;
+- source revision;
+- typed trait/anchor/link change set;
+- reason;
+- requested continuity outcome;
+- authority/policy refs;
+- evidence/provenance refs;
+- impact/compatibility surface;
+- required approvals;
+- validity/expiry if applicable.
+
+A proposal is never itself canonical DNA.
+
+## 9. IdentityMutationDecision
+
+Candidate decisions:
+- `REJECT`;
+- `REPAIR_INSTEAD`;
+- `CONTEXTUAL_VARIATION_ONLY`;
+- `ADMIT_SAME_IDENTITY_REVISION`;
+- `REQUIRE_NEW_IDENTITY`;
+- `REQUIRE_SPLIT`;
+- `REQUEST_MORE_EVIDENCE`.
+
+Decision authority must be explicit and policy-bound.
+
+## 10. IdentityContinuityEnvelope
+
+Defines same-identity policy context:
+- identity-defining traits;
+- bounded mutable traits;
+- contextual traits;
+- required anchors;
+- required cross-modal links;
+- allowed substitutions;
+- forbidden transitions;
+- evidence/evaluator requirements;
+- decision-authority refs.
+
+It is not an M01 Fidelity/Quality contract.
+
+## 11. IdentityDriftReport
+
+Aggregates drift evidence while preserving path-level facts.
+
+Requirements:
+- no averaging-away of identity-defining failure;
+- missing/unknown evidence remains distinct from pass;
+- uncertainty retained;
+- evaluator owner retained;
+- deterministic ordering/fingerprint;
+- report never self-admits a mutation.
+
+## 12. Identity break
+
+When continuity policy fails, a new identity is required.
+
+Identity break:
+- creates a new `dna_id`;
+- preserves explicit lineage to source revision;
+- records break reason;
+- carries only explicitly permitted traits/anchors/links;
+- never rewrites source identity history.
+
+## 13. Identity split
+
+Split handles one historical identity containing or becoming multiple separately governed subjects.
+
+Rules:
+- source history remains immutable/auditable;
+- resulting identities have explicit stable IDs;
+- continuation branch, if any, is policy-explicit;
+- traits/components/links allocation is explicit;
+- provenance/rights refs remain reachable.
+
+## 14. Identity equivalence / consolidation
+
+Similarity never merges IDs automatically.
+
+An `IdentityConsolidationProposal` can request equivalence/consolidation.
+
+If admitted:
+- both histories remain auditable;
+- alias/redirect/equivalence semantics are explicit;
+- canonical continuation selection is policy-bound;
+- IDs are not erased;
+- provenance/rights/privacy constraints survive.
+
+S05 finalizes portability/branching compatibility.
+
+## 15. M39 overlap resolution
+
+M05 is the generic root authority for persistent Asset/Persona DNA identity.
+
+M39 Digital Humans & Virtual Identity owns:
+- digital-human persona production;
+- face/body/hair/clothing consistency runtime;
+- acting/expression/mannerism;
+- cross-modal digital-human production continuity;
+- spokesperson/avatar runtime and domain rights workflows.
+
+M39 may expose a domain persona profile/link bound to M05, but cannot create a competing generic root identity.
+
+This decision must be revalidated in the M06-M60 Forward Compatibility Scan.
+
+## 16. Privacy-minimized drift
+
+Sensitive identity evidence remains referenced and access-controlled.
+
+M05 does not require raw:
+- face embeddings;
+- voiceprints;
+- biometric templates;
+- private reference media.
+
+M54 may own restricted storage/access/security policy.
+M53 owns rights/consent/provenance policy.
+
+## 17. S04 candidate hard invariants
+
+91. anchor authority class is explicit and cannot be upgraded by similarity/confidence alone.
+92. anchor lifecycle changes preserve immutable historical evidence.
+93. canonical anchor rebind/revoke requires explicit authority/policy.
+94. observation/proposed anchors cannot mutate canonical identity.
+95. drift evidence is path-level and typed.
+96. identity drift cannot be represented solely by one scalar score.
+97. missing/unknown evidence cannot be treated as pass.
+98. identity-defining failures cannot be averaged away by aggregate scores.
+99. drift findings preserve uncertainty and evaluator ownership.
+100. drift evidence cannot self-admit a canonical mutation.
+101. representation repair cannot rewrite canonical DNA.
+102. contextual variation does not require DNA mutation when policy allows it.
+103. DNAMutationProposal is noncanonical until an explicit decision admits it.
+104. mutation proposals identify exact source revision and typed change surface.
+105. protected trait mutation requires explicit policy/authority.
+106. downstream model/provider output cannot silently authorize mutation.
+107. IdentityMutationDecision authority is explicit and policy-bound.
+108. same-identity admitted mutation creates a new immutable DNA revision.
+109. identity break creates a new stable dna_id rather than rewriting the original.
+110. identity-break lineage to source revision remains explicit.
+111. identity split preserves source history and explicit allocation of traits/components/links.
+112. identity consolidation/equivalence never erases source IDs/history.
+113. similarity threshold alone cannot merge identities.
+114. IdentityContinuityEnvelope is separate from M01 quality/Fidelity authority.
+115. M37 temporal continuity evidence cannot mutate canonical M05 DNA.
+116. M39 digital-human persona/runtime cannot create a competing generic identity root.
+117. sensitive drift evidence may remain restricted references rather than canonical payload copies.
+118. M53/M54 retain rights/consent/provenance/security authority over protected identity evidence.
+119. drift/transition reports are deterministic and fingerprintable without embedding private evidence payloads.
+120. HIVE/agents may detect/propose drift or mutation but cannot directly admit protected canonical identity changes.
+
+These extend S01-S03 invariants 1–90 and remain candidates until final contract freeze.
+
+## 18. S04 proprietary candidates
+
+S04 adds `IRIS-DNAX-091..120`.
+
+## S04 STOP CONDITION
+
+S04 is complete for module planning when:
+- anchor authority/lifecycle is explicit;
+- drift evidence/status/report semantics are explicit;
+- repair vs mutation is explicit;
+- mutation proposal/decision boundaries are explicit;
+- same-identity mutation vs identity break/split/consolidation is explicit;
+- M01/M37/M39/M53/M54 firewalls are explicit;
+- candidate invariants 91–120 are recorded;
+- DNAX-091..120 are registered;
+- checkpoint advances to S05;
+- no M05 implementation code is introduced.
 
 # S05 — DNA branching, compatibility and reusable DNA marketplace contract
 
