@@ -5,9 +5,10 @@ import uuid
 
 from examples.m02_synthetic_profiles import ACTOR, AUDIO_PROFILE, LOGO_PROFILE
 from iris_project_os.identity import EntityKind, ExternalRef
+from iris_project_os.build import BuildPlan
 from iris_project_os.release import ReleaseTransaction
 
-from iris_production_state.enums import CleanupState, DeletionAuthorizationState, DeletionState, IndexState, ReproducibilityClass, RollbackState
+from iris_production_state.enums import AvailabilityState, CleanupState, DeletionAuthorizationState, DeletionState, IndexState, ReproducibilityClass, RollbackState
 from iris_production_state.errors import ProductionStateAdmissionError, ProductionStateIntegrityError
 from iris_production_state.invariants import M06_INVARIANTS
 from iris_production_state.lineage import (
@@ -31,6 +32,7 @@ from iris_production_state.reconstruction import (
 )
 from iris_production_state.enums import DivergenceKind
 from iris_production_state.release import ReleaseStateCapsule, validate_release_state_closure
+from iris_production_state.revisions import AvailabilityReceipt
 
 from m06_support import external, master_manifest, m02_build_plan, operational_revision
 
@@ -160,7 +162,7 @@ class M06LineageReleaseTests(unittest.TestCase):
 
     def test_family_rsc(self) -> None:
         candidate = LOGO_PROFILE.commit()
-        release_snapshot = AUDIO_PROFILE.commit()
+        release_snapshot = LOGO_PROFILE.commit()
         transaction = ReleaseTransaction(
             str(uuid.uuid5(uuid.NAMESPACE_URL, "iris-m06:release-m06")),
             LOGO_PROFILE.production_id,
@@ -170,8 +172,19 @@ class M06LineageReleaseTests(unittest.TestCase):
             ACTOR,
             project_id=LOGO_PROFILE.project_id,
         )
-        plan = m02_build_plan("release-build-plan")
+        plan = BuildPlan(
+            str(uuid.uuid5(uuid.NAMESPACE_URL, "iris-m06:release-build-plan")),
+            release_snapshot.revision.graph_id,
+            ExternalRef(EntityKind.REVISION, "release-base-revision", version="1"),
+            ExternalRef(EntityKind.REVISION, release_snapshot.revision.revision_id, version="1"),
+        )
         manifest, integrity = master_manifest(operational_revision("release-master"), master_id="release-master")
+        availability = AvailabilityReceipt(
+            manifest.materializations[0],
+            AvailabilityState.KNOWN_AVAILABLE,
+            integrity,
+            30,
+        )
         capsule = ReleaseStateCapsule(
             "release-capsule",
             transaction,
@@ -180,14 +193,59 @@ class M06LineageReleaseTests(unittest.TestCase):
             manifest,
             "b" * 64,
             (integrity,),
+            (availability,),
             (external("current-rights"), external("current-security"), external("quality-evidence")),
             "CLOSED",
             30,
         )
         self.assertIs(validate_release_state_closure(capsule), capsule)
         self.assertTrue(hasattr(transaction, "reference"))
+
         with self.assertRaises(ProductionStateAdmissionError):
-            ReleaseStateCapsule("release-open", transaction, release_snapshot, plan, manifest, "b" * 64, (), (), "CLOSED", 31)
+            ReleaseStateCapsule(
+                "release-missing-availability",
+                transaction,
+                release_snapshot,
+                plan,
+                manifest,
+                "b" * 64,
+                (integrity,),
+                (),
+                (external("current-rights"),),
+                "CLOSED",
+                31,
+            )
+
+        audio_snapshot = AUDIO_PROFILE.commit()
+        cross_transaction = ReleaseTransaction(
+            str(uuid.uuid5(uuid.NAMESPACE_URL, "iris-m06:release-cross-production")),
+            LOGO_PROFILE.production_id,
+            candidate.snapshot_id,
+            audio_snapshot.snapshot_id,
+            ExternalRef(EntityKind.DESTINATION, "destination-cross", version="1"),
+            ACTOR,
+            project_id=LOGO_PROFILE.project_id,
+        )
+        audio_plan = BuildPlan(
+            str(uuid.uuid5(uuid.NAMESPACE_URL, "iris-m06:release-audio-plan")),
+            audio_snapshot.revision.graph_id,
+            ExternalRef(EntityKind.REVISION, "audio-base-revision", version="1"),
+            ExternalRef(EntityKind.REVISION, audio_snapshot.revision.revision_id, version="1"),
+        )
+        with self.assertRaises(ProductionStateIntegrityError):
+            ReleaseStateCapsule(
+                "release-cross-production",
+                cross_transaction,
+                audio_snapshot,
+                audio_plan,
+                manifest,
+                "b" * 64,
+                (integrity,),
+                (availability,),
+                (external("current-rights"),),
+                "CLOSED",
+                32,
+            )
 
     def test_family_cra(self) -> None:
         target = external("race-target")
