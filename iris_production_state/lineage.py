@@ -7,6 +7,7 @@ from collections import deque
 from dataclasses import dataclass
 from typing import Any
 
+from iris_project_os.identity import EntityKind, ExternalRef
 from iris_project_os.snapshots import Snapshot as M02Snapshot
 
 from .base import CanonicalRecord, canonical_bytes, exact_ref_key, require_exact_ref, require_sequence
@@ -26,6 +27,7 @@ __all__ = [
     "CleanupEligibilityReceipt",
     "LogicalRetirementReceipt",
     "DeletionAuthorizationReceipt",
+    "DeletionRevalidationReceipt",
     "DeletionCompletionReceipt",
     "RollbackPlan",
     "RollbackReceipt",
@@ -259,9 +261,44 @@ class DeletionAuthorizationReceipt(CanonicalRecord):
 
 
 @dataclass(frozen=True)
-class DeletionCompletionReceipt(CanonicalRecord):
+class DeletionRevalidationReceipt(CanonicalRecord):
     receipt_id: str
     authorization_id: str
+    target_ref: Any
+    state: DeletionAuthorizationState
+    current_eligibility: CleanupEligibilityReceipt
+    current_policy_ref: Any
+    current_policy_authorized: bool
+    revalidated_at_ms: int
+    reason: str
+
+    def __post_init__(self) -> None:
+        require_identifier(self.receipt_id, "receipt_id")
+        require_identifier(self.authorization_id, "authorization_id")
+        require_exact_ref(self.target_ref, "target_ref")
+        if not isinstance(self.state, DeletionAuthorizationState):
+            object.__setattr__(self, "state", DeletionAuthorizationState(self.state))
+        if type(self.current_eligibility) is not CleanupEligibilityReceipt:
+            raise ProductionStateValidationError("deletion revalidation requires exact current cleanup eligibility")
+        if self.current_eligibility.target_ref != self.target_ref:
+            raise ProductionStateIntegrityError("deletion revalidation and current eligibility must bind the same target")
+        require_exact_ref(self.current_policy_ref, "current_policy_ref")
+        if type(self.current_policy_authorized) is not bool:
+            raise ProductionStateValidationError("current_policy_authorized must be a boolean")
+        if type(self.revalidated_at_ms) is not int or self.revalidated_at_ms < 0:
+            raise ProductionStateValidationError("revalidated_at_ms must be a nonnegative exact integer")
+        require_text(self.reason, "reason", maximum=2048)
+        if self.state is DeletionAuthorizationState.AUTHORIZED and (
+            self.current_eligibility.state is not CleanupState.ELIGIBLE or not self.current_policy_authorized
+        ):
+            raise ProductionStateAdmissionError("authorized deletion revalidation requires current eligibility and policy authorization")
+
+
+@dataclass(frozen=True)
+class DeletionCompletionReceipt(CanonicalRecord):
+    receipt_id: str
+    authorization: DeletionAuthorizationReceipt
+    revalidation: DeletionRevalidationReceipt
     target_ref: Any
     state: DeletionState
     physical_result_ref: Any
@@ -269,13 +306,24 @@ class DeletionCompletionReceipt(CanonicalRecord):
 
     def __post_init__(self) -> None:
         require_identifier(self.receipt_id, "receipt_id")
-        require_identifier(self.authorization_id, "authorization_id")
+        if type(self.authorization) is not DeletionAuthorizationReceipt:
+            raise ProductionStateValidationError("deletion completion requires the exact authorization receipt")
+        if type(self.revalidation) is not DeletionRevalidationReceipt:
+            raise ProductionStateValidationError("deletion completion requires exact current revalidation evidence")
         require_exact_ref(self.target_ref, "target_ref")
+        if self.authorization.target_ref != self.target_ref or self.revalidation.target_ref != self.target_ref:
+            raise ProductionStateIntegrityError("deletion completion, authorization and revalidation must bind the same target")
+        if self.revalidation.authorization_id != self.authorization.authorization_id:
+            raise ProductionStateIntegrityError("deletion revalidation must bind the exact authorization being completed")
+        if self.authorization.state is not DeletionAuthorizationState.AUTHORIZED or self.revalidation.state is not DeletionAuthorizationState.AUTHORIZED:
+            raise ProductionStateAdmissionError("physical deletion completion requires active authorization and current revalidation")
         if not isinstance(self.state, DeletionState):
             object.__setattr__(self, "state", DeletionState(self.state))
         require_exact_ref(self.physical_result_ref, "physical_result_ref")
         if type(self.completed_at_ms) is not int or self.completed_at_ms < 0:
             raise ProductionStateValidationError("completed_at_ms must be a nonnegative exact integer")
+        if self.completed_at_ms < self.revalidation.revalidated_at_ms:
+            raise ProductionStateIntegrityError("physical deletion completion cannot predate its current revalidation")
 
 
 @dataclass(frozen=True)
@@ -295,6 +343,11 @@ class RollbackPlan(CanonicalRecord):
         require_identifier(self.plan_id, "plan_id")
         _require_m02_snapshot(self.current_snapshot, "current_snapshot")
         _require_m02_snapshot(self.target_snapshot, "target_snapshot")
+        if (
+            self.current_snapshot.project_id != self.target_snapshot.project_id
+            or self.current_snapshot.production_id != self.target_snapshot.production_id
+        ):
+            raise ProductionStateIntegrityError("rollback current and target snapshots must belong to the same project and production")
         if type(self.previous_current_revision_ref) is not OperationalRevisionRef:
             raise ProductionStateValidationError("previous_current_revision_ref must be an exact M06 operational revision")
         require_exact_ref(self.m02_rollback_ref, "m02_rollback_ref")
@@ -333,6 +386,18 @@ class RollbackReceipt(CanonicalRecord):
                 raise ProductionStateAdmissionError("current M53/M54 authority must allow rollback")
             if self.resulting_revision_ref == self.plan.previous_current_revision_ref:
                 raise ProductionStateIntegrityError("rollback must append a new operational revision")
+            if self.reproducibility_receipt.output_revision_ref != self.resulting_revision_ref:
+                raise ProductionStateIntegrityError("rollback result must be the exact output proven by its reproducibility receipt")
+            if self.reproducibility_receipt.manifest.method.value != "ROLLBACK":
+                raise ProductionStateAdmissionError("complete rollback requires a reconstruction manifest explicitly classified as ROLLBACK")
+            target_snapshot_bound = any(
+                type(ref) is ExternalRef
+                and ref.kind is EntityKind.SNAPSHOT
+                and ref.reference == self.plan.target_snapshot.snapshot_id
+                for ref in self.reproducibility_receipt.manifest.exact_input_refs
+            )
+            if not target_snapshot_bound:
+                raise ProductionStateAdmissionError("rollback reproducibility evidence must bind the exact target M02 snapshot")
         if self.failure_evidence_ref is not None:
             require_exact_ref(self.failure_evidence_ref, "failure_evidence_ref")
         if self.state in {RollbackState.FAILED, RollbackState.PARTIAL, RollbackState.BLOCKED} and self.failure_evidence_ref is None:
@@ -417,35 +482,90 @@ def revalidate_deletion_authorization(
     authorization: DeletionAuthorizationReceipt,
     current_graph: LineageGraph,
     *,
+    current_protected_closures: tuple[ProtectedClosureEvidence, ...],
+    current_retention_pins: tuple[RetentionPinEvidence, ...] = (),
+    current_policy_ref: Any,
     current_policy_authorized: bool,
-) -> DeletionAuthorizationState:
+    receipt_id: str,
+    revalidated_at_ms: int,
+) -> DeletionRevalidationReceipt:
     if type(authorization) is not DeletionAuthorizationReceipt or type(current_graph) is not LineageGraph:
         raise ProductionStateValidationError("revalidation requires exact M06 authorization and lineage evidence")
+    require_exact_ref(current_policy_ref, "current_policy_ref")
     if type(current_policy_authorized) is not bool:
         raise ProductionStateValidationError("current_policy_authorized must be a boolean")
-    if not current_policy_authorized:
-        return DeletionAuthorizationState.REVOKED
+    if type(revalidated_at_ms) is not int or revalidated_at_ms < authorization.authorized_at_ms:
+        raise ProductionStateValidationError("revalidated_at_ms must not predate deletion authorization")
+
+    closures = require_sequence(
+        current_protected_closures,
+        "current_protected_closures",
+        maximum=6,
+        item_type=ProtectedClosureEvidence,
+    )
+    pins = require_sequence(
+        current_retention_pins,
+        "current_retention_pins",
+        maximum=DEFAULT_LIMITS.max_records,
+        item_type=RetentionPinEvidence,
+    )
+    roots_by_key = {
+        exact_ref_key(ref): ref
+        for proof in closures
+        for ref in proof.protected_refs
+    }
+    roots = tuple(roots_by_key[key] for key in sorted(roots_by_key))
+    current_eligibility = evaluate_cleanup(
+        authorization.target_ref,
+        roots,
+        current_graph,
+        protected_closures=closures,
+        retention_pins=pins,
+        receipt_id=f"{receipt_id}-eligibility",
+        checked_at_ms=revalidated_at_ms,
+    )
+
     if authorization.state is not DeletionAuthorizationState.AUTHORIZED:
-        return authorization.state
-    if (current_graph.epoch, current_graph.fingerprint, current_graph.state) != (
+        state, reason = authorization.state, "original deletion authorization is no longer active"
+    elif current_policy_ref != authorization.current_policy_ref:
+        state, reason = DeletionAuthorizationState.STALE, "current policy ref changed after deletion authorization"
+    elif not current_policy_authorized:
+        state, reason = DeletionAuthorizationState.REVOKED, "current policy no longer authorizes deletion"
+    elif (
+        current_graph.graph_id,
+        current_graph.epoch,
+        current_graph.fingerprint,
+        current_graph.state,
+    ) != (
+        authorization.eligibility.graph_id,
         authorization.eligibility.graph_epoch,
         authorization.eligibility.graph_fingerprint,
         IndexState.COMPLETE_FRESH,
     ):
-        return DeletionAuthorizationState.STALE
-    fresh = evaluate_cleanup(
+        state, reason = DeletionAuthorizationState.STALE, "lineage graph changed after deletion authorization"
+    elif closures != authorization.eligibility.protected_closures or pins != authorization.eligibility.retention_pin_evidence:
+        state, reason = DeletionAuthorizationState.STALE, "protected closure or retention evidence changed after deletion authorization"
+    elif current_eligibility.state is not CleanupState.ELIGIBLE:
+        state, reason = DeletionAuthorizationState.STALE, "current evidence no longer proves deletion eligibility"
+    else:
+        state, reason = DeletionAuthorizationState.AUTHORIZED, "authorization remains current against exact lineage, closure, retention and policy evidence"
+
+    return DeletionRevalidationReceipt(
+        receipt_id,
+        authorization.authorization_id,
         authorization.target_ref,
-        authorization.eligibility.protected_roots,
-        current_graph,
-        protected_closures=authorization.eligibility.protected_closures,
-        receipt_id=f"revalidate-{authorization.authorization_id}",
-        checked_at_ms=authorization.authorized_at_ms,
+        state,
+        current_eligibility,
+        current_policy_ref,
+        current_policy_authorized,
+        revalidated_at_ms,
+        reason,
     )
-    return DeletionAuthorizationState.AUTHORIZED if fresh.state is CleanupState.ELIGIBLE else DeletionAuthorizationState.STALE
 
 
 def record_deletion_completion(
     authorization: DeletionAuthorizationReceipt,
+    revalidation: DeletionRevalidationReceipt,
     *,
     physical_result_ref: Any,
     success: bool,
@@ -454,9 +574,23 @@ def record_deletion_completion(
 ) -> DeletionCompletionReceipt:
     if type(authorization) is not DeletionAuthorizationReceipt or authorization.state is not DeletionAuthorizationState.AUTHORIZED:
         raise ProductionStateAdmissionError("completion evidence requires active M55 authorization")
+    if type(revalidation) is not DeletionRevalidationReceipt:
+        raise ProductionStateValidationError("completion evidence requires exact current deletion revalidation")
+    if revalidation.authorization_id != authorization.authorization_id or revalidation.target_ref != authorization.target_ref:
+        raise ProductionStateIntegrityError("deletion completion revalidation does not bind the supplied authorization")
+    if revalidation.state is not DeletionAuthorizationState.AUTHORIZED:
+        raise ProductionStateAdmissionError("stale or revoked deletion authorization cannot record physical completion")
     if type(success) is not bool:
         raise ProductionStateValidationError("success must be a boolean result from M55")
-    return DeletionCompletionReceipt(receipt_id, authorization.authorization_id, authorization.target_ref, DeletionState.COMPLETED if success else DeletionState.FAILED, physical_result_ref, completed_at_ms)
+    return DeletionCompletionReceipt(
+        receipt_id,
+        authorization,
+        revalidation,
+        authorization.target_ref,
+        DeletionState.COMPLETED if success else DeletionState.FAILED,
+        physical_result_ref,
+        completed_at_ms,
+    )
 
 
 def record_rollback(receipt: RollbackReceipt) -> RollbackReceipt:
