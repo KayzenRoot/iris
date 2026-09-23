@@ -145,6 +145,7 @@ class ReproducibilityReceipt(CanonicalRecord):
     current_security_authorized: bool
     quality_admission_ref: Any | None
     semantic_state_verification_ref: Any | None = None
+    equivalence_verification_ref: Any | None = None
 
     def __post_init__(self) -> None:
         require_identifier(self.receipt_id, "receipt_id")
@@ -171,6 +172,8 @@ class ReproducibilityReceipt(CanonicalRecord):
             require_exact_ref(self.quality_admission_ref, "quality_admission_ref")
         if self.semantic_state_verification_ref is not None:
             require_exact_ref(self.semantic_state_verification_ref, "semantic_state_verification_ref")
+        if self.equivalence_verification_ref is not None:
+            require_exact_ref(self.equivalence_verification_ref, "equivalence_verification_ref")
         if self.divergence.kind is DivergenceKind.UNKNOWN and self.achieved_class is not ReproducibilityClass.UNKNOWN:
             raise ProductionStateAdmissionError("unknown divergence cannot be reported as successful reproducibility")
         if self.achieved_class is ReproducibilityClass.EXACT_BYTES and self.divergence.kind is not DivergenceKind.NONE_PROVEN:
@@ -200,6 +203,20 @@ class ReproducibilityReceipt(CanonicalRecord):
                 DivergenceKind.UNKNOWN,
             }:
                 raise ProductionStateAdmissionError("failed or unknown semantic checks cannot support exact semantic-state reconstruction")
+        if self.achieved_class is ReproducibilityClass.EQUIVALENT_WITHIN_CONTRACT:
+            if self.manifest.equivalence_contract_ref is None or self.equivalence_verification_ref is None:
+                raise ProductionStateAdmissionError("equivalence reconstruction requires a versioned contract and observed verification evidence")
+            if self.equivalence_verification_ref not in refs:
+                raise ProductionStateAdmissionError("equivalence verification evidence must be included in receipt evidence refs")
+            if self.divergence.kind in {
+                DivergenceKind.SEMANTIC_DIVERGENCE,
+                DivergenceKind.EQUIVALENCE_CONTRACT_FAILURE,
+                DivergenceKind.DEPENDENCY_UNAVAILABLE,
+                DivergenceKind.TOOLCHAIN_UNAVAILABLE,
+                DivergenceKind.POLICY_BLOCKED,
+                DivergenceKind.UNKNOWN,
+            }:
+                raise ProductionStateAdmissionError("failed or unavailable equivalence checks cannot support successful equivalence")
         if self.achieved_class not in {
             ReproducibilityClass.UNKNOWN,
             ReproducibilityClass.NON_RECONSTRUCTABLE,
