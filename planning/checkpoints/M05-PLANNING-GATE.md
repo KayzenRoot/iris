@@ -1,6 +1,6 @@
 # IRIS M05 Planning Gate
 
-Status: `S01_S05_COMPLETE_FINAL_TECH_REVIEW_NEXT`
+Status: `FINAL_TECH_REVIEW_APPROVED_FORWARD_COMPAT_NEXT`
 Issue: `#37`
 Branch: `m05-asset-dna-planning`
 Authorized main baseline: `6f2311b59f5da91778d3fc9d9fe1572953a0c60b`
@@ -121,13 +121,23 @@ Planning/docs only. No M05 implementation is authorized.
 - package import is staged and cannot overwrite canonical DNA;
 - canonical DNA packages are non-executable by default.
 
+## Final Technology Review
+
+- artifact: `planning/reviews/M05-FINAL-TECHNOLOGY-REVIEW.md`
+- verdict: `APPROVED_FOR_FORWARD_COMPATIBILITY`
+- `IRIS-DNAX-001..150` consolidated into `F-M05-01..25`
+- mapping integrity: **150/150 exactly once; 0 missing; 0 duplicates**
+- findings: M05-PLAN-R01..R05 closed or closed-for-forward-scan
+- no implementation admitted
+- no contract freeze yet
+
 ## Candidate planning invariants
 
-S01-S05 record 150 candidate hard invariants. Functional planning is complete; invariants remain candidates until Final Technology Review and contract freeze.
+S01-S05 record 150 candidate hard invariants. Final Technology Review is complete; invariants remain freeze candidates until the Forward Compatibility Scan and contract freeze.
 
 ## Technology candidates
 
-`IRIS-DNAX-001..150` registered as design-history candidates.
+`IRIS-DNAX-001..150` remain design-history references; consolidated freeze-candidate families are `F-M05-01..25`.
 
 ## External references
 
@@ -140,7 +150,7 @@ References only. No new runtime dependency.
 
 ## Next legal action
 
-Run the M05 Final Technology Review on this same branch/issue. Consolidate/merge/reject DNAX candidates before Forward Compatibility Scan.
+Run the M06-M60 Forward Compatibility Scan on this same branch/issue. Revalidate ownership, dependencies, future module contracts and upgrade paths before contract freeze.
 
 Do not implement M05.
 Do not freeze the M05 contract yet.
