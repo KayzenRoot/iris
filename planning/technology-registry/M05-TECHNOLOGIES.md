@@ -1,7 +1,7 @@
 # M05 Technology Registry
 
 Module: `M05 — Asset DNA 2.0 & Cross-Modal Identity`
-Status: `S03_ACTIVE_REGISTRY`
+Status: `S04_ACTIVE_REGISTRY`
 Rule: IRIS technology names are design candidates. They are not novelty, patentability or legal claims until dedicated review.
 
 ## External prior-art references
@@ -325,5 +325,108 @@ Findings for stale links, authority leakage, campaign/brand confusion and modali
 `IRIS-DNAX-061..090` are `DESIGN_HISTORY_CANDIDATES`.
 
 M05 now records `IRIS-DNAX-001..090` design-history candidates across S01-S03.
+
+No candidate is frozen until S01-S05, consolidation, forward compatibility, Final Technology Review and independent planning audit complete.
+
+
+## S04 identity-transition candidates
+
+## IRIS-DNAX-091 — Anchor Authority Lattice
+Explicit CANONICAL / external / representation / provenance / observation / proposed / revoked authority classes.
+
+## IRIS-DNAX-092 — Anchor Lifecycle Ledger
+Auditable add/rebind/supersede/revoke/restore/expire operations without history erasure.
+
+## IRIS-DNAX-093 — Anchor Rebind Gate
+Protected anchor target changes require explicit policy/authority.
+
+## IRIS-DNAX-094 — Observation Authority Firewall
+Similarity/observation confidence can inform review but cannot promote anchor authority.
+
+## IRIS-DNAX-095 — Identity Drift Evidence Envelope
+Path-level typed canonical-vs-observed identity evidence.
+
+## IRIS-DNAX-096 — Multi-Dimensional Drift Vector
+Numeric, categorical, structural, topology, link, cross-modal and missing-required drift dimensions.
+
+## IRIS-DNAX-097 — No-Single-Score Identity Rule
+Prevents aggregate similarity from replacing typed identity continuity semantics.
+
+## IRIS-DNAX-098 — Fatal Trait Non-Averaging Gate
+Identity-defining violations cannot be hidden by high aggregate similarity.
+
+## IRIS-DNAX-099 — Missing Evidence Firewall
+Unknown/missing evidence remains distinct from pass/no-drift.
+
+## IRIS-DNAX-100 — Identity Drift Status Matrix
+Typed NO_DRIFT / allowed variation / representation drift / identity-relevant / mutation/break/split candidate states.
+
+## IRIS-DNAX-101 — Repair / Mutation Firewall
+Representation repair cannot mutate canonical DNA.
+
+## IRIS-DNAX-102 — DNA Mutation Proposal
+Explicit noncanonical requested change set against one pinned source revision.
+
+## IRIS-DNAX-103 — Mutation Authority Envelope
+Versioned authority/policy/evidence/approval requirements for protected changes.
+
+## IRIS-DNAX-104 — Identity Mutation Decision Matrix
+Reject/repair/contextual/same-identity/new-identity/split/more-evidence outcomes.
+
+## IRIS-DNAX-105 — Same-Identity Revision Gate
+Authorized mutation creates a new immutable DNA revision under the same dna_id.
+
+## IRIS-DNAX-106 — Identity Break Gate
+Continuity-policy violation routes to a new dna_id instead of rewriting history.
+
+## IRIS-DNAX-107 — Identity Break Lineage Link
+Explicit source revision and inherited/retired semantic surfaces for new identities.
+
+## IRIS-DNAX-108 — Identity Split Protocol
+Governed one-to-many identity separation with explicit trait/component/link allocation.
+
+## IRIS-DNAX-109 — Identity Consolidation Proposal
+Evidence-backed many-ID/one-subject consolidation request without auto-merge.
+
+## IRIS-DNAX-110 — Non-Destructive Identity Redirect
+Alias/equivalence/continuation mapping that preserves all original IDs and histories.
+
+## IRIS-DNAX-111 — Identity Continuity Envelope
+Policy-defined same-identity traits, bounds, anchors, links, substitutions and forbidden transitions.
+
+## IRIS-DNAX-112 — Deterministic Drift Report
+Stable ordered/fingerprintable report retaining path evidence, uncertainty and evaluator ownership.
+
+## IRIS-DNAX-113 — Drift Evidence Privacy Capsule
+References restricted evidence without copying biometric/private payloads into ordinary DNA history.
+
+## IRIS-DNAX-114 — Drift Evaluator Router
+Routes quality/continuity evidence to M01/M37/M39 or other owning evaluators.
+
+## IRIS-DNAX-115 — M39 Persona Root Firewall
+Digital-human persona continuity binds to M05 root identity instead of creating a competing generic root.
+
+## IRIS-DNAX-116 — Continuity Conflict Radar
+Detects contradictions among canonical traits, anchors and cross-modal linked DNA.
+
+## IRIS-DNAX-117 — Contextual Variation Resolver
+Classifies policy-allowed temporary variation before mutation is considered.
+
+## IRIS-DNAX-118 — Provider Drift Normalizer
+Prevents renderer/model/provider changes from appearing as semantic identity changes without typed evidence.
+
+## IRIS-DNAX-119 — Mutation Change Surface
+Deterministic trait/anchor/link diff with identity-impact classification.
+
+## IRIS-DNAX-120 — Identity Transition Threat Radar
+Findings for auto-merge, hidden mutation, stale anchor, history erasure and authority leakage.
+
+---
+
+## S04 registry disposition
+
+`IRIS-DNAX-091..120` are `DESIGN_HISTORY_CANDIDATES`.
+
+M05 now records `IRIS-DNAX-001..120` design-history candidates across S01-S04.
 
 No candidate is frozen until S01-S05, consolidation, forward compatibility, Final Technology Review and independent planning audit complete.
