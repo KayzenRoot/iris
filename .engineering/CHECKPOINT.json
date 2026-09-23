@@ -4,5 +4,5 @@
   "status": "M05_PLANNING_ACTIVE",
   "version": "m05-planning-s05",
   "phase": "M05_S01_S05_COMPLETE_FINAL_TECH_REVIEW_NEXT",
-  "nextStep": "Run the M05 Final Technology Review. Consolidate, merge, retain or reject IRIS-DNAX-001..150, resolve overlap/dependency risks, then run the M06-M60 Forward Compatibility Scan. Do not implement M05."
+  "nextStep": "Run the M05 Final Technology Review. Consolidate, merge, retain or reject `IRIS-DNAX-001..150`, resolve overlap/dependency risks, then run the M06-M60 Forward Compatibility Scan. Do not implement M05."
 }
