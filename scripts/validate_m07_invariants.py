@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from iris_hardware_genome.invariants import M07_INVARIANTS, validate_invariant_catalog  # noqa: E402
+from iris_hardware_genome.families import M07_SURFACES  # noqa: E402
 
 SECTIONS = (
     ("S01", "## 18. S01 hard-invariant candidates"),
@@ -52,6 +53,20 @@ def validate_exact_invariants() -> None:
     }
     if targets != required_prefixes:
         raise SystemExit("M07 invariant proof map has missing or unexpected focused test targets")
+
+    # Every mandatory technology surface must point to a concrete, existing test method.
+    # A symbolic/nonexistent target is not objective proof.
+    for surface in M07_SURFACES:
+        try:
+            path, class_name, method_name = surface.proof_target.split("::")
+        except ValueError as exc:
+            raise SystemExit(f"M07 surface {surface.code} has a non-resolvable proof target") from exc
+        source_path = ROOT / path
+        if not source_path.is_file():
+            raise SystemExit(f"M07 surface {surface.code} proof file does not exist: {path}")
+        source = source_path.read_text(encoding="utf-8")
+        if f"class {class_name}(" not in source or f"def {method_name}(" not in source:
+            raise SystemExit(f"M07 surface {surface.code} proof target does not exist: {surface.proof_target}")
 
 
 if __name__ == "__main__":
