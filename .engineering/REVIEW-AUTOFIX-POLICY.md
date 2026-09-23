@@ -68,3 +68,10 @@ Producing an executor correction for a `CHAT_FIXABLE` finding without first atte
 A new IRIS chat performing review MUST read this policy through `.engineering/SOURCE-HIERARCHY.md` before deciding whether to escalate a finding.
 
 Only `EXECUTOR_REQUIRED` findings may be escalated to a corrective executor PDF. When all findings are `CHAT_FIXABLE`, the review stays in chat through repair, CI/evidence, re-audit and final verdict.
+
+
+## Executor prompt delivery format
+
+Whenever this policy permits or requires an executor prompt, the complete prompt MUST be delivered as a downloadable PDF in accordance with `.engineering/PROMPT-DELIVERY-POLICY.md`.
+
+A copyable writing box, Markdown code block or long inline prompt is not an acceptable primary delivery format for the complete executor prompt.
