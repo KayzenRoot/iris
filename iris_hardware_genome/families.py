@@ -48,7 +48,7 @@ M07_SURFACES = (
     TechnologySurface("MCD", "Multidimensional Confidence Descriptor", "genome", "tests/test_m07_genome.py::TestGenome::test_confidence_is_multidimensional_and_cannot_exceed_its_evidence"),
     TechnologySurface("GDL", "Genome Delta Ledger", "deltas", "tests/test_m07_genome.py::TestGenome::test_delta_is_bound_to_exact_base_and_target_snapshots"),
     TechnologySurface("RFP", "Reproducibility Fingerprint Projection", "projections", "tests/test_m07_authority.py::TestProjectionAndRecovery::test_consumer_projection_is_explicit_named_and_fingerprinted"),
-    TechnologySurface("SCB", "Schema Compatibility Barrier", "schema/migration", "tests/test_m07_genome.py::TestGenome::test_schema_reader_barrier_and_compatibility_axes_fail_closed_migration"),
+    TechnologySurface("SCB", "Schema Compatibility Barrier", "schema/migration", "tests/test_m07_genome.py::TestGenome::test_schema_reader_barrier_and_compatibility_axes_fail_closed"),
 )
 
 M07_ABSORBED_COMPONENTS = (
