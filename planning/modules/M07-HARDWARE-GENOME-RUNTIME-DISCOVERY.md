@@ -743,3 +743,375 @@ S02 is complete for module planning when:
 - five additional proprietary technology candidates are registered (10 cumulative);
 - planning may advance to M07 S03 driver/precision/encoder/decoder/topology detection;
 - no M07 product/runtime implementation is introduced.
+
+
+# S03 — Driver, precision, encoder/decoder and topology detection
+
+## 38. Goal
+
+S03 defines the evidence model for driver/runtime compatibility surfaces, numerical precision features, hardware media engines and device/interconnect topology.
+
+It remains a discovery layer. It does not:
+- benchmark codecs or compute;
+- claim production-safe throughput/concurrency;
+- select a codec/model/backend for a job;
+- allocate resources;
+- schedule across devices;
+- infer quality from hardware features.
+
+## 39. Driver and runtime compatibility evidence
+
+Driver state is represented as a set of facts, not one “driver OK” boolean.
+
+Candidate facts include:
+- vendor/provider;
+- driver package/version/build;
+- kernel-mode versus user-mode components where observable;
+- loaded/active state;
+- runtime/API compatibility level as reported by an admitted source;
+- device binding;
+- restart/reboot-required state when reliably exposed;
+- signature/trust metadata where an authoritative platform API exposes it;
+- known visibility limitations of the current container/VM/WSL/process scope.
+
+M07 may report compatibility relationships evidenced by authoritative APIs. It cannot claim that a future framework/model/workflow will run successfully unless the relevant evidence contract actually proves that narrower claim.
+
+A newer version number is not automatically “better,” compatible, stable or preferred.
+
+## 40. Driver/runtime skew
+
+M07 must preserve skew explicitly:
+- kernel driver versus user-space runtime;
+- host driver versus container runtime;
+- host GPU exposure versus VM/WSL guest runtime;
+- framework-bundled runtime versus system runtime;
+- multiple installed runtime/toolkit versions;
+- active runtime versus merely installed artifacts.
+
+Skew can produce `COMPATIBLE_REPORTED`, `INCOMPATIBLE_REPORTED`, `UNKNOWN`, `CONFLICTING` or other versioned states. It is not silently repaired by choosing the highest version string.
+
+## 41. Precision detection
+
+S03 deepens S02 precision evidence into exact feature dimensions.
+
+Candidate dimensions per precision family:
+- storage/representation;
+- scalar arithmetic;
+- vector/SIMD arithmetic;
+- tensor/matrix acceleration reported;
+- accumulation precision/modes;
+- denormal/subnormal behavior where authoritatively reported;
+- rounding/control modes where relevant;
+- atomic support;
+- conversion paths;
+- framework/backend exposure;
+- bounded conformance evidence.
+
+Supported families may include:
+- FP64;
+- FP32;
+- TF32-like modes;
+- FP16;
+- BF16;
+- FP8 families as distinct encodings where necessary;
+- INT64/INT32/INT16/INT8;
+- INT4/sub-byte families where semantics are explicit.
+
+Marketing labels never substitute for exact precision semantics.
+
+M07 does not decide whether reduced precision preserves perceptual/model quality. That remains governed by M01/M14 and later execution planning.
+
+## 42. Media engine discovery
+
+Hardware encode/decode is represented per exact device and engine/API path.
+
+Candidate evidence:
+- engine/API family;
+- codec;
+- encode versus decode;
+- profile;
+- level/tier where exposed;
+- bit depth;
+- chroma format;
+- resolution/dimension limits as **reported static limits**;
+- pixel/input/output format;
+- rate-control modes as reported features;
+- B-frame/reference-frame feature presence where exposed;
+- HDR metadata path support where exposed;
+- alpha support where exposed;
+- interop path with compute/graphics memory where evidenced.
+
+Codec families may include H.264/AVC, H.265/HEVC, AV1, VP9, ProRes or future codecs only when an admitted backend exposes them.
+
+“Codec supported” must never be a single host-wide boolean.
+
+## 43. Encoder/decoder evidence strength
+
+Media capabilities use the same evidence ladder principles:
+- declared/reported;
+- engine/device bound;
+- feature reported;
+- bounded conformance verified.
+
+A tiny bounded encode/decode conformance operation may prove basic operation but cannot establish:
+- real-time performance;
+- sustained 4K/8K throughput;
+- concurrent-session count;
+- quality at a bitrate;
+- thermal stability;
+- production-safe queue depth.
+
+Those belong to M08 benchmarking/capability envelopes and later planning.
+
+## 44. Session/concurrency limits
+
+Vendor/API-reported static session limits may be recorded as reported facts when authoritative and version-bound.
+
+M07 must not convert:
+- marketing documentation;
+- historical product tables;
+- license folklore;
+- one successful session;
+- current idle-engine count
+
+into a production-safe concurrency envelope.
+
+Dynamic/sustainable concurrency requires M08 evidence.
+
+## 45. Device topology graph
+
+S03 extends the S01 Opaque Device Graph with topology evidence.
+
+Candidate nodes:
+- host;
+- CPU package;
+- NUMA node;
+- GPU/accelerator;
+- GPU partition/MIG/vGPU;
+- memory domain;
+- PCIe root/bridge/device;
+- storage device/volume;
+- media engine when separately addressable;
+- runtime-visible logical adapter.
+
+Candidate edges:
+- attached-to;
+- parent/child partition;
+- NUMA-local-to;
+- shares-memory-with;
+- peer-access-reported-with;
+- interconnect-reported-with;
+- routed-through;
+- exposed-as/logical-view-of.
+
+Every topology edge is evidence-bound and directional where semantics require it.
+
+## 46. PCIe/interconnect evidence
+
+Candidate static/reported observations:
+- PCIe generation capability;
+- negotiated link generation;
+- lane width capability;
+- negotiated lane width;
+- resizable BAR state;
+- peer-access capability;
+- NVLink/Infinity Fabric or other vendor interconnect presence where authoritatively exposed;
+- NUMA locality;
+- integrated/unified-memory relationship.
+
+The distinction between **maximum capability** and **currently negotiated state** is mandatory.
+
+Reported link width/speed is not measured transfer bandwidth. Measured bandwidth belongs to M08.
+
+## 47. Peer relationships
+
+Peer capability is exact-pair evidence.
+
+For devices A and B:
+- A→B and B→A may differ;
+- runtime/backend path matters;
+- topology visibility scope matters;
+- partition/virtualization boundaries matter.
+
+A host with two compatible-looking GPUs does not automatically have peer access.
+
+M07 may record a peer relationship but cannot choose multi-GPU placement or sharding. M12/M10 own those decisions.
+
+## 48. Unified and shared memory topology
+
+S03 must represent:
+- physically unified CPU/GPU memory architectures;
+- discrete VRAM plus host RAM;
+- shared-memory apertures;
+- BAR mappings;
+- runtime-managed unified/managed memory capabilities;
+- device-local versus host-visible memory facts.
+
+These concepts are not collapsed into one “shared memory” field.
+
+Static topology does not imply safe oversubscription or spill policy. M09 owns resource governance.
+
+## 49. Virtualization and partitioning
+
+Topology must retain:
+- VM/guest-visible logical devices;
+- mediated/vGPU devices;
+- GPU partitions such as MIG-like instances;
+- host physical parent when legitimately observable;
+- partition-local memory/capability;
+- hidden parent state when the guest lacks authority.
+
+A partition is not silently treated as the full physical GPU.
+
+A guest-visible device can be a complete valid M07 subject even when physical-host topology is unknown.
+
+## 50. Media/compute interop
+
+S03 may record reported interop capabilities such as:
+- zero-copy/shared surfaces;
+- external memory;
+- external semaphore/synchronization;
+- graphics-compute interop;
+- media-compute surface sharing.
+
+Interop evidence must bind both relevant APIs/backends and the exact subject/runtime scope.
+
+Presence of interop support does not prove that a specific future DCC/provider/workflow integration is implemented.
+
+## 51. Precision/media/topology conflict handling
+
+Examples of material conflicts:
+- OS reports one driver version while vendor API reports another active component;
+- framework reports BF16 while device API does not expose compatible arithmetic;
+- one API reports AV1 encode and another denies it for the same exact device/runtime;
+- topology sources disagree on partition parent or NUMA locality.
+
+Conflicts remain explicit and scoped. A presentation layer may show a preferred source, but admitted truth retains the disagreement and evidence.
+
+## 52. Change invalidation
+
+S03 evidence can become stale after:
+- driver install/update/rollback;
+- OS/kernel update;
+- runtime/framework update;
+- device reset;
+- hot-plug;
+- BIOS/firmware/topology change;
+- VM/container/WSL image/config change;
+- GPU partition/reconfiguration;
+- display/compute mode change.
+
+A new snapshot supersedes old current-state claims without rewriting history.
+
+## 53. Security and boundedness
+
+Driver/media/topology discovery must not:
+- install/repair drivers;
+- flash firmware;
+- alter clocks/power/device modes;
+- create large media files;
+- decode untrusted arbitrary media merely to discover codec support;
+- enumerate unrelated user content;
+- execute vendor tools through unbounded shell strings;
+- follow attacker-controlled library/tool paths.
+
+Any conformance media payload used later must be fixed, tiny, synthetic, bounded and treated as test data.
+
+## 54. S03 hard-invariant candidates
+
+61. Driver state cannot collapse into one undifferentiated “OK” boolean.
+62. Higher driver/runtime version cannot be assumed preferable or compatible.
+63. Host/container/guest/framework runtime skew remains explicit.
+64. Installed artifacts cannot prove the active runtime path.
+65. Driver compatibility evidence must bind an exact subject/runtime scope.
+66. Precision marketing labels cannot replace exact semantic dimensions.
+67. FP8/sub-byte families remain encoding-specific when semantics differ.
+68. Reported precision acceleration cannot prove workload quality.
+69. Reduced precision support cannot authorize silent quality downgrade.
+70. Codec support is exact device/engine/API/path evidence, not host-wide truth.
+71. Encode and decode capabilities remain distinct.
+72. Codec profile/level/bit-depth/chroma features remain explicit where material.
+73. A successful bounded codec smoke check cannot prove real-time throughput.
+74. Static reported codec limits cannot prove sustainable production envelopes.
+75. One successful media session cannot prove concurrency capacity.
+76. Marketing/session folklore cannot become admitted concurrency evidence.
+77. Device topology edges require evidence.
+78. PCIe maximum capability and negotiated state remain distinct.
+79. Negotiated PCIe state cannot be represented as measured bandwidth.
+80. Peer capability is exact-pair and direction-aware evidence.
+81. Multiple GPUs do not imply peer access.
+82. M07 topology cannot choose sharding, placement or scheduler policy.
+83. Unified physical memory, shared aperture and managed/unified runtime memory remain distinct.
+84. Static memory topology cannot authorize oversubscription/offload.
+85. Virtual/partitioned devices remain distinct from physical parents.
+86. Hidden physical parent state remains unknown rather than inferred.
+87. Guest-visible hardware remains valid even when host topology is unavailable.
+88. Media/compute interop evidence binds exact APIs and subject/runtime scope.
+89. Interop capability cannot prove a future provider/DCC integration exists.
+90. Driver/precision/media/topology conflicts remain explicit until governed resolution.
+91. Driver/topology/runtime changes invalidate affected current-state evidence.
+92. Discovery cannot mutate driver, firmware, clocks, power or device modes.
+93. Codec discovery cannot require arbitrary untrusted media input.
+94. Conformance media fixtures must be fixed, synthetic and bounded.
+95. Raw vendor-tool output cannot bypass normalized evidence contracts.
+96. M07 cannot convert topology into M08 performance claims.
+97. M07 cannot convert topology into M09 resource policy.
+98. M07 cannot convert topology into M10/M12 execution placement.
+99. 8 GB hardware retains full precision/media/topology representation without categorical downgrade.
+100. HIVE/UI/agents may consume S03 evidence but cannot manufacture or override admitted hardware truth.
+
+These remain candidates until final M07 contract freeze.
+
+## 55. Proprietary technology candidates
+
+### IRIS-DSG — Driver Skew Graph
+Versioned graph of kernel, host, container, guest, runtime, toolkit and framework components that exposes active-path skew instead of reducing compatibility to one version string.
+
+### IRIS-PFX — Precision Feature Lattice
+Evidence lattice for exact precision semantics across storage, arithmetic, acceleration, accumulation, conversion and conformance, preventing unsafe boolean capability claims.
+
+### IRIS-MEC — Media Engine Capability Matrix
+Exact-device codec/engine/profile/bit-depth/chroma/interop evidence model that cleanly separates reported static limits, bounded conformance and later empirical throughput.
+
+### IRIS-TGE — Topology Graph Evidence
+Evidence-bound graph for CPU/NUMA/GPU/partition/PCIe/interconnect/memory relationships, with explicit distinction between physical, logical and runtime-visible topology.
+
+### IRIS-P2P — Pairwise Path Proof
+Directional exact-pair evidence contract for peer access/interconnect/interop paths so multi-device systems cannot inherit host-wide assumptions.
+
+All remain planning candidates pending Final Technology Review and prior-art review.
+
+## 56. S03 acceptance-evidence targets
+
+Later implementation must prove at minimum:
+- host/container/guest/framework driver-runtime skew is preserved;
+- active versus merely installed runtime components remain distinct;
+- precision semantics remain dimensional and encoding-aware;
+- reduced precision never authorizes quality downgrade;
+- codec encode/decode/profile/bit-depth/chroma evidence remains exact-device/path scoped;
+- bounded codec conformance cannot become throughput/concurrency proof;
+- PCIe maximum versus negotiated state remains distinct;
+- negotiated link state cannot masquerade as measured bandwidth;
+- pairwise peer relationships remain exact and directional;
+- unified/shared/managed memory concepts remain distinct;
+- partitions/virtual devices remain separate from physical parents;
+- hidden host topology stays unknown;
+- media-compute interop remains exact-path evidence;
+- conflicts remain explicit;
+- no driver/firmware/power/clock mutation;
+- no arbitrary media or shell execution;
+- 8 GB and heterogeneous systems remain fully representable;
+- M08/M09/M10/M12 authority remains external.
+
+## S03 STOP CONDITION
+
+S03 is complete for module planning when:
+- driver/runtime skew and compatibility evidence are explicit;
+- precision feature semantics are exact and quality-neutral;
+- encoder/decoder evidence is exact-device/path scoped and separated from empirical throughput;
+- topology/interconnect/peer/unified-memory semantics are evidence-bound;
+- virtualization/partitioning and hidden-host uncertainty are explicit;
+- 40 additional hard-invariant candidates are recorded (100 cumulative);
+- five additional proprietary technology candidates are registered (15 cumulative);
+- planning may advance to M07 S04 thermal, power and memory-pressure telemetry;
+- no M07 product/runtime implementation is introduced.
