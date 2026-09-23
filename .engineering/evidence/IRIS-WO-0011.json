@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0011",
-  "status": "ADMISSION_CANDIDATE",
+  "status": "ADMITTED_FOR_EXECUTION",
   "branch": "iris-wo-0011-m07-hardware-genome",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
@@ -12,7 +12,7 @@
     "authorizedBaseSha": "db8a39237c26d85f62cdf02a29c29136d4d6ed63",
     "originMainShaAtAdmission": "db8a39237c26d85f62cdf02a29c29136d4d6ed63",
     "mergeBaseShaAtAdmission": "db8a39237c26d85f62cdf02a29c29136d4d6ed63",
-    "admittedHeadSha": null
+    "admittedHeadSha": "5ccd124072abbd0c919530eb07a8eda5eba7eca7"
   },
   "baseline": {
     "governanceRun": 35886068741,
@@ -23,12 +23,12 @@
   "admission": {
     "contextLock": ".engineering/context-locks/IRIS-WO-0011.json",
     "criticalSources": 11,
-    "criticalSourceFingerprintMismatches": null,
-    "governanceRun": null,
-    "governanceJob": null,
-    "governanceConclusion": null,
-    "candidateHead": null,
-    "result": "PENDING"
+    "criticalSourceFingerprintMismatches": 0,
+    "governanceRun": 35886529033,
+    "governanceJob": 107267962093,
+    "governanceConclusion": "success",
+    "candidateHead": "5ccd124072abbd0c919530eb07a8eda5eba7eca7",
+    "result": "PASS"
   },
   "implementation": {
     "state": "NOT_STARTED",
