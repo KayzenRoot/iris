@@ -1,6 +1,6 @@
 # IRIS Scope
 
-Status: `M06_IMPLEMENTATION_ADMITTED`
+Status: `M07_PLANNING_CONTRACT_FREEZE_CANDIDATE`
 
 ## Current governed increment — M06 implementation
 
@@ -67,10 +67,11 @@ Anchor authority/lifecycle, typed multi-dimensional drift evidence, repair-vs-mu
 - exact-main suite: **2677/2677 OK**.
 
 ### Next governed step
-Execute the admitted IRIS-WO-0010 M06 implementation under its frozen Context Lock and Evidence Bundle. Do not start M07.
+Deep-plan M07 Hardware Genome & Runtime Discovery through S01-S05, Final Technology Review, Forward Compatibility Scan and Module Contract Freeze. No M07 product/runtime implementation is admitted during this planning cycle.
 
 ### NOT ADMITTED
-- M07+ implementation;
+- M07 product/runtime implementation before its planning/freeze/audit/admission gates;
+- M08+ deep planning or implementation during the active M07 planning cycle;
 - project/VCS branching inside M05;
 - production build/version authority;
 - marketplace payments/storefront/ranking;
@@ -82,4 +83,4 @@ Execute the admitted IRIS-WO-0010 M06 implementation under its frozen Context Lo
 
 ## IRIS 1.0 product scope
 
-IRIS 1.0 continues to include M00-M60. M05 implementation is complete. M06 implementation is separately admitted by IRIS-WO-0010; later modules remain gated.
+IRIS 1.0 continues to include M00-M60. M05 and M06 implementations are complete, independently approved, merged and exact-main validated. M07 planning is active; M07 implementation and later modules remain gated by the official module lifecycle.

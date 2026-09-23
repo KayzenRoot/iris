@@ -235,11 +235,13 @@
     "reviewedHeadSha": "84531decf8254aea242ef9e7fc1a94afe671de67",
     "finalGovernanceRun": 35881249417,
     "finalGovernanceJob": 107249960889,
-    "highFindingsInitially": 8,
+    "highFindingsInitially": 7,
     "criticalFindingsInitially": 0,
     "highCriticalFindingsRemaining": 0,
     "merge": "MERGED_AS_PR_48",
-    "note": "All bounded review findings were corrected in the same Work Order / PR and independently re-audited before merge."
+    "note": "All bounded review findings were corrected in the same Work Order / PR and independently re-audited before merge.",
+    "totalFindingsInitially": 8,
+    "standardFindingsInitially": 1
   },
   "proposedCheckpointDelta": {
     "status": "HISTORICAL_EXECUTOR_PROPOSAL_SUPERSEDED",
@@ -250,7 +252,7 @@
   "reviewCorrectionValidation": {
     "initialVerdict": "CORRECTION_REQUIRED",
     "initialReviewCommentId": 5797460684,
-    "highFindings": 8,
+    "highFindings": 7,
     "criticalFindings": 0,
     "correctionCodeHeadSha": "e90812afa1c086e6bc07dfaa42827200a3dba8c0",
     "hostedGovernanceRun": 35880940093,
@@ -269,7 +271,9 @@
     "finalFullRepositoryTests": {
       "passed": 2770,
       "result": "PASS"
-    }
+    },
+    "totalFindings": 8,
+    "standardFindings": 1
   },
   "postMergeValidation": {
     "mergeMethod": "squash",

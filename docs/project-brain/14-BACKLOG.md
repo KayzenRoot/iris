@@ -1,53 +1,49 @@
 # IRIS Backlog
 
-Status: `M05_PLANNING_MERGED_MAIN_VALIDATED`
+Status: `M07_CONTRACT_FREEZE_CANDIDATE`
 
 ## COMPLETED FOUNDATION
 - M01 planning/freeze/implementation merged.
 - M02 planning/freeze/implementation merged.
 - M03 planning/freeze/implementation merged.
 - M04 planning/freeze/implementation/review/reconciliation merged and exact-main validated.
-- M05 planning Issue #37 / PR #38 opened from exact validated main.
-- M05 S01 complete.
-- M05 S02 complete.
-- M05 S03 complete.
-- M05 S04 complete.
-- M05 S05 complete.
-- S01-S05 candidate invariants: 150.
-- Technology registry: `IRIS-DNAX-001..150`.
-- Final Technology Review complete: `APPROVED_FOR_FORWARD_COMPATIBILITY`.
-- Consolidated families: `F-M05-01..25`, exact-once mapping across all 150 DNAX candidates.
-- M06-M60 Forward Compatibility Scan: `PASS_WITH_EXTENSION_PORTS`, 55 modules, 0 critical ownership conflicts, 22 future extension/ref families.
-- M02/M06/M53/M54/M55/M58/M59 authority boundaries explicitly protected.
-- `m05-contract-v1.0` freeze candidate created with 150 invariants, 25 consolidated families and 22 extension/ref ports.
+- M05 planning frozen as `m05-contract-v1.0`; implementation independently approved, merged, reconciled and exact-main validated.
+- M06 planning frozen as `m06-contract-v1.0`.
+- M06 implementation `IRIS-WO-0010`: 25/25 frozen families, 150/150 hard invariants indexed to executable proof, 20/20 versioned evidence ports and 8/8 synthetic profiles.
+- M06 independent audit initially found 8 bounded semantic-safety defects; all were corrected in the same PR and final audit approved with 0 residual HIGH/CRITICAL findings.
+- M06 PR #48 squash-merged as `19f439837136cfd1e4882b085426ff6d91ad62f0`; exact-main Governance `35881369542 / 107250376754` PASS with 2770/2770 tests.
+- M06 post-merge reconciliation PR #49 squash-merged as `b52e9837bef893c5c040c929520996cd110579e6`; exact-main Governance `35881919002 / 107252244422` PASS with 2770/2770 tests.
+- M06 is durably closed as implemented/merged/validated.
+
+## ACTIVE PLANNING
+- Module: **M07 — Hardware Genome & Runtime Discovery**.
+- Issue: #50.
+- Branch: `iris-m07-s01-planning`.
+- Exact planning base: `b52e9837bef893c5c040c929520996cd110579e6`.
+- S01 GPU/CPU/RAM/storage/runtime discovery: **COMPLETE_FOR_MODULE_PLANNING**.
+- S02 CUDA/ROCm/DirectML/Metal capability mapping: **COMPLETE_FOR_MODULE_PLANNING**.
+- S03 driver, precision, encoder/decoder and topology detection: **COMPLETE_FOR_MODULE_PLANNING**.
+- S04 thermal, power and memory-pressure telemetry: **COMPLETE_FOR_MODULE_PLANNING**.
+- S05 Hardware Genome schema, versioning and confidence: **COMPLETE_FOR_MODULE_PLANNING**.
+- All five canonical M07 sessions: **COMPLETE_FOR_MODULE_PLANNING**.
+- Cumulative candidate hard invariants: 210.
+- Cumulative proprietary technology candidates: 25.
+- Final Technology Review: **APPROVED_FOR_FORWARD_COMPATIBILITY_SCAN**.
+- Consolidated independent technology surfaces: 20 ADOPT + 5 ADOPT_AS_COMPONENT.
+- M08-M60 Forward Compatibility Scan: **APPROVED_FOR_MODULE_CONTRACT_FREEZE**.
+- Future modules scanned: 53/53.
+- Freeze-candidate hard invariants after compatibility scan: 235.
+- M07 Module Contract Freeze candidate: `m07-contract-v1.0`.
+- Freeze candidate verdict: `M07_CONTRACT_V1_0_READY_FOR_INDEPENDENT_AUDIT`.
+- Product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-1. Create a separate bounded M05 implementation Work Order from exact validated main.
-2. Create and admit its Context Lock.
-3. Define implementation Evidence obligations and preflight.
-4. Implement only the frozen `m05-contract-v1.0` semantic kernel.
-5. Independent implementation review before merge.
+1. Perform the independent final M07 planning audit against `m07-contract-v1.0`.
+2. If and only if APPROVED with zero HIGH/CRITICAL findings, merge the approved M07 planning package and validate exact main.
+3. Only then compile a separate bounded M07 implementation Work Order, Context Lock, Evidence obligations and executor PDF.
+
+## IMPLEMENTATION GATE
+No M07 product/runtime code is authorized during the active planning cycle. M08+ deep planning/implementation is also out of scope until M07 reaches an explicit planning/implementation state.
 
 ## RECORDED PLANNING DEBT
 The separate M00 S01-S05 constitution freeze artifact remains historical planning debt.
-
-## IMPLEMENTATION GATE
-No M05 product/kernel code is authorized during this planning cycle.
-
-
-## M05 FREEZE
-- Contract: `m05-contract-v1.0`
-- Status: `FROZEN_APPROVED`
-- Independent Planning Audit: `APPROVED`
-- 150 hard invariants
-- 25 consolidated technology families
-- 22 forward extension/ref ports
-- implementation: not started
-
-
-## M05 PLANNING PROMOTION
-- PR #38: squash-merged
-- merge SHA: `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`
-- exact-main Governance: `35843109186 / 107122673542` — PASS
-- exact-main full suite: `2677/2677 OK`
-- implementation: not started
