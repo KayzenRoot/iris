@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M04_PLANNING_MERGED",
+  "status": "M04_IMPLEMENTATION_REVIEW_APPROVED_PENDING_MERGE",
   "version": "m04-contract-v1.0",
-  "phase": "M04_IMPLEMENTATION_WORK_ORDER_READY",
-  "nextStep": "Promote this reconciliation through protected merge and exact-main validation, then compile the separate M04 implementation Work Order / Context Lock / Evidence package."
+  "phase": "IRIS-WO-0008_MERGE_READY",
+  "nextStep": "Validate this final review/checkpoint head exactly, squash-merge PR #34 through governed main, validate exact main, then reconcile M04 as merged. Do not start M05 before that reconciliation."
 }

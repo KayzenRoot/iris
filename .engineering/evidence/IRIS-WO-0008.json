@@ -1,0 +1,476 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0008",
+  "status": "INDEPENDENT_REVIEW_APPROVED_PENDING_MERGE",
+  "branch": "iris-wo-0008-m04-multimodal-ir-r2",
+  "frozenContract": "m04-contract-v1.0",
+  "issue": 30,
+  "baseSha": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
+  "pullRequest": {
+    "number": 34,
+    "url": "https://github.com/KayzenRoot/iris/pull/34",
+    "base": "main",
+    "state": "OPEN",
+    "merged": false,
+    "headBranch": "iris-wo-0008-m04-multimodal-ir-r2",
+    "implementationHead": "4b96a2cae650d3bcecba707fc6b824a6d0f8308d",
+    "reviewedCodeHead": "7d3237a3ea39a1006fca8137046587077de29602"
+  },
+  "headChain": {
+    "authorizedBase": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
+    "originMainAtPreflight": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
+    "admissionHead": "2bd2584a354f9cc01abef3eb4d5a8eaa6ccb17f5",
+    "admissionParent": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
+    "initialImplementationCommit": "846f946f67b6dd88c6b1dc5159daba1b31950781",
+    "initialImplementationParent": "2bd2584a354f9cc01abef3eb4d5a8eaa6ccb17f5",
+    "initialImplementationExactGovernance": {
+      "run": 35811685743,
+      "job": 107024446271,
+      "conclusion": "success",
+      "exactCandidateAssertion": "success",
+      "url": "https://github.com/KayzenRoot/iris/actions/runs/35811685743"
+    },
+    "intermediateEvidenceHead": "b62ad376d80e6c744f88f004325a59f061e882a4",
+    "intermediateEvidenceHeadExactGovernance": {
+      "run": 35812016884,
+      "job": 107025459857,
+      "conclusion": "success",
+      "exactCandidateAssertion": "success",
+      "url": "https://github.com/KayzenRoot/iris/actions/runs/35812016884"
+    },
+    "implementationHead": "4b96a2cae650d3bcecba707fc6b824a6d0f8308d",
+    "implementationParent": "b62ad376d80e6c744f88f004325a59f061e882a4",
+    "implementationHeadExactGovernance": {
+      "run": 35812188424,
+      "job": 107025964814,
+      "conclusion": "success",
+      "exactCandidateAssertion": "success",
+      "url": "https://github.com/KayzenRoot/iris/actions/runs/35812188424"
+    },
+    "evidenceCommitSelfShaEmbedded": false,
+    "evidenceCommitBinding": "Evidence commit follows the implementation head; its exact-head Governance is reported on PR #34 and in the executor handoff to avoid self-referencing this bundle."
+  },
+  "admission": {
+    "contextLock": ".engineering/context-locks/IRIS-WO-0008.json",
+    "criticalSourceFingerprintMismatches": 0,
+    "governanceRun": 35804186784,
+    "governanceJob": 107001145387,
+    "governanceConclusion": "success",
+    "baselineTests": 2527,
+    "requiredArtifacts": 35,
+    "hiveMcpOrCliAvailable": false,
+    "contextDisposition": "HIVE-derived context could not be retrieved. Canonical checkpoint, repository sources, exact Git bindings and deterministic code/test evidence were used; no HIVE evidence was fabricated."
+  },
+  "baseline": {
+    "baseSha": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
+    "governanceRun": 35803397206,
+    "governanceJob": 106998641283,
+    "tests": 2527,
+    "requiredArtifacts": 35,
+    "conclusion": "success"
+  },
+  "implementation": {
+    "package": "iris_multimodal_ir/",
+    "state": "COMPLETE_FOR_EXECUTOR_SCOPE",
+    "runtimeDependenciesAdded": 0,
+    "frozenFamilies": {
+      "required": 20,
+      "represented": 20,
+      "ids": [
+        "F-M04-01",
+        "F-M04-02",
+        "F-M04-03",
+        "F-M04-04",
+        "F-M04-05",
+        "F-M04-06",
+        "F-M04-07",
+        "F-M04-08",
+        "F-M04-09",
+        "F-M04-10",
+        "F-M04-11",
+        "F-M04-12",
+        "F-M04-13",
+        "F-M04-14",
+        "F-M04-15",
+        "F-M04-16",
+        "F-M04-17",
+        "F-M04-18",
+        "F-M04-19",
+        "F-M04-20"
+      ]
+    },
+    "hardInvariants": {
+      "required": 80,
+      "indexed": 80,
+      "directTestIds": "test_m04_invariant_01..test_m04_invariant_80",
+      "proofIndexValidation": "PASS"
+    },
+    "publicSurface": {
+      "exportList": "iris_multimodal_ir.__all__",
+      "conceptMapping": "docs/M04-MULTIMODAL-IR-KERNEL.md",
+      "moduleCount": 25,
+      "majorAreas": [
+        "identity/provenance",
+        "schema/facets/extensions",
+        "scene/entity/asset/character/geometry graph",
+        "fragment/prototype/instance/composition",
+        "interface/payload/resources",
+        "character/skeleton/skin/morph",
+        "spatial/units/transforms/camera/lighting",
+        "material/texture/color",
+        "temporal/motion",
+        "audio/music/narrative/timeline/sync",
+        "capability/legality/lowering",
+        "validation/migration/round-trip",
+        "serialization/fingerprints/deltas/slices",
+        "readiness/limits/typed errors"
+      ]
+    },
+    "dependenciesAndImports": {
+      "runtimeDependenciesAdded": [],
+      "nonStandardExternalImports": [],
+      "existingIRISPublicImports": [
+        "iris_intent.identity",
+        "iris_intent.execution"
+      ],
+      "closedImportBoundaryTest": "tests.test_m04_runtime.RuntimeAndTransportAcceptanceTests.test_governance_authority_fields_and_closed_import_boundary"
+    },
+    "schemaAndVersioning": {
+      "contract": "m04-contract-v1.0",
+      "coreSchema": "iris-m04-core-v1",
+      "transport": "iris-m04-json-v1",
+      "validator": "iris-m04-validator-v1",
+      "lowering": "iris-m04-lowering-v1",
+      "directionalCompatibility": true,
+      "immutableMigrationReceipt": true
+    }
+  },
+  "authorityBoundaryEvidence": {
+    "M01": {
+      "preserved": "Quality/evaluator/promotion/QualityDebt authority stays in M01; M04 carries obligation refs and no quality class, score, release authorization or judge.",
+      "proofs": [
+        "test_m04_invariant_12",
+        "test_m04_invariant_13",
+        "test_m04_invariant_14",
+        "test_m04_invariant_70",
+        "test_governance_authority_fields_and_closed_import_boundary"
+      ]
+    },
+    "M02": {
+      "preserved": "Project/build/history/ExecutionPlan/release authority stays in M02; M04 has no branch/build/release topology.",
+      "proofs": [
+        "test_m04_invariant_05",
+        "test_m04_invariant_06",
+        "test_m04_invariant_79"
+      ]
+    },
+    "M03": {
+      "preserved": "Creative intent/constraint/override authority stays in M03; lowering consumes source semantics read-only, requires trace coverage, and blocks untraced mandatory semantics/loss.",
+      "proofs": [
+        "test_m04_invariant_10",
+        "test_m04_invariant_15",
+        "test_m04_invariant_16",
+        "test_m04_invariant_17",
+        "test_m03_lowering_receipt_preserves_upstream_rules_without_authority_expansion"
+      ]
+    },
+    "M16": {
+      "preserved": "M16 remains the only concrete provider/workflow compiler; M04 plans and profiles stay semantic/provider-neutral.",
+      "proofs": [
+        "test_m04_invariant_20",
+        "test_m04_invariant_21",
+        "test_governance_authority_fields_and_closed_import_boundary"
+      ]
+    },
+    "M05AndPersistence": "M05 DNA content/drift and M06/M55 persistence/CAS/storage remain opaque refs or deferred ports."
+  },
+  "sevenSyntheticProfiles": {
+    "required": 7,
+    "passed": 7,
+    "profiles": [
+      "logo.brand.web",
+      "product.photography",
+      "nerim.isometric.game",
+      "film.commercial.sequence",
+      "corporate.spokesperson",
+      "voice.narration.music",
+      "mixed.multimodal.scene"
+    ],
+    "command": "python -m examples.m04_synthetic_profiles",
+    "result": "all seven canonical serialize/deserialize and validation round-trips PASS",
+    "sharedStructuralFingerprint": "0b127e1b6035244fe53d25e536145076455bcb458c0a1a163f267aabd5df56dd",
+    "profileSpecificKernelBranches": 0
+  },
+  "semanticSerializationMigrationAndContext": {
+    "serialization": {
+      "deterministicCanonicalJson": true,
+      "finiteNumericInputs": "NaN and Infinity rejected",
+      "transportAndSchemaVersionsDistinct": true,
+      "publicEnvelopeRoundTripTest": "test_canonical_envelope_round_trips_every_integrated_modality"
+    },
+    "fingerprintsAndDeltas": {
+      "revisionSubgraphInterface": true,
+      "nonNodeSemanticChangesIncluded": true,
+      "resourceInvalidationDigests": true,
+      "tests": [
+        "test_fingerprints_and_deltas_include_non_node_semantics",
+        "test_interface_fingerprint_reads_ports_without_loading_resources"
+      ]
+    },
+    "migration": {
+      "sourceRevisionMutated": false,
+      "newRevisionAndReceipt": true,
+      "receiptRecomputesAppliedActions": true,
+      "forgedResultRejected": true,
+      "test": "test_migration_creates_new_revision_and_receipt_verifies_the_applied_actions"
+    },
+    "roundTrip": {
+      "witnessesBoundBeforeAdapterResultInspection": true,
+      "pathLevelSemanticLoss": [
+        "transform",
+        "camera",
+        "material",
+        "time",
+        "sync"
+      ],
+      "adapterCanSelfCertifyIndependentQualification": false,
+      "tests": [
+        "test_semantic_witnesses_detect_transform_camera_material_time_and_sync_loss",
+        "test_adapter_cannot_claim_independent_qualification",
+        "test_tolerant_round_trip_is_unit_aware_for_camera_lengths",
+        "test_tolerant_round_trip_is_color_space_and_encoding_aware",
+        "test_tolerant_round_trip_is_time_reference_aware"
+      ],
+      "unitAwareTolerance": true,
+      "colorSpaceAwareTolerance": true,
+      "timeReferenceAwareTolerance": true,
+      "collisionFreeAnonymousColorWitnessPaths": true
+    },
+    "contextEfficiency": {
+      "minimumSufficientIRSlice": true,
+      "minimumSufficientTemporalSlice": true,
+      "capabilitySlice": true,
+      "interfaceInspectionWithoutPayloadLoad": true,
+      "multimodalAssociatedRecordsIncluded": true,
+      "slicePayloadBytesLoaded": 0,
+      "tokenOrLatencySavingsClaimed": false
+    }
+  },
+  "securityAndResourceLimits": {
+    "arbitraryEvaluation": false,
+    "shellNetworkDatabaseIO": false,
+    "providerDCCGPUExecution": false,
+    "executableShaderSourceRejected": true,
+    "unknownMandatorySchemaFailsClosed": true,
+    "duplicateIdsAndInvalidReferencesChecked": true,
+    "graphCyclesChecked": true,
+    "deterministicDepthFanoutRecordAndTemporalSampleLimits": true,
+    "typedLimitAndValidationFailures": true,
+    "proofTests": [
+      "test_deterministic_resource_depth_fanout_and_sample_limits",
+      "test_deserialize_enforces_caller_graph_limits",
+      "test_public_surface_is_unique_complete_and_uses_typed_failures"
+    ],
+    "fullRevisionResourceCounting": true,
+    "callerSelectedDepthLimits": true,
+    "transportAdmissionHonorsCallerLimits": true
+  },
+  "validation": {
+    "baseline": {
+      "tests": 2527,
+      "result": "OK"
+    },
+    "focusedM04": {
+      "command": "python -m unittest discover -s tests -p \"test_m04_*.py\"",
+      "tests": 150,
+      "result": "COVERED_BY_FULL_SUITE_AT_REVIEW_HEAD",
+      "note": "Executor focused baseline was 138; independent review added 12 M04 regression tests."
+    },
+    "fullSuite": {
+      "command": "python -m unittest discover -s tests -p \"test_*.py\"",
+      "tests": 2677,
+      "result": "OK",
+      "failures": 0,
+      "errors": 0,
+      "head": "7d3237a3ea39a1006fca8137046587077de29602"
+    },
+    "compile": {
+      "command": "python -m compileall -q iris_multimodal_ir tests examples",
+      "result": "PASS"
+    },
+    "lint": {
+      "command": "ruff check iris_multimodal_ir tests/m04_support.py tests/test_m04_core.py tests/test_m04_invariants.py tests/test_m04_runtime.py tests/test_m04_spatial_materials.py tests/test_m04_temporal_media.py examples/m04_synthetic_profiles.py",
+      "result": "PASS_ON_EXECUTOR_HEAD_BEFORE_INDEPENDENT_REVIEW_FIXES",
+      "note": "Independent review environment could not resolve github.com for a fresh local clone. No fresh Ruff result is claimed for the review head; exact-head Governance and full unittest suite passed."
+    },
+    "governance": {
+      "command": "python scripts/validate_governance.py",
+      "result": "PASS",
+      "gef": "v1.0.0 @ 866fe3af8cccc65c929aaf6a47a924401fa448b3",
+      "hive": "v1.0.0 @ a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
+      "requiredArtifacts": 35
+    },
+    "whitespace": "git diff --cached --check PASS before implementation commit",
+    "exactHeadGitHubGovernance": {
+      "head": "7d3237a3ea39a1006fca8137046587077de29602",
+      "run": 35813813456,
+      "job": 107030932340,
+      "result": "PASS",
+      "requiredArtifacts": 35
+    }
+  },
+  "failuresEncounteredAndFixed": [
+    "Corrected an initial round-trip witness mapping that did not compare path-scoped multimodal records, including transform/camera/material/time/sync semantics.",
+    "Corrected MotionTargetRef cross-reference access to use its declared target field.",
+    "Corrected validation/migration token parsing for uppercase enum-style codes and operations, and allowed canonical temporal paths containing separators.",
+    "Corrected uppercase semantic witness/difference labels to use validated text tokens rather than lowercase identifier validation.",
+    "Expanded M03-to-M04 trace collection across all semantic refs and made untraced correctness-relevant refs fail closed.",
+    "Corrected frozen invariant family assignments after comparing each numbered invariant with the contract's 20 family descriptions.",
+    "Ruff identified 53 unused imports in new sources/tests; removed 52 stale imports and exported content_digest intentionally in __all__; final Ruff check passes.",
+    "Direct-file invocation of the example did not resolve repository imports; documented and verified module invocation from repository root.",
+    "Strengthened the static boundary test from a forbidden-module blacklist to a standard-library/IRIS import allowlist, including dynamic-import and process-execution checks.",
+    "Independent review closed unknown-extension admission gaps and added explicit optional opaque extension policy validation.",
+    "Independent review corrected traversal-order-dependent graph depth limits and applied caller-selected limits during deserialization.",
+    "Independent review implemented unit-aware, color-space-aware and time-reference-aware tolerant round-trip comparison.",
+    "Independent review extended resource limits across nested non-node ResourceRef occurrences.",
+    "Independent review strengthened frozen invariant proof targets to match the full composite contract wording.",
+    "Independent review changed anonymous color witness addressing to stable positional paths so shared semantic origins cannot collide."
+  ],
+  "changedFiles": {
+    "implementationCommitFiles": 34,
+    "totalIncludingThisEvidenceBundle": 35,
+    "files": [
+      "AGENTS.md",
+      "docs/M04-MULTIMODAL-IR-KERNEL.md",
+      "examples/m04_synthetic_profiles.py",
+      "iris_multimodal_ir/__init__.py",
+      "iris_multimodal_ir/base.py",
+      "iris_multimodal_ir/character.py",
+      "iris_multimodal_ir/common.py",
+      "iris_multimodal_ir/context.py",
+      "iris_multimodal_ir/enums.py",
+      "iris_multimodal_ir/errors.py",
+      "iris_multimodal_ir/graph.py",
+      "iris_multimodal_ir/identity.py",
+      "iris_multimodal_ir/invariants.py",
+      "iris_multimodal_ir/limits.py",
+      "iris_multimodal_ir/lowering.py",
+      "iris_multimodal_ir/materials.py",
+      "iris_multimodal_ir/media.py",
+      "iris_multimodal_ir/migration.py",
+      "iris_multimodal_ir/provenance.py",
+      "iris_multimodal_ir/readiness.py",
+      "iris_multimodal_ir/resources.py",
+      "iris_multimodal_ir/roundtrip.py",
+      "iris_multimodal_ir/schema.py",
+      "iris_multimodal_ir/serialization.py",
+      "iris_multimodal_ir/spatial.py",
+      "iris_multimodal_ir/temporal.py",
+      "iris_multimodal_ir/validation.py",
+      "iris_multimodal_ir/versions.py",
+      "tests/m04_support.py",
+      "tests/test_m04_core.py",
+      "tests/test_m04_invariants.py",
+      "tests/test_m04_runtime.py",
+      "tests/test_m04_spatial_materials.py",
+      "tests/test_m04_temporal_media.py",
+      ".engineering/evidence/IRIS-WO-0008.json"
+    ],
+    "prChangedFilesAtIndependentReview": 46
+  },
+  "risksAndDeferredPorts": [
+    "Independent implementation audit and adapter qualification are pending; executor evidence is not an approval or merge decision.",
+    "No real provider/DCC integration, external media payload loading, rendering, generation, GPU scheduling or quality judging is implemented or claimed.",
+    "No performance/token-savings benchmark is claimed; seven profiles are synthetic structural/serialization checks only.",
+    "M05 DNA contents/drift, persistence/CAS/database, rights/security engines, editorial/Canon authority and publishing/export remain with their owning future modules.",
+    "HIVE MCP/CLI was unavailable during preflight; repository-canonical sources and deterministic local/GitHub evidence were used."
+  ],
+  "proposedCheckpointDelta": {
+    "status": "APPLYING_IN_REVIEW_PR",
+    "proposal": "Promote M04 to independent-review-approved pending merge, recording PR #34, 20/20 families, 80/80 invariants, 150 focused M04 tests represented in the 2677/2677 exact-head full suite, six closed CHAT_FIXABLE findings, zero EXECUTOR_REQUIRED findings and zero remaining HIGH/CRITICAL findings. Keep M05 blocked until exact-main post-merge reconciliation."
+  },
+  "independentReview": {
+    "status": "APPROVED",
+    "reviewer": "ChatGPT independent repository audit",
+    "reviewedCodeHead": "7d3237a3ea39a1006fca8137046587077de29602",
+    "exactHeadGovernance": {
+      "run": 35813813456,
+      "job": 107030932340,
+      "result": "PASS",
+      "tests": 2677,
+      "failures": 0,
+      "errors": 0,
+      "requiredArtifacts": 35
+    },
+    "findings": {
+      "total": 6,
+      "critical": 0,
+      "high": 0,
+      "chatFixableClosed": 6,
+      "executorRequired": 0,
+      "items": [
+        {
+          "id": "IRIS-M04-R05",
+          "classification": "CHAT_FIXABLE",
+          "status": "CLOSED",
+          "finding": "Unknown mandatory extensions were not enforced by validate_revision and optional opaque extensions did not honor the validation profile.",
+          "correction": "Added extension-family admission checks and regression coverage for mandatory fail-closed and explicit optional opaque preservation."
+        },
+        {
+          "id": "IRIS-M04-R06",
+          "classification": "CHAT_FIXABLE",
+          "status": "CLOSED",
+          "finding": "Caller-selected IRLimits did not govern graph depth deterministically and deserialize_envelope only enforced transport byte size.",
+          "correction": "Made graph depth traversal-order independent, propagated caller depth limits, and enforced revision limits during transport admission."
+        },
+        {
+          "id": "IRIS-M04-R07",
+          "classification": "CHAT_FIXABLE",
+          "status": "CLOSED",
+          "finding": "TOLERANT round-trip comparison ignored semantic domain/unit/color/time metadata and only compared primitive numbers/sequences.",
+          "correction": "Implemented domain-aware tolerant comparison for unit quantities/transforms, color space+encoding, and temporal references, with targeted tests."
+        },
+        {
+          "id": "IRIS-M04-R08",
+          "classification": "CHAT_FIXABLE",
+          "status": "CLOSED",
+          "finding": "Resource limits counted only node.resource_refs and missed media/texture/interface and other nested ResourceRef occurrences.",
+          "correction": "Resource counting now traverses the complete immutable revision and is covered by a non-node-resource limit regression."
+        },
+        {
+          "id": "IRIS-M04-R09",
+          "classification": "CHAT_FIXABLE",
+          "status": "CLOSED",
+          "finding": "Composite invariant proof targets for unknown schema/facet/extension handling and resource/depth/fanout/sample limits were narrower than the frozen invariant wording.",
+          "correction": "Added complete composite proof tests and rebound the frozen invariant proof index to those tests."
+        },
+        {
+          "id": "IRIS-M04-R10",
+          "classification": "CHAT_FIXABLE",
+          "status": "CLOSED",
+          "finding": "Color round-trip witness paths could collide when multiple valid ColorValueIR records shared the same semantic origin reference.",
+          "correction": "Color witnesses now use stable positional paths; regression proves two colors with a shared semantic origin remain independently addressable."
+        }
+      ]
+    },
+    "failedReviewCandidates": [
+      {
+        "head": "5e91124da70ff8af9fcbafdc99ca9dddba08a1a8",
+        "run": 35812948451,
+        "reason": "New custom-depth regression exposed traversal-order-dependent depth accounting.",
+        "disposition": "Corrected in chat."
+      },
+      {
+        "head": "a198506b915a5b44ddc3295c836eaffe40afe6ee",
+        "run": 35813401304,
+        "reason": "New color-tolerance regression used the wrong stable witness path.",
+        "disposition": "Corrected in chat."
+      }
+    ],
+    "remainingKnownCriticalOrHigh": 0,
+    "executorEscalationRequired": false,
+    "merge": "READY_AFTER_FINAL_CHECKPOINT_HEAD_GOVERNANCE",
+    "M05": "NOT_STARTED"
+  },
+  "stopCondition": "Independent review is APPROVED at reviewed code head 7d3237a3ea39a1006fca8137046587077de29602. Apply the checkpoint delta in PR #34, validate that final checkpoint/evidence head exactly, merge through governed PR #34, validate exact main, and keep M05 blocked until post-merge reconciliation."
+}

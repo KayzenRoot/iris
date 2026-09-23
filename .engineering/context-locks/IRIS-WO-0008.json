@@ -1,0 +1,136 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0008",
+  "issue": 30,
+  "branch": "iris-wo-0008-m04-multimodal-ir-r2",
+  "baseSha": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
+  "baseTreeSha": "e4712065ee92644765c7821a4704d327d38a360b",
+  "status": "ADMITTED_FOR_EXECUTION",
+  "risk": "ELEVATED",
+  "frozenContract": {
+    "name": "m04-contract-v1.0",
+    "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md"
+  },
+  "baseline": {
+    "governanceRun": 35803397206,
+    "governanceJob": 106998641283,
+    "tests": 2527,
+    "requiredArtifacts": 35,
+    "conclusion": "success"
+  },
+  "supersededAdmission": {
+    "pr": 31,
+    "reason": "Critical repository prompt/review policies changed on main via PR #33 before implementation began."
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "sha": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "sha": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "sha": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0008-M04-MULTIMODAL-IR.md",
+      "sha": "83191fda606f5c7d6065bdf4079ea02ecd4bfe07"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "sha": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "sha": "2668aa1b67f26ce151e93ab0e72c7319f7889679"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "sha": "c26fcd2b82cb8ca1ee93b1d2351eaf63d42ee241"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "sha": "0dcc5c8189bf27edc9aec22471f7bde7dcb909d1"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "sha": "f2d4aef8e3635c3b706f713e27f4fb89f2147966"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "sha": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "sha": "bf02dc53964dde3ecb0a68550f62d1fe3d1311f7"
+    },
+    {
+      "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "sha": "c4b39c03f86f7a8e112d22a25ca91169c02c5e4d"
+    },
+    {
+      "path": "planning/modules/M04-MULTIMODAL-SCENE-IR.md",
+      "sha": "9a6f2560e1a39e1b50807d33b9a8253e45cc7dfd"
+    },
+    {
+      "path": "planning/reviews/M04-FINAL-TECHNOLOGY-REVIEW.md",
+      "sha": "02f5eb44a384597b72313720947cdf6cfb064889"
+    },
+    {
+      "path": "planning/compatibility/M04-FORWARD-COMPATIBILITY-SCAN.md",
+      "sha": "1a32387ad2bf338968cedfceea12d57e60bcb48e"
+    },
+    {
+      "path": "planning/technology-registry/M04-TECHNOLOGIES.md",
+      "sha": "c5c4d592558a0cd7cdb9e7b242f1b8fe6620a89a"
+    },
+    {
+      "path": "iris_quality/contracts.py",
+      "sha": "bfd147c18c23c17894309fc41f1ab08a8a799a9e"
+    },
+    {
+      "path": "iris_project_os/ports.py",
+      "sha": "0aef39b7581446d0f4f7f661c38dc873b979983a"
+    },
+    {
+      "path": "iris_intent/ports.py",
+      "sha": "c117889cfd9ed775360a453dafff7e6efa344967"
+    },
+    {
+      "path": "iris_intent/execution.py",
+      "sha": "8ceae0bf4bf4a8cddea93b10142c0c56b4f46b89"
+    },
+    {
+      "path": "iris_intent/versions.py",
+      "sha": "490c78927a2b317f93a147cc6d9a0c15389f1de4"
+    }
+  ],
+  "inScope": [
+    "Complete frozen m04-contract-v1.0 in iris_multimodal_ir",
+    "20 F-M04 families",
+    "80 hard invariants",
+    "seven synthetic domains",
+    "M01/M02/M03/M16 boundary preservation"
+  ],
+  "outOfScope": [
+    "M05+ implementation",
+    "provider/DCC runtime",
+    "GPU scheduling",
+    "storage backend",
+    "media generation",
+    "semantic contract changes"
+  ],
+  "stopCondition": "STOP after implementation is complete, tested, documented, evidenced and ready for independent review. Do not merge. Do not start M05.",
+  "promptDelivery": "Complete executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md.",
+  "recompiledAdmissionValidation": {
+    "head": "18fcfc0e9c47e4a2a2bdb02df32b7be2bfe11a88",
+    "governanceRun": 35803708948,
+    "governanceJob": 106999640802,
+    "tests": 2527,
+    "requiredArtifacts": 35,
+    "result": "PASS"
+  }
+}
