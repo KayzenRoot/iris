@@ -4,10 +4,10 @@
 M05_PLANNING_ACTIVE
 
 ## VERSION
-m05-planning-s01
+m05-planning-s02
 
 ## PHASE
-M05_S01_COMPLETE_S02_NEXT
+M05_S02_COMPLETE_S03_NEXT
 
 ## OBJECTIVE
 Plan and freeze M05 Asset DNA 2.0 & Cross-Modal Identity through S01-S05 before any implementation admission.
@@ -21,18 +21,21 @@ Plan and freeze M05 Asset DNA 2.0 & Cross-Modal Identity through S01-S05 before 
 - Baseline Governance: `35814271172 / 107032325686` — PASS.
 - Baseline full suite: `2677/2677 OK`.
 - M05 planning issue: #37.
-- M05 planning branch: `m05-asset-dna-planning`.
+- M05 planning PR: #38.
 - M05 S01 — Asset DNA schema and identity invariants: COMPLETE_FOR_MODULE_PLANNING.
-- S01 module plan created: `planning/modules/M05-ASSET-DNA-CROSS-MODAL-IDENTITY.md`.
-- S01 research created: `planning/research/M05-S01-ASSET-DNA-SCHEMA-IDENTITY-INVARIANTS-RESEARCH-2026-09-23.md`.
-- M05 technology registry created with `IRIS-DNAX-001..030`.
-- M05 planning gate created.
-- S01 records 30 candidate identity invariants.
-- External reference set: RFC 9562 UUID, OpenUSD AssetInfo, VRM 1.0 and C2PA.
+- M05 S02 — Character, creature, object, product and environment DNA: COMPLETE_FOR_MODULE_PLANNING.
+- S02 research: `planning/research/M05-S02-DOMAIN-DNA-FAMILIES-RESEARCH-2026-09-23.md`.
+- S01-S02 candidate hard invariants: 60.
+- Technology registry: `IRIS-DNAX-001..060`.
+- One common DNA identity core is preserved across all domain profiles.
+- CLASS / ARCHETYPE / INDIVIDUAL / VARIANT separation is explicit.
+- Persistent component identity and governed replacement/split/merge semantics are explicit.
+- Character/Creature/Object/Product/Environment profiles are explicit.
+- Persistent/contextual/observed appearance roles are separated.
 - M05 implementation code has not started.
 
 ## IN PROGRESS
-M05 planning cycle on Issue #37 / branch `m05-asset-dna-planning`.
+M05 planning cycle on Issue #37 / PR #38 / branch `m05-asset-dna-planning`.
 
 ## BLOCKERS
 M05 implementation remains blocked until:
@@ -45,4 +48,4 @@ M05 implementation remains blocked until:
 7. a separate implementation Work Order / Context Lock / Evidence package is admitted.
 
 ## NEXT STEP
-Plan M05 S02 — Character, creature, object, product and environment DNA. Preserve the S01 domain-neutral identity core and do not implement M05.
+Plan M05 S03 — SceneDNA, Motion DNA, Voice DNA and Brand DNA links. Preserve S01-S02 ownership boundaries and do not implement M05.
