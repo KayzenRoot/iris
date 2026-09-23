@@ -1,6 +1,6 @@
 # IRIS M05 Planning Gate
 
-Status: `S03_COMPLETE_S04_NEXT`
+Status: `S04_COMPLETE_S05_NEXT`
 Issue: `#37`
 Branch: `m05-asset-dna-planning`
 Authorized main baseline: `6f2311b59f5da91778d3fc9d9fe1572953a0c60b`
@@ -10,8 +10,8 @@ Authorized main baseline: `6f2311b59f5da91778d3fc9d9fe1572953a0c60b`
 - S01 — Asset DNA schema and identity invariants: COMPLETE_FOR_MODULE_PLANNING
 - S02 — Character, creature, object, product and environment DNA: COMPLETE_FOR_MODULE_PLANNING
 - S03 — SceneDNA, Motion DNA, Voice DNA and Brand DNA links: COMPLETE_FOR_MODULE_PLANNING
-- S04 — Identity anchors, mutation boundaries and drift detection: NEXT
-- S05 — DNA branching, compatibility and reusable DNA marketplace contract: NOT_STARTED
+- S04 — Identity anchors, mutation boundaries and drift detection: COMPLETE_FOR_MODULE_PLANNING
+- S05 — DNA branching, compatibility and reusable DNA marketplace contract: NEXT
 
 ## Current guard
 
@@ -80,13 +80,33 @@ Planning/docs only. No M05 implementation is authorized.
 - external links never silently follow latest revisions;
 - future domain-DNA families use the same owner/family/revision link fabric.
 
+## S04 artifacts
+
+- research: `planning/research/M05-S04-IDENTITY-MUTATION-DRIFT-RESEARCH-2026-09-23.md`
+- module plan: S04 in `planning/modules/M05-ASSET-DNA-CROSS-MODAL-IDENTITY.md`
+- technology registry: `IRIS-DNAX-091..120`
+
+## S04 boundary decisions
+
+- anchor authority/lifecycle is explicit and confidence cannot promote authority;
+- drift evidence is path-level, typed and multi-dimensional;
+- one scalar similarity score cannot determine identity continuity;
+- repair is representation correction, not canonical mutation;
+- mutation requires proposal + authority + explicit decision;
+- same-identity mutation creates a new immutable revision;
+- identity break creates a new dna_id with lineage;
+- split/consolidation preserve source histories;
+- M01 retains quality authority, M37 temporal continuity authority, M39 digital-human runtime/persona domain authority;
+- M05 remains the generic persistent identity root;
+- M53/M54 retain protected provenance/rights/security authority.
+
 ## Candidate planning invariants
 
-S01-S03 record 90 candidate hard invariants. These remain planning candidates until S04-S05 consolidation and final contract freeze.
+S01-S04 record 120 candidate hard invariants. These remain planning candidates until S05 consolidation and final contract freeze.
 
 ## Technology candidates
 
-`IRIS-DNAX-001..090` registered as design-history candidates.
+`IRIS-DNAX-001..120` registered as design-history candidates.
 
 ## External references
 
@@ -99,7 +119,7 @@ References only. No new runtime dependency.
 
 ## Next legal action
 
-Plan S04 identity anchors, mutation boundaries and drift detection on this same branch/issue, preserving S01-S03 authority boundaries.
+Plan S05 DNA branching, compatibility and reusable DNA marketplace contract on this same branch/issue, preserving S01-S04 authority boundaries.
 
 Do not implement M05.
 Do not freeze the M05 contract yet.
