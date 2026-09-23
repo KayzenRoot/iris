@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0009",
-  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "status": "MERGED_MAIN_VALIDATED",
   "branch": "iris-wo-0009-m05-asset-dna",
   "frozenContract": "m05-contract-v1.0",
   "issue": 41,
@@ -10,12 +10,12 @@
     "number": 42,
     "url": "https://github.com/KayzenRoot/iris/pull/42",
     "base": "main",
-    "state": "OPEN",
-    "merged": false,
+    "state": "MERGED",
+    "merged": true,
     "headBranch": "iris-wo-0009-m05-asset-dna",
     "implementationHead": "405ac905613cefad6d7e0d2301ab869da0813cec",
-    "reviewedCodeHead": null,
-    "mergeSha": null
+    "reviewedCodeHead": "2a81bbbf70ddf0dc7c3e73f1d70c6067dabf1151",
+    "mergeSha": "5036aae492a5bd713672150f5fb83b3915974a04"
   },
   "admission": {
     "contextLock": ".engineering/context-locks/IRIS-WO-0009.json",
@@ -1552,5 +1552,22 @@
     "source": "AGENTS.md, PDF work-order execution section",
     "rule": "Read attached execution PDFs completely and execute the authorized full scope from beginning to end unless the user requests analysis-only; respect explicit stop conditions and governance.",
     "applied": true
+  },
+  "postMergeValidation": {
+    "exactMainSha": "5036aae492a5bd713672150f5fb83b3915974a04",
+    "governanceRun": 35860201266,
+    "governanceJob": 107178265001,
+    "conclusion": "success",
+    "candidateAssertion": "PASS",
+    "governanceValidation": "PASS",
+    "gefHiveBridgeTests": "PASS",
+    "independentAudit": "APPROVED",
+    "highCriticalFindings": 0
+  },
+  "checkpointDelta": {
+    "status": "PROMOTED_BY_POST_MERGE_RECONCILIATION",
+    "targetStatus": "M05_IMPLEMENTATION_MERGED_MAIN_VALIDATED",
+    "reconciliationBranch": "iris-wo-0009-m05-postmerge-reconciliation",
+    "note": "Canonical checkpoint promotion is performed only after independent audit, protected merge and exact-main Governance success."
   }
 }
