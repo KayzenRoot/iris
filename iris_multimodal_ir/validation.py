@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import ClassVar
+from collections.abc import Mapping
+from dataclasses import dataclass, fields, is_dataclass
+from typing import Any, ClassVar
 
 from .base import IRRecord, many
 from .common import require_enum
@@ -11,6 +12,7 @@ from .enums import SchemaUnknownPolicy, ValidationSeverity
 from .errors import IRKernelError, IRSchemaError
 from .graph import IRDocumentEnvelope, IRRevision, validate_graph
 from .limits import DEFAULT_LIMITS, IRLimits
+from .identity import ResourceRef
 from .versions import CORE_SCHEMA_VERSION, TRANSPORT_VERSION, VALIDATOR_VERSION, content_digest, require_identifier, require_text, require_version
 
 __all__ = ["IRValidationProfile", "IRValidationFinding", "IRValidationReport", "enforce_revision_limits", "validate_revision", "validate_envelope"]
@@ -93,10 +95,22 @@ def enforce_revision_limits(revision: IRRevision, limits: IRLimits = DEFAULT_LIM
     validate_graph(revision.nodes, revision.containment, revision.relationships, revision.relationship_policies, limits=limits)
     revision._validate_cross_references(limits=limits)
     limits.require("max_facets", len(revision.schema_manifest.facets) + len(revision.schema_manifest.dialects) + len(revision.extensions))
-    limits.require("max_resource_refs", sum(len(node.resource_refs) for node in revision.nodes))
+    limits.require("max_resource_refs", _count_resource_refs(revision))
     limits.require("max_properties", sum(len(node.attributes or {}) for node in revision.nodes))
     limits.require("max_temporal_samples", sum(item.sample_count for item in revision.temporal_samplings))
 
+
+
+def _count_resource_refs(value: Any) -> int:
+    if isinstance(value, ResourceRef):
+        return 1
+    if is_dataclass(value) and not isinstance(value, type):
+        return sum(_count_resource_refs(getattr(value, item.name)) for item in fields(value))
+    if isinstance(value, Mapping):
+        return sum(_count_resource_refs(item) for item in value.values())
+    if isinstance(value, (tuple, list, set, frozenset)):
+        return sum(_count_resource_refs(item) for item in value)
+    return 0
 
 def validate_revision(revision: IRRevision, profile: IRValidationProfile | None = None) -> IRValidationReport:
     revision = IRRevision.coerce(revision, "revision")
