@@ -1,6 +1,6 @@
 # IRIS Test & Benchmark Plan
 
-Status: `SEMANTIC_KERNEL_BASELINE_ACTIVE`
+Status: `M04_IMPLEMENTATION_BASELINE_ACTIVE`
 
 ## Current repository gate
 Every admitted code or governance increment must use risk-appropriate checks and exact-head GitHub Governance. The current gate includes:
@@ -11,20 +11,30 @@ Every admitted code or governance increment must use risk-appropriate checks and
 - exact-candidate SHA assertion in GitHub Actions;
 - post-merge exact-`main` Governance validation.
 
-The pre-M04 exact-`main` baseline at `d65df7f239627f99941896451340f43ee1a887fd` passed Governance run `35679208065` with **2527/2527 tests OK**.
+The M04 implementation baseline at `bb875a958a88a844bfa62cdfec694fe148590a41` passed Governance `35801705128 / 106993294512` with **2527/2527 tests OK** and 35 required governance artifacts.
 
-## M04 planning obligations
-M04 planning must freeze measurable acceptance families before implementation, including:
-- deterministic IR serialization/versioning and round-trip behavior;
-- cross-modal reference integrity;
-- loss/approximation reporting across semantic lowering;
-- M01/M02/M03 authority-boundary regressions;
-- invalid/stale/unknown schema and extension failure-closed behavior;
-- domain-neutral fixtures spanning image, 3D, video/cinema and audio/narrative use cases;
-- resource/size/depth limits for hostile or pathological IR payloads;
-- forward-compatibility/extension-port conformance.
+## IRIS-WO-0008 / M04 obligations
+Implementation must prove the acceptance families frozen in `m04-contract-v1.0`, including:
+- all 80 hard invariants;
+- deterministic identity, canonical serialization, digests and finding order;
+- dual-graph integrity, typed cycle policy and deterministic composition;
+- immutable prototypes/revisions/migrations and explicit version compatibility;
+- M03→M04 trace/lowering coverage with no silent mandatory-semantic loss;
+- M01 QualityClass and M01/M02/M03 authority boundaries preserved;
+- M16 concrete provider/workflow compiler boundary preserved by static/import tests;
+- unknown mandatory schema/facet/capability failure closed;
+- explicit bounded approximation/loss authorization;
+- spatial/unit/camera/light/material/color correctness;
+- exact rational temporal semantics and typed motion targets;
+- audio/music/narrative/timeline/sync representation boundaries;
+- round-trip witness/equivalence tests that detect transform/camera/material/time/sync loss;
+- opaque-preservation/digest and anti-self-certification tests;
+- adversarial graph/resource/depth/fanout/sample limits;
+- MinimumSufficientIRSlice, MinimumSufficientTemporalSlice, CapabilitySlice and localized fingerprint/delta evidence;
+- seven domain-neutral synthetic profiles using one core;
+- no provider/DCC/cloud/database/network/shell requirement in the M04 kernel.
 
-No implementation benchmark threshold is invented before M04 planning supplies evidence and a frozen contract.
+No arbitrary token/performance percentage may be claimed without deterministic benchmark evidence.
 
 ## Future product validation
 Unit/integration/E2E; visual/reference quality; anatomy/pose/rig/deformation; temporal consistency/motion smoothness; geometry/topology/material/shader; audio; GPU/VRAM/RAM performance/fallback; DCC integration; export/import reproducibility.
