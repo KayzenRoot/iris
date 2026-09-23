@@ -92,7 +92,7 @@ S05 completes the functional planning boundary:
 
 Final Technology Review consolidates the 150 DNAX design-history candidates into `F-M05-01..25` with exact-once coverage (150/150, 0 missing, 0 duplicate assignments). The consolidated families, not 150 independent implementation classes, are the freeze-candidate architecture surface.
 
-The M06-M60 Forward Compatibility Scan and Independent Planning Audit are complete. M05 is implemented and durably closed. M06 planning is frozen as `m06-contract-v1.0`, merged and exact-main validated; its separate bounded implementation package IRIS-WO-0010 is admitted for execution.
+The M06-M60 Forward Compatibility Scan and Independent Planning Audit are complete. M05 is implemented and durably closed. M06 is frozen as `m06-contract-v1.0`, implemented through IRIS-WO-0010, independently approved, merged and exact-main validated. M07 Hardware Genome & Runtime Discovery is the active planning module.
 
 Forward Compatibility Scan result:
 - M06-M60 scanned: 55 modules;
@@ -103,7 +103,13 @@ Forward Compatibility Scan result:
 - M39 persona continuity explicitly bound to the M05 generic identity root;
 - frozen M05 invariants may only change through a versioned contract amendment and renewed compatibility review.
 
-M05 implementation is complete. M06 implementation is admitted only through IRIS-WO-0010; M07+ implementation remains gated.
+M05 and M06 implementations are complete and exact-main validated. M07 planning may define provider-neutral hardware/runtime observation contracts, but M07 implementation remains gated until its own planning freeze, independent audit, merged planning baseline and separately admitted implementation Work Order. M08+ remains behind the Future Contract Shield.
+
+## M07 active planning boundary
+
+M07 may discover, normalize and version hardware/runtime facts. It does not benchmark workloads (M08), govern VRAM/RAM leases or offload (M09), compile adaptive execution plans (M10), supervise worker/process lifecycle (M11), place jobs across compute targets (M12), replace empirical model capability authority (M14), own physical storage (M55), or replace observability aggregation (M56).
+
+Hardware scarcity is represented as explicit capability/evidence state and cannot silently lower M01 quality targets or protected M03 semantic obligations. Hardware/runtime facts become material to M06 reproducibility only through explicit declared materiality.
 
 ## Dependency direction
 
