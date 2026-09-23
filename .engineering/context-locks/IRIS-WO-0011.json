@@ -4,7 +4,7 @@
   "issue": 53,
   "branch": "iris-wo-0011-m07-hardware-genome",
   "baseSha": "db8a39237c26d85f62cdf02a29c29136d4d6ed63",
-  "status": "ADMITTED_FOR_EXECUTION",
+  "status": "ADMISSION_REVALIDATION_REQUIRED",
   "risk": "ELEVATED",
   "frozenContract": {
     "name": "m07-contract-v1.0",
@@ -19,7 +19,7 @@
   "criticalSources": [
     {
       "path": ".engineering/work-orders/IRIS-WO-0011-M07-HARDWARE-GENOME.md",
-      "sha": "9277348916c6b0a5b0075728496617406d84baa8"
+      "sha": "36371c1289285e7802d381d19042f8e11353acdb"
     },
     {
       "path": "planning/modules/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
@@ -39,7 +39,7 @@
     },
     {
       "path": "docs/project-brain/13-CHECKPOINT.md",
-      "sha": "8fe7e90545c0f7af4fe10d01d44bc27fc219e7cf"
+      "sha": "01d46e90cb90b1da9be9b0e16735acc80a832905"
     },
     {
       "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
@@ -94,5 +94,19 @@
     "governanceJob": 107267962093,
     "baselineTests": 2770,
     "result": "PASS"
+  },
+  "reconciliation": {
+    "reason": "CHAT_FIXABLE: Work Order was promoted after the original self-fingerprint was captured, and canonical checkpoint still described the already-completed planning reconciliation.",
+    "staleExecutorFinding": "STALE_CONTEXT before product code; 10/11 fingerprints matched; Work Order self-fingerprint mismatched; checkpoint wording stale.",
+    "correctedWorkOrderSha": "36371c1289285e7802d381d19042f8e11353acdb",
+    "correctedCheckpointSha": "01d46e90cb90b1da9be9b0e16735acc80a832905",
+    "priorAdmissionHead": "5ccd124072abbd0c919530eb07a8eda5eba7eca7",
+    "priorAdmissionGovernance": {
+      "run": 35886529033,
+      "job": 107267962093,
+      "result": "PASS",
+      "tests": 2770
+    },
+    "status": "PENDING_EXACT_HEAD_REVALIDATION"
   }
 }
