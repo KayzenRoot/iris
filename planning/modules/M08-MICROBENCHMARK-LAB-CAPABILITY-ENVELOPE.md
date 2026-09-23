@@ -468,3 +468,236 @@ Future implementation must prove:
 S01 independent audit: `APPROVED`.  
 S02 adds domain probe semantics and invariants 51-100. No implementation is admitted. Next permitted work after independent S02 review is S03 Capability Envelope and safe workload limits.
 
+# S03 — Capability Envelope & Safe Workload Limits
+
+Status: `S03_SLOW_PLANNING_ACTIVE`
+
+## 23. S03 objective
+
+S03 converts qualified M08 empirical evidence into conservative, versioned capability envelopes. An envelope describes what a specific hardware/runtime/protocol context has empirically demonstrated within declared safety margins. It is not a scheduler decision, resource lease, production guarantee, model recommendation, quality downgrade, or arbitrary extrapolation.
+
+## 24. Envelope dimensions
+
+A capability envelope may contain independently evidenced dimensions such as:
+- admitted working-set/allocation range;
+- input shape/resolution range;
+- batch/concurrency range;
+- latency and throughput bands;
+- directional transfer bands;
+- codec/session dimensions;
+- precision/data-type dimensions;
+- bounded duration class;
+- thermal/power observation context;
+- interference class;
+- confidence/coverage;
+- provenance/freshness/invalidation state.
+
+Missing dimensions remain unknown. A strong dimension cannot launder a weak or unmeasured dimension.
+
+## 25. Demonstrated, bounded and unsupported regions
+
+S03 separates:
+- `DEMONSTRATED`: directly supported by valid empirical evidence;
+- `CONSERVATIVE_BOUND`: derived inside explicitly permitted interpolation/safety-margin rules;
+- `UNKNOWN`: not sufficiently evidenced;
+- `UNSUPPORTED_PROTOCOL`: protocol cannot characterize the requested dimension;
+- `INVALIDATED`: previously derived region no longer valid.
+
+No generic `SAFE` boolean is sufficient.
+
+## 26. Safe workload limit semantics
+
+A “safe workload limit” means only: a conservative empirical boundary under the named protocol, environment, hardware/runtime binding, safety margin and validity window. It does not mean:
+- impossible to exceed;
+- production SLA;
+- guaranteed OOM avoidance;
+- guaranteed thermal stability;
+- recommended execution plan;
+- acceptable creative quality.
+
+M10 may consume an M08 envelope as evidence but owns execution planning and predictive OOM/thermal policy.
+
+## 27. Conservative derivation
+
+Envelope derivation must:
+- retain all source result IDs;
+- declare derivation algorithm/version;
+- declare safety margins;
+- reject unsupported extrapolation;
+- distinguish interpolation from extrapolation;
+- preserve discontinuities;
+- retain failed/aborted boundary observations;
+- avoid monotonicity assumptions unless protocol semantics prove them;
+- emit uncertainty/coverage separately from measured values.
+
+A single peak result cannot define a sustainable envelope.
+
+## 28. Boundary search
+
+S03 may define bounded experimental boundary-search protocols, but they must inherit S01 safety budgets. Candidate strategies include:
+- bracketed monotonic search only for dimensions whose monotonic behavior is contractually justified;
+- bounded grid/sparse sampling;
+- adaptive refinement with hard attempt/time/allocation ceilings;
+- explicit stop on thermal/resource/interference invalidation.
+
+Boundary search is benchmark protocol logic, not M10 workload planning.
+
+## 29. Memory envelope
+
+Memory characterization may record:
+- requested benchmark allocation;
+- successfully admitted allocation;
+- peak observed benchmark allocation;
+- failure/abort point;
+- fragmentation/context overhead observations when measurable;
+- exact runtime/backend and concurrent benchmark conditions.
+
+It cannot create production reservations, evict allocations, or promise that a later production workload will fit. M09 owns resource state/leases; M10 owns predictive OOM policy.
+
+## 30. Concurrency envelope
+
+Concurrency evidence must preserve:
+- operation/protocol family;
+- concurrency degree;
+- per-lane workload identity;
+- aggregate and per-lane metrics;
+- synchronization;
+- fairness/starvation observations where measurable;
+- resource/thermal/interference context.
+
+A benchmark-local concurrency envelope cannot become M12 placement or scheduling policy.
+
+## 31. Sustainability classes
+
+S03 candidate evidence classes:
+- `BURST`: short bounded empirical evidence;
+- `SHORT_STEADY`: bounded steady interval;
+- `SUSTAINED_OBSERVED`: longer admitted observation with explicit duration;
+- `UNKNOWN_SUSTAINABILITY`.
+
+Duration is evidence. Class names never imply indefinite stability.
+
+## 32. Envelope technology candidates
+
+### IRIS-CEF — Capability Envelope Fabric
+Immutable multidimensional envelope artifact with exact source lineage and validity context.
+
+### IRIS-CBD — Conservative Boundary Deriver
+Produces bounded demonstrated/conservative regions without unsupported extrapolation.
+
+### IRIS-BSE — Bounded Search Engine
+Runs contract-qualified bracket/grid/refinement protocols under S01 hard budgets.
+
+### IRIS-MEM — Memory Envelope Mapper
+Characterizes benchmark allocation boundaries without becoming M09 allocator state.
+
+### IRIS-CCM — Concurrency Capability Mapper
+Measures bounded concurrency behavior without scheduling/placement authority.
+
+### IRIS-SCM — Sustainability Classifier Matrix
+Separates burst, bounded steady and sustained-observed evidence by actual observation duration.
+
+### IRIS-ECC — Envelope Coverage & Confidence
+Represents per-dimension evidence coverage, uncertainty and confidence without collapsing to one score.
+
+### IRIS-ELF — Envelope Lineage Fabric
+Binds every derived boundary to source result IDs, derivation version, margin and invalidation dependencies.
+
+## 33. S03 hard-invariant candidates
+
+101. Every capability envelope binds exact M07 and M08 provenance.
+102. Every envelope has an immutable schema/version identity.
+103. Envelope dimensions remain independently evidenced.
+104. Unknown dimensions remain unknown.
+105. One strong dimension cannot promote another unmeasured dimension.
+106. Demonstrated evidence is distinguishable from conservative derivation.
+107. Interpolation is distinguishable from extrapolation.
+108. Unsupported extrapolation cannot produce a conservative bound.
+109. Derivation algorithm/version is explicit.
+110. Safety margin is explicit.
+111. Source result IDs are retained.
+112. Failed/aborted boundary observations remain retained.
+113. A single peak result cannot prove sustainable capacity.
+114. A single success cannot prove a maximum limit.
+115. A single failure cannot prove all larger workloads fail unless monotonicity is contractually justified.
+116. Monotonicity assumptions are protocol-specific and explicit.
+117. Boundary search has a hard attempt ceiling.
+118. Boundary search has a hard wall-clock ceiling.
+119. Boundary search inherits allocation/concurrency ceilings.
+120. Boundary search aborts on inherited safety conditions.
+121. Adaptive search cannot become unbounded exploration.
+122. Envelope derivation cannot rewrite raw benchmark results.
+123. Corrections/calibration preserve original source evidence.
+124. Safe workload limit is not a production SLA.
+125. Safe workload limit is not guaranteed OOM avoidance.
+126. Safe workload limit is not guaranteed thermal stability.
+127. Safe workload limit is not an execution plan.
+128. Safe workload limit cannot lower M01 quality.
+129. M10 owns workload planning using envelope evidence.
+130. M09 owns production resource leases/residency.
+131. Memory envelope cannot reserve production memory.
+132. Memory envelope cannot evict unrelated allocations.
+133. Peak observed benchmark allocation is not available-memory truth.
+134. Allocation failure does not prove physical memory absence.
+135. Fragmentation/context overhead observations retain environment provenance.
+136. CPU and device memory dimensions remain distinct.
+137. Host spill/offload decisions remain M09/M10 authority.
+138. Concurrency envelope is operation/protocol-specific.
+139. Per-lane and aggregate metrics remain distinguishable.
+140. Benchmark concurrency cannot become scheduler concurrency.
+141. Benchmark concurrency cannot become placement policy.
+142. Single-stream evidence cannot prove multi-stream envelope.
+143. Multi-stream evidence cannot erase per-stream provenance.
+144. Burst evidence cannot be labeled sustained.
+145. Sustainability class records actual observation duration.
+146. Sustained-observed does not imply indefinite stability.
+147. Missing thermal telemetry cannot prove thermal sustainability.
+148. Thermal abort evidence constrains only its exact context unless derivation rules justify broader scope.
+149. Interference-contaminated evidence cannot silently define an envelope.
+150. Invalid benchmark evidence cannot be a valid envelope source.
+151. Stale source evidence makes dependent envelope stale or invalid per policy.
+152. Relevant M07 material change invalidates dependent envelope as declared.
+153. Protocol-breaking change invalidates incompatible envelopes.
+154. Backend/driver/runtime change cannot silently inherit old envelopes.
+155. Envelope comparability requires explicit compatibility judgment.
+156. Cross-machine envelope aggregation cannot erase machine identity.
+157. Cross-device envelope aggregation cannot erase device identity.
+158. Envelope confidence/coverage cannot collapse into a hardware ranking.
+159. Envelope evidence cannot claim model-specific fitness.
+160. Envelope evidence cannot select a model.
+161. Envelope evidence cannot select a renderer/workflow.
+162. Envelope evidence cannot claim creative-quality sufficiency.
+163. Synthetic empirical evidence remains labeled synthetic.
+164. Simulated evidence cannot masquerade as physical measurement.
+165. Conservative margin cannot be negative.
+166. Margin changes produce a new derived artifact identity.
+167. Envelope derivation is deterministic for identical ordered inputs/configuration.
+168. Envelope serialization is canonical for fingerprinting.
+169. Envelope artifacts are immutable once issued.
+170. Invalidated envelopes remain auditable.
+171. Consumer projections are explicit and named.
+172. Consumer projections cannot add authority absent from the source envelope.
+173. M06 reproducibility binding is explicit when material.
+174. M14/M51 may bind M08 evidence but cannot retroactively redefine it.
+175. S03 cannot silently absorb S04 drift monitoring or S05 calibration/aging authority.
+
+## 34. S03 proof obligations for later implementation
+
+Future implementation must prove:
+- no single-score/generic-safe collapse;
+- unknown dimension preservation;
+- rejection of unsupported extrapolation;
+- deterministic derivation and immutable identity;
+- bounded search termination;
+- explicit monotonicity requirements;
+- source lineage and failed-boundary retention;
+- memory/concurrency authority firewalls;
+- burst vs sustained separation;
+- stale/invalidation propagation;
+- no model/workflow/quality selection.
+
+## 35. S03 checkpoint
+
+S02 independent audit: `APPROVED`.  
+S03 adds capability-envelope semantics and invariants 101-175. No implementation is admitted. Next permitted work after independent S03 review is S04 Continuous performance fingerprint and drift.
+
