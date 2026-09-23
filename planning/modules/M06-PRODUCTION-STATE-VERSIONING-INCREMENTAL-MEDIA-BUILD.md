@@ -1,6 +1,6 @@
 # M06 — Production State, Versioning & Incremental Media Build
 
-Status: `S01_S05_COMPLETE_PENDING_FINAL_TECHNOLOGY_REVIEW`
+Status: `FINAL_TECHNOLOGY_REVIEW_APPROVED_PENDING_FORWARD_COMPATIBILITY_SCAN`
 Planning model: `FULL_VERSION_NO_MVP`
 Issue: #44
 Planning base: `bac62c5e59ff926c6b80a5ec86a91b0410f35fea`
