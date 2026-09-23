@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import unittest
-from dataclasses import FrozenInstanceError
+from dataclasses import FrozenInstanceError, replace
 
 
 from iris_multimodal_ir import (
@@ -19,14 +19,18 @@ from iris_multimodal_ir import (
     CyclePolicy,
     EntityIR,
     ExternalIdentityRef,
+    ExtensionValue,
     FacetRef,
     GeometryIR,
     IRAdmissionError,
     IRFragment,
     IRIntegrityError,
+    IRLimitError,
+    IRLimits,
     IRInterfaceCapsule,
     IRNodeRef,
     IRSchemaError,
+    IRValidationProfile,
     IdentityAnchorRef,
     InstanceIR,
     InterfacePort,
@@ -50,6 +54,7 @@ from iris_multimodal_ir import (
     compose_fragments,
     content_digest,
     validate_graph,
+    validate_revision,
 )
 from tests.m04_support import DOCUMENT_ID, SOURCE, fixture_revision, trace
 
@@ -84,6 +89,15 @@ class CoreIdentityAndGraphTests(unittest.TestCase):
         edges = (ContainmentEdge(left.ref, right.ref, "edge.left-right"), ContainmentEdge(right.ref, left.ref, "edge.right-left"))
         with self.assertRaises(IRIntegrityError):
             validate_graph((left, right), edges)
+
+    def test_custom_graph_depth_limit_is_enforced(self):
+        root, middle, leaf = node("depth.root"), node("depth.middle"), node("depth.leaf")
+        edges = (
+            ContainmentEdge(root.ref, middle.ref, "edge.depth.root-middle"),
+            ContainmentEdge(middle.ref, leaf.ref, "edge.depth.middle-leaf"),
+        )
+        with self.assertRaises(IRLimitError):
+            validate_graph((root, middle, leaf), edges, limits=IRLimits(max_depth=1))
 
     def test_semantic_relationship_cycle_policy_is_family_specific(self):
         left, right = node("rel.left"), node("rel.right")
@@ -221,6 +235,33 @@ class SchemaAndSerializationBoundaryTests(unittest.TestCase):
         strict = SchemaManifest(facets=(FacetRef("vendor.optional", "1", preserve_opaque=True),))
         with self.assertRaises(IRAdmissionError):
             strict.validate_registered(facets=set(), dialects=set())
+
+    def test_unknown_mandatory_extension_fails_closed_during_validation(self):
+        extension = ExtensionValue(SchemaFamilyRef("vendor.extension", "1"), {"payload": "opaque"}, mandatory=True)
+        revision = replace(fixture_revision(), extensions=(extension,))
+        report = validate_revision(revision, IRValidationProfile("strict.extensions", "1"))
+        self.assertFalse(report.valid)
+        self.assertIn("UNKNOWN_EXTENSION", {finding.code for finding in report.findings})
+
+    def test_unknown_optional_extension_requires_explicit_opaque_policy(self):
+        extension = ExtensionValue(
+            SchemaFamilyRef("vendor.optional.extension", "1"),
+            {"payload": "opaque"},
+            preserve_opaque=True,
+        )
+        revision = replace(fixture_revision(), extensions=(extension,))
+        strict = validate_revision(revision, IRValidationProfile("strict.extensions", "1"))
+        self.assertFalse(strict.valid)
+        permissive = validate_revision(
+            revision,
+            IRValidationProfile(
+                "opaque.extensions",
+                "1",
+                unknown_policy=SchemaUnknownPolicy.PRESERVE_OPTIONAL_OPAQUE,
+            ),
+        )
+        self.assertTrue(permissive.valid)
+        self.assertIn("UNKNOWN_EXTENSION", {finding.code for finding in permissive.findings})
 
 
 if __name__ == "__main__":
