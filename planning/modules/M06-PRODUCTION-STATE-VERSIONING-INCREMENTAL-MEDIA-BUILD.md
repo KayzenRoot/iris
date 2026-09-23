@@ -1,6 +1,6 @@
 # M06 — Production State, Versioning & Incremental Media Build
 
-Status: `S04_COMPLETE_FOR_MODULE_PLANNING`
+Status: `S01_S05_COMPLETE_PENDING_FINAL_TECHNOLOGY_REVIEW`
 Planning model: `FULL_VERSION_NO_MVP`
 Issue: #44
 Planning base: `bac62c5e59ff926c6b80a5ec86a91b0410f35fea`
@@ -862,4 +862,226 @@ S04 is complete for module planning when:
 - invariants 91–120 are recorded;
 - S04 proprietary candidates are registered;
 - checkpoint may advance to M06 S05 planning;
+- no M06 product implementation is introduced.
+
+
+# S05 — Rollback, lineage-aware cleanup and release state
+
+Status: `COMPLETE_FOR_MODULE_PLANNING`
+
+## 1. Goal
+
+Complete M06 functional planning with operational rollback/reconstruction, lineage-aware cleanup, retention safety and release-state materialization under the semantic lifecycle already owned by M02.
+
+## 2. Authority boundary
+
+M02 remains canonical for branch/snapshot/rollback semantics, ProductionStateVector, promotion/release/archive lifecycle, ReleaseTransaction, RetentionPin and ArchiveManifest semantics.
+
+M06 operationalizes rollback reconstruction, retained operational lineage, cleanup eligibility, release-state materialization and recovery receipts.
+
+M55 owns physical deletion, CAS/storage tiers, archive media and storage GC execution. M59 owns concrete publishing/delivery. M53/M54 own rights/provenance/consent/security authority.
+
+## 3. Operational rollback
+
+Rollback never rewrites history. It creates a new operational state/revision whose declared source is a historical admitted state.
+
+Rollback requires:
+- exact M02 rollback/snapshot target;
+- reconstructable M06 revision/materialization closure;
+- current integrity/availability verification;
+- current mandatory policy/security/rights checks;
+- explicit dependency closure;
+- new rollback/reconstruction receipt;
+- no mutation of historical masters.
+
+A rollback may restore prior semantics/materializations while still producing new current history.
+
+## 4. Rollback outcomes
+
+Candidate outcomes:
+- `RESTORED_EXACT_MATERIALIZATION`;
+- `RECONSTRUCTED_EXACT_BYTES`;
+- `RECONSTRUCTED_SEMANTIC_STATE`;
+- `RECONSTRUCTED_EQUIVALENT`;
+- `PARTIAL_RECOVERY`;
+- `BLOCKED_DEPENDENCY_MISSING`;
+- `BLOCKED_POLICY`;
+- `NON_RECONSTRUCTABLE`;
+- `UNKNOWN`.
+
+The achieved outcome must not exceed S04 evidence.
+
+## 5. Lineage reachability
+
+Cleanup decisions operate on an explicit lineage/reachability graph containing exact refs from:
+- current admitted heads;
+- immutable masters;
+- protected snapshots;
+- release/archive manifests;
+- active branches/variants where governed by M02;
+- M05 identity/history refs when required for reconstruction;
+- S03 reuse/mixed reconstruction ancestry;
+- S04 reconstruction manifests/receipts;
+- legal/rights/security retention pins;
+- explicit user/project retention pins;
+- in-flight admitted recovery transactions.
+
+Reachability is versioned evidence, not a filesystem walk.
+
+## 6. Cleanup eligibility
+
+An object/materialization is cleanup-eligible only when positive evidence proves:
+- it is outside all required protected closures;
+- no mandatory retention pin applies;
+- no unresolved reference/index uncertainty exists;
+- required historical/reconstruction guarantees remain satisfiable;
+- deletion is permitted by current policy;
+- physical deletion is delegated to M55.
+
+Unknown reachability means NOT SAFE TO DELETE.
+
+## 7. Tombstones and deletion receipts
+
+Logical retirement and physical deletion are distinct.
+
+M06 may emit:
+- cleanup proposal;
+- eligibility receipt;
+- retention decision;
+- tombstone/supersession ref;
+- deletion authorization request;
+- post-delete verification receipt.
+
+M55 performs physical deletion and returns storage evidence. Historical semantic/operational receipts remain immutable unless their own governing retention policy explicitly permits removal.
+
+## 8. Release-state materialization
+
+M06 materializes operational evidence required by an M02 release transaction:
+- exact production/snapshot/build refs;
+- immutable master refs;
+- dependency/reconstruction closure;
+- integrity/availability state;
+- quality/promotion evidence refs;
+- rights/provenance/security refs;
+- delivery capability refs;
+- release-state fingerprint.
+
+M06 does not declare a release semantically accepted by itself and does not publish it.
+
+## 9. Release immutability and supersession
+
+A released operational closure is immutable.
+
+Corrections create:
+- new production/revision history;
+- new master when required;
+- explicit supersession relation;
+- new release transaction/closure.
+
+A mutable alias such as "latest" may point to a new release, but never changes the identity or closure of the historical release.
+
+## 10. Archive and recovery
+
+Archive state must preserve enough evidence to determine:
+- what was archived;
+- exact integrity digests;
+- required reconstruction closure;
+- intentionally omitted/non-retained dependencies;
+- recovery procedure/version;
+- expected S04 reproducibility class;
+- policy/security restrictions.
+
+Archive location/tier remains M55-owned and does not define semantic identity.
+
+## 11. Cleanup race safety
+
+Cleanup must account for concurrent state changes.
+
+Eligibility receipts bind a specific lineage/reachability epoch or fingerprint. Before physical deletion, material changes require revalidation.
+
+A stale cleanup authorization cannot delete newly reachable/protected data.
+
+## 12. S05 hard invariants
+
+121. Operational rollback creates new history and never rewrites historical state.
+122. Rollback targets exact M02 snapshots/revisions, never implicit latest.
+123. Rollback outcome cannot claim a stronger reproducibility class than S04 evidence proves.
+124. Historical masters remain immutable during rollback.
+125. Current rights/security controls apply to rollback/recovery.
+126. Rollback failure cannot corrupt the current admitted state.
+127. Partial recovery is explicit and cannot masquerade as complete rollback.
+128. Cleanup requires positive proof of non-reachability from all protected closures.
+129. Unknown reachability is not safe to delete.
+130. Partial/stale reverse indexes cannot authorize deletion.
+131. Retention pins override cleanup eligibility where applicable.
+132. Cleanup cannot break required historical reconstruction guarantees silently.
+133. M05 identity/history refs required by protected lineage cannot be discarded silently.
+134. S03 reused ancestry participates in cleanup reachability.
+135. S04 reconstruction closure participates in cleanup reachability.
+136. Logical retirement is distinct from physical deletion.
+137. M55 remains physical deletion/storage-GC authority.
+138. Deletion authorization and deletion completion are separate receipts.
+139. Failed deletion cannot be recorded as completed deletion.
+140. Cleanup receipts bind exact lineage/reachability evidence.
+141. Stale cleanup authorization requires revalidation after material lineage changes.
+142. Concurrent protection/reachability changes cannot be ignored by deletion execution.
+143. Release operational closure binds exact immutable refs.
+144. A released closure cannot follow mutable implicit-latest dependencies.
+145. M06 cannot self-promote a release.
+146. M59 remains publishing/delivery authority.
+147. Release corrections create new history and explicit supersession.
+148. Mutable aliases cannot rewrite historical release identity.
+149. Archive tier/location does not define production/revision identity.
+150. HIVE/agents may propose rollback/cleanup/release actions but cannot self-authorize protected deletion, rollback promotion or release.
+
+These extend S01-S04 invariants 1–120 and remain candidates until final M06 contract freeze.
+
+## 13. Proprietary technology candidates
+
+### IRIS-LRG — Lineage Reachability Guard
+Versioned protected-closure graph proving what remains reachable before any cleanup authorization can exist.
+
+### IRIS-SGC — Safe Garbage Collection Protocol
+Two-phase cleanup protocol separating eligibility from M55 physical deletion, with stale-authorization revalidation.
+
+### IRIS-RRB — Rollback Reconstruction Bridge
+Maps M02 semantic rollback targets to S04-bounded operational restoration/reconstruction without rewriting history.
+
+### IRIS-RSC — Release State Capsule
+Immutable operational closure for a release transaction containing exact masters, dependencies, integrity and authority evidence without publishing authority.
+
+### IRIS-CRA — Cleanup Race Armor
+Epoch/fingerprint guard preventing a cleanup decision from deleting data that became protected after eligibility was computed.
+
+All remain candidates pending Technology Review and prior-art review.
+
+## 14. S05 acceptance evidence targets
+
+Later implementation must prove:
+- rollback creates new history;
+- exact historical target binding;
+- rollback outcome bounded by S04 reproducibility evidence;
+- protected closure/reachability computation;
+- unknown/stale index prevents cleanup;
+- retention-pin protection;
+- two-phase deletion and failed-delete handling;
+- cleanup race revalidation;
+- immutable release closure and explicit supersession;
+- M55/M59 authority boundaries;
+- archive/recovery metadata independent from storage location;
+- domain-neutral behavior across image, 3D, video, audio and metadata-only productions.
+
+## S05 STOP CONDITION
+
+S05 is complete for module planning when:
+- rollback/recovery semantics are explicit and append-only;
+- lineage-aware cleanup is positive-proof and fail-closed;
+- retention/tombstone/deletion receipt boundaries are explicit;
+- cleanup races require revalidation;
+- release operational closure is immutable and M02/M59 authority is preserved;
+- archive/recovery metadata is storage-neutral;
+- invariants 121–150 are recorded;
+- S05 proprietary candidates are registered;
+- S01-S05 functional planning is complete;
+- next step becomes Final Technology Review;
 - no M06 product implementation is introduced.
