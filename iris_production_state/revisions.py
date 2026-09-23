@@ -247,10 +247,13 @@ class AvailabilityReceipt(CanonicalRecord):
             object.__setattr__(self, "state", AvailabilityState(self.state))
         if self.integrity_receipt is not None and type(self.integrity_receipt) is not IntegrityReceipt:
             raise ProductionStateValidationError("integrity_receipt must be exact M06 integrity evidence")
-        if self.state is AvailabilityState.KNOWN_AVAILABLE and (
-            self.integrity_receipt is None or self.integrity_receipt.state is not IntegrityState.VERIFIED
-        ):
-            raise ProductionStateAdmissionError("availability cannot be admitted without verified integrity evidence")
+        if self.state is AvailabilityState.KNOWN_AVAILABLE:
+            if type(self.subject_ref) is not MaterializationRef:
+                raise ProductionStateAdmissionError("known availability requires an exact materialization subject")
+            if self.integrity_receipt is None or self.integrity_receipt.state is not IntegrityState.VERIFIED:
+                raise ProductionStateAdmissionError("availability cannot be admitted without verified integrity evidence")
+            if self.integrity_receipt.materialization_ref != self.subject_ref:
+                raise ProductionStateIntegrityError("availability integrity evidence must bind the exact subject materialization")
         if type(self.observed_at_ms) is not int or self.observed_at_ms < 0:
             raise ProductionStateValidationError("observed_at_ms must be a nonnegative exact integer")
         require_version(self.receipt_version, "receipt_version")
