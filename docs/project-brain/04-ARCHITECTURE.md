@@ -36,6 +36,23 @@ M04 must not:
 
 The historical M04 S04 / M16 Provider Compiler overlap is resolved: **M04 owns Representation Capability & Semantic Lowering; M16 solely owns concrete workflow/provider compilation and qualification.**
 
+### M05 — Asset DNA 2.0 & Cross-Modal Identity authority
+M05 planning is active. Its domain-neutral core owns persistent semantic identity across representations and authorized mutations.
+
+S01 freezes these architectural directions:
+- stable opaque DNA subject identity separate from M04 representation identity;
+- immutable DNA revisions;
+- typed identity traits with explicit criticality and mutability;
+- canonical/evidence twin-plane separation;
+- cross-modal identity anchors and projection contracts;
+- observation/embedding/hash/provider outputs remain evidence, never self-authorizing canonical truth;
+- M02 keeps project/branch/history authority;
+- M06 keeps persistence/CAS/storage authority;
+- M53/M54 keep rights/provenance/privacy/security authority;
+- M39/M40/M41/M43/M45 keep domain production/canon/brand authority.
+
+No M05 implementation package is admitted yet.
+
 ## Dependency direction
 
 M04 may depend on:
