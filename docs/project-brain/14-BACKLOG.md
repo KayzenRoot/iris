@@ -1,6 +1,6 @@
 # IRIS Backlog
 
-Status: `M07_S02_PLANNING_COMPLETE`
+Status: `M07_S03_PLANNING_COMPLETE`
 
 ## COMPLETED FOUNDATION
 - M01 planning/freeze/implementation merged.
@@ -22,19 +22,19 @@ Status: `M07_S02_PLANNING_COMPLETE`
 - Exact planning base: `b52e9837bef893c5c040c929520996cd110579e6`.
 - S01 GPU/CPU/RAM/storage/runtime discovery: **COMPLETE_FOR_MODULE_PLANNING**.
 - S02 CUDA/ROCm/DirectML/Metal capability mapping: **COMPLETE_FOR_MODULE_PLANNING**.
-- Cumulative candidate hard invariants: 60.
-- Cumulative proprietary technology candidates: 10.
+- S03 driver, precision, encoder/decoder and topology detection: **COMPLETE_FOR_MODULE_PLANNING**.
+- Cumulative candidate hard invariants: 100.
+- Cumulative proprietary technology candidates: 15.
 - Product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-1. Deep-plan M07 S03 — driver, precision, encoder/decoder and topology detection.
-2. Deep-plan M07 S04 — thermal, power and memory-pressure telemetry.
-3. Deep-plan M07 S05 — Hardware Genome schema, versioning and confidence.
-4. Perform M07 Final Technology Review and consolidate candidate technologies.
-5. Run M08-M60 Forward Compatibility Scan without deep-planning future module internals.
-6. Produce the M07 Module Contract Freeze candidate and independent planning audit.
-7. Merge the approved M07 planning package and validate exact main.
-8. Only then compile a separate bounded M07 implementation Work Order, Context Lock, Evidence obligations and executor PDF.
+1. Deep-plan M07 S04 — thermal, power and memory-pressure telemetry.
+2. Deep-plan M07 S05 — Hardware Genome schema, versioning and confidence.
+3. Perform M07 Final Technology Review and consolidate candidate technologies.
+4. Run M08-M60 Forward Compatibility Scan without deep-planning future module internals.
+5. Produce the M07 Module Contract Freeze candidate and independent planning audit.
+6. Merge the approved M07 planning package and validate exact main.
+7. Only then compile a separate bounded M07 implementation Work Order, Context Lock, Evidence obligations and executor PDF.
 
 ## IMPLEMENTATION GATE
 No M07 product/runtime code is authorized during the active planning cycle. M08+ deep planning/implementation is also out of scope until M07 reaches an explicit planning/implementation state.
