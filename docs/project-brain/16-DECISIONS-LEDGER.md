@@ -156,3 +156,8 @@ The M05 independent planning audit approved the exact freeze candidate with 150/
 ## ADR-0036 - M05 frozen planning package merged and exact-main validated
 Status: `APPROVED`
 PR #38 was squash-merged as `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`. Exact-main Governance `35843109186 / 107122673542` passed with 35 required artifacts and `2677/2677` tests. M05 planning is therefore canonical on main as `FROZEN_APPROVED / m05-contract-v1.0`. Implementation remains blocked until a separate bounded Work Order / Context Lock / Evidence package is admitted from this validated baseline.
+
+
+## ADR-0037 - M05 implementation merged and exact-main validated
+Status: `APPROVED`
+IRIS-WO-0009 implemented the frozen `m05-contract-v1.0` provider-neutral Asset DNA 2.0 & Cross-Modal Identity kernel. Independent audit approved the reviewed implementation with 25/25 frozen families, 150/150 hard invariants indexed to executable proof targets, 22/22 extension/ref ports, 8/8 synthetic profiles, 47/47 focused M05 tests and 2724/2724 full-suite tests. PR #42 was squash-merged as `5036aae492a5bd713672150f5fb83b3915974a04`. Exact-main Governance `35860201266 / 107178265001` passed. M05 is therefore canonical as implemented/merged/validated; M06 remains gated behind this reconciliation and its own bounded admitted Work Order / Context Lock / Evidence package.
