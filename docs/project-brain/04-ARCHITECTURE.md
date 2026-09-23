@@ -81,6 +81,15 @@ S04 adds identity transition semantics without absorbing evaluator or downstream
 - M05 remains the generic persistent identity root while M39 owns digital-human/persona production continuity;
 - M53/M54 retain provenance/rights/consent/security authority for protected evidence.
 
+S05 completes the functional planning boundary:
+- M05 lineage relations are semantic identity lineage only; M02 remains project/production branch authority;
+- M06 owns production-state/content-addressed revision, rebuild and rollback semantics;
+- compatibility is directional and multi-axis, with explicit loss/migration/indeterminate outcomes;
+- reusable DNA package identity remains distinct from persistent subject identity;
+- M53 owns rights/license/consent/provenance, M54 security/restricted-content, M55 storage/CAS, M58 API/conformance surfaces and M59 concrete export/publishing;
+- package import is staged and cannot overwrite canonical identity;
+- canonical DNA packages are non-executable by default and unknown mandatory semantics fail closed.
+
 No M05 implementation package is admitted yet.
 
 ## Dependency direction
