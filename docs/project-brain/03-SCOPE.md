@@ -1,39 +1,37 @@
 # IRIS Scope
 
-Status: `M04_COMPLETE_M05_PLANNING_READY`
+Status: `M05_PLANNING_S01_COMPLETE`
 
-## Completed governed increment — IRIS-WO-0008 / M04
+## Current governed increment — M05 planning
 
-M04 `m04-contract-v1.0` is implemented, independently reviewed, squash-merged and exact-main validated.
+M05 Asset DNA 2.0 & Cross-Modal Identity is in planning only.
 
-Verified result:
-- `iris_multimodal_ir/` provider-neutral semantic kernel;
-- 20/20 frozen families;
-- 80/80 hard invariants;
-- 150 focused M04 test inventory;
-- 2677/2677 exact-main full suite;
-- seven domain-neutral synthetic profiles;
-- deterministic serialization/schema/migration/round-trip;
-- unit/color/time-aware tolerant equivalence;
-- deterministic resource/depth/fanout/sample limits;
-- preserved M01/M02/M03/M16 authority boundaries;
-- zero remaining HIGH/CRITICAL findings.
+### S01 complete
+- persistent semantic DNA identity separate from M04 representation identity;
+- immutable DNA revisions;
+- typed canonical trait substrate;
+- explicit identity criticality and mutability;
+- PRESENT / UNKNOWN / NOT_APPLICABLE / INTENTIONALLY_UNCONSTRAINED states;
+- canonical/evidence twin-plane architecture;
+- cross-modal identity anchors and DNA projection contracts;
+- names/paths/content hashes/provider IDs/prompts/embeddings/similarity explicitly excluded as canonical identity bases;
+- identity collision, alias and equivalence claim boundaries;
+- minimum-sufficient DNA slices;
+- privacy-minimized evidence refs;
+- 30 candidate S01 hard invariants;
+- `IRIS-DNAX-001..030` design candidates.
 
-## Next possible increment
+### Next planning session
+M05 S02 — Character, creature, object, product and environment DNA.
 
-M05 Asset/Persona DNA may enter planning through its own lifecycle after this post-merge reconciliation is merged and exact-main validated.
-
-### NOT YET ADMITTED
-- M05 implementation;
-- M06/M55 persistence/CAS/storage backend;
-- M16 concrete provider/workflow compilation;
-- Blender/Maya/ComfyUI/provider/model runtime;
-- GPU scheduling;
-- media generation/rendering/editing;
-- quality judging;
-- rights/security engines;
-- publishing/export execution.
+### NOT ADMITTED
+- any `iris_asset_dna` implementation package;
+- storage/CAS/database implementation;
+- biometric authentication;
+- digital-human/voice/music/brand generation runtime;
+- automatic identity merge from similarity;
+- provider/DCC-specific identity logic.
 
 ## IRIS 1.0 product scope
 
-IRIS 1.0 continues to include the capabilities represented by M00–M60. Completion of M04 does not reduce or silently admit later modules.
+IRIS 1.0 continues to include M00-M60. M05 planning does not silently implement or freeze later modules.
