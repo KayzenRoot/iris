@@ -36,5 +36,20 @@
     "governanceJob": 107344738312,
     "baselineTests": 2834,
     "result": "PASS"
+  },
+  "admissionRecovery": {
+    "promotedHead": "2319dd20339a85aff2f7ce410fb1218c425d412e",
+    "governance": {
+      "run": 35909505068,
+      "job": 107345479963,
+      "result": "PASS"
+    },
+    "fingerprintsBeforeRefresh": {
+      "matched": 11,
+      "total": 13,
+      "expectedPromotionMismatches": 2,
+      "unexpectedMismatches": 0
+    },
+    "status": "REFRESHED_PENDING_EXACT_HEAD_VALIDATION"
   }
 }
