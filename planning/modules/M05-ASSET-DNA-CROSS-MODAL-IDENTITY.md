@@ -655,9 +655,248 @@ S02 is complete for module planning when:
 
 # S03 — SceneDNA, Motion DNA, Voice DNA and Brand DNA links
 
-Status: `NOT_STARTED`
+Status: `COMPLETE_FOR_MODULE_PLANNING`
 
-Will define cross-modal linked DNA families and ownership firewalls with M30/M40/M41/M43/M46.
+## 1. S03 goals
+
+S03 makes cross-modal identity explicit without duplicating domain ownership.
+
+M05 owns identity linkage and preservation obligations.
+
+Domain ownership:
+- M30 owns MotionDNA contents and motion production;
+- M40 owns VoiceDNA contents and voice production;
+- M46 owns BrandDNA contents and Brand/IP production;
+- M45 owns Campaign DNA / Creative Genome and advertising;
+- M43 owns narrative Canon;
+- M04 owns current provider-neutral representation.
+
+## 2. LinkedDomainDNARef
+
+A generic `LinkedDomainDNARef` binds M05 identity to a domain-owned DNA revision.
+
+Required fields/concepts:
+- owner module;
+- DNA family;
+- external DNA identity;
+- pinned revision/version;
+- link role;
+- REQUIRED / OPTIONAL;
+- bound M05 trait/component paths;
+- preservation obligations;
+- compatibility expectation;
+- validity scope;
+- provenance/policy/rights refs;
+- freshness state.
+
+"Latest" is not a valid canonical version selector.
+
+## 3. SceneIdentityDNA
+
+M05 may own a reusable persistent scene/set identity composition.
+
+It can bind:
+- environment DNA;
+- member DNA identities;
+- stable identity-role slots;
+- continuity-critical relationships;
+- permitted substitutions;
+- M04 SceneIR projection refs;
+- M43 Canon refs.
+
+It cannot own:
+- current SceneIR state;
+- camera/light/material transforms;
+- shot/editorial timeline;
+- narrative/canon truth;
+- M37 continuity judgment.
+
+## 4. IdentityRoleSlot
+
+A stable scene/composite role slot declares:
+- role ID;
+- semantic role;
+- accepted family/profile;
+- required traits;
+- cardinality;
+- substitution policy;
+- bound DNA refs.
+
+Role substitution may preserve scene identity only when explicitly allowed.
+
+## 5. MotionDNALink
+
+A `MotionDNALink` points to M30-owned MotionDNA.
+
+M05 may bind:
+- approved motion identity revision;
+- motion-style/signature refs;
+- relevant body/component paths;
+- preservation obligations;
+- allowed contextual variation.
+
+M05 does not own animation curves, clips, mocap payloads, retargeting, rigs or current pose.
+
+## 6. VoiceDNALink
+
+A `VoiceDNALink` points to M40-owned VoiceDNA.
+
+M05 may bind:
+- approved voice identity revision;
+- language-independent identity anchor refs;
+- allowed voice roles;
+- cross-language persistence obligation;
+- rights/consent/privacy refs;
+- allowed bounded variation.
+
+M05 does not own TTS model weights, provider voice IDs, biometric authentication, raw speaker templates or speech generation.
+
+## 7. BrandDNALink
+
+A `BrandDNALink` points to M46-owned BrandDNA.
+
+M05 may bind:
+- approved brand identity/version;
+- brand role;
+- required/optional association;
+- subject trait/component binding;
+- compatibility expectation;
+- policy/IP refs.
+
+M45 Campaign DNA is a separate advertising-domain identity and must not be relabelled BrandDNA.
+
+## 8. CrossModalIdentityBinding
+
+Binds one M05 identity revision to multiple domain DNA refs and M04 anchors.
+
+It declares:
+- participating identities/revisions;
+- bound canonical trait paths;
+- mandatory/optional links;
+- cross-modal consistency obligations;
+- compatibility/freshness state;
+- evidence requirements;
+- policy/provenance refs.
+
+No linked module can mutate M05 canonical DNA through the binding.
+
+## 9. CrossModalIdentityObligation
+
+A typed obligation states which identity facts must remain coherent across modalities.
+
+Expectation classes:
+- EXACT;
+- BOUNDED;
+- ROLE_COMPATIBLE;
+- CONTEXTUAL;
+- OPAQUE_REFERENCE_ONLY.
+
+The obligation records the evaluation owner. M05 never turns this into independent quality/promotion authority.
+
+## 10. CrossModalDNAGraph
+
+A typed identity-link graph relates:
+- M05 subject DNA;
+- SceneIdentityDNA;
+- external domain DNA refs;
+- M04 representation anchors.
+
+Allowed edge families include:
+- HAS_MOTION_IDENTITY;
+- HAS_VOICE_IDENTITY;
+- BOUND_TO_BRAND;
+- MEMBER_OF_SCENE_IDENTITY;
+- PERFORMS_ROLE;
+- REPRESENTED_BY.
+
+This graph is not:
+- M02 Production Graph;
+- M04 scene/relationship graph;
+- M43 Canon Graph.
+
+## 11. Revision freshness
+
+Every external DNA link is revision-pinned.
+
+When an external domain DNA changes:
+- existing M05 revision remains immutable;
+- link becomes stale/review-required unless declared compatibility proves admissibility;
+- no silent follow-latest;
+- accepting a new external revision requires a new M05 DNA revision or an explicit compatibility mechanism frozen later.
+
+## 12. Voice privacy boundary
+
+Voice identity is not authentication.
+
+Rules:
+- raw biometric templates are not generic M05 canonical data;
+- speaker similarity is evidence only;
+- provider/model voice ID is not persona identity;
+- rights/consent/privacy refs are carried where required;
+- M40/M53/M54 retain production/rights/security authority.
+
+## 13. Generic future domain links
+
+The S03 link fabric must support future references such as:
+- M41 ArtistDNA / MusicDNA;
+- M45 CampaignDNA / Creative Genome;
+- M46 IP asset/brand packs;
+- future localization/content/persona DNA families.
+
+Unknown mandatory link families fail closed.
+
+## 14. S03 candidate hard invariants
+
+61. M05 owns cross-modal identity linkage, not MotionDNA/VoiceDNA/BrandDNA domain contents.
+62. M30 remains sole MotionDNA/motion-production authority.
+63. M40 remains sole VoiceDNA/voice-production authority.
+64. M46 remains sole BrandDNA/Brand & IP Studio authority.
+65. M45 Campaign DNA/Creative Genome cannot be relabelled as BrandDNA.
+66. M43 remains narrative Canon authority.
+67. M04 SceneIR snapshot cannot silently become persistent SceneIdentityDNA.
+68. SceneIdentityDNA cannot become narrative scene/canon truth.
+69. SceneIdentityDNA member identity is explicit through stable role/member refs.
+70. role-slot substitution requires explicit substitution policy.
+71. LinkedDomainDNARef must identify owner module, family and pinned revision/version.
+72. canonical external DNA links cannot use implicit "latest".
+73. external domain DNA advancement cannot mutate an existing M05 revision.
+74. stale required external DNA links fail closed or require explicit review policy.
+75. MotionDNALink cannot canonicalize animation curves, mocap payloads, rigs or current pose.
+76. one motion clip/provider ID cannot define MotionDNA identity.
+77. VoiceDNALink cannot canonicalize provider voice IDs/model weights as persona identity.
+78. VoiceDNA similarity/voiceprints remain evidence unless their owning policy explicitly admits a reference.
+79. generic M05 identity does not require biometric authentication.
+80. BrandDNALink association is explicit and versioned.
+81. brand-link change is identity-breaking only when M05 trait/policy says so.
+82. CrossModalIdentityBinding cannot grant linked modules canonical mutation authority over M05.
+83. cross-modal obligations declare required/optional participants explicitly.
+84. missing required linked DNA cannot disappear silently during projection.
+85. cross-modal consistency expectation is typed, not inferred from similarity.
+86. M01/evaluator owners retain quality and acceptance authority for cross-modal evidence.
+87. CrossModalDNAGraph cannot duplicate M02 Production Graph ownership.
+88. CrossModalDNAGraph cannot duplicate M04 scene graph or M43 Canon Graph ownership.
+89. future domain DNA families use versioned owner/family refs and unknown mandatory families fail closed.
+90. HIVE/agents may retrieve/propose cross-modal links but cannot admit or rewrite canonical links directly.
+
+These extend S01-S02 invariants 1–60 and remain candidates until final contract freeze.
+
+## 15. S03 proprietary candidates
+
+S03 adds `IRIS-DNAX-061..090`.
+
+## S03 STOP CONDITION
+
+S03 is complete for module planning when:
+- domain-DNA ownership firewalls are explicit;
+- SceneIdentityDNA boundary is explicit;
+- Motion/Voice/Brand links are revision-pinned and versioned;
+- M45 CampaignDNA vs M46 BrandDNA is explicit;
+- cross-modal bindings/obligations/graph are explicit;
+- stale-link semantics are explicit;
+- candidate invariants 61–90 are recorded;
+- DNAX-061..090 are registered;
+- checkpoint advances to S04;
+- no M05 implementation code is introduced.
 
 # S04 — Identity anchors, mutation boundaries and drift detection
 
