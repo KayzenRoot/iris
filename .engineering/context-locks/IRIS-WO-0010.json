@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0010",
+  "issue": 47,
+  "branch": "iris-wo-0010-m06-production-state",
+  "baseSha": "e3eaa8386e5ee0f7712e8849a160d253bd2461fe",
+  "status": "ADMITTED_FOR_EXECUTION",
+  "risk": "ELEVATED",
+  "frozenContract": {
+    "name": "m06-contract-v1.0",
+    "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md"
+  },
+  "baseline": {
+    "governanceRun": 35865548802,
+    "governanceJob": 107196079547,
+    "tests": 2724,
+    "conclusion": "success"
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0010-M06-PRODUCTION-STATE.md",
+      "sha": "e3e04505f1263bd6933bb8e45e0beec8b64ddc2e"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "sha": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+    },
+    {
+      "path": "planning/reviews/M06-FINAL-TECHNOLOGY-REVIEW.md",
+      "sha": "9346eb4fe30dcc521d545a20526fa9feb2c9bfb9"
+    },
+    {
+      "path": "planning/compatibility/M06-FORWARD-COMPATIBILITY-SCAN.md",
+      "sha": "119227ce1e42d66304c78680897d6c1253b3e5c2"
+    },
+    {
+      "path": "planning/modules/M06-PRODUCTION-STATE-VERSIONING-INCREMENTAL-MEDIA-BUILD.md",
+      "sha": "a888a60eb54037b82f3f6c3576d756f4f688123a"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "sha": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "sha": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "sha": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "sha": "9764e14cac07dc5f8c345238e1a6de170e5a8707"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "sha": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "sha": "59138135d7da947c9a584328f0ba3ced7798db5c"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "sha": "111dce009c529dd1f9d975badcb36b8b2b0f90be"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "sha": "7a541390ecf9774478cc7bb7f8ae29d744a81893"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "sha": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "iris_project_os/ports.py",
+      "sha": "0aef39b7581446d0f4f7f661c38dc873b979983a"
+    },
+    {
+      "path": "iris_asset_dna/__init__.py",
+      "sha": "c9b707aa7d7a3e88084cfbe508cc1ce9b30dee33"
+    }
+  ],
+  "inScope": [
+    "Complete frozen m06-contract-v1.0 in iris_production_state",
+    "25 M06 technology families",
+    "150 hard invariants",
+    "20 extension/ref ports",
+    "M02 semantic authority and M55 physical-storage authority preserved"
+  ],
+  "outOfScope": [
+    "M07+ implementation",
+    "competing M02 semantic state/version/build model",
+    "M55 physical CAS/storage/cache/archive/deletion backend",
+    "provider/DCC/GPU runtime",
+    "quality/repair/rights/security/publishing engines",
+    "semantic contract changes"
+  ],
+  "stopCondition": "STOP after the complete frozen M06 operational production-state kernel is implemented, tested, documented, evidenced and ready for independent review. Do not merge. Do not start M07.",
+  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md.",
+  "admissionValidation": {
+    "head": "4c331decee73cee8658ce4816a7ca1622681ee0f",
+    "criticalSources": 16,
+    "fingerprintMismatches": 0,
+    "governanceRun": 35866052316,
+    "governanceJob": 107197781973,
+    "baselineTests": 2724,
+    "result": "PASS"
+  },
+  "reconciliation": {
+    "reason": "CHAT_FIXABLE canonical-state reconciliation after executor preflight found stale Scope/Architecture/Checkpoint wording. Frozen m06-contract-v1.0 and implementation scope are unchanged; critical fingerprints are refreshed only for the corrected canonical documents and admitted Work Order.",
+    "priorFingerprints": {
+      ".engineering/work-orders/IRIS-WO-0010-M06-PRODUCTION-STATE.md": "e3e04505f1263bd6933bb8e45e0beec8b64ddc2e",
+      "docs/project-brain/13-CHECKPOINT.md": "02d441f71f1293c41261d8ad8861d2f2347df742",
+      "docs/project-brain/03-SCOPE.md": "4826a9aba9e4178abef5d7f38ecdb8b33bbf2706",
+      "docs/project-brain/04-ARCHITECTURE.md": "84b089697338f32b703ab09b2ab80593fc099e0d"
+    },
+    "currentFingerprints": {
+      ".engineering/work-orders/IRIS-WO-0010-M06-PRODUCTION-STATE.md": "e3e04505f1263bd6933bb8e45e0beec8b64ddc2e",
+      "docs/project-brain/03-SCOPE.md": "111dce009c529dd1f9d975badcb36b8b2b0f90be",
+      "docs/project-brain/04-ARCHITECTURE.md": "7a541390ecf9774478cc7bb7f8ae29d744a81893",
+      "docs/project-brain/13-CHECKPOINT.md": "9764e14cac07dc5f8c345238e1a6de170e5a8707"
+    },
+    "priorAdmissionHead": "4c331decee73cee8658ce4816a7ca1622681ee0f",
+    "priorAdmissionGovernance": {
+      "run": 35866052316,
+      "job": 107197781973,
+      "result": "PASS"
+    },
+    "postPromotionGovernance": {
+      "run": 35866210491,
+      "job": 107198333248,
+      "result": "PASS"
+    },
+    "status": "REVALIDATED",
+    "revalidation": {
+      "head": "82b2a9ed08310895899270423f7296cda5e404a4",
+      "governanceRun": 35868355292,
+      "governanceJob": 107205629591,
+      "result": "PASS",
+      "criticalSources": "16/16",
+      "mismatches": 0
+    }
+  }
+}

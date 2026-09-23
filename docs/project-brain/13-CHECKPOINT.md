@@ -1,16 +1,16 @@
 # IRIS Checkpoint
 
 ## STATUS
-M06_PLANNING_MERGED_MAIN_VALIDATED
+M06_IMPLEMENTATION_ADMITTED
 
 ## VERSION
 m06-contract-v1.0
 
 ## PHASE
-M06_IMPLEMENTATION_ADMISSION
+M06_IMPLEMENTATION_EXECUTION
 
 ## OBJECTIVE
-Preserve durable M05 closure and record the frozen M06 planning package as merged and exact-main validated before any M06 implementation admission.
+Execute the admitted M06 implementation from the frozen m06-contract-v1.0 while preserving M02 semantic authority and M55 physical-storage authority.
 
 ## COMPLETED
 - M01 Quality Kernel: implemented, approved and merged.
@@ -27,10 +27,10 @@ Preserve durable M05 closure and record the frozen M06 planning package as merge
 - M06 exact-main Governance: `35864219848 / 107191613418` PASS.
 
 ## IN PROGRESS
-Reconcile the M06 implementation-admission package from exact validated main.
+IRIS-WO-0010 is admitted for M06 implementation on branch `iris-wo-0010-m06-production-state` / PR #48.
 
 ## BLOCKERS
-M06 product/kernel implementation remains blocked until a separate bounded implementation Work Order, Context Lock and Evidence package are admitted from the exact validated M06 planning baseline.
+No admission blocker remains for M06. M07+ implementation remains blocked until M06 completes independent review, merge, exact-main validation and canonical checkpoint reconciliation.
 
 ## NEXT STEP
-Compile and admit the bounded M06 implementation Work Order / Context Lock / Evidence package from exact main `b8fba47a15936813835e35c530f905044e27d2cd`. Do not implement M06 before admission gates pass.
+Execute IRIS-WO-0010 completely on PR #48. Stop ready for independent review; do not merge and do not start M07.

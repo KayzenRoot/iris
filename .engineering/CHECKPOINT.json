@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M06_PLANNING_MERGED_MAIN_VALIDATED",
+  "status": "M06_IMPLEMENTATION_ADMITTED",
   "version": "m06-contract-v1.0",
-  "phase": "M06_IMPLEMENTATION_ADMISSION",
-  "nextStep": "Compile and admit the bounded M06 implementation Work Order / Context Lock / Evidence package from exact main `b8fba47a15936813835e35c530f905044e27d2cd`. Do not implement M06 before admission gates pass."
+  "phase": "M06_IMPLEMENTATION_EXECUTION",
+  "nextStep": "Execute IRIS-WO-0010 completely on PR #48. Stop ready for independent review; do not merge and do not start M07."
 }
