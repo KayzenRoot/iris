@@ -181,8 +181,11 @@ class BenchmarkResult(M08Record):
         if self.origin is EvidenceOrigin.SYNTHETIC_SEMANTIC_FIXTURE:
             if self.external_measurement_ref is not None or not self.binding.synthetic:
                 raise MicrobenchmarkIntegrityError("synthetic semantic evidence must be scoped to synthetic M07 provenance")
-        elif self.external_measurement_ref is None or self.binding.synthetic:
-            raise MicrobenchmarkAdmissionError("external measurement references require non-synthetic M07 binding and an opaque source reference")
+        elif self.origin is EvidenceOrigin.EXTERNAL_MEASUREMENT_REFERENCE:
+            if self.external_measurement_ref is None or self.binding.synthetic:
+                raise MicrobenchmarkAdmissionError("external measurement references require non-synthetic M07 binding and an opaque source reference")
+        elif self.external_measurement_ref is not None or self.binding.synthetic:
+            raise MicrobenchmarkAdmissionError("local active measurements require non-synthetic M07 binding and no external reference")
         if content_digest(self.samples) != self.raw_digest:
             raise MicrobenchmarkIntegrityError("raw evidence digest does not match immutable samples")
         if self.samples:

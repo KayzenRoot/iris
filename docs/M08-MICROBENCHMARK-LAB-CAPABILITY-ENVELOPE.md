@@ -34,6 +34,7 @@ The package exports its declared public API through `iris_microbenchmark.__all__
 | `protocols` | Safety budgets, metric semantics, authorization/security receipts, automation origin, immutable protocols, protocol admission and first-run batch-budget validation |
 | `probes` | Deterministic fixture manifests, declaration-only backend capsules, generic probes and separate image/video/3D/audio/transfer probe descriptors |
 | `evidence` | Raw samples, independent correctness evidence, uncertainty, interference/contamination, cancellation/abort and immutable benchmark results |
+| `execution` | Synchronous allowlisted CPU SHA-256 reference execution, per-chunk cancellation/deadline checks, actual monotonic samples and a digest-bound execution receipt |
 | `envelopes` | Demonstrated/conservative/unknown/unsupported/invalidated dimensions, bounded-search traces, memory/concurrency/sustainability evidence and requirement qualification |
 | `fingerprints` | Purpose-qualified privacy projections, named baselines and explicit promotion/supersession, metric noise guards, non-causal drift and authorization-gated recheck decisions |
 | `calibration` | Derived calibration lineage, aging/freshness, append-only scoped invalidation, monotonic timing qualification and explicitly non-normative named-reference normalization |
@@ -41,7 +42,7 @@ The package exports its declared public API through `iris_microbenchmark.__all__
 | `contracts` | Deterministic acceptance evidence bundle binding exact protocol, fixture, probe/result, M07, envelope, calibration and freshness references while returning `EVIDENCE_ONLY` |
 | `families`, `invariants` | Frozen 40-surface, 15-component and 330-invariant catalogs with executable focused-test targets |
 
-The implementation uses only the Python standard library at runtime. No physical benchmark adapter, provider/model SDK, GPU runtime, database, CAS or persistence backend is installed by this package.
+The implementation uses only the Python standard library at runtime. The CPU reference path performs actual local SHA-256 work over the admitted fixture bytes; it does not measure a GPU, codec, renderer, audio device or provider. No provider/model SDK, GPU runtime, database, CAS or persistence backend is installed by this package.
 
 ## Measurement and safety semantics
 
@@ -53,7 +54,9 @@ The implementation uses only the Python standard library at runtime. No physical
 
 The default local ceilings include 15 seconds per first-run protocol, 60 seconds per first-run batch, 20,000 iterations, 256 MiB host/device allocation, eight-way concurrency, one retry, 64 boundary-search attempts, 4,000,000 inline payload bytes, 2,000 raw samples per result, 2,048 fixtures, 4,096 probes, 20,000 invalidation nodes and 40,000 invalidation edges. Callers may tighten these ceilings but may not exceed the hard ceilings in `limits.py`. A zero device-allocation budget is valid for CPU-only subjects.
 
-The semantic kernel does not launch work. `BackendAdapterCapsule` declares backend mechanics only and contains no execute/schedule/allocate method. External adapters remain deferred and must enforce the admitted protocol budgets before any measurement occurs.
+`execute_cpu_reference` is the sole execution path. It accepts only the fixed `cpu-reference-sha256` primitive, checks exact protocol/admission/M07/probe/fixture identities before work, hashes immutable bytes in bounded 64 KiB chunks, records `time.perf_counter_ns()` durations, and checks cancellation and both protocol and first-run deadlines between chunks and iterations. It creates no processes or threads; the caller supplies a cancellation token, and a process-local lock rejects overlapping attempts. It makes no device allocation, retries or cooldown wait. A fixture mismatch produces no samples. GPU, media, 3D and provider paths report `UNSUPPORTED`; unavailable monotonic timing reports `UNAVAILABLE`.
+
+The executor has no trusted host-wide interference sensor. It records `UNKNOWN_TELEMETRY` and retains actual CPU samples as `PARTIAL`; it never promotes these samples to `VALID`. The execution receipt distinguishes a synthetic fixture from physical local execution, records zero device allocation/retries and binds the exact result digest. `BackendAdapterCapsule` remains declaration-only. External adapters and host-wide telemetry remain deferred.
 
 ## Multimodal probes
 
@@ -95,13 +98,13 @@ The acceptance bundle binds protocol and fixture record digests, full probe/resu
 
 - **40/40 technology surfaces:** BPF, SBG, EPB, ICD, AEG, CMF, UQF, FRB, MPB, COG, TPE, MEE, GPK, APK, DFM, BAC, CEF, CBD, BSE, MEM, CCM, SCM, ECC, ELF, PFF, DED, BLR, RTE, NGF, DAG, PFP, DCP, CAF, EAL, IAG, RCF, TCB, FDF, FPE and NNF.
 - **15/15 absorbed components:** Benchmark Authorization Receipt; Metric Semantics Registry; Measurement Clock Descriptor; Envelope Invalidation Dependency Map; Evidence Consumer Projection Descriptor; Evidence Purpose Descriptor; Execution Context Descriptor; Requirement Qualification Handshake; External Invalidation Reference; Authority Namespace Descriptor; Provenance Export Digest; Security Authorization Reference; Automation Origin Descriptor; External Schema Projection; Acceptance Evidence Bundle.
-- **330/330 hard invariants:** `scripts/validate_m08_invariants.py` parses the frozen planning source, checks exact contiguous numbering and section binding, verifies catalogs and resolves every invariant, surface and component proof target to an existing focused test method.
+- **330/330 hard invariants:** `iris_microbenchmark/invariants.py` stores each exact frozen line, UTF-8 SHA-256, unique proof ID, unique per-ID test target, semantic target and assertion identity. `scripts/validate_m08_invariants.py` fails closed on missing/duplicate IDs, text/digest drift, undeclared claims, orphan targets or targets without assertions. `tests/test_m08_invariants.py` runs one independently reportable proof case per ID and executes its declared semantic test target.
 - **Boundary firewall:** `scripts/validate_m08_boundaries.py` rejects provider/GPU/DCC, shell, network, database and downstream-authority imports/calls, arbitrary code execution/I/O and M09+ authority symbols.
 
-Focused suites are `tests/test_m08_protocol_safety.py`, `tests/test_m08_probes.py`, `tests/test_m08_envelopes.py`, `tests/test_m08_fingerprints.py`, `tests/test_m08_calibration.py`, `tests/test_m08_schema_migration.py` and `tests/test_m08_harness.py`. Shared test constructors are in `tests/m08_support.py`.
+Focused suites are `tests/test_m08_execution.py`, `tests/test_m08_invariants.py`, `tests/test_m08_protocol_safety.py`, `tests/test_m08_probes.py`, `tests/test_m08_envelopes.py`, `tests/test_m08_fingerprints.py`, `tests/test_m08_calibration.py`, `tests/test_m08_schema_migration.py` and `tests/test_m08_harness.py`. Shared test constructors are in `tests/m08_support.py`.
 
 ## Synthetic profile harness and deferred ports
 
 `examples/m08_domain_neutral_profiles.py` builds seven deterministic profiles, including CPU-only, a synthetic 8 GB device declaration, bounded concurrency, observed interference and unknown telemetry. Every result is tagged as synthetic semantic evidence; `physical_measurements_performed` is false. The harness does not allocate the declared device capacity, start an adapter or claim physical performance.
 
-Deferred ports are live host/device timing adapters, vendor codec/graphics/audio adapters, OS and driver telemetry, physical calibration sources, persistence/CAS, provider workflows, production resource control, quality judges, rights/security engines and release decisions. Synthetic profiles validate software semantics only.
+Deferred ports are host-wide OS/driver interference telemetry, device timing adapters, vendor codec/graphics/audio adapters, physical calibration sources, persistence/CAS, provider workflows, production resource control, quality judges, rights/security engines and release decisions. Synthetic profiles validate software semantics only.

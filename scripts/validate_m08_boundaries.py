@@ -11,7 +11,7 @@ FORBIDDEN_MODULE_ROOTS = {
     "bpy", "maya", "torch", "tensorflow", "onnxruntime", "cupy", "triton",
     "subprocess", "socket", "requests", "httpx", "urllib", "sqlite3", "sqlalchemy",
     "psycopg", "pymongo", "redis", "os", "pathlib", "importlib", "ctypes",
-    "multiprocessing", "threading", "asyncio",
+    "multiprocessing", "asyncio",
 }
 FORBIDDEN_BUILTINS = {"eval", "exec", "compile", "__import__", "open", "input"}
 FORBIDDEN_IO_CALLS = {"system", "popen", "Popen", "run", "call", "check_call", "check_output", "urlopen", "create_engine", "connect"}
@@ -40,12 +40,28 @@ def validate_boundaries() -> tuple[str, ...]:
                 names = [item.name for item in node.names]
             elif isinstance(node, ast.ImportFrom):
                 names = [node.module or ""]
+                if node.module == "threading" and any(item.name not in {"Event", "Lock"} for item in node.names):
+                    raise SystemExit(f"only threading.Event and threading.Lock are permitted in {path.relative_to(ROOT)}")
             else:
                 names = []
             for name in names:
                 root = name.split(".", 1)[0]
+                if root == "threading" and path.name != "execution.py":
+                    raise SystemExit(f"threading is permitted only for the bounded cancellation/concurrency gate in {path.relative_to(ROOT)}")
+                if root == "threading" and any(item.asname is not None for item in node.names):
+                    raise SystemExit(f"threading aliases are not permitted in {path.relative_to(ROOT)}")
                 if root in FORBIDDEN_MODULE_ROOTS or root in FORBIDDEN_IRIS_MODULES:
                     raise SystemExit(f"forbidden M08 dependency {name!r} in {path.relative_to(ROOT)}")
+                if root == "threading" and name not in {"threading"}:
+                    raise SystemExit(f"unsupported threading import {name!r} in {path.relative_to(ROOT)}")
+            if path.name == "execution.py" and isinstance(node, ast.Attribute):
+                if node.attr in {"Thread", "Timer", "ThreadPoolExecutor", "Process", "Pool", "start", "join"}:
+                    raise SystemExit(f"M08 CPU executor cannot create or manage worker threads/processes: {node.attr}")
+            if path.name == "execution.py" and isinstance(node, ast.Call):
+                func = node.func
+                if isinstance(func, ast.Attribute) and isinstance(func.value, ast.Name) and func.value.id == "threading":
+                    if func.attr not in {"Event", "Lock"}:
+                        raise SystemExit(f"unsupported threading primitive {func.attr!r} in {path.relative_to(ROOT)}")
             if isinstance(node, (ast.Name, ast.Attribute)):
                 symbol = node.id if isinstance(node, ast.Name) else node.attr
                 if symbol in FORBIDDEN_AUTHORITY_SYMBOLS:

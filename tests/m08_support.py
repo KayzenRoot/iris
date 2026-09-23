@@ -22,10 +22,10 @@ def purpose() -> EvidencePurposeDescriptor:
     )
 
 
-def binding(*, subject_id: str = "cpu-subject-01", runtime_id: str = "runtime-01", backend_id: str = "cpu-reference", backend_version: str = "1.0.0", projection: bool = False) -> M07ProvenanceBinding:
+def binding(*, subject_id: str = "cpu-subject-01", runtime_id: str = "runtime-01", backend_id: str = "cpu-reference", backend_version: str = "1.0.0", projection: bool = False, synthetic: bool = True) -> M07ProvenanceBinding:
     identity = {"subject": subject_id, "runtime": runtime_id, "backend": backend_id, "version": backend_version}
     return M07ProvenanceBinding(
-        None if projection else "genome-synthetic-01",
+        None if projection else ("genome-synthetic-01" if synthetic else "genome-cpu-reference-01"),
         subject_id,
         runtime_id,
         backend_id,
@@ -35,7 +35,7 @@ def binding(*, subject_id: str = "cpu-subject-01", runtime_id: str = "runtime-01
         content_digest(identity),
         "m07-projection-test" if projection else None,
         content_digest(identity) if projection else None,
-        True,
+        synthetic,
     )
 
 
@@ -59,7 +59,7 @@ def protocol(
     authorization_id = f"auth-{protocol_id}"
     return ProtocolDescriptor(
         protocol_id, "1.0.0", Domain.SYSTEM, operation_family, safety_class, bound,
-        (selected_metric,), SafetyBudget(max_wall_ms, 100, max_iterations, 1_000_000, 1_000_000, 64_000, 1, 0, 1_000, first_run),
+        (selected_metric,), SafetyBudget(max_wall_ms, min(100, max_wall_ms), max_iterations, 1_000_000, 1_000_000, 64_000, 1, 0, 1_000, first_run),
         "thermal-threshold", "user-cancel-token", "cooldown-v1", "interference-v1", PrivacyClass.SYNTHETIC,
         "result-schema-v1", (), selected_purpose, authorization_id, security_required,
         security_reference, None,

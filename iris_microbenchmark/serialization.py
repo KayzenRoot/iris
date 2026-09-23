@@ -93,8 +93,8 @@ def _reject_constant(value: str) -> None:
 
 
 def _trusted_registries() -> tuple[dict[str, type], dict[str, type[Enum]]]:
-    from . import calibration, contracts, enums as enum_module, envelopes, evidence, fingerprints, probes, protocols, provenance, schema, serialization
-    modules: tuple[ModuleType, ...] = (calibration, contracts, enum_module, envelopes, evidence, fingerprints, probes, protocols, provenance, schema, serialization)
+    from . import calibration, contracts, enums as enum_module, envelopes, evidence, execution, fingerprints, probes, protocols, provenance, schema, serialization
+    modules: tuple[ModuleType, ...] = (calibration, contracts, enum_module, envelopes, evidence, execution, fingerprints, probes, protocols, provenance, schema, serialization)
     records: dict[str, type] = {}
     enum_types: dict[str, type[Enum]] = {}
     for module in modules:
