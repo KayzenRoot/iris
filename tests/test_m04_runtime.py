@@ -218,6 +218,53 @@ class RuntimeAndTransportAcceptanceTests(unittest.TestCase):
         self.assertFalse(report.valid)
         self.assertIn("REVISION_INTEGRITY_OR_LIMIT", {finding.code for finding in report.findings})
 
+    def test_deterministic_resource_depth_fanout_and_sample_limits(self):
+        root = M04.EntityIR(ref=IRNodeRef(DOCUMENT_ID, "limit.root"), kind=NodeKind.ENTITY, trace=trace())
+        middle = M04.EntityIR(ref=IRNodeRef(DOCUMENT_ID, "limit.middle"), kind=NodeKind.ENTITY, trace=trace())
+        leaf = M04.EntityIR(ref=IRNodeRef(DOCUMENT_ID, "limit.leaf"), kind=NodeKind.ENTITY, trace=trace())
+        with self.assertRaises(IRLimitError):
+            M04.validate_graph(
+                (root, middle, leaf),
+                (
+                    M04.ContainmentEdge(root.ref, middle.ref, "limit.depth.root-middle"),
+                    M04.ContainmentEdge(middle.ref, leaf.ref, "limit.depth.middle-leaf"),
+                ),
+                limits=IRLimits(max_depth=1),
+            )
+        with self.assertRaises(IRLimitError):
+            M04.validate_graph(
+                (root, middle, leaf),
+                (
+                    M04.ContainmentEdge(root.ref, middle.ref, "limit.fanout.root-middle"),
+                    M04.ContainmentEdge(root.ref, leaf.ref, "limit.fanout.root-leaf"),
+                ),
+                limits=IRLimits(max_fanout=1),
+            )
+
+        revision = multimodal_revision()
+        resource_report = validate_revision(
+            revision,
+            M04.IRValidationProfile("limit.resources", "1", limits=IRLimits(max_resource_refs=1)),
+        )
+        self.assertFalse(resource_report.valid)
+
+        time_ref = revision.temporal_references[0]
+        sampling = M04.TemporalSamplingIR(
+            "sampling.limit",
+            TimeRangeIR(
+                TimePointIR(time_ref.reference_id, Fraction(0), TemporalLayer.AUTHORED),
+                TimePointIR(time_ref.reference_id, Fraction(1), TemporalLayer.AUTHORED),
+            ),
+            Fraction(1),
+            2,
+        )
+        sampled_revision = replace(revision, temporal_samplings=(sampling,))
+        sample_report = validate_revision(
+            sampled_revision,
+            M04.IRValidationProfile("limit.samples", "1", limits=IRLimits(max_temporal_samples=1)),
+        )
+        self.assertFalse(sample_report.valid)
+
     def test_tolerant_round_trip_is_unit_aware_for_camera_lengths(self):
         revision = multimodal_revision()
         profile = IREquivalenceProfile(
