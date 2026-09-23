@@ -66,7 +66,7 @@ class TopologyEdge(M07Record):
 
 @dataclass(frozen=True)
 class TopologyLinkEvidence(M07Record):
-    """Separate reported link limits/state from any separately measured bandwidth."""
+    """Reported PCIe capability and negotiated state only; measured bandwidth is M08 authority."""
 
     link_id: str
     subject_id: str
@@ -77,13 +77,11 @@ class TopologyLinkEvidence(M07Record):
     negotiated_generation: int | None
     negotiated_lane_width: int | None
     negotiated_observation: DiscoveryObservation
-    measured_bandwidth_bytes_per_second: int | None = None
-    bandwidth_observation: DiscoveryObservation | None = None
 
     def __post_init__(self) -> None:
         for field in ("link_id", "subject_id", "runtime_id"):
             object.__setattr__(self, field, require_identifier(getattr(self, field), field))
-        for field in ("maximum_generation", "maximum_lane_width", "negotiated_generation", "negotiated_lane_width", "measured_bandwidth_bytes_per_second"):
+        for field in ("maximum_generation", "maximum_lane_width", "negotiated_generation", "negotiated_lane_width"):
             value = getattr(self, field)
             if value is not None:
                 value = require_nonnegative_int(value, field)
@@ -94,17 +92,6 @@ class TopologyLinkEvidence(M07Record):
         object.__setattr__(self, "negotiated_observation", DiscoveryObservation.coerce(self.negotiated_observation, "negotiated_observation"))
         self._validate_observation(self.maximum_observation, "maximum", self.maximum_generation, self.maximum_lane_width)
         self._validate_observation(self.negotiated_observation, "negotiated", self.negotiated_generation, self.negotiated_lane_width)
-        if (self.measured_bandwidth_bytes_per_second is None) != (self.bandwidth_observation is None):
-            raise HardwareGenomeAdmissionError("measured PCIe bandwidth requires its own exact observation")
-        if self.bandwidth_observation is not None:
-            observation = DiscoveryObservation.coerce(self.bandwidth_observation, "bandwidth_observation")
-            object.__setattr__(self, "bandwidth_observation", observation)
-            if observation.fact_key != f"topology.pcie.{self.link_id}.bandwidth" or observation.unit != "byte_per_second":
-                raise HardwareGenomeIntegrityError("bandwidth evidence requires a distinct metric key and byte_per_second unit")
-            if (observation.subject.subject_id if observation.subject else None, observation.runtime.runtime_id if observation.runtime else None) != (self.subject_id, self.runtime_id):
-                raise HardwareGenomeIntegrityError("bandwidth evidence must bind the exact link subject/runtime")
-            if observation.state is not ObservationState.OBSERVED or observation.value != self.measured_bandwidth_bytes_per_second:
-                raise HardwareGenomeIntegrityError("measured bandwidth must equal its independent positive observation")
 
     def _validate_observation(self, observation: DiscoveryObservation, facet: str, generation: int | None, lanes: int | None) -> None:
         if observation.fact_key != f"topology.pcie.{self.link_id}.{facet}":
