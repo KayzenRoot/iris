@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0011",
-  "status": "ADMITTED_FOR_EXECUTION",
+  "status": "ADMISSION_REVALIDATION_REQUIRED",
   "branch": "iris-wo-0011-m07-hardware-genome",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
@@ -28,7 +28,15 @@
     "governanceJob": 107267962093,
     "governanceConclusion": "success",
     "candidateHead": "5ccd124072abbd0c919530eb07a8eda5eba7eca7",
-    "result": "PASS"
+    "result": "PASS",
+    "reconciliation": {
+      "executorPreflight": "STALE_CONTEXT",
+      "productCodeChanged": false,
+      "staleWorkOrderFingerprint": true,
+      "staleCheckpointWording": true,
+      "correction": "Work Order fingerprint and canonical checkpoint refreshed directly in PR #54; exact-head revalidation required.",
+      "result": "PENDING"
+    }
   },
   "implementation": {
     "state": "NOT_STARTED",
