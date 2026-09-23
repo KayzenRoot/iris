@@ -1,6 +1,6 @@
 # IRIS Scope
 
-Status: `M05_FUNCTIONAL_PLANNING_COMPLETE`
+Status: `M05_FINAL_TECH_REVIEW_APPROVED`
 
 ## Current governed increment — M05 planning
 
@@ -36,13 +36,15 @@ Anchor authority/lifecycle, typed multi-dimensional drift evidence, repair-vs-mu
 - deterministic `DNAPackageConformanceReport`;
 - non-executable/fail-closed supply-chain default.
 
-### Planning inventory
-- candidate hard invariants: **150**;
+### Final Technology Review
+- verdict: **APPROVED_FOR_FORWARD_COMPATIBILITY**;
 - design-history candidates: **IRIS-DNAX-001..150**;
+- consolidated freeze-candidate families: **F-M05-01..25**;
+- mapping: **150/150 exactly once, 0 missing, 0 duplicates**;
 - implementation code: **0**.
 
 ### Next governed step
-Final Technology Review, followed by M06-M60 Forward Compatibility Scan, contract freeze and independent planning audit.
+M06-M60 Forward Compatibility Scan, followed by contract freeze and independent planning audit.
 
 ### NOT ADMITTED
 - M05 implementation package;
