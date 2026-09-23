@@ -4,5 +4,5 @@
   "status": "M07_IMPLEMENTATION_ADMITTED",
   "version": "m07-contract-v1.0",
   "phase": "M07_IMPLEMENTATION_EXECUTION",
-  "nextStep": "Validate the corrected IRIS-WO-0011 admission head. If all fingerprints and Governance pass, resume M07 implementation on PR #54. Do not merge and do not start M08."
+  "nextStep": "Resume IRIS-WO-0011 implementation on PR #54 from the current remote branch head. Complete the frozen M07 kernel, tests, documentation and evidence. Do not merge and do not start M08."
 }
