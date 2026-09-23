@@ -2,8 +2,8 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0011",
   "frozenContract": "m07-contract-v1.0",
-  "status": "IMPLEMENTATION_QUALIFIED_EVIDENCE_COMMIT_PENDING",
-  "capturePhase": "implementation-head-pushed-and-governed; evidence-only commit pending",
+  "status": "READY_FOR_INDEPENDENT_AUDIT",
+  "capturePhase": "post-push update with implementation and evidence commit Governance results verified",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
   "branch": "iris-wo-0011-m07-hardware-genome",
@@ -13,7 +13,7 @@
     "url": "https://github.com/KayzenRoot/iris/pull/54",
     "stateAtCapture": "open",
     "base": "main",
-    "headAtCapture": "84cb35a52ccc263918d81a989ba267b5e050f5bc",
+    "headAtCapture": "5d54904c489899e8b26939624b0832a8c8534701",
     "merged": false
   },
   "baseHeadChain": {
@@ -21,6 +21,9 @@
     "originMainShaAtResumedPreflight": "db8a39237c26d85f62cdf02a29c29136d4d6ed63",
     "mergeBaseShaAtResumedPreflight": "db8a39237c26d85f62cdf02a29c29136d4d6ed63",
     "admittedHeadSha": "84cb35a52ccc263918d81a989ba267b5e050f5bc",
+    "implementationCommitSha": "e9729ca29eb2f2c2c69e24c0983e4b741bebe12a",
+    "evidenceUpdateCommitSha": "5d54904c489899e8b26939624b0832a8c8534701",
+    "evidenceUpdateParentSha": "e9729ca29eb2f2c2c69e24c0983e4b741bebe12a",
     "obsoleteLocalHeadDiscardedAfterCleanStatus": "c135c136947f9d47b4713d758dddb18c0366ae86",
     "implementationChangesWereAbsentBeforeSync": true
   },
@@ -204,19 +207,16 @@
   ],
   "checkpointDeltaProposed": {
     "state": "PROPOSED_ONLY_NOT_PROMOTED",
-    "proposal": "IRIS-WO-0011 M07 Hardware Genome and Runtime Discovery kernel locally qualified and exact-head GitHub Governance passed at implementation head e9729ca; 20/20 surfaces, 5/5 absorbed components and 235/235 invariant inventory; 2,834 full tests pass from 2,770 baseline; independent audit remains pending.",
+    "proposal": "IRIS-WO-0011 M07 Hardware Genome and Runtime Discovery kernel locally qualified and exact-head GitHub Governance passed at implementation head e9729ca and evidence head 5d54904; 20/20 surfaces, 5/5 absorbed components and 235/235 invariant inventory; 2,834 full tests pass from 2,770 baseline; independent audit remains pending.",
     "checkpointModified": false
   },
   "hostedExactHeadGovernance": {
-    "testedHeadSha": "e9729ca29eb2f2c2c69e24c0983e4b741bebe12a",
-    "workflowRun": 35902187532,
-    "job": 107320897576,
-    "result": "PASS",
     "pullRequest": 54,
     "baseRef": "main",
     "baseSha": "db8a39237c26d85f62cdf02a29c29136d4d6ed63",
     "admissionShaGovernanceIsNotClaimedAsImplementationGovernance": true,
-    "evidenceOnlyCommitFinalHeadGovernance": "to be verified after this evidence update is pushed"
+    "implementationHead": {"sha": "e9729ca29eb2f2c2c69e24c0983e4b741bebe12a", "workflowRun": 35902187532, "job": 107320897576, "result": "PASS"},
+    "evidenceUpdateHead": {"sha": "5d54904c489899e8b26939624b0832a8c8534701", "workflowRun": 35902454320, "job": 107321785516, "result": "PASS"}
   },
-  "stopCondition": "Implementation is locally qualified, pushed and exact-head governed; finish publishing this governance evidence, verify Governance on the final evidence commit, update PR #54, and stop before merge or M08."
+  "stopCondition": "Implementation, docs and Evidence Bundle are pushed and ready for independent audit. PR #54 remains open and unmerged; no M08 work is authorized."
 }
