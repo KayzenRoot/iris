@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0010",
-  "status": "ADMISSION_CANDIDATE",
+  "status": "ADMITTED_FOR_EXECUTION",
   "branch": "iris-wo-0010-m06-production-state",
   "frozenContract": "m06-contract-v1.0",
   "issue": 47,
@@ -15,11 +15,12 @@
   "admission": {
     "contextLock": ".engineering/context-locks/IRIS-WO-0010.json",
     "criticalSources": 16,
-    "criticalSourceFingerprintMismatches": null,
-    "governanceRun": null,
-    "governanceJob": null,
-    "governanceConclusion": "PENDING",
-    "result": "PENDING"
+    "criticalSourceFingerprintMismatches": 0,
+    "governanceRun": 35866052316,
+    "governanceJob": 107197781973,
+    "governanceConclusion": "success",
+    "candidateHead": "4c331decee73cee8658ce4816a7ca1622681ee0f",
+    "result": "PASS"
   },
   "implementation": {
     "state": "NOT_STARTED",
@@ -44,5 +45,5 @@
   "proposedCheckpointDelta": {
     "status": "NOT_PROPOSED"
   },
-  "stopCondition": "Admission only. Do not begin M06 product code until exact admission-head Governance passes and critical-source fingerprints are verified."
+  "stopCondition": "Implementation admitted. STOP after complete M06 implementation is tested, documented, evidenced, pushed and ready for independent review. Do not merge. Do not start M07."
 }
