@@ -2,7 +2,7 @@
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "M05_PLANNING_ACTIVE",
-  "version": "m05-forward-compat",
-  "phase": "M05_FORWARD_COMPAT_PASS_CONTRACT_FREEZE_NEXT",
-  "nextStep": "Prepare the M05 contract freeze candidate (`m05-contract-v1.0`) from S01-S05, `F-M05-01..25`, and the M06-M60 Forward Compatibility Scan. Then run an independent planning audit. Do not implement M05."
+  "version": "m05-contract-v1.0",
+  "phase": "M05_CONTRACT_FREEZE_CANDIDATE_AUDIT_NEXT",
+  "nextStep": "Run the independent M05 planning audit against the exact `m05-contract-v1.0` freeze-candidate head. Audit 150 invariants, 25 consolidated families, 22 extension/ref ports, authority shields, planning-only diff and Governance evidence. Do not implement M05."
 }
