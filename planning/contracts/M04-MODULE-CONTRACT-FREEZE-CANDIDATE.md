@@ -704,7 +704,7 @@ Any semantic change after freeze requires versioned M04 contract amendment + ren
 - Reviewed semantic/planning head: `86a75307c7e50b47702ed2fede74a92ca6ea5e5a`
 - Governance: `35681272803 / 106598537403` — PASS
 - Full suite: `2527/2527 OK`
-- Planning findings: 2 CHAT_FIXABLE / both CLOSED
+- Planning findings: 4 CHAT_FIXABLE / all CLOSED
 - HIGH/CRITICAL blockers: 0
 - Product/kernel implementation: not started
 - M16 concrete Provider Compiler boundary: preserved
