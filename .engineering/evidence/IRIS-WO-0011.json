@@ -13,7 +13,7 @@
     "url": "https://github.com/KayzenRoot/iris/pull/54",
     "stateAtCapture": "open",
     "base": "main",
-    "headAtCapture": "5d54904c489899e8b26939624b0832a8c8534701",
+    "headAtCapture": "57c5cdc1e53f0e5bd9885d7f5dd20df21062d6ac",
     "merged": false
   },
   "baseHeadChain": {
@@ -24,6 +24,8 @@
     "implementationCommitSha": "e9729ca29eb2f2c2c69e24c0983e4b741bebe12a",
     "evidenceUpdateCommitSha": "5d54904c489899e8b26939624b0832a8c8534701",
     "evidenceUpdateParentSha": "e9729ca29eb2f2c2c69e24c0983e4b741bebe12a",
+    "documentationAndSliceEvidenceCommitSha": "57c5cdc1e53f0e5bd9885d7f5dd20df21062d6ac",
+    "documentationEvidenceParentSha": "d12fb946166cc69c686f7a8446b27ce2776bdf57",
     "obsoleteLocalHeadDiscardedAfterCleanStatus": "c135c136947f9d47b4713d758dddb18c0366ae86",
     "implementationChangesWereAbsentBeforeSync": true
   },
@@ -225,7 +227,7 @@
     "admissionShaGovernanceIsNotClaimedAsImplementationGovernance": true,
     "implementationHead": {"sha": "e9729ca29eb2f2c2c69e24c0983e4b741bebe12a", "workflowRun": 35902187532, "job": 107320897576, "result": "PASS"},
     "evidenceUpdateHead": {"sha": "5d54904c489899e8b26939624b0832a8c8534701", "workflowRun": 35902454320, "job": 107321785516, "result": "PASS"},
-    "latestVerifiedHeadAtEvidenceRevision": {"sha": "d12fb946166cc69c686f7a8446b27ce2776bdf57", "workflowRun": 35902826218, "job": 107323026812, "result": "PASS"}
+    "latestVerifiedHeadAtEvidenceRevision": {"sha": "57c5cdc1e53f0e5bd9885d7f5dd20df21062d6ac", "workflowRun": 35903131630, "job": 107324040867, "result": "PASS"}
   },
   "stopCondition": "Implementation, docs and Evidence Bundle are pushed and ready for independent audit. PR #54 remains open and unmerged; no M08 work is authorized."
 }
