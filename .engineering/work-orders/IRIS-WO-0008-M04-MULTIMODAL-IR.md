@@ -1,6 +1,6 @@
 # IRIS-WO-0008 — Implement M04 Multimodal IR / Scene IR
 
-Status: `ADMISSION_RECOMPILED_PENDING_VALIDATION`
+Status: `ADMITTED_FOR_EXECUTION`
 Risk: `ELEVATED`
 Issue: `#30`
 Branch: `iris-wo-0008-m04-multimodal-ir-r2`
