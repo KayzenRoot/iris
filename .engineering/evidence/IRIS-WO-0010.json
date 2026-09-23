@@ -1,7 +1,7 @@
 {
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0010",
-  "status": "ADMISSION_RECONCILIATION_CANDIDATE",
+  "status": "ADMITTED_FOR_EXECUTION",
   "branch": "iris-wo-0010-m06-production-state",
   "frozenContract": "m06-contract-v1.0",
   "issue": 47,
@@ -22,9 +22,10 @@
     "candidateHead": "4c331decee73cee8658ce4816a7ca1622681ee0f",
     "result": "PASS",
     "reconciliation": "Canonical Scope/Architecture/Checkpoint stale-state wording repaired after executor preflight; frozen contract/scope unchanged. Context Lock fingerprints refreshed; exact-head Governance revalidation required.",
-    "revalidationGovernanceRun": null,
-    "revalidationGovernanceJob": null,
-    "revalidationResult": "PENDING"
+    "revalidationGovernanceRun": 35868355292,
+    "revalidationGovernanceJob": 107205629591,
+    "revalidationResult": "PASS",
+    "reconciledHead": "82b2a9ed08310895899270423f7296cda5e404a4"
   },
   "implementation": {
     "state": "NOT_STARTED",
@@ -49,5 +50,5 @@
   "proposedCheckpointDelta": {
     "status": "NOT_PROPOSED"
   },
-  "stopCondition": "Do not implement until reconciled exact-head Governance passes. Then execute complete M06 and stop ready for independent review; do not merge or start M07."
+  "stopCondition": "Implementation admitted after canonical-state reconciliation. Execute complete M06 and stop ready for independent review; do not merge or start M07."
 }
