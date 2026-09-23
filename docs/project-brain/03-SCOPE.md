@@ -1,24 +1,22 @@
 # IRIS Scope
 
-Status: `DISCOVERY_ACTIVE`
+Status: `M04_PLANNING_APPROVED_PENDING_MERGE`
 
-## Current admitted increment — M04 planning
+## Current admitted increment — M04 planning promotion
 
 ### NECESSARY
-- governed S01-S05 planning for M04 — Multimodal IR / Scene IR;
-- Scene, Character and Asset IR contract design;
-- Camera, Lighting, Material and Spatial IR contract design;
-- Motion, Audio, Music and Narrative IR representation boundaries;
-- semantic lowering from admitted M03 intent into detailed provider-neutral IR;
-- IR validation, versioning, compatibility and round-trip guarantees;
-- explicit preservation of M01 quality authority, M02 Project OS/graph/release/ExecutionPlan authority and M03 brief/intent/constraint authority;
-- resolve the M04 S04 / M16 Provider Compiler ownership overlap without embedding provider runtime details into M04;
-- proprietary-technology registry and prior-art review;
-- forward compatibility scan against M05-M60;
-- frozen M04 module contract before implementation admission.
+- preserve the completed S01-S05 M04 planning package;
+- preserve Final Technology Review `APPROVED_FOR_FORWARD_COMPATIBILITY`;
+- preserve M05-M60 scan `PASS_WITH_EXTENSION_PORTS`;
+- preserve frozen contract `m04-contract-v1.0`;
+- preserve M16 as sole concrete Provider Compiler owner;
+- pass exact-head Governance for the promotion delta;
+- squash-merge PR #27 through `main-governance`;
+- validate the resulting exact `main` before admitting M04 implementation;
+- only after that validation, compile a separate bounded M04 implementation Work Order / Context Lock / Evidence package.
 
 ### OUT OF SCOPE FOR THIS INCREMENT
-- M04 product implementation;
+- M04 product implementation before planning merge + exact-main validation + separate implementation admission;
 - concrete provider/model prompt/workflow compilation;
 - Blender/ComfyUI/Maya/DCC execution;
 - model downloads, training or media generation;

@@ -63,7 +63,7 @@ No module is implemented merely because it appears in this index.
 - S01 — S01 Scene, Character and Asset IR
 - S02 — S02 Camera, Lighting, Material and Spatial IR
 - S03 — S03 Motion, Audio, Music and Narrative IR
-- S04 — S04 Provider Compiler and capability downgrade planning
+- S04 — S04 Representation Capability & Semantic Lowering (concrete Provider Compiler remains M16)
 - S05 — S05 IR validation, versioning and round-trip guarantees
 
 ### M05 — Asset DNA 2.0 & Cross-Modal Identity
