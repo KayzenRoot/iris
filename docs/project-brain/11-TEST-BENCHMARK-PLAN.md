@@ -31,4 +31,4 @@ The pre-M04 implementation baseline was 2527 tests. The reviewed M04 state adds 
 - no provider/DCC/network/shell/database runtime dependency.
 
 ## Next-module rule
-M05 planning starts from the 2677-test exact-main baseline. S01 defines future proof obligations around persistent identity, immutable DNA revisioning, trait criticality/mutability, canonical/evidence separation, anchor integrity, fail-closed schema handling and anti-auto-merge identity safety. Concrete M05 implementation tests are not admitted until contract freeze.
+M05 planning starts from the 2677-test exact-main baseline. S01-S02 define future proof obligations around persistent identity, immutable DNA revisioning, trait criticality/mutability, canonical/evidence separation, CLASS/ARCHETYPE/INDIVIDUAL/VARIANT separation, family-profile reuse, component identity stability, persistent/contextual appearance separation, product identity levels, environment-vs-SceneIR authority, fail-closed family extensions and anti-auto-merge identity safety. Concrete M05 implementation tests are not admitted until contract freeze.
