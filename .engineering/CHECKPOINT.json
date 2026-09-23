@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M07_PLANNING_MERGED_MAIN_VALIDATED",
+  "status": "M07_IMPLEMENTATION_ADMITTED",
   "version": "m07-contract-v1.0",
-  "phase": "M07_PLANNING_POST_MERGE_RECONCILIATION",
-  "nextStep": "Review and merge this M07 planning post-merge reconciliation. After exact-main validation, compile and admit a separate bounded M07 implementation Work Order, Context Lock and Evidence package against frozen contract m07-contract-v1.0. Do not implement M08+."
+  "phase": "M07_IMPLEMENTATION_EXECUTION",
+  "nextStep": "Validate the corrected IRIS-WO-0011 admission head. If all fingerprints and Governance pass, resume M07 implementation on PR #54. Do not merge and do not start M08."
 }
