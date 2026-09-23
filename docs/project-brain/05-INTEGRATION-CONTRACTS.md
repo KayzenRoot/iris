@@ -19,7 +19,7 @@ Project governance/adoption profile is pinned to the stable release; GEF workspa
 - M04 exposes frozen provider-neutral Multimodal IR / Scene IR contracts through `m04-contract-v1.0`.
 - M04 consumes M01/M02/M03 boundaries without superseding them.
 - M16 is the sole owner of concrete provider/workflow compilation; M04 emits provider-neutral capability/legality/lowering contracts only.
-- M05 S01-S03 define persistent DNA identity/family profiles plus revision-pinned cross-modal links. M30 owns MotionDNA, M40 owns VoiceDNA, M46 owns BrandDNA, and M45 owns Campaign DNA/advertising. SceneIdentityDNA remains distinct from M04 SceneIR and M43 Canon. M05 implementation remains unadmitted.
+- M05 S01-S04 define persistent DNA identity/family profiles, revision-pinned cross-modal links, anchor authority, mutation boundaries and drift semantics. M01 keeps quality/evaluator authority; M37 keeps temporal continuity QA; M39 keeps digital-human/persona production continuity while binding to the M05 generic identity root; M53/M54 keep provenance/rights/consent/security authority. M05 implementation remains unadmitted.
 - M06+ persistence, DCC/runtime, rendering, editorial, audio/music/story, rights/security and delivery remain extension/ref boundaries until their owning modules are admitted.
 
 ## CORE
