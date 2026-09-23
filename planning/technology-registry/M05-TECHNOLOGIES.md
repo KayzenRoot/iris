@@ -1,7 +1,7 @@
 # M05 Technology Registry
 
 Module: `M05 — Asset DNA 2.0 & Cross-Modal Identity`
-Status: `S02_ACTIVE_REGISTRY`
+Status: `S03_ACTIVE_REGISTRY`
 Rule: IRIS technology names are design candidates. They are not novelty, patentability or legal claims until dedicated review.
 
 ## External prior-art references
@@ -222,5 +222,108 @@ Typed findings for class/individual collapse, component churn and contextual-sta
 `IRIS-DNAX-031..060` are `DESIGN_HISTORY_CANDIDATES`.
 
 Together with S01, M05 now has `IRIS-DNAX-001..060` design-history candidates.
+
+No candidate is frozen until S01-S05, consolidation, forward compatibility, Final Technology Review and independent planning audit complete.
+
+
+## S03 cross-modal link candidates
+
+## IRIS-DNAX-061 — Domain DNA Link Fabric
+Version-pinned owner/family/revision references without importing external domain ownership.
+
+## IRIS-DNAX-062 — Scene Identity DNA
+Persistent reusable scene/set composition identity distinct from SceneIR and Canon.
+
+## IRIS-DNAX-063 — Identity Role Slot
+Stable semantic member slots with family constraints and governed substitution.
+
+## IRIS-DNAX-064 — Scene Member Continuity Mesh
+Persistent member/landmark relations that survive representation changes.
+
+## IRIS-DNAX-065 — Motion DNA Link
+M30-owned MotionDNA binding to M05 identity with body/component preservation obligations.
+
+## IRIS-DNAX-066 — Motion Context Firewall
+Prevents clips, current pose, mocap payloads and provider rigs from becoming persistent DNA identity.
+
+## IRIS-DNAX-067 — Motion Signature Binding
+Versioned identity-relevant motion-style refs without owning motion production.
+
+## IRIS-DNAX-068 — Voice DNA Link
+M40-owned VoiceDNA binding with revision, role, consent and cross-language persistence refs.
+
+## IRIS-DNAX-069 — Voice Provider Firewall
+Provider/model voice IDs, weights and synthesis params cannot become persona identity.
+
+## IRIS-DNAX-070 — Voice Privacy Minifier
+Identity link uses minimum necessary voice refs while sensitive biometric evidence stays external.
+
+## IRIS-DNAX-071 — Cross-Language Voice Continuity Contract
+Links one voice identity across language/dubbing variants without equating audio outputs.
+
+## IRIS-DNAX-072 — Brand DNA Link
+M46-owned BrandDNA association with explicit role, revision and subject binding.
+
+## IRIS-DNAX-073 — Campaign / Brand Firewall
+Separates M45 Campaign DNA/Creative Genome from M46 BrandDNA.
+
+## IRIS-DNAX-074 — Brand Association Mutability Gate
+Brand relation changes obey subject-specific identity criticality rather than universal assumptions.
+
+## IRIS-DNAX-075 — Cross-Modal Identity Binding
+Binds M05 revision, external domain DNA revisions and representation anchors.
+
+## IRIS-DNAX-076 — Cross-Modal Obligation Matrix
+Typed required/optional coherence obligations across participating identities/modalities.
+
+## IRIS-DNAX-077 — Domain Link Freshness Sentinel
+Detects stale pinned external DNA revisions and prevents silent follow-latest.
+
+## IRIS-DNAX-078 — Domain Compatibility Claim
+External-domain compatibility evidence remains explicit and cannot self-promote a new M05 revision.
+
+## IRIS-DNAX-079 — Cross-Modal DNA Graph
+Typed identity-link graph separate from Production Graph, Scene Graph and Canon Graph.
+
+## IRIS-DNAX-080 — Ownership Edge Firewall
+Graph edges express linkage only and cannot imply authority transfer.
+
+## IRIS-DNAX-081 — Required Link Preservation Gate
+Missing mandatory domain links fail closed during projection/binding.
+
+## IRIS-DNAX-082 — Link Scope Envelope
+Time/use/role/context validity bounds for domain DNA associations.
+
+## IRIS-DNAX-083 — External DNA Revision Pin
+Explicit family/version/revision coordinates for deterministic identity bindings.
+
+## IRIS-DNAX-084 — Generic Future DNA Port
+Versioned extension point for M41 MusicDNA/ArtistDNA, M45 CampaignDNA and future domain families.
+
+## IRIS-DNAX-085 — Scene Substitution Policy
+Determines which role/member substitutions preserve reusable SceneIdentityDNA.
+
+## IRIS-DNAX-086 — Scene / Canon Firewall
+Prevents M05 reusable scene identity from becoming M43 narrative truth.
+
+## IRIS-DNAX-087 — Scene / Representation Firewall
+Prevents one M04 SceneIR snapshot from becoming persistent scene identity.
+
+## IRIS-DNAX-088 — Evidence Owner Routing
+Cross-modal obligation points to the proper evaluator/quality owner rather than M05 self-judgment.
+
+## IRIS-DNAX-089 — Domain Link Change Surface
+Deterministic report of added/removed/stale/rebound cross-modal identity links.
+
+## IRIS-DNAX-090 — Cross-Modal Identity Threat Radar
+Findings for stale links, authority leakage, campaign/brand confusion and modality-ID spoofing.
+
+---
+
+## S03 registry disposition
+
+`IRIS-DNAX-061..090` are `DESIGN_HISTORY_CANDIDATES`.
+
+M05 now records `IRIS-DNAX-001..090` design-history candidates across S01-S03.
 
 No candidate is frozen until S01-S05, consolidation, forward compatibility, Final Technology Review and independent planning audit complete.
