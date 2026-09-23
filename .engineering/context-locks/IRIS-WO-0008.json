@@ -5,7 +5,7 @@
   "branch": "iris-wo-0008-m04-multimodal-ir",
   "baseSha": "bb875a958a88a844bfa62cdfec694fe148590a41",
   "baseTreeSha": "f6b481533e4f54000cae7c64660cadf6d5d1853a",
-  "status": "ADMISSION_PENDING_GOVERNANCE",
+  "status": "EXECUTOR_READY",
   "risk": "ELEVATED",
   "frozenContract": {
     "name": "m04-contract-v1.0",
@@ -29,7 +29,7 @@
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0008-M04-MULTIMODAL-IR.md",
-      "sha": "2b39a1117cb16694f175b1d5fe1f22b2be2d3746"
+      "sha": "e3feb9477d75d31d23812c7995b5a3a2ef1771b6"
     },
     {
       "path": "docs/project-brain/02-REQUIREMENTS.md",
@@ -37,7 +37,7 @@
     },
     {
       "path": "docs/project-brain/03-SCOPE.md",
-      "sha": "469d0aa666fe434f0530ec0641e1237b7ed0cb88"
+      "sha": "2d503d89ff33304c57cce148ee0a296751ad2a56"
     },
     {
       "path": "docs/project-brain/04-ARCHITECTURE.md",
@@ -45,7 +45,7 @@
     },
     {
       "path": "docs/project-brain/13-CHECKPOINT.md",
-      "sha": "5a4e98ca65126c2813fefe57da39c173d98025ce"
+      "sha": "bca8db1b52b917e492c5882ee7579513f535ec75"
     },
     {
       "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
@@ -134,5 +134,14 @@
       "version": "1.0.0",
       "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
     }
+  },
+  "admissionValidation": {
+    "candidateHead": "1339a8ae1d39e787d51f719b5004b9bcf4c859f2",
+    "governanceRun": 35802899954,
+    "governanceJob": 106997061796,
+    "tests": 2527,
+    "requiredArtifacts": 35,
+    "conclusion": "success",
+    "finalExecutorReadyGovernance": "REQUIRED_ON_CURRENT_HEAD"
   }
 }
