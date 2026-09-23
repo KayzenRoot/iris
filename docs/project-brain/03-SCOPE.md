@@ -20,7 +20,7 @@ Anchor authority/lifecycle, typed multi-dimensional drift evidence, repair-vs-mu
 
 ### S05
 - semantic DNA lineage separate from M02 branches;
-- M06 production-versioning firewall;
+- M02 semantic build/version lifecycle plus M06 operational persistence/reconstruction firewall;
 - directional multi-axis `DNACompatibilityProfile`;
 - explicit `DNAMigrationPlan` with preservation/loss/defaults;
 - `ReusableDNAPackageManifest`;
