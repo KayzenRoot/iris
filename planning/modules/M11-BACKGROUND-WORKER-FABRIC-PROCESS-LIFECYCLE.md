@@ -1,6 +1,6 @@
 # M11 — Background Worker Fabric & Process Lifecycle
 
-Status: S01_COMPLETE_FOR_MODULE_PLANNING; S02_PROPOSED_COMPLETE_PENDING_GOVERNANCE
+Status: S01_S02_COMPLETE_FOR_MODULE_PLANNING
 Contract: NOT_FROZEN
 Planning issue: #82
 Planning Work Order: IRIS-WO-0015
@@ -9,7 +9,7 @@ Implementation authority: NOT_ADMITTED
 
 ## Purpose
 
-This file is the session map for the admitted M11 planning lifecycle. It is not an owner contract, implementation specification, technology decision, process policy, or authorization to launch or control workers. S01 is COMPLETE_FOR_MODULE_PLANNING; S02–S05 remain NOT_STARTED. No M11 contract is frozen by this document.
+This file is the session map for the admitted M11 planning lifecycle. It is not an owner contract, implementation specification, technology decision, process policy, or authorization to launch or control workers. S01 and S02 are COMPLETE_FOR_MODULE_PLANNING; S03–S05 remain NOT_STARTED. No M11 contract is frozen by this document.
 
 M11 is expected to plan the background worker and operating-system process lifecycle required by IRIS. Product requirements PR-005, PR-006, PR-008 and PR-009 establish the planning context: Blender headless/background automation, a structured control surface without mandatory live GUI, managed worker lifecycle/concurrency/cancellation/cleanup/orphan detection, and configurable workstation CPU/RAM/VRAM headroom. Their concrete semantics remain to be planned and assigned to owners.
 
@@ -34,10 +34,8 @@ Plan supervisor and job identity/lifecycle roles, process ownership boundaries, 
 Research record: planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md. S01 closed for module planning through PR #85 exact head 819b184cef722a945391d96b75edeb1f74f47c99 (Governance 36065623865 / 107854567970, PASS), squash merge 8ea0871668fc182d0f0a829bee352e03a0ec7ce4, and exact-main Governance 36065770189 / 107855048099 (PASS). No architecture, identity schema, M11 contract, or implementation is selected.
 
 ### S02 — Headless/background worker startup and IPC
-Status: PROPOSED_COMPLETE_PENDING_GOVERNANCE
-Research: planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md
-
-Compare Blender background startup, direct subprocess pipes, MCP stdio and Streamable HTTP, Unix domain sockets and Windows named pipes. Preserve the distinction between structured MCP control and the M11 worker fabric. Record startup authority, readiness/registration, identity, framing, access control and failure handling as unresolved; no transport or permission model is selected. Keep M02/M06/M09/M10 authority and mark M12–M60 owner-specific details PENDING until their contracts exist. This is documentation only; no process or IPC endpoint was operated.
+Status: COMPLETE_FOR_MODULE_PLANNING
+Research record: planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md. PR #87 exact head 78893daec68aabe3bb23836a4429017f13e97f30 passed Governance 36068426412 / 107863497210 (3940/3940 tests), was protected squash-merged as b090ae68bac23be2261932e75549b3ea255990ec, and passed exact-main Governance 36068660747 / 107864233622 (3940/3940 tests; actor: KayzenRoot). S02 compares startup and IPC candidates without selecting a transport, handshake or permission model. The exact-base Context Lock matched 63/63 critical source fingerprints; the post-authoring audit found 0 HIGH and 0 CRITICAL findings. No M11 contract or implementation is admitted.
 ### S03 — Concurrency limits, priorities and resource leases
 Status: NOT_STARTED
 
