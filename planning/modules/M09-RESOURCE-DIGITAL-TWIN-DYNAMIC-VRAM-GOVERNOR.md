@@ -210,3 +210,210 @@ S01 may advance to S02 planning only when:
 
 ## STOP CONDITION
 Stop at S01 planning. Do not implement M09. Do not deep-plan S02 until S01 receives independent review.
+
+
+# S02 — VRAM leases, reservations and model residency
+
+Status: `S02_PLANNING_CANDIDATE`
+S01 audit: `APPROVED` at `d166781af7c3829e8101b385ed77ee062eac8537`
+
+## S02 objective
+Turn S01 resource claims into bounded, auditable VRAM/RAM resource leases and residency state without becoming the M10 workload scheduler or M11 process supervisor. S02 owns admission/arbitration of resource commitments on a target resource and the semantic lifecycle of residency.
+
+## S02 technology surfaces
+
+### RLG-01 — Lease Grant Fabric
+Creates immutable lease grants from authorized claims only when capacity truth, freshness, headroom and conflict predicates permit commitment.
+
+### RLG-02 — Reservation Intent Queue
+Represents pending hard/soft reservation intents with stable identity, priority class supplied by policy input, deadlines and causal request refs. Queue semantics do not select workload execution order for M10.
+
+### RLG-03 — Lease Token & Epoch Protocol
+Every grant carries opaque lease identity, resource scope, quantity, epoch, validity window and owner principal. Stale epochs cannot mutate current commitment state.
+
+### RLG-04 — Atomic Capacity Committer
+Reservation-to-commit transitions are atomic at the M09 semantic boundary, preventing double grants under concurrent admission.
+
+### RLG-05 — Model Residency Registry
+Tracks model/component residency as explicit NONE / LOADING / RESIDENT / PARTIAL / EVICTING / EVICTED / UNKNOWN state with resource, lease, revision and evidence refs.
+
+### RLG-06 — Residency Identity Binder
+Binds resident material to exact model/artifact identity and revision without declaring model quality/fitness or taking M55 storage identity authority.
+
+### RLG-07 — Shared Residency Refcounter
+Supports safe shared residency across compatible consumers through ownership/ref semantics. A consumer release cannot evict residency still held by another valid owner.
+
+### RLG-08 — Lease Renewal Gate
+Renewal revalidates freshness, capacity, headroom, ownership and policy instead of silently extending stale grants.
+
+### RLG-09 — Lease Expiry & Tombstone Ledger
+Expired/revoked/released leases remain auditable tombstones so identifiers cannot be ambiguously reused.
+
+### RLG-10 — Anti-Overcommit Firewall
+Hard commitments cannot exceed conservative allocatable capacity after protected headroom and uncertainty deductions unless a later explicitly versioned overcommit policy is separately authorized.
+
+### RLG-11 — Fairness & Starvation Evidence Fabric
+Records wait age, denial reasons and repeated displacement so starvation is visible and machine-checkable. S02 exposes evidence; cross-workload scheduling remains M10.
+
+### RLG-12 — Priority Inversion Sentinel
+Detects resource-priority inversion conditions and emits evidence/required-replan signals without reordering M10 execution plans itself.
+
+### RLG-13 — Lease Preemption Contract
+Defines whether a lease is non-preemptible, cooperative-preemptible or revocable, with explicit authorization and grace semantics. It never kills a worker or unrelated process.
+
+### RLG-14 — Residency Compatibility Matrix
+Determines whether residency can be shared based on exact artifact/revision/runtime/device/precision-layout compatibility. Compatibility is resource reuse semantics, not M14 fitness.
+
+### RLG-15 — Fragmentation Evidence Mapper
+Represents allocatable-vs-contiguous/segment uncertainty and fragmentation evidence when providers expose it. Missing fragmentation telemetry remains UNKNOWN.
+
+### RLG-16 — Warm Residency Hint Channel
+Exports versioned residency/warmth hints to M10/M13 consumers without converting warmth into execution or provider-selection authority.
+
+### RLG-17 — Lease Authorization Binder
+Every lease mutation binds actor/automation identity, permission reference and causal request. Automation receives no broader authority than interactive actors.
+
+### RLG-18 — Orphan Lease Reconciler
+Detects lease ownership that can no longer be proven and quarantines/reconciles it through bounded policy. It does not inspect/kill processes as M11.
+
+### RLG-19 — Residency Transition Journal
+Append-oriented causal journal for load/resident/partial/evict transitions, preserving failure and rollback evidence.
+
+### RLG-20 — Commitment Idempotency Shield
+Idempotency keys and causal identities prevent retry storms from multiplying reservations, grants, releases or residency mutations.
+
+## S02 hard invariants
+91. A lease can be granted only from an explicit authorized resource claim.
+92. Lease grant records resource identity, quantity/unit, owner, epoch and validity.
+93. Lease identifiers are globally unambiguous within their authority namespace.
+94. Expired lease IDs cannot be silently reused for a different commitment.
+95. Hard lease admission uses conservative allocatable capacity after protected headroom.
+96. Hard commitments cannot silently exceed conservative allocatable capacity.
+97. Unknown capacity cannot authorize a hard lease.
+98. Stale capacity cannot authorize a fresh-only hard lease.
+99. Conflicted/quarantined capacity cannot authorize a lease.
+100. Lease grant is atomic relative to competing grants on the same commitment domain.
+101. Concurrent admission cannot double-spend the same capacity.
+102. Failed grant attempts do not mutate committed capacity.
+103. Reservation intent is distinct from granted lease.
+104. Soft reservation is distinct from hard commitment.
+105. Pending reservation is not counted as resident memory.
+106. Lease renewal is an explicit transition.
+107. Renewal revalidates current resource evidence.
+108. Renewal cannot bypass operator headroom.
+109. Renewal cannot extend a revoked authorization.
+110. Stale lease epochs cannot mutate current state.
+111. Release is idempotent.
+112. Duplicate release cannot increase available capacity twice.
+113. Revocation is distinct from release and expiry.
+114. Revocation records authority and reason.
+115. Expiry records a durable tombstone.
+116. Lease lifecycle remains auditable after release/expiry/revocation.
+117. Model residency state is explicit and typed.
+118. LOADING is not equivalent to RESIDENT.
+119. PARTIAL is not equivalent to RESIDENT.
+120. UNKNOWN residency cannot masquerade as RESIDENT.
+121. Residency binds exact artifact/model identity and revision.
+122. Residency identity does not claim M14 empirical model fitness.
+123. Residency identity does not replace M55 physical storage/CAS identity.
+124. Residency binds target device/resource context.
+125. Cross-device residency cannot be inferred from one device.
+126. Shared residency requires explicit compatibility.
+127. Shared residency requires ownership/reference accounting.
+128. One consumer release cannot evict another consumer's valid residency.
+129. Reference count cannot become negative.
+130. Orphan references enter reconciliation/quarantine.
+131. Orphan reconciliation cannot fabricate a live owner.
+132. M09 cannot kill a worker to resolve an orphan lease.
+133. M09 cannot kill/suspend unrelated processes for residency.
+134. Preemption class is explicit per lease.
+135. Non-preemptible leases cannot be silently revoked for convenience.
+136. Cooperative preemption requires a bounded grace contract.
+137. Lease preemption cannot directly implement M11 process termination.
+138. Preemption evidence can request M10 replan but cannot compile that plan.
+139. Priority input is explicit and provenance-bound.
+140. S02 cannot invent business/workload priority absent authorized policy input.
+141. Fairness evidence records wait age and denial causes.
+142. Starvation evidence is not itself permission to violate capacity safety.
+143. Priority inversion evidence is explicit.
+144. S02 cannot reorder M10 workload execution as a hidden scheduler.
+145. Residency warmth is a hint, not provider/model selection authority.
+146. Warmth cannot override M01 quality policy.
+147. Warmth cannot override M14 empirical fitness.
+148. Compatibility requires exact declared artifact/revision semantics.
+149. Unknown compatibility fails closed for sharing.
+150. Precision/layout compatibility is explicit.
+151. S02 cannot silently change precision to fit memory.
+152. Precision changes remain S04/M10 governed decisions with quality constraints.
+153. Fragmentation evidence remains separate from total free capacity.
+154. Unknown fragmentation cannot be fabricated as contiguous capacity.
+155. Provider-specific allocator facts remain extension evidence.
+156. Lease mutation requires actor/automation authorization reference.
+157. Automation cannot receive implicit elevated lease authority.
+158. Idempotency identity is required for retryable commitment mutations.
+159. Duplicate grant request with same idempotency identity cannot multiply commitment.
+160. Conflicting reuse of an idempotency identity fails closed.
+161. Residency transitions are append-auditable.
+162. Failed residency transition remains recorded as failure evidence.
+163. Residency journal cannot rewrite historical transitions.
+164. Lease/residency state exports are versioned.
+165. Unknown mandatory lease schema semantics fail closed.
+166. Older readers cannot silently ignore unknown mandatory lease semantics.
+167. M07 hardware facts remain referenced, not mutated.
+168. M08 envelopes may constrain admission but are not reauthored by M09.
+169. M09 lease state does not become M06 production identity.
+170. Material lease/residency effects on reproducibility require explicit M06 materiality reference.
+171. M10 retains workload-plan and predictive OOM authority.
+172. M11 retains process/worker lifecycle authority.
+173. M12 retains compute placement authority.
+174. M14 retains model fitness authority.
+175. M55 retains physical storage/cache authority.
+176. M56 retains observability aggregation authority.
+177. Scarcity denial cannot silently lower M01 quality.
+178. Scarcity denial cannot silently weaken M03 semantics.
+179. 8 GB VRAM devices use the same safety semantics as larger devices.
+180. Small devices cannot be rejected solely because they require tighter lease sizing.
+181. Multi-GPU leases remain per-resource unless an explicit composite claim is declared.
+182. Composite claims preserve each member resource identity and quantity.
+183. A composite grant fails atomically if its required hard members cannot be committed.
+184. Partial composite grant cannot masquerade as complete.
+185. Reservation deadlines use explicit clock semantics.
+186. Clock uncertainty/skew material to expiry remains represented.
+187. Lease validity cannot depend on wall-clock text parsing alone.
+188. Every S02 acceptance proof identifies exact invariant IDs.
+189. Shared proof targets explicitly enumerate claimed S02 invariant IDs.
+190. Missing/orphan/duplicate S02 proof mappings fail validation.
+
+## Required S02 proof classes
+- concurrent atomic grant/double-spend prevention;
+- idempotent grant/release/retry;
+- expiry/revocation/renewal epoch behavior;
+- headroom and unknown/stale/conflicted denial;
+- residency lifecycle and exact identity binding;
+- shared residency/reference safety;
+- orphan/preemption safety without process control;
+- fairness/starvation/priority-inversion evidence;
+- fragmentation and compatibility fail-closed behavior;
+- multi-GPU/composite atomicity;
+- cross-module authority firewall;
+- invariant-to-proof integrity.
+
+## S02 risks
+- Lease logic can accidentally become a scheduler. Mitigation: M09 admits resource claims; M10 owns workload ordering/plans.
+- Provider allocators may report misleading free/fragmented capacity. Mitigation: conservative truth partition plus explicit UNKNOWN fragmentation.
+- Shared model residency can cause use-after-evict behavior. Mitigation: exact compatibility + owner refs + atomic release semantics.
+- Aggressive preemption can damage active work. Mitigation: explicit preemption classes and M11 process boundary.
+- Retry storms can multiply commitments. Mitigation: idempotency shield and epoch protocol.
+
+## S02 acceptance gate
+S02 may advance to S03 planning only when:
+- S01 remains unchanged except additive clarification;
+- all 20 S02 surfaces and invariants 91-190 are explicit;
+- lease/residency semantics remain distinct from M10 scheduling and M11 process control;
+- no hidden precision/quality degradation is authorized;
+- concurrent/idempotent/composite commitment behavior is proofable;
+- no implementation code is introduced;
+- independent review reports zero unresolved HIGH/CRITICAL findings.
+
+## STOP CONDITION
+Stop at S02 planning. Do not implement M09. Do not deep-plan S03 until S02 receives independent review.
