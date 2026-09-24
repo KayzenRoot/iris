@@ -17,12 +17,18 @@
   },
   "gitChain": {
     "proposalBase": "873053d24d9e28f5ff9b186914fa3de7caf749de",
-    "proposalHead": "16c00bb8e704c24151d7fe6a3ac6a8d2f9f24976",
+    "proposalHead": "f84ca2e00162a7869e31efcb217a962c1aa6ec2b",
     "implementationBase": null,
     "implementationHead": null,
     "implementationPullRequest": null,
-    "mergedMain": null,
-    "exactMainGovernance": null
+    "mergedMain": "26c891fd53ac24e1e32b4ae84e162ea029f69366",
+    "exactMainGovernance": {
+      "runId": 36059177560,
+      "jobId": 107833630952,
+      "headSha": "26c891fd53ac24e1e32b4ae84e162ea029f69366",
+      "actor": "KayzenRoot",
+      "result": "PASS"
+    }
   },
   "sourceSnapshot": {
     "fingerprintAlgorithm": "Git blob SHA-1",
@@ -148,15 +154,21 @@
       "allPending": true
     },
     "governance": {
-      "runId": 36055225664,
-      "jobId": 107820378095,
-      "result": "PASS"
+      "exactHeadRunId": 36059070309,
+      "exactHeadJobId": 107833280091,
+      "exactHead": "f84ca2e00162a7869e31efcb217a962c1aa6ec2b",
+      "exactHeadResult": "PASS",
+      "exactMainRunId": 36059177560,
+      "exactMainJobId": 107833630952,
+      "exactMain": "26c891fd53ac24e1e32b4ae84e162ea029f69366",
+      "exactMainResult": "PASS",
+      "actor": "KayzenRoot"
     },
     "implementationAdmission": "NOT_ADMITTED",
     "preflight": "BLOCKED"
   },
   "reconciliation": {
-    "status": "CHECKPOINT_DELTA_APPLIED_IN_PROPOSAL",
+    "status": "FINALIZED_AFTER_EXACT_MAIN_GOVERNANCE",
     "verdictScope": "Documentation proposal only",
     "canonicalImplementationState": "NOT_ADMITTED",
     "preflight": "BLOCKED_PENDING_OWNER_CONTRACTS_AND_DEFERRED_DECISIONS",
@@ -167,6 +179,6 @@
       "docs/project-brain/03-SCOPE.md",
       "docs/project-brain/14-BACKLOG.md"
     ],
-    "note": "Exact-head Governance must pass on the resulting PR head before any merge."
+    "note": "Documentation-only checkpoint delta approved and merged; PR #80 exact-head and exact-main Governance passed. Implementation remains NOT ADMITTED and preflight BLOCKED."
   }
 }

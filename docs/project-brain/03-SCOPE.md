@@ -37,7 +37,7 @@ The Final Technology Review completed through PR #74 and passed exact-main Gover
 
 ### Next governed step
 
-IRIS-WO-0014 is proposed in PR #80 and remains NOT ADMITTED. Resolve all 50 M11-M60 owner-contract dependencies and deferred M10 decisions, refresh the Context Lock and pass preflight before a separate admission decision. Keep implementation NOT ADMITTED.
+IRIS-WO-0014 was approved as a documentation-only proposal through PR #80. Its exact head `f84ca2e00162a7869e31efcb217a962c1aa6ec2b` passed Governance `36059070309 / 107833280091`; squash merge `26c891fd53ac24e1e32b4ae84e162ea029f69366` passed exact-main Governance `36059177560 / 107833630952` (actor: KayzenRoot). Preflight remains BLOCKED: resolve all 50 M11-M60 owner-contract dependencies and deferred M10 decisions, refresh the Context Lock and pass preflight before a separate admission decision. Keep implementation NOT ADMITTED.
 
 ## IRIS 1.0 product scope
 

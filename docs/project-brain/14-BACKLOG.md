@@ -28,7 +28,7 @@ Status: `M10_PLANNING_COMPLETE_IMPLEMENTATION_NOT_ADMITTED`
 - M10 product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-M10 planning is complete and reconciled. IRIS-WO-0014 proposal is under PR #80; implementation remains NOT ADMITTED and preflight BLOCKED. Resolve the 50 M11-M60 owner-contract dependencies and deferred M10 decisions, refresh the Context Lock and pass preflight before a separate admission decision.
+M10 planning is complete and reconciled. IRIS-WO-0014 proposal passed its documentation audit and was merged through PR #80; exact-head Governance `36059070309 / 107833280091` passed on `f84ca2e00162a7869e31efcb217a962c1aa6ec2b`, and exact-main Governance `36059177560 / 107833630952` passed on merge `26c891fd53ac24e1e32b4ae84e162ea029f69366` (actor: KayzenRoot). Implementation remains NOT ADMITTED and preflight BLOCKED. Resolve the 50 M11-M60 owner-contract dependencies and deferred M10 decisions, refresh the Context Lock and pass preflight before a separate admission decision.
 
 ## IMPLEMENTATION GATE
 No M10 product/runtime code is authorized during this planning cycle. Planning completion alone does not admit implementation; a separate implementation Work Order, Context Lock, Evidence package and preflight are required.
