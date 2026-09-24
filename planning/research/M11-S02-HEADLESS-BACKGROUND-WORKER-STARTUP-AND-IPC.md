@@ -152,7 +152,7 @@ Every item follows the Slow Planning Protocol. PROPOSED records a candidate for 
 
 ## Internal reuse review
 
-The exact-base repository contains limited one-shot subprocess use in scripts/hive_mcp.py and scripts/gef_preflight.py. The HIVE bridge resolves a pinned external checkout and runs a Docker Compose command through subprocess.run; GEF preflight uses subprocess.check_output for a Git query. These utilities do not prove a long-lived supervisor, worker registration, IPC framing, process-tree containment, restart recovery, process ownership, or an M02/M06 attempt handoff. They are evidence of narrow command invocation only.
+The exact-base repository contains limited one-shot subprocess use in scripts/hive_mcp.py and scripts/gef_preflight.py. The HIVE bridge resolves a checkout through HIVE_REPO_PATH or an adjacent directory, then runs a Docker Compose command through subprocess.run; GEF preflight uses subprocess.check_output for a Git query. These utilities do not prove a long-lived supervisor, worker registration, IPC framing, process-tree containment, restart recovery, process ownership, or an M02/M06 attempt handoff. They are evidence of narrow command invocation only.
 
 No UGAS or CORE supervisor source was available in this repository/connection. HIVE MCP tools were not exposed in the active Work Mode connection. Therefore no HIVE-derived claim or UGAS/HIVE/CORE supervisor reuse is marked PROVEN or ACCEPTED. This is an evidence limit, not evidence that no such implementation exists elsewhere. No HIVE command or process was launched for this session.
 
