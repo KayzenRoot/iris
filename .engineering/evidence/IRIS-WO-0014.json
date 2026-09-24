@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0014",
+  "frozenContract": "m10-contract-v1.0",
+  "status": "PROPOSAL_ONLY_NOT_EXECUTION_EVIDENCE",
+  "capturePhase": "proposal",
+  "repository": "KayzenRoot/iris",
+  "origin": "https://github.com/KayzenRoot/iris.git",
+  "issue": 79,
+  "proposalBaseSha": "873053d24d9e28f5ff9b186914fa3de7caf749de",
+  "proposalBranch": "iris-wo-0014-m10-implementation-proposal-20260924",
+  "implementationBranch": "iris-wo-0014-m10-implementation",
+  "admission": {
+    "status": "NOT_ADMITTED",
+    "preflight": "BLOCKED_PENDING_OWNER_CONTRACTS_AND_DEFERRED_DECISIONS",
+    "runtimeWorkStarted": false
+  },
+  "gitChain": {
+    "proposalBase": "873053d24d9e28f5ff9b186914fa3de7caf749de",
+    "proposalHead": null,
+    "implementationBase": null,
+    "implementationHead": null,
+    "implementationPullRequest": null,
+    "mergedMain": null,
+    "exactMainGovernance": null
+  },
+  "sourceSnapshot": {
+    "fingerprintAlgorithm": "Git blob SHA-1",
+    "contextLockPath": ".engineering/context-locks/IRIS-WO-0014.json",
+    "sourceCount": 47
+  },
+  "baseline": {
+    "knownGreenFullSuite": 3940,
+    "testedImplementationHead": "15ac24b117c954c0ad6cebd1b618b745858d30b5",
+    "testedMainMerge": "d4ebf87c266d6de04a4e978fa6b8ad8fa958618c",
+    "currentMain": "873053d24d9e28f5ff9b186914fa3de7caf749de",
+    "exactComparisonFoundRuntimeOrTestChanges": false,
+    "status": "LAST_KNOWN_GREEN_NOT_RERUN_ON_PROPOSAL_BASE",
+    "requiredPreflightCommand": "python -m unittest discover -s tests -p \"test_*.py\""
+  },
+  "proposalChangedFiles": [
+    ".engineering/work-orders/IRIS-WO-0014-M10-IMPLEMENTATION-PROPOSAL.md",
+    ".engineering/context-locks/IRIS-WO-0014.json",
+    ".engineering/evidence/IRIS-WO-0014.json",
+    ".engineering/work-orders/IRIS-WO-0014-M10-PREFLIGHT-CRITERIA.md",
+    "planning/reviews/IRIS-WO-0014-M11-M60-OWNER-DEPENDENCY-REGISTER.md"
+  ],
+  "proofPlan": [
+    {
+      "id": "P-01",
+      "claim": "Bind exact M02 request/graph and do not create a competing ExecutionPlan or production lifecycle.",
+      "status": "NOT_CAPTURED_PROPOSAL_STAGE"
+    },
+    {
+      "id": "P-02",
+      "claim": "Map all 36 frozen M10 clauses exactly once to meaningful tests/assertions/evidence.",
+      "status": "NOT_CAPTURED_PROPOSAL_STAGE"
+    },
+    {
+      "id": "P-03",
+      "claim": "Fail closed for missing, stale, conflicting, unsupported, out-of-scope, revoked and OOD mandatory evidence.",
+      "status": "NOT_CAPTURED_PROPOSAL_STAGE"
+    },
+    {
+      "id": "P-04",
+      "claim": "Keep OOM, thermal/power and M01 quality-contract risk separate; no accuracy claim without approved calibration evidence.",
+      "status": "NOT_CAPTURED_PROPOSAL_STAGE"
+    },
+    {
+      "id": "P-05",
+      "claim": "Preserve hard M01/M03/M02 gates across policy modes; no hidden weights or unauthorized fallback.",
+      "status": "NOT_CAPTURED_PROPOSAL_STAGE"
+    },
+    {
+      "id": "P-06",
+      "claim": "Preserve M06 operational revision/materialization links without moving state/version ownership into M10.",
+      "status": "NOT_CAPTURED_PROPOSAL_STAGE"
+    },
+    {
+      "id": "P-07",
+      "claim": "Consume M07/M08/M09 evidence by exact version/scope without mutation, resource control or implied physical truth.",
+      "status": "NOT_CAPTURED_PROPOSAL_STAGE"
+    },
+    {
+      "id": "P-08",
+      "claim": "Prove owner-issued append-only outcomes, no fabricated counterfactuals, and offline-only evaluation lineage.",
+      "status": "NOT_CAPTURED_PROPOSAL_STAGE"
+    },
+    {
+      "id": "P-09",
+      "claim": "Verify M11-M60 handoffs against owner contracts before admission.",
+      "status": "BLOCKED_PENDING_50_OWNER_CONTRACTS"
+    },
+    {
+      "id": "P-10",
+      "claim": "Prove M53/M54 privacy, rights, access and retention projections with owner-issued decisions.",
+      "status": "BLOCKED_PENDING_OWNER_CONTRACTS"
+    },
+    {
+      "id": "P-11",
+      "claim": "Run focused/full-suite tests, compile, configured lint/type checks and local Governance at a future admitted head.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P-12",
+      "claim": "Exact-head Governance, independent audit, protected squash and exact-main validation.",
+      "status": "NOT_RUN"
+    }
+  ],
+  "requiredCapturedFields": [
+    "Exact base/head/PR/merge/main SHAs and source fingerprints.",
+    "Complete changed-file inventory split by runtime, tests, docs and generated assets.",
+    "Exact commands, tool versions, exit codes and focused/full-suite counts.",
+    "36/36 invariant-to-proof mapping; failures corrected and residual findings.",
+    "M11-M60 contract closure cross-references and approved handshake evidence.",
+    "Security/privacy/rights review, serialization/versioning/migration and recovery evidence as applicable.",
+    "Hardware measurements only if separately authorized; state explicitly when none were run.",
+    "Independent audit verdict and exact-head/main Governance run/job IDs.",
+    "Risk/deferred-port register, STOP cases and approved checkpoint delta."
+  ],
+  "authorityBoundaries": {
+    "M01": "Quality/evaluator/promotion remains external.",
+    "M02": "Canonical graph, ExecutionPlan and production lifecycle remain external.",
+    "M03": "Protected intent/constraints/overrides remain external.",
+    "M06": "Operational versioning, persistence and reconstruction remain external.",
+    "M07": "Hardware/runtime discovery facts remain owner-issued.",
+    "M08": "Empirical benchmark/capability evidence remains owner-issued.",
+    "M09": "Resource truth, leases and control outcomes remain owner-issued.",
+    "M11_M60": "All individual handoff details await each owner contract; see exhaustive register."
+  },
+  "checkpointDeltaProposed": "After review approval only: record IRIS-WO-0014 as a proposal with preflight BLOCKED and implementation NOT ADMITTED; do not promote this proposal to implementation admission.",
+  "errorsFoundAndCorrected": [],
+  "risksAndDeferredPorts": [
+    "M11-M60 contracts are absent; scan entries are index-level candidates only.",
+    "Estimator, calibration, numeric policy, serialization/storage/projection and authority handshakes remain unresolved.",
+    "Full suite last known green at 3940/3940 on M09 implementation evidence; not rerun on this docs-only base."
+  ]
+}

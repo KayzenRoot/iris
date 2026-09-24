@@ -1,0 +1,373 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0014",
+  "issue": 79,
+  "branch": "iris-wo-0014-m10-implementation",
+  "proposalBranch": "iris-wo-0014-m10-implementation-proposal-20260924",
+  "baseSha": "873053d24d9e28f5ff9b186914fa3de7caf749de",
+  "status": "PROPOSED_NOT_ADMITTED",
+  "risk": "ELEVATED",
+  "proposalOnly": true,
+  "frozenContract": {
+    "name": "m10-contract-v1.0",
+    "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+    "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828"
+  },
+  "baseline": {
+    "lastKnownFullSuiteCount": 3940,
+    "testedImplementationHead": "15ac24b117c954c0ad6cebd1b618b745858d30b5",
+    "testedMainMerge": "d4ebf87c266d6de04a4e978fa6b8ad8fa958618c",
+    "testCommand": "python -m unittest discover -s tests -p \"test_*.py\"",
+    "currentMainSha": "873053d24d9e28f5ff9b186914fa3de7caf749de",
+    "runtimeOrTestFilesChangedSinceTestedMainMerge": false,
+    "comparisonBasis": "GitHub compare d4ebf87c266d6de04a4e978fa6b8ad8fa958618c...873053d24d9e28f5ff9b186914fa3de7caf749de returned 18 documentation/planning/checkpoint/evidence paths and zero iris_*, tests/*, scripts/* or examples/* paths.",
+    "preflightRerunRequired": true
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "gitBlobSha1": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "gitBlobSha1": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "ddbff0231d98c3163f35e7eb1354815bb264a879"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "72ab9ff12db6f902922967a0e6e045c28ebff167"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0011-M07-HARDWARE-GENOME.md",
+      "gitBlobSha1": "36371c1289285e7802d381d19042f8e11353acdb"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0012-M08-MICROBENCHMARK-LAB.md",
+      "gitBlobSha1": "274aef4c9bb375c24bc74085ab4df38a8afeb547"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0013-M09-RESOURCE-DIGITAL-TWIN.md",
+      "gitBlobSha1": "25dadcb9856c66c8904bb6674717cd92a7209290"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0013.json",
+      "gitBlobSha1": "279e4e3db9d5c5621cd1288174c926d0ebe91c88"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0013.json",
+      "gitBlobSha1": "5b4479d95e677da62b57c882a82c75f8305597e8"
+    },
+    {
+      "path": ".github/workflows/governance.yml",
+      "gitBlobSha1": "69ad10baaf919af2789e4a91bc9614a7373ffb82"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/work-order.yml",
+      "gitBlobSha1": "a1de35a18bbad2e0563332b4069f50c26eb4d88b"
+    },
+    {
+      "path": "scripts/validate_governance.py",
+      "gitBlobSha1": "187d3ea1b78952ebfd348438bfde628ae19043b0"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "c15c427e0beaa1665e802ebadccd9bb4e222baa5"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/05-INTEGRATION-CONTRACTS.md",
+      "gitBlobSha1": "1c2d0e3462794cee64f83831ea07d9f9ac120663"
+    },
+    {
+      "path": "docs/project-brain/07-RUNTIME-EXECUTION-PRINCIPLES.md",
+      "gitBlobSha1": "cecf9c4065062b426df28ba19f406d36b433cf77"
+    },
+    {
+      "path": "docs/project-brain/08-SLOW-PLANNING-PROTOCOL.md",
+      "gitBlobSha1": "2656cf88a5de0d43c0e3c0eafce4041c1f369f5f"
+    },
+    {
+      "path": "docs/project-brain/09-MODULE-PLANNING-CONSTRUCTION-LIFECYCLE.md",
+      "gitBlobSha1": "d6cbd248a422edbc43b4277a6ae2f350de7364d3"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "docs/project-brain/12-LOCAL-DEPLOYMENT.md",
+      "gitBlobSha1": "f27bf06af4418762b3e667928877f5f1d7e59a06"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "72ab9ff12db6f902922967a0e6e045c28ebff167"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "2d443c0c5bf269fcbeaf6e2a50c8b9092f621052"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "69fffd85b3e8562a200aeab231e7199489812798"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": "planning/contracts/M01-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "8120dbf2d95cc0fd85f31e772e0b60a7c40d6442"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+    },
+    {
+      "path": "planning/contracts/M03-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "66616ac94f9e4d02b680e9dc4e4f8a8fce21d34a"
+    },
+    {
+      "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "c4b39c03f86f7a8e112d22a25ca91169c02c5e4d"
+    },
+    {
+      "path": "planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "97e8ed228b29c47911e3d3a0ed10ade91f76d723"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+    },
+    {
+      "path": "planning/modules/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "gitBlobSha1": "d5006fef0643fc0c3c8a7a015d4288dda58b89ec"
+    },
+    {
+      "path": "planning/modules/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "804387a28c318fc82f53e51651f279d76895095c"
+    },
+    {
+      "path": "planning/modules/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "3b931f8761372bd3773cc2b5d23244ad08aecee3"
+    },
+    {
+      "path": "docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "gitBlobSha1": "2a0b95dd3cc665e2206e454caef5858ef7fb61b0"
+    },
+    {
+      "path": "docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "461e0f332d9be2af694634bbdc8cf67e29d56393"
+    },
+    {
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a"
+    },
+    {
+      "path": "planning/compatibility/M08-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "65be56878c85813b9e898aeb20a7beb08d4bda80"
+    },
+    {
+      "path": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "1e5898f36b49e71f28eb18eb9582d48de60a58b4"
+    },
+    {
+      "path": "planning/modules/M10-ADAPTIVE-EXECUTION-PLANNER-PREDICTIVE-OOM-THERMAL-SHIELD.md",
+      "gitBlobSha1": "23aad63d35b194ab3fea995120c11b948eb9db8e"
+    },
+    {
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828"
+    },
+    {
+      "path": "planning/compatibility/M10-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "0678e44b94f7a48c8f85b11d74ee7c119fdf40ca"
+    },
+    {
+      "path": "planning/reviews/M10-FINAL-TECHNOLOGY-REVIEW.md",
+      "gitBlobSha1": "cf0ace0a3f2a662dcc3f5b76a6e41e61cfa4d44c"
+    },
+    {
+      "path": "planning/reviews/M10-INDEPENDENT-PLANNING-AUDIT.md",
+      "gitBlobSha1": "10bb3d556b1b90c609c626f2a5f551392c5431aa"
+    }
+  ],
+  "inScope": [
+    "This proposal package only: bounded future Work Order, proposal-time Context Lock, Evidence Bundle plan, exhaustive M11-M60 dependency register, and preflight criteria.",
+    "Future implementation may cover only the frozen M10 semantic contract and owner-approved handoffs after separate admission.",
+    "Use the exact 36 normative clauses and FC-10-01..12 as the implementation proof map."
+  ],
+  "outOfScope": [
+    "Any M10 runtime/product implementation or implementation admission.",
+    "Model training, estimator selection, physical measurement, dispatch, process/worker control, resource reservation, placement, provider execution, publication, or public API release.",
+    "Inventing unresolved serialization, storage, numeric thresholds, estimator/calibration methods, owner handshakes, or M11-M60 interfaces.",
+    "Changing frozen m10-contract-v1.0 semantics without a separately governed contract amendment."
+  ],
+  "pendingOwnerContracts": [
+    "M11",
+    "M12",
+    "M13",
+    "M14",
+    "M15",
+    "M16",
+    "M17",
+    "M18",
+    "M19",
+    "M20",
+    "M21",
+    "M22",
+    "M23",
+    "M24",
+    "M25",
+    "M26",
+    "M27",
+    "M28",
+    "M29",
+    "M30",
+    "M31",
+    "M32",
+    "M33",
+    "M34",
+    "M35",
+    "M36",
+    "M37",
+    "M38",
+    "M39",
+    "M40",
+    "M41",
+    "M42",
+    "M43",
+    "M44",
+    "M45",
+    "M46",
+    "M47",
+    "M48",
+    "M49",
+    "M50",
+    "M51",
+    "M52",
+    "M53",
+    "M54",
+    "M55",
+    "M56",
+    "M57",
+    "M58",
+    "M59",
+    "M60"
+  ],
+  "pendingOwnerDecisions": [
+    "M02/M11/M12 exact plan acceptance, process and placement handshakes.",
+    "M09 resource-claim/reservation and M16 provider-capability/qualification handshake.",
+    "Owner labels, risk outcomes, model fitness and approvals for M01/M14/M24/M48.",
+    "M15/M50 model-routing and cost-to-quality objective boundary.",
+    "M51 benchmark protocol, label handoff and physical-evidence acceptance.",
+    "M53/M54 authorization, consent, privacy, access, retention and deletion projection.",
+    "M56 event schema/replay projection; M57 agent invocation/stops; M58 API permissions/versioning; M60 final acceptance/recovery.",
+    "Risk estimators, targets/horizons, calibration/support/freshness/uncertainty, numeric risk budgets and fallback authorization.",
+    "Record serialization, digest, storage, retention and public/internal projection."
+  ],
+  "stopCondition": "PROPOSAL_ONLY. Do not create or execute the implementation branch until every preflight blocker is resolved, the proposal is reviewed, exact current source fingerprints are refreshed, and the separate implementation Work Order is explicitly admitted. Any critical-source mismatch marks this Context Lock STALE and requires recompilation.",
+  "promptDelivery": "Any later complete external-executor prompt must be delivered as a downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md.",
+  "admissionValidation": {
+    "status": "BLOCKED_NOT_ADMITTED",
+    "reason": "This artifact is a planning proposal. M11-M60 owner contracts and M10 deferred decisions remain unresolved; no execution preflight has run.",
+    "exactHeadGovernance": "NOT_RUN",
+    "baselineTests": "NOT_RERUN",
+    "criticalFingerprintCheck": "PROPOSAL_SNAPSHOT_ONLY",
+    "result": "NOT_ADMITTED"
+  },
+  "reconciliation": {
+    "status": "PROPOSED_PENDING_REVIEW",
+    "checkpointDelta": "After this proposal is audited, consider recording IRIS-WO-0014 as PROPOSAL_ONLY while keeping implementation NOT ADMITTED; canonical checkpoint remains unchanged until objective review approves that delta.",
+    "proposalBaseSha": "873053d24d9e28f5ff9b186914fa3de7caf749de"
+  },
+  "authorityReconciliation": {
+    "availableOwnerContracts": [
+      "M01",
+      "M02",
+      "M03",
+      "M04",
+      "M05",
+      "M06",
+      "M07",
+      "M08",
+      "M09",
+      "M10"
+    ],
+    "missingIndividualPlanningContracts": [
+      "M11",
+      "M12",
+      "M13",
+      "M14",
+      "M15",
+      "M16",
+      "M17",
+      "M18",
+      "M19",
+      "M20",
+      "M21",
+      "M22",
+      "M23",
+      "M24",
+      "M25",
+      "M26",
+      "M27",
+      "M28",
+      "M29",
+      "M30",
+      "M31",
+      "M32",
+      "M33",
+      "M34",
+      "M35",
+      "M36",
+      "M37",
+      "M38",
+      "M39",
+      "M40",
+      "M41",
+      "M42",
+      "M43",
+      "M44",
+      "M45",
+      "M46",
+      "M47",
+      "M48",
+      "M49",
+      "M50",
+      "M51",
+      "M52",
+      "M53",
+      "M54",
+      "M55",
+      "M56",
+      "M57",
+      "M58",
+      "M59",
+      "M60"
+    ],
+    "registerPath": "planning/reviews/IRIS-WO-0014-M11-M60-OWNER-DEPENDENCY-REGISTER.md",
+    "resolutionRule": "Candidate index scan rows are not owner-approved interfaces. Do not infer missing schemas or authority."
+  }
+}
