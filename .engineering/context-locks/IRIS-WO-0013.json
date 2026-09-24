@@ -123,6 +123,16 @@
       ],
       "semanticUnexpectedMismatches": 0
     },
-    "status": "REFRESHED_PENDING_EXACT_HEAD_VALIDATION"
+    "status": "EXACT_HEAD_VALIDATED",
+    "finalExactHeadValidation": {
+      "head": "3aa6ba6cdc54f6d4b63823a8c54e999ed966a6dc",
+      "run": 35979591762,
+      "job": 107568045204,
+      "result": "PASS"
+    }
+  },
+  "authorityReconciliation": {
+    "reason": "CHAT_FIXABLE: canonical checkpoint, Scope and Architecture still described superseded M07/M09-gated lifecycle after WO-0013 admission.",
+    "status": "UPDATED_PENDING_FINGERPRINT_REFRESH_AND_GOVERNANCE"
   }
 }
