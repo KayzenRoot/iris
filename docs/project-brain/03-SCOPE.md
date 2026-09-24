@@ -18,7 +18,8 @@ M09 owns resource-state/accounting, leases/reservations/residency, bounded mobil
 
 Planning covers the five canonical sessions: Workload Signature Engine; hardware-aware execution plan compilation; predictive OOM, thermal and quality-risk models; ECO/BALANCED/QUALITY/MAX/CUSTOM policy semantics; and observed-result learning with explainable decisions.
 
-M10 planning must define explicit behavior for unknown, stale, conflicting, unsupported and out-of-distribution evidence. S03 is now a planning candidate for three separately labeled outputs: validated allocation-failure/OOM risk; thermal-limit/throttle risk distinct from power-limit behavior; and M01 Fidelity Contract violation risk. Each estimate retains exact scope, provenance, freshness, calibration, uncertainty and applicability. Unsupported, stale, conflicting or drifting evidence produces abstention/indeterminate/no-safe-plan; no prediction can weaken M01/M03 obligations. M11 worker lifecycle, M12 placement, M13 cache/performance, M14 model fitness, M16 provider compilation, M50 cost/quality routing, M54 security and M56 observability remain separate authorities.
+M10 planning must define explicit behavior for unknown, stale, conflicting, unsupported and out-of-distribution evidence. S03 is complete for module planning: PR #71 exact head `db9fc7e0f0e7615c075cfaee3debec3a3990697b` passed Governance `36034416554 / 107750841548`, was protected squash-merged as `8768661ee348815ec5b1eb6e32bc85505fa10b17`, and passed exact-main Governance `36034538318 / 107751237481`. Its three separately labeled outputs cover validated allocation-failure/OOM risk, thermal-limit/throttle risk distinct from power-limit behavior, and M01 Fidelity Contract violation risk. Each estimate retains exact scope, provenance, freshness, calibration, uncertainty and applicability; unsupported, stale, conflicting or drifting evidence produces abstention/indeterminate/no-safe-plan.
+S04 policy semantics are now a planning candidate. ECO/BALANCED/QUALITY/MAX/CUSTOM preferences apply only after hard M02/M01/M03 and owner-issued M07/M08/M09/M50/M54 gates. Preferences, objectives, units, risk-budget references and fallback must be explicit and versioned; unresolved trade-offs remain bounded alternatives or no-safe-plan. M11 worker lifecycle, M12 placement, M13 cache/performance, M14 model fitness, M16 provider compilation, M50 cost/quality routing, M54 security and M56 observability remain separate authorities.
 
 ### NOT ADMITTED
 
@@ -34,7 +35,7 @@ M10 planning must define explicit behavior for unknown, stale, conflicting, unsu
 
 ### Next governed step
 
-Pass the S03 planning candidate through exact-head Governance, protected squash merge and exact-main validation; then continue S04-S05 and the remaining planning gates. Keep this increment planning-only.
+Pass the S04 policy candidate through exact-head Governance, protected squash merge and exact-main validation; then continue S05 and the remaining planning gates. Keep this increment planning-only.
 
 ## IRIS 1.0 product scope
 
