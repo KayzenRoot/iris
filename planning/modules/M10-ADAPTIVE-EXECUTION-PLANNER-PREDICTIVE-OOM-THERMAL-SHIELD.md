@@ -1,6 +1,6 @@
 # M10 — Adaptive Execution Planner & Predictive OOM/Thermal Shield
 
-Status: `PLANNING_FINAL_TECHNOLOGY_REVIEW_CANDIDATE_PENDING_GOVERNANCE`
+Status: `PLANNING_FORWARD_COMPATIBILITY_SCAN_CANDIDATE_PENDING_GOVERNANCE`
 Module: **M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield**
 Planning Work Order: [Issue #68](https://github.com/KayzenRoot/iris/issues/68)
 Authorized planning base: `b6456670a7c61621db1d3b3fc6d55487adb9cd64`
@@ -13,6 +13,8 @@ S04 exact head: `add4344d6b1a495f1aeeb23af0d57fdcddde381e`; Governance `36037625
 S04 protected squash merge / exact-main: `96aee147e701c6d716cfbcf5f2be524ee5d751e7`; Governance `36037710495 / 107761836741` — **PASS**
 S05 exact head: `fc1fa4959697b88fbfbe303736517aef52d9bc91`; Governance `36038801813 / 107765474152` — **PASS**
 S05 protected squash merge / exact-main: `54d85d3491d4cc21e95fc2f9042c53d2852ceb88`; Governance `36038905218 / 107765823628` — **PASS**
+Final Technology Review exact head: `69762690f9368cf0f76f106d75330950862e532d`; Governance `36039931359 / 107769276836` — **PASS**
+Final Technology Review protected squash merge / exact-main: `e38912a57c2d452badd5a35a031eb78f95d0e899`; Governance `36040044487 / 107769655432` — **PASS**
 S01 exact-main Governance: `36031548275 / 107741264931` — **PASS**
 Admission Governance: `36029536926 / 107734488887` — **PASS**
 Implementation authority: **NOT ADMITTED**
@@ -490,66 +492,24 @@ See [M10 S05 research](../research/M10-S05-OBSERVED-RESULT-LEARNING.md) for the 
 
 ## Final Technology Review
 
-Status: `FINAL_TECHNOLOGY_REVIEW_CANDIDATE`
-Review base: `54d85d3491d4cc21e95fc2f9042c53d2852ceb88`
-Scope: S01–S05, owner contracts and linked research
-Implementation authority: **NOT ADMITTED**
+Status: COMPLETE_FOR_M10_PLANNING
+Exact review candidate head: `69762690f9368cf0f76f106d75330950862e532d`; Governance `36039931359 / 107769276836` — **PASS**
+Protected squash merge / exact-main: `e38912a57c2d452badd5a35a031eb78f95d0e899`; Governance `36040044487 / 107769655432` — **PASS**
+Review record: [M10 Final Technology Review](../reviews/M10-FINAL-TECHNOLOGY-REVIEW.md)
 
-### Review method and verdict
+The review accepts the S01–S05 architecture as sufficiently coherent and provider-neutral to proceed to forward-compatibility analysis, subject to its recorded deferrals. It does not freeze the contract, approve hardware performance, or admit implementation.
 
-Compare the five session candidates against owner authority, evidence provenance/scope, unknown-state behavior, portability, reproducibility, security/privacy, explainability and future compatibility. A named technology is not accepted because it is novel or proprietary. Any implementation selection still requires an admitted contract and implementation work order.
+### M11–M60 Forward Compatibility Scan
 
-**Candidate verdict:** the S01–S05 architecture is internally coherent and provider-neutral enough to proceed to the M11–M60 Forward Compatibility Scan, subject to this review's recorded deferrals and PR Governance. This is not the independent planning audit, contract freeze, hardware validation or implementation admission.
+Status: CANDIDATE_PENDING_GOVERNANCE
+Coverage: 50/50 module entries in the master index
+Scan: [M10 M11–M60 Forward Compatibility Scan](../compatibility/M10-FORWARD-COMPATIBILITY-SCAN.md)
 
-### Cross-session technology disposition
+The index-level scan records 12 candidate contract findings, preserves M02/M01/M03/M07/M08/M09/M11/M12/M14/M15/M16/M50/M53/M54/M55/M56/M57/M58/M59/M60 authority boundaries and returns no known HIGH/CRITICAL collision from the evidence currently available. Individual M11–M60 module plans are not published at this base; verify these boundaries again against each module's canonical planning contract.
 
-| Area | Review disposition | Reason / carried decision |
-|---|---|---|
-| Workload signature and identity | **Accept for contract candidate** | Use an immutable typed workload projection with exact owner references and explicit applicability/unknown state. Keep raw prompts/media out by default. Serialization, digest algorithm and storage are unresolved owner/API decisions. |
-| Plan compilation | **Accept M02 adapter boundary** | M02 remains the canonical ExecutionPlan and lifecycle owner. M10 returns bounded, revision-pinned alternatives; no second plan schema, placement, reservation or dispatch authority. |
-| Hardware/resource evidence | **Accept owner-issued composition** | Bind M07 device/partition/runtime facts, M08 exact-scope empirical capability and M09 current resource state separately. Allocator and device-global memory, reported and allocatable capacity, parent and partition identity remain distinct. |
-| Predictive risk | **Accept separate output interface; defer estimator** | Keep OOM, thermal and M01 quality-contract risk separate, each with target, calibration scope, uncertainty and abstention. Deterministic bounds, empirical models, conformal/risk-control methods and sequential calibration remain candidates; no IRIS method is selected without owner-validated labels and calibration data. |
-| Thermal telemetry | **Accept M07 adapter and capability boundary** | Preserve source-specific sensor capability, timestamps, unsupported states and reason semantics. NVML and AMD SMI evidence cannot be collapsed into an assumed universal signal; M10 does not tune hardware. |
-| Policy and optimization | **Accept constraints-first, explicit preference semantics** | Apply hard M02/M01/M03 and owner gates before mode preferences. Keep unresolved BALANCED choices as bounded alternatives; require an explicit MAX objective; reject hidden weights and silent mode changes. No solver or numerical weights are selected. |
-| Outcome learning | **Accept evidence lifecycle; defer pipeline** | Use owner-issued receipts, immutable dataset/model/evaluation lineage, offline review, drift quarantine and reproducible rollback. M14 owns model fitness; M01/M54 retain quality and privacy/security authority. No online learning or self-promotion. |
-| Explanation and observability | **Accept evidence-linked explanation** | Explain the actual policy path from exact inputs, constraints, risks and alternatives. Do not infer causal explanations from observational features. M56 remains observability aggregation owner. |
+### Next gate
 
-### Rejected or deferred approaches
-
-- **Reject one scalar for OOM, thermal and quality risk:** targets, labels and owners differ.
-- **Reject pressure-as-OOM and clock-drop-as-thermal labels:** observations are not the authoritative terminal outcome.
-- **Reject unsupported-as-zero/safe:** missing sensor, stale evidence and absent labels remain unknown and can force abstention.
-- **Reject partial provider coverage or preferred allocation as proof of execution:** M16/M12 handoffs and M02 plan acceptance remain authoritative.
-- **Reject hidden weighted objectives and penalty-based softening of hard gates:** trade-offs must be named, scoped and authorized.
-- **Reject an unqualified MAX mode:** a metric, unit, direction and scope are required.
-- **Reject online self-training, automatic promotion and synthetic physical claims:** there is no validated IRIS evidence or admitted lifecycle for those actions.
-- **Defer solver/vendor, canonical record encoding, common telemetry projection, estimator, numeric horizons/risk budgets, supported MAX metrics, BALANCED default, training store, registry and rollout semantics.**
-
-### Technology/prior-art posture
-
-S01–S05 use public primary research and official API/platform documentation for known method behavior. The sources support candidate designs and expose assumptions; they do not establish IRIS predictive accuracy, physical safety, ownership of a method or patentability. No source-library, optimizer, model registry, GPU telemetry SDK or provider runtime is selected as a product dependency here.
-
-Detailed source findings remain in [S01](../research/M10-S01-WORKLOAD-SIGNATURE-ENGINE.md), [S02](../research/M10-S02-HARDWARE-AWARE-PLAN-COMPILATION.md), [S03](../research/M10-S03-PREDICTIVE-RISK-CALIBRATION.md), [S04](../research/M10-S04-POLICY-SEMANTICS.md) and [S05](../research/M10-S05-OBSERVED-RESULT-LEARNING.md).
-
-### Risk review and required compatibility checks
-
-| Risk | Required control before freeze |
-|---|---|
-| Labels or hardware evidence are incomplete, stale or mismatched | Owner contract, exact scope/version binding, explicit unknown and S03 abstention |
-| Model calibration is copied across devices/workflows | Hardware/runtime/workload cohort validation; out-of-scope inference prohibited |
-| Policy silently weakens quality, intent, cost or security | Hard-gate ownership, versioned preferences and no-safe-plan path |
-| Learning loop trains on selected-only or invalid outcomes | Immutable receipts, censoring/selection metadata, grouped/time-aware validation, no fabricated counterfactuals |
-| Mode decision cannot be explained or replayed | Decision receipt with exact profile, evidence, alternatives, constraints and artifact versions |
-| Future modules require new handoffs | M11–M60 scan; carry only owner-approved extension references into the contract candidate |
-
-### Review acceptance and next gate
-
-- S01–S05 exact-main evidence is reconciled in the canonical checkpoint.
-- Every candidate technology has an accept/defer/reject disposition and named owner boundary.
-- No unresolved decision silently becomes a runtime default.
-- No code, model, benchmark claim, numeric risk threshold or solver dependency is admitted.
-
-After this review candidate passes exact-head Governance, protected squash and exact-main Governance, proceed to the M11–M60 Forward Compatibility Scan. Then prepare the versioned contract candidate and independent planning audit. Keep implementation NOT ADMITTED.
+Pass the scan candidate through exact-head Governance, protected squash merge and exact-main Governance. Then carry FC-10-01 through FC-10-12 and their explicit owner deferrals into the versioned M10 contract candidate and independent planning audit. M10 implementation remains NOT ADMITTED.
 
 ## Required planning lifecycle
 

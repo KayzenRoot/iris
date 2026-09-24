@@ -21,16 +21,16 @@ Status: `M10_PLANNING_ACTIVE`
 - S03 predictive OOM, thermal and quality-risk models: **COMPLETE_FOR_MODULE_PLANNING**; PR #71 exact head `db9fc7e0f0e7615c075cfaee3debec3a3990697b` passed Governance `36034416554 / 107750841548`, merged as `8768661ee348815ec5b1eb6e32bc85505fa10b17`, and passed exact-main Governance `36034538318 / 107751237481`.
 - S04 ECO/BALANCED/QUALITY/MAX/CUSTOM semantics: **COMPLETE_FOR_MODULE_PLANNING**; PR #72 exact head `add4344d6b1a495f1aeeb23af0d57fdcddde381e` passed Governance `36037625164 / 107761547909`, merged as `96aee147e701c6d716cfbcf5f2be524ee5d751e7`, and passed exact-main Governance `36037710495 / 107761836741`.
 - S05 observed-result learning and explainable decisions: **COMPLETE_FOR_MODULE_PLANNING**; PR #73 exact head `fc1fa4959697b88fbfbe303736517aef52d9bc91` passed Governance `36038801813 / 107765474152`, merged as `54d85d3491d4cc21e95fc2f9042c53d2852ceb88`, and passed exact-main Governance `36038905218 / 107765823628`.
-- Final Technology Review: **CANDIDATE_PENDING_GOVERNANCE**; review base `54d85d3491d4cc21e95fc2f9042c53d2852ceb88`.
-- M11-M60 compatibility scan, contract freeze and independent planning audit: **PENDING**.
+- Final Technology Review: **COMPLETE_FOR_M10_PLANNING**; PR #74 exact head `69762690f9368cf0f76f106d75330950862e532d` passed Governance `36039931359 / 107769276836`, merged as `e38912a57c2d452badd5a35a031eb78f95d0e899`, and passed exact-main Governance `36040044487 / 107769655432`.
+- M11–M60 Forward Compatibility Scan: **CANDIDATE_PENDING_GOVERNANCE**; 50/50 master-index entries reviewed; module-specific contract confirmation remains required as later modules are planned.
+- Versioned M10 contract candidate and independent planning audit: **PENDING**.
 - M10 product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-1. Validate and merge the Final Technology Review, then complete the M11-M60 scan, versioned contract candidate and independent audit under Issue #68.
-2. Finish technology discovery and Final Technology Review.
-3. Scan M11-M60 for compatibility and authority conflicts.
-4. Produce a versioned M10 contract candidate and independent planning audit.
-5. Merge and exact-main validate the planning package; only then consider a separate M10 implementation Work Order.
+1. Validate and merge the M11–M60 Forward Compatibility Scan candidate under Issue #68.
+2. Incorporate FC-10-01 through FC-10-12 and explicit owner deferrals into a versioned M10 contract candidate.
+3. Run an independent planning audit against the complete lifecycle, authority shields, evidence limitations and unresolved HIGH/CRITICAL risks.
+4. Merge and exact-main validate the planning package; only then consider a separate M10 implementation Work Order.
 
 ## IMPLEMENTATION GATE
 No M10 product/runtime code is authorized during this planning cycle. Planning completion alone does not admit implementation; a separate implementation Work Order, Context Lock, Evidence package and preflight are required.

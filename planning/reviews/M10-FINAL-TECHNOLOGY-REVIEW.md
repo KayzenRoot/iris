@@ -1,6 +1,6 @@
 ## Final Technology Review
 
-Status: `FINAL_TECHNOLOGY_REVIEW_CANDIDATE`
+Status: `FINAL_TECHNOLOGY_REVIEW_COMPLETE_FOR_FORWARD_SCAN`
 Review base: `54d85d3491d4cc21e95fc2f9042c53d2852ceb88`
 Scope: S01–S05, owner contracts and linked research
 Implementation authority: **NOT ADMITTED**
@@ -9,7 +9,7 @@ Implementation authority: **NOT ADMITTED**
 
 Compare the five session candidates against owner authority, evidence provenance/scope, unknown-state behavior, portability, reproducibility, security/privacy, explainability and future compatibility. A named technology is not accepted because it is novel or proprietary. Any implementation selection still requires an admitted contract and implementation work order.
 
-**Candidate verdict:** the S01–S05 architecture is internally coherent and provider-neutral enough to proceed to the M11–M60 Forward Compatibility Scan, subject to this review's recorded deferrals and PR Governance. This is not the independent planning audit, contract freeze, hardware validation or implementation admission.
+**Verdict:** the S01–S05 architecture is internally coherent and provider-neutral enough to proceed to the M11–M60 Forward Compatibility Scan, subject to the recorded deferrals. PR #74 exact head `69762690f9368cf0f76f106d75330950862e532d` passed Governance `36039931359 / 107769276836`; protected squash merge `e38912a57c2d452badd5a35a031eb78f95d0e899` passed exact-main Governance `36040044487 / 107769655432`. This is not the independent planning audit, contract freeze, hardware validation or implementation admission.
 
 ### Cross-session technology disposition
 
@@ -59,5 +59,5 @@ Detailed source findings remain in [S01](../research/M10-S01-WORKLOAD-SIGNATURE-
 - No unresolved decision silently becomes a runtime default.
 - No code, model, benchmark claim, numeric risk threshold or solver dependency is admitted.
 
-After this review candidate passes exact-head Governance, protected squash and exact-main Governance, proceed to the M11–M60 Forward Compatibility Scan. Then prepare the versioned contract candidate and independent planning audit. Keep implementation NOT ADMITTED.
+The review has passed exact-head Governance, protected squash merge and exact-main Governance. Proceed to the M11–M60 Forward Compatibility Scan. Then prepare the versioned contract candidate and independent planning audit. Keep implementation NOT ADMITTED.
 

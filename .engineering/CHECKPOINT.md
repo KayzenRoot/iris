@@ -4,10 +4,10 @@
 M10_PLANNING_ACTIVE
 
 ## VERSION
-m10-final-technology-review-v0
+m10-m11-m60-forward-compatibility-v0
 
 ## PHASE
-M10_FINAL_TECHNOLOGY_REVIEW_CANDIDATE
+M10_M11_M60_FORWARD_COMPATIBILITY_SCAN_CANDIDATE
 
 ## OBJECTIVE
 Plan M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield through the governed five-session lifecycle without admitting product implementation.
@@ -33,13 +33,14 @@ Plan M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield through the 
 - M10 S04 ECO/BALANCED/QUALITY/MAX/CUSTOM policy semantics are complete for module planning; hard constraints remain separate from explicit preferences.
 - PR #73 S05 exact head `fc1fa4959697b88fbfbe303736517aef52d9bc91` passed Governance `36038801813 / 107765474152`, was protected squash-merged as `54d85d3491d4cc21e95fc2f9042c53d2852ceb88`, and passed exact-main Governance `36038905218 / 107765823628`.
 - M10 S05 observed-result learning and explainable decisions are complete for module planning; updates remain owner-reviewed and implementation is not admitted.
-- M10 Final Technology Review is documented as a candidate from exact-main `54d85d3491d4cc21e95fc2f9042c53d2852ceb88`; its exact-head Governance, protected merge and exact-main validation remain pending.
+- PR #74 M10 Final Technology Review exact head `69762690f9368cf0f76f106d75330950862e532d` passed Governance `36039931359 / 107769276836`; protected squash merge `e38912a57c2d452badd5a35a031eb78f95d0e899` passed exact-main Governance `36040044487 / 107769655432`.
+- M10 Final Technology Review is complete for planning and authorizes the M11–M60 Forward Compatibility Scan; contract freeze, independent audit and implementation admission remain pending.
 
 ## IN PROGRESS
-M10 planning only under Issue #68. Final Technology Review candidate is pending exact-head Governance and protected merge; M11-M60 compatibility scan, contract freeze candidate and independent planning audit remain pending. M10 product/runtime implementation is NOT ADMITTED and NOT STARTED.
+M10 planning only under Issue #68. The M11–M60 compatibility scan covers 50/50 master-index entries as a candidate pending exact-head Governance; individual module contracts are not yet published and require contract-level revisit. The versioned M10 contract candidate and independent planning audit remain pending. M10 product/runtime implementation is NOT ADMITTED and NOT STARTED.
 
 ## BLOCKERS
 M10 implementation remains NOT ADMITTED and NOT STARTED until the complete planning lifecycle is approved, its contract is frozen, its compatibility scan and independent audit pass, and a separate implementation Work Order / Context Lock / Evidence package passes preflight.
 
 ## NEXT STEP
-Pass the Final Technology Review candidate through exact-head Governance, protected squash merge and exact-main validation; then perform the M11-M60 Forward Compatibility Scan. Keep M10 implementation NOT ADMITTED.
+Pass the M11-M60 Forward Compatibility Scan candidate through exact-head Governance, protected squash merge and exact-main validation; then prepare the versioned M10 contract candidate and independent planning audit. Keep M10 implementation NOT ADMITTED.
