@@ -133,7 +133,13 @@
   },
   "authorityReconciliation": {
     "reason": "CHAT_FIXABLE: canonical checkpoint, Scope and Architecture still described superseded M07/M09-gated lifecycle after WO-0013 admission.",
-    "status": "FINGERPRINTS_REFRESHED_PENDING_EXACT_HEAD_GOVERNANCE",
-    "refreshHead": "3980bf5be91bc1bfd4a8e800aa861f33f8583da5"
+    "status": "EXACT_HEAD_VALIDATED",
+    "refreshHead": "3980bf5be91bc1bfd4a8e800aa861f33f8583da5",
+    "finalExactHeadValidation": {
+      "head": "9dbee28214527d12f67181ed08e56107b8a0f787",
+      "run": 35988457703,
+      "job": 107596573800,
+      "result": "PASS"
+    }
   }
 }
