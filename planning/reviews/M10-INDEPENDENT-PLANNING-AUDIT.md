@@ -85,6 +85,15 @@ PASS_WITH_REVISIT:
 - Exact validated main: d8000229397138ed0d45133df456598cdd010ddf.
 - Repository work and reviewed commits: KayzenRoot.
 
+## Governance proof on freeze promotion
+
+- PR #77 exact promotion head: 57dc0410e9c434a04657b8f57562febdeceb84f1.
+- PR #77 exact-head Governance: run 36043928118, job 107782644258 — **PASS**.
+- Protected squash merge: 8a3e32de28ccc824c165e29bfa3da4f6cc305de0.
+- Exact-main Governance: run 36044190420, job 107783526436 — **PASS**.
+- Authenticated actor: KayzenRoot.
+- The promotion changed nine planning/checkpoint/audit files and introduced no product/runtime implementation.
+
 ## Findings
 
 No new planning defect remains open in this independent pass.
@@ -108,20 +117,13 @@ This audit approves the M10 planning contract freeze only. It does not approve p
 
 APPROVED
 
-The reviewed candidate satisfies the M10 planning gates and may be promoted to:
+The reviewed candidate satisfied the M10 planning gates and was promoted through PR #77 to:
 
 FROZEN_APPROVED / m10-contract-v1.0
 
-The freeze promotion is documentation/governance-only. Its exact PR head must pass Governance before protected squash merge; the resulting exact main must pass Governance before final checkpoint reconciliation. M10 implementation remains NOT ADMITTED.
+The freeze promotion was documentation/governance-only and its exact-head Governance, protected squash merge and exact-main Governance all passed. PR #78 records the resulting final planning checkpoint.
 
 ## STOP CONDITION
+The M10 contract freeze is complete. PR #77 exact-head Governance, protected squash merge and exact-main Governance passed as recorded above. PR #78 reconciles the canonical planning checkpoint through the same protected governance sequence.
 
-After freeze promotion:
-
-1. Exact-head Governance must pass.
-2. The promotion PR may be squash-merged through the protected repository workflow.
-3. The resulting exact main must pass Governance.
-4. Canonical checkpoint state must then be reconciled.
-5. Only after planning is complete may a separate M10 implementation Work Order, Context Lock, Evidence package and preflight be considered.
-
-Do not implement M10 on this planning increment.
+M10 implementation remains NOT ADMITTED. If implementation is pursued, it requires a separate admitted Work Order, Context Lock, Evidence package and passing preflight. Do not implement M10 under Issue #68's planning increment.

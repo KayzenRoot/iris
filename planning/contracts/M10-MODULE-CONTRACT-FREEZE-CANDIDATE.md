@@ -223,4 +223,6 @@ Unknown or invalid mandatory evidence continues to require abstention or no-safe
 - Frozen-contract implementation authority: NOT ADMITTED
 - Known unresolved HIGH/CRITICAL planning findings: 0
 
-The freeze promotion remains subject to a new exact-head Governance run, protected squash merge, exact-main Governance and post-merge checkpoint reconciliation. The freeze is planning-only and does not admit implementation.
+Freeze promotion evidence: PR #77 exact head `57dc0410e9c434a04657b8f57562febdeceb84f1` passed Governance `36043928118 / 107782644258`; protected squash merge `8a3e32de28ccc824c165e29bfa3da4f6cc305de0` passed exact-main Governance `36044190420 / 107783526436` (actor: KayzenRoot).
+
+The M10 planning checkpoint is reconciled in PR #78. This freeze remains planning-only and implementation remains NOT ADMITTED; any implementation needs a separate admitted Work Order / Context Lock / Evidence package and passing preflight.

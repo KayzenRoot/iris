@@ -1,6 +1,6 @@
 # IRIS Scope
 
-Status: `M10_PLANNING_ACTIVE`
+Status: `M10_PLANNING_COMPLETE_IMPLEMENTATION_NOT_ADMITTED`
 
 ## Current governed increment — M10 planning
 
@@ -21,7 +21,7 @@ Planning covers the five canonical sessions: Workload Signature Engine; hardware
 M10 planning must define explicit behavior for unknown, stale, conflicting, unsupported and out-of-distribution evidence. S03 is complete for module planning: PR #71 exact head `db9fc7e0f0e7615c075cfaee3debec3a3990697b` passed Governance `36034416554 / 107750841548`, was protected squash-merged as `8768661ee348815ec5b1eb6e32bc85505fa10b17`, and passed exact-main Governance `36034538318 / 107751237481`. Its three separately labeled outputs cover validated allocation-failure/OOM risk, thermal-limit/throttle risk distinct from power-limit behavior, and M01 Fidelity Contract violation risk. Each estimate retains exact scope, provenance, freshness, calibration, uncertainty and applicability; unsupported, stale, conflicting or drifting evidence produces abstention/indeterminate/no-safe-plan.
 S04 is complete for module planning: PR #72 exact head `add4344d6b1a495f1aeeb23af0d57fdcddde381e` passed Governance `36037625164 / 107761547909`, was protected squash-merged as `96aee147e701c6d716cfbcf5f2be524ee5d751e7`, and passed exact-main Governance `36037710495 / 107761836741`. Its ECO/BALANCED/QUALITY/MAX/CUSTOM preferences apply only after hard M02/M01/M03 and owner-issued M07/M08/M09/M50/M54 gates. Preferences, objectives, units, risk-budget references and fallback are explicit and versioned; unresolved trade-offs remain bounded alternatives or no-safe-plan.
 S05 is complete for module planning: PR #73 exact head `fc1fa4959697b88fbfbe303736517aef52d9bc91` passed Governance `36038801813 / 107765474152`, was protected squash-merged as `54d85d3491d4cc21e95fc2f9042c53d2852ceb88`, and passed exact-main Governance `36038905218 / 107765823628`. Its candidate lifecycle preserves owner-issued labels, immutable outcome/dataset/model/evaluation evidence, drift quarantine and reviewable rollback; M10 does not self-label, self-certify, auto-train or silently promote models.
-The Final Technology Review completed through PR #74 and passed exact-main Governance at `e38912a57c2d452badd5a35a031eb78f95d0e899`. The M11–M60 Forward Compatibility Scan completed through PR #75: exact head `d55ea04a9663b648805b00ea0032773125c65642` passed Governance `36041422592 / 107774247740`, protected squash merge `2328978175a59768e64687748b259027b3a79d4e` passed exact-main Governance `36041515972 / 107774565519`. It covers all 50 master-index entries and carries FC-10-01 through FC-10-12 into the contract. Individual M11–M60 contracts are not yet present, so their detailed interfaces require revisit during each module's planning lifecycle. The independent planning audit reviewed PR #76's merged contract candidate at `d8000229397138ed0d45133df456598cdd010ddf`, found 0 HIGH and 0 CRITICAL findings, and approved documentation-level promotion to `m10-contract-v1.0`. The promotion is now pending Governance and exact-main validation; implementation remains NOT ADMITTED.
+The Final Technology Review completed through PR #74 and passed exact-main Governance at `e38912a57c2d452badd5a35a031eb78f95d0e899`. The M11–M60 Forward Compatibility Scan completed through PR #75: exact head `d55ea04a9663b648805b00ea0032773125c65642` passed Governance `36041422592 / 107774247740`, protected squash merge `2328978175a59768e64687748b259027b3a79d4e` passed exact-main Governance `36041515972 / 107774565519`; coverage is 50/50 at module-index level with FC-10-01 through FC-10-12. Individual M11–M60 contracts are absent and require revisit during their own planning lifecycles. The independent audit approved promotion of the M10 semantic contract with 0 HIGH and 0 CRITICAL findings. PR #77 exact head `57dc0410e9c434a04657b8f57562febdeceb84f1` passed Governance `36043928118 / 107782644258`; protected squash merge `8a3e32de28ccc824c165e29bfa3da4f6cc305de0` passed exact-main Governance `36044190420 / 107783526436` (actor: KayzenRoot). M10 planning is complete at `m10-contract-v1.0`; implementation remains NOT ADMITTED.
 
 ### NOT ADMITTED
 
@@ -37,8 +37,8 @@ The Final Technology Review completed through PR #74 and passed exact-main Gover
 
 ### Next governed step
 
-Validate and merge the audited M10 contract freeze promotion, then reconcile the final planning state. M10 implementation remains NOT ADMITTED and requires a separate admitted Work Order / Context Lock / Evidence package.
+If M10 implementation is pursued, create and admit a separate implementation Work Order / Context Lock / Evidence package and pass preflight. Keep M10 implementation NOT ADMITTED until then.
 
 ## IRIS 1.0 product scope
 
-IRIS 1.0 continues to include M00-M60. M01-M09 implementations are complete; M10 planning is active under Issue #68. M10 implementation and later modules remain gated by the official module lifecycle and separate admitted Work Orders.
+IRIS 1.0 continues to include M00-M60. M01-M09 implementations are complete; M10 planning is complete under Issue #68 with contract `m10-contract-v1.0` frozen. M10 implementation and later modules remain gated by separate admitted Work Orders and their required preflight.

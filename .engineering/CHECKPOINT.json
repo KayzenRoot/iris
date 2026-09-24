@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M10_PLANNING_ACTIVE",
+  "status": "M10_PLANNING_COMPLETE_IMPLEMENTATION_NOT_ADMITTED",
   "version": "m10-contract-v1.0",
-  "phase": "M10_CONTRACT_FREEZE_PROMOTION_CANDIDATE_PENDING_GOVERNANCE",
-  "nextStep": "Pass the M10 contract freeze promotion through exact-head Governance, protected squash merge and exact-main validation; then reconcile the final M10 planning state. Keep M10 implementation NOT ADMITTED."
+  "phase": "M10_PLANNING_RECONCILED",
+  "nextStep": "If M10 implementation is pursued, first create and admit a separate implementation Work Order / Context Lock / Evidence package and pass preflight; do not begin runtime implementation before that admission."
 }
