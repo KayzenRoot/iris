@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M09_PLANNING_FROZEN",
+  "status": "M09_IMPLEMENTATION_ADMITTED",
   "version": "m09-contract-v1.0",
-  "phase": "M09_PLANNING_FREEZE_RECONCILIATION",
-  "nextStep": "Audit this reconciliation, merge it under exact-head protection, validate exact main, then admit M09 implementation through a separate Work Order."
+  "phase": "IRIS-WO-0013_EXECUTION",
+  "nextStep": "Execute IRIS-WO-0013 on PR #65; prove 514 invariants, 83 independent surfaces, 15 absorbed components and FC-09-01..14; stop for independent review before merge."
 }
