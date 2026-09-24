@@ -4,10 +4,10 @@
 M10_PLANNING_ACTIVE
 
 ## VERSION
-m10-planning-s01-v0
+m10-planning-s02-v0
 
 ## PHASE
-M10_S01_WORKLOAD_SIGNATURE_COMPLETE
+M10_S02_HARDWARE_AWARE_PLAN_CANDIDATE
 
 ## OBJECTIVE
 Plan M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield through the governed five-session lifecycle without admitting product implementation.
@@ -21,15 +21,17 @@ Plan M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield through the 
 - PR #66 exact head `8c1fe7ff4b3ad8da74194ee15d5466341b578025` passed Governance `36025800675 / 107721889592` and was protected squash-merged as `e8ab43f42981630bad244a1d932e60e4ac584b2e`.
 - Exact-main Governance `36027974675 / 107729242412` passed on `e8ab43f42981630bad244a1d932e60e4ac584b2e`.
 - PR #67 reconciled canonical state at exact head `d3f8f0e45561a42ff38ad74b8bc6a2aaa02b39b8`; PR-head Governance `36029267285 / 107733578946` passed. Protected squash merge `b6456670a7c61621db1d3b3fc6d55487adb9cd64` passed exact-main Governance `36029536926 / 107734488887`; M09 closure reconciliation is complete.
-- M10 planning Work Order is Issue #68, admitted from that exact validated main; its admission Governance passed.
+- M10 planning Work Order is Issue #68, admitted from that exact validated main; its admission Governance passed.; exact admission base `b6456670a7c61621db1d3b3fc6d55487adb9cd64` passed Governance `36029536926 / 107734488887`.
 
+- PR #69 S01 exact head `00022a9c828cccbf00da1ec9a2e3d99ae14273d3` passed Governance `36031399466 / 107740768159`, was protected squash-merged as `fc1a3c954a1629b9e9a4c45c4e557a7832c290d7`, and passed exact-main Governance `36031548275 / 107741264931`.
 - M10 S01 Workload Signature Engine is complete for module planning; typed workload identity, authority references, evidence scope and unknown-state handling are recorded.
+- M10 S02 hardware-aware plan compilation is documented as a planning candidate from exact-main `fc1a3c954a1629b9e9a4c45c4e557a7832c290d7`; its exact-head Governance, protected merge and exact-main validation remain pending.
 
 ## IN PROGRESS
-M10 planning only under Issue #68. S02-S05, final technology review, M11-M60 compatibility scan, contract freeze and independent planning audit remain to be completed. M10 product/runtime implementation is NOT ADMITTED and NOT STARTED.
+M10 planning only under Issue #68. S02 awaits exact-head Governance and protected merge; S03-S05, final technology review, M11-M60 compatibility scan, contract freeze and independent planning audit remain pending. M10 product/runtime implementation is NOT ADMITTED and NOT STARTED.
 
 ## BLOCKERS
 M10 implementation remains NOT ADMITTED and NOT STARTED until the complete planning lifecycle is approved, its contract is frozen, its compatibility scan and independent audit pass, and a separate implementation Work Order / Context Lock / Evidence package passes preflight.
 
 ## NEXT STEP
-Complete M10 S02 hardware-aware plan compilation, then S03-S05, final technology review, M11-M60 compatibility scan, contract freeze and independent planning audit. Do not start M10 implementation during planning.
+Pass the S02 planning package through exact-head Governance, protected merge and exact-main validation; then plan S03 predictive OOM, thermal and quality-risk models. Do not start M10 implementation during planning.
