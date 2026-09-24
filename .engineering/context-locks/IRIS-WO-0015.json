@@ -1,0 +1,267 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0015",
+  "issue": 82,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0015-m11-planning-docs-20260924",
+  "proposalBranch": "iris-wo-0015-m11-planning-docs-20260924",
+  "baseSha": "0014d23115f5fec60a77e5e32d5083e90069a918",
+  "status": "ADMITTED_FOR_PLANNING_ONLY",
+  "risk": "ELEVATED",
+  "proposalOnlyForCheckpoint": true,
+  "planningOnly": true,
+  "implementationAdmission": "NOT_ADMITTED",
+  "targetContract": {
+    "name": "m11-contract-v1.0",
+    "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+    "status": "NOT_CREATED"
+  },
+  "sourceSnapshot": {
+    "fingerprintAlgorithm": "Git blob SHA-1",
+    "baseSha": "0014d23115f5fec60a77e5e32d5083e90069a918",
+    "criticalSourcesChecked": 46,
+    "criticalSourcesMatched": 46,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "18029f4c685cc8597242a6f949adbe2861f9f89e"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "gitBlobSha1": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "gitBlobSha1": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "3d203355e22cb8b58e7bada5127fe6f2e96c691d"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "ae270c4ae104f3d7946c38024a45e9da563435fe"
+    },
+    {
+      "path": ".engineering/github/main-governance.ruleset.json",
+      "gitBlobSha1": "f0854a05382340dde52ac1e2e1e866b38c37247c"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/work-order.yml",
+      "gitBlobSha1": "a1de35a18bbad2e0563332b4069f50c26eb4d88b"
+    },
+    {
+      "path": ".github/workflows/governance.yml",
+      "gitBlobSha1": "69ad10baaf919af2789e4a91bc9614a7373ffb82"
+    },
+    {
+      "path": "scripts/validate_governance.py",
+      "gitBlobSha1": "187d3ea1b78952ebfd348438bfde628ae19043b0"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "3d203355e22cb8b58e7bada5127fe6f2e96c691d"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "69fffd85b3e8562a200aeab231e7199489812798"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "9f8d8764b6ebdfe35c2f4a8885a2af0ebe83c3c8"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/05-INTEGRATION-CONTRACTS.md",
+      "gitBlobSha1": "1c2d0e3462794cee64f83831ea07d9f9ac120663"
+    },
+    {
+      "path": "docs/project-brain/07-RUNTIME-EXECUTION-PRINCIPLES.md",
+      "gitBlobSha1": "cecf9c4065062b426df28ba19f406d36b433cf77"
+    },
+    {
+      "path": "docs/project-brain/08-SLOW-PLANNING-PROTOCOL.md",
+      "gitBlobSha1": "2656cf88a5de0d43c0e3c0eafce4041c1f369f5f"
+    },
+    {
+      "path": "docs/project-brain/09-MODULE-PLANNING-CONSTRUCTION-LIFECYCLE.md",
+      "gitBlobSha1": "d6cbd248a422edbc43b4277a6ae2f350de7364d3"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "docs/project-brain/12-LOCAL-DEPLOYMENT.md",
+      "gitBlobSha1": "f27bf06af4418762b3e667928877f5f1d7e59a06"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "be31a25c6c579c71b7c540958289659fe190bf13"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": "planning/contracts/M01-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "8120dbf2d95cc0fd85f31e772e0b60a7c40d6442"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+    },
+    {
+      "path": "planning/contracts/M03-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "66616ac94f9e4d02b680e9dc4e4f8a8fce21d34a"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+    },
+    {
+      "path": "planning/modules/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "3b931f8761372bd3773cc2b5d23244ad08aecee3"
+    },
+    {
+      "path": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "1e5898f36b49e71f28eb18eb9582d48de60a58b4"
+    },
+    {
+      "path": "planning/reviews/M09-FINAL-TECHNOLOGY-REVIEW.md",
+      "gitBlobSha1": "86909d649353439278bc305a6a4a6125345a4d83"
+    },
+    {
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0013-M09-RESOURCE-DIGITAL-TWIN.md",
+      "gitBlobSha1": "25dadcb9856c66c8904bb6674717cd92a7209290"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0013.json",
+      "gitBlobSha1": "279e4e3db9d5c5621cd1288174c926d0ebe91c88"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0013.json",
+      "gitBlobSha1": "5b4479d95e677da62b57c882a82c75f8305597e8"
+    },
+    {
+      "path": "planning/modules/M10-ADAPTIVE-EXECUTION-PLANNER-PREDICTIVE-OOM-THERMAL-SHIELD.md",
+      "gitBlobSha1": "23aad63d35b194ab3fea995120c11b948eb9db8e"
+    },
+    {
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828"
+    },
+    {
+      "path": "planning/reviews/M10-FINAL-TECHNOLOGY-REVIEW.md",
+      "gitBlobSha1": "cf0ace0a3f2a662dcc3f5b76a6e41e61cfa4d44c"
+    },
+    {
+      "path": "planning/reviews/M10-INDEPENDENT-PLANNING-AUDIT.md",
+      "gitBlobSha1": "10bb3d556b1b90c609c626f2a5f551392c5431aa"
+    },
+    {
+      "path": "planning/compatibility/M10-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "0678e44b94f7a48c8f85b11d74ee7c119fdf40ca"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0014-M10-IMPLEMENTATION-PROPOSAL.md",
+      "gitBlobSha1": "afbb84ad59baa989a28ffdcae15c9fe1261ac60e"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0014-M10-PREFLIGHT-CRITERIA.md",
+      "gitBlobSha1": "e39109e43b657e4f10e6ecf3e4ad522b276b949d"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0014.json",
+      "gitBlobSha1": "098473531b7ca06a0a0588e5afb246f6ab0dccbf"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0014.json",
+      "gitBlobSha1": "ba9725312241c1ea9f267e376373151fb190e8e1"
+    },
+    {
+      "path": "planning/reviews/IRIS-WO-0014-M11-M60-OWNER-DEPENDENCY-REGISTER.md",
+      "gitBlobSha1": "9112422bdb6cc0b7a0309bc20366285a76921c98"
+    }
+  ],
+  "availableOwnerContracts": [
+    {
+      "owner": "M02",
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "status": "AVAILABLE",
+      "authority": "Production Graph causality, canonical ExecutionPlan and production lifecycle"
+    },
+    {
+      "owner": "M06",
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "status": "AVAILABLE",
+      "authority": "Operational revision/materialization lineage and reproducibility"
+    },
+    {
+      "owner": "M09",
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "status": "AVAILABLE_FROZEN_M09_CONTRACT_V1.0",
+      "authority": "Resource truth, claims, leases, reservations, residency and resource-control outcomes"
+    },
+    {
+      "owner": "M10",
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "status": "AVAILABLE_FROZEN_M10_CONTRACT_V1.0",
+      "authority": "Advisory planning only; no worker/process control"
+    }
+  ],
+  "unavailableOwnerContracts": [
+    {
+      "owner": "M11",
+      "status": "ABSENT_AT_BASE_TARGET_OF_THIS_PLANNING_INCREMENT"
+    },
+    {
+      "ownerRange": "M12-M60",
+      "status": "INDIVIDUAL_OWNER_CONTRACTS_ABSENT_AT_BASE_INDEX_LEVEL_CANDIDATES_ONLY"
+    }
+  ],
+  "authorityBoundaries": {
+    "M02": "Preserve production causality, canonical ExecutionPlan and production lifecycle.",
+    "M06": "Preserve operational state/revision, materialization and reproducibility ownership.",
+    "M09": "Consume resource and lease facts by owner-issued reference; never own resource truth or mutate leases.",
+    "M10": "Recommendations are not dispatch, placement, reservations, or worker/process commands.",
+    "M12": "Placement/orchestration handoff remains pending its own canonical contract."
+  },
+  "environment": {
+    "hiveMcpAvailable": false,
+    "hiveEvidence": "NOT_USED; connector unavailable in this Work Mode; no HIVE-derived claims; Git is canonical."
+  },
+  "runtimeOrTestFilesAuthorized": false,
+  "stopConditions": [
+    "Main SHA moves from the authorized base before PR base is reconciled.",
+    "Any critical source fingerprint differs.",
+    "A proposed decision requires missing owner-contract semantics.",
+    "Any request would launch, inspect, communicate with, stop, reap, or otherwise control a real process/worker.",
+    "Any attempt to admit M11 or M10 implementation through this planning Work Order."
+  ]
+}

@@ -1,14 +1,14 @@
 # IRIS Canonical Checkpoint
 
 ## STATUS
-M10_PLANNING_COMPLETE_IMPLEMENTATION_NOT_ADMITTED
+M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED
 ## VERSION
 m10-contract-v1.0
 
 ## PHASE
-M10_PLANNING_RECONCILED
+M11_PLANNING_ADMITTED
 ## OBJECTIVE
-Plan M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield through the governed five-session lifecycle without admitting product implementation.
+Plan M11 Background Worker Fabric & Process Lifecycle through the governed five-session lifecycle while preserving the frozen M10 contract and keeping M10 implementation NOT_ADMITTED.
 
 ## COMPLETED
 - M01-M09 implementations are durably closed; M09 planning contract `m09-contract-v1.0` remains frozen and canonical.
@@ -39,9 +39,9 @@ Plan M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield through the 
 - PR #77 exact head `57dc0410e9c434a04657b8f57562febdeceb84f1` passed Governance `36043928118 / 107782644258`; protected squash merge `8a3e32de28ccc824c165e29bfa3da4f6cc305de0` passed exact-main Governance `36044190420 / 107783526436` (actor: KayzenRoot).
 
 ## IN PROGRESS
-M10 planning is complete and the semantic contract is frozen as m10-contract-v1.0. IRIS-WO-0014 proposal is approved for documentation only. PR #80 exact head `f84ca2e00162a7869e31efcb217a962c1aa6ec2b` passed Governance `36059070309 / 107833280091`; protected squash merge `26c891fd53ac24e1e32b4ae84e162ea029f69366` passed exact-main Governance `36059177560 / 107833630952` (actor: KayzenRoot). Preflight remains BLOCKED by 50 missing M11-M60 owner contracts and unresolved M10 decisions. M10 implementation remains NOT ADMITTED and NOT STARTED.
+M11 planning is admitted under Issue #82 from exact main 0014d23115f5fec60a77e5e32d5083e90069a918. IRIS-WO-0015 establishes the planning-only scope and session map; all five M11 sessions remain NOT_STARTED and no M11 contract is frozen. This checkpoint delta is proposed for review and becomes canonical only after its documentation PR passes exact-head Governance and the protected merge flow. M10 remains frozen at m10-contract-v1.0, its implementation remains NOT_ADMITTED, and IRIS-WO-0014 preflight remains BLOCKED.
 ## BLOCKERS
 M10 implementation remains NOT ADMITTED and NOT STARTED until the complete planning lifecycle is approved, its contract is frozen, its compatibility scan and independent audit pass, and a separate implementation Work Order / Context Lock / Evidence package passes preflight.
 
 ## NEXT STEP
-Resolve the M11-M60 owner-contract register and M10 deferred decisions recorded in IRIS-WO-0014; refresh its Context Lock at an exact current main SHA and rerun preflight before any separate implementation admission. Keep implementation NOT ADMITTED.
+After the M11 planning admission package passes exact-head Governance, protected squash merge and exact-main Governance, begin M11 S01 as a separate documentation increment under Issue #82. Complete S01–S05 and all planning reviews before proposing an M11 contract freeze. Keep M11 and M10 implementation NOT_ADMITTED.
