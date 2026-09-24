@@ -19,7 +19,7 @@
   "criticalSources": [
     {
       "path": ".engineering/work-orders/IRIS-WO-0013-M09-RESOURCE-DIGITAL-TWIN.md",
-      "sha": "a26ac87820b9cf5951fb77bcc4b00f0852acd742"
+      "sha": "25dadcb9856c66c8904bb6674717cd92a7209290"
     },
     {
       "path": "planning/modules/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
@@ -106,5 +106,23 @@
     "baselineTests": 3219,
     "result": "PASS",
     "baselineBasis": "Last exact proven full suite is 3219 PASS; repository comparison from M08 reconciliation main to M09 admission base contains zero tests/runtime/scripts changes."
+  },
+  "reconciliation": {
+    "reason": "CHAT_FIXABLE: admission promotion intentionally changed the Work Order status/admission proof after candidate fingerprints were captured.",
+    "promotedHead": "467c29ed93db6f501fb765e9a7ef2510d0b46756",
+    "promotedHeadGovernance": {
+      "run": 35979438214,
+      "job": 107567540989,
+      "result": "PASS"
+    },
+    "fingerprintCheck": {
+      "matchedBeforeRefresh": 12,
+      "total": 13,
+      "mismatches": [
+        ".engineering/work-orders/IRIS-WO-0013-M09-RESOURCE-DIGITAL-TWIN.md"
+      ],
+      "semanticUnexpectedMismatches": 0
+    },
+    "status": "REFRESHED_PENDING_EXACT_HEAD_VALIDATION"
   }
 }
