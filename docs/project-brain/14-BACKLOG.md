@@ -20,12 +20,13 @@ Status: `M10_PLANNING_ACTIVE`
 - S02 hardware-aware plan compilation: **COMPLETE_FOR_MODULE_PLANNING**; PR #70 exact head `0fa18f55d845192d4225751ec14316af08ec6dad` passed Governance `36032894812 / 107745773871`, merged as `8d068d1cf9ef604aef8506ec879b7a382ec1b738`, and passed exact-main Governance `36033011233 / 107746156289`.
 - S03 predictive OOM, thermal and quality-risk models: **COMPLETE_FOR_MODULE_PLANNING**; PR #71 exact head `db9fc7e0f0e7615c075cfaee3debec3a3990697b` passed Governance `36034416554 / 107750841548`, merged as `8768661ee348815ec5b1eb6e32bc85505fa10b17`, and passed exact-main Governance `36034538318 / 107751237481`.
 - S04 ECO/BALANCED/QUALITY/MAX/CUSTOM semantics: **COMPLETE_FOR_MODULE_PLANNING**; PR #72 exact head `add4344d6b1a495f1aeeb23af0d57fdcddde381e` passed Governance `36037625164 / 107761547909`, merged as `96aee147e701c6d716cfbcf5f2be524ee5d751e7`, and passed exact-main Governance `36037710495 / 107761836741`.
-- S05 observed-result learning and explainable decisions: **CANDIDATE_COMPLETE_PENDING_GOVERNANCE**; session base `96aee147e701c6d716cfbcf5f2be524ee5d751e7`.
-- Contract freeze, Final Technology Review, M11-M60 compatibility scan and independent planning audit: **PENDING**.
+- S05 observed-result learning and explainable decisions: **COMPLETE_FOR_MODULE_PLANNING**; PR #73 exact head `fc1fa4959697b88fbfbe303736517aef52d9bc91` passed Governance `36038801813 / 107765474152`, merged as `54d85d3491d4cc21e95fc2f9042c53d2852ceb88`, and passed exact-main Governance `36038905218 / 107765823628`.
+- Final Technology Review: **CANDIDATE_PENDING_GOVERNANCE**; review base `54d85d3491d4cc21e95fc2f9042c53d2852ceb88`.
+- M11-M60 compatibility scan, contract freeze and independent planning audit: **PENDING**.
 - M10 product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-1. Validate and merge the S05 learning candidate, then perform Final Technology Review and remaining M10 gates under Issue #68.
+1. Validate and merge the Final Technology Review, then complete the M11-M60 scan, versioned contract candidate and independent audit under Issue #68.
 2. Finish technology discovery and Final Technology Review.
 3. Scan M11-M60 for compatibility and authority conflicts.
 4. Produce a versioned M10 contract candidate and independent planning audit.
