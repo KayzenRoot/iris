@@ -37,7 +37,7 @@ The Final Technology Review completed through PR #74 and passed exact-main Gover
 
 ### Next governed step
 
-If M10 implementation is pursued, create and admit a separate implementation Work Order / Context Lock / Evidence package and pass preflight. Keep M10 implementation NOT ADMITTED until then.
+IRIS-WO-0014 is proposed in PR #80 and remains NOT ADMITTED. Resolve all 50 M11-M60 owner-contract dependencies and deferred M10 decisions, refresh the Context Lock and pass preflight before a separate admission decision. Keep implementation NOT ADMITTED.
 
 ## IRIS 1.0 product scope
 
