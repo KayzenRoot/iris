@@ -2,7 +2,7 @@
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "M10_PLANNING_ACTIVE",
-  "version": "m10-planning-s04-v0",
-  "phase": "M10_S04_POLICY_SEMANTICS_CANDIDATE",
-  "nextStep": "Pass the S04 policy candidate through exact-head Governance, protected squash merge and exact-main validation; then continue S05 observed-result learning. Keep M10 implementation NOT ADMITTED."
+  "version": "m10-planning-s05-v0",
+  "phase": "M10_S05_OBSERVED_RESULT_LEARNING_CANDIDATE",
+  "nextStep": "Pass the S05 learning candidate through exact-head Governance, protected squash merge and exact-main validation; then begin Final Technology Review and the remaining planning lifecycle. Keep M10 implementation NOT ADMITTED."
 }
