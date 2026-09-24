@@ -4,5 +4,5 @@
   "status": "M08_IMPLEMENTATION_CLOSED",
   "version": "m08-contract-v1.0",
   "phase": "M08_DURABLE_CLOSURE_RECONCILIATION",
-  "nextStep": "Audit/merge the M08 post-merge reconciliation and exact-main validate before M09 planning."
+  "nextStep": "Audit this reconciliation, merge it under exact-head protection, validate exact main, then begin the separately gated M09 planning lifecycle."
 }
