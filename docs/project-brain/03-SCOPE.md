@@ -10,7 +10,7 @@ M10 — Adaptive Execution Planner & Predictive OOM/Thermal Shield — is admitt
 
 S01 defines versioned workload signatures as typed projections of workload shape and pinned upstream evidence. It preserves source ownership: M02 owns the canonical ExecutionPlan contract; M01 and M03 own quality and protected semantic contracts; M07, M08 and M09 own hardware, empirical capability and resource truth respectively. M10 consumes these references and must not rewrite or self-certify them.
 
-S02 planning, prepared from exact-main commit `fc1a3c954a1629b9e9a4c45c4e557a7832c290d7`, defines evidence-bound feasibility and bounded plan alternatives through M02's contract. It does not create a competing ExecutionPlan schema, reserve resources, choose a physical placement or compile provider workflows. M07/M08/M09 facts remain owner-issued, scope-pinned inputs; uncertain, stale, conflicting or omitted mandatory evidence yields an explicit indeterminate/no-safe-plan path.
+S02 planning is complete for module planning: PR #70 exact head `0fa18f55d845192d4225751ec14316af08ec6dad` passed Governance `36032894812 / 107745773871`, was protected squash-merged as `8d068d1cf9ef604aef8506ec879b7a382ec1b738`, and passed exact-main Governance `36033011233 / 107746156289`. S02 defines evidence-bound feasibility and bounded plan alternatives through M02's contract. It does not create a competing ExecutionPlan schema, reserve resources, choose a physical placement or compile provider workflows. M07/M08/M09 facts remain owner-issued, scope-pinned inputs; uncertain, stale, conflicting or omitted mandatory evidence yields an explicit indeterminate/no-safe-plan path.
 
 M09 owns resource-state/accounting, leases/reservations/residency, bounded mobility/offload/prefetch contracts, resource-shape feasibility/control state and bounded pressure/recovery/leak semantics. It does not own M10 execution planning/predictive OOM/thermal policy, M11 process lifecycle, M12 placement/orchestration, M14 model fitness, M53/M54 rights/security policy, M55 physical storage/delete, M56 observability aggregation, M01 quality authority or M03 protected semantic authority.
 
@@ -18,7 +18,7 @@ M09 owns resource-state/accounting, leases/reservations/residency, bounded mobil
 
 Planning covers the five canonical sessions: Workload Signature Engine; hardware-aware execution plan compilation; predictive OOM, thermal and quality-risk models; ECO/BALANCED/QUALITY/MAX/CUSTOM policy semantics; and observed-result learning with explainable decisions.
 
-M10 planning must define explicit behavior for unknown, stale, conflicting, unsupported and out-of-distribution evidence. It must separate predictions for OOM, thermal behavior and quality risk, preserve provenance and uncertainty, and define a no-safe-plan result. M11 worker lifecycle, M12 placement, M13 cache/performance, M14 model fitness, M16 provider compilation, M50 cost/quality routing, M54 security and M56 observability remain separate authorities.
+M10 planning must define explicit behavior for unknown, stale, conflicting, unsupported and out-of-distribution evidence. S03 is now a planning candidate for three separately labeled outputs: validated allocation-failure/OOM risk; thermal-limit/throttle risk distinct from power-limit behavior; and M01 Fidelity Contract violation risk. Each estimate retains exact scope, provenance, freshness, calibration, uncertainty and applicability. Unsupported, stale, conflicting or drifting evidence produces abstention/indeterminate/no-safe-plan; no prediction can weaken M01/M03 obligations. M11 worker lifecycle, M12 placement, M13 cache/performance, M14 model fitness, M16 provider compilation, M50 cost/quality routing, M54 security and M56 observability remain separate authorities.
 
 ### NOT ADMITTED
 
@@ -34,7 +34,7 @@ M10 planning must define explicit behavior for unknown, stale, conflicting, unsu
 
 ### Next governed step
 
-Complete S02 hardware-aware plan compilation, then S03-S05 and all planning gates. Keep this increment planning-only.
+Pass the S03 planning candidate through exact-head Governance, protected squash merge and exact-main validation; then continue S04-S05 and the remaining planning gates. Keep this increment planning-only.
 
 ## IRIS 1.0 product scope
 
