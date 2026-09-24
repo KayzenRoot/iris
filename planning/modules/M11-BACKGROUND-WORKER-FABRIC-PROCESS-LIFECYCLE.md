@@ -1,6 +1,6 @@
 # M11 — Background Worker Fabric & Process Lifecycle
 
-Status: S01_RESEARCH_COMPLETE_PENDING_GOVERNANCE
+Status: S01_COMPLETE_FOR_MODULE_PLANNING
 Contract: NOT_FROZEN
 Planning issue: #82
 Planning Work Order: IRIS-WO-0015
@@ -9,7 +9,7 @@ Implementation authority: NOT_ADMITTED
 
 ## Purpose
 
-This file is the session map for the admitted M11 planning lifecycle. It is not an owner contract, implementation specification, technology decision, process policy, or authorization to launch or control workers. Every session is initially NOT_STARTED. No M11 contract is frozen by this document.
+This file is the session map for the admitted M11 planning lifecycle. It is not an owner contract, implementation specification, technology decision, process policy, or authorization to launch or control workers. S01 is COMPLETE_FOR_MODULE_PLANNING; S02–S05 remain NOT_STARTED. No M11 contract is frozen by this document.
 
 M11 is expected to plan the background worker and operating-system process lifecycle required by IRIS. Product requirements PR-005, PR-006, PR-008 and PR-009 establish the planning context: Blender headless/background automation, a structured control surface without mandatory live GUI, managed worker lifecycle/concurrency/cancellation/cleanup/orphan detection, and configurable workstation CPU/RAM/VRAM headroom. Their concrete semantics remain to be planned and assigned to owners.
 
@@ -27,11 +27,11 @@ M11 is expected to plan the background worker and operating-system process lifec
 ## Slow-planning sessions
 
 ### S01 — Long-lived supervisor and job process model
-Status: RESEARCH_COMPLETE_PENDING_GOVERNANCE
+Status: COMPLETE_FOR_MODULE_PLANNING
 
 Plan supervisor and job identity/lifecycle roles, process ownership boundaries, long-lived versus per-job responsibilities, failure domains, and the relationship to M02 production work identity and M06 operational attempts. Do not decide lifecycle states or identity schemas before source and technology review.
 
-Research record: planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md. The session exploration is complete and awaits its exact-head / exact-main Governance closeout; no architecture, identity schema, M11 contract, or implementation is selected.
+Research record: planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md. S01 closed for module planning through PR #85 exact head 819b184cef722a945391d96b75edeb1f74f47c99 (Governance 36065623865 / 107854567970, PASS), squash merge 8ea0871668fc182d0f0a829bee352e03a0ec7ce4, and exact-main Governance 36065770189 / 107855048099 (PASS). No architecture, identity schema, M11 contract, or implementation is selected.
 
 ### S02 — Headless/background worker startup and IPC
 Status: NOT_STARTED

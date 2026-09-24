@@ -53,7 +53,7 @@
     {
       "id": "S01",
       "title": "Long-lived supervisor and job process model",
-      "status": "RESEARCH_COMPLETE_PENDING_GOVERNANCE"
+      "status": "COMPLETE_FOR_MODULE_PLANNING"
     },
     {
       "id": "S02",
@@ -186,7 +186,7 @@
       "result": "PASS"
     }
   },
-  "checkpointDeltaProposed": "Applied through PR #83 and reconciled after exact-main Governance in this closeout increment. M11 planning is admitted for documentation only; M11 and M10 implementation remain NOT_ADMITTED.",
+  "checkpointDeltaProposed": "Applied by the S01 closeout PR after exact-main Governance for PR #85. S01 is complete for module planning only; S02–S05 remain NOT_STARTED. No M11 contract is frozen; M11/M10 implementation remain NOT_ADMITTED.",
   "runtimeEvidence": "NONE; no runtime code or process operation is in scope.",
   "protectedMerge": {
     "pullRequest": 83,
@@ -208,7 +208,7 @@
     "planning/reviews/IRIS-WO-0015-PLANNING-ADMISSION-AUDIT.md"
   ],
   "s01SessionProposal": {
-    "status": "RESEARCH_COMPLETE_PENDING_GOVERNANCE",
+    "status": "COMPLETE_FOR_MODULE_PLANNING",
     "issue": 82,
     "workOrder": "IRIS-WO-0015",
     "baseSha": "889b29b773676649a15bd497cbe22f6fe4d8a9a5",
@@ -277,28 +277,82 @@
       "S01-U10"
     ],
     "documentationPreflight": {
-      "status": "PASS_PENDING_EXACT_HEAD_AND_EXACT_MAIN_GOVERNANCE",
+      "status": "PASS_FOR_S01_SESSION_DOCUMENTATION_ONLY",
       "docsOnly": true,
       "runtimeOrTestOrProcessOperation": false,
       "m11ContractFrozen": false,
       "m11Implementation": "NOT_ADMITTED",
       "m10Implementation": "NOT_ADMITTED",
       "exactHeadGovernance": {
-        "result": "PENDING"
+        "runId": 36065623865,
+        "jobId": 107854567970,
+        "headSha": "819b184cef722a945391d96b75edeb1f74f47c99",
+        "actor": "KayzenRoot",
+        "result": "PASS",
+        "tests": "3940/3940"
       },
       "protectedMerge": {
-        "result": "PENDING"
+        "pullRequest": 85,
+        "method": "squash",
+        "headSha": "819b184cef722a945391d96b75edeb1f74f47c99",
+        "mergeSha": "8ea0871668fc182d0f0a829bee352e03a0ec7ce4",
+        "actor": "KayzenRoot",
+        "result": "MERGED"
       },
       "exactMainGovernance": {
-        "result": "PENDING"
+        "runId": 36065770189,
+        "jobId": 107855048099,
+        "headSha": "8ea0871668fc182d0f0a829bee352e03a0ec7ce4",
+        "actor": "KayzenRoot",
+        "result": "PASS",
+        "tests": "3940/3940"
       }
     },
-    "runtimeEvidence": "NONE; no runtime code, process operation, provider execution, resource reservation, or hardware measurement."
+    "runtimeEvidence": "NONE; no runtime code, process operation, provider execution, resource reservation, or hardware measurement.",
+    "documentationAudit": {
+      "status": "APPROVED_FOR_S01_SESSION_DOCUMENTATION_ONLY",
+      "reviewType": "Post-authoring documentation and scope audit of PR #85 exact head",
+      "reviewedHead": "819b184cef722a945391d96b75edeb1f74f47c99",
+      "baseSha": "889b29b773676649a15bd497cbe22f6fe4d8a9a5",
+      "changedFilesReviewed": 4,
+      "sourceFingerprints": {
+        "checked": 53,
+        "matched": 53,
+        "mismatches": 0
+      },
+      "highFindings": 0,
+      "criticalFindings": 0,
+      "residualFindings": 0,
+      "finalIndependentM11PlanningAudit": "PENDING_AFTER_S01_S05_AND_FINAL_PLANNING_REVIEWS"
+    },
+    "closeoutContextLock": ".engineering/context-locks/IRIS-WO-0015-S01-CLOSEOUT.json",
+    "closeoutBaseSha": "8ea0871668fc182d0f0a829bee352e03a0ec7ce4",
+    "closeoutSourceSnapshot": {
+      "algorithm": "Git blob SHA-1",
+      "baseTreeSha": "54c01d66d0b03a09efbbc24fb5ef14eb9dad9f11",
+      "checked": 55,
+      "matched": 55,
+      "mismatches": 0
+    }
   },
   "s01ProposalChangedFiles": [
     "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
     ".engineering/context-locks/IRIS-WO-0015-S01.json",
     ".engineering/evidence/IRIS-WO-0015.json",
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
+  ],
+  "currentPhase": "M11_S01_COMPLETE_FOR_MODULE_PLANNING",
+  "sessionCloseoutChangedFiles": [
+    ".engineering/context-locks/IRIS-WO-0015-S01-CLOSEOUT.json",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+    "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+    "planning/reviews/IRIS-WO-0015-S01-DOCUMENTATION-AUDIT.md"
   ]
 }
