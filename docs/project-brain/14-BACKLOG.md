@@ -18,14 +18,14 @@ Status: `M10_PLANNING_ACTIVE`
 - Admission Governance: `36029536926 / 107734488887`, PASS.
 - S01 Workload Signature Engine: **COMPLETE_FOR_MODULE_PLANNING**; PR #69 exact-main Governance passed on `fc1a3c954a1629b9e9a4c45c4e557a7832c290d7` (`36031548275 / 107741264931`).
 - S02 hardware-aware plan compilation: **COMPLETE_FOR_MODULE_PLANNING**; PR #70 exact head `0fa18f55d845192d4225751ec14316af08ec6dad` passed Governance `36032894812 / 107745773871`, merged as `8d068d1cf9ef604aef8506ec879b7a382ec1b738`, and passed exact-main Governance `36033011233 / 107746156289`.
-- S03 predictive OOM, thermal and quality-risk models: **CANDIDATE_COMPLETE_PENDING_GOVERNANCE**; session base `8d068d1cf9ef604aef8506ec879b7a382ec1b738`.
-- S04 ECO/BALANCED/QUALITY/MAX/CUSTOM semantics: **NOT STARTED**.
+- S03 predictive OOM, thermal and quality-risk models: **COMPLETE_FOR_MODULE_PLANNING**; PR #71 exact head `db9fc7e0f0e7615c075cfaee3debec3a3990697b` passed Governance `36034416554 / 107750841548`, merged as `8768661ee348815ec5b1eb6e32bc85505fa10b17`, and passed exact-main Governance `36034538318 / 107751237481`.
+- S04 ECO/BALANCED/QUALITY/MAX/CUSTOM semantics: **CANDIDATE_COMPLETE_PENDING_GOVERNANCE**; session base `8768661ee348815ec5b1eb6e32bc85505fa10b17`.
 - S05 observed-result learning and explainable decisions: **NOT STARTED**.
 - Contract freeze, Final Technology Review, M11-M60 compatibility scan and independent planning audit: **PENDING**.
 - M10 product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-1. Validate and merge the S03 planning candidate, then complete S04-S05 under Issue #68.
+1. Validate and merge the S04 policy candidate, then complete S05 under Issue #68.
 2. Finish technology discovery and Final Technology Review.
 3. Scan M11-M60 for compatibility and authority conflicts.
 4. Produce a versioned M10 contract candidate and independent planning audit.

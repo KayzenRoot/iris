@@ -1,12 +1,14 @@
 # M10 — Adaptive Execution Planner & Predictive OOM/Thermal Shield
 
-Status: `PLANNING_S03_CANDIDATE_PENDING_GOVERNANCE`
+Status: `PLANNING_S04_CANDIDATE_PENDING_GOVERNANCE`
 Module: **M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield**
 Planning Work Order: [Issue #68](https://github.com/KayzenRoot/iris/issues/68)
 Authorized planning base: `b6456670a7c61621db1d3b3fc6d55487adb9cd64`
 S02 session base: `fc1a3c954a1629b9e9a4c45c4e557a7832c290d7`
 S02 exact head: `0fa18f55d845192d4225751ec14316af08ec6dad`; Governance `36032894812 / 107745773871` — **PASS**
 S02 protected squash merge / exact-main: `8d068d1cf9ef604aef8506ec879b7a382ec1b738`; Governance `36033011233 / 107746156289` — **PASS**
+S03 exact head: `db9fc7e0f0e7615c075cfaee3debec3a3990697b`; Governance `36034416554 / 107750841548` — **PASS**
+S03 protected squash merge / exact-main: `8768661ee348815ec5b1eb6e32bc85505fa10b17`; Governance `36034538318 / 107751237481` — **PASS**
 S01 exact-main Governance: `36031548275 / 107741264931` — **PASS**
 Admission Governance: `36029536926 / 107734488887` — **PASS**
 Implementation authority: **NOT ADMITTED**
@@ -23,8 +25,8 @@ This document is a planning candidate. No M10 product/runtime/test implementatio
 |---|---|---|
 | S01 | Workload Signature Engine | COMPLETE_FOR_MODULE_PLANNING |
 | S02 | Hardware-aware execution plan compilation | COMPLETE_FOR_MODULE_PLANNING |
-| S03 | Predictive OOM, thermal and quality-risk models | CANDIDATE_COMPLETE_PENDING_GOVERNANCE |
-| S04 | ECO / BALANCED / QUALITY / MAX / CUSTOM policy semantics | NOT_STARTED |
+| S03 | Predictive OOM, thermal and quality-risk models | COMPLETE_FOR_MODULE_PLANNING |
+| S04 | ECO / BALANCED / QUALITY / MAX / CUSTOM policy semantics | CANDIDATE_COMPLETE_PENDING_GOVERNANCE |
 | S05 | Observed-result learning loop and explainable decisions | NOT_STARTED |
 
 ## Authority boundaries
@@ -227,8 +229,10 @@ Official documentation and design inferences are recorded in [M10 S02 research](
 
 ## S03 — Predictive OOM, thermal and quality-risk models
 
-Status: `CANDIDATE_COMPLETE_PENDING_GOVERNANCE`
+Status: `COMPLETE_FOR_MODULE_PLANNING`
 Session base: `8d068d1cf9ef604aef8506ec879b7a382ec1b738`
+Exact head: `db9fc7e0f0e7615c075cfaee3debec3a3990697b`; Governance `36034416554 / 107750841548` — **PASS**
+Protected squash merge / exact-main: `8768661ee348815ec5b1eb6e32bc85505fa10b17`; Governance `36034538318 / 107751237481` — **PASS**
 Implementation authority: **NOT ADMITTED**
 
 ### Objective
@@ -314,9 +318,80 @@ See [M10 S03 research](../research/M10-S03-PREDICTIVE-RISK-CALIBRATION.md) for t
 
 ## S04 — ECO / BALANCED / QUALITY / MAX / CUSTOM policy semantics
 
-Status: `NOT_STARTED`
+Status: `CANDIDATE_COMPLETE_PENDING_GOVERNANCE`
+Session base: `8768661ee348815ec5b1eb6e32bc85505fa10b17`
+Implementation authority: **NOT ADMITTED**
 
-Define named policy semantics as bounded preferences and explicit constraints. Preserve M01 quality authority, M03 protected semantics, user/operator authorization and an explicit refusal/no-safe-plan outcome.
+### Objective
+
+Define versioned named policy profiles as explicit preferences over S02-admissible alternatives, using S03's separate risk estimates. Policy modes may rank or bound choices; they cannot rewrite hard obligations, improve evidence quality, or authorize execution.
+
+### Precedence and decision sequence
+
+1. **Pin the request.** Bind the exact M02 target graph/revision, M01 output class/Fidelity Contract, M03 intent/constraints, S01 workload signature, S02 candidate set, S03 risk records, and applicable M07/M08/M09/M50/M54 evidence. Do not resolve implicit `latest`.
+2. **Validate the profile.** Require a known mode, supported metric definitions, units, directions, authorized budgets and revision. Unknown fields, unresolved conflicts and missing MAX objectives are invalid policy inputs.
+3. **Apply hard constraints.** Filter alternatives against M02 causality/permissions, M01 quality obligations, M03 protected semantics, M07 compatibility, M08 demonstrated capability, M09 current feasibility, M50 authorized cost/quality boundaries and M54 security policy. Hard constraints are not objective weights.
+4. **Apply risk admissibility.** Consume the separate S03 OOM, thermal and quality-risk records only through explicit policy/owner-approved applicability and risk-budget references. S04 chooses no numeric budget in this candidate. Unknown, stale or out-of-scope risk cannot count as low risk.
+5. **Rank or preserve alternatives.** Apply the selected mode's disclosed preference rule only to surviving alternatives. Where the profile does not decide a trade-off, return a bounded nondominated set or an explicit unresolved/no-safe-plan result; do not hide the trade-off in a scalar.
+6. **Explain the result.** Return the profile revision, hard constraints, risk evidence, preference order/weights, rejected and retained alternatives, tie-break and any abstention reason through the M02-compatible handoff. M10 does not serialize a competing canonical ExecutionPlan.
+
+### Candidate mode semantics
+
+| Mode | Preference semantics over admissible alternatives | Required inputs and limits |
+|---|---|---|
+| **ECO** | Prefer lower authorized resource demand and cost; use measured energy/thermal burden only when owner evidence supports a comparable metric. Latency may be traded only within explicit request limits. | M01/M03 obligations remain hard. M09 owns resource truth; M50 owns broader cost/quality routing. Unknown cost/energy is not zero or a favorable score. |
+| **BALANCED** | Preserve alternatives that are nondominated across the declared latency, quality-evidence, resource, cost and thermal dimensions. A recommendation may use a published, versioned preference profile; otherwise return the bounded set with trade-offs explained. | No hidden universal weights. The default preference profile and supported dimensions remain decisions for evidence-based review before contract freeze. |
+| **QUALITY** | Prefer alternatives with stronger applicable M01 quality evidence and margin against the requested Fidelity Contract while meeting authorized resource/cost limits. | M01 alone evaluates quality and controls promotion. More compute, a model name or a local proxy score is not proof of better quality. |
+| **MAX** | Maximize one explicitly named objective, such as an owner-defined latency, throughput or quality-evidence metric, among hard-admissible alternatives. | Require objective identifier, unit, direction, scope and authorized trade-offs. “Maximize everything” is undefined; absent or incomparable objectives yield invalid-policy/no-safe-plan. |
+| **CUSTOM** | Apply an explicit user/operator preference order, permitted objective weights, constraints and fallback permissions. | Bind the profile to an immutable revision and authorization. Weights must name units/scales and cannot override hard gates. Reject unknown fields and incompatible dimensions instead of inventing defaults. |
+
+Mode labels describe preferences, not service guarantees. Each mode retains bounded alternatives and a deterministic, disclosed tie-break. If an authorized profile permits fallback, the fallback mode and transition conditions must be pinned and explained before planning; no silent QUALITY→ECO, MAX→BALANCED or CUSTOM rewrite is allowed.
+
+### Policy profile and decision receipt candidates
+
+A versioned profile reference should identify:
+
+- mode and profile revision;
+- requested objective(s), preference ordering and any explicit weight/normalization method;
+- hard constraints and owner-issued budget/capability references;
+- S03 risk-family applicability and risk-budget references without collapsing risk outputs;
+- permitted fallback modes/transitions and required user/operator authorization;
+- deterministic tie-break semantics and bounded alternative count.
+
+A decision receipt should bind the profile, exact source revisions, candidate alternatives, hard-gate outcomes, separate risk dispositions, applied preferences, rejected alternatives, recommendation rationale and no-safe-plan/indeterminate reason. These are candidate fields for later contract review; M02 remains canonical plan owner and M56 owns observability aggregation.
+
+### Conflict, fallback and no-safe-plan behavior
+
+- Hard-constraint conflict, infeasible constraints, invalid profile, unsupported objective, stale mandatory evidence or no applicable risk-policy reference yields a typed invalid/indeterminate/no-safe-plan result.
+- A lower-priority preference can be relaxed only when the versioned profile explicitly permits that relaxation and the explanation records it. Hard M01/M03/M02/M54 obligations cannot be relaxed by a mode.
+- If a user-selected mode has no feasible alternative, do not silently switch modes or change output class, fidelity, precision, seed, semantics, cost ceiling or execution permissions.
+- Policy selection is not placement, resource reservation, worker dispatch, provider compilation or execution. Owning modules revalidate dynamic evidence at their handoff.
+
+### Planning evidence and review cases
+
+The eventual validation plan should include cases where: every alternative violates one hard constraint; ECO lacks comparable energy/cost evidence; BALANCED returns multiple nondominated choices; QUALITY has no M01 evidence for the requested class; MAX omits or mismatches its objective unit; CUSTOM contains an unknown field or unauthorized weight; risk is unknown/stale; and an explicitly authorized fallback is or is not available. These are future test/evidence obligations, not tests added in this planning PR.
+
+### Open S04 decisions
+
+- Which measurable objective dimensions and units are supported by M08/M09/M50 and which remain unrankable.
+- Whether BALANCED has a default published preference order or always returns a nondominated set until the operator chooses.
+- Which MAX objective identifiers are valid, with their owner, scope and comparability rules.
+- How explicit risk-budget references are versioned and approved without duplicating M01/M50 authority.
+- Which fallback transitions require fresh user confirmation and which, if any, may be preauthorized.
+- Deterministic tie-break and alternative-set bounds compatible with M02's canonical plan contract.
+
+### S04 exit criteria
+
+- Named modes have distinct, testable preference semantics and all share the same hard-constraint gates.
+- Policy profiles are revision-pinned, unit-aware, authorized and explicit about trade-offs, weights and fallback.
+- ECO, BALANCED, QUALITY, MAX and CUSTOM cannot silently weaken M01/M03 or owner-issued safety/resource constraints.
+- MAX requires an explicit objective; BALANCED exposes unresolved trade-offs; CUSTOM rejects unsupported input.
+- Missing or stale S03 risk evidence and infeasible constraints produce explicit no-safe-plan/indeterminate results.
+- Result explanations bind exact inputs, rejected alternatives, preference behavior and deterministic tie-break.
+- M02/M01/M03/M07/M08/M09/M11/M12/M13/M14/M16/M50/M54/M56 authority boundaries remain intact.
+- No solver, numerical weight, risk threshold, resource budget, implementation or runtime action is selected by this candidate.
+
+See [M10 S04 research](../research/M10-S04-POLICY-SEMANTICS.md) for the primary-source basis and open method choices.
 
 ## S05 — Observed-result learning loop and explainable decisions
 
