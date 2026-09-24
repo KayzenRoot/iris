@@ -1,6 +1,6 @@
 # M11 S01 — Long-lived Supervisor and Job Process Model
 
-Status: RESEARCH_COMPLETE_PENDING_GOVERNANCE
+Status: COMPLETE_FOR_MODULE_PLANNING
 Work Order: IRIS-WO-0015 / Issue #82
 Planning base: 889b29b773676649a15bd497cbe22f6fe4d8a9a5
 Research checked: 2026-09-24
@@ -134,6 +134,16 @@ No UGAS or CORE supervisor source was available in this repository/connection. H
 | S01-U10 | Which M56 observation/audit details are owner-defined and which remain pending? | Revisit against M56 contract when available |
 
 Cancellation, timeout and escalation policy remain for S05; reaper/zombie semantics and shell-free command rules remain for S04; IPC and authentication remain for S02; concurrency, fairness, leases and headroom remain for S03. No session question authorizes a runtime action.
+
+## S01 Governance closeout
+
+S01 is complete for module planning only. The proposal was opened as [PR #85](https://github.com/KayzenRoot/iris/pull/85) from exact main 889b29b773676649a15bd497cbe22f6fe4d8a9a5.
+
+- Exact PR head: 819b184cef722a945391d96b75edeb1f74f47c99; Governance run 36065623865, job 107854567970 — PASS.
+- Protected squash merge: 8ea0871668fc182d0f0a829bee352e03a0ec7ce4; actor KayzenRoot.
+- Exact-main Governance: run 36065770189, job 107855048099 on 8ea0871668fc182d0f0a829bee352e03a0ec7ce4 — PASS; 3940/3940 tests.
+
+This closeout records research and planning evidence. It does not select a technology, freeze an M11 contract, admit M11 or M10 implementation, or close Issue #82.
 
 ## Validation and limits
 
