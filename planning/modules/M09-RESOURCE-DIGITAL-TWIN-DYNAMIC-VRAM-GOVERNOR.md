@@ -417,3 +417,211 @@ S02 may advance to S03 planning only when:
 
 ## STOP CONDITION
 Stop at S02 planning. Do not implement M09. Do not deep-plan S03 until S02 receives independent review.
+
+
+# S03 — RAM/NVMe spill, offload and prefetch planning
+
+Status: `S03_PLANNING_CANDIDATE`
+S02 audit: `APPROVED` at `e4a5779de5183de1d21c238f73eb63c6a8344482`
+
+## S03 objective
+Define safe, evidence-bound movement of resource-resident material between VRAM, host RAM and eligible M55-backed spill targets. M09 owns resource-tier movement intent/state and bounded transfer contracts. M55 retains physical storage/CAS authority; M10 retains workload execution-plan authority; M11 retains worker/process execution.
+
+## S03 technology surfaces
+
+### RSO-01 — Tiered Resource Mobility Fabric
+Defines typed movement between VRAM, RAM and eligible spill tiers with exact source/destination identities, units and lifecycle state.
+
+### RSO-02 — Offload Transaction Protocol
+Models PREPARED / COPYING / VERIFIED / COMMITTED / ABORTED offload transitions so source residency is not released before destination integrity is proven.
+
+### RSO-03 — Spill Target Capability Contract
+Consumes versioned M55 capability references for capacity, durability class, latency evidence and access constraints without turning M09 into a storage provider.
+
+### RSO-04 — Transfer Integrity Seal
+Binds moved material to exact artifact/revision/segment identity and integrity digest before residency ownership can transition.
+
+### RSO-05 — Two-Phase Residency Handoff
+Separates destination verification from source release to prevent destructive move-on-copy-failure behavior.
+
+### RSO-06 — Prefetch Intent Fabric
+Represents bounded prefetch requests and evidence, but M10 decides whether/when a workload plan should request them.
+
+### RSO-07 — Prefetch Budget Governor
+Caps speculative RAM/VRAM/spill occupancy and transfer concurrency so prefetch cannot consume protected headroom or starve admitted work.
+
+### RSO-08 — Transfer Cost Evidence Model
+Carries measured/estimated bandwidth, latency, serialization and synchronization cost with M08 provenance where applicable. It is evidence, not M10 scheduling policy.
+
+### RSO-09 — Spill Encryption/Permission Binder
+Requires storage/security authorization references for spill targets and preserves restricted-data constraints without taking M53/M54 authority.
+
+### RSO-10 — Dirty-State & Writeback Contract
+Distinguishes clean reproducible material from dirty state requiring verified writeback before release.
+
+### RSO-11 — Partial Segment Mobility
+Allows explicitly segmentable model/assets to move in bounded chunks while preserving exact segment map and completeness state.
+
+### RSO-12 — Transfer Cancellation & Resume Ledger
+Records bounded cancellation/resume checkpoints without assuming arbitrary provider resume support.
+
+### RSO-13 — Transfer Idempotency Shield
+Retry identities prevent duplicate copies from becoming duplicate commitments or conflicting residency truth.
+
+### RSO-14 — Bandwidth Contention Sentinel
+Represents transfer contention and external I/O pressure as evidence; it cannot throttle unrelated processes or become M12 orchestration.
+
+### RSO-15 — Spill Wear & Endurance Evidence Port
+Accepts optional device/endurance evidence and policy constraints for local NVMe without claiming hardware-health authority when telemetry is absent.
+
+### RSO-16 — Data Locality Hint Channel
+Exports current tier/locality evidence to M10/M12 while preserving their plan/placement authority.
+
+### RSO-17 — Transfer Failure Quarantine
+Incomplete, corrupt, identity-mismatched or permission-invalid destinations are quarantined and cannot authorize source eviction.
+
+### RSO-18 — Resource Mobility Journal
+Append-oriented causal journal linking lease, residency, source/destination, bytes, integrity, authorization and outcome.
+
+### RSO-19 — Spill Garbage Eligibility Contract
+Marks abandoned/expired spill artifacts as eligible for M55 cleanup but never deletes physical storage itself.
+
+### RSO-20 — Zero-Fabrication Offload Firewall
+If a required tier/provider/capability is unavailable, S03 returns explicit UNSUPPORTED/UNAVAILABLE/REQUIRE_REPLAN rather than pretending an offload occurred.
+
+## S03 hard invariants
+191. Every movement identifies exact source and destination resource tiers.
+192. VRAM, RAM and spill tiers remain semantically distinct.
+193. A movement intent is not evidence that bytes moved.
+194. Offload state is explicit and typed.
+195. Source residency cannot be released before destination verification.
+196. Copy failure cannot silently become successful offload.
+197. Destination integrity is checked before COMMITTED state.
+198. Integrity failure quarantines the destination.
+199. Quarantined destination cannot authorize source eviction.
+200. Transfer identity binds exact artifact/revision.
+201. Segmented movement binds exact segment identity/range.
+202. Partial transfer cannot masquerade as complete residency.
+203. Destination capacity must be admitted before hard transfer commitment.
+204. Protected operator headroom applies to destination RAM/VRAM.
+205. Prefetch cannot consume protected headroom.
+206. Prefetch is bounded by explicit byte/concurrency/time budgets.
+207. Speculative prefetch is distinguishable from required residency.
+208. Prefetch intent cannot reorder an M10 workload plan.
+209. M09 cannot infer future workload demand without an authorized request/hint.
+210. Transfer cost evidence records observed versus estimated status.
+211. M08-derived transfer evidence remains provenance-bound.
+212. Estimated bandwidth cannot masquerade as measured bandwidth.
+213. Unknown transfer cost remains UNKNOWN.
+214. Unknown transfer cost cannot be coerced to zero.
+215. M09 cannot invent a storage target absent M55 capability reference.
+216. M55 retains physical storage allocation/CAS authority.
+217. Spill path strings alone do not constitute trusted storage capability.
+218. Storage durability class remains explicit.
+219. Temporary spill cannot masquerade as durable persistence.
+220. Spill authorization preserves security/permission references.
+221. M09 cannot weaken M53 rights/provenance constraints.
+222. M09 cannot weaken M54 security/restricted-content constraints.
+223. Restricted material cannot spill to an unauthorized tier.
+224. Encryption requirement is explicit when imposed by owning policy.
+225. M09 does not invent cryptographic/security policy.
+226. Dirty state is distinguishable from clean reproducible state.
+227. Dirty state requiring writeback cannot be discarded as clean.
+228. Writeback success requires destination verification.
+229. Clean reproducible material may be marked reconstructible only with valid reconstruction reference.
+230. Reconstruction reference does not replace M06 production/rebuild authority.
+231. Cancellation leaves explicit transfer outcome/state.
+232. Cancellation cannot silently release source residency.
+233. Resume requires compatible provider/capability support.
+234. Unsupported resume fails explicitly.
+235. Retry uses stable idempotency identity.
+236. Duplicate retry cannot multiply committed destination residency.
+237. Conflicting idempotency reuse fails closed.
+238. Transfer concurrency is bounded.
+239. Transfer byte budget is bounded.
+240. Transfer time/deadline semantics are explicit.
+241. Unbounded retry is forbidden.
+242. Bandwidth contention is evidence, not permission to throttle unrelated processes.
+243. M09 cannot suspend/kill unrelated I/O consumers.
+244. External I/O pressure remains explicit uncertainty/evidence.
+245. NVMe endurance evidence is optional and provenance-bound.
+246. Missing wear telemetry remains UNKNOWN.
+247. Unknown wear cannot be fabricated as healthy or exhausted.
+248. S03 cannot claim device-health authority.
+249. Locality evidence identifies exact tier/resource.
+250. Locality hint cannot become M12 placement decision.
+251. Locality hint cannot become M10 execution plan.
+252. Source/destination device identity survives enumeration reorder.
+253. Cross-device transfers preserve both device identities.
+254. Composite transfers preserve per-member outcome.
+255. Partial composite success cannot masquerade as complete success.
+256. Atomic-required composite transfer fails closed if any mandatory member fails.
+257. Spill garbage eligibility is distinct from physical deletion.
+258. M09 cannot delete M55 physical artifacts directly.
+259. Cleanup eligibility records causal lease/residency refs.
+260. Active referenced spill material cannot be marked garbage solely by age.
+261. Transfer journal is append-auditable.
+262. Historical transfer evidence cannot be rewritten to hide failure.
+263. Provider-specific transfer fields remain versioned extensions.
+264. Unknown mandatory mobility semantics fail closed.
+265. Older readers cannot silently ignore unknown mandatory transfer semantics.
+266. Synthetic transfer fixtures are distinguishable from physical transfers.
+267. Synthetic success cannot authorize production source eviction.
+268. Missing provider/runtime cannot fabricate transfer completion.
+269. UNSUPPORTED and UNAVAILABLE remain distinct where actionable.
+270. REQUIRE_REPLAN does not itself compile an M10 plan.
+271. M10 retains adaptive execution planning.
+272. M11 retains worker/process lifecycle.
+273. M12 retains placement/orchestration.
+274. M14 retains model fitness.
+275. M55 retains storage/CAS/cache/archive authority.
+276. M56 retains observability aggregation.
+277. Offload cannot silently reduce precision/quality.
+278. Offload cannot silently weaken M03 protected semantics.
+279. 8 GB VRAM devices may use offload as a first-class resource strategy, not as unsupported fallback.
+280. Smaller VRAM does not authorize unsafe overcommit.
+281. RAM offload does not imply NVMe spill availability.
+282. NVMe spill does not imply RAM residency.
+283. Host RAM and VRAM transfer costs remain distinct.
+284. Resource mobility state is versioned/exportable.
+285. Every S03 acceptance proof identifies exact invariant IDs.
+286. Shared proof targets explicitly enumerate claimed S03 invariant IDs.
+287. Missing/orphan/duplicate S03 proof mappings fail validation.
+288. S03 cannot grant new lease capacity by merely moving bytes.
+289. Source lease/accounting is reconciled only after verified handoff.
+290. S03 implementation remains forbidden until the full M09 contract is frozen and independently approved.
+
+## Required S03 proof classes
+- verified two-phase offload and source-retention on failure;
+- integrity mismatch/quarantine;
+- bounded prefetch and headroom preservation;
+- measured-vs-estimated transfer evidence;
+- M55/M53/M54 authority firewalls;
+- dirty/writeback/reconstructible semantics;
+- cancellation/resume/idempotent retry;
+- bounded concurrency/bytes/time/retries;
+- segmented/composite partial-failure semantics;
+- synthetic-vs-physical transfer separation;
+- garbage-eligibility without physical deletion;
+- invariant-to-proof integrity.
+
+## S03 risks
+- Offload may be treated as a successful move before bytes are durable/usable. Mitigation: two-phase handoff + integrity verification.
+- NVMe spill can accidentally turn M09 into a storage layer. Mitigation: M55 capability contract and cleanup eligibility only.
+- Prefetch can consume the very headroom intended to keep the workstation usable. Mitigation: independent speculative budgets.
+- Transfer benchmarks can be stale/context-specific. Mitigation: M08 provenance plus measured/estimated/unknown distinction.
+- Partial model movement can create false residency. Mitigation: exact segment maps and completeness state.
+
+## S03 acceptance gate
+S03 may advance to S04 planning only when:
+- S01/S02 approved semantics remain intact;
+- all 20 S03 surfaces and invariants 191-290 are explicit;
+- source release requires verified destination handoff;
+- prefetch and transfer operations are bounded;
+- M55/M53/M54/M10/M11/M12 boundaries remain intact;
+- no silent quality/precision degradation is authorized;
+- no implementation code is introduced;
+- independent review reports zero unresolved HIGH/CRITICAL findings.
+
+## STOP CONDITION
+Stop at S03 planning. Do not implement M09. Do not deep-plan S04 until S03 receives independent review.
