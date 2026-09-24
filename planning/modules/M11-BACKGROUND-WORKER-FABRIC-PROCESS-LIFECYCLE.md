@@ -1,6 +1,6 @@
 # M11 — Background Worker Fabric & Process Lifecycle
 
-Status: PLANNING_ADMITTED_NOT_STARTED
+Status: S01_RESEARCH_COMPLETE_PENDING_GOVERNANCE
 Contract: NOT_FROZEN
 Planning issue: #82
 Planning Work Order: IRIS-WO-0015
@@ -27,9 +27,11 @@ M11 is expected to plan the background worker and operating-system process lifec
 ## Slow-planning sessions
 
 ### S01 — Long-lived supervisor and job process model
-Status: NOT_STARTED
+Status: RESEARCH_COMPLETE_PENDING_GOVERNANCE
 
 Plan supervisor and job identity/lifecycle roles, process ownership boundaries, long-lived versus per-job responsibilities, failure domains, and the relationship to M02 production work identity and M06 operational attempts. Do not decide lifecycle states or identity schemas before source and technology review.
+
+Research record: planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md. The session exploration is complete and awaits its exact-head / exact-main Governance closeout; no architecture, identity schema, M11 contract, or implementation is selected.
 
 ### S02 — Headless/background worker startup and IPC
 Status: NOT_STARTED

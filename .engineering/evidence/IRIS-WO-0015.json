@@ -53,7 +53,7 @@
     {
       "id": "S01",
       "title": "Long-lived supervisor and job process model",
-      "status": "NOT_STARTED"
+      "status": "RESEARCH_COMPLETE_PENDING_GOVERNANCE"
     },
     {
       "id": "S02",
@@ -206,5 +206,99 @@
     ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
     ".engineering/work-orders/IRIS-WO-0015-PREFLIGHT-CRITERIA.md",
     "planning/reviews/IRIS-WO-0015-PLANNING-ADMISSION-AUDIT.md"
+  ],
+  "s01SessionProposal": {
+    "status": "RESEARCH_COMPLETE_PENDING_GOVERNANCE",
+    "issue": 82,
+    "workOrder": "IRIS-WO-0015",
+    "baseSha": "889b29b773676649a15bd497cbe22f6fe4d8a9a5",
+    "branch": "iris-wo-0015-m11-s01-supervisor-job-model-20260924",
+    "artifact": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+    "contextLock": ".engineering/context-locks/IRIS-WO-0015-S01.json",
+    "sourceSnapshot": {
+      "algorithm": "Git blob SHA-1",
+      "baseTreeSha": "d6ad352a300edca9b3cc6a3210e5950c76bc0bb7",
+      "checked": 53,
+      "matched": 53,
+      "mismatches": 0
+    },
+    "ownerContractReview": {
+      "M02": "m02-contract-v1.0; semantic identity, Production Graph, ExecutionPlan and production lifecycle remain M02-owned. AttemptIdentity exists; M11 mapping remains unresolved.",
+      "M06": "m06-contract-v1.0; operational identity firewall and future ExecutionAttemptPort for M11/M12. Port payload and attempt mapping remain unresolved.",
+      "M09": "m09-contract-v1.0; resource/lease authority remains M09; no process action or lease mutation.",
+      "M10": "m10-contract-v1.0; recommendations remain advisory and cannot dispatch or control processes.",
+      "M11": "No M11 owner contract or version exists.",
+      "M12_M60": "Owner-specific handoffs remain pending where individual contracts are absent."
+    },
+    "technologyCandidates": [
+      {
+        "id": "TECH-M11-001",
+        "technology": "Python 3.12 subprocess.Popen",
+        "classification": "EXISTING_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-002",
+        "technology": "Windows Job Objects",
+        "classification": "EXISTING_PLATFORM_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-003",
+        "technology": "Linux pidfds",
+        "classification": "EXISTING_PLATFORM_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-004",
+        "technology": "systemd transient service/scope units",
+        "classification": "EXISTING_OPTIONAL_HOST_MANAGER_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "CAND-M11-001",
+        "technology": "Reference-only work/attempt/process association",
+        "classification": "PROPRIETARY_CANDIDATE",
+        "status": "PROPOSED"
+      }
+    ],
+    "internalReuseStatus": "IRIS bootstrap scripts prove only narrow one-shot subprocess invocation. UGAS/HIVE/CORE supervisor reuse is UNVERIFIED; HIVE MCP unavailable.",
+    "architectureDecision": "NONE; embedded supervisor, separate per-user supervisor, and optional host-service-manager integration remain alternatives.",
+    "unresolvedQuestionIds": [
+      "S01-U01",
+      "S01-U02",
+      "S01-U03",
+      "S01-U04",
+      "S01-U05",
+      "S01-U06",
+      "S01-U07",
+      "S01-U08",
+      "S01-U09",
+      "S01-U10"
+    ],
+    "documentationPreflight": {
+      "status": "PASS_PENDING_EXACT_HEAD_AND_EXACT_MAIN_GOVERNANCE",
+      "docsOnly": true,
+      "runtimeOrTestOrProcessOperation": false,
+      "m11ContractFrozen": false,
+      "m11Implementation": "NOT_ADMITTED",
+      "m10Implementation": "NOT_ADMITTED",
+      "exactHeadGovernance": {
+        "result": "PENDING"
+      },
+      "protectedMerge": {
+        "result": "PENDING"
+      },
+      "exactMainGovernance": {
+        "result": "PENDING"
+      }
+    },
+    "runtimeEvidence": "NONE; no runtime code, process operation, provider execution, resource reservation, or hardware measurement."
+  },
+  "s01ProposalChangedFiles": [
+    "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+    ".engineering/context-locks/IRIS-WO-0015-S01.json",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
   ]
 }
