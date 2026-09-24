@@ -103,9 +103,11 @@ Forward Compatibility Scan result:
 - M39 persona continuity explicitly bound to the M05 generic identity root;
 - frozen M05 invariants may only change through a versioned contract amendment and renewed compatibility review.
 
-M05 and M06 implementations are complete and exact-main validated. M07 planning may define provider-neutral hardware/runtime observation contracts, but M07 implementation remains gated until its own planning freeze, independent audit, merged planning baseline and separately admitted implementation Work Order. M08+ remains behind the Future Contract Shield.
+M01-M08 implementations are durably closed. M09 is the active implementation authority under frozen contract `m09-contract-v1.0` and IRIS-WO-0013. M09 consumes M07 hardware facts and M08 empirical evidence by reference and owns resource-state/accounting, leases/reservations/residency, bounded mobility/offload/prefetch contracts, resource-shape feasibility/control state, and bounded pressure/recovery/leak semantics.
 
-## M07 active planning boundary
+M09 cannot select M10 execution plans or predictive OOM/thermal decisions, control M11 worker/process lifecycle, perform M12 placement/orchestration, decide M14 model fitness, own M53/M54 rights/security policy, execute M55 physical deletion, replace M56 observability aggregation, or weaken M01/M03 authority. M10+ implementation remains behind the Future Contract Shield.
+
+## M07-M09 hardware/resource authority boundary
 
 M07 may discover, normalize and version hardware/runtime facts. It does not benchmark workloads (M08), govern VRAM/RAM leases or offload (M09), compile adaptive execution plans (M10), supervise worker/process lifecycle (M11), place jobs across compute targets (M12), replace empirical model capability authority (M14), own physical storage (M55), or replace observability aggregation (M56).
 
