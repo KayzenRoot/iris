@@ -4,5 +4,5 @@
   "status": "M09_IMPLEMENTATION_ADMITTED",
   "version": "m09-contract-v1.0",
   "phase": "IRIS-WO-0013_EXECUTION",
-  "nextStep": "Execute IRIS-WO-0013 on PR #65; prove 514 invariants, 83 independent surfaces, 15 absorbed components and FC-09-01..14; stop for independent review before merge."
+  "nextStep": "Execute IRIS-WO-0013 on PR #65, produce deterministic implementation/test/evidence proof, and STOP for independent review before merge."
 }
