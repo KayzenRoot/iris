@@ -20,7 +20,8 @@ Planning covers the five canonical sessions: Workload Signature Engine; hardware
 
 M10 planning must define explicit behavior for unknown, stale, conflicting, unsupported and out-of-distribution evidence. S03 is complete for module planning: PR #71 exact head `db9fc7e0f0e7615c075cfaee3debec3a3990697b` passed Governance `36034416554 / 107750841548`, was protected squash-merged as `8768661ee348815ec5b1eb6e32bc85505fa10b17`, and passed exact-main Governance `36034538318 / 107751237481`. Its three separately labeled outputs cover validated allocation-failure/OOM risk, thermal-limit/throttle risk distinct from power-limit behavior, and M01 Fidelity Contract violation risk. Each estimate retains exact scope, provenance, freshness, calibration, uncertainty and applicability; unsupported, stale, conflicting or drifting evidence produces abstention/indeterminate/no-safe-plan.
 S04 is complete for module planning: PR #72 exact head `add4344d6b1a495f1aeeb23af0d57fdcddde381e` passed Governance `36037625164 / 107761547909`, was protected squash-merged as `96aee147e701c6d716cfbcf5f2be524ee5d751e7`, and passed exact-main Governance `36037710495 / 107761836741`. Its ECO/BALANCED/QUALITY/MAX/CUSTOM preferences apply only after hard M02/M01/M03 and owner-issued M07/M08/M09/M50/M54 gates. Preferences, objectives, units, risk-budget references and fallback are explicit and versioned; unresolved trade-offs remain bounded alternatives or no-safe-plan.
-S05 observed-result learning and explainable decisions are now a planning candidate. M10 consumes immutable, owner-issued outcome receipts; preserves prediction/observation/label separation; freezes dataset/model/evaluation lineage; and requires independent owner review, drift quarantine and reproducible rollback. M10 does not self-label, self-certify, auto-train or silently promote models. M11 worker lifecycle, M12 placement, M13 cache/performance, M14 model fitness, M16 provider compilation, M50 cost/quality routing, M54 security and M56 observability remain separate authorities.
+S05 is complete for module planning: PR #73 exact head `fc1fa4959697b88fbfbe303736517aef52d9bc91` passed Governance `36038801813 / 107765474152`, was protected squash-merged as `54d85d3491d4cc21e95fc2f9042c53d2852ceb88`, and passed exact-main Governance `36038905218 / 107765823628`. Its candidate lifecycle preserves owner-issued labels, immutable outcome/dataset/model/evaluation evidence, drift quarantine and reviewable rollback; M10 does not self-label, self-certify, auto-train or silently promote models.
+The Final Technology Review candidate consolidates S01-S05 and records accepted boundaries, rejected shortcuts and deferred decisions. It proposes the M11-M60 Forward Compatibility Scan as the next governed step; compatibility, contract freeze and independent audit remain pending. M11 worker lifecycle, M12 placement, M13 cache/performance, M14 model fitness, M16 provider compilation, M50 cost/quality routing, M54 security and M56 observability remain separate authorities.
 
 ### NOT ADMITTED
 
@@ -36,7 +37,7 @@ S05 observed-result learning and explainable decisions are now a planning candid
 
 ### Next governed step
 
-Pass the S05 learning candidate through exact-head Governance, protected squash merge and exact-main validation; then complete Final Technology Review and the remaining planning gates. Keep this increment planning-only.
+Pass the Final Technology Review candidate through exact-head Governance, protected squash merge and exact-main validation; then complete the M11-M60 scan and remaining planning gates. Keep this increment planning-only.
 
 ## IRIS 1.0 product scope
 
