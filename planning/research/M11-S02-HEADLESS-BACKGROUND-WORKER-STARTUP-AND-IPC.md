@@ -1,6 +1,6 @@
 # M11 S02 — Headless/Background Worker Startup and IPC
 
-Status: PROPOSED_COMPLETE_PENDING_GOVERNANCE  
+Status: COMPLETE_FOR_MODULE_PLANNING  
 Work Order: IRIS-WO-0015 / Issue #82  
 Planning base: 5c9ac035e10e5485a0b8449e59622eaa1374cb6e  
 Research checked: 2026-09-24  
@@ -189,7 +189,7 @@ The M10 forward-compatibility scan is available only as a candidate map because 
 
 ## S02 governance closeout
 
-This proposal is pending exact-head Governance, protected squash merge, exact-main Governance, post-authoring documentation audit and checkpoint closeout. S02 is not marked COMPLETE_FOR_MODULE_PLANNING until those gates pass.
+PR #87 exact head 78893daec68aabe3bb23836a4429017f13e97f30 passed exact-head Governance run 36068426412, job 107863497210 (3940/3940 tests). The PR was protected squash-merged as b090ae68bac23be2261932e75549b3ea255990ec. Exact-main Governance run 36068660747, job 107864233622, passed on that merge SHA (3940/3940 tests; actor KayzenRoot). The post-authoring S02 documentation audit found 0 HIGH and 0 CRITICAL findings. S02 is COMPLETE_FOR_MODULE_PLANNING only; the final independent M11 planning audit remains pending until S01–S05 and the required planning reviews are complete.
 
 ## Validation and limits
 
