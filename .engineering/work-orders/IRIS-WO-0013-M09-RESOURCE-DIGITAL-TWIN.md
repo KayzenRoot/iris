@@ -1,6 +1,6 @@
 # IRIS-WO-0013 — Implement M09 Resource Digital Twin & Dynamic VRAM Governor
 
-Status: `ADMISSION_CANDIDATE`
+Status: `ADMITTED_FOR_EXECUTION`
 Risk: `ELEVATED`
 Issue: `#64`
 Branch: `iris-wo-0013-m09-resource-digital-twin`
@@ -12,6 +12,19 @@ Implementation package: `iris_resource_twin/`
 Implement the complete frozen M09 resource-state and dynamic memory-governance kernel. This is not an MVP slice.
 
 The implementation MUST satisfy all **514 hard invariants**, all **83 independent mandatory technology surfaces** and all **15 mandatory absorbed components** frozen by M09 planning.
+
+## ADMISSION
+
+Admission candidate head: `dd2290e41e659bc8d712f85996f07e4ebf4ac36e`
+
+Admission proof:
+- critical source fingerprints: **13/13 matched**
+- mismatches: **0**
+- authorized base/main/merge-base: `ee46815382be0907f373760a62b3b31805c7abee`
+- Governance: `35979243359 / 107566916735` — **PASS**
+- full-suite baseline: **3219 tests**
+- no test/runtime/script changes occurred between the last proven 3219-test exact implementation state and this planning/admission base
+- result: `ADMITTED_FOR_EXECUTION`
 
 ## AUTHORITY LAW
 M09 owns Resource Digital Twin state, capacity/claim accounting, leases/reservations/residency, bounded spill/offload/prefetch contracts, resource-shape feasibility/control state, pressure recovery/accounting/leak semantics and their evidence.
