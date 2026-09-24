@@ -4,10 +4,10 @@
 M10_PLANNING_ACTIVE
 
 ## VERSION
-m10-contract-v0.1.0-candidate
+m10-contract-v1.0
 
 ## PHASE
-M10_MODULE_CONTRACT_CANDIDATE_PENDING_GOVERNANCE
+M10_CONTRACT_FREEZE_PROMOTION_CANDIDATE_PENDING_GOVERNANCE
 
 ## OBJECTIVE
 Plan M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield through the governed five-session lifecycle without admitting product implementation.
@@ -36,13 +36,14 @@ Plan M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield through the 
 - PR #74 M10 Final Technology Review exact head `69762690f9368cf0f76f106d75330950862e532d` passed Governance `36039931359 / 107769276836`; protected squash merge `e38912a57c2d452badd5a35a031eb78f95d0e899` passed exact-main Governance `36040044487 / 107769655432`.
 - M10 Final Technology Review passed PR #74 Governance `36039931359 / 107769276836` and exact-main Governance `36040044487 / 107769655432` on `e38912a57c2d452badd5a35a031eb78f95d0e899`.
 - PR #75 M11–M60 Forward Compatibility Scan exact head `d55ea04a9663b648805b00ea0032773125c65642` passed Governance `36041422592 / 107774247740`; protected squash merge `2328978175a59768e64687748b259027b3a79d4e` passed exact-main Governance `36041515972 / 107774565519`.
-- The scan is complete at master-index level for all 50 M11–M60 entries; 12 candidate findings are carried into the versioned M10 contract candidate. Later module-level contracts require revisit.
+- PR #76 M10 contract candidate exact head `c2d12a7779886ca1c759395a22e9fbb6e108a259` passed Governance `36042687559 / 107778484156`; protected squash merge `d8000229397138ed0d45133df456598cdd010ddf` passed exact-main Governance `36042785859 / 107778821652`.
+- The independent planning audit approved freeze promotion; findings: 0 HIGH, 0 CRITICAL. Individual later module contracts remain a revisit.
 
 ## IN PROGRESS
-M10 planning only under Issue #68. Versioned contract candidate `m10-contract-v0.1.0-candidate` is in progress from exact validated main `2328978175a59768e64687748b259027b3a79d4e`; it incorporates the 50/50 index-level scan and FC-10-01 through FC-10-12. Governance, independent planning audit and any frozen-version promotion remain pending. Individual M11–M60 module contracts still require later revisit. M10 product/runtime implementation is NOT ADMITTED and NOT STARTED.
+M10 contract `m10-contract-v1.0` has an approved documentation-level freeze promotion candidate; this PR's exact-head Governance, protected squash merge and exact-main validation remain pending. M10 product/runtime implementation is NOT ADMITTED and NOT STARTED. Future implementation still requires a separate Work Order / Context Lock / Evidence package and preflight.
 
 ## BLOCKERS
 M10 implementation remains NOT ADMITTED and NOT STARTED until the complete planning lifecycle is approved, its contract is frozen, its compatibility scan and independent audit pass, and a separate implementation Work Order / Context Lock / Evidence package passes preflight.
 
 ## NEXT STEP
-Pass the versioned M10 contract candidate through exact-head Governance, protected squash merge and exact-main validation; then complete the independent planning audit. Keep M10 implementation NOT ADMITTED.
+Pass the M10 contract freeze promotion through exact-head Governance, protected squash merge and exact-main validation; then reconcile the final M10 planning state. Keep M10 implementation NOT ADMITTED.
