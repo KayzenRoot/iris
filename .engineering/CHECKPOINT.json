@@ -4,5 +4,5 @@
   "status": "M09_IMPLEMENTATION_CLOSED",
   "version": "m09-contract-v1.0",
   "phase": "M09_CLOSURE_RECONCILIATION_COMPLETE",
-  "nextStep": "Complete the independent review and exact-head gates for this reconciliation, then protected-merge and exact-main validate it. Only after those gates may the separately governed M10 planning lifecycle begin; do not admit or start M10 here."
+  "nextStep": "Create and admit a separate bounded M10 planning Work Order, then complete M10 S01-S05 and its required planning reviews. Keep M10 implementation NOT ADMITTED and NOT STARTED until a separate implementation Work Order passes admission and preflight."
 }

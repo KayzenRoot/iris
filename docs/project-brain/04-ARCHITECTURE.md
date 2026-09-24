@@ -92,7 +92,7 @@ S05 completes the functional planning boundary:
 
 Final Technology Review consolidates the 150 DNAX design-history candidates into `F-M05-01..25` with exact-once coverage (150/150, 0 missing, 0 duplicate assignments). The consolidated families, not 150 independent implementation classes, are the freeze-candidate architecture surface.
 
-The M06-M60 Forward Compatibility Scan and Independent Planning Audit are complete. M05 is implemented and durably closed. M06 is frozen as `m06-contract-v1.0`, implemented through IRIS-WO-0010, independently approved, merged and exact-main validated. M07 Hardware Genome & Runtime Discovery is the active planning module.
+The M06-M60 Forward Compatibility Scan and Independent Planning Audit are complete. M05 is implemented and durably closed. M06 is frozen as `m06-contract-v1.0`, implemented through IRIS-WO-0010, independently approved, merged and exact-main validated. M07 Hardware Genome & Runtime Discovery, M08 Microbenchmark Lab & Capability Envelope, and M09 Resource Digital Twin & Dynamic VRAM Governor are implemented and durably closed. M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield is the next planning module; its planning lifecycle is eligible to begin through a separate bounded Work Order, while M10 implementation remains NOT ADMITTED and NOT STARTED.
 
 Forward Compatibility Scan result:
 - M06-M60 scanned: 55 modules;
@@ -103,7 +103,7 @@ Forward Compatibility Scan result:
 - M39 persona continuity explicitly bound to the M05 generic identity root;
 - frozen M05 invariants may only change through a versioned contract amendment and renewed compatibility review.
 
-M01-M08 implementations are durably closed. M09 is the active implementation authority under frozen contract `m09-contract-v1.0` and IRIS-WO-0013. M09 consumes M07 hardware facts and M08 empirical evidence by reference and owns resource-state/accounting, leases/reservations/residency, bounded mobility/offload/prefetch contracts, resource-shape feasibility/control state, and bounded pressure/recovery/leak semantics.
+M01-M09 implementations are durably closed. M09 completed IRIS-WO-0013 under frozen contract `m09-contract-v1.0`. M09 consumes M07 hardware facts and M08 empirical evidence by reference and owns resource-state/accounting, leases/reservations/residency, bounded mobility/offload/prefetch contracts, resource-shape feasibility/control state, and bounded pressure/recovery/leak semantics.
 
 M09 cannot select M10 execution plans or predictive OOM/thermal decisions, control M11 worker/process lifecycle, perform M12 placement/orchestration, decide M14 model fitness, own M53/M54 rights/security policy, execute M55 physical deletion, replace M56 observability aggregation, or weaken M01/M03 authority. M10+ implementation remains behind the Future Contract Shield.
 
