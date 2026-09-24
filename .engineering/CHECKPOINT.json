@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M09_IMPLEMENTATION_CLOSED",
-  "version": "m09-contract-v1.0",
-  "phase": "M09_CLOSURE_RECONCILIATION_COMPLETE",
-  "nextStep": "Create and admit a separate bounded M10 planning Work Order, then complete M10 S01-S05 and its required planning reviews. Keep M10 implementation NOT ADMITTED and NOT STARTED until a separate implementation Work Order passes admission and preflight."
+  "status": "M10_PLANNING_ACTIVE",
+  "version": "m10-planning-s01-v0",
+  "phase": "M10_S01_WORKLOAD_SIGNATURE_COMPLETE",
+  "nextStep": "Complete M10 S02 hardware-aware plan compilation, then S03-S05, final technology review, M11-M60 compatibility scan, contract freeze and independent planning audit. Do not start M10 implementation during planning."
 }

@@ -92,7 +92,7 @@ S05 completes the functional planning boundary:
 
 Final Technology Review consolidates the 150 DNAX design-history candidates into `F-M05-01..25` with exact-once coverage (150/150, 0 missing, 0 duplicate assignments). The consolidated families, not 150 independent implementation classes, are the freeze-candidate architecture surface.
 
-The M06-M60 Forward Compatibility Scan and Independent Planning Audit are complete. M05 is implemented and durably closed. M06 is frozen as `m06-contract-v1.0`, implemented through IRIS-WO-0010, independently approved, merged and exact-main validated. M07 Hardware Genome & Runtime Discovery, M08 Microbenchmark Lab & Capability Envelope, and M09 Resource Digital Twin & Dynamic VRAM Governor are implemented and durably closed. M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield is the next planning module; its planning lifecycle is eligible to begin through a separate bounded Work Order, while M10 implementation remains NOT ADMITTED and NOT STARTED.
+The M06-M60 Forward Compatibility Scan and Independent Planning Audit are complete. M05 is implemented and durably closed. M06 is frozen as `m06-contract-v1.0`, implemented through IRIS-WO-0010, independently approved, merged and exact-main validated. M07 Hardware Genome & Runtime Discovery, M08 Microbenchmark Lab & Capability Envelope, and M09 Resource Digital Twin & Dynamic VRAM Governor are implemented and durably closed. M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield is actively being planned under Issue #68. S01 Workload Signature Engine is complete for module planning; S02-S05 and all freeze/audit gates remain pending. M10 implementation remains NOT ADMITTED and NOT STARTED.
 
 Forward Compatibility Scan result:
 - M06-M60 scanned: 55 modules;
@@ -112,6 +112,10 @@ M09 cannot select M10 execution plans or predictive OOM/thermal decisions, contr
 M07 may discover, normalize and version hardware/runtime facts. It does not benchmark workloads (M08), govern VRAM/RAM leases or offload (M09), compile adaptive execution plans (M10), supervise worker/process lifecycle (M11), place jobs across compute targets (M12), replace empirical model capability authority (M14), own physical storage (M55), or replace observability aggregation (M56).
 
 Hardware scarcity is represented as explicit capability/evidence state and cannot silently lower M01 quality targets or protected M03 semantic obligations. Hardware/runtime facts become material to M06 reproducibility only through explicit declared materiality.
+
+## M10 active planning boundary
+
+M10 planning begins from exact validated main `b6456670a7c61621db1d3b3fc6d55487adb9cd64` under Issue #68. S01 records workload signatures as versioned, typed projections with explicit provenance and unknown-state semantics. M02 retains the canonical ExecutionPlan contract; M10 planning may define bounded plan proposals only through that contract. M01/M03 retain quality and protected semantic authority. M07/M08/M09 remain the owners of hardware facts, empirical capability evidence and resource truth. M10 implementation remains behind the Future Contract Shield until a separate Work Order is admitted.
 
 ## Dependency direction
 
