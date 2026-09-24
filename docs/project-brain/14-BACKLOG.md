@@ -16,8 +16,8 @@ Status: `M10_PLANNING_ACTIVE`
 - Issue: #68.
 - Exact planning base: `b6456670a7c61621db1d3b3fc6d55487adb9cd64`.
 - Admission Governance: `36029536926 / 107734488887`, PASS.
-- S01 Workload Signature Engine: **COMPLETE_FOR_MODULE_PLANNING**.
-- S02 hardware-aware plan compilation: **NOT STARTED**.
+- S01 Workload Signature Engine: **COMPLETE_FOR_MODULE_PLANNING**; PR #69 exact-main Governance passed on `fc1a3c954a1629b9e9a4c45c4e557a7832c290d7` (`36031548275 / 107741264931`).
+- S02 hardware-aware plan compilation: **CANDIDATE_COMPLETE_PENDING_GOVERNANCE**; session base `fc1a3c954a1629b9e9a4c45c4e557a7832c290d7`.
 - S03 predictive OOM, thermal and quality-risk models: **NOT STARTED**.
 - S04 ECO/BALANCED/QUALITY/MAX/CUSTOM semantics: **NOT STARTED**.
 - S05 observed-result learning and explainable decisions: **NOT STARTED**.
@@ -25,7 +25,7 @@ Status: `M10_PLANNING_ACTIVE`
 - M10 product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-1. Complete S02-S05 under Issue #68.
+1. Validate and merge the S02 planning package, then complete S03-S05 under Issue #68.
 2. Finish technology discovery and Final Technology Review.
 3. Scan M11-M60 for compatibility and authority conflicts.
 4. Produce a versioned M10 contract candidate and independent planning audit.

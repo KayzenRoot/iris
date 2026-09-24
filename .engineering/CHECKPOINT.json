@@ -2,7 +2,7 @@
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "M10_PLANNING_ACTIVE",
-  "version": "m10-planning-s01-v0",
-  "phase": "M10_S01_WORKLOAD_SIGNATURE_COMPLETE",
-  "nextStep": "Complete M10 S02 hardware-aware plan compilation, then S03-S05, final technology review, M11-M60 compatibility scan, contract freeze and independent planning audit. Do not start M10 implementation during planning."
+  "version": "m10-planning-s02-v0",
+  "phase": "M10_S02_HARDWARE_AWARE_PLAN_CANDIDATE",
+  "nextStep": "Pass the S02 planning package through exact-head Governance, protected merge and exact-main validation; then plan S03 predictive OOM, thermal and quality-risk models. Do not start M10 implementation during planning."
 }

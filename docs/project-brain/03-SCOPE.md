@@ -10,6 +10,8 @@ M10 — Adaptive Execution Planner & Predictive OOM/Thermal Shield — is admitt
 
 S01 defines versioned workload signatures as typed projections of workload shape and pinned upstream evidence. It preserves source ownership: M02 owns the canonical ExecutionPlan contract; M01 and M03 own quality and protected semantic contracts; M07, M08 and M09 own hardware, empirical capability and resource truth respectively. M10 consumes these references and must not rewrite or self-certify them.
 
+S02 planning, prepared from exact-main commit `fc1a3c954a1629b9e9a4c45c4e557a7832c290d7`, defines evidence-bound feasibility and bounded plan alternatives through M02's contract. It does not create a competing ExecutionPlan schema, reserve resources, choose a physical placement or compile provider workflows. M07/M08/M09 facts remain owner-issued, scope-pinned inputs; uncertain, stale, conflicting or omitted mandatory evidence yields an explicit indeterminate/no-safe-plan path.
+
 M09 owns resource-state/accounting, leases/reservations/residency, bounded mobility/offload/prefetch contracts, resource-shape feasibility/control state and bounded pressure/recovery/leak semantics. It does not own M10 execution planning/predictive OOM/thermal policy, M11 process lifecycle, M12 placement/orchestration, M14 model fitness, M53/M54 rights/security policy, M55 physical storage/delete, M56 observability aggregation, M01 quality authority or M03 protected semantic authority.
 
 ## M10 planning boundary
