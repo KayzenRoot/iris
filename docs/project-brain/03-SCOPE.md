@@ -43,6 +43,10 @@ The Final Technology Review completed through PR #74 and passed exact-main Gover
 - worker/process lifecycle control, workload placement or provider workflow compilation by M10;
 - frozen-contract semantic changes without a versioned amendment.
 
+### M10 implementation proposal status
+
+IRIS-WO-0014 is a documentation-only proposal. PR #80 exact head f84ca2e00162a7869e31efcb217a962c1aa6ec2b passed Governance 36059070309 / 107833280091; protected squash merge 26c891fd53ac24e1e32b4ae84e162ea029f69366 passed exact-main Governance 36059177560 / 107833630952. PR #81 recorded the closeout at exact head e0e1d4d648e66aa049a5c21551fdc948eb4d316c (Governance 36059412524 / 107834422442) and main 0014d23115f5fec60a77e5e32d5083e90069a918 passed exact-main Governance 36059512224 / 107834755459. IRIS-WO-0014 preflight remains BLOCKED; M10 implementation remains NOT_ADMITTED.
+
 ### Next governed step
 
 Complete M11 S01–S05 under Issue #82 through separately reviewed documentation increments, then complete Technology Discovery, Final Technology Review, Forward Compatibility Scan, M11 contract candidate and independent audit. M12–M60 owner-specific details remain pending until their canonical contracts exist. Do not admit M11 implementation or change the frozen M10 contract/NOT_ADMITTED state. M10 implementation preflight remains BLOCKED under IRIS-WO-0014.

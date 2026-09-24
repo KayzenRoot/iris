@@ -88,7 +88,7 @@
     "comparisonBasis": "GitHub compare found only documentation/planning/checkpoint/evidence paths; exact-main Governance on the base ran 3940 tests and reported OK."
   },
   "planningPreflight": {
-    "status": "PASS_FOR_DOCUMENTATION_ONLY",
+    "status": "PRE_PR_CHECKS_PASS_REVIEW_GOVERNANCE_PENDING",
     "checks": [
       {
         "id": "PF-01",

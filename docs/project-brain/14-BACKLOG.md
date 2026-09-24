@@ -27,6 +27,11 @@ Status: `M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED`
 - M10 contract `m10-contract-v1.0`: **FROZEN_APPROVED**; PR #77 exact head `57dc0410e9c434a04657b8f57562febdeceb84f1` passed Governance `36043928118 / 107782644258`; protected squash merge `8a3e32de28ccc824c165e29bfa3da4f6cc305de0` passed exact-main Governance `36044190420 / 107783526436` (actor: KayzenRoot). M10 implementation remains NOT ADMITTED.
 - M10 product/runtime implementation introduced: **NO**.
 
+### M10 implementation proposal status
+- IRIS-WO-0014 documentation proposal: PR #80 exact head f84ca2e00162a7869e31efcb217a962c1aa6ec2b passed Governance 36059070309 / 107833280091; protected squash merge 26c891fd53ac24e1e32b4ae84e162ea029f69366 passed exact-main Governance 36059177560 / 107833630952.
+- PR #81 closeout exact head e0e1d4d648e66aa049a5c21551fdc948eb4d316c passed Governance 36059412524 / 107834422442; exact main 0014d23115f5fec60a77e5e32d5083e90069a918 passed Governance 36059512224 / 107834755459.
+- Preflight remains BLOCKED; M10 implementation remains NOT_ADMITTED.
+
 ## ACTIVE PLANNING — M11
 - Module: **M11 — Background Worker Fabric & Process Lifecycle**.
 - Issue: #82; planning Work Order: IRIS-WO-0015.

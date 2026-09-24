@@ -12,8 +12,8 @@
   "planningOnly": true,
   "implementationAdmission": "NOT_ADMITTED",
   "targetContract": {
-    "name": "m11-contract-v1.0",
     "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+    "version": "NOT_ASSIGNED",
     "status": "NOT_CREATED"
   },
   "sourceSnapshot": {
