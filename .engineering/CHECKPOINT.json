@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M08_IMPLEMENTATION_CLOSED",
-  "version": "m08-contract-v1.0",
-  "phase": "M08_DURABLE_CLOSURE_RECONCILIATION",
-  "nextStep": "Audit this reconciliation, merge it under exact-head protection, validate exact main, then begin the separately gated M09 planning lifecycle."
+  "status": "M09_PLANNING_FROZEN",
+  "version": "m09-contract-v1.0",
+  "phase": "M09_PLANNING_FREEZE_RECONCILIATION",
+  "nextStep": "Audit this reconciliation, merge it under exact-head protection, validate exact main, then admit M09 implementation through a separate Work Order."
 }

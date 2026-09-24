@@ -1,33 +1,34 @@
 # IRIS Canonical Checkpoint
 
 ## STATUS
-M08_IMPLEMENTATION_CLOSED
+M09_PLANNING_FROZEN
 
 ## VERSION
-m08-contract-v1.0
+m09-contract-v1.0
 
 ## PHASE
-M08_DURABLE_CLOSURE_RECONCILIATION
+M09_PLANNING_FREEZE_RECONCILIATION
 
 ## OBJECTIVE
-Durably record the independently audited, protected-merged and exact-main validated M08 Microbenchmark Lab & Capability Envelope implementation.
+Durably record the independently audited, protected-merged and exact-main validated M09 Resource Digital Twin & Dynamic VRAM Governor planning contract.
 
 ## COMPLETED
-- M01-M07 remain durably closed.
-- M08 planning contract `m08-contract-v1.0` remains frozen and canonical.
-- IRIS-WO-0012 was admitted after 13/13 critical-source fingerprint validation and exact-head Governance.
-- Independent implementation audit initially returned CORRECTION REQUIRED with 2 HIGH and 1 MEDIUM findings.
-- Correction Delta 01 closed all findings: bounded real CPU active measurement, invariant-aware 330/330 proof integrity, and exact PR file accounting.
-- Final independent audit of head `33799162aad92d34689b923f43aed81ac17555de` returned APPROVED FOR PROTECTED MERGE with CRITICAL 0 / HIGH 0 / MEDIUM 0.
-- Focused M08 suite: 385 PASS. Full suite: 3219/3219 PASS, baseline 2834 (+385).
-- PR #59 was squash-merged as `ea419f2b45209b2371fd18533dc60e3daa126fab`.
-- Exact-main Governance `35976118079 / 107556893726` PASS on the merge commit.
+- M01-M08 remain durably closed.
+- M09 S01-S05 planning was independently audited with zero unresolved CRITICAL/HIGH/MEDIUM findings.
+- Final Technology Review classified 98/98 candidates as 83 independent mandatory surfaces and 15 mandatory absorbed components.
+- M10-M60 Forward Compatibility Scan covered 51/51 future modules and added invariants 501-514.
+- Frozen planning contract `m09-contract-v1.0` contains 514 normative invariants with no ID gaps.
+- Final contract audit on head `e8b4995ab4732596217cc2e16565bdc65801db90` returned APPROVED.
+- Exact-head Governance `35978220291 / 107563635292` PASS.
+- Planning PR #62 was squash-merged as `1aec888b78689c31cd7b0c2f499b20365d65b332`.
+- Exact-main Governance `35978350482` PASS on that merge commit.
+- M09 implementation remains NOT ADMITTED.
 
 ## IN PROGRESS
-Post-merge reconciliation only. No M08 kernel changes are permitted in this reconciliation.
+Post-merge planning reconciliation only. No M09 product/kernel implementation is permitted in this reconciliation.
 
 ## BLOCKERS
-M09 remains blocked until this reconciliation PR is independently audited, protected-merged and exact-main validated.
+M09 implementation remains blocked until this reconciliation PR is independently audited, protected-merged and exact-main validated.
 
 ## NEXT STEP
-Audit this reconciliation, merge it under exact-head protection, validate exact main, then begin the separately gated M09 planning lifecycle.
+Audit this reconciliation, merge it under exact-head protection, validate exact main, then admit M09 implementation through a separate Work Order.
