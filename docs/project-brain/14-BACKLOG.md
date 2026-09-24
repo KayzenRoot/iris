@@ -1,6 +1,6 @@
 # IRIS Backlog
 
-Status: `M10_PLANNING_COMPLETE_IMPLEMENTATION_NOT_ADMITTED`
+Status: `M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED`
 
 ## COMPLETED FOUNDATION
 - M01-M09 implementations are durably closed.
@@ -11,7 +11,7 @@ Status: `M10_PLANNING_COMPLETE_IMPLEMENTATION_NOT_ADMITTED`
 - PR #67 reconciled the canonical checkpoint, passed exact-head Governance `36029267285 / 107733578946`, was protected squash-merged as `b6456670a7c61621db1d3b3fc6d55487adb9cd64`, and passed exact-main Governance `36029536926 / 107734488887`.
 - M09 closure reconciliation is complete; no M09 implementation changes are active.
 
-## ACTIVE PLANNING
+## COMPLETED PLANNING — M10
 - Module: **M10 — Adaptive Execution Planner & Predictive OOM/Thermal Shield**.
 - Issue: #68.
 - Exact planning base: `b6456670a7c61621db1d3b3fc6d55487adb9cd64`.
@@ -27,8 +27,24 @@ Status: `M10_PLANNING_COMPLETE_IMPLEMENTATION_NOT_ADMITTED`
 - M10 contract `m10-contract-v1.0`: **FROZEN_APPROVED**; PR #77 exact head `57dc0410e9c434a04657b8f57562febdeceb84f1` passed Governance `36043928118 / 107782644258`; protected squash merge `8a3e32de28ccc824c165e29bfa3da4f6cc305de0` passed exact-main Governance `36044190420 / 107783526436` (actor: KayzenRoot). M10 implementation remains NOT ADMITTED.
 - M10 product/runtime implementation introduced: **NO**.
 
+### M10 implementation proposal status
+- IRIS-WO-0014 documentation proposal: PR #80 exact head f84ca2e00162a7869e31efcb217a962c1aa6ec2b passed Governance 36059070309 / 107833280091; protected squash merge 26c891fd53ac24e1e32b4ae84e162ea029f69366 passed exact-main Governance 36059177560 / 107833630952.
+- PR #81 closeout exact head e0e1d4d648e66aa049a5c21551fdc948eb4d316c passed Governance 36059412524 / 107834422442; exact main 0014d23115f5fec60a77e5e32d5083e90069a918 passed Governance 36059512224 / 107834755459.
+- Preflight remains BLOCKED; M10 implementation remains NOT_ADMITTED.
+
+## ACTIVE PLANNING — M11
+- Module: **M11 — Background Worker Fabric & Process Lifecycle**.
+- Issue: #82; planning Work Order: IRIS-WO-0015.
+- Exact planning base: 0014d23115f5fec60a77e5e32d5083e90069a918; admission Governance: 36059512224 / 107834755459, PASS.
+- Five canonical sessions: S01 supervisor/job model; S02 background startup/IPC; S03 concurrency/priorities/leases; S04 reaper/zombie detection/shell-free execution; S05 cancellation/timeouts/recovery/workstation coexistence.
+- Current state: planning admitted; all sessions NOT_STARTED; M11 owner contract not frozen.
+- Available owner sources checked: M02, M06, M09, M10. M12–M60 owner-specific details remain pending until each canonical contract exists.
+- M11 implementation: NOT_ADMITTED. M10 contract remains m10-contract-v1.0; M10 implementation remains NOT_ADMITTED and WO-0014 preflight BLOCKED.
+
 ## NECESSARY NEXT
-M10 planning is complete and reconciled. IRIS-WO-0014 proposal passed its documentation audit and was merged through PR #80; exact-head Governance `36059070309 / 107833280091` passed on `f84ca2e00162a7869e31efcb217a962c1aa6ec2b`, and exact-main Governance `36059177560 / 107833630952` passed on merge `26c891fd53ac24e1e32b4ae84e162ea029f69366` (actor: KayzenRoot). Implementation remains NOT ADMITTED and preflight BLOCKED. Resolve the 50 M11-M60 owner-contract dependencies and deferred M10 decisions, refresh the Context Lock and pass preflight before a separate admission decision.
+
+Complete M11 sessions S01–S05 and the required technology/compatibility reviews as separate governed documentation increments. Do not infer M12–M60 interfaces from index descriptions. Keep M11 implementation NOT_ADMITTED. M10 implementation preflight remains BLOCKED until its own documented owner dependencies and deferred decisions are resolved.
+
 
 ## IMPLEMENTATION GATE
-No M10 product/runtime code is authorized during this planning cycle. Planning completion alone does not admit implementation; a separate implementation Work Order, Context Lock, Evidence package and preflight are required.
+No M11 runtime/process-control code is authorized during the planning cycle. No M10 product/runtime code is authorized; m10-contract-v1.0 remains frozen, M10 implementation remains NOT_ADMITTED, and a separate implementation Work Order, Context Lock, Evidence package and successful preflight would be required for any future M10 admission.

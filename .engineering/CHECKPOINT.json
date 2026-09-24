@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M10_PLANNING_COMPLETE_IMPLEMENTATION_NOT_ADMITTED",
+  "status": "M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED",
   "version": "m10-contract-v1.0",
-  "phase": "M10_PLANNING_RECONCILED",
-  "nextStep": "Resolve the M11-M60 owner-contract register and M10 deferred decisions recorded in IRIS-WO-0014; refresh its Context Lock at an exact current main SHA and rerun preflight before any separate implementation admission. Keep implementation NOT ADMITTED."
+  "phase": "M11_PLANNING_ADMITTED",
+  "nextStep": "After the M11 planning admission package passes exact-head Governance, protected squash merge and exact-main Governance, begin M11 S01 as a separate documentation increment under Issue #82. Complete S01–S05 and all planning reviews before proposing an M11 contract freeze. Keep M11 and M10 implementation NOT_ADMITTED."
 }

@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0015",
+  "module": "M11",
+  "status": "PLANNING_ADMISSION_PACKAGE_AUDITED_GOVERNANCE_PENDING",
+  "capturePhase": "planning_admission",
+  "repository": "KayzenRoot/iris",
+  "origin": "https://github.com/KayzenRoot/iris.git",
+  "issue": 82,
+  "authorizedBaseSha": "0014d23115f5fec60a77e5e32d5083e90069a918",
+  "proposalBranch": "iris-wo-0015-m11-planning-docs-20260924",
+  "planningAdmission": {
+    "status": "ADMITTED_FOR_PLANNING_ONLY",
+    "issueAdmissionBase": "0014d23115f5fec60a77e5e32d5083e90069a918",
+    "exactMainGovernance": {
+      "runId": 36059512224,
+      "jobId": 107834755459,
+      "headSha": "0014d23115f5fec60a77e5e32d5083e90069a918",
+      "actor": "KayzenRoot",
+      "result": "PASS"
+    },
+    "workOrder": "IRIS-WO-0015"
+  },
+  "implementationAdmission": {
+    "M11": "NOT_ADMITTED",
+    "M10": "NOT_ADMITTED"
+  },
+  "m10State": {
+    "contract": "m10-contract-v1.0",
+    "status": "FROZEN",
+    "implementation": "NOT_ADMITTED",
+    "wo0014Preflight": "BLOCKED"
+  },
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "checked": 46,
+    "matched": 46,
+    "mismatches": 0
+  },
+  "ownerContractInventory": {
+    "available": [
+      "M02 planning contract",
+      "M06 planning contract",
+      "M09 frozen owner contract v1.0",
+      "M10 frozen contract m10-contract-v1.0"
+    ],
+    "pending": [
+      "M11 owner contract does not exist at the admission base; this planning lifecycle must produce its candidate.",
+      "M12-M60 individual contracts do not exist at the admission base; index-level descriptions are not owner-specific semantics."
+    ]
+  },
+  "planningSessions": [
+    {
+      "id": "S01",
+      "title": "Long-lived supervisor and job process model",
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "S02",
+      "title": "Headless/background worker startup and IPC",
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "S03",
+      "title": "Concurrency limits, priorities and resource leases",
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "S04",
+      "title": "Process reaper, zombie detection and shell-free execution",
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "S05",
+      "title": "Cancellation, timeout, crash recovery and workstation coexistence",
+      "status": "NOT_STARTED"
+    }
+  ],
+  "baseline": {
+    "lastKnownFullSuiteCount": 3940,
+    "exactBaseGovernanceRun": 36059512224,
+    "exactBaseGovernanceJob": 107834755459,
+    "exactBaseGovernanceResult": "PASS",
+    "testCommand": "python -m unittest discover -s tests -p \"test_*.py\"",
+    "compareFrom": "d4ebf87c266d6de04a4e978fa6b8ad8fa958618c",
+    "compareTo": "0014d23115f5fec60a77e5e32d5083e90069a918",
+    "runtimeOrTestOrScriptChanges": false,
+    "comparisonBasis": "GitHub compare found only documentation/planning/checkpoint/evidence paths; exact-main Governance on the base ran 3940 tests and reported OK."
+  },
+  "planningPreflight": {
+    "status": "AUDIT_APPROVED_GOVERNANCE_PENDING",
+    "checks": [
+      {
+        "id": "PF-01",
+        "result": "PASS",
+        "evidence": "Authenticated GitHub login is KayzenRoot; repository owner/name is KayzenRoot/iris."
+      },
+      {
+        "id": "PF-02",
+        "result": "PASS",
+        "evidence": "Issue #82 is open and admits only M11 planning from the exact base."
+      },
+      {
+        "id": "PF-03",
+        "result": "PASS",
+        "evidence": "main equals the issue-authorized SHA at package creation."
+      },
+      {
+        "id": "PF-04",
+        "result": "PASS",
+        "evidence": "All critical Git source fingerprints match at the exact base."
+      },
+      {
+        "id": "PF-05",
+        "result": "PASS",
+        "evidence": "Available M02/M06/M09/M10 authority boundaries were checked; missing M11 and M12-M60 details remain pending."
+      },
+      {
+        "id": "PF-06",
+        "result": "PASS",
+        "evidence": "The proposed changed-file inventory contains documentation/metadata only; no runtime/test/script path."
+      },
+      {
+        "id": "PF-07",
+        "result": "PENDING_GOVERNANCE",
+        "evidence": "Independent documentation audit and exact-head Governance are required before merge."
+      }
+    ],
+    "implementationPreflight": "NOT_RUN_NOT_ADMITTED"
+  },
+  "environmentNotes": [
+    "HIVE MCP tools are unavailable in the active Work Mode connection. The package uses pinned canonical Git sources and exact GitHub Governance only; no HIVE-derived evidence or assertions are fabricated."
+  ],
+  "changedFiles": [
+    ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+    ".engineering/work-orders/IRIS-WO-0015-PREFLIGHT-CRITERIA.md",
+    "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+    ".engineering/context-locks/IRIS-WO-0015.json",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/CHECKPOINT.json",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/reviews/IRIS-WO-0015-PLANNING-ADMISSION-AUDIT.md"
+  ],
+  "documentationAudit": {
+    "status": "APPROVED_FOR_PLANNING_ADMISSION_PROPOSAL_ONLY",
+    "reviewType": "Separate post-authoring documentation and scope audit",
+    "reviewedHead": "3c6778af362f00d7b6bc93104634d529f303ee18",
+    "highFindings": 0,
+    "criticalFindings": 0,
+    "residualFindings": 0,
+    "correctedBeforeAudit": [
+      "Restored the exact PR #80/#81 M10 documentation proposal and checkpoint Governance history in Scope, Backlog and Checkpoint.",
+      "Replaced the stale M10 planning blocker with the actual IRIS-WO-0014 owner-handoff/deferred-decision preflight blocker.",
+      "Removed a premature M11 contract version assignment; version remains NOT_ASSIGNED until planning review.",
+      "Changed planning preflight state to show PR review and Governance as pending."
+    ],
+    "sourceFingerprints": {
+      "checked": 46,
+      "matched": 46,
+      "mismatches": 0
+    },
+    "changedFilesReviewed": 10,
+    "reviewConclusion": "All changes are documentation/metadata only, consistent with the exact-base owner contracts and Issue #82. M11 sessions remain NOT_STARTED; no M11 contract is frozen; M11 and M10 implementation remain NOT_ADMITTED. The complete independent M11 planning audit is still a required later lifecycle gate."
+  },
+  "governance": {
+    "base": {
+      "runId": 36059512224,
+      "jobId": 107834755459,
+      "headSha": "0014d23115f5fec60a77e5e32d5083e90069a918",
+      "result": "PASS"
+    },
+    "exactHead": {
+      "runId": null,
+      "jobId": null,
+      "headSha": null,
+      "result": "PENDING_ON_AUDIT_UPDATED_HEAD"
+    },
+    "exactMain": {
+      "runId": null,
+      "jobId": null,
+      "headSha": null,
+      "result": "PENDING"
+    }
+  },
+  "checkpointDeltaProposed": "After independent documentation audit and exact-head Governance pass, record M11 planning as active under Issue #82 while preserving m10-contract-v1.0 frozen and implementation NOT_ADMITTED. M11 implementation remains NOT_ADMITTED.",
+  "runtimeEvidence": "NONE; no runtime code or process operation is in scope."
+}

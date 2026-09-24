@@ -1,8 +1,16 @@
 # IRIS Scope
 
-Status: `M10_PLANNING_COMPLETE_IMPLEMENTATION_NOT_ADMITTED`
+Status: `M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED`
 
-## Current governed increment — M10 planning
+## Current governed increment — M11 planning
+
+M11 — Background Worker Fabric & Process Lifecycle — is admitted for planning only under [Issue #82](https://github.com/KayzenRoot/iris/issues/82), from exact validated main 0014d23115f5fec60a77e5e32d5083e90069a918 (Governance 36059512224 / 107834755459, PASS). IRIS-WO-0015 establishes the documentation-only planning boundary and five-session work map. S01–S05 are NOT_STARTED; no M11 owner contract is frozen.
+
+M02, M06, M09 and M10 owner sources were checked at this base. Their authorities remain unchanged: M02 owns production causality and ExecutionPlan; M06 owns operational revision/materialization and reproducibility; M09 owns resource truth and leases; M10 recommendations do not control workers. The M11 contract itself is absent at the admission base. M12–M60 individual owner contracts are also absent; their index-level descriptions remain pending candidate context and cannot supply owner-specific semantics.
+
+This increment authorizes planning documents only. It does not authorize runtime code, real process/worker operations, IPC, resource reservations, provider execution, or implementation admission. M10 remains frozen at m10-contract-v1.0, implementation NOT_ADMITTED, and IRIS-WO-0014 preflight BLOCKED.
+
+## M10 planning record
 
 M01-M09 implementations are durably closed. M09 closure reconciliation passed exact-main Governance on `e8ab43f42981630bad244a1d932e60e4ac584b2e`.
 
@@ -35,10 +43,13 @@ The Final Technology Review completed through PR #74 and passed exact-main Gover
 - worker/process lifecycle control, workload placement or provider workflow compilation by M10;
 - frozen-contract semantic changes without a versioned amendment.
 
+### M10 implementation proposal status
+
+IRIS-WO-0014 is a documentation-only proposal. PR #80 exact head f84ca2e00162a7869e31efcb217a962c1aa6ec2b passed Governance 36059070309 / 107833280091; protected squash merge 26c891fd53ac24e1e32b4ae84e162ea029f69366 passed exact-main Governance 36059177560 / 107833630952. PR #81 recorded the closeout at exact head e0e1d4d648e66aa049a5c21551fdc948eb4d316c (Governance 36059412524 / 107834422442) and main 0014d23115f5fec60a77e5e32d5083e90069a918 passed exact-main Governance 36059512224 / 107834755459. IRIS-WO-0014 preflight remains BLOCKED; M10 implementation remains NOT_ADMITTED.
+
 ### Next governed step
 
-IRIS-WO-0014 was approved as a documentation-only proposal through PR #80. Its exact head `f84ca2e00162a7869e31efcb217a962c1aa6ec2b` passed Governance `36059070309 / 107833280091`; squash merge `26c891fd53ac24e1e32b4ae84e162ea029f69366` passed exact-main Governance `36059177560 / 107833630952` (actor: KayzenRoot). Preflight remains BLOCKED: resolve all 50 M11-M60 owner-contract dependencies and deferred M10 decisions, refresh the Context Lock and pass preflight before a separate admission decision. Keep implementation NOT ADMITTED.
-
+Complete M11 S01–S05 under Issue #82 through separately reviewed documentation increments, then complete Technology Discovery, Final Technology Review, Forward Compatibility Scan, M11 contract candidate and independent audit. M12–M60 owner-specific details remain pending until their canonical contracts exist. Do not admit M11 implementation or change the frozen M10 contract/NOT_ADMITTED state. M10 implementation preflight remains BLOCKED under IRIS-WO-0014.
 ## IRIS 1.0 product scope
 
 IRIS 1.0 continues to include M00-M60. M01-M09 implementations are complete; M10 planning is complete under Issue #68 with contract `m10-contract-v1.0` frozen. M10 implementation and later modules remain gated by separate admitted Work Orders and their required preflight.
