@@ -1,6 +1,6 @@
 # M10 — Adaptive Execution Planner & Predictive OOM/Thermal Shield
 
-Status: `PLANNING_FORWARD_COMPATIBILITY_SCAN_CANDIDATE_PENDING_GOVERNANCE`
+Status: `PLANNING_MODULE_CONTRACT_CANDIDATE_PENDING_GOVERNANCE`
 Module: **M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield**
 Planning Work Order: [Issue #68](https://github.com/KayzenRoot/iris/issues/68)
 Authorized planning base: `b6456670a7c61621db1d3b3fc6d55487adb9cd64`
@@ -13,6 +13,11 @@ S04 exact head: `add4344d6b1a495f1aeeb23af0d57fdcddde381e`; Governance `36037625
 S04 protected squash merge / exact-main: `96aee147e701c6d716cfbcf5f2be524ee5d751e7`; Governance `36037710495 / 107761836741` — **PASS**
 S05 exact head: `fc1fa4959697b88fbfbe303736517aef52d9bc91`; Governance `36038801813 / 107765474152` — **PASS**
 S05 protected squash merge / exact-main: `54d85d3491d4cc21e95fc2f9042c53d2852ceb88`; Governance `36038905218 / 107765823628` — **PASS**
+Final Technology Review: exact head `69762690f9368cf0f76f106d75330950862e532d`; Governance `36039931359 / 107769276836` — **PASS**
+Final Technology Review protected squash merge / exact-main: `e38912a57c2d452badd5a35a031eb78f95d0e899`; Governance `36040044487 / 107769655432` — **PASS`
+M11–M60 Forward Compatibility Scan: exact head `d55ea04a9663b648805b00ea0032773125c65642`; Governance `36041422592 / 107774247740` — **PASS**
+M11–M60 protected squash merge / exact-main: `2328978175a59768e64687748b259027b3a79d4e`; Governance `36041515972 / 107774565519` — **PASS**
+
 Final Technology Review exact head: `69762690f9368cf0f76f106d75330950862e532d`; Governance `36039931359 / 107769276836` — **PASS**
 Final Technology Review protected squash merge / exact-main: `e38912a57c2d452badd5a35a031eb78f95d0e899`; Governance `36040044487 / 107769655432` — **PASS**
 S01 exact-main Governance: `36031548275 / 107741264931` — **PASS**
@@ -38,6 +43,7 @@ This document is a planning candidate. No M10 product/runtime/test implementatio
 ## Authority boundaries
 
 - **M02** owns Production Graph causality, canonical ExecutionPlan contracts and production lifecycle. M10 must bind to those contracts and must not create a competing graph, identity or execution-plan schema.
+- **M06** owns immutable operational revision/materialization lineage and reconstruction evidence. M10 binds exact M06 references when material; it must not create a competing production-revision or history authority.
 - **M01** owns quality evaluation and promotion. **M03** owns creative intent and protected semantic constraints. M10 may estimate risk and propose bounded alternatives; it cannot lower quality targets or rewrite semantic obligations.
 - **M07** owns hardware/runtime facts; **M08** owns empirical benchmark/capability truth; **M09** owns resource state, leases, residency and resource-control outcomes. M10 consumes versioned evidence by reference.
 - **M11** owns worker/process lifecycle; **M12** owns placement/orchestration; **M13** owns cache and execution-efficiency mechanisms; **M14** owns model fitness; **M16** owns concrete provider/workflow compilation.
@@ -501,15 +507,23 @@ The review accepts the S01–S05 architecture as sufficiently coherent and provi
 
 ### M11–M60 Forward Compatibility Scan
 
-Status: CANDIDATE_PENDING_GOVERNANCE
-Coverage: 50/50 module entries in the master index
+Status: COMPLETE_FOR_M10_CONTRACT_CANDIDATE
+Coverage: 50/50 master-index entries; FC-10-01 through FC-10-12
 Scan: [M10 M11–M60 Forward Compatibility Scan](../compatibility/M10-FORWARD-COMPATIBILITY-SCAN.md)
 
-The index-level scan records 12 candidate contract findings, preserves M02/M01/M03/M07/M08/M09/M11/M12/M14/M15/M16/M50/M53/M54/M55/M56/M57/M58/M59/M60 authority boundaries and returns no known HIGH/CRITICAL collision from the evidence currently available. Individual M11–M60 module plans are not published at this base; verify these boundaries again against each module's canonical planning contract.
+The exact scan head and main SHA passed Governance as recorded above. The scan found no known HIGH/CRITICAL authority collision at available index-level evidence. Individual M11–M60 module plans are not published; revisit each handoff against its canonical module contract when planned.
+
+### M10 Module Contract Freeze Candidate
+
+Status: CANDIDATE_PENDING_GOVERNANCE_AND_INDEPENDENT_AUDIT
+Version: `m10-contract-v0.1.0-candidate`
+Contract: [M10 Module Contract Freeze Candidate](../contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md)
+
+The candidate carries 36 traceable normative clauses for plan ownership, separate risk outputs, constraints-first policy, observed-result learning, explanations, privacy and FC-10-01..12. It freezes no public schema, implementation, model, solver, threshold or runtime behavior.
 
 ### Next gate
 
-Pass the scan candidate through exact-head Governance, protected squash merge and exact-main Governance. Then carry FC-10-01 through FC-10-12 and their explicit owner deferrals into the versioned M10 contract candidate and independent planning audit. M10 implementation remains NOT ADMITTED.
+Pass the contract candidate through exact-head Governance, protected squash merge and exact-main Governance. Then run the independent planning audit against lifecycle evidence, compatibility findings, owner boundaries, deferred decisions and HIGH/CRITICAL risks. Keep M10 implementation NOT ADMITTED.
 
 ## Required planning lifecycle
 

@@ -2,7 +2,7 @@
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "M10_PLANNING_ACTIVE",
-  "version": "m10-m11-m60-forward-compatibility-v0",
-  "phase": "M10_M11_M60_FORWARD_COMPATIBILITY_SCAN_CANDIDATE",
-  "nextStep": "Pass the M11-M60 Forward Compatibility Scan candidate through exact-head Governance, protected squash merge and exact-main validation; then prepare the versioned M10 contract candidate and independent planning audit. Keep M10 implementation NOT ADMITTED."
+  "version": "m10-contract-v0.1.0-candidate",
+  "phase": "M10_MODULE_CONTRACT_CANDIDATE_PENDING_GOVERNANCE",
+  "nextStep": "Pass the versioned M10 contract candidate through exact-head Governance, protected squash merge and exact-main validation; then complete the independent planning audit. Keep M10 implementation NOT ADMITTED."
 }

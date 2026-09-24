@@ -117,7 +117,7 @@ Hardware scarcity is represented as explicit capability/evidence state and canno
 
 ## M10 active planning boundary
 
-M10 planning was admitted from exact validated main `b6456670a7c61621db1d3b3fc6d55487adb9cd64` under Issue #68. S01–S05 are complete for module planning; PRs #69–#73 passed exact-main Governance. The Final Technology Review passed PR #74 head Governance `36039931359 / 107769276836` and exact-main Governance `36040044487 / 107769655432` on `e38912a57c2d452badd5a35a031eb78f95d0e899`. The M11–M60 compatibility scan is the current planning candidate and covers all 50 master-index entries; later module contracts are not yet published and require contract-level revisit. M02 retains the canonical ExecutionPlan schema and lifecycle; M10 cannot reserve M09 resources, select M12 placement, control M11 workers, compile M16 workflows or authorize execution. M10 implementation remains NOT ADMITTED.
+M10 planning was admitted from exact validated main `b6456670a7c61621db1d3b3fc6d55487adb9cd64` under Issue #68. S01–S05 are complete for module planning. The Final Technology Review passed exact-main Governance on `e38912a57c2d452badd5a35a031eb78f95d0e899`; the M11–M60 scan passed exact-main Governance on `2328978175a59768e64687748b259027b3a79d4e`, covering 50/50 master-index entries with 12 candidate findings. Individual M11–M60 contracts remain unpublished and require later revisit. The current versioned M10 contract candidate is `m10-contract-v0.1.0-candidate`, based on that validated main. M02 retains canonical ExecutionPlan schema and lifecycle; M10 cannot reserve M09 resources, select M12 placement, control M11 workers, compile M16 workflows or authorize execution. M10 implementation remains NOT ADMITTED.
 
 ## Dependency direction
 

@@ -22,15 +22,15 @@ Status: `M10_PLANNING_ACTIVE`
 - S04 ECO/BALANCED/QUALITY/MAX/CUSTOM semantics: **COMPLETE_FOR_MODULE_PLANNING**; PR #72 exact head `add4344d6b1a495f1aeeb23af0d57fdcddde381e` passed Governance `36037625164 / 107761547909`, merged as `96aee147e701c6d716cfbcf5f2be524ee5d751e7`, and passed exact-main Governance `36037710495 / 107761836741`.
 - S05 observed-result learning and explainable decisions: **COMPLETE_FOR_MODULE_PLANNING**; PR #73 exact head `fc1fa4959697b88fbfbe303736517aef52d9bc91` passed Governance `36038801813 / 107765474152`, merged as `54d85d3491d4cc21e95fc2f9042c53d2852ceb88`, and passed exact-main Governance `36038905218 / 107765823628`.
 - Final Technology Review: **COMPLETE_FOR_M10_PLANNING**; PR #74 exact head `69762690f9368cf0f76f106d75330950862e532d` passed Governance `36039931359 / 107769276836`, merged as `e38912a57c2d452badd5a35a031eb78f95d0e899`, and passed exact-main Governance `36040044487 / 107769655432`.
-- M11–M60 Forward Compatibility Scan: **CANDIDATE_PENDING_GOVERNANCE**; 50/50 master-index entries reviewed; module-specific contract confirmation remains required as later modules are planned.
-- Versioned M10 contract candidate and independent planning audit: **PENDING**.
+- M11–M60 Forward Compatibility Scan: **COMPLETE_FOR_M10_CONTRACT_CANDIDATE**; PR #75 exact head `d55ea04a9663b648805b00ea0032773125c65642` passed Governance `36041422592 / 107774247740`, merged as `2328978175a59768e64687748b259027b3a79d4e`, and passed exact-main Governance `36041515972 / 107774565519`; coverage 50/50 at module-index level, with FC-10-01..12.
+- M10 contract `m10-contract-v0.1.0-candidate`: **CANDIDATE_PENDING_GOVERNANCE_AND_INDEPENDENT_AUDIT**; not frozen.
+- Independent M10 planning audit: **PENDING**; M10 implementation remains NOT ADMITTED.
 - M10 product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-1. Validate and merge the M11–M60 Forward Compatibility Scan candidate under Issue #68.
-2. Incorporate FC-10-01 through FC-10-12 and explicit owner deferrals into a versioned M10 contract candidate.
-3. Run an independent planning audit against the complete lifecycle, authority shields, evidence limitations and unresolved HIGH/CRITICAL risks.
-4. Merge and exact-main validate the planning package; only then consider a separate M10 implementation Work Order.
+1. Complete and validate the versioned M10 contract candidate incorporating FC-10-01 through FC-10-12 and owner-approved deferrals.
+2. Run an independent planning audit against the lifecycle, authority shields, evidence limitations and unresolved HIGH/CRITICAL risks.
+3. Reconcile the approved planning package on exact main; only then consider a separate M10 implementation Work Order.
 
 ## IMPLEMENTATION GATE
 No M10 product/runtime code is authorized during this planning cycle. Planning completion alone does not admit implementation; a separate implementation Work Order, Context Lock, Evidence package and preflight are required.

@@ -1,10 +1,12 @@
 # M10 — M11–M60 Forward Compatibility Scan
 
-Status: M11_M60_FORWARD_COMPATIBILITY_SCAN_CANDIDATE
+Status: FORWARD_COMPATIBILITY_SCAN_COMPLETE_FOR_CONTRACT_CANDIDATE
 Source module: M10 — Adaptive Execution Planner & Predictive OOM/Thermal Shield
 Reviewed against: M11–M60
 Coverage: 50/50 module entries in the master index
 Review base: e38912a57c2d452badd5a35a031eb78f95d0e899
+Exact scan candidate head: d55ea04a9663b648805b00ea0032773125c65642; Governance 36041422592 / 107774247740 — PASS
+Protected squash merge / exact-main: 2328978175a59768e64687748b259027b3a79d4e; Governance 36041515972 / 107774565519 — PASS
 Implementation authority: NOT ADMITTED
 
 ## Purpose and scope
@@ -140,9 +142,9 @@ Each decision must be resolved against the owning module's planned contract. Do 
 - New runtime authority granted: none.
 - M10 implementation: NOT ADMITTED.
 
-Verdict: PROVISIONAL_PASS_FOR_M10_CONTRACT_CANDIDATE_WITH_MODULE_LEVEL_REVISIT
+Verdict: PASS_FOR_M10_CONTRACT_CANDIDATE_WITH_MODULE_LEVEL_REVISIT
 
-Proceed to the versioned M10 contract candidate after this scan passes exact-head Governance, protected squash merge and exact-main Governance. Carry FC-10-01..12 and the deferred owner decisions into that candidate. The independent planning audit must check the scan coverage, authority boundaries, unresolved risks and evidence limitations before M10 planning can be considered complete.
+The scan has passed exact-head Governance, protected squash merge and exact-main Governance. Carry FC-10-01..12 and the deferred owner decisions into the versioned M10 contract candidate. The independent planning audit must check scan coverage, authority boundaries, unresolved risks and evidence limitations before M10 planning can be considered complete.
 
 ## Sources in the repository
 
