@@ -2,8 +2,8 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0012",
   "frozenContract": "m08-contract-v1.0",
-  "capturePhase": "correction-delta-01",
-  "status": "CORRECTION_DELTA_IMPLEMENTED_AND_LOCALLY_VALIDATED",
+  "capturePhase": "post-merge-reconciliation",
+  "status": "M08_IMPLEMENTATION_MERGED_EXACT_MAIN_VALIDATED",
   "repository": "KayzenRoot/iris",
   "branch": "iris-wo-0012-m08-microbenchmark-lab",
   "issue": 58,
@@ -11,7 +11,8 @@
     "number": 59,
     "base": "main",
     "stateAtAdmission": "open",
-    "mergePerformed": false
+    "mergePerformed": true,
+    "mergeCommit": "ea419f2b45209b2371fd18533dc60e3daa126fab"
   },
   "gitChain": {
     "authorizedBase": "6e2aea630208f6f18656803735426ba99d9b3cc7",
@@ -266,20 +267,12 @@
     "HIVE MCP did not have IRIS registered during preflight, so no IRIS-specific HIVE context evidence is claimed."
   ],
   "checkpointDelta": {
-    "status": "PROPOSED",
-    "promoted": false,
-    "suggestedPhase": "M08_IMPLEMENTATION_READY_FOR_INDEPENDENT_REVIEW",
-    "suggestedObjective": "Audit the complete M08 implementation on PR #59 exact head; preserve the no-merge and no-M09 boundary.",
-    "proposedCompleted": [
-      "M08 contract implementation is locally validated on correction commit 28580ed81e3e50022b957e22d2960210cbbd3471",
-      "CPU reference execution and explicit unsupported paths are covered by focused tests",
-      "330 per-ID frozen invariant records, assertions, and fail-closed validator cases pass",
-      "42-file PR inventory is split from its 37 implementation files",
-      "385 focused M08 tests and 3219 repository tests pass; 7-profile harness and local governance pass"
-    ],
-    "nextStep": "Complete push and exact-head GitHub Governance for PR #59; request independent audit. Do not merge and do not start M09."
+    "status": "PROMOTED_IN_RECONCILIATION",
+    "promoted": true,
+    "suggestedPhase": "M08_IMPLEMENTATION_CLOSED",
+    "nextStep": "Audit/merge this reconciliation and exact-main validate before M09 planning."
   },
-  "stopCondition": "Correction delta implemented, tested, documented and evidenced; push this same branch and verify exact-head PR #59 Governance. Do not merge. Do not start M09.",
+  "stopCondition": "M08 implementation merged and exact-main validated. This reconciliation may change closure metadata only; do not implement M09.",
   "correctionDelta": {
     "pdf": "IRIS-WO-0012-CORRECTION-DELTA-01.pdf",
     "independentAudit": "https://github.com/KayzenRoot/iris/pull/59#issuecomment-5803154220",
@@ -424,5 +417,24 @@
   ],
   "prChangedFileCount": 42,
   "prInventoryBasis": "GitHub PR #59 changed-filename API returned this exact 42-path inventory at head 746a6ead7bf6a58548dfa91afe6b0bb6367de361; cross-checked against the authorized-base git diff.",
-  "prInventoryVerifiedHead": "746a6ead7bf6a58548dfa91afe6b0bb6367de361"
+  "prInventoryVerifiedHead": "746a6ead7bf6a58548dfa91afe6b0bb6367de361",
+  "postMergeValidation": {
+    "auditedHead": "33799162aad92d34689b923f43aed81ac17555de",
+    "auditVerdict": "APPROVED_FOR_PROTECTED_MERGE",
+    "residual": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0
+    },
+    "mergeCommit": "ea419f2b45209b2371fd18533dc60e3daa126fab",
+    "exactMainGovernance": {
+      "run": 35976118079,
+      "job": 107556893726,
+      "result": "PASS"
+    },
+    "focusedM08Tests": 385,
+    "fullSuiteTests": 3219,
+    "baseline": 2834,
+    "increase": 385
+  }
 }
