@@ -625,3 +625,210 @@ S03 may advance to S04 planning only when:
 
 ## STOP CONDITION
 Stop at S03 planning. Do not implement M09. Do not deep-plan S04 until S03 receives independent review.
+
+
+# S04 — Dynamic tile/chunk/batch/precision control
+
+Status: `S04_PLANNING_CANDIDATE`
+S03 audit: `APPROVED` at `4aeee77d62476cf48f4e1b5c6b4dcd798f7a8e17`
+
+## S04 objective
+Define bounded resource-shaping controls that expose feasible tile, chunk, batch and precision alternatives under current M09 resource truth. S04 may derive resource-feasible control bounds and apply an explicitly authorized control choice. M10 remains owner of execution-plan selection; M01/M14 and domain owners remain quality/fitness authorities. No resource pressure may silently reduce fidelity.
+
+## S04 technology surfaces
+
+### RSC-01 — Adaptive Resource Shape Fabric
+Represents provider-neutral shape dimensions such as tile extent, chunk extent, batch cardinality and precision mode as typed, bounded control axes.
+
+### RSC-02 — Feasible Shape Envelope
+Derives conservative resource-feasible ranges from M08 evidence plus current M09 state without claiming that a feasible shape is optimal or quality-approved.
+
+### RSC-03 — Quality Constraint Binder
+Requires every lossy/precision-affecting control to carry explicit M01/domain quality authorization or remain unavailable.
+
+### RSC-04 — Precision Safety Matrix
+Classifies precision transitions as lossless-equivalent, quality-sensitive, unsupported or unknown for the declared operation/context, with evidence refs rather than global assumptions.
+
+### RSC-05 — Tile Boundary Integrity Contract
+Defines overlap/halo/seam/context requirements so resource-driven tiling cannot silently create spatial discontinuities.
+
+### RSC-06 — Temporal Chunk Integrity Contract
+Defines overlap/state/context boundaries for temporal chunking so video/audio/animation continuity obligations remain explicit.
+
+### RSC-07 — Batch Isolation Governor
+Ensures batch resizing changes resource aggregation only and cannot silently alter per-item semantic settings, seeds, identity or acceptance criteria.
+
+### RSC-08 — Shape Transition Ledger
+Records requested/applied resource-shape transitions, causal pressure evidence, authorization and resulting resource state.
+
+### RSC-09 — Hysteresis & Thrash Guard
+Prevents repeated up/down resource-shape oscillation under noisy pressure by bounded hysteresis/cooldown evidence.
+
+### RSC-10 — Resource Control Epoch
+Binds shape controls to a current resource-state epoch so stale pressure cannot mutate a newer execution context.
+
+### RSC-11 — Provider Capability Adapter
+Maps canonical shape controls to provider-supported knobs and reports unsupported/quantized ranges explicitly.
+
+### RSC-12 — Control Reversibility Descriptor
+Declares whether a shape/precision transition is reversible, requires restart/reload, or changes reproducibility/materiality.
+
+### RSC-13 — Quality-Neutral Preference Channel
+Allows M09 to expose resource-cheaper alternatives only when quality-equivalence is already established by owning evidence; it does not establish equivalence itself.
+
+### RSC-14 — Minimum Viable Shape Guard
+Prevents resource adaptation below provider/domain structural minima even when smaller shapes would appear to fit memory.
+
+### RSC-15 — Shape Compatibility Matrix
+Captures incompatible combinations among tile/chunk/batch/precision controls and provider/runtime constraints.
+
+### RSC-16 — Adaptation Budget Governor
+Bounds number, frequency and cumulative magnitude of control changes within an execution context.
+
+### RSC-17 — Degradation Consent Gate
+Quality-sensitive precision or shape degradation requires explicit authorized consent/policy reference and cannot be inferred from scarcity.
+
+### RSC-18 — Replan Signal Fabric
+Emits typed FIT / NO_FIT / REQUIRE_REPLAN / REQUIRE_OFFLOAD / QUALITY_AUTH_REQUIRED / UNKNOWN outcomes to M10 without selecting the plan.
+
+### RSC-19 — Shape Evidence Projection
+Exports exact state/envelope/control/provenance refs for reproducibility and M56 observation without transferring authority.
+
+### RSC-20 — Scarcity Escape Hatch Firewall
+When no safe feasible shape exists, fails closed with explicit evidence rather than entering unbounded search, unsafe overcommit or silent quality reduction.
+
+## S04 hard invariants
+291. Tile/chunk/batch/precision are distinct typed control axes.
+292. A feasible resource shape is not automatically a selected execution plan.
+293. A resource-feasible shape is not automatically quality-approved.
+294. M10 retains execution-plan selection authority.
+295. M01/domain quality authority remains binding.
+296. M14 model fitness evidence remains external authority.
+297. Resource pressure cannot silently reduce precision.
+298. Resource pressure cannot silently reduce spatial fidelity.
+299. Resource pressure cannot silently reduce temporal fidelity.
+300. Resource pressure cannot silently alter protected M03 semantics.
+301. Quality-sensitive control requires explicit authorization/evidence.
+302. Absence of quality authorization fails closed for lossy adaptation.
+303. Unknown quality effect fails closed for automatic lossy adaptation.
+304. Quality-equivalent status must reference owning evidence.
+305. M09 cannot self-declare quality equivalence merely because memory use decreases.
+306. Precision modes are explicit and versioned.
+307. Precision transition compatibility is context-specific.
+308. Unknown precision compatibility is not assumed safe.
+309. Unsupported precision mode fails explicitly.
+310. Precision change cannot silently mutate model/artifact identity.
+311. Material precision change carries reproducibility/materiality evidence.
+312. Tile dimensions use explicit units/axes.
+313. Tile overlap/halo requirements are explicit.
+314. Tiling cannot discard required spatial context silently.
+315. Tile seam obligations remain explicit.
+316. Tile shape below structural minimum is rejected.
+317. Temporal chunk dimensions use explicit time/frame/sample semantics.
+318. Temporal overlap/context requirements are explicit.
+319. Chunking cannot silently reset required temporal state.
+320. Chunking cannot silently break continuity obligations.
+321. Chunk size below structural minimum is rejected.
+322. Batch cardinality is explicit.
+323. Batch resizing cannot alter per-item semantic configuration.
+324. Batch resizing cannot silently alter deterministic seed identity where seed is material.
+325. Batch resizing cannot merge distinct item identities.
+326. Batch isolation failures fail closed.
+327. Feasible shape derivation uses current versioned resource evidence.
+328. Stale resource epoch cannot authorize a shape mutation.
+329. Conflicted/quarantined resource state cannot authorize automatic adaptation.
+330. Unknown resource feasibility remains UNKNOWN.
+331. M08 capability evidence is referenced, not rewritten.
+332. M09 state can narrow feasibility but cannot expand M08 evidence without new evidence.
+333. Provider capability mapping is explicit.
+334. Unsupported provider knob cannot be fabricated.
+335. Provider quantization/step constraints are represented.
+336. Canonical requested value and provider-applied value remain distinguishable.
+337. Applied control is verified where provider feedback exists.
+338. Missing provider feedback remains UNKNOWN, not assumed applied.
+339. Shape transitions are append-auditable.
+340. Transition records causal pressure/evidence.
+341. Transition records authorization source.
+342. Transition records prior and resulting control state.
+343. Hysteresis policy is explicit/versioned.
+344. Cooldown policy is explicit/versioned.
+345. Noisy pressure cannot cause unbounded adaptation thrash.
+346. Adaptation count is bounded per execution context.
+347. Adaptation frequency is bounded.
+348. Cumulative adaptation magnitude is bounded where meaningful.
+349. Unbounded search across shape combinations is forbidden.
+350. Feasible search uses declared finite domains/bounds.
+351. Compatibility matrix rejects known-invalid control combinations.
+352. Unknown mandatory compatibility fails closed.
+353. Reversibility is explicit.
+354. Irreversible/material transitions require explicit authorization.
+355. Restart/reload-required transition cannot masquerade as live-safe.
+356. Resource-shape control cannot directly restart/kill workers.
+357. M11 retains process lifecycle.
+358. M12 retains placement/orchestration.
+359. M55 retains storage/CAS authority.
+360. M56 retains observability aggregation.
+361. S04 cannot silently invoke S03 offload.
+362. REQUIRE_OFFLOAD is a signal/request, not proof offload occurred.
+363. S04 cannot silently grant S02 leases.
+364. Shape application must respect current valid lease/headroom constraints.
+365. Operator headroom cannot be consumed by adaptation.
+366. 8 GB VRAM remains first-class for bounded shaping.
+367. Small VRAM does not justify violating provider structural minima.
+368. Small VRAM does not justify unsafe overcommit.
+369. If no safe shape fits, result is explicit NO_FIT/REQUIRE_REPLAN rather than degradation.
+370. Degradation consent is scoped to exact operation/context.
+371. Consent for one precision/shape change cannot authorize unrelated degradation.
+372. Revoked/expired consent cannot authorize new adaptation.
+373. Automation has no broader degradation authority than interactive actors.
+374. Quality-neutral preference may be used only with valid equivalence evidence.
+375. Warm residency/resource cost hints cannot override quality constraints.
+376. Shape evidence export is versioned.
+377. Unknown mandatory shape schema semantics fail closed.
+378. Older readers cannot silently ignore mandatory control semantics.
+379. Synthetic shape tests are distinguishable from production application.
+380. Synthetic fit cannot authorize production resource commitment.
+381. Applied shape state distinguishes REQUESTED / APPLIED / VERIFIED / FAILED / UNKNOWN.
+382. REQUESTED cannot masquerade as APPLIED.
+383. APPLIED without verification cannot masquerade as VERIFIED.
+384. Failed adaptation cannot silently mutate canonical current control state.
+385. Retry of shape application uses idempotency/epoch semantics.
+386. Stale retry cannot overwrite newer applied state.
+387. Shape change affecting reproducibility carries explicit M06 materiality reference.
+388. Every S04 acceptance proof identifies exact invariant IDs.
+389. Shared proof targets explicitly enumerate claimed S04 invariant IDs.
+390. Missing/orphan/duplicate S04 proof mappings fail validation.
+
+## Required S04 proof classes
+- finite feasible-envelope derivation under current resource state;
+- quality-authorization and unknown-quality fail-closed behavior;
+- precision compatibility and provider quantization;
+- spatial tile overlap/seam/context constraints;
+- temporal chunk continuity/context constraints;
+- batch isolation and deterministic identity;
+- epoch/hysteresis/adaptation-budget anti-thrash;
+- requested/applied/verified provider feedback states;
+- no-fit/replan/offload signaling without hidden execution;
+- 8 GB VRAM bounded-shaping scenarios;
+- cross-module authority firewall;
+- invariant-to-proof integrity.
+
+## S04 risks
+- “Adaptive” can become a euphemism for silent quality loss. Mitigation: quality constraint binder + degradation consent gate.
+- Tile/chunk shrinking can introduce seams or temporal discontinuity. Mitigation: explicit spatial/temporal integrity contracts.
+- Runtime pressure can cause oscillating settings. Mitigation: hysteresis, epochs and bounded adaptation budgets.
+- Provider knobs differ in units/steps/meaning. Mitigation: capability adapter with requested/applied/verified separation.
+- Searching every combination can become expensive/unbounded. Mitigation: finite domains and hard search bounds.
+
+## S04 acceptance gate
+S04 may advance to S05 planning only when:
+- S01-S03 approved semantics remain intact;
+- all 20 S04 surfaces and invariants 291-390 are explicit;
+- quality-sensitive adaptation always requires owning authorization/evidence;
+- M10 remains execution-plan owner and M11 remains lifecycle owner;
+- tile/chunk/batch/precision controls are bounded and provider-aware;
+- no implementation code is introduced;
+- independent review reports zero unresolved HIGH/CRITICAL findings.
+
+## STOP CONDITION
+Stop at S04 planning. Do not implement M09. Do not deep-plan S05 until S04 receives independent review.
