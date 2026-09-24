@@ -4,7 +4,7 @@
   "issue": 64,
   "branch": "iris-wo-0013-m09-resource-digital-twin",
   "baseSha": "ee46815382be0907f373760a62b3b31805c7abee",
-  "status": "ADMISSION_CANDIDATE",
+  "status": "ADMITTED_FOR_EXECUTION",
   "risk": "ELEVATED",
   "frozenContract": {
     "name": "m09-contract-v1.0",
@@ -13,7 +13,7 @@
   "baseline": {
     "governanceRun": 35978885089,
     "governanceJob": 107565774466,
-    "tests": null,
+    "tests": 3219,
     "conclusion": "success"
   },
   "criticalSources": [
@@ -96,5 +96,15 @@
     "quality/creative semantics ownership"
   ],
   "stopCondition": "STOP after complete frozen M09 kernel is implemented, tested, documented, evidenced and ready for independent review. Do not merge. Do not start M10.",
-  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md."
+  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md.",
+  "admissionValidation": {
+    "head": "dd2290e41e659bc8d712f85996f07e4ebf4ac36e",
+    "criticalSources": 13,
+    "fingerprintMismatches": 0,
+    "governanceRun": 35979243359,
+    "governanceJob": 107566916735,
+    "baselineTests": 3219,
+    "result": "PASS",
+    "baselineBasis": "Last exact proven full suite is 3219 PASS; repository comparison from M08 reconciliation main to M09 admission base contains zero tests/runtime/scripts changes."
+  }
 }
