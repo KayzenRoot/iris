@@ -28,7 +28,7 @@ Status: `M10_PLANNING_COMPLETE_IMPLEMENTATION_NOT_ADMITTED`
 - M10 product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-M10 planning is complete and reconciled. Keep implementation NOT ADMITTED. If M10 implementation is pursued, first create and admit a separate implementation Work Order / Context Lock / Evidence package and pass preflight.
+M10 planning is complete and reconciled. IRIS-WO-0014 proposal is under PR #80; implementation remains NOT ADMITTED and preflight BLOCKED. Resolve the 50 M11-M60 owner-contract dependencies and deferred M10 decisions, refresh the Context Lock and pass preflight before a separate admission decision.
 
 ## IMPLEMENTATION GATE
 No M10 product/runtime code is authorized during this planning cycle. Planning completion alone does not admit implementation; a separate implementation Work Order, Context Lock, Evidence package and preflight are required.

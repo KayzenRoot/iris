@@ -17,7 +17,7 @@
   },
   "gitChain": {
     "proposalBase": "873053d24d9e28f5ff9b186914fa3de7caf749de",
-    "proposalHead": null,
+    "proposalHead": "16c00bb8e704c24151d7fe6a3ac6a8d2f9f24976",
     "implementationBase": null,
     "implementationHead": null,
     "implementationPullRequest": null,
@@ -134,5 +134,39 @@
     "M11-M60 contracts are absent; scan entries are index-level candidates only.",
     "Estimator, calibration, numeric policy, serialization/storage/projection and authority handshakes remain unresolved.",
     "Full suite last known green at 3940/3940 on M09 implementation evidence; not rerun on this docs-only base."
-  ]
+  ],
+  "documentationAudit": {
+    "verdict": "APPROVED_PROPOSAL_ONLY",
+    "reviewedHead": "16c00bb8e704c24151d7fe6a3ac6a8d2f9f24976",
+    "sourceFingerprints": {
+      "checked": 47,
+      "matched": 47
+    },
+    "ownerRegister": {
+      "rows": 50,
+      "range": "M11-M60",
+      "allPending": true
+    },
+    "governance": {
+      "runId": 36055225664,
+      "jobId": 107820378095,
+      "result": "PASS"
+    },
+    "implementationAdmission": "NOT_ADMITTED",
+    "preflight": "BLOCKED"
+  },
+  "reconciliation": {
+    "status": "CHECKPOINT_DELTA_APPLIED_IN_PROPOSAL",
+    "verdictScope": "Documentation proposal only",
+    "canonicalImplementationState": "NOT_ADMITTED",
+    "preflight": "BLOCKED_PENDING_OWNER_CONTRACTS_AND_DEFERRED_DECISIONS",
+    "updatedFiles": [
+      ".engineering/CHECKPOINT.json",
+      ".engineering/CHECKPOINT.md",
+      "docs/project-brain/13-CHECKPOINT.md",
+      "docs/project-brain/03-SCOPE.md",
+      "docs/project-brain/14-BACKLOG.md"
+    ],
+    "note": "Exact-head Governance must pass on the resulting PR head before any merge."
+  }
 }
