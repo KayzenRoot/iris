@@ -2,7 +2,7 @@
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "M10_PLANNING_ACTIVE",
-  "version": "m10-contract-v0.1.0-candidate",
-  "phase": "M10_MODULE_CONTRACT_CANDIDATE_PENDING_GOVERNANCE",
-  "nextStep": "Pass the versioned M10 contract candidate through exact-head Governance, protected squash merge and exact-main validation; then complete the independent planning audit. Keep M10 implementation NOT ADMITTED."
+  "version": "m10-contract-v1.0",
+  "phase": "M10_CONTRACT_FREEZE_PROMOTION_CANDIDATE_PENDING_GOVERNANCE",
+  "nextStep": "Pass the M10 contract freeze promotion through exact-head Governance, protected squash merge and exact-main validation; then reconcile the final M10 planning state. Keep M10 implementation NOT ADMITTED."
 }

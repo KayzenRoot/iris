@@ -1,14 +1,14 @@
 # M10 Module Contract Freeze Candidate
 ## Adaptive Execution Planner & Predictive OOM/Thermal Shield
 
-Status: M10_CONTRACT_CANDIDATE_PENDING_GOVERNANCE_AND_INDEPENDENT_AUDIT
-Candidate version: m10-contract-v0.1.0-candidate
+Status: FROZEN_APPROVED
+Frozen version: m10-contract-v1.0
 Module: M10
 Planning Work Order: Issue #68
 Planning base: 2328978175a59768e64687748b259027b3a79d4e
 Implementation authority: NOT ADMITTED
 
-This document is a versioned planning contract candidate. It is not a frozen public schema, an implementation admission, or authorization to execute work. Candidate invariant identifiers below remain subject to independent planning audit and owner-contract confirmation.
+This document freezes the M10 semantic planning contract after approval by the independent planning audit. It does not freeze public wire serialization, a vendor or runtime implementation, numeric risk thresholds or authorization to execute work. Owner-specific handshake and encoding details remain explicit future decisions and cannot weaken the normative semantics below.
 
 ## 1. Mission and contract boundary
 
@@ -42,7 +42,7 @@ M10 must preserve required output quality, protected creative intent, rights, co
 
 The detailed index-level requirements and revisit conditions are in [the M11–M60 compatibility scan](../compatibility/M10-FORWARD-COMPATIBILITY-SCAN.md). Confirm every applicable boundary against the owning module contract when that contract is planned.
 
-## 3. Candidate contract records
+## 3. Contract record semantics
 
 The candidate contract describes semantic records without selecting a serialization, digest, database, registry or transport.
 
@@ -101,9 +101,9 @@ An explanation ties the actual policy path to exact inputs, hard constraints, ev
 
 Replay requires compatible pinned artifacts and authorized data. M56 may aggregate versioned decision events but cannot supply missing physical truth or rewrite history. Explanations are permission-filtered and redact content outside the viewer's authorization.
 
-## 4. Candidate invariants
+## 4. Hard invariants
 
-The following 36 candidate invariants map to FC-10-01 through FC-10-12. They are normative candidate clauses for audit and owner review, not yet frozen invariants.
+The following 36 normative invariants map to FC-10-01 through FC-10-12. They are binding semantic requirements for m10-contract-v1.0; they do not select a wire serialization or runtime technology.
 
 1. M10 SHALL bind each proposal to the exact M02 request, graph revision and canonical plan contract.
 2. M10 SHALL NOT create a competing ExecutionPlan schema or mutate M02 production state.
@@ -193,32 +193,34 @@ The following remain open and SHALL NOT be silently defaulted inside M10:
 
 Resolve each against the owning module's planned contract and record any approved change through versioned governance.
 
-## 8. Scope and implementation STOP condition
+## 8. Implementation STOP condition and amendment rules
 
-This candidate freezes no vendor, model, solver, library, registry, database, provider, runtime, numeric threshold or hardware-specific behavior. It does not implement schemas, calibration, training, dispatch, resource control, observability or UI.
+The semantic planning contract is frozen as m10-contract-v1.0. This freeze does not admit implementation. Any change to normative semantics requires a versioned M10 contract amendment and renewed compatibility/audit review where affected.
 
-Do not promote this candidate to a frozen M10 contract until:
+Before a future implementation Work Order is admitted:
 
-- S01–S05 and the Final Technology Review remain exact-main validated;
-- the M11–M60 compatibility scan and its 12 findings are reconciled in the candidate;
-- each applicable owner boundary and explicit deferral is reviewed;
-- an independent planning audit approves lifecycle completeness, traceability and evidence limitations with zero unresolved HIGH/CRITICAL findings;
-- exact-head Governance and exact-main validation pass for the candidate.
+- owner-specific M11–M60 handoffs must be checked against their canonical planning contracts;
+- risk targets, calibration support, horizons and any numeric policy budgets must have owner-approved evidence;
+- M02/M09/M11/M12/M14/M15/M16/M50/M51/M53/M54/M56/M57/M58/M60 integration details must pass their owning authorization and privacy/security gates;
+- an implementation Work Order, Context Lock, Evidence package and preflight must pass separately.
 
-M10 product/runtime implementation remains NOT ADMITTED and NOT STARTED. A separate implementation Work Order, Context Lock, Evidence package and preflight are required after planning completion.
+Unknown or invalid mandatory evidence continues to require abstention or no-safe-plan. No implementation, training, dispatch, resource-control, provider execution or physical-safety claim is admitted by this freeze.
 
-## 9. Candidate state
+## 9. Freeze state and evidence
 
-- Candidate version: m10-contract-v0.1.0-candidate
-- Candidate head: pending
+- Frozen version: m10-contract-v1.0
+- Status: FROZEN_APPROVED
+- Reviewed candidate: c2d12a7779886ca1c759395a22e9fbb6e108a259
+- Exact-main reviewed candidate: d8000229397138ed0d45133df456598cdd010ddf
+- Candidate Governance: 36042687559 / 107778484156 — PASS
+- Exact-main Governance: 36042785859 / 107778821652 — PASS
+- Independent planning audit: APPROVED; HIGH 0; CRITICAL 0
 - S01–S05: COMPLETE_FOR_MODULE_PLANNING
 - Final Technology Review: exact-main validated at e38912a57c2d452badd5a35a031eb78f95d0e899
 - M11–M60 Forward Compatibility Scan: exact-main validated at 2328978175a59768e64687748b259027b3a79d4e; 50/50 index entries; FC-10-01..12
-- Candidate invariants: 36, pending independent audit
-- Individual M11–M60 module plans at scan base: absent; revisit required
-- Independent planning audit: PENDING
-- Frozen contract: NO
-- M10 implementation: NOT ADMITTED
-- Known unresolved HIGH/CRITICAL conflict at index-level evidence: NONE; explicit owner decisions above remain open
+- Hard invariants: 36/36, sequential, zero gaps or duplicates
+- Individual M11–M60 module plans at scan base: absent; contract-level revisit remains required
+- Frozen-contract implementation authority: NOT ADMITTED
+- Known unresolved HIGH/CRITICAL planning findings: 0
 
-The scan and contract candidate do not assert that future module-level contract reviews are complete.
+The freeze promotion remains subject to a new exact-head Governance run, protected squash merge, exact-main Governance and post-merge checkpoint reconciliation. The freeze is planning-only and does not admit implementation.

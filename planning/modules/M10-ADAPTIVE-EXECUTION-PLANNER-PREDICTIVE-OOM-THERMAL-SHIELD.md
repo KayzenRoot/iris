@@ -1,6 +1,6 @@
 # M10 — Adaptive Execution Planner & Predictive OOM/Thermal Shield
 
-Status: `PLANNING_MODULE_CONTRACT_CANDIDATE_PENDING_GOVERNANCE`
+Status: `PLANNING_CONTRACT_FREEZE_PROMOTION_PENDING_GOVERNANCE`
 Module: **M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield**
 Planning Work Order: [Issue #68](https://github.com/KayzenRoot/iris/issues/68)
 Authorized planning base: `b6456670a7c61621db1d3b3fc6d55487adb9cd64`
@@ -513,17 +513,19 @@ Scan: [M10 M11–M60 Forward Compatibility Scan](../compatibility/M10-FORWARD-CO
 
 The exact scan head and main SHA passed Governance as recorded above. The scan found no known HIGH/CRITICAL authority collision at available index-level evidence. Individual M11–M60 module plans are not published; revisit each handoff against its canonical module contract when planned.
 
-### M10 Module Contract Freeze Candidate
+### Independent Planning Audit and M10 Contract Freeze
 
-Status: CANDIDATE_PENDING_GOVERNANCE_AND_INDEPENDENT_AUDIT
-Version: `m10-contract-v0.1.0-candidate`
+Audit: [M10 Independent Planning Audit](../reviews/M10-INDEPENDENT-PLANNING-AUDIT.md)
+Reviewed candidate: `c2d12a7779886ca1c759395a22e9fbb6e108a259`, exact-main validated at `d8000229397138ed0d45133df456598cdd010ddf`
+Verdict: **APPROVED**; HIGH 0, CRITICAL 0
+Frozen contract version: `m10-contract-v1.0`
 Contract: [M10 Module Contract Freeze Candidate](../contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md)
 
-The candidate carries 36 traceable normative clauses for plan ownership, separate risk outputs, constraints-first policy, observed-result learning, explanations, privacy and FC-10-01..12. It freezes no public schema, implementation, model, solver, threshold or runtime behavior.
+The audit approves semantic contract freeze only. The audited 36 invariants and FC-10-01..12 remain binding; unresolved serialization, estimator, numeric and owner-handshake details remain explicit and must be resolved before implementation preflight. M10 implementation is NOT ADMITTED.
 
 ### Next gate
 
-Pass the contract candidate through exact-head Governance, protected squash merge and exact-main Governance. Then run the independent planning audit against lifecycle evidence, compatibility findings, owner boundaries, deferred decisions and HIGH/CRITICAL risks. Keep M10 implementation NOT ADMITTED.
+Pass the documentation-only contract freeze promotion through exact-head Governance, protected squash merge and exact-main Governance. Then reconcile the final planning checkpoint. Keep implementation NOT ADMITTED pending a separate implementation Work Order / Context Lock / Evidence package.
 
 ## Required planning lifecycle
 
