@@ -832,3 +832,233 @@ S04 may advance to S05 planning only when:
 
 ## STOP CONDITION
 Stop at S04 planning. Do not implement M09. Do not deep-plan S05 until S04 receives independent review.
+
+
+# S05 — Memory-pressure recovery, cleanup and leak detection
+
+Status: `S05_PLANNING_CANDIDATE`
+S04 audit: `APPROVED` at `204370ff4fd53f0f6de793cb0ed44a3e1fb5abc0`
+
+## S05 objective
+Complete M09 with bounded recovery semantics for resource pressure, stale commitments, leaked resource ownership and cleanup eligibility. S05 detects and reconciles M09-owned resource state; it does not become M11 process supervision, M55 physical deletion, M10 predictive planning or M56 observability aggregation.
+
+## S05 technology surfaces
+
+### RPR-01 — Memory Pressure State Machine
+Normalizes resource pressure into explicit NORMAL / ELEVATED / HIGH / CRITICAL / UNKNOWN states with source, scope, freshness and confidence evidence.
+
+### RPR-02 — Recovery Action Contract
+Defines bounded M09-owned recovery actions such as deny-new-lease, release-expired-commitment, request-cooperative-release, mark-spill-cleanup-eligible and emit replan/offload signals.
+
+### RPR-03 — Leak Suspicion Engine
+Detects discrepancies between M09 commitment/residency ledgers and current evidence, producing suspicion with confidence rather than declaring a leak from one missing sample.
+
+### RPR-04 — Leak Confirmation Protocol
+Requires multi-source/temporal evidence or explicit owner loss before a suspected resource leak can become CONFIRMED.
+
+### RPR-05 — Ownership Liveness Binder
+Consumes owner/process liveness references from M11 or authorized provider evidence without taking process-lifecycle authority.
+
+### RPR-06 — Stale Commitment Reaper
+Reconciles expired/revoked/orphaned M09 commitments through idempotent ledger transitions. It never kills processes to reclaim memory.
+
+### RPR-07 — Cooperative Release Handshake
+Requests release from valid owners with deadline/result evidence while preserving owner authority and bounded waiting.
+
+### RPR-08 — Recovery Escalation Ladder
+Orders only M09-owned safety responses from least disruptive to fail-closed outcomes; cross-module actions are emitted as requests/signals.
+
+### RPR-09 — Cleanup Eligibility Fabric
+Marks M09-created spill/residency artifacts or metadata as cleanup-eligible with causal proof; M55 performs physical deletion.
+
+### RPR-10 — False-Leak Quarantine
+Ambiguous ownership, telemetry gaps or delayed provider accounting enter quarantine instead of destructive cleanup.
+
+### RPR-11 — Pressure Hysteresis Governor
+Uses versioned entry/exit thresholds, dwell windows and cooldowns so noisy telemetry cannot flap recovery state.
+
+### RPR-12 — Recovery Budget Governor
+Bounds recovery attempts, retries, elapsed time and resource churn per incident.
+
+### RPR-13 — Incident Causality Capsule
+Binds pressure episode, snapshots, leases, residency, transfers, shape changes, owner refs, recovery attempts and outcome into deterministic evidence.
+
+### RPR-14 — Resource Debt Ledger
+Tracks unresolved committed/reclaimable/unknown resource discrepancies as explicit debt rather than silently restoring capacity.
+
+### RPR-15 — Post-Recovery Reconciliation Gate
+Requires fresh state reconciliation after recovery before reclaimed capacity can authorize new hard commitments.
+
+### RPR-16 — Recovery Idempotency Shield
+Stable incident/action identities prevent duplicate retries from releasing/reaping/accounting the same resource twice.
+
+### RPR-17 — External Pressure Protection Firewall
+External/unowned pressure may constrain IRIS admission but cannot authorize termination, suspension or eviction of unrelated workloads.
+
+### RPR-18 — Recovery Quality Firewall
+Recovery may pause/deny/request-replan but cannot silently degrade M01 quality, M03 semantics or precision/fidelity.
+
+### RPR-19 — Leak Trend Evidence Port
+Exports bounded leak/pressure trend evidence to M56/M10 without becoming global telemetry aggregation or predictive OOM authority.
+
+### RPR-20 — Safe Failure Capsule
+When safe recovery cannot be proven, emits a complete fail-closed incident package and preserves uncertain accounting instead of fabricating free capacity.
+
+## S05 hard invariants
+391. Pressure state is explicit and scoped to a resource/context.
+392. Pressure state records freshness/confidence/source evidence.
+393. UNKNOWN pressure cannot masquerade as NORMAL.
+394. One transient sample cannot alone confirm a resource leak.
+395. Leak suspicion and leak confirmation remain distinct.
+396. Leak confirmation records its evidence basis.
+397. Missing telemetry can increase uncertainty but cannot fabricate a leak.
+398. Delayed provider accounting is representable.
+399. Ambiguous leak state enters quarantine.
+400. Quarantine cannot authorize destructive cleanup.
+401. M09 recovery actions are explicitly enumerated/versioned.
+402. Unknown recovery action fails closed.
+403. Recovery cannot kill/restart a worker.
+404. M11 retains process/worker lifecycle authority.
+405. M09 may consume owner-liveness evidence by reference.
+406. Missing owner-liveness evidence remains UNKNOWN.
+407. Unknown owner liveness cannot be treated as dead.
+408. Expired lease alone does not prove an external process can be terminated.
+409. Stale commitment reconciliation is ledger/accounting action only.
+410. Reaping is idempotent.
+411. Duplicate reap cannot free capacity twice.
+412. Revoked/released commitment cannot be reaped as a new release.
+413. Cooperative release request has stable identity.
+414. Cooperative release has bounded wait/deadline semantics.
+415. Timeout is explicit and not equivalent to successful release.
+416. Failed cooperative release cannot fabricate reclaimed capacity.
+417. Recovery escalation begins with least disruptive M09-owned safe actions.
+418. Escalation steps requiring M10/M11/M55 authority are requests/signals only.
+419. M09 cannot compile an M10 recovery execution plan.
+420. M09 cannot execute M55 physical deletion.
+421. Cleanup eligibility is distinct from cleanup completion.
+422. Cleanup eligibility records exact artifact/state/causal refs.
+423. Active referenced artifacts cannot be marked cleanup-eligible without valid release semantics.
+424. Unknown reference state fails closed for cleanup eligibility.
+425. Physical deletion evidence, if returned by M55, remains external evidence.
+426. External/unowned pressure constrains allocatable capacity conservatively.
+427. External pressure cannot authorize killing/suspending unrelated processes.
+428. External pressure cannot authorize stealing externally owned memory.
+429. Headroom remains protected during recovery.
+430. Recovery cannot consume protected headroom to “fix” pressure.
+431. Pressure entry thresholds are versioned.
+432. Pressure exit thresholds are versioned.
+433. Entry/exit hysteresis is explicit.
+434. Dwell/cooldown semantics are bounded.
+435. Noisy pressure cannot create unbounded recovery flapping.
+436. Recovery attempts are bounded.
+437. Recovery retry count is bounded.
+438. Recovery elapsed time is bounded.
+439. Recovery resource churn is bounded.
+440. Unbounded cleanup/recovery loops are forbidden.
+441. Incident identity is stable and unambiguous.
+442. Incident evidence links exact relevant snapshots.
+443. Incident evidence links exact leases/residency/transfers where material.
+444. Incident evidence links exact shape-control transitions where material.
+445. Incident evidence preserves failed recovery attempts.
+446. Historical incident evidence cannot be rewritten to hide failure.
+447. Resource debt is explicit.
+448. Resource debt cannot be silently converted into free capacity.
+449. Debt records quantity/unit/resource scope and uncertainty.
+450. Debt reconciliation is an explicit transition.
+451. Post-recovery capacity cannot authorize new hard commitments before required fresh reconciliation.
+452. Reconciliation uses current epoch/state.
+453. Stale recovery result cannot overwrite newer resource truth.
+454. Recovery actions use idempotency identities.
+455. Duplicate recovery request cannot multiply state mutation.
+456. Conflicting idempotency reuse fails closed.
+457. Recovery cannot silently lower precision.
+458. Recovery cannot silently lower spatial/temporal fidelity.
+459. Recovery cannot silently weaken M03 protected semantics.
+460. Recovery cannot silently lower M01 acceptance thresholds.
+461. Quality-sensitive alternative requires the same S04 authorization gates.
+462. REQUIRE_REPLAN is a signal, not an M10 plan.
+463. REQUIRE_OFFLOAD is a signal, not proof S03 offload occurred.
+464. Lease denial is not permission to alter workload semantics.
+465. 8 GB VRAM remains first-class under recovery policy.
+466. Small VRAM alone is not evidence of a leak.
+467. Small VRAM alone is not justification for aggressive cleanup.
+468. Recovery preserves S02 lease ownership semantics.
+469. Recovery preserves S03 verified-handoff semantics.
+470. Recovery preserves S04 quality/adaptation semantics.
+471. M07 hardware facts remain external referenced truth.
+472. M08 empirical evidence remains external referenced truth.
+473. M10 retains predictive OOM/thermal and execution planning.
+474. M11 retains lifecycle/process control.
+475. M12 retains placement/orchestration.
+476. M14 retains model fitness.
+477. M53/M54 retain rights/security authority.
+478. M55 retains physical storage/CAS/delete authority.
+479. M56 retains global observability aggregation.
+480. Leak trend export is evidence only.
+481. Trend evidence does not itself predict future OOM.
+482. Trend evidence includes observation windows/sample semantics.
+483. Unknown trend gaps remain explicit.
+484. Synthetic pressure/leak fixtures are distinguishable from production incidents.
+485. Synthetic recovery cannot authorize production capacity reclamation.
+486. Missing provider/runtime cannot fabricate recovery success.
+487. Recovery result distinguishes REQUESTED / ATTEMPTED / VERIFIED / FAILED / UNKNOWN.
+488. REQUESTED cannot masquerade as ATTEMPTED.
+489. ATTEMPTED cannot masquerade as VERIFIED.
+490. FAILED/UNKNOWN cannot authorize reclaimed capacity.
+491. Safe failure preserves uncertain accounting.
+492. Safe failure emits machine-readable reason/evidence.
+493. Safe failure cannot silently reset the Resource Digital Twin to a healthy state.
+494. Resource recovery exports are versioned.
+495. Unknown mandatory recovery semantics fail closed.
+496. Older readers cannot silently ignore mandatory recovery semantics.
+497. Material recovery effects on reproducibility carry explicit M06 materiality refs.
+498. Every S05 acceptance proof identifies exact invariant IDs.
+499. Shared proof targets explicitly enumerate claimed S05 invariant IDs.
+500. Missing/orphan/duplicate S05 proof mappings fail validation.
+
+## Required S05 proof classes
+- pressure state/hysteresis and UNKNOWN behavior;
+- suspicion-vs-confirmed leak evidence;
+- owner-liveness UNKNOWN safety;
+- idempotent stale-commitment reconciliation;
+- cooperative release timeout/failure;
+- bounded recovery escalation and budgets;
+- cleanup eligibility without physical deletion;
+- resource debt and no fabricated reclamation;
+- fresh post-recovery reconciliation gate;
+- external-pressure non-interference;
+- recovery quality firewall;
+- requested/attempted/verified/failed state separation;
+- safe-failure capsule;
+- invariant-to-proof integrity.
+
+## S05 risks
+- False leak detection can corrupt accounting or active work. Mitigation: suspicion/confirmation split and quarantine.
+- Recovery logic can drift into process management. Mitigation: M11 liveness references and signal-only cross-authority escalation.
+- “Cleanup” can become destructive storage behavior. Mitigation: M09 marks eligibility; M55 owns deletion.
+- Pressure oscillation can cause churn. Mitigation: hysteresis, dwell/cooldown and incident budgets.
+- Recovery can fabricate free capacity after uncertain failure. Mitigation: Resource Debt Ledger + fresh reconciliation gate.
+
+## S05 acceptance gate
+S05 completes session-level M09 planning only when:
+- S01-S04 approved semantics remain intact;
+- all 20 S05 surfaces and invariants 391-500 are explicit;
+- uncertain ownership/reclamation always fails closed;
+- M11/M55/M10/M56 boundaries remain intact;
+- recovery is bounded, idempotent and non-destructive outside M09 authority;
+- no silent quality degradation is authorized;
+- no implementation code is introduced;
+- independent review reports zero unresolved HIGH/CRITICAL findings.
+
+## M09 session-planning totals after S05
+- canonical sessions: 5/5 planned;
+- technology surfaces: 98;
+- hard invariants: 500;
+- implementation code: 0;
+- implementation authority: NOT ADMITTED.
+
+## NEXT GATE
+After independent S05 audit, perform the M09 Final Technology Review. Consolidate overlaps, classify mandatory independent surfaces vs absorbed components, then run the M10-M60 Forward Compatibility Scan. Do not freeze or implement M09 before those gates complete.
+
+## STOP CONDITION
+Stop at S05 planning. Do not implement M09. Do not start M10 deep planning. Final Technology Review requires a separate independent gate.
