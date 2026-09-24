@@ -514,18 +514,18 @@ Scan: [M10 M11–M60 Forward Compatibility Scan](../compatibility/M10-FORWARD-CO
 The exact scan head and main SHA passed Governance as recorded above. The scan found no known HIGH/CRITICAL authority collision at available index-level evidence. Individual M11–M60 module plans are not published; revisit each handoff against its canonical module contract when planned.
 
 ### Independent Planning Audit and M10 Contract Freeze
-
 Audit: [M10 Independent Planning Audit](../reviews/M10-INDEPENDENT-PLANNING-AUDIT.md)
 Reviewed candidate: `c2d12a7779886ca1c759395a22e9fbb6e108a259`, exact-main validated at `d8000229397138ed0d45133df456598cdd010ddf`
 Verdict: **APPROVED**; HIGH 0, CRITICAL 0
 Frozen contract version: `m10-contract-v1.0`
-Contract: [M10 Module Contract Freeze Candidate](../contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md)
+Contract: [M10 Module Contract Freeze](../contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md)
 
-The audit approves semantic contract freeze only. The audited 36 invariants and FC-10-01..12 remain binding; unresolved serialization, estimator, numeric and owner-handshake details remain explicit and must be resolved before implementation preflight. M10 implementation is NOT ADMITTED.
+The audit approved semantic contract freeze only. The audited 36 invariants and FC-10-01..12 remain binding; unresolved serialization, estimator, numeric and owner-handshake details remain explicit and must be resolved before implementation preflight. PR #77 exact head `57dc0410e9c434a04657b8f57562febdeceb84f1` passed Governance `36043928118 / 107782644258`; protected squash merge `8a3e32de28ccc824c165e29bfa3da4f6cc305de0` passed exact-main Governance `36044190420 / 107783526436` (actor: KayzenRoot). M10 planning is complete. Implementation remains NOT ADMITTED.
 
-### Next gate
+### Planning completion and implementation gate
 
-Pass the documentation-only contract freeze promotion through exact-head Governance, protected squash merge and exact-main Governance. Then reconcile the final planning checkpoint. Keep implementation NOT ADMITTED pending a separate implementation Work Order / Context Lock / Evidence package.
+M10 planning is complete for this cycle. Any future product/runtime implementation requires a separate admitted Work Order / Context Lock / Evidence package and passing preflight. No runtime implementation, training, dispatch, resource control or provider execution is authorized by the planning freeze.
+
 
 ## Required planning lifecycle
 

@@ -1,14 +1,12 @@
 # IRIS Canonical Checkpoint
 
 ## STATUS
-M10_PLANNING_ACTIVE
-
+M10_PLANNING_COMPLETE_IMPLEMENTATION_NOT_ADMITTED
 ## VERSION
 m10-contract-v1.0
 
 ## PHASE
-M10_CONTRACT_FREEZE_PROMOTION_CANDIDATE_PENDING_GOVERNANCE
-
+M10_PLANNING_RECONCILED
 ## OBJECTIVE
 Plan M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield through the governed five-session lifecycle without admitting product implementation.
 
@@ -38,12 +36,12 @@ Plan M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield through the 
 - PR #75 M11–M60 Forward Compatibility Scan exact head `d55ea04a9663b648805b00ea0032773125c65642` passed Governance `36041422592 / 107774247740`; protected squash merge `2328978175a59768e64687748b259027b3a79d4e` passed exact-main Governance `36041515972 / 107774565519`.
 - PR #76 M10 contract candidate exact head `c2d12a7779886ca1c759395a22e9fbb6e108a259` passed Governance `36042687559 / 107778484156`; protected squash merge `d8000229397138ed0d45133df456598cdd010ddf` passed exact-main Governance `36042785859 / 107778821652`.
 - The independent planning audit approved freeze promotion; findings: 0 HIGH, 0 CRITICAL. Individual later module contracts remain a revisit.
+- PR #77 exact head `57dc0410e9c434a04657b8f57562febdeceb84f1` passed Governance `36043928118 / 107782644258`; protected squash merge `8a3e32de28ccc824c165e29bfa3da4f6cc305de0` passed exact-main Governance `36044190420 / 107783526436` (actor: KayzenRoot).
 
 ## IN PROGRESS
-M10 contract `m10-contract-v1.0` has an approved documentation-level freeze promotion candidate; this PR's exact-head Governance, protected squash merge and exact-main validation remain pending. M10 product/runtime implementation is NOT ADMITTED and NOT STARTED. Future implementation still requires a separate Work Order / Context Lock / Evidence package and preflight.
-
+M10 planning is complete and the semantic contract is frozen as m10-contract-v1.0. This reconciliation records the successful promotion gates for PR #77. M10 product/runtime implementation remains NOT ADMITTED and NOT STARTED; any implementation requires a separate admitted Work Order / Context Lock / Evidence package and passing preflight.
 ## BLOCKERS
 M10 implementation remains NOT ADMITTED and NOT STARTED until the complete planning lifecycle is approved, its contract is frozen, its compatibility scan and independent audit pass, and a separate implementation Work Order / Context Lock / Evidence package passes preflight.
 
 ## NEXT STEP
-Pass the M10 contract freeze promotion through exact-head Governance, protected squash merge and exact-main validation; then reconcile the final M10 planning state. Keep M10 implementation NOT ADMITTED.
+If M10 implementation is pursued, first create and admit a separate implementation Work Order / Context Lock / Evidence package and pass preflight; do not begin runtime implementation before that admission.

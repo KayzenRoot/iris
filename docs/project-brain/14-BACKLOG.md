@@ -1,6 +1,6 @@
 # IRIS Backlog
 
-Status: `M10_PLANNING_ACTIVE`
+Status: `M10_PLANNING_COMPLETE_IMPLEMENTATION_NOT_ADMITTED`
 
 ## COMPLETED FOUNDATION
 - M01-M09 implementations are durably closed.
@@ -24,13 +24,11 @@ Status: `M10_PLANNING_ACTIVE`
 - Final Technology Review: **COMPLETE_FOR_M10_PLANNING**; PR #74 exact head `69762690f9368cf0f76f106d75330950862e532d` passed Governance `36039931359 / 107769276836`, merged as `e38912a57c2d452badd5a35a031eb78f95d0e899`, and passed exact-main Governance `36040044487 / 107769655432`.
 - M11–M60 Forward Compatibility Scan: **COMPLETE_FOR_M10_CONTRACT_CANDIDATE**; PR #75 exact head `d55ea04a9663b648805b00ea0032773125c65642` passed Governance `36041422592 / 107774247740`, merged as `2328978175a59768e64687748b259027b3a79d4e`, and passed exact-main Governance `36041515972 / 107774565519`; coverage 50/50 at module-index level, with FC-10-01..12.
 - Independent M10 planning audit: **APPROVED** at reviewed exact main `d8000229397138ed0d45133df456598cdd010ddf`; findings: HIGH 0, CRITICAL 0.
-- M10 contract `m10-contract-v1.0`: **FROZEN_APPROVED_PROMOTION_CANDIDATE_PENDING_GOVERNANCE**; implementation remains NOT ADMITTED.
+- M10 contract `m10-contract-v1.0`: **FROZEN_APPROVED**; PR #77 exact head `57dc0410e9c434a04657b8f57562febdeceb84f1` passed Governance `36043928118 / 107782644258`; protected squash merge `8a3e32de28ccc824c165e29bfa3da4f6cc305de0` passed exact-main Governance `36044190420 / 107783526436` (actor: KayzenRoot). M10 implementation remains NOT ADMITTED.
 - M10 product/runtime implementation introduced: **NO**.
 
 ## NECESSARY NEXT
-1. Validate and merge the audited m10-contract-v1.0 promotion through exact-head Governance, protected squash and exact-main Governance.
-2. Reconcile the final M10 planning checkpoint after exact-main success.
-3. Keep implementation NOT ADMITTED; consider it only through a separate Work Order / Context Lock / Evidence package and preflight.
+M10 planning is complete and reconciled. Keep implementation NOT ADMITTED. If M10 implementation is pursued, first create and admit a separate implementation Work Order / Context Lock / Evidence package and pass preflight.
 
 ## IMPLEMENTATION GATE
 No M10 product/runtime code is authorized during this planning cycle. Planning completion alone does not admit implementation; a separate implementation Work Order, Context Lock, Evidence package and preflight are required.
