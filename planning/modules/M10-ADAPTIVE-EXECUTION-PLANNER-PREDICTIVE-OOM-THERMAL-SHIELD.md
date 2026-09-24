@@ -1,9 +1,11 @@
 # M10 — Adaptive Execution Planner & Predictive OOM/Thermal Shield
 
-Status: `PLANNING_S01_COMPLETE_FOR_MODULE_PLANNING`
+Status: `PLANNING_S02_CANDIDATE_PENDING_GOVERNANCE`
 Module: **M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield**
 Planning Work Order: [Issue #68](https://github.com/KayzenRoot/iris/issues/68)
 Authorized planning base: `b6456670a7c61621db1d3b3fc6d55487adb9cd64`
+S02 session base: `fc1a3c954a1629b9e9a4c45c4e557a7832c290d7`
+S01 exact-main Governance: `36031548275 / 107741264931` — **PASS**
 Admission Governance: `36029536926 / 107734488887` — **PASS**
 Implementation authority: **NOT ADMITTED**
 
@@ -18,7 +20,7 @@ This document is a planning candidate. No M10 product/runtime/test implementatio
 | Session | Scope | Status |
 |---|---|---|
 | S01 | Workload Signature Engine | COMPLETE_FOR_MODULE_PLANNING |
-| S02 | Hardware-aware execution plan compilation | NOT_STARTED |
+| S02 | Hardware-aware execution plan compilation | CANDIDATE_COMPLETE_PENDING_GOVERNANCE |
 | S03 | Predictive OOM, thermal and quality-risk models | NOT_STARTED |
 | S04 | ECO / BALANCED / QUALITY / MAX / CUSTOM policy semantics | NOT_STARTED |
 | S05 | Observed-result learning loop and explainable decisions | NOT_STARTED |
@@ -117,9 +119,109 @@ The S01 technical findings and primary references are recorded in [M10 S01 resea
 
 ## S02 — Hardware-aware execution plan compilation
 
-Status: `NOT_STARTED`
+Status: `CANDIDATE_COMPLETE_PENDING_GOVERNANCE`
 
-Plan the boundary from workload signatures plus exact M07/M08/M09 evidence to a bounded M02-compatible plan proposal, preserving M02 ExecutionPlan authority. Define candidate alternatives, feasibility, evidence requirements and no-safe-plan behavior.
+### Objective
+
+Define how M10 converts an admitted workload signature and exact upstream evidence into bounded execution alternatives that M02 can accept under its canonical plan contract. S02 defines the compilation boundary and evidence requirements, not an independent M10 ExecutionPlan schema.
+
+### Planning result
+
+M10's candidate is derived only from revision-pinned, owner-issued evidence:
+
+- M02 production graph, target revision and plan/request contract;
+- M01 quality obligations and M03 protected intent/constraints;
+- M07 hardware/runtime facts and explicit consumer-projection omissions;
+- M08 empirical capability evidence bound to the exact workload and hardware/runtime scope;
+- M09 resource snapshots, claims, leases and resource-shape feasibility;
+- where applicable, M14 model-fitness and M16 provider/workflow capability references.
+
+The candidate may narrow to M09-admitted resource shapes and M02-authorized work. It cannot widen graph nodes, inputs, dependencies, quality targets, semantic obligations or permissions. M02 remains the only canonical plan contract and lifecycle owner. M10 performs no placement, reservation, worker control, provider compilation or media execution.
+
+### Candidate compilation stages
+
+1. **Pin context.** Bind exact M02/M01/M03/M07/M08/M09 references and capture/version metadata. Do not resolve implicit `latest` references.
+2. **Check scope and coherence.** Verify that hardware identity, runtime/driver context, benchmark binding, resource identity and workload signature cover compatible scopes. Preserve M07 projection omissions and M09's observed/reported/allocatable/reserved/committed/resident/reclaimable/external/unknown distinctions.
+3. **Apply hard admissibility.** Reject alternatives that violate mandatory M01 quality or M03 semantic requirements, M02 causal constraints, M07 compatibility facts, M08 demonstrated/conservative capability bounds, or M09 feasibility and authorized shape options.
+4. **Build bounded alternatives.** Describe only alternatives represented by owner-issued options and accepted by the M02 plan contract. S04 owns policy-mode preferences and ranking semantics; S03 owns risk thresholds and calibration.
+5. **Return explicit decision evidence.** Candidate dispositions such as eligible, infeasible, indeterminate, stale, conflict and no-safe-plan are provisional labels, not frozen enum values. Each disposition names exact source refs, rejected constraints and reason. Missing/unknown mandatory input cannot become positive feasibility.
+
+### Candidate S02 surfaces
+
+1. M02 Plan Contract/Request Adapter
+2. M02 Graph, Revision and Dependency Binder
+3. M01 Quality Obligation Gate
+4. M03 Protected Constraint Gate
+5. M07 Hardware Identity and Capability Slice Consumer
+6. M07 Runtime/Driver Compatibility Binder
+7. M07 Projection Omission and Unknown-Fact Handler
+8. M08 Exact Workload/Hardware Benchmark Binder
+9. M08 Demonstrated/Conservative/Unknown Capability Consumer
+10. M09 Resource Snapshot and Claim Consumer
+11. M09 Resource-Shape Feasibility Option Consumer
+12. M14 Model Fitness Reference Binder
+13. M16 Provider/Workflow Capability Reference Binder
+14. Evidence Scope and Capture-Window Coherence Checker
+15. Hard-Constraint Admissibility Filter
+16. Bounded Alternative Set Builder
+17. Candidate Rejection and Explanation Receipt
+18. No-Safe-Plan Outcome Boundary
+19. M02 Acceptance/Canonicalization Handshake
+20. M09 Reservation and Lease Handshake (deferred to owner)
+21. M11 Worker Dispatch Handshake (deferred to owner)
+22. M12 Placement Handshake (deferred to owner)
+23. M56 Decision/Source Observability References
+24. Stale-Context Revalidation Trigger
+
+This inventory remains provisional until Final Technology Review; it is not a frozen family count.
+
+### Provisional S02 invariants
+
+1. Every candidate binds an exact M02 graph/revision and the M02 contract version it targets.
+2. M10 cannot create or serialize a competing canonical ExecutionPlan.
+3. A candidate cannot add M02 nodes, dependencies, inputs, work or side-effect permissions.
+4. Mandatory M01 quality and M03 protected constraints are hard gates, never soft scoring dimensions.
+5. M07, M08 and M09 evidence is immutable, provenance-bound and consumed by reference.
+6. M07 omitted, unsupported or unknown mandatory facts cannot be interpreted as absent hardware constraints.
+7. M08 evidence must match the workload, hardware, runtime and benchmark scope required by its source contract.
+8. M09 resource facts remain semantically distinct; unknown, stale, conflicted or quarantined state cannot prove free capacity.
+9. Capacity evidence and model predictions are not combined into one unlabeled scalar.
+10. Provider registration or partial operator support is not proof that the complete requested workflow is executable.
+11. MIG/device partition identity and visible per-instance capacity, when relevant, are pinned separately from parent GPU identity.
+12. M10 does not choose a physical device, host, cluster or placement; M12 owns placement/orchestration.
+13. M10 does not create a reservation or lease; M09 owns resource commitment.
+14. M10 does not start, pause, terminate or restart work; M11 owns worker/process lifecycle.
+15. M10 does not compile concrete provider graphs/workflows; M16 owns provider compilation.
+16. S02 defines feasibility filters, not ECO/BALANCED/QUALITY/MAX/CUSTOM ranking weights.
+17. S02 does not set OOM, thermal or quality-risk thresholds; those remain S03/S04 planning inputs.
+18. If no alternative has complete admissible evidence, emit an explicit no-safe-plan/indeterminate candidate rather than choosing the least-unknown option.
+19. Dynamic evidence must be revalidated at the owning M09/M12/M11 handoff; a planning snapshot is not a reservation or dispatch token.
+20. Explanations identify accepted/rejected alternatives, exact evidence refs and blocking constraints.
+21. Candidate counts, processing and retained evidence are bounded.
+22. Synthetic evidence stays marked synthetic and cannot qualify physical feasibility.
+
+### S02 exit criteria
+
+- The M02 plan boundary is explicit and no duplicate ExecutionPlan schema is introduced.
+- M01/M03 hard constraints are preserved.
+- M07/M08/M09 evidence has compatible exact scope, provenance and freshness.
+- M10/M11/M12/M16/M09 handoffs remain separated by authority.
+- Feasibility, rejection, stale/conflict/unknown and no-safe-plan paths are explicit.
+- Policy weights and prediction thresholds remain deferred to S03/S04.
+- No runtime, test or product code is introduced.
+
+### S02 research and sources
+
+Official documentation and design inferences are recorded in [M10 S02 research](../research/M10-S02-HARDWARE-AWARE-PLAN-COMPILATION.md). Those sources motivate separate evidence dimensions for allocator scope, provider capability, hardware partition identity and actual allocation/placement. They do not select an IRIS runtime, device allocator or provider.
+
+### Open decisions carried forward
+
+- Exact M02 API/record by which M10 submits alternatives and receives canonical acceptance.
+- Minimum M08 evidence class and coverage needed for each S03 risk estimate.
+- Which M09 facts must be re-read immediately before reservation, and which owner handoff authorizes that read.
+- How S03 risk outcomes constrain alternatives without merging predictive and measured facts.
+- How S04 policy modes rank eligible alternatives while honoring M01/M03 constraints.
+- Which M12 placement evidence is required after M10 returns a bounded candidate set.
 
 ## S03 — Predictive OOM, thermal and quality-risk models
 
