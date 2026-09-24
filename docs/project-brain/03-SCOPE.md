@@ -10,6 +10,8 @@ M10 — Adaptive Execution Planner & Predictive OOM/Thermal Shield — is admitt
 
 S01 defines versioned workload signatures as typed projections of workload shape and pinned upstream evidence. It preserves source ownership: M02 owns the canonical ExecutionPlan contract; M01 and M03 own quality and protected semantic contracts; M07, M08 and M09 own hardware, empirical capability and resource truth respectively. M10 consumes these references and must not rewrite or self-certify them.
 
+M09 owns resource-state/accounting, leases/reservations/residency, bounded mobility/offload/prefetch contracts, resource-shape feasibility/control state and bounded pressure/recovery/leak semantics. It does not own M10 execution planning/predictive OOM/thermal policy, M11 process lifecycle, M12 placement/orchestration, M14 model fitness, M53/M54 rights/security policy, M55 physical storage/delete, M56 observability aggregation, M01 quality authority or M03 protected semantic authority.
+
 ## M10 planning boundary
 
 Planning covers the five canonical sessions: Workload Signature Engine; hardware-aware execution plan compilation; predictive OOM, thermal and quality-risk models; ECO/BALANCED/QUALITY/MAX/CUSTOM policy semantics; and observed-result learning with explainable decisions.
@@ -21,8 +23,11 @@ M10 planning must define explicit behavior for unknown, stale, conflicting, unsu
 - M10 product/runtime implementation before S01-S05, contract freeze, final technology review, M11-M60 compatibility scan, independent planning audit and separate implementation admission/preflight;
 - M11+ implementation before the official module lifecycle admits it;
 - silent quality, precision, fidelity or protected-semantic degradation under scarcity;
+- unrelated process termination/suspension or external allocation theft;
+- physical storage deletion by M09;
+- fabricated resource, provider, reclamation or physical-measurement evidence;
 - treating workload similarity, synthetic fixtures or incomplete telemetry as physical truth;
-- worker/process control, workload placement or provider workflow compilation by M10;
+- worker/process lifecycle control, workload placement or provider workflow compilation by M10;
 - frozen-contract semantic changes without a versioned amendment.
 
 ### Next governed step
