@@ -1,0 +1,428 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0012",
+  "frozenContract": "m08-contract-v1.0",
+  "capturePhase": "correction-delta-01",
+  "status": "CORRECTION_DELTA_IMPLEMENTED_AND_LOCALLY_VALIDATED",
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0012-m08-microbenchmark-lab",
+  "issue": 58,
+  "pullRequest": {
+    "number": 59,
+    "base": "main",
+    "stateAtAdmission": "open",
+    "mergePerformed": false
+  },
+  "gitChain": {
+    "authorizedBase": "6e2aea630208f6f18656803735426ba99d9b3cc7",
+    "originMain": "6e2aea630208f6f18656803735426ba99d9b3cc7",
+    "mergeBase": "6e2aea630208f6f18656803735426ba99d9b3cc7",
+    "admittedHead": "a0bb3deacfa7fc9749166982373e2f4fef4626ae",
+    "implementationCommit": "1dab55de77a606ab31a103ade2e85555382fc715",
+    "documentationCorrectionCommit": "178b50c56540eb1edb97c027131aa2e05f6f0da6",
+    "implementationCommitParent": "a0bb3deacfa7fc9749166982373e2f4fef4626ae",
+    "documentationCorrectionParent": "1dab55de77a606ab31a103ade2e85555382fc715",
+    "historyRewritten": false,
+    "preCorrectionHead": "c567ce61a674803e6c5ec716fcad5adbbf74e49f",
+    "correctionImplementationCommit": "28580ed81e3e50022b957e22d2960210cbbd3471",
+    "correctionImplementationParent": "c567ce61a674803e6c5ec716fcad5adbbf74e49f",
+    "codeValidationHead": "28580ed81e3e50022b957e22d2960210cbbd3471",
+    "evidenceBundleParent": "746a6ead7bf6a58548dfa91afe6b0bb6367de361",
+    "previousEvidenceBundleCommit": "746a6ead7bf6a58548dfa91afe6b0bb6367de361"
+  },
+  "admission": {
+    "criticalSourcesRequired": 13,
+    "criticalSourcesMatched": 13,
+    "criticalSourceMismatches": 0,
+    "fingerprintAlgorithm": "git blob SHA-1 via git hash-object",
+    "exactHeadGovernance": {
+      "head": "a0bb3deacfa7fc9749166982373e2f4fef4626ae",
+      "run": 35909932820,
+      "job": 107346909018,
+      "result": "PASS"
+    },
+    "baseline": {
+      "fullSuiteTests": 2834,
+      "exactMainGovernanceRun": 35908538554
+    }
+  },
+  "implementation": {
+    "package": "iris_microbenchmark/",
+    "version": "1.0.0",
+    "hardInvariantCount": 330,
+    "technologySurfaceCount": 40,
+    "absorbedComponentCount": 15,
+    "proofMap": {
+      "invariants": "iris_microbenchmark/invariants.py; tests/m08_invariant_proofs.py; tests/test_m08_invariants.py",
+      "surfacesAndComponents": "iris_microbenchmark/families.py",
+      "validator": "scripts/validate_m08_invariants.py",
+      "result": "330/330 exact frozen lines and digests; unique per-ID proof/test/assertion identities; 39 explicit semantic-target claim lists; 8 fail-closed validator tests; 40/40 surfaces; 15/15 components"
+    },
+    "publicSurface": {
+      "exports": "iris_microbenchmark.__all__",
+      "moduleExportLists": "All 20 package modules declare __all__.",
+      "concepts": {
+        "base_versions_limits_errors_enums": "immutable record primitives, canonical digests, closed vocabularies and ceilings",
+        "provenance": "exact M07 Genome/projection bindings, purpose, execution context, privacy projection and export digests",
+        "protocols": "bounded protocols, metric semantics, benchmark/security authorization and first-run batch admission",
+        "probes": "deterministic fixtures, adapter declarations and image/video/3D/audio/transfer probe descriptors",
+        "evidence": "immutable raw samples, correctness, timing, uncertainty, interference and abort evidence",
+        "envelopes": "capability regions, conservative search, memory/concurrency/sustainability evidence and consumer qualification",
+        "fingerprints": "purpose-qualified projections, baselines, comparability, noise-aware drift and non-scheduling recheck decisions",
+        "calibration": "derived calibration, aging, freshness, scoped invalidation, clock qualification and named-reference normalization",
+        "schema_serialization_migration": "external schema negotiation, deterministic closed decoding and immutable loss-accounted migration",
+        "contracts": "acceptance evidence bundle with fixed EVIDENCE_ONLY outcome",
+        "families_invariants": "frozen 40/15 catalogs and 330 invariant proof index",
+        "active_execution": "CancellationToken, CPUProbeRequest, execute_cpu_reference, execute_first_run_batch, ActiveExecutionReceipt and ExecutionOutcome; local samples carry actual monotonic timing and partial/unknown interference state"
+      }
+    }
+  },
+  "dependencies": {
+    "runtime": "Python standard library only; no runtime dependency added",
+    "externalExecution": false,
+    "providerOrDeviceSDK": false,
+    "databaseOrPersistenceBackend": false,
+    "localActiveExecution": true,
+    "executionPrimitive": "stdlib hashlib.sha256 only; no callback or arbitrary operation dispatch",
+    "synchronization": "stdlib threading.Event and threading.Lock only; kernel starts no thread",
+    "providerOrDeviceExecution": false
+  },
+  "schemaAndVersioning": {
+    "contract": "m08-contract-v1.0",
+    "coreSchema": "iris-m08-core-v1",
+    "transport": "iris-m08-json-v1",
+    "validator": "iris-m08-validator-v1",
+    "protocol": "iris-m08-protocol-v1",
+    "metricRegistry": "iris-m08-metric-registry-v1",
+    "fingerprint": "iris-m08-fingerprint-v1",
+    "migration": "iris-m08-migration-v1",
+    "activeExecutionOrigin": "LOCAL_ACTIVE_MEASUREMENT",
+    "activeExecutionReceipt": "immutable M08 record registered in the closed JSON decoder; protocol/core schema versions unchanged"
+  },
+  "validation": {
+    "focusedM08": {
+      "command": "python -m unittest discover -s tests -p \"test_m08_*.py\"",
+      "tests": 385,
+      "result": "PASS"
+    },
+    "fullSuite": {
+      "command": "python -m unittest discover -s tests -p \"test_*.py\"",
+      "tests": 3219,
+      "baseline": 2834,
+      "increase": 385,
+      "result": "PASS"
+    },
+    "compile": {
+      "command": "python -m compileall -q iris_microbenchmark tests examples scripts/validate_m08_invariants.py scripts/validate_m08_boundaries.py",
+      "result": "PASS"
+    },
+    "governance": {
+      "command": "python scripts/validate_governance.py",
+      "result": "PASS",
+      "gef": "v1.0.0 @ 866fe3af8cccc65c929aaf6a47a924401fa448b3",
+      "hive": "v1.0.0 @ a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
+      "requiredArtifacts": 35
+    },
+    "invariantSurfaceAndComponentValidator": {
+      "command": "python scripts/validate_m08_invariants.py",
+      "result": "PASS",
+      "invariants": "330/330 frozen texts/digests and per-ID claims/assertions",
+      "surfaces": "40/40",
+      "components": "15/15",
+      "negativeCases": 8
+    },
+    "boundaryFirewall": {
+      "command": "python scripts/validate_m08_boundaries.py",
+      "modules": 20,
+      "result": "PASS",
+      "threadingAllowlist": "threading.Event and threading.Lock only; thread/process creation forbidden"
+    },
+    "lint": {
+      "command": "ruff check iris_microbenchmark tests/m08_support.py tests/test_m08_*.py tests/m08_invariant_proofs.py examples/m08_domain_neutral_profiles.py scripts/validate_m08_invariants.py scripts/validate_m08_boundaries.py",
+      "result": "PASS"
+    },
+    "staticTyping": {
+      "command": "mypy iris_microbenchmark",
+      "result": "PASS",
+      "checkedModules": 20
+    },
+    "deterministicHarness": {
+      "command": "python examples/m08_domain_neutral_profiles.py",
+      "profileCount": 7,
+      "outputDigest": "1cb8975b07e47f7e8a8eebf2860ebba302a93715c854cca561f36d9f81eadf08",
+      "physicalMeasurementsPerformed": false,
+      "result": "PASS"
+    },
+    "activeCPUReference": {
+      "command": "python -m unittest discover -s tests -p \"test_m08_execution.py\" -v",
+      "tests": 16,
+      "result": "PASS",
+      "physicalSamples": true,
+      "validPerformanceResults": 0,
+      "reason": "host-wide interference telemetry is unknown, so results remain PARTIAL"
+    },
+    "invariantValidatorFailureModes": {
+      "command": "python -m unittest discover -s tests -p \"test_m08_invariant_validator.py\" -v",
+      "tests": 8,
+      "result": "PASS"
+    },
+    "executionReceiptRoundTrip": {
+      "result": "PASS",
+      "details": "canonical JSON encode/decode preserves the exact immutable ActiveExecutionReceipt"
+    }
+  },
+  "authorityBoundaries": {
+    "M01": "quality/evaluator/promotion authority remains external; M08 emits evidence only",
+    "M02": "project/build/ExecutionPlan/release authority remains external",
+    "M03": "creative intent/constraints/overrides remain external",
+    "M04": "provider-neutral production representation remains external",
+    "M05": "persistent Asset/Persona DNA remains external",
+    "M06": "production state and reproducibility remain external",
+    "M07": "M08 binds Genome or named projection by digest and does not discover or mutate hardware facts",
+    "M08": "bounded empirical evidence, capability envelopes, fingerprints/drift and calibration/freshness/invalidation",
+    "M09Plus": "no leases, residency, planning, lifecycle, scheduling, placement, orchestration, quality, rights, storage, observability or release authority",
+    "M16": "no provider SDK or concrete provider/workflow compiler; M16 remains the sole concrete compiler"
+  },
+  "syntheticProfiles": {
+    "names": [
+      "cpu-only",
+      "gpu-8gb-synthetic",
+      "constrained-memory",
+      "balanced-compute",
+      "high-concurrency-declared",
+      "interference-observed",
+      "telemetry-unknown"
+    ],
+    "allTaggedSyntheticOnly": true,
+    "physicalMeasurementsPerformed": false,
+    "deviceMemoryAllocated": false
+  },
+  "serializationFingerprintAndMigration": {
+    "canonicalSerialization": "sorted keys, NFC text, finite numbers, duplicate-key and reserved-marker rejection, depth/item/byte ceilings",
+    "decoder": "exact allowlisted M08 records and enums only",
+    "resultDigests": "protocol, binding, raw samples, result and derived records are content-addressed",
+    "fingerprintContext": "selected axis values are SHA-256 digests; excluded axes are named; purpose and privacy projection are explicit",
+    "drift": "metric/protocol compatibility and noise guard required; context attribution is correlational and non-causal",
+    "migration": "immutable source and result documents, exact source digest, explicit preservation/loss/default classification, authorization and receipt digest",
+    "roundTrip": "focused schema/migration suite proves projection, deterministic serialization, decoding and immutable migration lineage",
+    "activeExecutionReceipt": "Local active execution receipt is a registered immutable M08 record; exact canonical JSON encode/decode round trip is tested. Existing result/fingerprint/delta and immutable migration semantics remain unchanged."
+  },
+  "securityAndResourceLimits": {
+    "defaultFirstRunProtocolMs": 15000,
+    "defaultFirstRunBatchMs": 60000,
+    "defaultMaxIterations": 20000,
+    "defaultHostAndDeviceAllocationBytes": 268435456,
+    "defaultConcurrency": 8,
+    "defaultRetries": 1,
+    "defaultSearchAttempts": 64,
+    "defaultInlinePayloadBytes": 4000000,
+    "defaultSamplesPerResult": 2000,
+    "defaultFixtures": 2048,
+    "defaultProbes": 4096,
+    "defaultInvalidationNodes": 20000,
+    "defaultInvalidationEdges": 40000,
+    "forbidden": [
+      "dynamic code execution",
+      "shell or project binary execution",
+      "network/database/runtime persistence",
+      "provider, GPU, graphics, audio or codec SDK execution",
+      "voltage/clock/fan/OS-power mutation",
+      "unrelated process kill/suspension or allocation eviction",
+      "unbounded search, allocation, retry or silent stress testing"
+    ],
+    "boundaryValidator": "AST rejects forbidden imports, calls, and downstream authority symbols in all 19 kernel modules",
+    "cpuReferencePrimitive": "sha256 over exact fixture bytes only",
+    "cpuChunkBytes": 65536,
+    "cpuWallCapMs": 15000,
+    "cpuFirstRunAggregateCapMs": 60000,
+    "cpuMaxConcurrency": 1,
+    "cpuRetries": 0,
+    "cpuDeviceAllocationBytes": 0,
+    "unknownHostInterferenceState": "UNKNOWN_TELEMETRY; result is PARTIAL, never VALID"
+  },
+  "contextAndSlices": {
+    "provenanceBinding": "exact M07 Genome or explicit named projection with matching digest",
+    "fingerprintSlices": "only declared context axes are included; values are hashed, excluded axes are recorded, and semantic deltas remain non-causal",
+    "privacyAndPurpose": "consumer projection, privacy class, subject token policy and evidence purpose are checked before export/comparison"
+  },
+  "failuresFoundAndCorrected": [
+    "Protocol authorization originally bound only protocol ID/version; receipts now bind the full protocol digest, with a regression test for altered budget reuse.",
+    "Security authorization now binds protocol version, exact M07 binding digest and evidence purpose.",
+    "Canonical decoder enum registration, metric normalization argument order, fingerprint digest validation and invalidation-graph bounds were corrected and focused tests pass.",
+    "Ruff found 20 unused imports; they were removed. Mypy found 9 typing errors; all were corrected and mypy now passes for 19 modules.",
+    "Documentation initially overstated default fixture and payload ceilings; values were aligned with iris_microbenchmark/limits.py and committed separately.",
+    "Independent audit HIGH-01: added real bounded CPU SHA-256 execution, exact active admission/provenance checks, actual monotonic samples, correctness and structured aborts; unsupported device/media/provider paths emit no samples.",
+    "Independent audit HIGH-02: replaced range-only proof references with exact frozen text/digests and unique proof/test/predicate identities for 330 IDs; validators now fail closed for missing/duplicate/drift/orphan/unclaimed records and eight negative tests exercise these cases.",
+    "Independent audit MEDIUM-01: split implementationChangedFiles from the complete 42-file PR inventory, including five admission/checkpoint artifacts already present in the PR.",
+    "Ruff found three unused imports in the correction implementation; they were removed and the final configured Ruff command passes.",
+    "An initial unittest module-name invocation did not match this repository's discovery layout; the required discover command was used and all focused tests pass.",
+    "A validator indentation error during the refactor was corrected before final compile and validator gates passed."
+  ],
+  "deferredPortsAndRisks": [
+    "Host-wide OS/driver interference and thermal telemetry are unavailable in the M08 kernel; active CPU samples therefore remain PARTIAL and cannot be promoted to VALID capability evidence.",
+    "The CPU reference path measures only allowlisted SHA-256 throughput/latency for exact caller-supplied fixture bytes. It does not discover hardware facts; exact non-synthetic M07 provenance remains caller/M07 authority.",
+    "No GPU, video/image codec, 3D, audio, provider/model SDK, sustained CPU, provider workflow or device execution is available; those paths return UNSUPPORTED/UNAVAILABLE without simulated measurements.",
+    "Persistence/CAS, production resource control, quality judges, rights/security engines and release decisions remain deferred by scope.",
+    "HIVE MCP did not have IRIS registered during preflight, so no IRIS-specific HIVE context evidence is claimed."
+  ],
+  "checkpointDelta": {
+    "status": "PROPOSED",
+    "promoted": false,
+    "suggestedPhase": "M08_IMPLEMENTATION_READY_FOR_INDEPENDENT_REVIEW",
+    "suggestedObjective": "Audit the complete M08 implementation on PR #59 exact head; preserve the no-merge and no-M09 boundary.",
+    "proposedCompleted": [
+      "M08 contract implementation is locally validated on correction commit 28580ed81e3e50022b957e22d2960210cbbd3471",
+      "CPU reference execution and explicit unsupported paths are covered by focused tests",
+      "330 per-ID frozen invariant records, assertions, and fail-closed validator cases pass",
+      "42-file PR inventory is split from its 37 implementation files",
+      "385 focused M08 tests and 3219 repository tests pass; 7-profile harness and local governance pass"
+    ],
+    "nextStep": "Complete push and exact-head GitHub Governance for PR #59; request independent audit. Do not merge and do not start M09."
+  },
+  "stopCondition": "Correction delta implemented, tested, documented and evidenced; push this same branch and verify exact-head PR #59 Governance. Do not merge. Do not start M09.",
+  "correctionDelta": {
+    "pdf": "IRIS-WO-0012-CORRECTION-DELTA-01.pdf",
+    "independentAudit": "https://github.com/KayzenRoot/iris/pull/59#issuecomment-5803154220",
+    "findingsAddressed": [
+      "HIGH-01",
+      "HIGH-02",
+      "MEDIUM-01"
+    ],
+    "high01": {
+      "implementation": "Synchronous CPU reference executor with one allowlisted sha256 operation over exact admitted immutable fixture bytes.",
+      "timingSource": "time.perf_counter_ns monotonic clock; each sample stores actual elapsed_ns and duration value.",
+      "binding": "Revalidates active ProtocolAdmission, authorization expiry, exact protocol digest, M07 binding digest, probe, adapter, fixture ID and fixture digest before timed work.",
+      "budgets": "Checks first-run aggregate before execution; enforces protocol wall time during bounded 64 KiB chunks/iterations, warmup, total iterations, host/output allocation, one-at-a-time concurrency and zero retries; device allocation is zero.",
+      "correctness": "Hashes fixture before timing, checks every warmup and measured digest, and emits no measured result on fixture mismatch.",
+      "interference": "No trusted host-wide interference sensor exists in this kernel; actual measurements retain UNKNOWN_TELEMETRY and PARTIAL and cannot be promoted to VALID.",
+      "unsupported": [
+        "GPU",
+        "video",
+        "image",
+        "3D",
+        "audio",
+        "provider",
+        "sustained or over-15-second CPU protocols"
+      ],
+      "origin": "LOCAL_ACTIVE_MEASUREMENT is distinct from synthetic semantic samples; receipt records physical execution and synthetic fixture separately."
+    },
+    "high02": {
+      "records": 330,
+      "fields": [
+        "exact frozen numbered line",
+        "UTF-8 SHA-256",
+        "unique proof_id",
+        "unique proof_target",
+        "semantic_target",
+        "unique assertion_id"
+      ],
+      "explicitSemanticTargetClaimLists": 39,
+      "perInvariantTestCases": 330,
+      "validatorNegativeTests": 8,
+      "failClosedCases": [
+        "missing ID",
+        "duplicate ID",
+        "frozen text drift",
+        "digest drift",
+        "missing target claim",
+        "duplicate claim",
+        "orphan target",
+        "unregistered predicate",
+        "target without assertions"
+      ]
+    },
+    "medium01": {
+      "implementationChangedFileCount": 37,
+      "prChangedFileCount": 42,
+      "separatesImplementationFromFullPRInventory": true,
+      "githubApiVerified": true
+    }
+  },
+  "implementationChangedFiles": [
+    ".engineering/evidence/IRIS-WO-0012.json",
+    "docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+    "examples/m08_domain_neutral_profiles.py",
+    "iris_microbenchmark/__init__.py",
+    "iris_microbenchmark/base.py",
+    "iris_microbenchmark/calibration.py",
+    "iris_microbenchmark/contracts.py",
+    "iris_microbenchmark/enums.py",
+    "iris_microbenchmark/envelopes.py",
+    "iris_microbenchmark/errors.py",
+    "iris_microbenchmark/evidence.py",
+    "iris_microbenchmark/execution.py",
+    "iris_microbenchmark/families.py",
+    "iris_microbenchmark/fingerprints.py",
+    "iris_microbenchmark/invariants.py",
+    "iris_microbenchmark/limits.py",
+    "iris_microbenchmark/migration.py",
+    "iris_microbenchmark/probes.py",
+    "iris_microbenchmark/protocols.py",
+    "iris_microbenchmark/provenance.py",
+    "iris_microbenchmark/schema.py",
+    "iris_microbenchmark/serialization.py",
+    "iris_microbenchmark/versions.py",
+    "scripts/validate_m08_boundaries.py",
+    "scripts/validate_m08_invariants.py",
+    "tests/m08_invariant_proofs.py",
+    "tests/m08_support.py",
+    "tests/test_m08_calibration.py",
+    "tests/test_m08_envelopes.py",
+    "tests/test_m08_execution.py",
+    "tests/test_m08_fingerprints.py",
+    "tests/test_m08_harness.py",
+    "tests/test_m08_invariant_validator.py",
+    "tests/test_m08_invariants.py",
+    "tests/test_m08_probes.py",
+    "tests/test_m08_protocol_safety.py",
+    "tests/test_m08_schema_migration.py"
+  ],
+  "implementationChangedFileCount": 37,
+  "prChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0012.json",
+    ".engineering/evidence/IRIS-WO-0012.json",
+    ".engineering/work-orders/IRIS-WO-0012-M08-MICROBENCHMARK-LAB.md",
+    "docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "examples/m08_domain_neutral_profiles.py",
+    "iris_microbenchmark/__init__.py",
+    "iris_microbenchmark/base.py",
+    "iris_microbenchmark/calibration.py",
+    "iris_microbenchmark/contracts.py",
+    "iris_microbenchmark/enums.py",
+    "iris_microbenchmark/envelopes.py",
+    "iris_microbenchmark/errors.py",
+    "iris_microbenchmark/evidence.py",
+    "iris_microbenchmark/execution.py",
+    "iris_microbenchmark/families.py",
+    "iris_microbenchmark/fingerprints.py",
+    "iris_microbenchmark/invariants.py",
+    "iris_microbenchmark/limits.py",
+    "iris_microbenchmark/migration.py",
+    "iris_microbenchmark/probes.py",
+    "iris_microbenchmark/protocols.py",
+    "iris_microbenchmark/provenance.py",
+    "iris_microbenchmark/schema.py",
+    "iris_microbenchmark/serialization.py",
+    "iris_microbenchmark/versions.py",
+    "scripts/validate_m08_boundaries.py",
+    "scripts/validate_m08_invariants.py",
+    "tests/m08_invariant_proofs.py",
+    "tests/m08_support.py",
+    "tests/test_m08_calibration.py",
+    "tests/test_m08_envelopes.py",
+    "tests/test_m08_execution.py",
+    "tests/test_m08_fingerprints.py",
+    "tests/test_m08_harness.py",
+    "tests/test_m08_invariant_validator.py",
+    "tests/test_m08_invariants.py",
+    "tests/test_m08_probes.py",
+    "tests/test_m08_protocol_safety.py",
+    "tests/test_m08_schema_migration.py"
+  ],
+  "prChangedFileCount": 42,
+  "prInventoryBasis": "GitHub PR #59 changed-filename API returned this exact 42-path inventory at head 746a6ead7bf6a58548dfa91afe6b0bb6367de361; cross-checked against the authorized-base git diff.",
+  "prInventoryVerifiedHead": "746a6ead7bf6a58548dfa91afe6b0bb6367de361"
+}

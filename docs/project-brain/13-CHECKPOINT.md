@@ -1,33 +1,30 @@
 # IRIS Canonical Checkpoint
 
 ## STATUS
-M08_PLANNING_MERGED_MAIN_VALIDATED
+M08_IMPLEMENTATION_ADMITTED
 
 ## VERSION
 m08-contract-v1.0
 
 ## PHASE
-M08_PLANNING_POST_MERGE_RECONCILIATION
+M08_IMPLEMENTATION_EXECUTION
 
 ## OBJECTIVE
-Reconcile canonical checkpoint, decisions ledger and backlog after the independently approved M08 planning contract was squash-merged and exact `main` validated.
+Implement the complete frozen M08 Microbenchmark Lab & Capability Envelope under IRIS-WO-0012.
 
 ## COMPLETED
-- M01-M07 remain durably closed at their previously validated states.
-- M08 completed S01-S05 planning, Final Technology Review and the M09-M60 Forward Compatibility Scan.
-- Frozen contract `m08-contract-v1.0` contains 330 hard invariants, 40 independent mandatory technology surfaces and 15 mandatory absorbed components.
-- Forward Compatibility Scan covered 52/52 downstream modules and incorporated FC-08-01..10.
-- Final planning audit approved exact head `f6ac4feee869bedaa9df34de113d06e6966d2440` with residual HIGH/CRITICAL 0/0.
-- Exact-head Governance `35907668353 / 107339306266` PASS.
-- PR #56 squash-merged as `5303788f60dc0591fab350270e6b9fe02ac7a45a`.
-- Exact-main Governance `35907947242` PASS.
-- No M08 product/runtime implementation has been admitted or introduced.
+- M01-M07 remain durably closed.
+- M08 planning contract `m08-contract-v1.0` is frozen, merged, reconciled and exact-main validated.
+- IRIS-WO-0012 admission candidate head `9010f2c7b9bc9ea1a53ae521ad40f05e7a0161a4` passed 13/13 critical fingerprints with zero mismatches.
+- Authorized base/main remained `6e2aea630208f6f18656803735426ba99d9b3cc7`.
+- Admission Governance `35909286994 / 107344738312` PASS.
+- Baseline full-suite floor: 2834 tests.
 
 ## IN PROGRESS
-Post-merge reconciliation of canonical checkpoint, decisions ledger and backlog for M08 planning.
+Promote the admitted package and validate the promoted exact head before product implementation.
 
 ## BLOCKERS
-M08 implementation remains blocked until this reconciliation is independently audited, protected-merged, exact-main validated, and a separate bounded implementation Work Order / Context Lock / Evidence package is admitted.
+No semantic blocker. Product implementation must wait for exact-head Governance on the promoted admission state and refreshed fingerprint consistency.
 
 ## NEXT STEP
-Complete the M08 planning post-merge reconciliation audit/merge/exact-main validation, then compile the separate M08 implementation admission package. Do not start M09 implementation.
+Validate the promoted admission head, then implement complete frozen M08 under IRIS-WO-0012. Do not merge and do not start M09.

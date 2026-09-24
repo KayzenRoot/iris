@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0012",
+  "issue": 58,
+  "branch": "iris-wo-0012-m08-microbenchmark-lab",
+  "baseSha": "6e2aea630208f6f18656803735426ba99d9b3cc7",
+  "status": "ADMITTED_FOR_EXECUTION",
+  "risk": "ELEVATED",
+  "frozenContract": {
+    "name": "m08-contract-v1.0",
+    "path": "planning/modules/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md"
+  },
+  "baseline": {
+    "governanceRun": 35908538554,
+    "tests": 2834,
+    "conclusion": "success"
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0012-M08-MICROBENCHMARK-LAB.md",
+      "sha": "274aef4c9bb375c24bc74085ab4df38a8afeb547"
+    },
+    {
+      "path": "planning/modules/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "sha": "804387a28c318fc82f53e51651f279d76895095c"
+    },
+    {
+      "path": "planning/reviews/M08-FINAL-TECHNOLOGY-REVIEW.md",
+      "sha": "8d98f42fdbbbd5b2372e79090fdc7f14ada0cbd8"
+    },
+    {
+      "path": "planning/compatibility/M08-FORWARD-COMPATIBILITY-SCAN.md",
+      "sha": "65be56878c85813b9e898aeb20a7beb08d4bda80"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "sha": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "sha": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "sha": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "sha": "70890db989002dd029e93c64b4a7ac088974ae92"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "sha": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "sha": "c12107f670887890673b3d69e0c30c406c44d7ff"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "sha": "7078c01d1178729aee6b5e142d570f29eb2aa266"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "sha": "f7941d6abe5d0bcfbd2e44c66436c95b22961300"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "sha": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    }
+  ],
+  "inScope": [
+    "Complete frozen m08-contract-v1.0 in iris_microbenchmark",
+    "40 independent mandatory M08 technology surfaces",
+    "15 mandatory absorbed components",
+    "330 hard invariants",
+    "bounded safe active microbenchmarks",
+    "multimodal primitive probes",
+    "capability envelopes",
+    "performance fingerprints/drift",
+    "calibration/aging/invalidation"
+  ],
+  "outOfScope": [
+    "M09+ implementation",
+    "M07 discovery mutation",
+    "resource leases/residency/offload",
+    "execution planning/OOM/thermal policy",
+    "worker/process lifecycle",
+    "compute scheduling/placement",
+    "model/workflow/creative-quality ranking",
+    "physical storage/deletion",
+    "observability/dashboard authority",
+    "security policy ownership",
+    "release acceptance"
+  ],
+  "stopCondition": "STOP after complete frozen M08 kernel is implemented, tested, documented, evidenced and ready for independent review. Do not merge. Do not start M09.",
+  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md.",
+  "admissionValidation": {
+    "head": "9010f2c7b9bc9ea1a53ae521ad40f05e7a0161a4",
+    "criticalSources": 13,
+    "fingerprintMismatches": 0,
+    "governanceRun": 35909286994,
+    "governanceJob": 107344738312,
+    "baselineTests": 2834,
+    "result": "PASS"
+  },
+  "reconciliation": {
+    "reason": "CHAT_FIXABLE: admission promotion intentionally changed the Work Order status/admission proof and canonical checkpoint after candidate fingerprints were captured.",
+    "promotedHead": "2319dd20339a85aff2f7ce410fb1218c425d412e",
+    "promotedHeadGovernance": {
+      "run": 35909505068,
+      "job": 107345479963,
+      "result": "PASS"
+    },
+    "fingerprintCheck": {
+      "matchedBeforeRefresh": 11,
+      "total": 13,
+      "mismatches": [
+        ".engineering/work-orders/IRIS-WO-0012-M08-MICROBENCHMARK-LAB.md",
+        "docs/project-brain/13-CHECKPOINT.md"
+      ],
+      "semanticUnexpectedMismatches": 0
+    },
+    "status": "REFRESHED_PENDING_EXACT_HEAD_VALIDATION"
+  }
+}
