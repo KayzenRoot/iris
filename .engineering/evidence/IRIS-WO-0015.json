@@ -2,7 +2,7 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0015",
   "module": "M11",
-  "status": "PLANNING_ADMISSION_PACKAGE_PENDING_REVIEW",
+  "status": "PLANNING_ADMISSION_PACKAGE_AUDITED_GOVERNANCE_PENDING",
   "capturePhase": "planning_admission",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
@@ -88,7 +88,7 @@
     "comparisonBasis": "GitHub compare found only documentation/planning/checkpoint/evidence paths; exact-main Governance on the base ran 3940 tests and reported OK."
   },
   "planningPreflight": {
-    "status": "PRE_PR_CHECKS_PASS_REVIEW_GOVERNANCE_PENDING",
+    "status": "AUDIT_APPROVED_GOVERNANCE_PENDING",
     "checks": [
       {
         "id": "PF-01",
@@ -122,7 +122,7 @@
       },
       {
         "id": "PF-07",
-        "result": "PENDING",
+        "result": "PENDING_GOVERNANCE",
         "evidence": "Independent documentation audit and exact-head Governance are required before merge."
       }
     ],
@@ -141,14 +141,29 @@
     ".engineering/CHECKPOINT.json",
     "docs/project-brain/13-CHECKPOINT.md",
     "docs/project-brain/03-SCOPE.md",
-    "docs/project-brain/14-BACKLOG.md"
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/reviews/IRIS-WO-0015-PLANNING-ADMISSION-AUDIT.md"
   ],
   "documentationAudit": {
-    "status": "PENDING",
-    "reviewedHead": null,
-    "verdict": null,
-    "highFindings": null,
-    "criticalFindings": null
+    "status": "APPROVED_FOR_PLANNING_ADMISSION_PROPOSAL_ONLY",
+    "reviewType": "Separate post-authoring documentation and scope audit",
+    "reviewedHead": "3c6778af362f00d7b6bc93104634d529f303ee18",
+    "highFindings": 0,
+    "criticalFindings": 0,
+    "residualFindings": 0,
+    "correctedBeforeAudit": [
+      "Restored the exact PR #80/#81 M10 documentation proposal and checkpoint Governance history in Scope, Backlog and Checkpoint.",
+      "Replaced the stale M10 planning blocker with the actual IRIS-WO-0014 owner-handoff/deferred-decision preflight blocker.",
+      "Removed a premature M11 contract version assignment; version remains NOT_ASSIGNED until planning review.",
+      "Changed planning preflight state to show PR review and Governance as pending."
+    ],
+    "sourceFingerprints": {
+      "checked": 46,
+      "matched": 46,
+      "mismatches": 0
+    },
+    "changedFilesReviewed": 10,
+    "reviewConclusion": "All changes are documentation/metadata only, consistent with the exact-base owner contracts and Issue #82. M11 sessions remain NOT_STARTED; no M11 contract is frozen; M11 and M10 implementation remain NOT_ADMITTED. The complete independent M11 planning audit is still a required later lifecycle gate."
   },
   "governance": {
     "base": {
@@ -161,7 +176,7 @@
       "runId": null,
       "jobId": null,
       "headSha": null,
-      "result": "PENDING"
+      "result": "PENDING_ON_AUDIT_UPDATED_HEAD"
     },
     "exactMain": {
       "runId": null,
