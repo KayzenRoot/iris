@@ -2,7 +2,7 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0015",
   "module": "M11",
-  "status": "PLANNING_ADMISSION_PACKAGE_AUDITED_GOVERNANCE_PENDING",
+  "status": "PLANNING_ADMISSION_APPROVED_AFTER_EXACT_MAIN_GOVERNANCE",
   "capturePhase": "planning_admission",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
@@ -88,7 +88,7 @@
     "comparisonBasis": "GitHub compare found only documentation/planning/checkpoint/evidence paths; exact-main Governance on the base ran 3940 tests and reported OK."
   },
   "planningPreflight": {
-    "status": "AUDIT_APPROVED_GOVERNANCE_PENDING",
+    "status": "PASS_FOR_PLANNING_ADMISSION_ONLY",
     "checks": [
       {
         "id": "PF-01",
@@ -122,8 +122,8 @@
       },
       {
         "id": "PF-07",
-        "result": "PENDING_GOVERNANCE",
-        "evidence": "Independent documentation audit and exact-head Governance are required before merge."
+        "result": "PASS",
+        "evidence": "Post-authoring documentation audit approved with zero residual HIGH/CRITICAL findings; PR #83 exact-head Governance and exact-main Governance passed."
       }
     ],
     "implementationPreflight": "NOT_RUN_NOT_ADMITTED"
@@ -173,18 +173,38 @@
       "result": "PASS"
     },
     "exactHead": {
-      "runId": null,
-      "jobId": null,
-      "headSha": null,
-      "result": "PENDING_ON_AUDIT_UPDATED_HEAD"
+      "runId": 36063003154,
+      "jobId": 107846144342,
+      "headSha": "e35632e3f4775b0ccc89c6723a19faca767a59f2",
+      "result": "PASS"
     },
     "exactMain": {
-      "runId": null,
-      "jobId": null,
-      "headSha": null,
-      "result": "PENDING"
+      "runId": 36063188222,
+      "jobId": 107846747270,
+      "headSha": "09441373deffe35258a41d14b959333a42fbcdd3",
+      "actor": "KayzenRoot",
+      "result": "PASS"
     }
   },
-  "checkpointDeltaProposed": "After independent documentation audit and exact-head Governance pass, record M11 planning as active under Issue #82 while preserving m10-contract-v1.0 frozen and implementation NOT_ADMITTED. M11 implementation remains NOT_ADMITTED.",
-  "runtimeEvidence": "NONE; no runtime code or process operation is in scope."
+  "checkpointDeltaProposed": "Applied through PR #83 and reconciled after exact-main Governance in this closeout increment. M11 planning is admitted for documentation only; M11 and M10 implementation remain NOT_ADMITTED.",
+  "runtimeEvidence": "NONE; no runtime code or process operation is in scope.",
+  "protectedMerge": {
+    "pullRequest": 83,
+    "method": "squash",
+    "headSha": "e35632e3f4775b0ccc89c6723a19faca767a59f2",
+    "mergeSha": "09441373deffe35258a41d14b959333a42fbcdd3",
+    "actor": "KayzenRoot",
+    "result": "MERGED"
+  },
+  "checkpointCloseoutChangedFiles": [
+    ".engineering/CHECKPOINT.md",
+    ".engineering/CHECKPOINT.json",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+    ".engineering/work-orders/IRIS-WO-0015-PREFLIGHT-CRITERIA.md",
+    "planning/reviews/IRIS-WO-0015-PLANNING-ADMISSION-AUDIT.md"
+  ]
 }

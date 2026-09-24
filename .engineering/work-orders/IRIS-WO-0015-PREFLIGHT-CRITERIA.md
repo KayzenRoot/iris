@@ -1,6 +1,6 @@
 # IRIS-WO-0015 — M11 Planning Preflight Criteria
 
-Status: PLANNING_ADMISSION_ONLY
+Status: PASS_FOR_PLANNING_ADMISSION_ONLY
 Tracking issue: #82
 Authorized base: 0014d23115f5fec60a77e5e32d5083e90069a918
 Planning branch: iris-wo-0015-m11-planning-docs-20260924
@@ -46,5 +46,9 @@ Allowed files for this admission package are planning, Work Order, Context Lock,
 ## Gate E — Limits
 
 HIVE MCP tools are not available in the current Work Mode connection. No HIVE-derived assertion is used or fabricated; the decision is bound to canonical Git sources and GitHub Governance. If a planning decision later depends on HIVE-only context, mark it unresolved and stop that decision until authoritative Git evidence is available.
+
+## PLANNING-ONLY ADMISSION RESULT
+
+PR #83 exact head e35632e3f4775b0ccc89c6723a19faca767a59f2 passed Governance 36063003154 / 107846144342; protected squash merge 09441373deffe35258a41d14b959333a42fbcdd3 passed exact-main Governance 36063188222 / 107846747270 (actor: KayzenRoot). The result passes planning admission only. M11 implementation remains NOT_ADMITTED; M10 implementation remains NOT_ADMITTED and its IRIS-WO-0014 preflight remains BLOCKED.
 
 No executor PDF, implementation branch, runtime change, process operation or M10 admission is authorized by this Work Order.
