@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0013",
+  "issue": 64,
+  "branch": "iris-wo-0013-m09-resource-digital-twin",
+  "baseSha": "ee46815382be0907f373760a62b3b31805c7abee",
+  "status": "ADMISSION_CANDIDATE",
+  "risk": "ELEVATED",
+  "frozenContract": {
+    "name": "m09-contract-v1.0",
+    "path": "planning/modules/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md"
+  },
+  "baseline": {
+    "governanceRun": 35978885089,
+    "governanceJob": 107565774466,
+    "tests": null,
+    "conclusion": "success"
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0013-M09-RESOURCE-DIGITAL-TWIN.md",
+      "sha": "a26ac87820b9cf5951fb77bcc4b00f0852acd742"
+    },
+    {
+      "path": "planning/modules/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "sha": "3b931f8761372bd3773cc2b5d23244ad08aecee3"
+    },
+    {
+      "path": "planning/reviews/M09-FINAL-TECHNOLOGY-REVIEW.md",
+      "sha": "86909d649353439278bc305a6a4a6125345a4d83"
+    },
+    {
+      "path": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "sha": "1e5898f36b49e71f28eb18eb9582d48de60a58b4"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "sha": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "sha": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "sha": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "sha": "af64783a6cf5614ab3f16af905a80e5c30b4e8a0"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "sha": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "sha": "39b4e1acf4d914c3c1ff95997f57fddcf575ce85"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "sha": "7078c01d1178729aee6b5e142d570f29eb2aa266"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "sha": "f7941d6abe5d0bcfbd2e44c66436c95b22961300"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "sha": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    }
+  ],
+  "inScope": [
+    "complete frozen m09-contract-v1.0 in iris_resource_twin",
+    "83 independent mandatory M09 technology surfaces",
+    "15 mandatory absorbed components",
+    "514 hard invariants",
+    "Resource Digital Twin",
+    "leases/reservations/residency",
+    "spill/offload/prefetch",
+    "adaptive resource shaping",
+    "pressure recovery/cleanup/leak detection",
+    "FC-09-01..14 handshakes"
+  ],
+  "outOfScope": [
+    "M10+ implementation",
+    "M07 discovery mutation",
+    "M08 benchmark/capability mutation",
+    "execution-plan selection/predictive OOM/thermal policy",
+    "worker/process lifecycle",
+    "compute placement/orchestration",
+    "model fitness",
+    "physical storage/deletion",
+    "observability aggregation",
+    "rights/security policy ownership",
+    "quality/creative semantics ownership"
+  ],
+  "stopCondition": "STOP after complete frozen M09 kernel is implemented, tested, documented, evidenced and ready for independent review. Do not merge. Do not start M10.",
+  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md."
+}
