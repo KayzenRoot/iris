@@ -47,7 +47,7 @@
     },
     {
       "path": "docs/project-brain/13-CHECKPOINT.md",
-      "sha": "af64783a6cf5614ab3f16af905a80e5c30b4e8a0"
+      "sha": "051c68afdcb9d3195ce3633a430e6d5f1b842410"
     },
     {
       "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
@@ -59,11 +59,11 @@
     },
     {
       "path": "docs/project-brain/03-SCOPE.md",
-      "sha": "7078c01d1178729aee6b5e142d570f29eb2aa266"
+      "sha": "e13672d332b5933a19a7284d8565c33dba60bda8"
     },
     {
       "path": "docs/project-brain/04-ARCHITECTURE.md",
-      "sha": "f7941d6abe5d0bcfbd2e44c66436c95b22961300"
+      "sha": "3031c75afb2d3d02c9559dd912cd6f8eed4b2d46"
     },
     {
       "path": "docs/project-brain/02-REQUIREMENTS.md",
@@ -133,6 +133,7 @@
   },
   "authorityReconciliation": {
     "reason": "CHAT_FIXABLE: canonical checkpoint, Scope and Architecture still described superseded M07/M09-gated lifecycle after WO-0013 admission.",
-    "status": "UPDATED_PENDING_FINGERPRINT_REFRESH_AND_GOVERNANCE"
+    "status": "FINGERPRINTS_REFRESHED_PENDING_EXACT_HEAD_GOVERNANCE",
+    "refreshHead": "3980bf5be91bc1bfd4a8e800aa861f33f8583da5"
   }
 }
