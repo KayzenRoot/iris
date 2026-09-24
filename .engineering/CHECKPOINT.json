@@ -1,8 +1,8 @@
 {
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
-  "status": "M08_IMPLEMENTATION_ADMITTED",
+  "status": "M08_IMPLEMENTATION_CLOSED",
   "version": "m08-contract-v1.0",
-  "phase": "M08_IMPLEMENTATION_EXECUTION",
-  "nextStep": "Validate the promoted admission head, then implement complete frozen M08 under IRIS-WO-0012. Do not merge and do not start M09."
+  "phase": "M08_DURABLE_CLOSURE_RECONCILIATION",
+  "nextStep": "Audit/merge the M08 post-merge reconciliation and exact-main validate before M09 planning."
 }
