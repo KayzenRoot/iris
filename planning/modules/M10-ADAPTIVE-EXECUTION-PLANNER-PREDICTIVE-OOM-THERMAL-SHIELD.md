@@ -1,10 +1,12 @@
 # M10 — Adaptive Execution Planner & Predictive OOM/Thermal Shield
 
-Status: `PLANNING_S02_CANDIDATE_PENDING_GOVERNANCE`
+Status: `PLANNING_S03_CANDIDATE_PENDING_GOVERNANCE`
 Module: **M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield**
 Planning Work Order: [Issue #68](https://github.com/KayzenRoot/iris/issues/68)
 Authorized planning base: `b6456670a7c61621db1d3b3fc6d55487adb9cd64`
 S02 session base: `fc1a3c954a1629b9e9a4c45c4e557a7832c290d7`
+S02 exact head: `0fa18f55d845192d4225751ec14316af08ec6dad`; Governance `36032894812 / 107745773871` — **PASS**
+S02 protected squash merge / exact-main: `8d068d1cf9ef604aef8506ec879b7a382ec1b738`; Governance `36033011233 / 107746156289` — **PASS**
 S01 exact-main Governance: `36031548275 / 107741264931` — **PASS**
 Admission Governance: `36029536926 / 107734488887` — **PASS**
 Implementation authority: **NOT ADMITTED**
@@ -20,8 +22,8 @@ This document is a planning candidate. No M10 product/runtime/test implementatio
 | Session | Scope | Status |
 |---|---|---|
 | S01 | Workload Signature Engine | COMPLETE_FOR_MODULE_PLANNING |
-| S02 | Hardware-aware execution plan compilation | CANDIDATE_COMPLETE_PENDING_GOVERNANCE |
-| S03 | Predictive OOM, thermal and quality-risk models | NOT_STARTED |
+| S02 | Hardware-aware execution plan compilation | COMPLETE_FOR_MODULE_PLANNING |
+| S03 | Predictive OOM, thermal and quality-risk models | CANDIDATE_COMPLETE_PENDING_GOVERNANCE |
 | S04 | ECO / BALANCED / QUALITY / MAX / CUSTOM policy semantics | NOT_STARTED |
 | S05 | Observed-result learning loop and explainable decisions | NOT_STARTED |
 
@@ -119,7 +121,7 @@ The S01 technical findings and primary references are recorded in [M10 S01 resea
 
 ## S02 — Hardware-aware execution plan compilation
 
-Status: `CANDIDATE_COMPLETE_PENDING_GOVERNANCE`
+Status: `COMPLETE_FOR_MODULE_PLANNING`
 
 ### Objective
 
@@ -143,7 +145,7 @@ The candidate may narrow to M09-admitted resource shapes and M02-authorized work
 1. **Pin context.** Bind exact M02/M01/M03/M07/M08/M09 references and capture/version metadata. Do not resolve implicit `latest` references.
 2. **Check scope and coherence.** Verify that hardware identity, runtime/driver context, benchmark binding, resource identity and workload signature cover compatible scopes. Preserve M07 projection omissions and M09's observed/reported/allocatable/reserved/committed/resident/reclaimable/external/unknown distinctions.
 3. **Apply hard admissibility.** Reject alternatives that violate mandatory M01 quality or M03 semantic requirements, M02 causal constraints, M07 compatibility facts, M08 demonstrated/conservative capability bounds, or M09 feasibility and authorized shape options.
-4. **Build bounded alternatives.** Describe only alternatives represented by owner-issued options and accepted by the M02 plan contract. S04 owns policy-mode preferences and ranking semantics; S03 owns risk thresholds and calibration.
+4. **Build bounded alternatives.** Describe only alternatives represented by owner-issued options and accepted by the M02 plan contract. S04 owns policy-mode preferences and ranking semantics; S03 defines risk-target semantics, uncertainty and calibration evidence. Operational budgets and acceptance gates remain deferred to S04/final review.
 5. **Return explicit decision evidence.** Candidate dispositions such as eligible, infeasible, indeterminate, stale, conflict and no-safe-plan are provisional labels, not frozen enum values. Each disposition names exact source refs, rejected constraints and reason. Missing/unknown mandatory input cannot become positive feasibility.
 
 ### Candidate S02 surfaces
@@ -193,7 +195,7 @@ This inventory remains provisional until Final Technology Review; it is not a fr
 14. M10 does not start, pause, terminate or restart work; M11 owns worker/process lifecycle.
 15. M10 does not compile concrete provider graphs/workflows; M16 owns provider compilation.
 16. S02 defines feasibility filters, not ECO/BALANCED/QUALITY/MAX/CUSTOM ranking weights.
-17. S02 does not set OOM, thermal or quality-risk thresholds; those remain S03/S04 planning inputs.
+17. S02 does not set operational OOM, thermal or quality-risk budgets or acceptance thresholds. S03 defines prediction and calibration semantics; any policy gates remain subject to S04 and Final Technology Review.
 18. If no alternative has complete admissible evidence, emit an explicit no-safe-plan/indeterminate candidate rather than choosing the least-unknown option.
 19. Dynamic evidence must be revalidated at the owning M09/M12/M11 handoff; a planning snapshot is not a reservation or dispatch token.
 20. Explanations identify accepted/rejected alternatives, exact evidence refs and blocking constraints.
@@ -207,7 +209,7 @@ This inventory remains provisional until Final Technology Review; it is not a fr
 - M07/M08/M09 evidence has compatible exact scope, provenance and freshness.
 - M10/M11/M12/M16/M09 handoffs remain separated by authority.
 - Feasibility, rejection, stale/conflict/unknown and no-safe-plan paths are explicit.
-- Policy weights and prediction thresholds remain deferred to S03/S04.
+- S03 defines the prediction/calibration interface; numeric policy budgets and acceptance thresholds remain deferred to S04 and Final Technology Review.
 - No runtime, test or product code is introduced.
 
 ### S02 research and sources
@@ -225,9 +227,90 @@ Official documentation and design inferences are recorded in [M10 S02 research](
 
 ## S03 — Predictive OOM, thermal and quality-risk models
 
-Status: `NOT_STARTED`
+Status: `CANDIDATE_COMPLETE_PENDING_GOVERNANCE`
+Session base: `8d068d1cf9ef604aef8506ec879b7a382ec1b738`
+Implementation authority: **NOT ADMITTED**
 
-Compare analytical bounds, empirical/quantile models, calibrated prediction intervals and conservative rules. Define separate labels, horizons, calibration/freshness, drift handling, abstention and evidence requirements. Do not promise risk guarantees outside proven assumptions.
+### Objective
+
+Define three independently evidenced estimates that can inform S04 policy semantics: allocation-failure/OOM risk, thermal-limit risk, and M01 Fidelity Contract violation risk. S03 specifies the evidence, calibration, uncertainty and abstention behavior. It does not select a model, numeric horizon, risk budget, threshold, minimum sample count or runtime action.
+
+### Separate prediction targets
+
+| Risk family | Candidate target and authoritative outcome | Evidence M10 may consume | Must not be conflated with |
+|---|---|---|---|
+| OOM / allocation failure | A validated run outcome whose owning runtime/provider evidence confirms allocation failure or resource-exhaustion failure under a versioned label. | M09 resource snapshots, leases and pressure outcomes; M07 hardware/runtime identity; M08 exact-scope capability evidence; M11/M16 outcome receipts where authorized. | Memory pressure, low free-memory snapshot, timeout, cancellation, generic process failure or an unrelated provider error as if each were a confirmed OOM. |
+| Thermal | A versioned future event target such as a thermal-limit or thermal-throttle event, with temperature, active throttle reason and time-accumulated violation treated as separately sourced observations. Power-limit throttling is a distinct event family. | M07 read-only sensor capability, telemetry samples and exact device/partition/driver/runtime identity; M08 workload-bound empirical evidence; M09 resource context by reference. | High temperature alone, reduced clocks alone, power cap, unsupported telemetry and thermal throttling as interchangeable labels. |
+| Quality | A future M01 evaluator/Fidelity Contract outcome that fails an applicable quality obligation for the pinned output class and contract revision. | M01 evaluator, contract and review receipts; M03 protected constraints; exact workload/model/workflow versions and applicable M08 evidence. | M10's own score, successful execution, resource scarcity, or a weaker surrogate metric as a quality decision or promotion. |
+
+M01 remains the sole quality evaluation and promotion authority. M03 constraints remain hard obligations. OOM and thermal labels retain their owning runtime/hardware provenance; M10 may consume them but cannot rewrite their meaning.
+
+### Candidate estimate record
+
+Each risk estimate is a separate typed record, not one aggregate “risk” scalar. The planning candidate carries:
+
+- risk-family identifier and versioned target/label definition;
+- prediction horizon/window and observation unit, once those are approved in later policy review;
+- exact workload-signature revision and pinned M02/M01/M03/M07/M08/M09 plus applicable M11/M14/M16/M50/M54/M56 evidence references;
+- hardware model, partition/profile, driver/runtime, provider/workflow and model versions material to that estimate;
+- estimator family/version, training and calibration data lineage, calibration method and evaluation split;
+- point/range/set output, uncertainty representation, applicability slice and support summary;
+- capture time/window, source capability, freshness/validity state and drift/OOD assessment;
+- label provenance, censoring/abort/unknown disposition, and a human-readable reason for abstention or limitations.
+
+The record is a planning interface candidate, not a new canonical ExecutionPlan schema. M02 retains its plan contract and lifecycle. S04 may consume the three risk records to rank or reject otherwise admissible alternatives; it cannot turn missing or uncalibrated risk into evidence of safety.
+
+### Model and uncertainty candidates
+
+Compare these families during planning and technology review; none is selected or frozen by S03:
+
+1. **Owner-backed deterministic bounds and rules.** Use explicit M07/M08/M09 evidence and conservative bounds where semantics support a hard feasibility statement. A bound is not a learned probability.
+2. **Empirical classification, regression and tail/quantile estimation.** Fit against validated, versioned labels and exact workload/hardware/runtime strata; expose uncertainty and limited support.
+3. **Calibrated intervals or set-valued/risk-controlling prediction.** Conformal risk-control methods are candidates only with their calibration assumptions stated. Distribution-free expected-risk or marginal-coverage results do not imply conditional guarantees for every workload, device or subgroup.
+4. **Sequential/time-series calibration.** Consider only if event telemetry is genuinely ordered and the method's assumptions match the observed process. A method designed for non-exchangeable time series is still not assumption-free.
+5. **Abstention and conservative fallback.** Return unknown/indeterminate when evidence does not support a calibrated estimate; do not impute a low-risk value.
+
+Keep measured resource facts, empirical capability, telemetry observations and model outputs in separate evidence dimensions. A deterministic S02 admissibility rejection cannot be overridden by a favorable statistical estimate.
+
+### Calibration and evaluation protocol
+
+- Define the label before fitting; record label version, owner, censoring and ambiguous terminal outcomes. Exclude or separately classify timeout, cancellation, worker loss, invalid benchmark and incomplete telemetry rather than silently labeling them safe.
+- Split by workload instance and run lineage so repeated frames, retries, near-duplicate prompts or repeated measurements from one run cannot leak across train/calibration/test partitions. Hold out independent workload families and hardware/runtime cohorts for generalization checks.
+- Bind every calibration and evaluation result to the exact workload signature, GPU/partition, driver/runtime, provider/workflow, model, benchmark protocol and M09 resource context that materially affect it.
+- Evaluate each risk family separately using suitable proper scoring and reliability/calibration diagnostics; include false-safe and missed-event rates, applicable risk/coverage or interval-coverage summaries, abstention coverage, subgroup and worst-group behavior, and uncertainty around the reported metrics.
+- Preserve temporal order for sequential telemetry. Report when stationarity, exchangeability, mixing, independence, label completeness or other method assumptions are not established. Distribution shift invalidates a copied calibration claim unless an approved method explicitly covers that shift.
+- Synthetic fixtures may test parsing, provenance, calibration bookkeeping and abstention mechanics. They cannot establish real-device calibration, physical safety or predictive accuracy.
+- No acceptance percentage, numerical margin, minimum sample count, hardware-specific cutoff, prediction horizon or target risk budget is selected in S03. Those choices require evidence, owner review and later policy/final-review approval.
+
+### Freshness, drift and abstention
+
+The estimate's applicability is scoped to the evidence slice and capture window that support it. Revalidation or abstention is required when a material identifier changes, evidence becomes stale, a telemetry source is unsupported, inputs conflict, labels are ambiguous, sample support is inadequate, or drift/OOD checks fail. The exact freshness limits and support thresholds remain open.
+
+Abstain with an explicit reason and an indeterminate/no-safe-plan candidate when:
+
+- a mandatory owner reference or label is missing, stale, conflicted, quarantined or outside its declared scope;
+- the hardware partition, runtime/driver, provider/workflow, model or workload signature is outside the validated slice;
+- required thermal, resource or quality evidence is unsupported or incomplete;
+- calibration assumptions are materially violated, drift is detected, or uncertainty spans a later policy gate;
+- evidence cannot distinguish an event from timeout, cancellation, censoring or unrelated failure.
+
+An unsupported sensor is not a healthy reading. A lack of observed failures is not proof of zero risk. Unknown risk cannot authorize a plan.
+
+### Authority and lifecycle boundary
+
+M10 emits the separate risk estimates, applicability and reasons to the S04 policy stage. M10 does not start or stop work, select placement, reserve resources, alter M01/M03 obligations, tune device controls, or dispatch workers. M09 owns resource truth and reservations; M11 owns worker lifecycle; M12 owns placement; M16 owns provider/workflow compilation; M56 owns observability aggregation. S05 owns outcome-feedback and model-update lifecycle; S03 does not auto-train, auto-calibrate or mutate model versions.
+
+### S03 exit criteria
+
+- OOM, thermal and quality targets have distinct owner-approved label definitions and provenance.
+- Prediction records preserve scope, versions, freshness, calibration, uncertainty and abstention reason.
+- Candidate model families and assumptions are compared without selecting an unjustified guarantee.
+- Evaluation addresses leakage, drift, class imbalance/rare events, subgroup performance and false-safe behavior.
+- Unknown, unsupported, stale, conflicting and out-of-distribution evidence cannot be treated as safe.
+- M01/M03 hard obligations and M02/M07/M08/M09/M11/M12/M14/M16/M50/M54/M56 authority boundaries remain intact.
+- No numeric policy thresholds, model choice, physical calibration claim, auto-learning loop or product/runtime/test implementation is introduced.
+
+See [M10 S03 research](../research/M10-S03-PREDICTIVE-RISK-CALIBRATION.md) for the primary-source basis and open assumptions.
 
 ## S04 — ECO / BALANCED / QUALITY / MAX / CUSTOM policy semantics
 

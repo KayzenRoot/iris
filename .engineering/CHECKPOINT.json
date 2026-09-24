@@ -2,7 +2,7 @@
   "schemaVersion": "iris-checkpoint-v1",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "status": "M10_PLANNING_ACTIVE",
-  "version": "m10-planning-s02-v0",
-  "phase": "M10_S02_HARDWARE_AWARE_PLAN_CANDIDATE",
-  "nextStep": "Pass the S02 planning package through exact-head Governance, protected merge and exact-main validation; then plan S03 predictive OOM, thermal and quality-risk models. Do not start M10 implementation during planning."
+  "version": "m10-planning-s03-v0",
+  "phase": "M10_S03_PREDICTIVE_RISK_CANDIDATE",
+  "nextStep": "Pass the S03 planning candidate through exact-head Governance, protected squash merge and exact-main validation; then continue with S04 policy semantics. Keep M10 implementation NOT ADMITTED."
 }
