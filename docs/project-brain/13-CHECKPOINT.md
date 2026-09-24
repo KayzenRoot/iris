@@ -39,7 +39,7 @@ Plan M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield through the 
 - PR #77 exact head `57dc0410e9c434a04657b8f57562febdeceb84f1` passed Governance `36043928118 / 107782644258`; protected squash merge `8a3e32de28ccc824c165e29bfa3da4f6cc305de0` passed exact-main Governance `36044190420 / 107783526436` (actor: KayzenRoot).
 
 ## IN PROGRESS
-M10 planning is complete and the semantic contract is frozen as m10-contract-v1.0. PR #80 proposes IRIS-WO-0014 as a documentation-only implementation package; the documentation audit approved the proposal only. Exact-head Governance for this checkpoint delta is pending. Preflight remains BLOCKED by 50 missing M11-M60 owner contracts and unresolved M10 decisions. M10 product/runtime implementation remains NOT ADMITTED and NOT STARTED.
+M10 planning is complete and the semantic contract is frozen as m10-contract-v1.0. IRIS-WO-0014 proposal is approved for documentation only. PR #80 exact head `f84ca2e00162a7869e31efcb217a962c1aa6ec2b` passed Governance `36059070309 / 107833280091`; protected squash merge `26c891fd53ac24e1e32b4ae84e162ea029f69366` passed exact-main Governance `36059177560 / 107833630952` (actor: KayzenRoot). Preflight remains BLOCKED by 50 missing M11-M60 owner contracts and unresolved M10 decisions. M10 implementation remains NOT ADMITTED and NOT STARTED.
 ## BLOCKERS
 M10 implementation remains NOT ADMITTED and NOT STARTED until the complete planning lifecycle is approved, its contract is frozen, its compatibility scan and independent audit pass, and a separate implementation Work Order / Context Lock / Evidence package passes preflight.
 

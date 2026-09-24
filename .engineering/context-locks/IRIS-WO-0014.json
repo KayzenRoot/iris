@@ -298,9 +298,12 @@
     "result": "NOT_ADMITTED"
   },
   "reconciliation": {
-    "status": "PROPOSED_PENDING_REVIEW",
-    "checkpointDelta": "After this proposal is audited, consider recording IRIS-WO-0014 as PROPOSAL_ONLY while keeping implementation NOT ADMITTED; canonical checkpoint remains unchanged until objective review approves that delta.",
-    "proposalBaseSha": "873053d24d9e28f5ff9b186914fa3de7caf749de"
+    "status": "APPROVED_PROPOSAL_ONLY_MERGED",
+    "checkpointDelta": "Applied and validated through PR #80; exact-head and exact-main Governance passed.",
+    "proposalBaseSha": "873053d24d9e28f5ff9b186914fa3de7caf749de",
+    "mergedMain": "26c891fd53ac24e1e32b4ae84e162ea029f69366",
+    "implementationAdmission": "NOT_ADMITTED",
+    "preflight": "BLOCKED"
   },
   "authorityReconciliation": {
     "availableOwnerContracts": [
