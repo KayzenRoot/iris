@@ -1062,3 +1062,54 @@ After independent S05 audit, perform the M09 Final Technology Review. Consolidat
 
 ## STOP CONDITION
 Stop at S05 planning. Do not implement M09. Do not start M10 deep planning. Final Technology Review requires a separate independent gate.
+
+
+# M09 contract freeze candidate
+
+Freeze ID: `m09-contract-v1.0`
+Status: `FROZEN_CANDIDATE_PENDING_FINAL_AUDIT`
+Forward Compatibility Scan: `M10-M60 51/51`
+Final Technology Review: `83 independent mandatory surfaces + 15 mandatory absorbed components`
+Implementation authority: **NOT ADMITTED**
+
+## Forward-compatibility hard invariants
+501. Every cross-module resource claim carries consumer/module identity, requirement schema/version, quantity/unit, hard/soft semantics, purpose and authorization/provenance references.
+502. Quality-sensitive resource shaping requires a versioned external quality-constraint reference; missing, unknown, expired or revoked quality authority fails closed.
+503. Owner/process liveness consumed by M09 is typed external evidence with source, freshness and explicit UNKNOWN semantics; M09 does not infer process death from missing evidence.
+504. Resource identities and claim scopes are placement-neutral; later M12 placement references may be attached without rewriting historical resource identity.
+505. Provider control capabilities are versioned and capability-negotiated; unknown mandatory provider semantics fail closed and unsupported controls are never fabricated.
+506. Tile/chunk/domain-sensitive shaping consumes opaque/versioned boundary-integrity descriptors from the owning domain and cannot invent missing spatial, temporal, audio, simulation or other domain semantics.
+507. Composite resource claims, grants and transfers declare mandatory/optional members, atomicity mode and per-member outcomes; partial success cannot masquerade as complete atomic success.
+508. External quality, fitness and evaluation evidence uses typed authority namespaces; M09 may reference but cannot reinterpret M14/M24/M48/M51 or other owning evidence as M09-owned quality truth.
+509. Public M09 evidence projections are versioned and minimal, carry provenance digests plus applicable redaction/security references, and do not expose mutable provider-private internals as canonical truth.
+510. Every automated resource mutation carries automation origin, actor/agent/workflow identity, authorization reference, causal request and stable idempotency identity; automation receives no implicit elevated authority.
+511. Spill-target and cleanup-eligibility integration uses versioned M55 capability/artifact references; cleanup eligibility never implies or fabricates physical deletion.
+512. Exported resource events carry schema/version, resource or incident identity, event time/window, state epoch, provenance and verification status; M56 consumption does not transfer M09 state authority.
+513. Precision, shape, transfer or recovery effects material to reproducibility carry explicit M06 materiality references rather than silently changing production identity semantics.
+514. M09 implementation acceptance produces a deterministic evidence bundle covering 8 GB VRAM and higher hardware classes, synthetic-versus-physical distinction, exact tested revision, all normative invariants and invariant-to-proof mapping.
+
+## Frozen contract inventory
+- canonical sessions: **5/5**;
+- hard invariants: **514**;
+- candidate technology surfaces reviewed: **98/98**;
+- independent mandatory surfaces: **83**;
+- mandatory absorbed components: **15**;
+- future modules scanned: **51/51 (M10-M60)**;
+- deleted safety obligations: **0**;
+- implementation code in planning PR: **0**.
+
+## Freeze semantics
+If final independent audit approves this candidate, `m09-contract-v1.0` becomes the sole authorized M09 implementation contract after the planning PR is protected-merged, planning closure is reconciled, and exact-main Governance passes. Any later semantic change to these 514 invariants requires an explicit versioned amendment; implementation may not silently reinterpret the contract.
+
+## Final contract acceptance gate
+- Governance passes on the exact candidate head.
+- All 514 invariants remain present and normative.
+- 83 independent surfaces and 15 absorbed components remain mandatory.
+- M07/M08/M10/M11/M12/M14/M53/M54/M55/M56 boundaries remain intact.
+- 8 GB VRAM remains first-class.
+- no scarcity path silently degrades quality or protected semantics.
+- no unresolved CRITICAL/HIGH planning finding remains.
+- no M09 implementation code is present.
+
+## STOP CONDITION
+Do not admit M09 implementation from the branch state alone. Final audit, protected planning merge, post-merge reconciliation and exact-main validation are mandatory first.
