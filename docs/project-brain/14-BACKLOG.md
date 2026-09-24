@@ -4,8 +4,12 @@ Status: `M10_PLANNING_ACTIVE`
 
 ## COMPLETED FOUNDATION
 - M01-M09 implementations are durably closed.
-- M09 closure reconciliation exact-main Governance passed on `e8ab43f42981630bad244a1d932e60e4ac584b2e`.
+- M09 contract `m09-contract-v1.0` is frozen and implemented through IRIS-WO-0013.
 - M09 completion evidence records 83/83 surfaces, 15/15 absorbed components, 514/514 invariant proofs and FC-09-01..14.
+- PR #65 was independently audited, protected-merged as `d4ebf87c266d6de04a4e978fa6b8ad8fa958618c`, and passed exact-main Governance `36016789990 / 107691278049`.
+- PR #66 closure reconciliation passed exact-head Governance `36025800675 / 107721889592`, was protected squash-merged as `e8ab43f42981630bad244a1d932e60e4ac584b2e`, and passed exact-main Governance `36027974675 / 107729242412`.
+- PR #67 reconciled the canonical checkpoint, passed exact-head Governance `36029267285 / 107733578946`, was protected squash-merged as `b6456670a7c61621db1d3b3fc6d55487adb9cd64`, and passed exact-main Governance `36029536926 / 107734488887`.
+- M09 closure reconciliation is complete; no M09 implementation changes are active.
 
 ## ACTIVE PLANNING
 - Module: **M10 — Adaptive Execution Planner & Predictive OOM/Thermal Shield**.
