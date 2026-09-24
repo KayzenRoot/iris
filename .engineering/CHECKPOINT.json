@@ -4,5 +4,5 @@
   "status": "M10_PLANNING_COMPLETE_IMPLEMENTATION_NOT_ADMITTED",
   "version": "m10-contract-v1.0",
   "phase": "M10_PLANNING_RECONCILED",
-  "nextStep": "Resolve the M11-M60 owner-contract register and M10 deferred decisions recorded in IRIS-WO-0014; refresh the proposal Context Lock at an exact current main SHA and rerun preflight before any separate implementation admission. Keep M10 implementation NOT ADMITTED."
+  "nextStep": "Resolve the M11-M60 owner-contract register and M10 deferred decisions recorded in IRIS-WO-0014; refresh its Context Lock at an exact current main SHA and rerun preflight before any separate implementation admission. Keep implementation NOT ADMITTED."
 }
