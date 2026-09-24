@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0013",
+  "issue": 64,
+  "branch": "iris-wo-0013-m09-resource-digital-twin",
+  "baseSha": "ee46815382be0907f373760a62b3b31805c7abee",
+  "status": "ADMITTED_FOR_EXECUTION",
+  "risk": "ELEVATED",
+  "frozenContract": {
+    "name": "m09-contract-v1.0",
+    "path": "planning/modules/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md"
+  },
+  "baseline": {
+    "governanceRun": 35978885089,
+    "governanceJob": 107565774466,
+    "tests": 3219,
+    "conclusion": "success"
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0013-M09-RESOURCE-DIGITAL-TWIN.md",
+      "sha": "25dadcb9856c66c8904bb6674717cd92a7209290"
+    },
+    {
+      "path": "planning/modules/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "sha": "3b931f8761372bd3773cc2b5d23244ad08aecee3"
+    },
+    {
+      "path": "planning/reviews/M09-FINAL-TECHNOLOGY-REVIEW.md",
+      "sha": "86909d649353439278bc305a6a4a6125345a4d83"
+    },
+    {
+      "path": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "sha": "1e5898f36b49e71f28eb18eb9582d48de60a58b4"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "sha": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "sha": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "sha": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "sha": "051c68afdcb9d3195ce3633a430e6d5f1b842410"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "sha": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "sha": "39b4e1acf4d914c3c1ff95997f57fddcf575ce85"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "sha": "e13672d332b5933a19a7284d8565c33dba60bda8"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "sha": "3031c75afb2d3d02c9559dd912cd6f8eed4b2d46"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "sha": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    }
+  ],
+  "inScope": [
+    "complete frozen m09-contract-v1.0 in iris_resource_twin",
+    "83 independent mandatory M09 technology surfaces",
+    "15 mandatory absorbed components",
+    "514 hard invariants",
+    "Resource Digital Twin",
+    "leases/reservations/residency",
+    "spill/offload/prefetch",
+    "adaptive resource shaping",
+    "pressure recovery/cleanup/leak detection",
+    "FC-09-01..14 handshakes"
+  ],
+  "outOfScope": [
+    "M10+ implementation",
+    "M07 discovery mutation",
+    "M08 benchmark/capability mutation",
+    "execution-plan selection/predictive OOM/thermal policy",
+    "worker/process lifecycle",
+    "compute placement/orchestration",
+    "model fitness",
+    "physical storage/deletion",
+    "observability aggregation",
+    "rights/security policy ownership",
+    "quality/creative semantics ownership"
+  ],
+  "stopCondition": "STOP after complete frozen M09 kernel is implemented, tested, documented, evidenced and ready for independent review. Do not merge. Do not start M10.",
+  "promptDelivery": "Complete external-executor prompts MUST be delivered as downloadable PDF under .engineering/PROMPT-DELIVERY-POLICY.md.",
+  "admissionValidation": {
+    "head": "dd2290e41e659bc8d712f85996f07e4ebf4ac36e",
+    "criticalSources": 13,
+    "fingerprintMismatches": 0,
+    "governanceRun": 35979243359,
+    "governanceJob": 107566916735,
+    "baselineTests": 3219,
+    "result": "PASS",
+    "baselineBasis": "Last exact proven full suite is 3219 PASS; repository comparison from M08 reconciliation main to M09 admission base contains zero tests/runtime/scripts changes."
+  },
+  "reconciliation": {
+    "reason": "CHAT_FIXABLE: admission promotion intentionally changed the Work Order status/admission proof after candidate fingerprints were captured.",
+    "promotedHead": "467c29ed93db6f501fb765e9a7ef2510d0b46756",
+    "promotedHeadGovernance": {
+      "run": 35979438214,
+      "job": 107567540989,
+      "result": "PASS"
+    },
+    "fingerprintCheck": {
+      "matchedBeforeRefresh": 12,
+      "total": 13,
+      "mismatches": [
+        ".engineering/work-orders/IRIS-WO-0013-M09-RESOURCE-DIGITAL-TWIN.md"
+      ],
+      "semanticUnexpectedMismatches": 0
+    },
+    "status": "EXACT_HEAD_VALIDATED",
+    "finalExactHeadValidation": {
+      "head": "3aa6ba6cdc54f6d4b63823a8c54e999ed966a6dc",
+      "run": 35979591762,
+      "job": 107568045204,
+      "result": "PASS"
+    }
+  },
+  "authorityReconciliation": {
+    "reason": "CHAT_FIXABLE: canonical checkpoint, Scope and Architecture still described superseded M07/M09-gated lifecycle after WO-0013 admission.",
+    "status": "EXACT_HEAD_VALIDATED",
+    "refreshHead": "3980bf5be91bc1bfd4a8e800aa861f33f8583da5",
+    "finalExactHeadValidation": {
+      "head": "9dbee28214527d12f67181ed08e56107b8a0f787",
+      "run": 35988457703,
+      "job": 107596573800,
+      "result": "PASS"
+    }
+  }
+}

@@ -1,34 +1,34 @@
 # IRIS Canonical Checkpoint
 
 ## STATUS
-M09_PLANNING_FROZEN
+M09_IMPLEMENTATION_ADMITTED
 
 ## VERSION
 m09-contract-v1.0
 
 ## PHASE
-M09_PLANNING_FREEZE_RECONCILIATION
+IRIS-WO-0013_EXECUTION
 
 ## OBJECTIVE
-Durably record the independently audited, protected-merged and exact-main validated M09 Resource Digital Twin & Dynamic VRAM Governor planning contract.
+Implement the complete frozen M09 Resource Digital Twin & Dynamic VRAM Governor contract under IRIS-WO-0013 without transferring downstream authority.
 
 ## COMPLETED
 - M01-M08 remain durably closed.
-- M09 S01-S05 planning was independently audited with zero unresolved CRITICAL/HIGH/MEDIUM findings.
-- Final Technology Review classified 98/98 candidates as 83 independent mandatory surfaces and 15 mandatory absorbed components.
-- M10-M60 Forward Compatibility Scan covered 51/51 future modules and added invariants 501-514.
-- Frozen planning contract `m09-contract-v1.0` contains 514 normative invariants with no ID gaps.
-- Final contract audit on head `e8b4995ab4732596217cc2e16565bdc65801db90` returned APPROVED.
-- Exact-head Governance `35978220291 / 107563635292` PASS.
-- Planning PR #62 was squash-merged as `1aec888b78689c31cd7b0c2f499b20365d65b332`.
-- Exact-main Governance `35978350482` PASS on that merge commit.
-- M09 implementation remains NOT ADMITTED.
+- M09 planning contract `m09-contract-v1.0` is frozen, independently approved, protected-merged and exact-main validated.
+- M09 planning reconciliation PR #63 was independently approved, merged as `ee46815382be0907f373760a62b3b31805c7abee`, and exact-main Governance `35978885089 / 107565774466` passed.
+- Implementation Issue #64 and PR #65 were opened from that exact authorized base.
+- IRIS-WO-0013 admission preflight proved 13/13 critical fingerprints, exact authorized base/merge-base and 3219-test baseline.
+- Admission Governance `35979243359 / 107566916735` passed.
+- Admission promotion Governance `35979438214 / 107567540989` passed.
+- Context-lock reconciliation reached head `3aa6ba6cdc54f6d4b63823a8c54e999ed966a6dc`.
+- Exact-head Governance `35979591762 / 107568045204` passed.
+- M09 implementation is ADMITTED_FOR_EXECUTION under IRIS-WO-0013.
 
 ## IN PROGRESS
-Post-merge planning reconciliation only. No M09 product/kernel implementation is permitted in this reconciliation.
+Complete frozen M09 implementation: 514 invariants, 83 independent mandatory surfaces, 15 mandatory absorbed components and FC-09-01..14 compatibility handshakes.
 
 ## BLOCKERS
-M09 implementation remains blocked until this reconciliation PR is independently audited, protected-merged and exact-main validated.
+None at admission. Any critical fingerprint drift, authority conflict or frozen-contract semantic conflict must fail closed.
 
 ## NEXT STEP
-Audit this reconciliation, merge it under exact-head protection, validate exact main, then admit M09 implementation through a separate Work Order.
+Execute IRIS-WO-0013 on PR #65, produce deterministic implementation/test/evidence proof, and STOP for independent review before merge.

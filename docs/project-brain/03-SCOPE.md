@@ -1,86 +1,26 @@
 # IRIS Scope
 
-Status: `M07_PLANNING_CONTRACT_FREEZE_CANDIDATE`
+Status: `M09_IMPLEMENTATION_ADMITTED`
 
-## Current governed increment — M06 implementation
+## Current governed increment — M09 implementation
 
-M05 Asset DNA 2.0 & Cross-Modal Identity is implemented, independently audited, merged and exact-main validated under `m05-contract-v1.0`. M06 Production State, Versioning & Incremental Media Build planning is frozen as `m06-contract-v1.0`, and IRIS-WO-0010 is admitted for implementation.
+M01-M08 are durably closed. M09 Resource Digital Twin & Dynamic VRAM Governor planning is frozen and approved as `m09-contract-v1.0`. IRIS-WO-0013 is admitted for execution on PR #65 from authorized base `ee46815382be0907f373760a62b3b31805c7abee`.
 
-### S01
-Persistent identity substrate, immutable revisions, typed traits, applicability states, canonical/evidence partition, anchors and projection contracts.
+M09 implementation scope is exactly the frozen contract: 514 hard invariants, 83 independent mandatory surfaces, 15 mandatory absorbed components and FC-09-01..14 compatibility handshakes. M09 owns resource-state/accounting, leases/reservations/residency, bounded mobility/offload/prefetch contracts, resource-shape feasibility/control state and bounded pressure/recovery/leak semantics.
 
-### S02
-Character/Creature/Object/Product/Environment profiles, semantic identity levels, persistent components, variants and persistent/contextual appearance separation.
-
-### S03
-Revision-pinned Scene/Motion/Voice/Brand cross-modal links, SceneIdentityDNA, bindings/obligations and domain-ownership firewalls.
-
-### S04
-Anchor authority/lifecycle, typed multi-dimensional drift evidence, repair-vs-mutation firewall, mutation decisions, identity break/split/consolidation and privacy-minimized evidence.
-
-### S05
-- semantic DNA lineage separate from M02 branches;
-- M02 semantic build/version lifecycle plus M06 operational persistence/reconstruction firewall;
-- directional multi-axis `DNACompatibilityProfile`;
-- explicit `DNAMigrationPlan` with preservation/loss/defaults;
-- `ReusableDNAPackageManifest`;
-- portable package levels;
-- `DNAMarketplaceContract` as exchange/conformance metadata only;
-- M53 rights/provenance authority;
-- M54 security/restricted-content authority;
-- M55 storage/CAS authority;
-- M58 API/SDK/MCP/conformance surface boundary;
-- M59 concrete export/publishing/delivery authority;
-- typed dependency closure;
-- staged import admission;
-- deterministic `DNAPackageConformanceReport`;
-- non-executable/fail-closed supply-chain default.
-
-### Final Technology Review
-- verdict: **APPROVED_FOR_FORWARD_COMPATIBILITY**;
-- design-history candidates: **IRIS-DNAX-001..150**;
-- consolidated freeze-candidate families: **F-M05-01..25**;
-- mapping: **150/150 exactly once, 0 missing, 0 duplicates**;
-- implementation code: **0**.
-
-### Forward Compatibility Scan
-- modules scanned: **M06-M60 (55)**;
-- verdict: **PASS_WITH_EXTENSION_PORTS**;
-- critical ownership conflicts remaining: **0**;
-- corrected conflicts: **M02/M06 authority wording**, **M39 competing identity-root wording**;
-- required extension/ref families: **22**.
-
-### Frozen planning contract
-- contract: **`m05-contract-v1.0`**;
-- artifact: `planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md`;
-- status: **FROZEN_APPROVED**;
-- independent planning audit: **APPROVED**;
-- hard invariants: **150**;
-- consolidated families: **25**;
-- extension/ref ports: **22**;
-- implementation code: **0**.
-
-### Planning promotion
-- PR #38: **squash-merged**;
-- merge SHA: `2b5b7330a684fece8e354b6fe88b8fcd4bb0611f`;
-- exact-main Governance: `35843109186 / 107122673542` — **PASS**;
-- exact-main suite: **2677/2677 OK**.
-
-### Next governed step
-Deep-plan M07 Hardware Genome & Runtime Discovery through S01-S05, Final Technology Review, Forward Compatibility Scan and Module Contract Freeze. No M07 product/runtime implementation is admitted during this planning cycle.
+M09 does not own M10 execution planning/predictive OOM/thermal policy, M11 process lifecycle, M12 placement/orchestration, M14 model fitness, M53/M54 rights/security policy, M55 physical storage/delete, M56 observability aggregation, M01 quality authority or M03 protected semantic authority.
 
 ### NOT ADMITTED
-- M07 product/runtime implementation before its planning/freeze/audit/admission gates;
-- M08+ deep planning or implementation during the active M07 planning cycle;
-- project/VCS branching inside M05;
-- production build/version authority;
-- marketplace payments/storefront/ranking;
-- rights/license/consent decision authority;
-- security scanning/restricted-content enforcement runtime;
-- storage/CAS runtime;
-- publishing/export runtime;
-- executable package payloads by default.
+- M10+ implementation;
+- silent quality, precision, fidelity or protected-semantic degradation under scarcity;
+- unrelated process termination/suspension or external allocation theft;
+- physical storage deletion by M09;
+- fabricated resource, provider, reclamation or physical-measurement evidence;
+- frozen-contract semantic changes without versioned amendment.
+
+### Next governed step
+Execute IRIS-WO-0013 completely, validate and independently audit PR #65, then merge only through protected gates. Do not start M10 implementation during M09 execution.
 
 ## IRIS 1.0 product scope
 
-IRIS 1.0 continues to include M00-M60. M05 and M06 implementations are complete, independently approved, merged and exact-main validated. M07 planning is active; M07 implementation and later modules remain gated by the official module lifecycle.
+IRIS 1.0 continues to include M00-M60. M01-M08 implementations are durably closed. M09 implementation is the active governed increment under IRIS-WO-0013. M10+ remain gated by the official module lifecycle.
