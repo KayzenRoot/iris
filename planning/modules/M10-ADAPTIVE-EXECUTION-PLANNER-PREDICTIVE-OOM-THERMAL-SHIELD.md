@@ -1,6 +1,6 @@
 # M10 — Adaptive Execution Planner & Predictive OOM/Thermal Shield
 
-Status: `PLANNING_S04_CANDIDATE_PENDING_GOVERNANCE`
+Status: `PLANNING_S05_CANDIDATE_PENDING_GOVERNANCE`
 Module: **M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield**
 Planning Work Order: [Issue #68](https://github.com/KayzenRoot/iris/issues/68)
 Authorized planning base: `b6456670a7c61621db1d3b3fc6d55487adb9cd64`
@@ -9,6 +9,8 @@ S02 exact head: `0fa18f55d845192d4225751ec14316af08ec6dad`; Governance `36032894
 S02 protected squash merge / exact-main: `8d068d1cf9ef604aef8506ec879b7a382ec1b738`; Governance `36033011233 / 107746156289` — **PASS**
 S03 exact head: `db9fc7e0f0e7615c075cfaee3debec3a3990697b`; Governance `36034416554 / 107750841548` — **PASS**
 S03 protected squash merge / exact-main: `8768661ee348815ec5b1eb6e32bc85505fa10b17`; Governance `36034538318 / 107751237481` — **PASS**
+S04 exact head: `add4344d6b1a495f1aeeb23af0d57fdcddde381e`; Governance `36037625164 / 107761547909` — **PASS**
+S04 protected squash merge / exact-main: `96aee147e701c6d716cfbcf5f2be524ee5d751e7`; Governance `36037710495 / 107761836741` — **PASS**
 S01 exact-main Governance: `36031548275 / 107741264931` — **PASS**
 Admission Governance: `36029536926 / 107734488887` — **PASS**
 Implementation authority: **NOT ADMITTED**
@@ -26,8 +28,8 @@ This document is a planning candidate. No M10 product/runtime/test implementatio
 | S01 | Workload Signature Engine | COMPLETE_FOR_MODULE_PLANNING |
 | S02 | Hardware-aware execution plan compilation | COMPLETE_FOR_MODULE_PLANNING |
 | S03 | Predictive OOM, thermal and quality-risk models | COMPLETE_FOR_MODULE_PLANNING |
-| S04 | ECO / BALANCED / QUALITY / MAX / CUSTOM policy semantics | CANDIDATE_COMPLETE_PENDING_GOVERNANCE |
-| S05 | Observed-result learning loop and explainable decisions | NOT_STARTED |
+| S04 | ECO / BALANCED / QUALITY / MAX / CUSTOM policy semantics | COMPLETE_FOR_MODULE_PLANNING |
+| S05 | Observed-result learning loop and explainable decisions | CANDIDATE_COMPLETE_PENDING_GOVERNANCE |
 
 ## Authority boundaries
 
@@ -318,8 +320,10 @@ See [M10 S03 research](../research/M10-S03-PREDICTIVE-RISK-CALIBRATION.md) for t
 
 ## S04 — ECO / BALANCED / QUALITY / MAX / CUSTOM policy semantics
 
-Status: `CANDIDATE_COMPLETE_PENDING_GOVERNANCE`
+Status: `COMPLETE_FOR_MODULE_PLANNING`
 Session base: `8768661ee348815ec5b1eb6e32bc85505fa10b17`
+Exact head: `add4344d6b1a495f1aeeb23af0d57fdcddde381e`; Governance `36037625164 / 107761547909` — **PASS**
+Protected squash merge / exact-main: `96aee147e701c6d716cfbcf5f2be524ee5d751e7`; Governance `36037710495 / 107761836741` — **PASS**
 Implementation authority: **NOT ADMITTED**
 
 ### Objective
@@ -395,9 +399,90 @@ See [M10 S04 research](../research/M10-S04-POLICY-SEMANTICS.md) for the primary-
 
 ## S05 — Observed-result learning loop and explainable decisions
 
-Status: `NOT_STARTED`
+Status: `CANDIDATE_COMPLETE_PENDING_GOVERNANCE`
+Session base: `96aee147e701c6d716cfbcf5f2be524ee5d751e7`
+Implementation authority: **NOT ADMITTED**
 
-Define outcome receipts, feedback provenance, label validity, versioned model updates, rollback, drift quarantine, explanations and reproducible re-evaluation. Learning cannot mutate upstream evidence or silently change policy.
+### Objective
+
+Define how M10 consumes observed outcomes to improve future risk estimates while preserving owner authority, dataset/model provenance, reproducibility, privacy and a controlled rollback path. S05 does not implement online learning, change policy automatically, relabel upstream evidence or promote a model on its own.
+
+### Outcome and decision receipts
+
+A candidate append-only receipt binds:
+
+- exact M02 request/graph revision; S01 signature; S02 bounded alternatives; S03 risk records; and S04 policy-profile revision;
+- chosen/executed alternative, alternatives considered but not selected, selection reason and any authorization/fallback used;
+- exact hardware/partition, driver/runtime, provider/workflow, model, benchmark and M09 resource context material to the run;
+- owner-issued terminal outcome references and capture windows from M01/M07/M08/M09/M11/M16 and other applicable authorities;
+- distinct predicted risk, observed sensor/resource facts, terminal label, censoring/abort/unknown state and label-validation receipt;
+- timestamps, schema/source versions, integrity reference and permitted privacy/retention classification.
+
+M10 records predictions and references owner outcomes; it does not create device truth, decide M01 quality, infer a confirmed OOM from pressure, or convert an incomplete run into a safe label. Corrections append a superseding receipt with provenance; prior records are not silently rewritten. Raw prompts, media and credentials are excluded by default; any exception requires M54-compatible purpose, access, minimization and retention authority.
+
+### Candidate feedback and model lifecycle
+
+The planning candidate separates these stages:
+
+1. **Ingest.** Accept only owner-issued, revision-pinned receipts with integrity, scope, source capability and privacy/retention metadata.
+2. **Validate labels.** Resolve outcomes under the owning M01/M07/M08/M09/M11/M16 contracts. Keep ambiguous, censored, conflicting, unsupported or incomplete results unknown or quarantined.
+3. **Freeze a dataset snapshot.** Record feature/label definitions, source revisions, collection window, exclusions, cohort coverage, transformations and lineage in an immutable manifest.
+4. **Prepare a candidate evaluation package.** A future owner-authorized training pipeline may produce an immutable candidate; M10 records its lineage and evaluation inputs. M14 remains authority for model fitness; M10 cannot self-certify, overwrite or silently activate a model.
+5. **Evaluate independently.** Re-run S03 calibration and S04 decision cases against frozen time-held-out and workload/hardware/runtime cohorts. Compare the candidate with the currently approved reference, including false-safe behavior, calibration, abstention, subgroup/worst-group results and policy-decision changes.
+6. **Review and approve.** Require explicit owner review of labels, model fitness, M01 quality implications, M54 privacy/security and the applicable governance gate before any candidate is eligible for use.
+7. **Promote by immutable reference.** A future authorized lifecycle may point policy to a new model/dataset/evaluation version. Preserve prior approved versions, applicability scopes, approval receipts and decision history.
+8. **Rollback reproducibly.** Revert only to a still-approved compatible version, with a reason, trigger evidence and an auditable policy/model transition receipt. Rollback cannot restore a version whose scope or source contract is invalid.
+
+No update cadence, rollout percentage, performance acceptance threshold or automatic promotion behavior is selected by S05. Exact promotion and rollback owners remain a contract-freeze decision, respecting M14 and governance authority.
+
+### Bias, drift and incomplete feedback
+
+- Outcomes exist only for executed alternatives. A non-selected plan has no observed result; do not fabricate counterfactual labels or treat “not run” as failure/success.
+- Log the full considered candidate set and selection policy so evaluation can identify mode/selection effects. Observational feedback alone does not prove causality.
+- Keep retries, frames and related executions in one lineage group during evaluation splits; preserve time order for sequential calibration and drift review.
+- Retain cancellations, timeouts, process loss, invalid benchmarks and partial telemetry as distinct censored/unknown outcomes, not negative or safe labels.
+- A change in hardware partition, runtime/driver, provider/workflow, model, M01 contract, M09 resource semantics, label definition or policy profile may invalidate applicability. Re-evaluate or quarantine the affected slice; never broaden the model's declared scope silently.
+- Drift alarms or missing provenance pause use for the affected slice and return to S03 abstention/no-safe-plan behavior pending owner review.
+- S05 does not authorize exploration workloads, shadow dispatch, canary execution or additional measurement that consumes resources; those require separate M11/M12/M09 and operator authorization.
+
+### Explanation and reproducibility
+
+A decision explanation should make the chain inspectable:
+
+- the exact policy/profile, candidate set, hard constraints and S03 evidence used;
+- why alternatives were rejected, retained or recommended;
+- which measurements were observed versus estimated/predicted, their support/freshness and uncertainty;
+- model, dataset, calibration, label and owner-receipt versions;
+- known limitations, OOD/drift/abstention status and any human/owner review;
+- replay inputs and compatible artifacts needed to reproduce the decision.
+
+An explanation must describe the actual policy path and evidence. It must not present correlation, feature attribution or an after-the-fact narrative as causal proof. Keep explanations bounded and redact information outside the viewer's authorization.
+
+### S05 validation cases and exit criteria
+
+Future evidence should prove that: invalid owner labels remain quarantined; corrections preserve prior receipts; dataset/model/evaluation versions replay exactly; time/workload leakage is prevented; non-selected alternatives stay unlabeled; model drift suspends only the affected applicability slice; promotion requires explicit evidence and approval; rollback restores a compatible approved version; explanations distinguish prediction from observation; and privacy/retention limits are enforced. These are planning obligations, not tests added in this PR.
+
+S05 is ready for planning review when:
+
+- outcome receipts preserve exact provenance, source ownership, scope, censoring and privacy state;
+- labels cannot be mutated or promoted by M10;
+- dataset snapshots and candidate model/evaluation packages are immutable and reproducible;
+- candidate evaluation reuses S03 risk calibration and S04 policy cases on independent/time-aware splits;
+- selection bias, missing counterfactuals, drift, quarantine and rollback are explicit;
+- explanations connect policy, evidence, constraints and alternatives without unsupported causal claims;
+- M01/M02/M03/M07/M08/M09/M11/M12/M14/M16/M50/M54/M56 authority boundaries remain intact;
+- no online learning, silent promotion, numerical gate, rollout setting or implementation is admitted.
+
+### Open S05 decisions
+
+- Which owner issues each terminal receipt and resolves conflicting or delayed labels.
+- M14's exact fitness/evaluation handoff and model-artifact lifecycle.
+- M01 approval requirements for evaluator or Fidelity Contract changes.
+- M54 retention, redaction, access and deletion semantics for training/evaluation evidence.
+- Which re-evaluation cadence, drift detectors, quarantine triggers and rollback authority are supported by evidence.
+- Whether any shadow/canary measurement is admitted later, and its M09/M11/M12/operator authorization.
+
+See [M10 S05 research](../research/M10-S05-OBSERVED-RESULT-LEARNING.md) for the primary-source basis and unresolved governance choices.
 
 ## Required planning lifecycle
 

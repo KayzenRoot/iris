@@ -4,10 +4,10 @@
 M10_PLANNING_ACTIVE
 
 ## VERSION
-m10-planning-s04-v0
+m10-planning-s05-v0
 
 ## PHASE
-M10_S04_POLICY_SEMANTICS_CANDIDATE
+M10_S05_OBSERVED_RESULT_LEARNING_CANDIDATE
 
 ## OBJECTIVE
 Plan M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield through the governed five-session lifecycle without admitting product implementation.
@@ -29,13 +29,15 @@ Plan M10 Adaptive Execution Planner & Predictive OOM/Thermal Shield through the 
 - M10 S02 hardware-aware plan compilation is complete for module planning. M02 remains canonical plan owner; M10 only defines bounded, evidence-backed alternatives.
 - PR #71 S03 exact head `db9fc7e0f0e7615c075cfaee3debec3a3990697b` passed Governance `36034416554 / 107750841548`, was protected squash-merged as `8768661ee348815ec5b1eb6e32bc85505fa10b17`, and passed exact-main Governance `36034538318 / 107751237481`.
 - M10 S03 predictive OOM, thermal and quality-risk models are complete for module planning; the three calibrated-risk outputs remain distinct and retain explicit abstention.
-- M10 S04 ECO/BALANCED/QUALITY/MAX/CUSTOM policy semantics are documented as a planning candidate from exact-main `8768661ee348815ec5b1eb6e32bc85505fa10b17`; its exact-head Governance, protected merge and exact-main validation remain pending.
+- PR #72 S04 exact head `add4344d6b1a495f1aeeb23af0d57fdcddde381e` passed Governance `36037625164 / 107761547909`, was protected squash-merged as `96aee147e701c6d716cfbcf5f2be524ee5d751e7`, and passed exact-main Governance `36037710495 / 107761836741`.
+- M10 S04 ECO/BALANCED/QUALITY/MAX/CUSTOM policy semantics are complete for module planning; hard constraints remain separate from explicit preferences.
+- M10 S05 observed-result learning and explainable decisions are documented as a planning candidate from exact-main `96aee147e701c6d716cfbcf5f2be524ee5d751e7`; its exact-head Governance, protected merge and exact-main validation remain pending.
 
 ## IN PROGRESS
-M10 planning only under Issue #68. S04 candidate is pending exact-head Governance and protected merge; S05, final technology review, M11-M60 compatibility scan, contract freeze and independent planning audit remain pending. M10 product/runtime implementation is NOT ADMITTED and NOT STARTED.
+M10 planning only under Issue #68. S05 candidate is pending exact-head Governance and protected merge; Final Technology Review, M11-M60 compatibility scan, contract freeze and independent planning audit remain pending. M10 product/runtime implementation is NOT ADMITTED and NOT STARTED.
 
 ## BLOCKERS
 M10 implementation remains NOT ADMITTED and NOT STARTED until the complete planning lifecycle is approved, its contract is frozen, its compatibility scan and independent audit pass, and a separate implementation Work Order / Context Lock / Evidence package passes preflight.
 
 ## NEXT STEP
-Pass the S04 policy candidate through exact-head Governance, protected squash merge and exact-main validation; then continue S05 observed-result learning. Keep M10 implementation NOT ADMITTED.
+Pass the S05 learning candidate through exact-head Governance, protected squash merge and exact-main validation; then begin Final Technology Review and the remaining planning lifecycle. Keep M10 implementation NOT ADMITTED.
