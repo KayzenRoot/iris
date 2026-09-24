@@ -66,4 +66,4 @@ Read the canonical startup order: Checkpoint → Decisions Ledger → Scope → 
 
 ## CURRENT PACKAGE STATE
 
-This admission PR creates the M11 planning scaffold and its gates. It does not claim that any session, technology review, forward scan, contract freeze, or implementation preflight has been completed.
+The planning admission package merged through PR #83. Exact PR head e35632e3f4775b0ccc89c6723a19faca767a59f2 passed Governance 36063003154 / 107846144342; protected squash merge 09441373deffe35258a41d14b959333a42fbcdd3 passed exact-main Governance 36063188222 / 107846747270 (actor: KayzenRoot). The initial package remains documentation-only: S01–S05 are NOT_STARTED, no M11 owner contract is frozen, Issue #82 remains open, and neither M11 nor M10 implementation is admitted.

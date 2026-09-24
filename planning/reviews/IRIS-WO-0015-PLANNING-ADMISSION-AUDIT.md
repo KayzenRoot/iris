@@ -39,4 +39,6 @@ HIVE MCP was not exposed in the current Work Mode connection. No HIVE-derived fa
 
 ## Gate result
 
-The documentation proposal is suitable for review and merge only after Governance passes on the final PR head. This verdict does not freeze an M11 contract, admit M11 implementation, admit M10 implementation, or close Issue #82.
+PR #83 exact head e35632e3f4775b0ccc89c6723a19faca767a59f2 passed Governance 36063003154 / 107846144342, including exact-candidate assertion, validator and 3940/3940 repository tests. Protected squash merge 09441373deffe35258a41d14b959333a42fbcdd3 passed exact-main Governance 36063188222 / 107846747270 (actor: KayzenRoot).
+
+The planning-admission proposal is approved for documentation planning only. This does not freeze an M11 contract, admit M11 implementation, admit M10 implementation, or close Issue #82.

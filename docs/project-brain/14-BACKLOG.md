@@ -37,7 +37,7 @@ Status: `M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED`
 - Issue: #82; planning Work Order: IRIS-WO-0015.
 - Exact planning base: 0014d23115f5fec60a77e5e32d5083e90069a918; admission Governance: 36059512224 / 107834755459, PASS.
 - Five canonical sessions: S01 supervisor/job model; S02 background startup/IPC; S03 concurrency/priorities/leases; S04 reaper/zombie detection/shell-free execution; S05 cancellation/timeouts/recovery/workstation coexistence.
-- Current state: planning admitted; all sessions NOT_STARTED; M11 owner contract not frozen.
+- Current state: planning admitted; all sessions NOT_STARTED; M11 owner contract not frozen. Admission PR #83 exact head e35632e3f4775b0ccc89c6723a19faca767a59f2 passed Governance 36063003154 / 107846144342; protected squash merge 09441373deffe35258a41d14b959333a42fbcdd3 passed exact-main Governance 36063188222 / 107846747270 (actor: KayzenRoot).
 - Available owner sources checked: M02, M06, M09, M10. M12–M60 owner-specific details remain pending until each canonical contract exists.
 - M11 implementation: NOT_ADMITTED. M10 contract remains m10-contract-v1.0; M10 implementation remains NOT_ADMITTED and WO-0014 preflight BLOCKED.
 

@@ -4,5 +4,5 @@
   "status": "M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED",
   "version": "m10-contract-v1.0",
   "phase": "M11_PLANNING_ADMITTED",
-  "nextStep": "After the M11 planning admission package passes exact-head Governance, protected squash merge and exact-main Governance, begin M11 S01 as a separate documentation increment under Issue #82. Complete S01–S05 and all planning reviews before proposing an M11 contract freeze. Keep M11 and M10 implementation NOT_ADMITTED."
+  "nextStep": "Begin M11 S01 as a separate documentation increment under Issue #82. Complete S01–S05 and all planning reviews before proposing an M11 contract freeze. Keep M11 and M10 implementation NOT_ADMITTED."
 }
