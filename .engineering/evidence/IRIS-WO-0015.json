@@ -58,7 +58,7 @@
     {
       "id": "S02",
       "title": "Headless/background worker startup and IPC",
-      "status": "NOT_STARTED"
+      "status": "PROPOSED_COMPLETE_PENDING_GOVERNANCE"
     },
     {
       "id": "S03",
@@ -341,7 +341,7 @@
     ".engineering/evidence/IRIS-WO-0015.json",
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
   ],
-  "currentPhase": "M11_S01_COMPLETE_FOR_MODULE_PLANNING",
+  "currentPhase": "M11_S02_PROPOSAL_READY_FOR_EXACT_HEAD_GOVERNANCE",
   "sessionCloseoutChangedFiles": [
     ".engineering/context-locks/IRIS-WO-0015-S01-CLOSEOUT.json",
     ".engineering/evidence/IRIS-WO-0015.json",
@@ -354,5 +354,111 @@
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
     "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
     "planning/reviews/IRIS-WO-0015-S01-DOCUMENTATION-AUDIT.md"
-  ]
+  ],
+  "s02SessionProposal": {
+    "status": "PROPOSED_COMPLETE_PENDING_GOVERNANCE",
+    "issue": 82,
+    "workOrder": "IRIS-WO-0015",
+    "baseSha": "5c9ac035e10e5485a0b8449e59622eaa1374cb6e",
+    "branch": "iris-wo-0015-m11-s02-headless-ipc-20260924",
+    "artifact": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+    "contextLock": ".engineering/context-locks/IRIS-WO-0015-S02.json",
+    "sourceSnapshot": {
+      "algorithm": "Git blob SHA-1",
+      "baseTreeSha": "487ef28547597d89b4b678440b984987089776b2",
+      "checked": 63,
+      "matched": 63,
+      "mismatches": 0
+    },
+    "ownerContractReview": {
+      "M02": "m02-contract-v1.0; semantic identity, Production Graph, ExecutionPlan and production lifecycle remain M02-owned; startup acceptance handoff unresolved.",
+      "M06": "m06-contract-v1.0; operational revision/materialization and ExecutionAttemptPort are M06-owned; payload and attempt mapping unresolved.",
+      "M09": "m09-contract-v1.0; resource and lease truth remain M09-owned; no startup reservation or lease mutation.",
+      "M10": "m10-contract-v1.0; advisory only; no dispatch, placement or worker/process control.",
+      "M11": "No owner contract or version exists; this session is exploratory.",
+      "M12_M60": "Individual owner contracts are absent at the exact base; worker-specific handoffs remain pending."
+    },
+    "technologyCandidates": [
+      {
+        "id": "TECH-M11-005",
+        "technology": "Blender 5.1 command-line background mode",
+        "classification": "EXISTING_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-006",
+        "technology": "Python 3.12 asyncio subprocess APIs",
+        "classification": "EXISTING_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-007",
+        "technology": "MCP 2026-07-28 stdio transport",
+        "classification": "EXISTING_PROTOCOL_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-008",
+        "technology": "MCP 2026-07-28 Streamable HTTP",
+        "classification": "EXISTING_PROTOCOL_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-009",
+        "technology": "Unix domain sockets",
+        "classification": "EXISTING_PLATFORM_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-010",
+        "technology": "Windows named pipes",
+        "classification": "EXISTING_PLATFORM_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "CAND-M11-002",
+        "technology": "Reference-preserving startup and registration envelope",
+        "classification": "PROPRIETARY_CANDIDATE",
+        "status": "PROPOSED"
+      }
+    ],
+    "internalReuseStatus": "IRIS scripts/hive_mcp.py and gef_preflight.py prove one-shot subprocess calls only. UGAS/HIVE/CORE supervisor reuse remains UNVERIFIED; HIVE MCP tools unavailable in active Work Mode.",
+    "architectureDecision": "NONE; direct child stdio, local IPC endpoint and independent HTTP endpoint remain alternatives. MCP stdio/HTTP are candidate bindings, not selected worker IPC.",
+    "unresolvedQuestionIds": [
+      "S02-U01",
+      "S02-U02",
+      "S02-U03",
+      "S02-U04",
+      "S02-U05",
+      "S02-U06",
+      "S02-U07",
+      "S02-U08",
+      "S02-U09",
+      "S02-U10",
+      "S02-U11",
+      "S02-U12"
+    ],
+    "pendingOwnerDetails": {
+      "M12": "Placement, local/remote host, endpoint trust and supervisor handoff.",
+      "M16_M17": "Workflow/provider launch and runtime queue semantics.",
+      "M26": "Supported Blender release, file/script trust, add-on environment and DCC/MCP boundary.",
+      "M54": "Principal/authentication/authorization, sandbox, credentials, inherited environment and redaction.",
+      "M56": "Event schema, correlation, telemetry, logs and retention.",
+      "M60": "Supported host service, setup, upgrade and durable recovery semantics.",
+      "M12_M60_ALL": "Every individual owner-specific input/output, capability, policy, evidence, lifecycle and error detail remains PENDING until the canonical owner contract exists."
+    },
+    "documentationPreflight": {
+      "status": "PASS_FOR_S02_SESSION_DOCUMENTATION_PENDING_EXACT_HEAD_GOVERNANCE",
+      "docsOnly": true,
+      "runtimeOrTestOrProcessOperation": false,
+      "m11ContractFrozen": false,
+      "m11Implementation": "NOT_ADMITTED",
+      "m10Implementation": "NOT_ADMITTED",
+      "hiveMcpAvailable": false,
+      "exactHeadGovernance": "PENDING",
+      "protectedMerge": "PENDING",
+      "exactMainGovernance": "PENDING"
+    },
+    "runtimeEvidence": "NONE; no runtime code, process/IPC operation, provider execution, resource reservation or hardware measurement."
+  }
 }
