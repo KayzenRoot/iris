@@ -63,7 +63,7 @@
     {
       "id": "S03",
       "title": "Concurrency limits, priorities and resource leases",
-      "status": "NOT_STARTED"
+      "status": "COMPLETE_FOR_MODULE_PLANNING"
     },
     {
       "id": "S04",
@@ -341,7 +341,7 @@
     ".engineering/evidence/IRIS-WO-0015.json",
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
   ],
-  "currentPhase": "M11_S03_PROPOSED_PENDING_INDEPENDENT_REVIEW_PROTECTED_MERGE_AND_EXACT_MAIN_GOVERNANCE",
+  "currentPhase": "M11_S04_NOT_STARTED",
   "sessionCloseoutChangedFiles": [
     ".engineering/context-locks/IRIS-WO-0015-S01-CLOSEOUT.json",
     ".engineering/evidence/IRIS-WO-0015.json",
@@ -543,7 +543,7 @@
     "planning/reviews/IRIS-WO-0015-S02-DOCUMENTATION-AUDIT.md"
   ],
   "s03SessionProposal": {
-    "status": "PROPOSED_COMPLETE_PENDING_GOVERNANCE",
+    "status": "COMPLETE_FOR_MODULE_PLANNING",
     "issue": 82,
     "workOrder": "IRIS-WO-0015",
     "baseSha": "9463dfe087bd9991c7e9aaf40a956ff497a8b9f4",
@@ -671,38 +671,157 @@
       "m11Implementation": "NOT_ADMITTED",
       "m10Implementation": "NOT_ADMITTED",
       "hiveMcpAvailable": false,
-      "status": "LOCAL_VALIDATION_PASS_BEFORE_PULL_REQUEST; exact-head and protected-merge gates are tracked separately."
+      "status": "PASS_FOR_S03_SESSION_DOCUMENTATION_ONLY",
+      "exactHeadGovernance": {
+        "runId": 36189044035,
+        "jobId": 108249450672,
+        "headSha": "778218c04fb9481cab75122001deb87814ce3e68",
+        "actor": "KayzenRoot",
+        "result": "PASS",
+        "tests": "3940/3940"
+      },
+      "protectedMerge": {
+        "pullRequest": 89,
+        "method": "squash",
+        "headSha": "778218c04fb9481cab75122001deb87814ce3e68",
+        "mergeSha": "ad3c4ac4aa84890248fbc7e6250bea2de271fd65",
+        "actor": "KayzenRoot",
+        "result": "MERGED"
+      },
+      "exactMainGovernance": {
+        "runId": 36189379137,
+        "jobId": 108250522233,
+        "headSha": "ad3c4ac4aa84890248fbc7e6250bea2de271fd65",
+        "actor": "KayzenRoot",
+        "result": "PASS",
+        "tests": "3940/3940"
+      }
     },
     "documentationAudit": {
-      "status": "PASS_FOR_S03_SESSION_DOCUMENTATION_ONLY",
-      "reviewType": "Review of the exact four-file proposal against the locked base; final independent M11 planning audit remains pending after S01-S05 and final reviews.",
+      "status": "APPROVED_FOR_S03_SESSION_PLANNING_CLOSEOUT",
+      "reviewType": "Post-authoring source, authority, status and scope audit of PR #89 exact corrected head and merged proposal.",
       "highFindings": 0,
       "criticalFindings": 0,
       "residualFindings": 0,
       "finalIndependentM11PlanningAudit": "PENDING_AFTER_S01_S05_AND_FINAL_PLANNING_REVIEWS",
       "reviewer": "Codex post-authoring source, authority and scope review",
-      "reviewedFiles": 4
+      "reviewedFiles": 4,
+      "reviewedHead": "778218c04fb9481cab75122001deb87814ce3e68",
+      "baseSha": "9463dfe087bd9991c7e9aaf40a956ff497a8b9f4",
+      "changedFilesReviewed": 4,
+      "sourceFingerprints": {
+        "checked": 68,
+        "matched": 68,
+        "mismatches": 0
+      }
     },
     "validation": {
       "gitDiffCheck": "PASS; staged four-file patch",
       "governanceValidator": "PASS; Python 3.13.15; 35 required artifacts; GEF/HIVE v1.0.0",
       "bootstrapCompile": "PASS; Python 3.13.15",
       "repositoryTestCommand": "python -m unittest discover -s tests -p \"test_*.py\" -v",
-      "repositoryTestResult": "PASS; 3940 tests in 22.485s on Python 3.13.15; exact-head CI pending",
+      "repositoryTestResult": "PASS; 3940 tests in 12.376s on exact corrected head under repository Python 3.12 Governance run.",
       "lastKnownBaseSuiteCount": 3940,
-      "exactHeadGovernance": "PASS on initial proposal head e5bbb606ba397b6818cd780495b317eb3ee051f3; run 36186968935 (#404), job 108242628134. Any follow-up head must pass its own exact-head Governance check.",
+      "exactHeadGovernance": "PASS on corrected proposal head 778218c04fb9481cab75122001deb87814ce3e68; run 36189044035 (#405), job 108249450672. Full 3940-test suite passed; any closeout head must pass its own exact-head Governance check.",
       "changedPathCount": 4,
       "localPython": "3.13.15",
       "repositoryTestRunPython": "3.13.15"
     },
     "runtimeEvidence": "NONE; no worker/process/provider launch, IPC, resource reservation, lease mutation or hardware measurement.",
-    "checkpointDelta": "NONE; no checkpoint or merge closeout is part of this S03 Draft PR increment.",
-    "destination": "PR #89 remains Draft and unmerged after initial-head Governance PASS; await independent review and protected merge. S03 closeout requires exact-main Governance. Do not mark S03 complete, freeze M11, or begin S04/S05."
+    "checkpointDelta": "Recorded only in the separate S03 checkpoint/evidence closeout; this proposal increment did not modify canonical checkpoint mirrors.",
+    "destination": "S03 is COMPLETE_FOR_MODULE_PLANNING after PR #89 protected squash merge and exact-main Governance PASS. M11 remains NOT_FROZEN and M11/M10 implementation remain NOT_ADMITTED. Begin S04 only after the separate S03 checkpoint/evidence closeout passes exact-main Governance."
   },
   "s03ProposalChangedFiles": [
     ".engineering/context-locks/IRIS-WO-0015-S03.json",
     ".engineering/evidence/IRIS-WO-0015.json",
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
     "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md"
+  ],
+  "s03SessionCloseout": {
+    "status": "COMPLETE_FOR_MODULE_PLANNING",
+    "issue": 82,
+    "workOrder": "IRIS-WO-0015",
+    "proposalPullRequest": 89,
+    "proposalBaseSha": "9463dfe087bd9991c7e9aaf40a956ff497a8b9f4",
+    "proposalHeadSha": "778218c04fb9481cab75122001deb87814ce3e68",
+    "proposalExactHeadGovernance": {
+      "runId": 36189044035,
+      "jobId": 108249450672,
+      "headSha": "778218c04fb9481cab75122001deb87814ce3e68",
+      "actor": "KayzenRoot",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "protectedMerge": {
+      "pullRequest": 89,
+      "method": "squash",
+      "headSha": "778218c04fb9481cab75122001deb87814ce3e68",
+      "mergeSha": "ad3c4ac4aa84890248fbc7e6250bea2de271fd65",
+      "actor": "KayzenRoot",
+      "result": "MERGED"
+    },
+    "exactMainGovernance": {
+      "runId": 36189379137,
+      "jobId": 108250522233,
+      "headSha": "ad3c4ac4aa84890248fbc7e6250bea2de271fd65",
+      "actor": "KayzenRoot",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "proposalContextLock": {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S03.json",
+      "checked": 68,
+      "matched": 68,
+      "mismatches": 0,
+      "baseSha": "9463dfe087bd9991c7e9aaf40a956ff497a8b9f4",
+      "baseTreeSha": "b8b6520d4c33e0e1eecd5b1c483b45c070844e42"
+    },
+    "closeoutContextLock": {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S03-CLOSEOUT.json",
+      "baseSha": "ad3c4ac4aa84890248fbc7e6250bea2de271fd65",
+      "baseTreeSha": "6b73c571cb738dc4a5638c145d27edaa4b91344c",
+      "checked": 71,
+      "matched": 71,
+      "mismatches": 0
+    },
+    "documentationAudit": {
+      "status": "APPROVED_FOR_S03_SESSION_PLANNING_CLOSEOUT",
+      "highFindings": 0,
+      "criticalFindings": 0,
+      "residualFindings": 0
+    },
+    "changedFiles": [
+      ".engineering/CHECKPOINT.json",
+      ".engineering/CHECKPOINT.md",
+      ".engineering/context-locks/IRIS-WO-0015-S03-CLOSEOUT.json",
+      ".engineering/evidence/IRIS-WO-0015.json",
+      ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+      "docs/project-brain/03-SCOPE.md",
+      "docs/project-brain/13-CHECKPOINT.md",
+      "docs/project-brain/14-BACKLOG.md",
+      "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+      "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "planning/reviews/IRIS-WO-0015-S03-DOCUMENTATION-AUDIT.md"
+    ],
+    "runtimeEvidence": "NONE; no runtime code, process inspection or operation, IPC, provider execution, lease/resource mutation or hardware measurement.",
+    "m11Contract": "NOT_FROZEN",
+    "m11Implementation": "NOT_ADMITTED",
+    "m10Contract": "m10-contract-v1.0 (FROZEN)",
+    "m10Implementation": "NOT_ADMITTED",
+    "wo0014Preflight": "BLOCKED",
+    "nextGate": "S04 may begin only after this closeout PR is protected squash-merged and exact-main Governance passes."
+  },
+  "s03SessionCloseoutChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0015-S03-CLOSEOUT.json",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+    "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+    "planning/reviews/IRIS-WO-0015-S03-DOCUMENTATION-AUDIT.md"
   ]
 }

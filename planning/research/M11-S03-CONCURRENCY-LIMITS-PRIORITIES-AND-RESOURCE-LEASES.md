@@ -1,6 +1,6 @@
 # M11 S03 — Concurrency Limits, Priorities and Resource Leases
 
-Status: PROPOSED_COMPLETE_PENDING_GOVERNANCE
+Status: COMPLETE_FOR_MODULE_PLANNING
 Work Order: IRIS-WO-0015 / Issue #82
 Planning base: 9463dfe087bd9991c7e9aaf40a956ff497a8b9f4
 Base tree: b8b6520d4c33e0e1eecd5b1c483b45c070844e42
@@ -13,6 +13,12 @@ M11 implementation: NOT_ADMITTED
 M10 contract: m10-contract-v1.0 (FROZEN)
 M10 implementation: NOT_ADMITTED
 IRIS-WO-0014 preflight: BLOCKED
+Proposal PR: #89 — https://github.com/KayzenRoot/iris/pull/89
+Corrected exact-head Governance: run 36189044035 / job 108249450672 on 778218c04fb9481cab75122001deb87814ce3e68 — PASS (3940/3940 tests)
+Protected squash merge: ad3c4ac4aa84890248fbc7e6250bea2de271fd65 — PASS
+Exact-main Governance: run 36189379137 / job 108250522233 on ad3c4ac4aa84890248fbc7e6250bea2de271fd65 — PASS (3940/3940 tests; actor: KayzenRoot)
+Proposal Context Lock: 68/68 exact-base fingerprints matched; documentation audit: 0 HIGH, 0 CRITICAL, 0 residual findings.
+M11 contract: NOT_FROZEN; M11 implementation: NOT_ADMITTED.
 
 ## Purpose and scope
 
@@ -248,6 +254,7 @@ Checked 2026-09-25. These sources describe technology behavior; they do not gran
 - [x] Options, dependencies, benefits, risks/failure modes and future proof plans recorded with stable candidate IDs.
 - [x] M09 lease mutation, resource truth, numeric policy selection, runtime implementation and cross-owner semantic invention excluded.
 - [x] Four-file path inventory, governance validator, bootstrap compile and repository suite passed locally on Python 3.13.15.
-- [x] Exact-head Governance passed on the initial proposal head e5bbb606ba397b6818cd780495b317eb3ee051f3 (run 36186968935 / job 108242628134); repository CI uses Python 3.12.
-- [x] Draft PR #89 against main, linked to Issue #82, is open and remains Draft for independent review.
-- [ ] Protected merge, exact-main Governance and separate checkpoint/evidence closeout remain pending; do not start S04 or S05.
+- [x] Initial proposal head e5bbb606ba397b6818cd780495b317eb3ee051f3 passed Governance 36186968935 / 108242628134; corrected exact head 778218c04fb9481cab75122001deb87814ce3e68 passed Governance 36189044035 / 108249450672; repository CI uses Python 3.12.
+- [x] PR #89 was reviewed, protected squash-merged, and exact-main Governance passed on ad3c4ac4aa84890248fbc7e6250bea2de271fd65 (run 36189379137 / job 108250522233).
+- [x] Proposal Context Lock matched 68/68 exact-base source fingerprints; post-authoring documentation audit found 0 HIGH, 0 CRITICAL and 0 residual findings.
+- S03 is COMPLETE_FOR_MODULE_PLANNING only. The separate checkpoint/evidence closeout is the gate before S04 starts; no M11 contract is frozen.

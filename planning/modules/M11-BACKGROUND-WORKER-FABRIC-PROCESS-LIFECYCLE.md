@@ -1,6 +1,6 @@
 # M11 — Background Worker Fabric & Process Lifecycle
 
-Status: S01_S02_COMPLETE_FOR_MODULE_PLANNING
+Status: S01_S03_COMPLETE_FOR_MODULE_PLANNING
 Contract: NOT_FROZEN
 Planning issue: #82
 Planning Work Order: IRIS-WO-0015
@@ -9,7 +9,7 @@ Implementation authority: NOT_ADMITTED
 
 ## Purpose
 
-This file is the session map for the admitted M11 planning lifecycle. It is not an owner contract, implementation specification, technology decision, process policy, or authorization to launch or control workers. S01 and S02 are COMPLETE_FOR_MODULE_PLANNING; S03–S05 remain NOT_STARTED. No M11 contract is frozen by this document.
+This file is the session map for the admitted M11 planning lifecycle. It is not an owner contract, implementation specification, technology decision, process policy, or authorization to launch or control workers. S01, S02 and S03 are COMPLETE_FOR_MODULE_PLANNING; S04–S05 remain NOT_STARTED. No M11 contract is frozen by this document.
 
 M11 is expected to plan the background worker and operating-system process lifecycle required by IRIS. Product requirements PR-005, PR-006, PR-008 and PR-009 establish the planning context: Blender headless/background automation, a structured control surface without mandatory live GUI, managed worker lifecycle/concurrency/cancellation/cleanup/orphan detection, and configurable workstation CPU/RAM/VRAM headroom. Their concrete semantics remain to be planned and assigned to owners.
 
@@ -37,9 +37,9 @@ Research record: planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS
 Status: COMPLETE_FOR_MODULE_PLANNING
 Research record: planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md. PR #87 exact head 78893daec68aabe3bb23836a4429017f13e97f30 passed Governance 36068426412 / 107863497210 (3940/3940 tests), was protected squash-merged as b090ae68bac23be2261932e75549b3ea255990ec, and passed exact-main Governance 36068660747 / 107864233622 (3940/3940 tests; actor: KayzenRoot). S02 compares startup and IPC candidates without selecting a transport, handshake or permission model. The exact-base Context Lock matched 63/63 critical source fingerprints; the post-authoring audit found 0 HIGH and 0 CRITICAL findings. No M11 contract or implementation is admitted.
 ### S03 — Concurrency limits, priorities and resource leases
-Status: PROPOSED_COMPLETE_PENDING_GOVERNANCE
+Status: COMPLETE_FOR_MODULE_PLANNING
 
-Research record: planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md. This proposal compares concurrency, queue, fairness, process containment and resource-lease boundaries without selecting policy or numeric values. Exact-head Governance passed on the initial proposal head e5bbb606ba397b6818cd780495b317eb3ee051f3 (run 36186968935 / job 108242628134). Any later head must pass its own exact-head check. PR #89 remains Draft and unmerged for independent review; S03 closeout awaits protected merge and exact-main Governance. No owner contract is frozen and no implementation is admitted.
+Research record: planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md. PR #89 corrected exact head 778218c04fb9481cab75122001deb87814ce3e68 passed Governance 36189044035 / 108249450672 (3940/3940 tests), was protected squash-merged as ad3c4ac4aa84890248fbc7e6250bea2de271fd65, and passed exact-main Governance 36189379137 / 108250522233 (3940/3940 tests; actor: KayzenRoot). Its Context Lock matched 68/68 exact-base source fingerprints and the post-authoring documentation audit found 0 HIGH, 0 CRITICAL and 0 residual findings. The separate S03 checkpoint/evidence closeout gates S04. No M11 contract is frozen and no implementation is admitted.
 
 Plan queue/concurrency responsibility, priority and fairness questions, backpressure, workstation headroom, and the handoff to M09 resource claims/leases and M12 placement/orchestration. Do not grant, reserve, release, or assert resource truth.
 
