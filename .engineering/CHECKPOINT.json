@@ -4,5 +4,5 @@
   "status": "M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED",
   "version": "m10-contract-v1.0",
   "phase": "M11_PLANNING_ADMITTED",
-  "nextStep": "Begin M11 S03 as a separate documentation increment under Issue #82. Complete S03–S05, the Final Technology Review, Forward Compatibility Scan, versioned owner-contract candidate, and independent planning audit before proposing an M11 contract freeze. Keep M11 and M10 implementation NOT_ADMITTED."
+  "nextStep": "After the separate S03 checkpoint/evidence closeout passes exact-head Governance, protected merge and exact-main Governance, begin M11 S04 under Issue #82. Complete S04-S05 and all remaining planning reviews before proposing an M11 contract freeze. Keep M11 and M10 implementation NOT_ADMITTED."
 }
