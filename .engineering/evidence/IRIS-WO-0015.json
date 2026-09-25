@@ -341,7 +341,7 @@
     ".engineering/evidence/IRIS-WO-0015.json",
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
   ],
-  "currentPhase": "M11_S02_COMPLETE_FOR_MODULE_PLANNING",
+  "currentPhase": "M11_S03_PROPOSED_PENDING_INDEPENDENT_REVIEW_PROTECTED_MERGE_AND_EXACT_MAIN_GOVERNANCE",
   "sessionCloseoutChangedFiles": [
     ".engineering/context-locks/IRIS-WO-0015-S01-CLOSEOUT.json",
     ".engineering/evidence/IRIS-WO-0015.json",
@@ -541,5 +541,168 @@
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
     "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
     "planning/reviews/IRIS-WO-0015-S02-DOCUMENTATION-AUDIT.md"
+  ],
+  "s03SessionProposal": {
+    "status": "PROPOSED_COMPLETE_PENDING_GOVERNANCE",
+    "issue": 82,
+    "workOrder": "IRIS-WO-0015",
+    "baseSha": "9463dfe087bd9991c7e9aaf40a956ff497a8b9f4",
+    "baseTreeSha": "b8b6520d4c33e0e1eecd5b1c483b45c070844e42",
+    "branch": "iris-wo-0015-m11-s03-concurrency-priorities-leases-20260925",
+    "artifact": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+    "contextLock": ".engineering/context-locks/IRIS-WO-0015-S03.json",
+    "sourceSnapshot": {
+      "algorithm": "Git blob SHA-1",
+      "checked": 68,
+      "matched": 68,
+      "mismatches": 0
+    },
+    "baseGovernance": {
+      "runId": 36070121053,
+      "jobId": 107868864362,
+      "headSha": "9463dfe087bd9991c7e9aaf40a956ff497a8b9f4",
+      "actor": "KayzenRoot",
+      "result": "PASS"
+    },
+    "ownerContractReview": {
+      "M02": "Semantic work identity, Production Graph, ExecutionPlan, production lifecycle and acceptance remain M02-owned; attempt mapping unresolved.",
+      "M06": "Operational revision/materialization and attempt evidence remain M06-owned; ExecutionAttemptPort payload/mapping unresolved.",
+      "M09": "Resource truth, typed claims, leases, reservations and outcomes remain M09-owned; M11 mutation prohibited.",
+      "M10": "m10-contract-v1.0 remains FROZEN; recommendations advisory only; WO-0014 preflight BLOCKED.",
+      "M11": "No owner contract or version exists; no contract is frozen.",
+      "M12_M60": "Individual owner contracts absent at base; owner-specific queue, placement, security, telemetry, DCC and recovery semantics remain pending."
+    },
+    "technologyCandidates": [
+      {
+        "id": "TECH-M11-011",
+        "technology": "Python 3.12 asyncio bounded queues and semaphores",
+        "classification": "EXISTING_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-012",
+        "technology": "Python 3.12 queue.PriorityQueue",
+        "classification": "EXISTING_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-013",
+        "technology": "Windows Job Objects",
+        "classification": "EXISTING_PLATFORM_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-014",
+        "technology": "Linux cgroup v2 CPU and memory controllers",
+        "classification": "EXISTING_PLATFORM_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-015",
+        "technology": "RabbitMQ priority queues, comparison only",
+        "classification": "EXISTING_EXTERNAL_QUEUE_TECHNOLOGY",
+        "status": "PROPOSED",
+        "comparisonOnly": true
+      }
+    ],
+    "existingIRISCandidates": [
+      {
+        "id": "CAND-M11-001",
+        "technology": "Reference-only work/attempt/process association",
+        "status": "PROPOSED_UNCHANGED"
+      },
+      {
+        "id": "CAND-M11-002",
+        "technology": "Reference-preserving startup and registration envelope",
+        "status": "PROPOSED_UNCHANGED"
+      }
+    ],
+    "newProprietaryCandidate": "NONE; ownership and M09 reference semantics remain unresolved; no novelty or patent claim.",
+    "internalReuseStatus": "IRIS LeaseBook is in-process M09 source, not evidence of cross-process coordination; bootstrap subprocess scripts prove narrow one-shot use only. UGAS/HIVE/CORE reuse UNVERIFIED.",
+    "architectureDecision": "NONE; no queue, concurrency boundary, priority, platform control or lease handoff selected.",
+    "unresolvedQuestionIds": [
+      "S03-U01",
+      "S03-U02",
+      "S03-U03",
+      "S03-U04",
+      "S03-U05",
+      "S03-U06",
+      "S03-U07",
+      "S03-U08",
+      "S03-U09",
+      "S03-U10",
+      "S03-U11",
+      "S03-U12",
+      "S03-U13",
+      "S03-U14",
+      "S03-U15",
+      "S03-U16",
+      "S03-U17",
+      "S03-U18",
+      "S03-U19",
+      "S03-U20"
+    ],
+    "pendingOwnerDetails": {
+      "M09": "Resource dimensions, evidence source/freshness, opaque lease/grant/deny references, validity and mutation rules.",
+      "M10": "Advisory only; no dispatch, placement, queue command, priority authorization or process control.",
+      "M11": "Queue/admission boundaries, boundedness, aggregation, unknown/error states and API remain unresolved.",
+      "M12": "Placement, local/remote queues, quotas, priority ownership, preemption, host aggregation and capacity authority.",
+      "M13_M15": "Performance evidence, model/risk estimates and policy semantics.",
+      "M16_M19": "Workflow/provider queue and runtime boundaries, acquisition/integrity and workload capabilities.",
+      "M26": "Supported Blender/DCC version and background/resource adapter semantics.",
+      "M51": "Benchmark corpus, repeatability and acceptance of fairness/resource evidence.",
+      "M52": "Potential HIVE context handoff; no HIVE evidence used.",
+      "M54": "Principal, authentication/authorization, sandbox, environment, secrets and trust.",
+      "M56": "Telemetry, event/correlation identity, freshness, redaction and retention.",
+      "M57_M58": "Automation authorization/stop conditions and public API/SDK/MCP projection.",
+      "M60": "Host/service model, platform support, setup, restart/recovery, upgrade and final acceptance.",
+      "M12_M60_ALL": "Every individual owner contract remains PENDING_OWNER_CONTRACT per the exhaustive dependency register; all other owner-specific behavior is unassigned."
+    },
+    "documentationPreflight": {
+      "docsOnly": true,
+      "authorizedChangedFiles": [
+        ".engineering/context-locks/IRIS-WO-0015-S03.json",
+        "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+        "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+        ".engineering/evidence/IRIS-WO-0015.json"
+      ],
+      "runtimeOrTestOrScriptChanges": false,
+      "m11ContractFrozen": false,
+      "m11Implementation": "NOT_ADMITTED",
+      "m10Implementation": "NOT_ADMITTED",
+      "hiveMcpAvailable": false,
+      "status": "LOCAL_VALIDATION_PASS_BEFORE_PULL_REQUEST; exact-head and protected-merge gates are tracked separately."
+    },
+    "documentationAudit": {
+      "status": "PASS_FOR_S03_SESSION_DOCUMENTATION_ONLY",
+      "reviewType": "Review of the exact four-file proposal against the locked base; final independent M11 planning audit remains pending after S01-S05 and final reviews.",
+      "highFindings": 0,
+      "criticalFindings": 0,
+      "residualFindings": 0,
+      "finalIndependentM11PlanningAudit": "PENDING_AFTER_S01_S05_AND_FINAL_PLANNING_REVIEWS",
+      "reviewer": "Codex post-authoring source, authority and scope review",
+      "reviewedFiles": 4
+    },
+    "validation": {
+      "gitDiffCheck": "PASS; staged four-file patch",
+      "governanceValidator": "PASS; Python 3.13.15; 35 required artifacts; GEF/HIVE v1.0.0",
+      "bootstrapCompile": "PASS; Python 3.13.15",
+      "repositoryTestCommand": "python -m unittest discover -s tests -p \"test_*.py\" -v",
+      "repositoryTestResult": "PASS; 3940 tests in 22.485s on Python 3.13.15; exact-head CI pending",
+      "lastKnownBaseSuiteCount": 3940,
+      "exactHeadGovernance": "PASS on initial proposal head e5bbb606ba397b6818cd780495b317eb3ee051f3; run 36186968935 (#404), job 108242628134. Any follow-up head must pass its own exact-head Governance check.",
+      "changedPathCount": 4,
+      "localPython": "3.13.15",
+      "repositoryTestRunPython": "3.13.15"
+    },
+    "runtimeEvidence": "NONE; no worker/process/provider launch, IPC, resource reservation, lease mutation or hardware measurement.",
+    "checkpointDelta": "NONE; no checkpoint or merge closeout is part of this S03 Draft PR increment.",
+    "destination": "PR #89 remains Draft and unmerged after initial-head Governance PASS; await independent review and protected merge. S03 closeout requires exact-main Governance. Do not mark S03 complete, freeze M11, or begin S04/S05."
+  },
+  "s03ProposalChangedFiles": [
+    ".engineering/context-locks/IRIS-WO-0015-S03.json",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+    "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md"
   ]
 }
