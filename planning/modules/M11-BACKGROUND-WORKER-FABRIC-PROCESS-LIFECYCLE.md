@@ -37,7 +37,9 @@ Research record: planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS
 Status: COMPLETE_FOR_MODULE_PLANNING
 Research record: planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md. PR #87 exact head 78893daec68aabe3bb23836a4429017f13e97f30 passed Governance 36068426412 / 107863497210 (3940/3940 tests), was protected squash-merged as b090ae68bac23be2261932e75549b3ea255990ec, and passed exact-main Governance 36068660747 / 107864233622 (3940/3940 tests; actor: KayzenRoot). S02 compares startup and IPC candidates without selecting a transport, handshake or permission model. The exact-base Context Lock matched 63/63 critical source fingerprints; the post-authoring audit found 0 HIGH and 0 CRITICAL findings. No M11 contract or implementation is admitted.
 ### S03 — Concurrency limits, priorities and resource leases
-Status: NOT_STARTED
+Status: PROPOSED_COMPLETE_PENDING_GOVERNANCE
+
+Research record: planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md. This proposal compares concurrency, queue, fairness, process containment and resource-lease boundaries without selecting policy or numeric values. Exact-head Governance and Draft PR review linked to Issue #82 remain pending. No owner contract is frozen and no implementation is admitted.
 
 Plan queue/concurrency responsibility, priority and fairness questions, backpressure, workstation headroom, and the handoff to M09 resource claims/leases and M12 placement/orchestration. Do not grant, reserve, release, or assert resource truth.
 
