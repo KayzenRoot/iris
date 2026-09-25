@@ -393,6 +393,6 @@
     "The canonical checkpoint mirrors, backlog, module map or evidence bundle would diverge.",
     "A closeout edit freezes an M11 contract, changes m10-contract-v1.0, or admits M11/M10 implementation.",
     "Any M12-M60 detail is asserted beyond its available canonical owner contract.",
-    "Any runtime, test, script, process, IPC, provider, resource reservation or hardware operation is required."
+    "Any runtime, test or script file change, or any process, IPC, provider, resource-reservation or hardware operation, is required."
   ]
 }
