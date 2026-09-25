@@ -39,7 +39,7 @@ Research record: planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AN
 ### S03 — Concurrency limits, priorities and resource leases
 Status: PROPOSED_COMPLETE_PENDING_GOVERNANCE
 
-Research record: planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md. This proposal compares concurrency, queue, fairness, process containment and resource-lease boundaries without selecting policy or numeric values. Exact-head Governance and Draft PR review linked to Issue #82 remain pending. No owner contract is frozen and no implementation is admitted.
+Research record: planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md. This proposal compares concurrency, queue, fairness, process containment and resource-lease boundaries without selecting policy or numeric values. Exact-head Governance passed on the initial proposal head e5bbb606ba397b6818cd780495b317eb3ee051f3 (run 36186968935 / job 108242628134). Any later head must pass its own exact-head check. PR #89 remains Draft and unmerged for independent review; S03 closeout awaits protected merge and exact-main Governance. No owner contract is frozen and no implementation is admitted.
 
 Plan queue/concurrency responsibility, priority and fairness questions, backpressure, workstation headroom, and the handoff to M09 resource claims/leases and M12 placement/orchestration. Do not grant, reserve, release, or assert resource truth.
 

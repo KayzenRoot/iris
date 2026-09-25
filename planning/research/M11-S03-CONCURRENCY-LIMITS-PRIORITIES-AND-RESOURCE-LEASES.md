@@ -248,5 +248,6 @@ Checked 2026-09-25. These sources describe technology behavior; they do not gran
 - [x] Options, dependencies, benefits, risks/failure modes and future proof plans recorded with stable candidate IDs.
 - [x] M09 lease mutation, resource truth, numeric policy selection, runtime implementation and cross-owner semantic invention excluded.
 - [x] Four-file path inventory, governance validator, bootstrap compile and repository suite passed locally on Python 3.13.15.
-- [ ] Exact-head Governance must still run on the Draft PR head; repository CI uses Python 3.12.
-- [ ] Draft PR against main, linked to Issue #82, remains a required delivery gate.
+- [x] Exact-head Governance passed on the initial proposal head e5bbb606ba397b6818cd780495b317eb3ee051f3 (run 36186968935 / job 108242628134); repository CI uses Python 3.12.
+- [x] Draft PR #89 against main, linked to Issue #82, is open and remains Draft for independent review.
+- [ ] Protected merge, exact-main Governance and separate checkpoint/evidence closeout remain pending; do not start S04 or S05.

@@ -341,7 +341,7 @@
     ".engineering/evidence/IRIS-WO-0015.json",
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
   ],
-  "currentPhase": "M11_S03_PROPOSED_PENDING_EXACT_HEAD_GOVERNANCE",
+  "currentPhase": "M11_S03_PROPOSED_PENDING_INDEPENDENT_REVIEW_PROTECTED_MERGE_AND_EXACT_MAIN_GOVERNANCE",
   "sessionCloseoutChangedFiles": [
     ".engineering/context-locks/IRIS-WO-0015-S01-CLOSEOUT.json",
     ".engineering/evidence/IRIS-WO-0015.json",
@@ -671,7 +671,7 @@
       "m11Implementation": "NOT_ADMITTED",
       "m10Implementation": "NOT_ADMITTED",
       "hiveMcpAvailable": false,
-      "status": "LOCAL_VALIDATION_PASS_PENDING_EXACT_HEAD_GOVERNANCE"
+      "status": "LOCAL_VALIDATION_PASS_BEFORE_PULL_REQUEST; exact-head and protected-merge gates are tracked separately."
     },
     "documentationAudit": {
       "status": "PASS_FOR_S03_SESSION_DOCUMENTATION_ONLY",
@@ -690,14 +690,14 @@
       "repositoryTestCommand": "python -m unittest discover -s tests -p \"test_*.py\" -v",
       "repositoryTestResult": "PASS; 3940 tests in 22.485s on Python 3.13.15; exact-head CI pending",
       "lastKnownBaseSuiteCount": 3940,
-      "exactHeadGovernance": "PENDING_PULL_REQUEST_CHECK; repository workflow uses Python 3.12",
+      "exactHeadGovernance": "PASS on initial proposal head e5bbb606ba397b6818cd780495b317eb3ee051f3; run 36186968935 (#404), job 108242628134. Any follow-up head must pass its own exact-head Governance check.",
       "changedPathCount": 4,
       "localPython": "3.13.15",
       "repositoryTestRunPython": "3.13.15"
     },
     "runtimeEvidence": "NONE; no worker/process/provider launch, IPC, resource reservation, lease mutation or hardware measurement.",
     "checkpointDelta": "NONE; no checkpoint or merge closeout is part of this S03 Draft PR increment.",
-    "destination": "Draft PR against main referencing Issue #82; stop after exact-head Governance PASS. Do not merge, close issue, mark S03 COMPLETE_FOR_MODULE_PLANNING, freeze M11 or begin S04/S05."
+    "destination": "PR #89 remains Draft and unmerged after initial-head Governance PASS; await independent review and protected merge. S03 closeout requires exact-main Governance. Do not mark S03 complete, freeze M11, or begin S04/S05."
   },
   "s03ProposalChangedFiles": [
     ".engineering/context-locks/IRIS-WO-0015-S03.json",
