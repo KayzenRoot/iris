@@ -1118,7 +1118,7 @@
     "m10Implementation": "NOT_ADMITTED",
     "wo0014Preflight": "BLOCKED",
     "issueState": "OPEN",
-    "nextGate": "This closeout PR must pass exact-head Governance and receive its separate review; stop before merge/review action. S05 remains NOT_STARTED until a later governed step."
+    "nextGate": "The closeout PR must pass exact-head Governance and receive a separate independent HEDS review. The closeout-creation increment stops before review or merge action; after HEDS approval, protected squash merge and exact-main Governance are separate gates. S05 remains NOT_STARTED until exact-main Governance passes."
   },
   "s04SessionCloseoutChangedFiles": [
     ".engineering/CHECKPOINT.md",

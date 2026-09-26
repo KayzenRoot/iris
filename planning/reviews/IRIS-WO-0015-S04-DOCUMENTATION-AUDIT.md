@@ -17,7 +17,7 @@ Residual findings: 0
 
 ## Review scope
 
-Post-authoring review of the S04 proposal's merged evidence and the separate checkpoint/evidence closeout candidate. The closeout Context Lock pins the canonical source base and exact 11-path change authorization. This audit is for PR creation only; the closeout PR still requires its own exact-head Governance and formal GitHub review. This is not the final independent M11 planning audit required after S01-S05 and the remaining planning reviews.
+Post-authoring review of the S04 proposal's merged evidence and the separate checkpoint/evidence closeout candidate. The closeout Context Lock pins the canonical source base and exact 11-path change authorization. This audit records the pre-PR creation gate and is not the independent HEDS review of PR #93. Its first submitted head `17de559d4d04963ff8a086b571ce61bd770cbea0` later passed exact-head Governance run #413; any subsequent head requires a fresh receipt. The independent HEDS review must bind to the final exact head before protected merge and exact-main Governance. This is not the final independent M11 planning audit required after S01-S05 and the remaining planning reviews.
 
 ## Findings and reconciliation
 
@@ -48,4 +48,4 @@ Post-authoring review of the S04 proposal's merged evidence and the separate che
 
 ## Conclusion
 
-S04 is COMPLETE_FOR_MODULE_PLANNING after PR #92's exact-head Governance, protected squash merge and exact-main Governance passed. This distinct checkpoint/evidence delta is a proposal only and is not canonical until its own PR receives formal review, protected merge and exact-main Governance. Stop after the closeout PR's exact-head Governance; do not merge it or start S05 in this increment.
+S04 is COMPLETE_FOR_MODULE_PLANNING after PR #92's exact-head Governance, protected squash merge and exact-main Governance passed. This distinct checkpoint/evidence delta was proposed in this audit; promotion requires an independent HEDS review of the final exact head, protected squash merge and exact-main Governance. The closeout-creation increment ends before merge; S05 remains NOT_STARTED until the exact-main Governance gate passes.
