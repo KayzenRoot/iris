@@ -2,7 +2,7 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0015",
   "module": "M11",
-  "status": "S04_CHECKPOINT_CLOSEOUT_PROPOSED_AFTER_EXACT_MAIN_GOVERNANCE",
+  "status": "S05_PLANNING_PROPOSAL_NOT_COMPLETE",
   "capturePhase": "m11_s04_checkpoint_closeout",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
@@ -73,7 +73,7 @@
     {
       "id": "S05",
       "title": "Cancellation, timeout, crash recovery and workstation coexistence",
-      "status": "NOT_STARTED"
+      "status": "PROPOSED_NOT_COMPLETE"
     }
   ],
   "baseline": {
@@ -128,9 +128,7 @@
     ],
     "implementationPreflight": "NOT_RUN_NOT_ADMITTED"
   },
-  "environmentNotes": [
-    "HIVE MCP tools are unavailable in the active Work Mode connection. The package uses pinned canonical Git sources and exact GitHub Governance only; no HIVE-derived evidence or assertions are fabricated."
-  ],
+  "environmentNotes": "HIVE v1.0.0 project status is READY at pinned commit a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf. The registered IRIS HIVE project context remains stale (source head 2432cfe29a501e18a1cdf8a46adc49cd42fdfba0), so no HIVE-derived IRIS context is used; Git main is the exact authority for this proposal.",
   "changedFiles": [
     ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
     ".engineering/work-orders/IRIS-WO-0015-PREFLIGHT-CRITERIA.md",
@@ -186,7 +184,7 @@
       "result": "PASS"
     }
   },
-  "checkpointDeltaProposed": "Record S01-S04 COMPLETE_FOR_MODULE_PLANNING and S05 NOT_STARTED from exact main f779cec13d0877cf9c5ac6797a49c5ef85389d0b. This 11-path checkpoint/evidence delta is proposed only; it becomes canonical only after its own PR review, protected squash merge and exact-main Governance pass. M11 remains NOT_FROZEN; M10 remains m10-contract-v1.0 FROZEN; M11/M10 implementation remain NOT_ADMITTED; WO-0014 remains BLOCKED; Issue #82 remains open.",
+  "checkpointDeltaProposed": "Record S04 closeout PR #93 and exact-main Governance #415 as complete; begin S05 planning proposal from exact main e0d8aeeea676d884e9c6a716df42a363f0765020 / tree b82ddfb80b7ff57f409b9d48f07263b7c7d356a2. The 11-path S05 delta remains proposed only; keep S05 incomplete, M11 NOT_FROZEN, M11/M10 implementation NOT_ADMITTED, M10 m10-contract-v1.0 FROZEN, WO-0014 BLOCKED, and Issue #82 OPEN.",
   "runtimeEvidence": "NONE; no runtime code or process operation is in scope.",
   "protectedMerge": {
     "pullRequest": 83,
@@ -341,7 +339,7 @@
     ".engineering/evidence/IRIS-WO-0015.json",
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
   ],
-  "currentPhase": "S04_CHECKPOINT_EVIDENCE_CLOSEOUT_PROPOSED",
+  "currentPhase": "M11_S05_CANCELLATION_RECOVERY_PLANNING_PROPOSAL",
   "sessionCloseoutChangedFiles": [
     ".engineering/context-locks/IRIS-WO-0015-S01-CLOSEOUT.json",
     ".engineering/evidence/IRIS-WO-0015.json",
@@ -1050,7 +1048,7 @@
     }
   },
   "s04SessionCloseout": {
-    "status": "PROPOSED_PENDING_OWN_REVIEW_MERGE_AND_EXACT_MAIN_GOVERNANCE",
+    "status": "COMPLETED",
     "issue": 82,
     "workOrder": "IRIS-WO-0015",
     "proposalPullRequest": 92,
@@ -1118,7 +1116,42 @@
     "m10Implementation": "NOT_ADMITTED",
     "wo0014Preflight": "BLOCKED",
     "issueState": "OPEN",
-    "nextGate": "The closeout PR must pass exact-head Governance and receive a separate independent HEDS review. The closeout-creation increment stops before review or merge action; after HEDS approval, protected squash merge and exact-main Governance are separate gates. S05 remains NOT_STARTED until exact-main Governance passes."
+    "nextGate": "S04 closeout is complete. S05 planning may proceed from e0d8aeeea676d884e9c6a716df42a363f0765020; the S05 session remains incomplete until its own proposal and later lifecycle gates.",
+    "closeoutProposalPullRequest": 93,
+    "closeoutProposalHeadSha": "6e9e717ecacacfbef787a53ffbf0254f1188323c",
+    "closeoutExactHeadGovernance": {
+      "runId": 36241125704,
+      "runNumber": 414,
+      "jobId": 108401697787,
+      "headSha": "6e9e717ecacacfbef787a53ffbf0254f1188323c",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "independentHedsReview": {
+      "verdict": "APPROVED",
+      "reviewedHead": "6e9e717ecacacfbef787a53ffbf0254f1188323c",
+      "reviewerTask": "01a0ddbb-d517-7252-9f96-0fb67f2b22f9",
+      "reviewDate": "2026-09-26",
+      "reviewChannel": "Separate read-only reviewer task",
+      "formalGitHubReview": false
+    },
+    "closeoutProtectedMerge": {
+      "pullRequest": 93,
+      "method": "squash",
+      "headSha": "6e9e717ecacacfbef787a53ffbf0254f1188323c",
+      "mergeSha": "e0d8aeeea676d884e9c6a716df42a363f0765020",
+      "actor": "KayzenRoot",
+      "result": "MERGED"
+    },
+    "closeoutExactMainGovernance": {
+      "runId": 36244566768,
+      "runNumber": 415,
+      "jobId": 108411232665,
+      "headSha": "e0d8aeeea676d884e9c6a716df42a363f0765020",
+      "actor": "KayzenRoot",
+      "result": "PASS",
+      "tests": "3940/3940"
+    }
   },
   "s04SessionCloseoutChangedFiles": [
     ".engineering/CHECKPOINT.md",
@@ -1132,5 +1165,102 @@
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
     "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
     "planning/reviews/IRIS-WO-0015-S04-DOCUMENTATION-AUDIT.md"
-  ]
+  ],
+  "s05SessionProposal": {
+    "status": "PROPOSED_NOT_COMPLETE",
+    "issue": 82,
+    "workOrder": "IRIS-WO-0015",
+    "baseSha": "e0d8aeeea676d884e9c6a716df42a363f0765020",
+    "baseTreeSha": "b82ddfb80b7ff57f409b9d48f07263b7c7d356a2",
+    "branch": "iris-wo-0015-m11-s05-cancellation-recovery-20260926",
+    "researchArtifact": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+    "contextLock": {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S05.json",
+      "baseSha": "e0d8aeeea676d884e9c6a716df42a363f0765020",
+      "baseTreeSha": "b82ddfb80b7ff57f409b9d48f07263b7c7d356a2",
+      "checked": 83,
+      "matched": 83,
+      "mismatches": 0
+    },
+    "authorizedChangedFiles": [
+      ".engineering/CHECKPOINT.md",
+      ".engineering/CHECKPOINT.json",
+      ".engineering/context-locks/IRIS-WO-0015-S05.json",
+      ".engineering/evidence/IRIS-WO-0015.json",
+      ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+      "docs/project-brain/03-SCOPE.md",
+      "docs/project-brain/13-CHECKPOINT.md",
+      "docs/project-brain/14-BACKLOG.md",
+      "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+      "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md"
+    ],
+    "technologyCandidates": [
+      "TECH-M11-022",
+      "TECH-M11-023",
+      "TECH-M11-024",
+      "TECH-M11-025",
+      "TECH-M11-026",
+      "TECH-M11-027",
+      "TECH-M11-028"
+    ],
+    "existingIrisCandidates": [
+      "CAND-M11-001",
+      "CAND-M11-002"
+    ],
+    "newProprietaryCandidate": "NONE",
+    "s04UnresolvedQuestionsOpen": 21,
+    "s05UnresolvedQuestions": 23,
+    "architectureDecision": "NONE",
+    "recoveryJournalComparison": "DEFERRED_NO_M60_OWNER_CONTRACT",
+    "sourceReferences": {
+      "checkedDate": "2026-09-26",
+      "urls": [
+        "https://docs.python.org/3.12/library/asyncio-task.html",
+        "https://docs.python.org/3.12/library/asyncio-subprocess.html",
+        "https://learn.microsoft.com/en-us/windows/win32/procthread/job-objects",
+        "https://learn.microsoft.com/en-us/windows/console/generateconsolectrlevent",
+        "https://learn.microsoft.com/en-us/windows/win32/procthread/terminating-a-process",
+        "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+        "https://man7.org/linux/man-pages/man2/kill.2.html"
+      ]
+    },
+    "runtimeEvidence": "NONE",
+    "proposalHeadBinding": "The exact current PR head SHA and PR-head Governance receipt are authoritative in the PR metadata/checks; they are not copied into this JSON because changing this in-commit bundle would create a new head and invalidate that check."
+  },
+  "s05ProposalChangedFiles": [
+    ".engineering/CHECKPOINT.md",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/context-locks/IRIS-WO-0015-S05.json",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+    "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+    "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md"
+  ],
+  "s05ProposalAudit": {
+    "status": "EXECUTOR_SOURCE_AND_SCOPE_REVIEW_COMPLETE",
+    "reviewType": "Post-authoring source, authority, scope and evidence audit; not independent HEDS",
+    "highFindings": 0,
+    "criticalFindings": 0,
+    "residualFindings": 0,
+    "changedPathCount": 11,
+    "runtimeOrTestOrScriptChanges": false
+  },
+  "s05Validation": {
+    "gitDiffCheck": "PASS",
+    "jsonParsing": "PASS",
+    "governanceValidator": "PASS",
+    "exactHeadGovernance": {
+      "status": "REQUIRED_ON_FINAL_PR_HEAD",
+      "runId": null,
+      "jobId": null,
+      "headSha": "EXTERNAL_PR_HEAD_METADATA_AND_CHECKS"
+    },
+    "runtimeEvidence": "NONE",
+    "benchmarkEvidence": "NONE"
+  }
 }

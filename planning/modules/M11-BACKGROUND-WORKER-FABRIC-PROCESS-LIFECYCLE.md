@@ -1,6 +1,6 @@
 # M11 — Background Worker Fabric & Process Lifecycle
 
-Status: S01_S04_COMPLETE_S05_NOT_STARTED
+Status: S01_S04_COMPLETE_S05_PROPOSAL_IN_PROGRESS
 Contract: NOT_FROZEN
 Planning issue: #82
 Planning Work Order: IRIS-WO-0015
@@ -9,7 +9,7 @@ Implementation authority: NOT_ADMITTED
 
 ## Purpose
 
-This file is the session map for the admitted M11 planning lifecycle. It is not an owner contract, implementation specification, technology decision, process policy, or authorization to launch or control workers. S01-S04 are COMPLETE_FOR_MODULE_PLANNING; S05 remains NOT_STARTED. No M11 contract is frozen by this document. S04 completion is evidenced by PR #92 and its exact-head and exact-main Governance runs; this separate checkpoint/evidence closeout remains a proposal until its own review, protected merge and exact-main Governance pass.
+This file is the session map for the admitted M11 planning lifecycle. It is not an owner contract, implementation specification, technology decision, process policy, or authorization to launch or control workers. S01-S04 are COMPLETE_FOR_MODULE_PLANNING; S05 cancellation/recovery planning is IN_PROGRESS as a proposal, but S05 is NOT complete. No M11 contract is frozen by this document. S04 completion is evidenced by PR #92; its separate checkpoint/evidence closeout PR #93 received HEDS APPROVED on exact head 6e9e717ecacacfbef787a53ffbf0254f1188323c, was protected squash-merged as e0d8aeeea676d884e9c6a716df42a363f0765020, and passed exact-main Governance #415 (36244566768 / 108411232665).
 
 M11 is expected to plan the background worker and operating-system process lifecycle required by IRIS. Product requirements PR-005, PR-006, PR-008 and PR-009 establish the planning context: Blender headless/background automation, a structured control surface without mandatory live GUI, managed worker lifecycle/concurrency/cancellation/cleanup/orphan detection, and configurable workstation CPU/RAM/VRAM headroom. Their concrete semantics remain to be planned and assigned to owners.
 
@@ -46,12 +46,12 @@ Plan queue/concurrency responsibility, priority and fairness questions, backpres
 ### S04 — Process reaper, zombie detection and shell-free execution
 Status: COMPLETE_FOR_MODULE_PLANNING
 
-Research record: planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md. Proposal base 61864d387b20b6cb283ccfec12ab5cf6f2ffaa14; proposal head 7bd29099adfe3c4b2035e3da1ab9c09349e95001 passed PR-head Governance run 36213241691 / job 108323991494 (3940/3940 tests). PR #92 was protected squash-merged as f779cec13d0877cf9c5ac6797a49c5ef85389d0b; exact-main Governance run 36235782621 / job 108387156827 passed (3940/3940 tests). The proposal Context Lock matched 74/74 source fingerprints. A prior chat review recorded APPROVED with 0 HIGH/CRITICAL findings; there is no formal GitHub review record. The separate closeout Context Lock binds this checkpoint delta to base tree 222627601b9a72fe17ae8253184f88d4620b5f7f and matches 77/77 source fingerprints. No process architecture or policy is selected; S04-U01 through S04-U21 remain unresolved. This closeout itself is proposed and must pass its own review, protected merge and exact-main Governance before S05 begins. M11 remains NOT_FROZEN; M11/M10 implementation remain NOT_ADMITTED.
+Research record: planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md. Proposal base 61864d387b20b6cb283ccfec12ab5cf6f2ffaa14; proposal head 7bd29099adfe3c4b2035e3da1ab9c09349e95001 passed PR-head Governance run 36213241691 / job 108323991494 (3940/3940 tests). PR #92 was protected squash-merged as f779cec13d0877cf9c5ac6797a49c5ef85389d0b; exact-main Governance run 36235782621 / job 108387156827 passed (3940/3940 tests). The proposal Context Lock matched 74/74 source fingerprints. A prior chat review recorded APPROVED with 0 HIGH/CRITICAL findings; there is no formal GitHub review record. The separate closeout Context Lock binds this checkpoint delta to base tree 222627601b9a72fe17ae8253184f88d4620b5f7f and matches 77/77 source fingerprints. No process architecture or policy is selected; S04-U01 through S04-U21 remain unresolved. PR #93 closeout is complete on main; S05 now proceeds as a separate proposal from exact base e0d8aeeea676d884e9c6a716df42a363f0765020 / tree b82ddfb80b7ff57f409b9d48f07263b7c7d356a2. M11 remains NOT_FROZEN; M11/M10 implementation remain NOT_ADMITTED.
 
 ### S05 — Cancellation, timeout, crash recovery and workstation coexistence
-Status: NOT_STARTED
+Status: PROPOSED_NOT_COMPLETE
 
-Plan cancellation and timeout scopes, terminal/unknown outcomes, crash and restart recovery, partial-result handling, cleanup responsibility, and operator workstation headroom. Preserve M02/M06/M09/M12 authority and identify every unresolved decision.
+Research record: planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md. Proposal base e0d8aeeea676d884e9c6a716df42a363f0765020 / tree b82ddfb80b7ff57f409b9d48f07263b7c7d356a2; branch iris-wo-0015-m11-s05-cancellation-recovery-20260926; Context Lock: .engineering/context-locks/IRIS-WO-0015-S05.json. This proposal compares coroutine and platform cancellation/timeouts, records crash/restart/partial-output questions, preserves M02/M06/M09/M12 and M54/M56/M60 boundaries, and leaves recovery journaling and all owner decisions open. Exact-head Governance remains required. Stop with the planning PR open; do not perform HEDS, merge, S05 closeout, final technology review, forward scan, M11 freeze, or implementation in this increment.
 
 ## Required outputs before an M11 contract can be proposed
 
