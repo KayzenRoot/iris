@@ -1,6 +1,6 @@
 # IRIS-WO-0015 — M11 Final Technology Review (C01 Preflight Recovery)
 
-**Status:** ACTIVE — exact-base preflight passed; proposal and exact-head Governance are required.
+**Status:** C01 EXECUTION COMPLETE — PR #97 exact-head Governance passed; post-merge promotion is reconciled in this separate closeout.
 **Source prompt:** IRIS-WO-0015-M11-FINAL-TECHNOLOGY-REVIEW-C01-PREFLIGHT-RECOVERY-2026-09-26.pdf
 **Prompt SHA-256:** 14936bffd650a0bb241aa53b9c3657f2585ba3146bee66e07848504e83b3a4ef
 **Issue:** #82 (verified OPEN)
@@ -32,9 +32,9 @@ Complete the S01–S05 M11 Final Technology Review from the exact current main b
 - [x] Update only the nine authorized files listed below.
 - [x] Keep M11 NOT_FROZEN; M11/M10 implementation NOT_ADMITTED; M10 advisory and FROZEN.
 - [x] Validate exact changed-path allowlist, checkpoint mirror, JSON, source fingerprints, whitespace, repository validator, pinned GEF preflight, and repository-required test suite.
-- [ ] Commit and push the authorized branch; create a PR with “Refs #82”; attach the PR to this Codex task.
-- [ ] Verify exact PR head SHA and the required Governance PASS, including validator/bridges and full test suite.
-- [ ] Stop with the PR open and unmerged. Do not start the Forward Compatibility Scan in this increment.
+- [x] Commit and push the authorized branch; create PR #97 with “Refs #82”.
+- [x] Verify exact PR head bdf0a9fb71db037f49ac2d5001f8a65c1237ca57 and Governance #422 PASS (3,940/3,940 tests).
+- [x] Stop with PR #97 open and unmerged after its exact-head gate. A later separate closeout recorded the protected merge and exact-main reconciliation; only then may the Forward Compatibility Scan begin.
 
 ## 4. Authorized change set
 
