@@ -2,8 +2,8 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0015",
   "module": "M11",
-  "status": "PLANNING_ADMISSION_APPROVED_AFTER_EXACT_MAIN_GOVERNANCE",
-  "capturePhase": "planning_admission",
+  "status": "S04_CHECKPOINT_CLOSEOUT_PROPOSED_AFTER_EXACT_MAIN_GOVERNANCE",
+  "capturePhase": "m11_s04_checkpoint_closeout",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
   "issue": 82,
@@ -68,7 +68,7 @@
     {
       "id": "S04",
       "title": "Process reaper, zombie detection and shell-free execution",
-      "status": "PROPOSED_PENDING_GOVERNANCE"
+      "status": "COMPLETE_FOR_MODULE_PLANNING"
     },
     {
       "id": "S05",
@@ -186,7 +186,7 @@
       "result": "PASS"
     }
   },
-  "checkpointDeltaProposed": "Applied by the S01 closeout PR after exact-main Governance for PR #85. S01 is complete for module planning only; S02–S05 remain NOT_STARTED. No M11 contract is frozen; M11/M10 implementation remain NOT_ADMITTED.",
+  "checkpointDeltaProposed": "Record S01-S04 COMPLETE_FOR_MODULE_PLANNING and S05 NOT_STARTED from exact main f779cec13d0877cf9c5ac6797a49c5ef85389d0b. This 11-path checkpoint/evidence delta is proposed only; it becomes canonical only after its own PR review, protected squash merge and exact-main Governance pass. M11 remains NOT_FROZEN; M10 remains m10-contract-v1.0 FROZEN; M11/M10 implementation remain NOT_ADMITTED; WO-0014 remains BLOCKED; Issue #82 remains open.",
   "runtimeEvidence": "NONE; no runtime code or process operation is in scope.",
   "protectedMerge": {
     "pullRequest": 83,
@@ -341,7 +341,7 @@
     ".engineering/evidence/IRIS-WO-0015.json",
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
   ],
-  "currentPhase": "S04_PROPOSAL_PENDING_EXACT_HEAD_GOVERNANCE",
+  "currentPhase": "S04_CHECKPOINT_EVIDENCE_CLOSEOUT_PROPOSED",
   "sessionCloseoutChangedFiles": [
     ".engineering/context-locks/IRIS-WO-0015-S01-CLOSEOUT.json",
     ".engineering/evidence/IRIS-WO-0015.json",
@@ -825,7 +825,7 @@
     "planning/reviews/IRIS-WO-0015-S03-DOCUMENTATION-AUDIT.md"
   ],
   "s04SessionProposal": {
-    "status": "PROPOSED_PENDING_GOVERNANCE",
+    "status": "COMPLETE_FOR_MODULE_PLANNING",
     "issue": 82,
     "workOrder": "IRIS-WO-0015",
     "baseSha": "61864d387b20b6cb283ccfec12ab5cf6f2ffaa14",
@@ -974,13 +974,16 @@
         "usableForEvidence": false,
         "evidenceUsed": false
       },
-      "status": "PENDING_EXACT_HEAD_GOVERNANCE",
+      "status": "PASS_FOR_S04_PROPOSAL",
       "exactHeadGovernance": {
-        "status": "PENDING_DRAFT_PR_HEAD"
+        "status": "PASS",
+        "runId": 36213241691,
+        "jobId": 108323991494,
+        "tests": "3940/3940"
       }
     },
     "documentationAudit": {
-      "status": "POST_AUTHORING_REVIEW_READY_FOR_DRAFT_PR",
+      "status": "CHAT_REVIEW_APPROVED_PROPOSAL_SCOPE_ONLY",
       "reviewType": "S04 source, owner-authority, scope and evidence review; not the final independent M11 planning audit.",
       "highFindings": 0,
       "criticalFindings": 0,
@@ -992,20 +995,142 @@
         "checked": 74,
         "matched": 74,
         "mismatches": 0
-      }
+      },
+      "formalGitHubReview": false,
+      "reviewRecord": "APPROVED chat review; 0 HIGH/CRITICAL findings; 74/74 proposal fingerprints matched."
     },
     "validation": {
       "gitDiffCheck": "PASS; local exact-base four-path snapshot, git diff --cached --check.",
-      "governanceValidator": "PENDING_EXACT_HEAD_GOVERNANCE",
-      "bootstrapCompile": "PENDING_EXACT_HEAD_GOVERNANCE",
+      "governanceValidator": "PASS in exact-head Governance run 36213241691.",
+      "bootstrapCompile": "PASS in exact-head Governance run 36213241691.",
       "repositoryTestCommand": "python -m unittest discover -s tests -p \"test_*.py\" -v",
-      "repositoryTestResult": "PENDING_EXACT_HEAD_GOVERNANCE; no local repository checkout is available in this Work Mode workspace.",
-      "exactHeadGovernance": "PENDING_DRAFT_PR_HEAD",
+      "repositoryTestResult": "PASS; 3940/3940 tests in exact-head Governance run 36213241691.",
+      "exactHeadGovernance": "PASS; PR #92 run 36213241691 / job 108323991494; 3940/3940 tests.",
       "changedPathCount": 4,
       "localPython": "NOT_USED_FOR_REPOSITORY_TESTS"
     },
     "runtimeEvidence": "NONE; no actual process, worker, provider, IPC, DCC, resource/lease or hardware operation; repository inspection was read-only.",
     "checkpointDelta": "NONE; checkpoint/evidence closeout is a separate later increment after protected merge and exact-main Governance.",
-    "destination": "Keep S04 proposed pending exact-head Governance and independent review. Do not start S05, merge, close Issue #82, freeze M11 or admit M10/M11 implementation."
-  }
+    "destination": "S04 is COMPLETE_FOR_MODULE_PLANNING. This separate checkpoint/evidence closeout remains proposed pending its own review, protected merge and exact-main Governance. Do not start S05, freeze M11, admit implementation or close Issue #82.",
+    "reviewRecord": {
+      "verdict": "APPROVED",
+      "reviewChannel": "Chat review record",
+      "formalGitHubReview": false,
+      "highFindings": 0,
+      "criticalFindings": 0,
+      "sourceFingerprints": {
+        "checked": 74,
+        "matched": 74,
+        "mismatches": 0
+      }
+    },
+    "protectedMerge": {
+      "pullRequest": 92,
+      "method": "squash",
+      "headSha": "7bd29099adfe3c4b2035e3da1ab9c09349e95001",
+      "mergeSha": "f779cec13d0877cf9c5ac6797a49c5ef85389d0b",
+      "result": "MERGED"
+    },
+    "exactHeadGovernance": {
+      "runId": 36213241691,
+      "runNumber": 411,
+      "jobId": 108323991494,
+      "headSha": "7bd29099adfe3c4b2035e3da1ab9c09349e95001",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "exactMainGovernance": {
+      "runId": 36235782621,
+      "runNumber": 412,
+      "jobId": 108387156827,
+      "headSha": "f779cec13d0877cf9c5ac6797a49c5ef85389d0b",
+      "result": "PASS",
+      "tests": "3940/3940",
+      "testSeconds": 16.55
+    }
+  },
+  "s04SessionCloseout": {
+    "status": "PROPOSED_PENDING_OWN_REVIEW_MERGE_AND_EXACT_MAIN_GOVERNANCE",
+    "issue": 82,
+    "workOrder": "IRIS-WO-0015",
+    "proposalPullRequest": 92,
+    "proposalBaseSha": "61864d387b20b6cb283ccfec12ab5cf6f2ffaa14",
+    "proposalHeadSha": "7bd29099adfe3c4b2035e3da1ab9c09349e95001",
+    "proposalExactHeadGovernance": {
+      "runId": 36213241691,
+      "jobId": 108323991494,
+      "headSha": "7bd29099adfe3c4b2035e3da1ab9c09349e95001",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "proposalProtectedMerge": {
+      "mergeSha": "f779cec13d0877cf9c5ac6797a49c5ef85389d0b",
+      "method": "squash",
+      "result": "MERGED"
+    },
+    "proposalExactMainGovernance": {
+      "runId": 36235782621,
+      "jobId": 108387156827,
+      "headSha": "f779cec13d0877cf9c5ac6797a49c5ef85389d0b",
+      "result": "PASS",
+      "tests": "3940/3940",
+      "testSeconds": 16.55
+    },
+    "proposalContextLock": {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S04.json",
+      "baseSha": "61864d387b20b6cb283ccfec12ab5cf6f2ffaa14",
+      "checked": 74,
+      "matched": 74,
+      "mismatches": 0
+    },
+    "closeoutContextLock": {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S04-CLOSEOUT.json",
+      "baseSha": "f779cec13d0877cf9c5ac6797a49c5ef85389d0b",
+      "baseTreeSha": "222627601b9a72fe17ae8253184f88d4620b5f7f",
+      "checked": 77,
+      "matched": 77,
+      "mismatches": 0
+    },
+    "documentationAudit": {
+      "status": "APPROVED_FOR_CLOSEOUT_PR_CREATION_ONLY",
+      "highFindings": 0,
+      "criticalFindings": 0,
+      "residualFindings": 0,
+      "formalGitHubReview": false
+    },
+    "changedFiles": [
+      ".engineering/CHECKPOINT.md",
+      ".engineering/CHECKPOINT.json",
+      ".engineering/context-locks/IRIS-WO-0015-S04-CLOSEOUT.json",
+      ".engineering/evidence/IRIS-WO-0015.json",
+      ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+      "docs/project-brain/03-SCOPE.md",
+      "docs/project-brain/13-CHECKPOINT.md",
+      "docs/project-brain/14-BACKLOG.md",
+      "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+      "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "planning/reviews/IRIS-WO-0015-S04-DOCUMENTATION-AUDIT.md"
+    ],
+    "runtimeEvidence": "NONE; no runtime code, process inspection/control, IPC, provider execution, lease/resource mutation or hardware measurement.",
+    "m11Contract": "NOT_FROZEN",
+    "m11Implementation": "NOT_ADMITTED",
+    "m10Contract": "m10-contract-v1.0 (FROZEN)",
+    "m10Implementation": "NOT_ADMITTED",
+    "wo0014Preflight": "BLOCKED",
+    "issueState": "OPEN",
+    "nextGate": "This closeout PR must pass exact-head Governance and receive its separate review; stop before merge/review action. S05 remains NOT_STARTED until a later governed step."
+  },
+  "s04SessionCloseoutChangedFiles": [
+    ".engineering/CHECKPOINT.md",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/context-locks/IRIS-WO-0015-S04-CLOSEOUT.json",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+    "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+    "planning/reviews/IRIS-WO-0015-S04-DOCUMENTATION-AUDIT.md"
+  ]
 }

@@ -1,6 +1,6 @@
 # M11 S04 — Process Reaper, Zombie Detection and Shell-Free Execution
 
-Status: PROPOSED_PENDING_GOVERNANCE
+Status: COMPLETE_FOR_MODULE_PLANNING
 Work Order: IRIS-WO-0015 / Issue #82
 Planning base: 61864d387b20b6cb283ccfec12ab5cf6f2ffaa14
 Base tree: e4f4972e9514e3e6f2ad526e8ff516d8ed3c9544
@@ -13,7 +13,7 @@ M10 contract: m10-contract-v1.0 (FROZEN)
 M10 implementation: NOT_ADMITTED
 IRIS-WO-0014 preflight: BLOCKED
 Research checked: 2026-09-26
-HIVE evidence: NOT_USED; the available HIVE source returned `source_not_current` and subsequent context queries failed.
+HIVE evidence: NOT_USED. HIVE v1.0.0 is pinned at a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf; the IRIS HIVE context was on stale source head 2432cfe29a501e18a1cdf8a46adc49cd42fdfba0. checkpoint.read returned source_not_current and the attempted context.build request was rejected as invalid arguments. No HIVE-derived evidence is used.
 
 ## Purpose and scope
 
@@ -26,7 +26,7 @@ The user authorized the existing repository tests/CI to start only isolated Pyth
 ## Canonical facts and authority boundaries
 
 - Issue #82 admits M11 planning documentation. The exact base is `61864d387b20b6cb283ccfec12ab5cf6f2ffaa14` and its recursive tree is `e4f4972e9514e3e6f2ad526e8ff516d8ed3c9544`; the pinned exact-main Governance run passed on that SHA.
-- S01-S03 are complete for module planning. This proposal does not make S04 complete; exact-head Governance and separate review/protected-merge gates remain.
+- S01-S03 were complete for module planning. S04 is complete for module planning after PR #92 exact-head Governance, protected squash merge and exact-main Governance passed. The separate checkpoint/evidence closeout is a new proposal and its own review, protected merge and exact-main Governance remain pending.
 - M02 owns semantic work identity, Production Graph causality, canonical ExecutionPlan and production lifecycle/acceptance.
 - M06 owns operational revisions, materialization lineage and attempt evidence. Its ExecutionAttemptPort payload and the mapping from a process to an operational attempt remain unresolved.
 - M09 owns resource truth, claims, leases, reservations, residency and resource-control outcomes. S04 does not create or mutate them.
@@ -57,7 +57,7 @@ Python exposes POSIX `start_new_session` and `process_group` parameters. Linux `
 
 ## Technology candidates
 
-These are comparison records only. Each remains PROPOSED and none is selected. IDs were checked against the exact-base evidence bundle; S04 begins after TECH-M11-015.
+These are comparison records only. Each remains PROPOSED and none is selected. IDs were checked against the exact-base evidence bundle. S04 is complete for module planning; S04-U01 through S04-U21 remain unresolved, and S05 remains NOT_STARTED pending the separate checkpoint/evidence closeout gates.
 
 ### TECH-M11-016 — Python 3.12 subprocess argument-vector launch
 
@@ -173,10 +173,13 @@ Read-only search at the pinned default-branch source found:
 
 - Exact base SHA/tree and base Governance are bound in the Context Lock.
 - The Context Lock fingerprints all critical exact-base sources. It includes the two test files whose isolated Python subprocesses prompted the stop, plus the S03 closeout audit.
-- The authorized changed-path set is exactly four documentation/evidence paths. Runtime, tests, scripts, checkpoints, backlog, contracts, Work Order, validators, workflows and unrelated files are unchanged.
-- Evidence and Context Lock JSON are parsed and cross-checked before PR creation; the exact four-path remote PR diff and `git diff --check` are required.
-- Repository Governance on the exact Draft PR head must run Python 3.12 bootstrap compilation, `python scripts/validate_governance.py`, and `python -m unittest discover -s tests -p "test_*.py" -v`. Local repository tests are unavailable in this Work Mode workspace; no local pass is claimed. Only the isolated Python test children already present in the suite are authorized.
-- Keep S04 proposed until its independent review, protected merge and exact-main Governance are complete. Keep S05 NOT_STARTED, M11 contract NOT_FROZEN, M10 frozen, M10/M11 implementation NOT_ADMITTED, WO-0014 BLOCKED and Issue #82 open.
+- PR #92 changed exactly four authorized proposal documentation/evidence paths; its proposal Context Lock matched 74/74 sources. This closeout proposal changes exactly the 11 paths listed in its Context Lock and audit. No runtime, test, script, validator or workflow path is changed.
+- PR #92 proposal evidence and Context Lock were checked against its exact four-path proposal. For this checkpoint closeout, the Evidence and Context Lock JSON parse and cross-check against the exact 11-path authorization; the 77/77 source hashes were recomputed at the bound base, `git diff --check` passed, and `python scripts/validate_governance.py` passed locally.
+- PR #92 exact-head Governance completed the Python 3.12 bootstrap compilation, governance validator and full repository suite. The new checkpoint closeout PR must run the same required checks on its own exact head; that CI result is pending. No local repository test suite was run for this closeout. Only isolated Python test children already present in the suite are authorized by the existing planning gate.
+- PR #92 proposal exact-head Governance run 36213241691 / job 108323991494 passed on 7bd29099adfe3c4b2035e3da1ab9c09349e95001 with 3940/3940 tests. Its protected squash merge is f779cec13d0877cf9c5ac6797a49c5ef85389d0b; exact-main Governance run 36235782621 / job 108387156827 passed on that SHA with 3940/3940 tests in 16.550 seconds.
+- The proposal review record was an APPROVED chat review with 0 HIGH/CRITICAL findings and 74/74 source fingerprints; it is not a formal GitHub review.
+- The separate checkpoint/evidence closeout candidate binds base f779cec13d0877cf9c5ac6797a49c5ef85389d0b / tree 222627601b9a72fe17ae8253184f88d4620b5f7f and matches 77/77 exact-base Git blob fingerprints. Its own PR-head Governance, GitHub review, protected merge and exact-main Governance are still pending.
+- Keep S05 NOT_STARTED, M11 contract NOT_FROZEN, M10 frozen, M10/M11 implementation NOT_ADMITTED, WO-0014 BLOCKED and Issue #82 open.
 
 ## Primary sources
 
@@ -197,4 +200,4 @@ Checked 2026-09-26. These sources describe platform/library behavior; they do no
 
 ## Session result
 
-S04 is a documented comparison proposal only. No architecture or process policy is selected. The result is subject to exact-head Governance and independent review; even after those gates, a protected merge and exact-main Governance are required before S04 can be recorded COMPLETE_FOR_MODULE_PLANNING. No checkpoint closeout, S05 work, M11 contract freeze, or implementation admission is part of this increment.
+S04 is COMPLETE_FOR_MODULE_PLANNING based on PR #92 exact-head Governance, protected squash merge and exact-main Governance. No architecture or process policy is selected, and S04-U01 through S04-U21 remain unresolved. The distinct checkpoint/evidence closeout is only proposed in this branch and is not canonical until its own PR review, protected merge and exact-main Governance pass. S05 remains NOT_STARTED; no M11 contract freeze or implementation admission is authorized.
