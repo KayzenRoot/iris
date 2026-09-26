@@ -1492,5 +1492,64 @@
     "docs/project-brain/14-BACKLOG.md",
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
     "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md"
-  ]
+  ],
+  "finalTechnologyReview": {
+    "status": "PROPOSED_PENDING_PR_HEAD_GOVERNANCE",
+    "canonical": false,
+    "workOrder": "IRIS-WO-0015",
+    "increment": "M11-FINAL-TECHNOLOGY-REVIEW-C01",
+    "issue": 82,
+    "issueStateAtPreflight": "OPEN",
+    "sourcePrompt": "IRIS-WO-0015-M11-FINAL-TECHNOLOGY-REVIEW-C01-PREFLIGHT-RECOVERY-2026-09-26.pdf",
+    "sourcePromptSha256": "14936bffd650a0bb241aa53b9c3657f2585ba3146bee66e07848504e83b3a4ef",
+    "reviewDocument": "planning/reviews/M11-FINAL-TECHNOLOGY-REVIEW.md",
+    "exactBaseSha": "6ccb65f25c3bae2ad10d511473d2944f980478fa",
+    "exactBaseTreeSha": "71ea766d7511cc745855faa662783f023755ac5c",
+    "proposalBranch": "iris-wo-0015-m11-final-technology-review-20260926",
+    "proposalPullRequest": null,
+    "proposalHeadSha": null,
+    "verdictState": "PROPOSED; reference-only technology and architecture dispositions",
+    "technologyRecordsDispositioned": 28,
+    "technologyVerdicts": {
+      "ACCEPT_REFERENCE_ONLY": 28,
+      "SUPERSEDE": 1,
+      "REJECT": 1
+    },
+    "architectureAlternativesDispositioned": 27,
+    "lifecycleEvidenceLayersSeparated": 7,
+    "sourceHistoryComparedSince": "2026-09-24",
+    "officialSourceAccessDate": "2026-09-26",
+    "sourceHistoryLimit": "The rendered Blender 5.1 manual and Microsoft Job Objects page do not expose a comparable revision timestamp; current content was re-read and no file-history guarantee is claimed for those pages.",
+    "questionState": {
+      "S04": "U01-U21 OPEN",
+      "S05": "U01-U23 OPEN",
+      "M12-M60 owner contracts": "PENDING"
+    },
+    "hivePreflight": {
+      "status": "HIVE_NOT_USED/STALE",
+      "derivedEvidenceUsed": false,
+      "note": "The registered IRIS HIVE snapshot was stale. This review uses exact Git and official primary-source evidence only; no HIVE result is claimed."
+    },
+    "localValidation": {
+      "status": "PASS_ALL_REQUIRED_LOCAL_GATES",
+      "gitDiffCheck": "PASS",
+      "jsonParsing": "PASS_ALL_THREE_CHANGED_JSON_FILES",
+      "checkpointMirror": "PASS_BYTE_IDENTICAL",
+      "machineCheckpoint": "PASS_MATCHES_CANONICAL_NEXT_STEP",
+      "sourceFingerprints": "PASS_83_OF_83_EXACT_BASE_GIT_BLOBS_ZERO_MISMATCH",
+      "authorizedChangedPathSet": "PASS_EXACT_9",
+      "governanceValidator": "PASS",
+      "gefPreflight": "PASS_v1.0.0_at_866fe3af8cccc65c929aaf6a47a924401fa448b3",
+      "requiredTests": "PASS_3940_TESTS_LOCAL",
+      "testCommand": "python -m unittest discover -s tests -p \"test_*.py\"",
+      "testDurationSeconds": 21.058
+    },
+    "exactHeadGovernance": {
+      "status": "REQUIRED_ON_FINAL_PR_HEAD",
+      "runId": null,
+      "jobId": null,
+      "headSha": "MUST_MATCH_GITHUB_PR_HEAD"
+    },
+    "stopCondition": "After exact-head Governance passes, leave the PR open and unmerged. Do not begin Forward Compatibility Scan, independent audit, freeze, implementation, or issue closure in this increment."
+  }
 }
