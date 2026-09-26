@@ -1,6 +1,6 @@
 # M11 Final Technology Review
 
-**Status:** PROPOSED — submitted for PR-head Governance; no independent-review verdict or merge is implied.
+**Status:** APPROVED_FOR_PLANNING — reference-only dispositions were reviewed; C01 PR #97 passed its exact-head gate and was later merged through a separate governed closeout. No policy freeze or implementation admission is implied.
 **Review decision:** 28 existing-technology records and two IRIS-owned candidates are individually dispositioned below. ACCEPT means reference/boundary evidence only. No runtime, product dependency, default, API, process policy, IPC protocol, identity schema, contract freeze, or implementation is selected.
 **Work Order:** IRIS-WO-0015-M11-FINAL-TECHNOLOGY-REVIEW-C01-PREFLIGHT-RECOVERY
 **Issue:** #82 (open)
@@ -417,4 +417,11 @@ Cross-check of the five study inventories and all headings found 28/28 distinct 
 
 **Review recommendation:** ACCEPT the listed technologies and architecture alternatives only as source-backed references, limits, and open comparators for a future M11 owner-contract candidate; SUPERSEDE the standalone identity-association candidate with the narrower owner-reference boundary described above; REJECT the combined startup/registration envelope and any claimed internal process-lifecycle precedent. These are executor planning recommendations, not an independent review or freeze verdict.
 
-**Next planning gate after this proposal's required PR-head Governance:** Forward Compatibility Scan against available owner contracts and index-level M12–M60 entries, explicitly preserving missing contracts as PENDING. This increment stops after the exact PR-head Governance gate with its PR open and unmerged.
+**Historical C01 gate:** Governance passed on PR #97 and the PR was left open and unmerged at the end of its proposal increment. A separate closeout recorded its protected merge and exact-main Governance. **Next planning gate:** Forward Compatibility Scan against available owner contracts and M12–M60 index entries; missing contracts remain PENDING.
+
+
+## 9. Post-merge review disposition and closeout
+
+A read-only chat audit reviewed the C01 artifacts and exact PR head `bdf0a9fb71db037f49ac2d5001f8a65c1237ca57`. Verdict: **APPROVED_FOR_PLANNING**. No HIGH/CRITICAL or factual/semantic blocking finding was identified. This is not a formal GitHub review or a separate human reviewer identity.
+
+PR #97 Governance #422 (run `36266844396`, job `108473049566`) passed on the exact head with 3,940/3,940 tests in 16.672 seconds. It was protected squash-merged as `163b1af387506c092ae07ef3a02c740d9d1ed8ba`; exact-main Governance #423 (run `36270287905`, job `108482820548`) passed on tree `c114856e0fda058c655199d4fd7f97d1c47ad7c9` with 3,940/3,940 tests in 12.405 seconds. This review closes no S04/S05 question, selects no policy or runtime, does not freeze M11, and does not admit implementation. Issue #82 remains OPEN. Next is the separate Forward Compatibility Scan.
