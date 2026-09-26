@@ -1,0 +1,385 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0015",
+  "increment": "M11-S05-PROMOTION-RECONCILIATION",
+  "issue": 82,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0015-m11-s05-promotion-20260926",
+  "baseRef": "main",
+  "baseSha": "091361e71e2d55f05b2623163bd6f8c7234eb5b8",
+  "baseTreeSha": "d0ea17dde647eec2f73a64df2c6fa2d61bd8dcd1",
+  "status": "S05_CANONICAL_PLANNING_COMPLETION_RECONCILIATION",
+  "risk": "ELEVATED",
+  "planningOnly": true,
+  "implementationAdmission": "NOT_ADMITTED",
+  "upstream": {
+    "closeoutPullRequest": 95,
+    "closeoutHeadSha": "77dccb7e350d51d66f8b5cc135566becf0537dcc",
+    "closeoutMergeSha": "091361e71e2d55f05b2623163bd6f8c7234eb5b8",
+    "exactMainGovernanceRunId": 36258590273,
+    "exactMainGovernanceJobId": 108449958757
+  },
+  "sourceSnapshot": {
+    "fingerprintAlgorithm": "Git blob SHA-1",
+    "baseSha": "091361e71e2d55f05b2623163bd6f8c7234eb5b8",
+    "baseTreeSha": "d0ea17dde647eec2f73a64df2c6fa2d61bd8dcd1",
+    "criticalSourcesChecked": 83,
+    "criticalSourcesMatched": 83,
+    "mismatches": 0,
+    "rebindReason": "Rebound to exact main after PR #95 was protected squash-merged and exact-main Governance #419 passed."
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "0a557813caf20cf4472b7986f029181565add05f"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "b8ee47b899f072b26dc7775c668f823cdc88b358"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "gitBlobSha1": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "gitBlobSha1": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0013.json",
+      "gitBlobSha1": "279e4e3db9d5c5621cd1288174c926d0ebe91c88"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0014.json",
+      "gitBlobSha1": "098473531b7ca06a0a0588e5afb246f6ab0dccbf"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S01-CLOSEOUT.json",
+      "gitBlobSha1": "298456e3fc3b6f7e87273d5b55406f6dcb46e0f9"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S01.json",
+      "gitBlobSha1": "e11c099a20380f3fc3349d512018333bde25ef7e"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S02-CLOSEOUT.json",
+      "gitBlobSha1": "9cfde5a821d6bf66ebca32534efed3f4d7901ce6"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S02.json",
+      "gitBlobSha1": "549c1b94b30934307afcdac7aaebfdedd6147336"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S03.json",
+      "gitBlobSha1": "1bbf732d9d9dfa7593a9923c2909a9cae30c7b6e"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015.json",
+      "gitBlobSha1": "108521997276ad98817f2aeae53ce51fc91c7cfa"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0013.json",
+      "gitBlobSha1": "5b4479d95e677da62b57c882a82c75f8305597e8"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0014.json",
+      "gitBlobSha1": "ba9725312241c1ea9f267e376373151fb190e8e1"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0015.json",
+      "gitBlobSha1": "c013a29dc12b67f457999ef870f38dc917220588"
+    },
+    {
+      "path": ".engineering/github/main-governance.ruleset.json",
+      "gitBlobSha1": "f0854a05382340dde52ac1e2e1e866b38c37247c"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0013-M09-RESOURCE-DIGITAL-TWIN.md",
+      "gitBlobSha1": "25dadcb9856c66c8904bb6674717cd92a7209290"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0014-M10-IMPLEMENTATION-PROPOSAL.md",
+      "gitBlobSha1": "afbb84ad59baa989a28ffdcae15c9fe1261ac60e"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0014-M10-PREFLIGHT-CRITERIA.md",
+      "gitBlobSha1": "e39109e43b657e4f10e6ecf3e4ad522b276b949d"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+      "gitBlobSha1": "d5d74ab9adc48fafe7c3718954cc40032d35c119"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0015-PREFLIGHT-CRITERIA.md",
+      "gitBlobSha1": "8f05692cdbe085a46f31e159fb103331ac87daad"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/work-order.yml",
+      "gitBlobSha1": "a1de35a18bbad2e0563332b4069f50c26eb4d88b"
+    },
+    {
+      "path": ".github/SECURITY.md",
+      "gitBlobSha1": "b432426fd44a3706995e260f3cc9342f6a536ec6"
+    },
+    {
+      "path": ".github/workflows/governance.yml",
+      "gitBlobSha1": "69ad10baaf919af2789e4a91bc9614a7373ffb82"
+    },
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "18029f4c685cc8597242a6f949adbe2861f9f89e"
+    },
+    {
+      "path": "SECURITY.md",
+      "gitBlobSha1": "602a40534ec62c4322cc88a54047bb9f849af8bb"
+    },
+    {
+      "path": "docs/M02-PROJECT-OS-KERNEL.md",
+      "gitBlobSha1": "3301fe6b185fc3315aeb28074834850edc176728"
+    },
+    {
+      "path": "docs/M06-PRODUCTION-STATE-KERNEL.md",
+      "gitBlobSha1": "50c4fe85d03e4f8bb272c550d86f5f242d7a7a4b"
+    },
+    {
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "6e2fad440bbd74ac3bbd5b8ce5648e973ddd03d7"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/05-INTEGRATION-CONTRACTS.md",
+      "gitBlobSha1": "1c2d0e3462794cee64f83831ea07d9f9ac120663"
+    },
+    {
+      "path": "docs/project-brain/07-RUNTIME-EXECUTION-PRINCIPLES.md",
+      "gitBlobSha1": "cecf9c4065062b426df28ba19f406d36b433cf77"
+    },
+    {
+      "path": "docs/project-brain/08-SLOW-PLANNING-PROTOCOL.md",
+      "gitBlobSha1": "2656cf88a5de0d43c0e3c0eafce4041c1f369f5f"
+    },
+    {
+      "path": "docs/project-brain/09-MODULE-PLANNING-CONSTRUCTION-LIFECYCLE.md",
+      "gitBlobSha1": "d6cbd248a422edbc43b4277a6ae2f350de7364d3"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "docs/project-brain/12-LOCAL-DEPLOYMENT.md",
+      "gitBlobSha1": "f27bf06af4418762b3e667928877f5f1d7e59a06"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "b8ee47b899f072b26dc7775c668f823cdc88b358"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "da132b5a62e382b0eaf799d41737155fd9f1c403"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "69fffd85b3e8562a200aeab231e7199489812798"
+    },
+    {
+      "path": "iris_resource_twin/leases.py",
+      "gitBlobSha1": "5757d15156d62ac8cc49a1763eba62b944af52d9"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "1e5898f36b49e71f28eb18eb9582d48de60a58b4"
+    },
+    {
+      "path": "planning/compatibility/M10-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "0678e44b94f7a48c8f85b11d74ee7c119fdf40ca"
+    },
+    {
+      "path": "planning/contracts/M01-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "8120dbf2d95cc0fd85f31e772e0b60a7c40d6442"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+    },
+    {
+      "path": "planning/contracts/M03-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "66616ac94f9e4d02b680e9dc4e4f8a8fce21d34a"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+    },
+    {
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828"
+    },
+    {
+      "path": "planning/modules/M02-PROJECT-OS-PRODUCTION-GRAPH.md",
+      "gitBlobSha1": "3167e2ee8be597a7e33d9083a151c8cbcb462c7f"
+    },
+    {
+      "path": "planning/modules/M06-PRODUCTION-STATE-VERSIONING-INCREMENTAL-MEDIA-BUILD.md",
+      "gitBlobSha1": "a888a60eb54037b82f3f6c3576d756f4f688123a"
+    },
+    {
+      "path": "planning/modules/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "3b931f8761372bd3773cc2b5d23244ad08aecee3"
+    },
+    {
+      "path": "planning/modules/M10-ADAPTIVE-EXECUTION-PLANNER-PREDICTIVE-OOM-THERMAL-SHIELD.md",
+      "gitBlobSha1": "23aad63d35b194ab3fea995120c11b948eb9db8e"
+    },
+    {
+      "path": "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+      "gitBlobSha1": "1b4e4cf8a4ec15858d456887af2ea88b329612db"
+    },
+    {
+      "path": "planning/research/M10-S01-WORKLOAD-SIGNATURE-ENGINE.md",
+      "gitBlobSha1": "4826b734a4037e9194f5103fbc61aac3d16d976e"
+    },
+    {
+      "path": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+      "gitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5"
+    },
+    {
+      "path": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "gitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e"
+    },
+    {
+      "path": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "gitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933"
+    },
+    {
+      "path": "planning/reviews/IRIS-WO-0014-M11-M60-OWNER-DEPENDENCY-REGISTER.md",
+      "gitBlobSha1": "9112422bdb6cc0b7a0309bc20366285a76921c98"
+    },
+    {
+      "path": "planning/reviews/IRIS-WO-0015-S01-DOCUMENTATION-AUDIT.md",
+      "gitBlobSha1": "9c291f40cac66f8508e7815ffc70131a4ad9d441"
+    },
+    {
+      "path": "planning/reviews/IRIS-WO-0015-S02-DOCUMENTATION-AUDIT.md",
+      "gitBlobSha1": "33f27bccf04c7780661c9451fc05249e982f51d7"
+    },
+    {
+      "path": "planning/reviews/IRIS-WO-0015-S03-DOCUMENTATION-AUDIT.md",
+      "gitBlobSha1": "42daeb649d22e9456350a990418e4f3b90b4ab77"
+    },
+    {
+      "path": "planning/reviews/M09-FINAL-TECHNOLOGY-REVIEW.md",
+      "gitBlobSha1": "86909d649353439278bc305a6a4a6125345a4d83"
+    },
+    {
+      "path": "planning/reviews/M10-FINAL-TECHNOLOGY-REVIEW.md",
+      "gitBlobSha1": "cf0ace0a3f2a662dcc3f5b76a6e41e61cfa4d44c"
+    },
+    {
+      "path": "planning/reviews/M10-INDEPENDENT-PLANNING-AUDIT.md",
+      "gitBlobSha1": "10bb3d556b1b90c609c626f2a5f551392c5431aa"
+    },
+    {
+      "path": "scripts/gef_preflight.py",
+      "gitBlobSha1": "657fdbb0c89e5cdd97c426fd3639112d5c9b24dd"
+    },
+    {
+      "path": "scripts/hive_mcp.py",
+      "gitBlobSha1": "0ad9cd173c29b8aedf60ee0f3b5d928112d23a0a"
+    },
+    {
+      "path": "scripts/validate_governance.py",
+      "gitBlobSha1": "187d3ea1b78952ebfd348438bfde628ae19043b0"
+    },
+    {
+      "path": "tests/test_m01_domain_neutrality.py",
+      "gitBlobSha1": "70c0e0bceb2fac658d9d168842f986e0f9a2832a"
+    },
+    {
+      "path": "tests/test_m02_domain_neutrality.py",
+      "gitBlobSha1": "71d176ecd621504ca1f6631d10d2ef414887fc8d"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S04.json",
+      "gitBlobSha1": "8d224be18d912c44c30706eec6f93f5eb182499d"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S03-CLOSEOUT.json",
+      "gitBlobSha1": "aada07e21593020b371883cd32cde50ef6903a0e"
+    },
+    {
+      "path": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "gitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S04-CLOSEOUT.json",
+      "gitBlobSha1": "2f6c0e397fe7ab64f0b33aa2180fb9db203899bc"
+    },
+    {
+      "path": "iris_resource_twin/invariants.py",
+      "gitBlobSha1": "3724016aa1d31e3f9f47cfda48968300354bcf53"
+    },
+    {
+      "path": "docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "461e0f332d9be2af694634bbdc8cf67e29d56393"
+    },
+    {
+      "path": "planning/modules/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "804387a28c318fc82f53e51651f279d76895095c"
+    },
+    {
+      "path": "iris_microbenchmark/execution.py",
+      "gitBlobSha1": "393760d6b28820ba222899877db697a21cab0492"
+    },
+    {
+      "path": "tests/test_m08_execution.py",
+      "gitBlobSha1": "6eb3ba8abca20e29b89ebbe943d8193a8363f749"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.md",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/context-locks/IRIS-WO-0015-S05-PROMOTION.json",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+    ".engineering/work-orders/IRIS-WO-0015-S05-PROMOTION.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+    "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md"
+  ],
+  "stopConditions": [
+    "Stop and re-read authority if main advances before PR creation; recompile all fingerprints.",
+    "Stop on source fingerprint mismatch or if Issue #82 is not open.",
+    "Stop if the changed-path set is not exactly the 11-path allowlist or JSON/checkpoint mirrors fail validation.",
+    "Stop if exact-head Governance cannot prove exact SHA, repository validator, GEF/HIVE bridges and full test suite.",
+    "Do not freeze M11, select unresolved S05 policies, admit M11/M10 implementation, close Issue #82, or start the next Work Order in this increment."
+  ]
+}
