@@ -26,7 +26,7 @@ The user authorized the existing repository tests/CI to start only isolated Pyth
 ## Canonical facts and authority boundaries
 
 - Issue #82 admits M11 planning documentation. The exact base is `61864d387b20b6cb283ccfec12ab5cf6f2ffaa14` and its recursive tree is `e4f4972e9514e3e6f2ad526e8ff516d8ed3c9544`; the pinned exact-main Governance run passed on that SHA.
-- S01-S03 were complete for module planning. S04 is complete for module planning after PR #92 exact-head Governance, protected squash merge and exact-main Governance passed. The separate checkpoint/evidence closeout is a new proposal and its own review, protected merge and exact-main Governance remain pending.
+- S01-S03 were complete for module planning. S04 is complete for module planning after PR #92 exact-head Governance, protected squash merge and exact-main Governance passed. The separate checkpoint/evidence closeout passed its own review gate: PR #93 was HEDS APPROVED on exact head 6e9e717ecacacfbef787a53ffbf0254f1188323c, protected squash-merged as e0d8aeeea676d884e9c6a716df42a363f0765020, and exact-main Governance #415 (36244566768 / 108411232665) passed. This current S05 planning proposal does not complete S05.
 - M02 owns semantic work identity, Production Graph causality, canonical ExecutionPlan and production lifecycle/acceptance.
 - M06 owns operational revisions, materialization lineage and attempt evidence. Its ExecutionAttemptPort payload and the mapping from a process to an operational attempt remain unresolved.
 - M09 owns resource truth, claims, leases, reservations, residency and resource-control outcomes. S04 does not create or mutate them.
@@ -57,7 +57,7 @@ Python exposes POSIX `start_new_session` and `process_group` parameters. Linux `
 
 ## Technology candidates
 
-These are comparison records only. Each remains PROPOSED and none is selected. IDs were checked against the exact-base evidence bundle. S04 is complete for module planning; S04-U01 through S04-U21 remain unresolved, and S05 remains NOT_STARTED pending the separate checkpoint/evidence closeout gates.
+These are comparison records only. Each remains PROPOSED and none is selected. IDs were checked against the exact-base evidence bundle. S04 is complete for module planning; S04-U01 through S04-U21 remain unresolved. S05 was NOT_STARTED at the S04 research base; after PR #93 closeout and exact-main Governance #415, the separate S05 planning proposal is now in progress and remains incomplete.
 
 ### TECH-M11-016 — Python 3.12 subprocess argument-vector launch
 
@@ -178,8 +178,8 @@ Read-only search at the pinned default-branch source found:
 - PR #92 exact-head Governance completed the Python 3.12 bootstrap compilation, governance validator and full repository suite. The first submitted PR #93 head `17de559d4d04963ff8a086b571ce61bd770cbea0` subsequently passed exact-head Governance run #413 (`36239758962`, job `108397938994`) with 3,940/3,940 tests. That receipt applies only to that SHA; every later head requires fresh exact-head Governance. No local repository test suite was run for this closeout. Only isolated Python test children already present in the suite are authorized by the existing planning gate.
 - PR #92 proposal exact-head Governance run 36213241691 / job 108323991494 passed on 7bd29099adfe3c4b2035e3da1ab9c09349e95001 with 3940/3940 tests. Its protected squash merge is f779cec13d0877cf9c5ac6797a49c5ef85389d0b; exact-main Governance run 36235782621 / job 108387156827 passed on that SHA with 3940/3940 tests in 16.550 seconds.
 - The proposal review record was an APPROVED chat review with 0 HIGH/CRITICAL findings and 74/74 source fingerprints; it is not a formal GitHub review.
-- The separate checkpoint/evidence closeout candidate binds base f779cec13d0877cf9c5ac6797a49c5ef85389d0b / tree 222627601b9a72fe17ae8253184f88d4620b5f7f and matches 77/77 exact-base Git blob fingerprints. The first submitted PR #93 head passed Governance run #413; any later head requires its own exact-head receipt. A separate independent HEDS review must be bound to the final exact head before protected merge and exact-main Governance.
-- Keep S05 NOT_STARTED, M11 contract NOT_FROZEN, M10 frozen, M10/M11 implementation NOT_ADMITTED, WO-0014 BLOCKED and Issue #82 open.
+- The S04 closeout Context Lock bound base f779cec13d0877cf9c5ac6797a49c5ef85389d0b / tree 222627601b9a72fe17ae8253184f88d4620b5f7f and matched 77/77 exact-base Git blob fingerprints. PR #93 exact head 6e9e717ecacacfbef787a53ffbf0254f1188323c passed Governance #414 (36241125704 / 108401697787), received a separate read-only HEDS APPROVED review, was protected squash-merged as e0d8aeeea676d884e9c6a716df42a363f0765020, and passed exact-main Governance #415 (36244566768 / 108411232665). S05 planning begins as a separate proposal from that exact main; the session remains incomplete pending its own gates.
+- At the S04 proposal base S05 was NOT_STARTED. On current main, PR #93 closeout and exact-main Governance #415 have passed; this S05 proposal is active but not complete. Keep M11 contract NOT_FROZEN, M10 frozen, M10/M11 implementation NOT_ADMITTED, WO-0014 BLOCKED and Issue #82 open.
 
 ## Primary sources
 
@@ -200,4 +200,4 @@ Checked 2026-09-26. These sources describe platform/library behavior; they do no
 
 ## Session result
 
-S04 is COMPLETE_FOR_MODULE_PLANNING based on PR #92 exact-head Governance, protected squash merge and exact-main Governance. No architecture or process policy is selected, and S04-U01 through S04-U21 remain unresolved. The distinct checkpoint/evidence closeout is only proposed in this branch and is not canonical until its own PR review, protected merge and exact-main Governance pass. S05 remains NOT_STARTED; no M11 contract freeze or implementation admission is authorized.
+S04 is COMPLETE_FOR_MODULE_PLANNING based on PR #92 exact-head Governance, protected squash merge and exact-main Governance. No architecture or process policy is selected, and S04-U01 through S04-U21 remain unresolved. PR #93 reconciled the checkpoint/evidence closeout, received HEDS APPROVED on its exact head, was protected squash-merged as e0d8aeeea676d884e9c6a716df42a363f0765020, and passed exact-main Governance #415 (36244566768 / 108411232665). S05 planning is now proposed from that exact main; S05 is not complete, and no M11 contract freeze or implementation admission is authorized.
