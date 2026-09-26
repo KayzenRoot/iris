@@ -11,6 +11,8 @@ Implementation authority: NOT_ADMITTED
 
 This file is the session map for the admitted M11 planning lifecycle. It is not an owner contract, implementation specification, technology decision, process policy, or authorization to launch or control workers. S01-S05 are COMPLETE_FOR_MODULE_PLANNING. PR #95 exact head 77dccb7e350d51d66f8b5cc135566becf0537dcc passed Governance #418 (36257428623 / 108446767119), was protected squash-merged as 091361e71e2d55f05b2623163bd6f8c7234eb5b8, and exact-main Governance #419 (36258590273 / 108449958757) passed 3,940/3,940 tests. This closes only planning; no M11 contract or implementation is admitted. No M11 contract is frozen by this document. S04 completion is evidenced by PR #92; its separate checkpoint/evidence closeout PR #93 received HEDS APPROVED on exact head 6e9e717ecacacfbef787a53ffbf0254f1188323c, was protected squash-merged as e0d8aeeea676d884e9c6a716df42a363f0765020, and passed exact-main Governance #415 (36244566768 / 108411232665).
 
+Final Technology Review C01 is recorded in planning/reviews/M11-FINAL-TECHNOLOGY-REVIEW.md as PROPOSED, with exact base 6ccb65f25c3bae2ad10d511473d2944f980478fa. It reviews S01-S05 technologies and architecture alternatives as reference-only evidence. The final PR-head Governance gate is required; no independent review or merge is claimed here. No session question is closed, M11 remains NOT_FROZEN, and M11/M10 implementation remains NOT_ADMITTED. After the exact-head gate, this increment stops with its PR open and unmerged; Forward Compatibility Scan is the next separate planning gate.
+
 M11 is expected to plan the background worker and operating-system process lifecycle required by IRIS. Product requirements PR-005, PR-006, PR-008 and PR-009 establish the planning context: Blender headless/background automation, a structured control surface without mandatory live GUI, managed worker lifecycle/concurrency/cancellation/cleanup/orphan detection, and configurable workstation CPU/RAM/VRAM headroom. Their concrete semantics remain to be planned and assigned to owners.
 
 ## Available contract boundaries at the admission base
@@ -64,3 +66,7 @@ Research record: planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-W
 ## Explicitly unresolved
 
 No M11 contract version, public API, IPC protocol, permission model, process-state machine, cancellation/timeout semantics, retry/recovery policy, concurrency limit, lease handshake, priority policy, shell invocation rule set, platform adapter, or numerical headroom is selected here. No M12–M60 detail is treated as known beyond its available canonical contract.
+
+## Final Technology Review handoff
+
+The C01 review assigns a source-backed verdict to each S01-S05 technology record and IRIS-owned candidate, groups repeated mechanisms while preserving their study provenance, and carries every reviewed architecture alternative forward only as an unselected comparator. ACCEPT records evidence or a boundary; it does not adopt a runtime, dependency, default, API, or policy. S04-U01..U21 and S05-U01..U23 remain OPEN. M12–M60 owner-specific contracts remain PENDING. The review proposal does not start the Forward Compatibility Scan, freeze M11, admit implementation, or authorize process/IPC operations.
