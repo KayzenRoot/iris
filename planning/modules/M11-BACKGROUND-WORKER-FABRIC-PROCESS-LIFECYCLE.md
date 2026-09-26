@@ -1,6 +1,6 @@
 # M11 — Background Worker Fabric & Process Lifecycle
 
-Status: S01_S03_COMPLETE_S04_PROPOSED_PENDING_GOVERNANCE
+Status: S01_S04_COMPLETE_S05_NOT_STARTED
 Contract: NOT_FROZEN
 Planning issue: #82
 Planning Work Order: IRIS-WO-0015
@@ -9,7 +9,7 @@ Implementation authority: NOT_ADMITTED
 
 ## Purpose
 
-This file is the session map for the admitted M11 planning lifecycle. It is not an owner contract, implementation specification, technology decision, process policy, or authorization to launch or control workers. S01, S02 and S03 are COMPLETE_FOR_MODULE_PLANNING; S04 is PROPOSED_PENDING_GOVERNANCE and S05 remains NOT_STARTED. No M11 contract is frozen by this document.
+This file is the session map for the admitted M11 planning lifecycle. It is not an owner contract, implementation specification, technology decision, process policy, or authorization to launch or control workers. S01-S04 are COMPLETE_FOR_MODULE_PLANNING; S05 remains NOT_STARTED. No M11 contract is frozen by this document. S04 completion is evidenced by PR #92 and its exact-head and exact-main Governance runs; this separate checkpoint/evidence closeout remains a proposal until its own review, protected merge and exact-main Governance pass.
 
 M11 is expected to plan the background worker and operating-system process lifecycle required by IRIS. Product requirements PR-005, PR-006, PR-008 and PR-009 establish the planning context: Blender headless/background automation, a structured control surface without mandatory live GUI, managed worker lifecycle/concurrency/cancellation/cleanup/orphan detection, and configurable workstation CPU/RAM/VRAM headroom. Their concrete semantics remain to be planned and assigned to owners.
 
@@ -39,16 +39,14 @@ Research record: planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AN
 ### S03 — Concurrency limits, priorities and resource leases
 Status: COMPLETE_FOR_MODULE_PLANNING
 
-Research record: planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md. PR #89 corrected exact head 778218c04fb9481cab75122001deb87814ce3e68 passed Governance 36189044035 / 108249450672 (3940/3940 tests), was protected squash-merged as ad3c4ac4aa84890248fbc7e6250bea2de271fd65, and passed exact-main Governance 36189379137 / 108250522233 (3940/3940 tests; actor: KayzenRoot). Its Context Lock matched 68/68 exact-base source fingerprints and the post-authoring documentation audit found 0 HIGH, 0 CRITICAL and 0 residual findings. The separate S03 checkpoint/evidence closeout gates S04. No M11 contract is frozen and no implementation is admitted.
+Research record: planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md. PR #89 corrected exact head 778218c04fb9481cab75122001deb87814ce3e68 passed Governance 36189044035 / 108249450672 (3940/3940 tests), was protected squash-merged as ad3c4ac4aa84890248fbc7e6250bea2de271fd65, and passed exact-main Governance 36189379137 / 108250522233 (3940/3940 tests; actor: KayzenRoot). Its Context Lock matched 68/68 exact-base source fingerprints and the post-authoring documentation audit found 0 HIGH, 0 CRITICAL and 0 residual findings. The S03 checkpoint/evidence closeout passed exact-main Governance before S04 began. No M11 contract is frozen and no implementation is admitted.
 
 Plan queue/concurrency responsibility, priority and fairness questions, backpressure, workstation headroom, and the handoff to M09 resource claims/leases and M12 placement/orchestration. Do not grant, reserve, release, or assert resource truth.
 
 ### S04 — Process reaper, zombie detection and shell-free execution
-Status: PROPOSED_PENDING_GOVERNANCE
+Status: COMPLETE_FOR_MODULE_PLANNING
 
-Research record: planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md. Proposal base `61864d387b20b6cb283ccfec12ab5cf6f2ffaa14` (tree `e4f4972e9514e3e6f2ad526e8ff516d8ed3c9544`); Context Lock matched 74/74 critical fingerprints. The pinned base passed exact-main Governance run 36191418025 / job 108257166485 (3,940/3,940 tests). The research compares process identity, child waiting/reaping, zombie/orphan and descendant semantics, grouping/containment, and shell-free invocation options without selecting an M11 architecture or policy. Current-head Governance, independent review and protected merge remain separate gates. HIVE returned `source_not_current`; no HIVE-derived evidence was used. M11 remains NOT_FROZEN and M10/M11 implementation remain NOT_ADMITTED.
-
-No process, worker, provider, IPC, DCC or hardware operation was performed. The user authorized only isolated Python subprocesses already required by the repository tests/CI. This is not implementation authority.
+Research record: planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md. Proposal base 61864d387b20b6cb283ccfec12ab5cf6f2ffaa14; proposal head 7bd29099adfe3c4b2035e3da1ab9c09349e95001 passed PR-head Governance run 36213241691 / job 108323991494 (3940/3940 tests). PR #92 was protected squash-merged as f779cec13d0877cf9c5ac6797a49c5ef85389d0b; exact-main Governance run 36235782621 / job 108387156827 passed (3940/3940 tests). The proposal Context Lock matched 74/74 source fingerprints. A prior chat review recorded APPROVED with 0 HIGH/CRITICAL findings; there is no formal GitHub review record. The separate closeout Context Lock binds this checkpoint delta to base tree 222627601b9a72fe17ae8253184f88d4620b5f7f and matches 77/77 source fingerprints. No process architecture or policy is selected; S04-U01 through S04-U21 remain unresolved. This closeout itself is proposed and must pass its own review, protected merge and exact-main Governance before S05 begins. M11 remains NOT_FROZEN; M11/M10 implementation remain NOT_ADMITTED.
 
 ### S05 — Cancellation, timeout, crash recovery and workstation coexistence
 Status: NOT_STARTED
