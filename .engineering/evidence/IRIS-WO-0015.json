@@ -2,7 +2,7 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0015",
   "module": "M11",
-  "status": "S05_CHECKPOINT_EVIDENCE_CLOSEOUT_PROPOSED",
+  "status": "S05_COMPLETE_FOR_MODULE_PLANNING",
   "capturePhase": "M11_S05_CHECKPOINT_EVIDENCE_CLOSEOUT",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
@@ -73,7 +73,7 @@
     {
       "id": "S05",
       "title": "Cancellation, timeout, crash recovery and workstation coexistence",
-      "status": "PROPOSED_NOT_COMPLETE"
+      "status": "COMPLETE_FOR_MODULE_PLANNING"
     }
   ],
   "baseline": {
@@ -339,7 +339,7 @@
     ".engineering/evidence/IRIS-WO-0015.json",
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
   ],
-  "currentPhase": "M11_S05_CHECKPOINT_CLOSEOUT_PROPOSAL",
+  "currentPhase": "M11_S05_COMPLETE_FOR_MODULE_PLANNING",
   "sessionCloseoutChangedFiles": [
     ".engineering/context-locks/IRIS-WO-0015-S01-CLOSEOUT.json",
     ".engineering/evidence/IRIS-WO-0015.json",
@@ -1395,6 +1395,98 @@
     ".engineering/context-locks/IRIS-WO-0015-S05-CLOSEOUT.json",
     ".engineering/evidence/IRIS-WO-0015.json",
     ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+    "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md"
+  ],
+  "s05SessionPromotion": {
+    "status": "COMPLETE_FOR_MODULE_PLANNING",
+    "canonical": true,
+    "issue": 82,
+    "workOrder": "IRIS-WO-0015",
+    "promotionWorkOrder": "IRIS-WO-0015-S05-PROMOTION",
+    "priorStatus": "PROPOSED_NOT_COMPLETE",
+    "proposalPullRequest": 94,
+    "closeoutPullRequest": 95,
+    "closeoutHeadSha": "77dccb7e350d51d66f8b5cc135566becf0537dcc",
+    "closeoutBaseSha": "2e6c0b89b67230b2b39c4bbb37ff51648d061060",
+    "closeoutBaseTreeSha": "3b3034bfc4037c9df241d844eaedbf31b171ae54",
+    "exactHeadGovernance": {
+      "runId": 36257428623,
+      "runNumber": 418,
+      "jobId": 108446767119,
+      "headSha": "77dccb7e350d51d66f8b5cc135566becf0537dcc",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "protectedMerge": {
+      "pullRequest": 95,
+      "method": "squash",
+      "headSha": "77dccb7e350d51d66f8b5cc135566becf0537dcc",
+      "mergeSha": "091361e71e2d55f05b2623163bd6f8c7234eb5b8",
+      "actor": "KayzenRoot",
+      "actorId": 114633702,
+      "mergedAt": "2026-09-26T17:18:59Z",
+      "result": "MERGED"
+    },
+    "exactMainGovernance": {
+      "runId": 36258590273,
+      "runNumber": 419,
+      "jobId": 108449958757,
+      "headSha": "091361e71e2d55f05b2623163bd6f8c7234eb5b8",
+      "treeSha": "d0ea17dde647eec2f73a64df2c6fa2d61bd8dcd1",
+      "result": "PASS",
+      "tests": "3940/3940",
+      "testSeconds": 16.258
+    },
+    "chatReview": {
+      "verdict": "APPROVED",
+      "reviewedHead": "77dccb7e350d51d66f8b5cc135566becf0537dcc",
+      "reviewType": "ChatGPT repository audit after exact-head Governance",
+      "formalGitHubReview": false,
+      "findings": {
+        "high": 0,
+        "critical": 0,
+        "factualOrSemantic": 0
+      },
+      "reviewerIdentity": "No separate human or GitHub reviewer identity is claimed.",
+      "checks": {
+        "authorizedPathSet": "PASS_EXACT_10",
+        "contextLockFingerprints": "PASS_83_OF_83",
+        "checkpointMirror": "PASS_EXACT_MATCH",
+        "governanceHeadBinding": "PASS",
+        "ownerBoundaries": "PASS"
+      },
+      "residualRisk": "S04/S05 questions and owner-specific policies remain unresolved."
+    },
+    "promotionContextLock": {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S05-PROMOTION.json",
+      "baseSha": "091361e71e2d55f05b2623163bd6f8c7234eb5b8",
+      "baseTreeSha": "d0ea17dde647eec2f73a64df2c6fa2d61bd8dcd1",
+      "checked": 83,
+      "matched": 83,
+      "mismatches": 0
+    },
+    "issue82": "OPEN",
+    "m11Contract": "NOT_FROZEN",
+    "m11Implementation": "NOT_ADMITTED",
+    "m10Contract": "m10-contract-v1.0 (FROZEN)",
+    "m10Implementation": "NOT_ADMITTED",
+    "wo0014Preflight": "BLOCKED",
+    "s04UnresolvedQuestions": "S04-U01..U21 OPEN",
+    "s05UnresolvedQuestions": "S05-U01..U23 OPEN",
+    "m12ToM60OwnerContracts": "PENDING",
+    "nextGate": "M11 Final Technology Review, then Forward Compatibility Scan, versioned contract candidate, and independent planning audit."
+  },
+  "s05PromotionChangedFiles": [
+    ".engineering/CHECKPOINT.md",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/context-locks/IRIS-WO-0015-S05-PROMOTION.json",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+    ".engineering/work-orders/IRIS-WO-0015-S05-PROMOTION.md",
     "docs/project-brain/03-SCOPE.md",
     "docs/project-brain/13-CHECKPOINT.md",
     "docs/project-brain/14-BACKLOG.md",

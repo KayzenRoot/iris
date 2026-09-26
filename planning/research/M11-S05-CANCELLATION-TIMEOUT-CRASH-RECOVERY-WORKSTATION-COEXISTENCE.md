@@ -1,6 +1,6 @@
 # M11 S05 — Cancellation, Timeout, Crash Recovery and Workstation Coexistence
 
-Status: PROPOSED_FOR_MODULE_PLANNING; S05 IS NOT COMPLETE
+Status: COMPLETE_FOR_MODULE_PLANNING
 Work Order: IRIS-WO-0015 / Issue #82
 Planning base: e0d8aeeea676d884e9c6a716df42a363f0765020
 Base tree: b82ddfb80b7ff57f409b9d48f07263b7c7d356a2
@@ -17,7 +17,7 @@ HIVE evidence: NOT_USED for IRIS. The registered IRIS HIVE context was stale; ex
 
 ## Objective and scope
 
-Compare documented cancellation and timeout layers, platform process-interruption mechanisms, crash/restart recovery questions, partial-result boundaries, and workstation coexistence requirements. Record source facts, carefully separated planning inferences, technology alternatives, ownership, failure cases, future proof work, and unresolved decisions. This is a proposal for S05 planning only. It selects no API, process-control mechanism, timeout scope/value, escalation sequence, restart behavior, journal, retry rule, cleanup guarantee, headroom formula, or workstation policy.
+Compare documented cancellation and timeout layers, platform process-interruption mechanisms, crash/restart recovery questions, partial-result boundaries, and workstation coexistence requirements. Record source facts, carefully separated planning inferences, technology alternatives, ownership, failure cases, future proof work, and unresolved decisions. This research is planning evidence for S05, not a policy selection. It selects no API, process-control mechanism, timeout scope/value, escalation sequence, restart behavior, journal, retry rule, cleanup guarantee, headroom formula, or workstation policy.
 
 The accepted change is documentation and evidence only. No worker, child process, provider, IPC endpoint, DCC application, machine resource, or lease was started, inspected, interrupted, recovered, measured, or changed. No experiment, benchmark, timing test, or hardware measurement was run. Repository inspection was read-only. Any future process or runtime test requires a separate implementation Work Order and its own safety gates.
 
@@ -26,7 +26,7 @@ The accepted change is documentation and evidence only. No worker, child process
 - The current branch was created from exact `main` SHA `e0d8aeeea676d884e9c6a716df42a363f0765020`, tree `b82ddfb80b7ff57f409b9d48f07263b7c7d356a2`; the checkout was clean before authoring.
 - S04 checkpoint/evidence closeout PR #93 had HEDS verdict APPROVED on exact proposal head `6e9e717ecacacfbef787a53ffbf0254f1188323c` (separate read-only reviewer task; no formal GitHub review was submitted), then protected squash merge `e0d8aeeea676d884e9c6a716df42a363f0765020`. Exact-main Governance run #415 (`36244566768`, job `108411232665`) passed on that merge SHA, including the repository suite (3,940/3,940).
 - PR #93's closeout Context Lock bound base `f779cec13d0877cf9c5ac6797a49c5ef85389d0b` / tree `222627601b9a72fe17ae8253184f88d4620b5f7f` and matched 77/77 Git blob fingerprints. This S05 proposal recompiles its own Context Lock against the exact current main, not the prior closeout base.
-- Issue #82 is OPEN. The canonical checkpoint and session map showed S05 NOT_STARTED at the base; this proposal begins the S05 planning increment but does not complete the session.
+- Issue #82 is OPEN. At the S05 proposal base, the canonical checkpoint and session map showed S05 NOT_STARTED. This was the proposal start state; S05 was later promoted to COMPLETE_FOR_MODULE_PLANNING by closeout PR #95 after Governance #418, protected merge, and exact-main Governance #419.
 - S01–S04 remain COMPLETE_FOR_MODULE_PLANNING. M11 remains NOT_FROZEN; M11/M10 implementation remain NOT_ADMITTED; M10 stays frozen at `m10-contract-v1.0`; IRIS-WO-0014 remains BLOCKED.
 
 ## Requirements and authority boundaries
@@ -228,7 +228,11 @@ These are proof-plan options, not current tests, acceptance thresholds, implemen
 
 ## S05 session result and next gate
 
-S05 completion as COMPLETE_FOR_MODULE_PLANNING is proposed by this checkpoint/evidence closeout on exact base 2e6c0b89b67230b2b39c4bbb37ff51648d061060 / tree 3b3034bfc4037c9df241d844eaedbf31b171ae54. Proposal PR #94 was HEDS APPROVED on exact head c2478c757814df72ca7e5b03fe530e27674f5694 by separate read-only review task /root/s05_heds_review (distinct executor task /root; no separate human or GitHub account is claimed), confidence 0.92, with no factual or semantic findings and owner-specific contracts/recovery policies pending. PR #94 was protected squash-merged as 2e6c0b89b67230b2b39c4bbb37ff51648d061060; exact-main Governance #417 (36254017572 / 108437249087) passed with 3,940/3,940 tests. The supplied Work Order's run ID 36250417572 returned 404; the correct verified run ID is 36254017572. This completion is only proposed until the closeout PR is merged and exact-main validated. The research does not select cancellation, timeout, signal/escalation, recovery journal, restart/retry, partial-output, cleanup, or workstation headroom policy. S04-U01..U21 and S05-U01..U23 remain open; M12-M60 owner-specific contracts remain pending. M11 stays NOT_FROZEN and M11/M10 implementation stays NOT_ADMITTED.
+S05 is COMPLETE_FOR_MODULE_PLANNING. PR #94 proposal head c2478c757814df72ca7e5b03fe530e27674f5694 received its recorded HEDS-01 APPROVED review, was protected squash-merged as 2e6c0b89b67230b2b39c4bbb37ff51648d061060, and passed exact-main Governance #417 (36254017572 / 108437249087; 3,940/3,940 tests). Closeout PR #95 exact head 77dccb7e350d51d66f8b5cc135566becf0537dcc passed Governance #418 (36257428623 / 108446767119; 3,940/3,940 tests), was protected squash-merged as 091361e71e2d55f05b2623163bd6f8c7234eb5b8, and exact-main Governance #419 (36258590273 / 108449958757) passed on tree d0ea17dde647eec2f73a64df2c6fa2d61bd8dcd1 (3,940/3,940 tests in 16.258 seconds). PR #95's stop condition was satisfied after exact-head Governance; its later merge and exact-main validation completed the closeout lifecycle.
+
+The research remains comparative, not a policy selection. It does not choose cancellation API, timeout contract, signal/escalation, recovery journal, restart/retry, partial-output, cleanup, or workstation headroom policy. S04-U01..U21 and S05-U01..U23 remain open; M12-M60 owner contracts remain pending. M11 stays NOT_FROZEN; M11/M10 implementation remains NOT_ADMITTED.
+
+The next required M11 gates are Final Technology Review and Forward Compatibility Scan, followed by the versioned M11 contract candidate and independent planning audit. No implementation is authorized by this session completion.
 
 ## Primary sources
 
