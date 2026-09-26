@@ -1,6 +1,6 @@
 # M11 — Background Worker Fabric & Process Lifecycle
 
-Status: S01_S03_COMPLETE_FOR_MODULE_PLANNING
+Status: S01_S03_COMPLETE_S04_PROPOSED_PENDING_GOVERNANCE
 Contract: NOT_FROZEN
 Planning issue: #82
 Planning Work Order: IRIS-WO-0015
@@ -9,7 +9,7 @@ Implementation authority: NOT_ADMITTED
 
 ## Purpose
 
-This file is the session map for the admitted M11 planning lifecycle. It is not an owner contract, implementation specification, technology decision, process policy, or authorization to launch or control workers. S01, S02 and S03 are COMPLETE_FOR_MODULE_PLANNING; S04–S05 remain NOT_STARTED. No M11 contract is frozen by this document.
+This file is the session map for the admitted M11 planning lifecycle. It is not an owner contract, implementation specification, technology decision, process policy, or authorization to launch or control workers. S01, S02 and S03 are COMPLETE_FOR_MODULE_PLANNING; S04 is PROPOSED_PENDING_GOVERNANCE and S05 remains NOT_STARTED. No M11 contract is frozen by this document.
 
 M11 is expected to plan the background worker and operating-system process lifecycle required by IRIS. Product requirements PR-005, PR-006, PR-008 and PR-009 establish the planning context: Blender headless/background automation, a structured control surface without mandatory live GUI, managed worker lifecycle/concurrency/cancellation/cleanup/orphan detection, and configurable workstation CPU/RAM/VRAM headroom. Their concrete semantics remain to be planned and assigned to owners.
 
@@ -44,9 +44,11 @@ Research record: planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RES
 Plan queue/concurrency responsibility, priority and fairness questions, backpressure, workstation headroom, and the handoff to M09 resource claims/leases and M12 placement/orchestration. Do not grant, reserve, release, or assert resource truth.
 
 ### S04 — Process reaper, zombie detection and shell-free execution
-Status: NOT_STARTED
+Status: PROPOSED_PENDING_GOVERNANCE
 
-Plan owned-process tracking, descendant/orphan detection, reaping boundaries, executable and argument validation, environment/path handling, and shell-free invocation constraints. No process inspection, termination, or reaping operation is performed by this planning increment.
+Research record: planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md. Proposal base `61864d387b20b6cb283ccfec12ab5cf6f2ffaa14` (tree `e4f4972e9514e3e6f2ad526e8ff516d8ed3c9544`); Context Lock matched 74/74 critical fingerprints. The pinned base passed exact-main Governance run 36191418025 / job 108257166485 (3,940/3,940 tests). The research compares process identity, child waiting/reaping, zombie/orphan and descendant semantics, grouping/containment, and shell-free invocation options without selecting an M11 architecture or policy. Current-head Governance, independent review and protected merge remain separate gates. HIVE returned `source_not_current`; no HIVE-derived evidence was used. M11 remains NOT_FROZEN and M10/M11 implementation remain NOT_ADMITTED.
+
+No process, worker, provider, IPC, DCC or hardware operation was performed. The user authorized only isolated Python subprocesses already required by the repository tests/CI. This is not implementation authority.
 
 ### S05 — Cancellation, timeout, crash recovery and workstation coexistence
 Status: NOT_STARTED

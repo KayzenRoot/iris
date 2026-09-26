@@ -68,7 +68,7 @@
     {
       "id": "S04",
       "title": "Process reaper, zombie detection and shell-free execution",
-      "status": "NOT_STARTED"
+      "status": "PROPOSED_PENDING_GOVERNANCE"
     },
     {
       "id": "S05",
@@ -341,7 +341,7 @@
     ".engineering/evidence/IRIS-WO-0015.json",
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
   ],
-  "currentPhase": "M11_S04_NOT_STARTED",
+  "currentPhase": "S04_PROPOSAL_PENDING_EXACT_HEAD_GOVERNANCE",
   "sessionCloseoutChangedFiles": [
     ".engineering/context-locks/IRIS-WO-0015-S01-CLOSEOUT.json",
     ".engineering/evidence/IRIS-WO-0015.json",
@@ -823,5 +823,189 @@
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
     "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
     "planning/reviews/IRIS-WO-0015-S03-DOCUMENTATION-AUDIT.md"
-  ]
+  ],
+  "s04SessionProposal": {
+    "status": "PROPOSED_PENDING_GOVERNANCE",
+    "issue": 82,
+    "workOrder": "IRIS-WO-0015",
+    "baseSha": "61864d387b20b6cb283ccfec12ab5cf6f2ffaa14",
+    "baseTreeSha": "e4f4972e9514e3e6f2ad526e8ff516d8ed3c9544",
+    "branch": "iris-wo-0015-m11-s04-process-reaper-shell-free-execution-20260925",
+    "artifact": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+    "contextLock": ".engineering/context-locks/IRIS-WO-0015-S04.json",
+    "sourceSnapshot": {
+      "algorithm": "Git blob SHA-1",
+      "checked": 74,
+      "matched": 74,
+      "mismatches": 0
+    },
+    "baseGovernance": {
+      "runId": 36191418025,
+      "jobId": 108257166485,
+      "headSha": "61864d387b20b6cb283ccfec12ab5cf6f2ffaa14",
+      "actor": "KayzenRoot",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "ownerContractReview": {
+      "M02": "Semantic work identity, Production Graph, canonical ExecutionPlan and production lifecycle remain M02-owned; no process mapping is inferred.",
+      "M06": "Operational revision/materialization lineage and attempt evidence remain M06-owned; ExecutionAttemptPort payload and process-to-attempt mapping remain unresolved.",
+      "M09": "Resource truth, claims, leases, reservations, residency and resource-control outcomes remain M09-owned; no resource or lease changes.",
+      "M10": "m10-contract-v1.0 remains FROZEN and advisory only; M10 implementation NOT_ADMITTED; WO-0014 preflight BLOCKED.",
+      "M11": "No owner contract or version exists; this S04 proposal selects no M11 API or policy.",
+      "M12_M60": "Individual owner contracts remain pending; M12/M26/M54/M56/M60 handoffs are not inferred from the register."
+    },
+    "technologyCandidates": [
+      {
+        "id": "TECH-M11-016",
+        "technology": "Python 3.12 subprocess argument-vector launch",
+        "classification": "EXISTING_TECHNOLOGY",
+        "status": "PROPOSED",
+        "crossReferences": [
+          "TECH-M11-001"
+        ]
+      },
+      {
+        "id": "TECH-M11-017",
+        "technology": "POSIX/Linux wait, waitpid and waitid",
+        "classification": "EXISTING_PLATFORM_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-018",
+        "technology": "Linux pidfds",
+        "classification": "EXISTING_PLATFORM_TECHNOLOGY",
+        "status": "PROPOSED",
+        "crossReferences": [
+          "TECH-M11-003"
+        ]
+      },
+      {
+        "id": "TECH-M11-019",
+        "technology": "POSIX process groups and sessions",
+        "classification": "EXISTING_PLATFORM_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-020",
+        "technology": "Windows CreateProcess and process handles",
+        "classification": "EXISTING_PLATFORM_TECHNOLOGY",
+        "status": "PROPOSED"
+      },
+      {
+        "id": "TECH-M11-021",
+        "technology": "Windows Job Objects",
+        "classification": "EXISTING_PLATFORM_TECHNOLOGY",
+        "status": "PROPOSED",
+        "crossReferences": [
+          "TECH-M11-002",
+          "TECH-M11-013"
+        ]
+      }
+    ],
+    "existingIRISCandidates": [
+      {
+        "id": "CAND-M11-001",
+        "technology": "Reference-only work/attempt/process association",
+        "status": "PROPOSED_UNCHANGED"
+      },
+      {
+        "id": "CAND-M11-002",
+        "technology": "Reference-preserving startup and registration envelope",
+        "status": "PROPOSED_UNCHANGED"
+      }
+    ],
+    "newProprietaryCandidate": "NONE; no distinct IRIS-owned capability is established by the evidence. No novelty or patent claim.",
+    "internalReuseStatus": "Read-only exact-main search found only narrow one-shot invocation in scripts/hive_mcp.py and scripts/gef_preflight.py, plus isolated sys.executable -c children in M01/M02 neutrality tests. These do not prove a supervisor, descendant tracking/reaping, process ownership, recovery, or attempt mapping. HIVE/UGAS/CORE reuse UNVERIFIED; HIVE source was stale.",
+    "architectureDecision": "NONE; no process identity, launcher, wait/reaper owner, state machine, containment mechanism, shell rule, platform baseline, executable/environment policy or cleanup guarantee is selected.",
+    "unresolvedQuestionIds": [
+      "S04-U01",
+      "S04-U02",
+      "S04-U03",
+      "S04-U04",
+      "S04-U05",
+      "S04-U06",
+      "S04-U07",
+      "S04-U08",
+      "S04-U09",
+      "S04-U10",
+      "S04-U11",
+      "S04-U12",
+      "S04-U13",
+      "S04-U14",
+      "S04-U15",
+      "S04-U16",
+      "S04-U17",
+      "S04-U18",
+      "S04-U19",
+      "S04-U20",
+      "S04-U21"
+    ],
+    "pendingOwnerDetails": {
+      "M02": "Owner-issued semantic job identity and Production Graph/ExecutionPlan mapping.",
+      "M06": "Process-to-attempt mapping, ExecutionAttemptPort payload, outcome and evidence lifecycle.",
+      "M09": "No resource/lease authority change; any references and handshakes must be owner-issued.",
+      "M12": "Placement, local/remote queues, quotas, preemption, trust and orchestration.",
+      "M26": "DCC versions, Blender headless startup wrappers and resource/process integration.",
+      "M54": "Principal, authorization, sandbox, executable trust, environment, secrets and handle rights.",
+      "M56": "Telemetry, event/correlation identity, freshness, redaction and retention.",
+      "M60": "Host/service model, platform versions, containment, setup, restart/recovery, upgrades and acceptance.",
+      "S05": "Cancellation, timeout, retry, restart, partial-result, cleanup and workstation-coexistence semantics remain deferred."
+    },
+    "documentationPreflight": {
+      "docsOnly": true,
+      "authorizedChangedFiles": [
+        ".engineering/context-locks/IRIS-WO-0015-S04.json",
+        "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+        "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+        ".engineering/evidence/IRIS-WO-0015.json"
+      ],
+      "runtimeOrTestOrScriptChanges": false,
+      "isolatedPythonTestChildrenAuthorized": true,
+      "isolatedPythonTestChildrenScope": "Only isolated Python child processes launched by existing tests/CI. No actual IRIS process/worker/provider/DCC/IPC/resource/hardware operation is authorized.",
+      "m11ContractFrozen": false,
+      "m11Implementation": "NOT_ADMITTED",
+      "m10Implementation": "NOT_ADMITTED",
+      "m10Contract": "m10-contract-v1.0 (FROZEN)",
+      "wo0014Preflight": "BLOCKED",
+      "hiveMcp": {
+        "toolVisible": true,
+        "sourceStatus": "SOURCE_NOT_CURRENT",
+        "usableForEvidence": false,
+        "evidenceUsed": false
+      },
+      "status": "PENDING_EXACT_HEAD_GOVERNANCE",
+      "exactHeadGovernance": {
+        "status": "PENDING_DRAFT_PR_HEAD"
+      }
+    },
+    "documentationAudit": {
+      "status": "POST_AUTHORING_REVIEW_READY_FOR_DRAFT_PR",
+      "reviewType": "S04 source, owner-authority, scope and evidence review; not the final independent M11 planning audit.",
+      "highFindings": 0,
+      "criticalFindings": 0,
+      "residualFindings": 0,
+      "finalIndependentM11PlanningAudit": "PENDING_AFTER_S01_S05_AND_FINAL_PLANNING_REVIEWS",
+      "reviewer": "Codex post-authoring source, authority and scope review",
+      "reviewedFiles": 4,
+      "sourceFingerprints": {
+        "checked": 74,
+        "matched": 74,
+        "mismatches": 0
+      }
+    },
+    "validation": {
+      "gitDiffCheck": "PASS; local exact-base four-path snapshot, git diff --cached --check.",
+      "governanceValidator": "PENDING_EXACT_HEAD_GOVERNANCE",
+      "bootstrapCompile": "PENDING_EXACT_HEAD_GOVERNANCE",
+      "repositoryTestCommand": "python -m unittest discover -s tests -p \"test_*.py\" -v",
+      "repositoryTestResult": "PENDING_EXACT_HEAD_GOVERNANCE; no local repository checkout is available in this Work Mode workspace.",
+      "exactHeadGovernance": "PENDING_DRAFT_PR_HEAD",
+      "changedPathCount": 4,
+      "localPython": "NOT_USED_FOR_REPOSITORY_TESTS"
+    },
+    "runtimeEvidence": "NONE; no actual process, worker, provider, IPC, DCC, resource/lease or hardware operation; repository inspection was read-only.",
+    "checkpointDelta": "NONE; checkpoint/evidence closeout is a separate later increment after protected merge and exact-main Governance.",
+    "destination": "Keep S04 proposed pending exact-head Governance and independent review. Do not start S05, merge, close Issue #82, freeze M11 or admit M10/M11 implementation."
+  }
 }
