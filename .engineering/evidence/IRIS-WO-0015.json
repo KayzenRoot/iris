@@ -2,8 +2,8 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0015",
   "module": "M11",
-  "status": "S05_PLANNING_PROPOSAL_NOT_COMPLETE",
-  "capturePhase": "m11_s04_checkpoint_closeout",
+  "status": "S05_CHECKPOINT_EVIDENCE_CLOSEOUT_PROPOSED",
+  "capturePhase": "M11_S05_CHECKPOINT_EVIDENCE_CLOSEOUT",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
   "issue": 82,
@@ -184,7 +184,7 @@
       "result": "PASS"
     }
   },
-  "checkpointDeltaProposed": "Record S04 closeout PR #93 and exact-main Governance #415 as complete; begin S05 planning proposal from exact main e0d8aeeea676d884e9c6a716df42a363f0765020 / tree b82ddfb80b7ff57f409b9d48f07263b7c7d356a2. The 11-path S05 delta remains proposed only; keep S05 incomplete, M11 NOT_FROZEN, M11/M10 implementation NOT_ADMITTED, M10 m10-contract-v1.0 FROZEN, WO-0014 BLOCKED, and Issue #82 OPEN.",
+  "checkpointDeltaProposed": "Propose S05 COMPLETE_FOR_MODULE_PLANNING after HEDS-01 APPROVED on PR #94 exact head c2478c757814df72ca7e5b03fe530e27674f5694, protected squash merge 2e6c0b89b67230b2b39c4bbb37ff51648d061060, and exact-main Governance #417 (36254017572 / 108437249087, 3940/3940 tests). The supplied PDF run ID 36250417572 returned 404; the correct verified run ID is 36254017572. This 10-path closeout is only a proposal until its own exact-head Governance and later protected merge/exact-main validation; stop after exact-head Governance and leave the closeout PR open/unmerged. Keep Issue #82 OPEN, M11 NOT_FROZEN, M11/M10 implementation NOT_ADMITTED, m10-contract-v1.0 FROZEN, WO-0014 BLOCKED, and S04-U01..U21 / S05-U01..U23 open.",
   "runtimeEvidence": "NONE; no runtime code or process operation is in scope.",
   "protectedMerge": {
     "pullRequest": 83,
@@ -339,7 +339,7 @@
     ".engineering/evidence/IRIS-WO-0015.json",
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
   ],
-  "currentPhase": "M11_S05_CANCELLATION_RECOVERY_PLANNING_PROPOSAL",
+  "currentPhase": "M11_S05_CHECKPOINT_CLOSEOUT_PROPOSAL",
   "sessionCloseoutChangedFiles": [
     ".engineering/context-locks/IRIS-WO-0015-S01-CLOSEOUT.json",
     ".engineering/evidence/IRIS-WO-0015.json",
@@ -1262,5 +1262,143 @@
     },
     "runtimeEvidence": "NONE",
     "benchmarkEvidence": "NONE"
-  }
+  },
+  "s05SessionCloseout": {
+    "status": "S05_COMPLETE_FOR_MODULE_PLANNING_PROPOSED",
+    "canonical": false,
+    "issue": 82,
+    "workOrder": "IRIS-WO-0015",
+    "proposalPullRequest": 94,
+    "proposalBaseSha": "e0d8aeeea676d884e9c6a716df42a363f0765020",
+    "proposalBaseTreeSha": "b82ddfb80b7ff57f409b9d48f07263b7c7d356a2",
+    "proposalHeadSha": "c2478c757814df72ca7e5b03fe530e27674f5694",
+    "proposalExactHeadGovernance": {
+      "runId": 36247879334,
+      "runNumber": 416,
+      "jobId": 108420335385,
+      "headSha": "c2478c757814df72ca7e5b03fe530e27674f5694",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "independentHedsReview": {
+      "verdict": "APPROVED",
+      "reviewedHead": "c2478c757814df72ca7e5b03fe530e27674f5694",
+      "reviewerTask": "/root/s05_heds_review",
+      "executorTask": "/root",
+      "identityQualification": "Separate read-only agent task from executor task; no independent human identity or GitHub account is asserted.",
+      "confidence": 0.92,
+      "highFindings": 0,
+      "criticalFindings": 0,
+      "factualOrSemanticFindings": 0,
+      "residualRisk": "Owner-specific contracts and recovery policies remain pending.",
+      "formalGitHubReview": false,
+      "reviewDate": "2026-09-26",
+      "reviewId": "HEDS-01"
+    },
+    "protectedMerge": {
+      "pullRequest": 94,
+      "method": "squash",
+      "headSha": "c2478c757814df72ca7e5b03fe530e27674f5694",
+      "mergeSha": "2e6c0b89b67230b2b39c4bbb37ff51648d061060",
+      "actor": "KayzenRoot",
+      "actorId": 114633702,
+      "mergedAt": "2026-09-26T16:02:11Z",
+      "result": "MERGED"
+    },
+    "exactMainGovernance": {
+      "runId": 36254017572,
+      "runNumber": 417,
+      "jobId": 108437249087,
+      "headSha": "2e6c0b89b67230b2b39c4bbb37ff51648d061060",
+      "treeSha": "3b3034bfc4037c9df241d844eaedbf31b171ae54",
+      "event": "push",
+      "result": "PASS",
+      "tests": "3940/3940",
+      "testSeconds": 16.747
+    },
+    "sourceDiscrepancy": {
+      "workOrderListedRunId": 36250417572,
+      "lookupResult": "HTTP 404",
+      "verifiedRunId": 36254017572,
+      "verifiedRunNumber": 417,
+      "resolution": "Recorded the exact-main Governance #417 run returned for merge SHA 2e6c0b89b67230b2b39c4bbb37ff51648d061060; preserved the PDF's erroneous receipt here rather than rewriting it."
+    },
+    "closeoutContextLock": {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S05-CLOSEOUT.json",
+      "baseSha": "2e6c0b89b67230b2b39c4bbb37ff51648d061060",
+      "baseTreeSha": "3b3034bfc4037c9df241d844eaedbf31b171ae54",
+      "checked": 83,
+      "matched": 83,
+      "mismatches": 0
+    },
+    "proposedCheckpointDelta": {
+      "session": "S05",
+      "status": "COMPLETE_FOR_MODULE_PLANNING",
+      "canonical": false,
+      "canonicalizationGate": "This closeout PR must be protected-merged and exact-main Governance must pass.",
+      "m11Contract": "NOT_FROZEN",
+      "m11Implementation": "NOT_ADMITTED",
+      "m10Contract": "m10-contract-v1.0 (FROZEN)",
+      "m10Implementation": "NOT_ADMITTED",
+      "wo0014Preflight": "BLOCKED",
+      "issue82": "OPEN",
+      "s04UnresolvedQuestions": "S04-U01..U21 OPEN",
+      "s05UnresolvedQuestions": "S05-U01..U23 OPEN",
+      "m12ToM60OwnerContracts": "PENDING"
+    },
+    "hivePreflight": {
+      "status": "HIVE_NOT_USED/STALE",
+      "repositoryPinnedVersion": "1.0.0",
+      "repositoryPinnedCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
+      "liveMcpVerification": "Timed out; no current HIVE state was established.",
+      "priorDerivedIrisHead": "2432cfe29a501e18a1cdf8a46adc49cd42fdfba0",
+      "derivedEvidenceUsed": false,
+      "note": "Used exact Git and GitHub evidence only; did not fabricate HIVE output."
+    },
+    "authorizedChangedFiles": [
+      ".engineering/CHECKPOINT.md",
+      ".engineering/CHECKPOINT.json",
+      ".engineering/context-locks/IRIS-WO-0015-S05-CLOSEOUT.json",
+      ".engineering/evidence/IRIS-WO-0015.json",
+      ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+      "docs/project-brain/03-SCOPE.md",
+      "docs/project-brain/13-CHECKPOINT.md",
+      "docs/project-brain/14-BACKLOG.md",
+      "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+      "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md"
+    ],
+    "closeoutBranch": "iris-wo-0015-m11-s05-closeout-20260926",
+    "closeoutBaseSha": "2e6c0b89b67230b2b39c4bbb37ff51648d061060",
+    "closeoutBaseTreeSha": "3b3034bfc4037c9df241d844eaedbf31b171ae54",
+    "closeoutExactHeadGovernance": {
+      "status": "REQUIRED_ON_FINAL_PR_HEAD",
+      "runId": null,
+      "jobId": null,
+      "headSha": "EXTERNAL_PR_HEAD_METADATA_AND_CHECKS"
+    },
+    "localValidation": {
+      "gitDiffCheck": "PASS",
+      "jsonParsing": "PASS",
+      "checkpointMirror": "PASS",
+      "sourceFingerprints": "PASS_83_OF_83",
+      "authorizedChangedPathSet": "PASS_EXACT_10",
+      "governanceValidator": "PASS",
+      "gefPreflight": "PASS_v1.0.0_at_866fe3af8cccc65c929aaf6a47a924401fa448b3",
+      "runtimeEvidence": "NONE",
+      "benchmarkEvidence": "NONE"
+    },
+    "stopCondition": "After exact-head Governance passes on this closeout PR, leave it open and unmerged; do not start later review, merge, Final Technology Review, Forward Compatibility Scan, contract freeze, implementation, or issue closure."
+  },
+  "s05SessionCloseoutChangedFiles": [
+    ".engineering/CHECKPOINT.md",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/context-locks/IRIS-WO-0015-S05-CLOSEOUT.json",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+    "docs/project-brain/03-SCOPE.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+    "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md"
+  ]
 }
