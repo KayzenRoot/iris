@@ -1,7 +1,7 @@
 # M12 — Compute Orchestration: Local, Multi-GPU, LAN, Remote & Cloud
 
-Status: S01_PROPOSED_FOR_MODULE_PLANNING_ONLY | NOT_FROZEN | IMPLEMENTATION_NOT_ADMITTED
-Planning Issue: #128 | Planning Work Order: IRIS-WO-0022 | exact base `e3fc858d3c92a8a3eba3c7c6119fc490c4098129`
+Status: S01_COMPLETE_FOR_REFERENCE_PLANNING_S02_PROPOSED | NOT_FROZEN | IMPLEMENTATION_NOT_ADMITTED
+Planning Issue: #128 | S01 Work Order: IRIS-WO-0022, merged exact-main `032dcda35df48d53012b3b32fdabb78de17c2b41` (#485 PASS) | S02 proposal Work Order: IRIS-WO-0023, source base `032dcda35df48d53012b3b32fdabb78de17c2b41`
 Canonical scope: `planning/MASTER-MODULE-INDEX.md`; no individual M12 owner contract, placement API or runtime has been adopted.
 
 ## Mission and disciplined boundaries
@@ -12,8 +12,8 @@ M12 planning investigates how a future orchestration owner would locate possible
 
 | Session | Bounded exploration | Status |
 | --- | --- | --- |
-| S01 | Worker registry and capability advertisements; advertisement vs verified truth, identity, permission and current grant | PROPOSED, pending this PR's exact-head/audit/merge/exact-main |
-| S02 | Placement, queues, quotas and priority scheduling; never infer an M09 grant or M11 process permission | NOT_STARTED |
+| S01 | Worker registry and capability advertisements; advertisement vs verified truth, identity, permission and current grant | COMPLETE_FOR_REFERENCE_PLANNING_ONLY; PR #129 exact-head #484 / exact-main #485 PASS 3979/3979, 18 OPEN/UNRATED owner questions and 12 future NOT_EXECUTED oracles |
+| S02 | Placement, queues, quotas and priority scheduling; no M09 grants, M11 process permission, chosen scheduler or real queue operations | PROPOSED_NON_EXECUTABLE_RESEARCH_ONLY; IRIS-WO-0023 |
 | S03 | Multi-GPU/heterogeneous execution, exact composite-member requirements and evidence, no assumed joint M09 snapshot+lease proof | NOT_STARTED |
 | S04 | LAN/remote/cloud spillover and federated nodes; trust, isolation and network endpoints pending M54/M58/M60 | NOT_STARTED |
 | S05 | Failover, preemption, cost/quality placement and trust; no autonomous re-dispatch/retry without M02/M06/M09/M11 authorization | NOT_STARTED |
@@ -34,6 +34,10 @@ M12 planning investigates how a future orchestration owner would locate possible
 
 The positive M09→M11 topology A/B/C, coherent joint snapshot+lease and reverse verified M11 liveness owner proof are **NOT SELECTED** pending the actual M09 owner answer [#110](https://github.com/KayzenRoot/iris/issues/110). A worker's presence in any registry or a capability announcement is NEVER an M09 resource grant, an M54 authentication credential, an M11 process ownership proof, or an M02 dispatch command. Registry absence or staleness cannot silently trigger remote retries or recovery. Keep all executable paths DISABLED until distinct owner contracts, admission Work Orders, platform and negative tests exist.
 
+## S01 completion and S02 source admission
+
+S01 source research completed for **reference exploration only** through PR #129, reviewed head `f9b2dcb2dab13f43b409fb1ba3ca68ea85573e50` (40/40 exact Git sources, 12/12 paths), Governance #484 run 36324795399/job 108635360544 PASS 3979/3979, protected squash main `032dcda35df48d53012b3b32fdabb78de17c2b41` (tree `b83f0e8c1572fe2164baee606f0653116e1be2b5`) and exact-main Governance #485 run 36324884488/job 108635619085 PASS 3979/3979. Issue #128 remains OPEN. S02 reference research is proposed as separately bounded IRIS-WO-0023; it must not be marked complete until its own final-head review, guarded merge and exact-main Governance pass. S03–S05, technology selection, future M12 contract/freeze and implementation remain pending.
+
 ## Completion and STOP
 
-S01 research source: `planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md`. Each subsequent session requires a separately scoped Work Order/review under Issue #128. Technology discovery/FTR, forward compatibility scan, versioned M12 owner candidate, independent freeze-readiness audit and **separate future implementation** remain pending. Even after S01 documentation exact-main PASS, M12 remains NOT_FROZEN / IMPLEMENTATION_NOT_ADMITTED, M09/M11 owner blockers stay OPEN and no hardware/network/process behavior has been tested.
+S01 research source: `planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md`. Each subsequent session requires a separately scoped Work Order/review under Issue #128. Technology discovery/FTR, forward compatibility scan, versioned M12 owner candidate, independent freeze-readiness audit and **separate future implementation** remain pending. After S01 exact-main PASS and while S02 is proposed, M12 remains NOT_FROZEN / IMPLEMENTATION_NOT_ADMITTED, M09/M11 owner blockers stay OPEN and no hardware/network/process behavior has been tested.

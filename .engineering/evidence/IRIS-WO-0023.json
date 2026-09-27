@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0023",
+  "module": "M12",
+  "issue": 128,
+  "status": "PROPOSED_S02_REFERENCE_RESEARCH_NOT_FROZEN",
+  "baseSha": "032dcda35df48d53012b3b32fdabb78de17c2b41",
+  "baseTreeSha": "b83f0e8c1572fe2164baee606f0653116e1be2b5",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "expected": 41,
+    "checked": 41,
+    "matched": 41,
+    "mismatches": 0
+  },
+  "authorizedChangedFiles": [
+    "docs/project-brain/03-SCOPE.md",
+    "planning/modules/M12-COMPUTE-ORCHESTRATION.md",
+    "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0022.json",
+    ".engineering/evidence/IRIS-WO-0023.json",
+    ".engineering/context-locks/IRIS-WO-0023-M12-S02-PLANNING.json",
+    ".engineering/work-orders/IRIS-WO-0023-M12-S02-PLANNING.md",
+    "planning/reviews/IRIS-WO-0023-M12-S02-AUDIT-TARGET.md"
+  ],
+  "research": {
+    "session": "S02_PLACEMENT_QUEUES_QUOTAS_PRIORITY",
+    "status": "PROPOSED_REFERENCE_ONLY_PENDING_EXACT_HEAD_AND_REVIEW",
+    "technologyReferences": [
+      {
+        "system": "Kubernetes Scheduling Framework",
+        "url": "https://kubernetes.io/docs/concepts/scheduling-eviction/scheduling-framework/",
+        "adoption": "NONE"
+      },
+      {
+        "system": "Kueue ClusterQueue",
+        "url": "https://kueue.sigs.k8s.io/docs/concepts/cluster_queue/",
+        "adoption": "NONE"
+      },
+      {
+        "system": "Ray Placement Groups",
+        "url": "https://docs.ray.io/en/latest/ray-core/scheduling/placement-group.html",
+        "adoption": "NONE"
+      }
+    ],
+    "algorithmCandidates": 6,
+    "algorithmSelected": "NONE",
+    "ownerQuestions": 20,
+    "questionsStatus": "20_OPEN_UNRATED",
+    "negativeAmbiguityCases": 14,
+    "casesStatus": "14_SPECIFIED_NOT_EXECUTED",
+    "runtimeQueue": "NOT_ADMITTED",
+    "runtimePlacement": "NOT_ADMITTED",
+    "concreteQuotaOrPriority": "NONE",
+    "actualResourceGrant": "NONE"
+  },
+  "priorWO22": {
+    "pr": 129,
+    "reviewedHead": "f9b2dcb2dab13f43b409fb1ba3ca68ea85573e50",
+    "headGovernance": 484,
+    "headJob": 108635360544,
+    "mergeSha": "032dcda35df48d53012b3b32fdabb78de17c2b41",
+    "mergeTree": "b83f0e8c1572fe2164baee606f0653116e1be2b5",
+    "mainGovernance": 485,
+    "mainJob": 108635619085,
+    "tests": "3979/3979",
+    "status": "S01_COMPLETE_FOR_REFERENCE_PLANNING_ONLY"
+  },
+  "scopeGuards": {
+    "M09": "v1.0 FROZEN_UNCHANGED",
+    "M09OwnerChoice": "NONE_SELECTED_ISSUE_110_OPEN",
+    "M09FutureFreezeHighs": "H01_H02_H03_H04_OPEN",
+    "M11": "v0.2 NOT_FROZEN_86_OPEN_UNRATED",
+    "M10M11Implementation": "NOT_ADMITTED",
+    "M12Implementation": "NOT_ADMITTED",
+    "M12LaterSessions": "S03_S05_NOT_STARTED",
+    "actions": "DISABLED",
+    "M54M58M60": "PENDING_OWNER_CONTRACT_UNRATED"
+  },
+  "testPlan": {
+    "repoBaseline": 3979,
+    "newImplementationTests": 0,
+    "exactHeadGovernance": "REQUIRED",
+    "boundedAudit": "REQUIRED",
+    "exactMainGovernance": "REQUIRED",
+    "runtimeHardwareNetworkTests": "NOT_EXECUTED_NOT_APPLICABLE_TO_REFERENCE_RESEARCH"
+  }
+}
