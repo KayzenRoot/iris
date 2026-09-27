@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0022",
+  "module": "M12",
+  "issue": 128,
+  "status": "PROPOSED_S01_REFERENCE_RESEARCH_NOT_FROZEN",
+  "baseSha": "e3fc858d3c92a8a3eba3c7c6119fc490c4098129",
+  "baseTreeSha": "171bb58cec6a327a2cdab8a9b63bcc78a32363a0",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "expected": 40,
+    "checked": 40,
+    "matched": 40,
+    "mismatches": 0
+  },
+  "authorizedChangedFiles": [
+    "docs/project-brain/03-SCOPE.md",
+    "planning/modules/M12-COMPUTE-ORCHESTRATION.md",
+    "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0021.json",
+    ".engineering/evidence/IRIS-WO-0022.json",
+    ".engineering/context-locks/IRIS-WO-0022-M12-S01-PLANNING.json",
+    ".engineering/work-orders/IRIS-WO-0022-M12-S01-PLANNING.md",
+    "planning/reviews/IRIS-WO-0022-M12-S01-AUDIT-TARGET.md"
+  ],
+  "research": {
+    "session": "S01_WORKER_REGISTRY_AND_CAPABILITY_ADVERTISEMENTS",
+    "status": "PROPOSED_REFERENCE_ONLY_PENDING_EXACT_HEAD_AND_REVIEW",
+    "architectureCandidates": 5,
+    "ownerQuestions": 18,
+    "questionsStatus": "18_OPEN_UNRATED",
+    "negativeAmbiguityCases": 12,
+    "casesStatus": "12_SPECIFIED_NOT_EXECUTED",
+    "selectedTopology": "NONE",
+    "selectedTransport": "NONE",
+    "publicRegistry": "NOT_ADMITTED",
+    "workerProcessOperations": "DISABLED"
+  },
+  "priorWO21": {
+    "pr": 127,
+    "headGovernance": 482,
+    "mainGovernance": 483,
+    "mergeSha": "e3fc858d3c92a8a3eba3c7c6119fc490c4098129",
+    "tests": "3979/3979",
+    "status": "EXACT_MAIN_PASS",
+    "issue126": "CLOSED",
+    "oldPR91": "CLOSED_SUPERSEDED_NOT_MERGED"
+  },
+  "scopeGuards": {
+    "M09": "v1.0 FROZEN_UNCHANGED",
+    "M09OwnerChoice": "NONE_SELECTED_ISSUE_110_OPEN",
+    "M11": "v0.2 NOT_FROZEN_86_OPEN_UNRATED",
+    "M10M11Implementation": "NOT_ADMITTED",
+    "M12Implementation": "NOT_ADMITTED",
+    "M12LaterSessions": "NOT_STARTED",
+    "processNetworkGpuOperations": "DISABLED",
+    "M09C02Highs": "H01_H02_H03_H04_OPEN_HIGH_FOR_FUTURE_FREEZE"
+  },
+  "testPlan": {
+    "repoBaseline": 3979,
+    "extraNewTests": 0,
+    "exactHeadGovernance": "REQUIRED",
+    "boundedAudit": "REQUIRED",
+    "exactMainGovernance": "REQUIRED",
+    "OSHardwareRemoteTests": "NOT_EXECUTED_NOT_REQUIRED_FOR_DOC_PLANNING"
+  }
+}
