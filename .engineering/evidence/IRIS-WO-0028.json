@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0028",
+  "module": "M12",
+  "issue": 128,
+  "status": "PROPOSED_OWNER_CANDIDATE_V0_1_NOT_FROZEN_PENDING_OWN_CI",
+  "baseSha": "3dfacc4fd93f1c4d12255bb400b35a397073bf3e",
+  "baseTreeSha": "191a01663402881ee00bcf0e4c2ceda9716a962c",
+  "authorizedChangedFiles": [
+    "docs/project-brain/03-SCOPE.md",
+    "planning/modules/M12-COMPUTE-ORCHESTRATION.md",
+    "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+    "planning/reviews/M12-C01-FREEZE-READINESS-AUDIT.md",
+    ".engineering/evidence/M12-OWNER-DECISION-REGISTER.json",
+    "scripts/verify_m12_planning_evidence.py",
+    "tests/test_m12_planning_evidence.py",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0027.json",
+    ".engineering/evidence/IRIS-WO-0028.json",
+    ".engineering/context-locks/IRIS-WO-0028-M12-CANDIDATE.json",
+    ".engineering/work-orders/IRIS-WO-0028-M12-CANDIDATE.md",
+    "planning/reviews/IRIS-WO-0028-M12-CANDIDATE-AUDIT-TARGET.md"
+  ],
+  "priorWO27": {
+    "pr": 134,
+    "reviewedHead": "9535da938c522e503360820a1d42b1cdc1f4566c",
+    "headGovernance": 494,
+    "headJob": 108643404591,
+    "mergeSha": "3dfacc4fd93f1c4d12255bb400b35a397073bf3e",
+    "mergeTree": "191a01663402881ee00bcf0e4c2ceda9716a962c",
+    "mainGovernance": 495,
+    "mainJob": 108643714178,
+    "tests": "3979/3979",
+    "status": "FTR_FCS_COMPLETE_FOR_SOURCE_REVIEW_ONLY"
+  },
+  "candidate": {
+    "id": "m12-contract-candidate-v0.1",
+    "status": "PROPOSED_NOT_FROZEN",
+    "implementationAuthority": "NOT_ADMITTED",
+    "invariants": 24,
+    "proposedConceptualRecords": 9,
+    "publicOrExecutablePort": "NONE",
+    "selectedTechnology": "NONE",
+    "ownerDecisionRegister": ".engineering/evidence/M12-OWNER-DECISION-REGISTER.json",
+    "ownerQuestions": {
+      "S01": 18,
+      "S02": 20,
+      "S03": 22,
+      "S04": 24,
+      "S05": 26,
+      "total": 110,
+      "status": "ALL_OPEN_UNRATED"
+    },
+    "futureNegativeCases": {
+      "WR": 12,
+      "SQ": 14,
+      "MG": 16,
+      "FN": 18,
+      "FT": 20,
+      "total": 80,
+      "status": "ALL_SPECIFIED_NOT_EXECUTED"
+    },
+    "ftrTechnologyRecords": 16,
+    "fcsModules": 48,
+    "fcsContractAcceptances": 0
+  },
+  "readiness": {
+    "status": "BLOCKED_FOR_FREEZE",
+    "referenceOnlyGatesCompleted": [
+      "FR-01",
+      "FR-02"
+    ],
+    "blockedOrUnadmittedGates": [
+      "FR-03",
+      "FR-04",
+      "FR-05",
+      "FR-06",
+      "FR-07",
+      "FR-08",
+      "FR-09",
+      "FR-10",
+      "FR-11"
+    ],
+    "legacyHighs": [
+      "C02-FR-H01",
+      "C02-FR-H02",
+      "C02-FR-H03",
+      "C02-FR-H04"
+    ],
+    "actualM09OwnerChoice": "NONE_SELECTED",
+    "issue110": "OPEN",
+    "M11Contract": "v0.2_NOT_FROZEN",
+    "M54M58M60": "PENDING_OWNER_CONTRACT"
+  },
+  "testPlan": {
+    "priorFullSuite": 3979,
+    "addedPlanningVerifierTests": 30,
+    "expectedFullSuite": 4009,
+    "newRuntimeTests": 0,
+    "exactHeadGovernance": "REQUIRED",
+    "boundedAudit": "REQUIRED",
+    "exactMainGovernance": "REQUIRED",
+    "hardwareOSNetworkTrials": "NOT_EXECUTED",
+    "actualOwnerAudit": "NOT_PERFORMED"
+  }
+}

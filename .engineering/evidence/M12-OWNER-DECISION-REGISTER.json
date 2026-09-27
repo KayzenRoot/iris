@@ -1,0 +1,1637 @@
+{
+  "schemaVersion": "iris-m12-owner-readiness-v0.1",
+  "workOrder": "IRIS-WO-0028",
+  "issue": 128,
+  "repository": "KayzenRoot/iris",
+  "sourceBaseSha": "3dfacc4fd93f1c4d12255bb400b35a397073bf3e",
+  "sourceBaseTreeSha": "191a01663402881ee00bcf0e4c2ceda9716a962c",
+  "status": "UNADOPTED_NOT_FROZEN_OWNER_DECISIONS_PENDING",
+  "policy": "Records exactly source-backed open questions and non-executed future tests. This register grants no runtime permission or owner approval. Updates to original research require matching refreshed register and separate governance review.",
+  "counts": {
+    "sessions": 5,
+    "ownerQuestions": 110,
+    "futureNegativeScenarios": 80,
+    "laterIndexModules": 48,
+    "technologyRecords": 16
+  },
+  "questions": [
+    {
+      "id": "M12-S01-U01",
+      "session": "S01",
+      "owners": "M11/M12",
+      "question": "What canonical reference identifies a worker independent of OS PID, job and node?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U02",
+      "session": "S01",
+      "owners": "M54/M60",
+      "question": "Which proof binds a principal to that worker/node on each supported platform?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U03",
+      "session": "S01",
+      "owners": "M12/M54",
+      "question": "How is announcement issuer authenticity/replay/revocation verified?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U04",
+      "session": "S01",
+      "owners": "M12/M56",
+      "question": "What source and expiry make an observed capability/health descriptor current?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U05",
+      "session": "S01",
+      "owners": "M09/#110",
+      "question": "What jointly coherent M09 snapshot+lease evidence can qualify current per-action resource admission?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U06",
+      "session": "S01",
+      "owners": "M09/M11",
+      "question": "How is reverse M11 owner liveness bound/authenticated without interpreting `M11:` prefixes as signatures?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U07",
+      "session": "S01",
+      "owners": "M12/M60",
+      "question": "How are exact host/OS/accelerator and unsupported-platform capabilities described safely?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U08",
+      "session": "S01",
+      "owners": "M12/M58/M54",
+      "question": "Which registry fields, if any, may cross node/project/tenant/public API boundaries?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U09",
+      "session": "S01",
+      "owners": "M02/M06",
+      "question": "What exact work/attempt/epoch binds an advertisement to a separately authorized action?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U10",
+      "session": "S01",
+      "owners": "M12/M11/M54",
+      "question": "Which observable state distinguishes discoverable, reachable, running and owner-controllable?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U11",
+      "session": "S01",
+      "owners": "M12/M54/M60",
+      "question": "How are host clock skew, partitions and local-vs-remote identity handled?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U12",
+      "session": "S01",
+      "owners": "M12/M17/M26",
+      "question": "Who verifies installed adapter/provider/task compatibility and qualified versions?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U13",
+      "session": "S01",
+      "owners": "M12/M09",
+      "question": "How are composite member grants and mismatched expiry/revocation handled without partial admission?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U14",
+      "session": "S01",
+      "owners": "M12/M11/M60",
+      "question": "What worker retirement/draining lifecycle would invalidate stale announcements?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U15",
+      "session": "S01",
+      "owners": "M12/M02/M06",
+      "question": "Can duplicate announcements from two nodes ever imply a new attempt or retry? (Default: no claim.)",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U16",
+      "session": "S01",
+      "owners": "M12/M54/M56",
+      "question": "What permission-filtered provenance/telemetry can be retained without leaking tenant/node secrets?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U17",
+      "session": "S01",
+      "owners": "M12/M10",
+      "question": "How is M10's plan recommendation kept separate from M12 placement and all owner grants?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S01-U18",
+      "session": "S01",
+      "owners": "M12/M11/M54/M60",
+      "question": "What separately reviewed minimal capabilities would be required for a future local-only registry before any remote federation?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "M12-S02-U01",
+      "session": "S02",
+      "owners": "M02/M12",
+      "question": "What canonical accepted M02 work/plan reference permits queue consideration without manufacturing M02 state?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U02",
+      "session": "S02",
+      "owners": "M06/M11/M12",
+      "question": "What exact attempt and supervisor cardinality prevents duplicate external effects across requeue?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U03",
+      "session": "S02",
+      "owners": "M12/M54",
+      "question": "What tenant/project/user scope may a queue own, and who verifies it?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U04",
+      "session": "S02",
+      "owners": "M12/M02",
+      "question": "Who supplies allowable priority policy evidence and can it vary by project?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U05",
+      "session": "S02",
+      "owners": "M12/M54/M60",
+      "question": "Is interactive workstation co-existence a mandatory preemption/hold boundary?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U06",
+      "session": "S02",
+      "owners": "M12/M56",
+      "question": "What verified timestamps/evidence allow aging or starvation metrics?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U07",
+      "session": "S02",
+      "owners": "M12/M09",
+      "question": "Are hard quotas policy limits or M09 grants, and how are they separately versioned?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U08",
+      "session": "S02",
+      "owners": "M12/M09/#110",
+      "question": "What coherent per-request M09 lease+snapshot recheck is needed before any positive placement?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U09",
+      "session": "S02",
+      "owners": "M12/M09",
+      "question": "How are unknown/stale quota or headroom estimates represented without positive claims?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U10",
+      "session": "S02",
+      "owners": "M12/M09/M11",
+      "question": "Who may request cooperative preemption, and what proof prohibits assumed capacity reclaimed?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U11",
+      "session": "S02",
+      "owners": "M12/M11/M60",
+      "question": "What exact owner proof authorizes worker lifecycle after a placement decision?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U12",
+      "session": "S02",
+      "owners": "M12/M54",
+      "question": "What are fair-share weights, principal authorization and audit requirements?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U13",
+      "session": "S02",
+      "owners": "M12/M06",
+      "question": "Can expected duration/VRAM be used for backfill, and what uncertainty bounds are required?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U14",
+      "session": "S02",
+      "owners": "M12/M09/M11",
+      "question": "What atomic/composite grant semantics are necessary for gang scheduling?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U15",
+      "session": "S02",
+      "owners": "M12/M54/M58",
+      "question": "Which queue descriptors and priority values may be published outside local trust boundary?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U16",
+      "session": "S02",
+      "owners": "M12/M56",
+      "question": "What observation/event record distinguishes enqueue, eligible, selected and actually dispatched?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U17",
+      "session": "S02",
+      "owners": "M12/M02/M06",
+      "question": "Who decides cancellation/retry/idempotency when a queued job's plan or attempt changes?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U18",
+      "session": "S02",
+      "owners": "M12/M54/M60",
+      "question": "Can any remote quota borrow occur before node/principal/OS security contracts exist?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U19",
+      "session": "S02",
+      "owners": "M12/M11/M09",
+      "question": "Who revalidates leases and process rights at the TOCTOU edge between ranking and use?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S02-U20",
+      "session": "S02",
+      "owners": "M12/M10",
+      "question": "How does advisory optimization input stay separate from admitted scheduling and proof?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "M12-S03-U01",
+      "session": "S03",
+      "owners": "M09/M12",
+      "question": "What exact request-scoped per-device claims may future composite placement consume from a separately admitted M09 owner port?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U02",
+      "session": "S03",
+      "owners": "M09/#110",
+      "question": "Can M09 prove one coherent jointly owned snapshot+lease cut for all mandatory GPU/CPU/RAM members, including epoch/revocation?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U03",
+      "session": "S03",
+      "owners": "M12/M09",
+      "question": "How does each member's freshness/expiry and time-of-use revalidation work without mixing different observation epochs?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U04",
+      "session": "S03",
+      "owners": "M11/M60",
+      "question": "Who proves worker/process ownership and OS rights for one-process-per-GPU and one-process-multiple-GPU candidates?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U05",
+      "session": "S03",
+      "owners": "M12/M54",
+      "question": "Who verifies topology and device identities without trusting self-advertised accelerator counts?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U06",
+      "session": "S03",
+      "owners": "M12/M60",
+      "question": "Which physical/virtual GPU partitions and supported platforms may be represented without conflating device count and isolation?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U07",
+      "session": "S03",
+      "owners": "M12/M17",
+      "question": "Which ComfyUI/provider adapters actually support multi-device placement and validated output provenance?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U08",
+      "session": "S03",
+      "owners": "M12/M26",
+      "question": "Which Blender/headless workloads support multi-GPU and which use one GPU per independent render task?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U09",
+      "session": "S03",
+      "owners": "M12/M14",
+      "question": "Which model cards prove architecture, precision, memory and version support per heterogeneous accelerator?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U10",
+      "session": "S03",
+      "owners": "M12/M13",
+      "question": "What evidence bounds copy/IPC/PCIe/NVLink/host staging latency and net benefit without guessing throughput?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U11",
+      "session": "S03",
+      "owners": "M12/M54/M60",
+      "question": "What authenticated authority permits peer or cross-process memory sharing and revokes it?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U12",
+      "session": "S03",
+      "owners": "M12/M09",
+      "question": "How are per-device headroom and the 8 GB-class production route preserved without summing unrelated VRAM?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U13",
+      "session": "S03",
+      "owners": "M12/M11/M60",
+      "question": "What does failure of one member mean for still-running peers and OS cleanup rights?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U14",
+      "session": "S03",
+      "owners": "M02/M06/M12",
+      "question": "Which exact plan/attempt/output lineage binds each split subtask without promoting partial output to success?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U15",
+      "session": "S03",
+      "owners": "M12/M09/M11",
+      "question": "How is grant revocation while a multi-GPU action runs represented without silently reclaiming capacity or killing workers?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U16",
+      "session": "S03",
+      "owners": "M12/M54/M58",
+      "question": "Which topology/capability details may be published across tenant or host boundaries?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U17",
+      "session": "S03",
+      "owners": "M12/M56",
+      "question": "What verified telemetry separates advertised accelerator capability, observed utilization and resource owner truth?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U18",
+      "session": "S03",
+      "owners": "M12/M10",
+      "question": "How are advisory cost/quality/latency estimates kept separate from M12 selection and M09 lease authorization?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U19",
+      "session": "S03",
+      "owners": "M12/M11/M60",
+      "question": "What explicit CPU NUMA/affinity and process-containment evidence may influence heterogeneous placement?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U20",
+      "session": "S03",
+      "owners": "M12/M09/M54",
+      "question": "What fail-closed behavior applies when two matching devices report conflicting stable IDs or provenance?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U21",
+      "session": "S03",
+      "owners": "M12/M06",
+      "question": "How will the outcome distinguish data parallel output aggregation from merely observed worker process exits?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S03-U22",
+      "session": "S03",
+      "owners": "M12/M54/M60",
+      "question": "What additional remote-node security and data-movement consent must S04 define before multi-host placement?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "M12-S04-U01",
+      "session": "S04",
+      "owners": "M54/M58/M60",
+      "question": "What source-issued proof binds a remote endpoint, worker and principal to the allowed tenant?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U02",
+      "session": "S04",
+      "owners": "M11/M54/M60",
+      "question": "How would a rebooted/readdressed node prevent reuse of stale worker/PID ownership?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U03",
+      "session": "S04",
+      "owners": "M54/M58",
+      "question": "Who authorizes discovery publication and versions of future remote APIs?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U04",
+      "session": "S04",
+      "owners": "M54/M60",
+      "question": "What source-backed transport encryption, peer authentication and key rotation evidence is mandatory?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U05",
+      "session": "S04",
+      "owners": "M11/M56",
+      "question": "How is remote liveness observed without treating heartbeat age as worker/process proof?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U06",
+      "session": "S04",
+      "owners": "M09/#110",
+      "question": "Which owner-approved M09 grant could bind remote per-device resources and all group members coherently?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U07",
+      "session": "S04",
+      "owners": "M11/M54/M60",
+      "question": "What authenticated M11 process-owner evidence can cross operating-system and node boundaries?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U08",
+      "session": "S04",
+      "owners": "M02/M06",
+      "question": "Which accepted work/attempt/revision identities must accompany any proposed cross-host execution?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U09",
+      "session": "S04",
+      "owners": "M54/M59/M60",
+      "question": "Who owns remote media/model export, consent, jurisdiction and data-residency permissions?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U10",
+      "session": "S04",
+      "owners": "M55/M06",
+      "question": "How would remote staged data retain integrity, exact provenance and accepted-output boundaries?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U11",
+      "session": "S04",
+      "owners": "M54/M60",
+      "question": "How are privileged credentials prevented from being exported to a remote worker?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U12",
+      "session": "S04",
+      "owners": "M12/M13/M56",
+      "question": "What measured latency, throughput, warm-model state and egress cost permit a future placement comparison?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U13",
+      "session": "S04",
+      "owners": "M54/M58",
+      "question": "What project/tenant/capacity fields may be exposed to another federation domain?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U14",
+      "session": "S04",
+      "owners": "M11/M56",
+      "question": "What is the safe meaning of missing heartbeat versus verified process exit?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U15",
+      "session": "S04",
+      "owners": "M02/M06/M11",
+      "question": "Who approves retries and prevents duplicated side effects after remote link loss?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U16",
+      "session": "S04",
+      "owners": "M11/M54",
+      "question": "What authenticated generation/epoch fences stale federation controllers and recycled node identifiers?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U17",
+      "session": "S04",
+      "owners": "M09/M11",
+      "question": "When is remote resource capacity truly reclaimed after cancellation or instance interruption?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U18",
+      "session": "S04",
+      "owners": "M10/M12/M54",
+      "question": "Who may approve paid cloud usage and exact budgets, regional policies, and quality/cost preferences?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U19",
+      "session": "S04",
+      "owners": "M12/M14/M17/M26",
+      "question": "Who qualifies runtime, model, license, provider and accelerator compatibility on foreign hosts?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U20",
+      "session": "S04",
+      "owners": "M54/M58/M60",
+      "question": "What network ingress/egress, NAT, firewall, endpoint allowlist and private-link contract is necessary?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U21",
+      "session": "S04",
+      "owners": "M54/M58",
+      "question": "How is malicious endpoint substitution or unintended local-network reachability excluded?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U22",
+      "session": "S04",
+      "owners": "M54/M56",
+      "question": "What filtered telemetry/provenance is permitted without leaking project identity, IPs or secrets?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U23",
+      "session": "S04",
+      "owners": "M06/M55/M59",
+      "question": "How do partial uploads and conflicting output revisions avoid false master acceptance?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S04-U24",
+      "session": "S04",
+      "owners": "M11/M54/M60",
+      "question": "What separately admitted local-LAN canary and security review precedes any cloud federation?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "M12-S05-U01",
+      "session": "S05",
+      "owners": "M02/M06",
+      "question": "Which exact accepted work and operational attempt IDs can be resumed or retried without replaying external effects?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U02",
+      "session": "S05",
+      "owners": "M06/M55",
+      "question": "What committed checkpoint and artifact lineage distinguishes safe resume from copying partial bytes?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U03",
+      "session": "S05",
+      "owners": "M11/M60",
+      "question": "Who can attest that a worker really exited rather than merely losing connectivity?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U04",
+      "session": "S05",
+      "owners": "M09/#110",
+      "question": "How does M09 prove that an interrupted request's capacity was actually reclaimed?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U05",
+      "session": "S05",
+      "owners": "M09/M11",
+      "question": "Does an ACCEPTED_AWAITING_RESOURCE_RECONCILIATION acknowledgment prohibit positive capacity reclamation?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U06",
+      "session": "S05",
+      "owners": "M11/M54/M60",
+      "question": "What independently authorized process identity and rights permit a future cancel/reap/signal?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U07",
+      "session": "S05",
+      "owners": "M02/M06/M12",
+      "question": "Who decides the future retry budget, attempt revision and dedup semantics?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U08",
+      "session": "S05",
+      "owners": "M02/M06/M12",
+      "question": "What effect classes are non-idempotent and must require explicit owner/operator adjudication?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U09",
+      "session": "S05",
+      "owners": "M11/M56",
+      "question": "What evidence distinguishes missed heartbeat, local OS crash, remote network partition and node restart?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U10",
+      "session": "S05",
+      "owners": "M09/M11/M12",
+      "question": "How can a new placement be fenced from stale grants, old worker epochs and duplicate supervisors?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U11",
+      "session": "S05",
+      "owners": "M54/M60",
+      "question": "What trust revocation proof immediately blocks retry to a previously trusted node?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U12",
+      "session": "S05",
+      "owners": "M12/M54",
+      "question": "Who can authorize manual versus automated failover and what is the approval evidence?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U13",
+      "session": "S05",
+      "owners": "M12/M56",
+      "question": "What measurement/source qualifies observed MTTR, recovery success or failure rate?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U14",
+      "session": "S05",
+      "owners": "M12/M10/M54",
+      "question": "What price source, budget owner, paid-cloud cap and user consent enable future spillover?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U15",
+      "session": "S05",
+      "owners": "M12/M13/M56",
+      "question": "How are cold-start, staging time, network transfer and compute duration measured per candidate?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U16",
+      "session": "S05",
+      "owners": "M12/M10/M56",
+      "question": "What empirical quality/latency/cost uncertainty may inform advice without becoming authorization?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U17",
+      "session": "S05",
+      "owners": "M02/M06/M48",
+      "question": "Who decides partial-output quality and accepted master after interrupted multi-GPU work?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U18",
+      "session": "S05",
+      "owners": "M12/M09",
+      "question": "What resource protection keeps user-interactive 8GB hardware responsive during preemption decisions?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U19",
+      "session": "S05",
+      "owners": "M11/M60",
+      "question": "Which platform-specific graceful shutdown and timeout observations would be verified on Windows/Linux?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U20",
+      "session": "S05",
+      "owners": "M09/M11",
+      "question": "What does preemption requested versus accepted versus fully reclaimed mean per owner contract?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U21",
+      "session": "S05",
+      "owners": "M12/M54/M56",
+      "question": "Which incident/evidence telemetry can be exposed without leaking tenant/workflow credentials?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U22",
+      "session": "S05",
+      "owners": "M12/M54/M58",
+      "question": "Who is permitted to publish or invoke any future recovery/preemption API and rate policy?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U23",
+      "session": "S05",
+      "owners": "M12/M54/M60",
+      "question": "What security checks prevent unknown foreign PID or worker ownership from forced termination?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U24",
+      "session": "S05",
+      "owners": "M12/M55/M59",
+      "question": "What checksum, rights and remote artifact/export guarantees are required after cloud interruption?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U25",
+      "session": "S05",
+      "owners": "M12/M09/M11",
+      "question": "What evidence simultaneously qualifies a composite multi-device grant and worker controls after one GPU fails?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "M12-S05-U26",
+      "session": "S05",
+      "owners": "M12/M02/M06/M54",
+      "question": "What default future policy applies when any owner proof is missing, stale, conflicted or unsupported?",
+      "status": "OPEN_UNRATED_PENDING_OWNER",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    }
+  ],
+  "negativeScenarios": [
+    {
+      "id": "WR-01",
+      "session": "S01",
+      "trigger": "Self-advertised GPU/VRAM free without M09 owner-issued grant",
+      "safetyOracle": "No positive placement/dispatch from claims",
+      "owners": "M09/#110, M12",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "WR-02",
+      "session": "S01",
+      "trigger": "Announcement expired or last heartbeat missing",
+      "safetyOracle": "No presumption of current worker liveness or ready capacity",
+      "owners": "M11, M56",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "WR-03",
+      "session": "S01",
+      "trigger": "Same worker ID reused on a different node/OS handle",
+      "safetyOracle": "Preserve identity conflict, never control new/foreign process by PID/name",
+      "owners": "M11, M54, M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "WR-04",
+      "session": "S01",
+      "trigger": "Remote node certificate/identity missing, revoked or unverified",
+      "safetyOracle": "No trusted federation, no remote dispatch",
+      "owners": "M54, M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "WR-05",
+      "session": "S01",
+      "trigger": "Software task/adapter version unsupported, model absent or architecture mismatch",
+      "safetyOracle": "Capability INDETERMINATE/UNSUPPORTED; no inferred execution route",
+      "owners": "M12, M14, M17, M26",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "WR-06",
+      "session": "S01",
+      "trigger": "Network partition, clock skew or contradictory announcements",
+      "safetyOracle": "No optimistic availability, double placement, retry or recovered outcome",
+      "owners": "M02, M06, M11, M12, M54",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "WR-07",
+      "session": "S01",
+      "trigger": "Valid advertisement but M09 lease revoked/expired/preemption requested",
+      "safetyOracle": "Revalidate actual M09 owner evidence; no grant inferred from `active()`",
+      "owners": "M09/#110, M11",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "WR-08",
+      "session": "S01",
+      "trigger": "M11 process ownership/OS permission unsupported",
+      "safetyOracle": "No process action; registry may retain only explicitly non-executable candidate data",
+      "owners": "M11, M54, M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "WR-09",
+      "session": "S01",
+      "trigger": "Composite two-GPU advertised, only one member has valid owner proof",
+      "safetyOracle": "No partial composite admission",
+      "owners": "M09 H02, M12 S03",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "WR-10",
+      "session": "S01",
+      "trigger": "Same M02 work submitted through two supervisors with stale queue mirror",
+      "safetyOracle": "No invented duplicate attempt/replay policy",
+      "owners": "M02, M06, M11, M12",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "WR-11",
+      "session": "S01",
+      "trigger": "M10 recommends cheaper remote worker with no admitted M12/M54/M60 contract",
+      "safetyOracle": "Advice cannot authorize placement, data transfer, resource lease or execution",
+      "owners": "M10, M12, M54, M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "WR-12",
+      "session": "S01",
+      "trigger": "API publishes private node/task descriptors without M58/M54 publication policy",
+      "safetyOracle": "No public registry or unsafe metadata exposure",
+      "owners": "M54, M58",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    {
+      "id": "SQ-01",
+      "session": "S02",
+      "trigger": "High queue priority but M02 plan/work not accepted or scope mismatch",
+      "safetyOracle": "No creation of accepted plan/attempt or process start",
+      "owners": "M02, M06",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "SQ-02",
+      "session": "S02",
+      "trigger": "Worker advertises free VRAM but no M09 request-scoped owner-issued proof",
+      "safetyOracle": "Do not promote quota match or score into grant/dispatch",
+      "owners": "M09/#110",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "SQ-03",
+      "session": "S02",
+      "trigger": "M09 `active()` entry is PREEMPTION_REQUESTED or REVOCATION_REQUESTED",
+      "safetyOracle": "No assumed unqualified active grant; preserve revocation state",
+      "owners": "M09, M11",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "SQ-04",
+      "session": "S02",
+      "trigger": "Two-member GPU request, one member's proof stale or missing",
+      "safetyOracle": "All-or-nothing non-admission; no partial reservation claim",
+      "owners": "M09 H02, M12 S03",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "SQ-05",
+      "session": "S02",
+      "trigger": "Competing projects each borrow the same unverified quota",
+      "safetyOracle": "No double-spend claim; policy math cannot mint M09 lease",
+      "owners": "M09, M12",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "SQ-06",
+      "session": "S02",
+      "trigger": "Aging boosts task above M54 authorization or workstation interactive safeguards",
+      "safetyOracle": "No priority privilege escalation, bypass or process action",
+      "owners": "M54, M60, M11",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "SQ-07",
+      "session": "S02",
+      "trigger": "Deadline near but M11 liveness, OS ownership or platform capability UNKNOWN",
+      "safetyOracle": "No forced worker start/kill/reap; urgency is not OS evidence",
+      "owners": "M11 H01, M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "SQ-08",
+      "session": "S02",
+      "trigger": "Owner cancels task during score/placement calculation",
+      "safetyOracle": "No stale cached result promoted; future exact identity/epoch recheck required",
+      "owners": "M02, M06, M12",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "SQ-09",
+      "session": "S02",
+      "trigger": "Queue mirror stale after supervisor failure or remote partition",
+      "safetyOracle": "No unverified duplicate attempt or relaunch",
+      "owners": "M02, M06, M11, M12",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "SQ-10",
+      "session": "S02",
+      "trigger": "Local node appears cheaper than remote with unsupported adapter/version",
+      "safetyOracle": "Unsupported compatibility cannot become executable route",
+      "owners": "M12, M14, M17",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "SQ-11",
+      "session": "S02",
+      "trigger": "Kueue/Ray-style reserve/permit simulated in a proposal without actual M09 port",
+      "safetyOracle": "Comparison remains documentary, no actual reserve/lease/dispatch",
+      "owners": "M09/#110, M12",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "SQ-12",
+      "session": "S02",
+      "trigger": "Future preemption chooses a foreign or PID-reused process",
+      "safetyOracle": "No M11 control without M54/M60 process identity and rights",
+      "owners": "M11, M54, M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "SQ-13",
+      "session": "S02",
+      "trigger": "Queue telemetry exposes private project priorities/tenant node data",
+      "safetyOracle": "No publication without M54/M58 data policy",
+      "owners": "M54, M56, M58",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "SQ-14",
+      "session": "S02",
+      "trigger": "Backfill assumes runtime/VRAM estimate is certain, planned task overstays",
+      "safetyOracle": "No unverified forced reclaim/retry or external-effect duplication",
+      "owners": "M06, M09, M11, M12",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    {
+      "id": "MG-01",
+      "session": "S03",
+      "trigger": "Two GPUs advertised but one has no owner-issued M09 proof",
+      "safetyOracle": "No positive composite placement or dispatch",
+      "owners": "M09 H02",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-02",
+      "session": "S03",
+      "trigger": "Member A proof valid at t1, B at t2 without a joint owner cut",
+      "safetyOracle": "Never construct fictitious atomic grant from independent snapshots/locks",
+      "owners": "M09/#110",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-03",
+      "session": "S03",
+      "trigger": "Member B revoked after candidate ranking and before use",
+      "safetyOracle": "Revalidation blocks placement; no assumed capacity reclaimed",
+      "owners": "M09/M11",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-04",
+      "session": "S03",
+      "trigger": "One of two `LeaseBook.active()` entries is PREEMPTION_REQUESTED",
+      "safetyOracle": "No inference both are valid active grants",
+      "owners": "M09",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-05",
+      "session": "S03",
+      "trigger": "Synthetic/estimated sample reports extra GPU or VRAM",
+      "safetyOracle": "No positive admission from telemetry or fixture origin",
+      "owners": "M09/M56",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-06",
+      "session": "S03",
+      "trigger": "Advertised P2P link lacks verified supported peer access",
+      "safetyOracle": "Do not promise P2P transfer or shared GPU memory",
+      "owners": "M12/M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-07",
+      "session": "S03",
+      "trigger": "Mixed device architecture incompatible with required kernels or model",
+      "safetyOracle": "No assumed task compatibility, transparent fallback requires later owner proof",
+      "owners": "M12/M14/M17",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-08",
+      "session": "S03",
+      "trigger": "One worker process crashes after a partial model shard update",
+      "safetyOracle": "No unverified replay, re-launch or M06 success",
+      "owners": "M02/M06/M11",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-09",
+      "session": "S03",
+      "trigger": "OS PID reused or one GPU worker has unverified owner rights",
+      "safetyOracle": "No signal/reap or foreign-process control",
+      "owners": "M11/M54/M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-10",
+      "session": "S03",
+      "trigger": "GPU partition is represented as a full physical device and overcounted",
+      "safetyOracle": "No double reservation or overclaimed capacity",
+      "owners": "M09/M12/M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-11",
+      "session": "S03",
+      "trigger": "Model requiring 12GB appears to fit two 8GB devices based only on sum",
+      "safetyOracle": "No inferred model split, transfer capability or positive execution route",
+      "owners": "M09/M12/M14",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-12",
+      "session": "S03",
+      "trigger": "Cross-process IPC handoff omits principal or exact action association",
+      "safetyOracle": "No memory share or process action",
+      "owners": "M11/M54/M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-13",
+      "session": "S03",
+      "trigger": "Two successful process exits emit conflicting or incomplete outputs",
+      "safetyOracle": "No automatic M06 materialization or accepted master",
+      "owners": "M02/M06/M48",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-14",
+      "session": "S03",
+      "trigger": "One GPU stalls past timeout while another continues executing",
+      "safetyOracle": "No inferred termination, lease reclaim or safe duplicate retry",
+      "owners": "M06/M09/M11",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-15",
+      "session": "S03",
+      "trigger": "Future multi-host group loses network partition between owner proofs",
+      "safetyOracle": "No optimistic atomic placement or claim of node trust",
+      "owners": "M12 S04/M54/M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "MG-16",
+      "session": "S03",
+      "trigger": "Unqualified GPU power/performance claim drives lower-cost remote recommendation",
+      "safetyOracle": "Advisory score not authoritative M09 grant or rights permission",
+      "owners": "M10/M12/M54",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    {
+      "id": "FN-01",
+      "session": "S04",
+      "trigger": "Unauthenticated node advertises abundant GPUs",
+      "safetyOracle": "No trusted candidate or positive placement",
+      "owners": "M09/M54",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-02",
+      "session": "S04",
+      "trigger": "Rebooted node reuses an OS PID and stale registration",
+      "safetyOracle": "No control of foreign process",
+      "owners": "M11/M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-03",
+      "session": "S04",
+      "trigger": "Peer credential is revoked despite successful network connection",
+      "safetyOracle": "No data transfer or remote execution",
+      "owners": "M54/M58",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-04",
+      "session": "S04",
+      "trigger": "Untrusted candidate substitutes private/internal service endpoint",
+      "safetyOracle": "No reachability escalation or endpoint use",
+      "owners": "M54/M58",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-05",
+      "session": "S04",
+      "trigger": "Two disconnected coordinators both claim one worker",
+      "safetyOracle": "No duplicate attempt or capacity admission",
+      "owners": "M02/M06/M09",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-06",
+      "session": "S04",
+      "trigger": "Heartbeat remains cached through partition or clock skew",
+      "safetyOracle": "No assumption of current liveness",
+      "owners": "M11/M56",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-07",
+      "session": "S04",
+      "trigger": "Remote VRAM sample lacks coherent owner-issued snapshot and lease",
+      "safetyOracle": "No remote grant or dispatch",
+      "owners": "M09/#110",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-08",
+      "session": "S04",
+      "trigger": "Remote work candidate has no accepted M11 process/OS capability",
+      "safetyOracle": "No spawn, kill, resume or reap",
+      "owners": "M11/M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-09",
+      "session": "S04",
+      "trigger": "Cross-site media or model lacks approved rights or residency",
+      "safetyOracle": "No remote export",
+      "owners": "M54/M59",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-10",
+      "session": "S04",
+      "trigger": "Remote worker requests a local provider credential",
+      "safetyOracle": "No secret handoff",
+      "owners": "M54/M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-11",
+      "session": "S04",
+      "trigger": "Cloud instance disappears without interruption warning",
+      "safetyOracle": "No presumed checkpoint, retry or lease reclamation",
+      "owners": "M06/M09/M11",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-12",
+      "session": "S04",
+      "trigger": "Replacement instance overlaps with still-running prior task",
+      "safetyOracle": "No duplicated side effect or optimistic release",
+      "owners": "M02/M06/M09",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-13",
+      "session": "S04",
+      "trigger": "Transfer, GPU tariff or cloud budget is unverified",
+      "safetyOracle": "No claimed cost saving or paid spillover",
+      "owners": "M10/M12",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-14",
+      "session": "S04",
+      "trigger": "Remote model or driver version conflicts with advertised capabilities",
+      "safetyOracle": "No executable route inferred",
+      "owners": "M12/M14",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-15",
+      "session": "S04",
+      "trigger": "Federation publishes confidential queue or worker descriptors",
+      "safetyOracle": "No unauthorized disclosure",
+      "owners": "M54/M58",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-16",
+      "session": "S04",
+      "trigger": "Remote output is incomplete or has incorrect hash/provenance",
+      "safetyOracle": "No accepted artifact or fabricated success",
+      "owners": "M06/M55",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-17",
+      "session": "S04",
+      "trigger": "Another tenant connects using recycled node identity",
+      "safetyOracle": "No inherited authority or stale grant",
+      "owners": "M54/M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FN-18",
+      "session": "S04",
+      "trigger": "Two nodes report GPUs totaling 16 GB without a split model",
+      "safetyOracle": "No contiguous-memory claim or composite admission",
+      "owners": "M09/M12",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    {
+      "id": "FT-01",
+      "session": "S05",
+      "trigger": "Network partition but old remote process continues after heartbeat loss",
+      "safetyOracle": "No automatic duplicate retry or OS-death inference",
+      "owners": "M02/M06/M11",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-02",
+      "session": "S05",
+      "trigger": "M09 preemption request accepted but resource reconciliation pending",
+      "safetyOracle": "No positive capacity-reclaimed or new grant claim",
+      "owners": "M09/M11",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-03",
+      "session": "S05",
+      "trigger": "Recycled OS PID points to foreign process",
+      "safetyOracle": "No signal, reap or privilege escalation",
+      "owners": "M11/M54/M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-04",
+      "session": "S05",
+      "trigger": "Cancelled work generated external effect before ack",
+      "safetyOracle": "No replay without M06 effect/idempotency proof",
+      "owners": "M02/M06",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-05",
+      "session": "S05",
+      "trigger": "Worker exits zero while output checksum or revision is wrong",
+      "safetyOracle": "No M06 success/master promotion",
+      "owners": "M06/M55",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-06",
+      "session": "S05",
+      "trigger": "Remote node emits duplicated final result from two concurrent attempts",
+      "safetyOracle": "No double acceptance or silent output overwrite",
+      "owners": "M02/M06",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-07",
+      "session": "S05",
+      "trigger": "Checkpoint bytes exist but model/runtime provenance differs",
+      "safetyOracle": "No unverified cross-host resume",
+      "owners": "M06/M14/M55",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-08",
+      "session": "S05",
+      "trigger": "Cloud spot instance vanishes without early warning",
+      "safetyOracle": "No presumed orderly shutdown or usable checkpoint",
+      "owners": "M11/M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-09",
+      "session": "S05",
+      "trigger": "Rebalance warning arrives but original instance remains running",
+      "safetyOracle": "No concurrent replacement task without fencing",
+      "owners": "M02/M06/M11",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-10",
+      "session": "S05",
+      "trigger": "New coordinator sees stale old resource lease after failover",
+      "safetyOracle": "No positive M09 grant without fresh owner-issued evidence",
+      "owners": "M09/#110",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-11",
+      "session": "S05",
+      "trigger": "Lowest cost route violates user residency or model license",
+      "safetyOracle": "No remote transfer or paid selection",
+      "owners": "M54/M59",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-12",
+      "session": "S05",
+      "trigger": "Quoted cloud price excludes egress, cold start or time overrun",
+      "safetyOracle": "No false cheaper-than-local claim or spending",
+      "owners": "M10/M12",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-13",
+      "session": "S05",
+      "trigger": "High-priority task demands immediate kill of interactive session",
+      "safetyOracle": "No priority override of OS/process or workstation protections",
+      "owners": "M11/M54/M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-14",
+      "session": "S05",
+      "trigger": "Two of three composite GPU members fail at different epochs",
+      "safetyOracle": "No aggregate grant or unsafe partial recovery",
+      "owners": "M09 H02/M12 S03",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-15",
+      "session": "S05",
+      "trigger": "Manual recovery operator lacks the relevant M54 principal authority",
+      "safetyOracle": "No foreign process recovery or private data access",
+      "owners": "M54/M60",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-16",
+      "session": "S05",
+      "trigger": "M10 advisory model ranks unverified failover host as suitable",
+      "safetyOracle": "No dispatch permission from score",
+      "owners": "M10/M12",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-17",
+      "session": "S05",
+      "trigger": "Telemetry claims success but M06 accepted artifact missing",
+      "safetyOracle": "No fabricated user-facing completion",
+      "owners": "M06/M56",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-18",
+      "session": "S05",
+      "trigger": "Remote transfer incomplete after leader loss",
+      "safetyOracle": "No final accepted output or unauthorized upload restart",
+      "owners": "M06/M55/M59",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-19",
+      "session": "S05",
+      "trigger": "S05 retry loops without verified max-attempt/deadline policy",
+      "safetyOracle": "No unbounded duplicate cost, process or data effects",
+      "owners": "M02/M06/M54",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    },
+    {
+      "id": "FT-20",
+      "session": "S05",
+      "trigger": "Two coordinators each reclaim same capacity based on stale kill ack",
+      "safetyOracle": "No joint M09 state proof or overcommitted GPU",
+      "owners": "M09/M11",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    }
+  ],
+  "unresolvedHardDependencies": [
+    "M09_ISSUE_110_TOPOLOGY_NONE_SELECTED",
+    "C02_FR_H01_OPEN",
+    "C02_FR_H02_OPEN",
+    "C02_FR_H03_OPEN",
+    "C02_FR_H04_OPEN",
+    "M11_V02_NOT_FROZEN",
+    "M54_OWNER_CONTRACT_PENDING",
+    "M58_OWNER_CONTRACT_PENDING",
+    "M60_OWNER_CONTRACT_PENDING",
+    "M02_M06_EXACT_CROSS_OWNER_DISPOSITIONS_PENDING",
+    "M12_RUNTIME_TRIALS_NOT_EXECUTED"
+  ],
+  "selectedTopology": "NONE",
+  "publicOrExecutablePort": "NONE",
+  "implementationStatus": "NOT_ADMITTED"
+}
