@@ -1,0 +1,197 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0015",
+  "increment": "M11-C04-OWNER-ROUTING",
+  "issue": 82,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0015-m11-c04-owner-routing-20260927",
+  "baseRef": "main",
+  "baseSha": "3df76a21f113959b01127c05d20eb7abe5a5a269",
+  "baseTreeSha": "730993accc15c20d9669645f2cc68a9b0abd539a",
+  "status": "PROPOSED_FOR_EXACT_HEAD_REVIEW",
+  "risk": "ELEVATED",
+  "planningOnly": true,
+  "implementationAdmission": "NOT_ADMITTED",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "3df76a21f113959b01127c05d20eb7abe5a5a269",
+    "baseTreeSha": "730993accc15c20d9669645f2cc68a9b0abd539a",
+    "expected": 39,
+    "checked": 39,
+    "matched": 39,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "c83255bf6fec9c16474fd52b7b3005c9121cfea4"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "95ae62494af0abccafc62d592906dba499f1cc3e"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "95ae62494af0abccafc62d592906dba499f1cc3e"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "69fffd85b3e8562a200aeab231e7199489812798"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "748182e1c72434526d3d7958c4588be90af638de"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/05-INTEGRATION-CONTRACTS.md",
+      "gitBlobSha1": "1c2d0e3462794cee64f83831ea07d9f9ac120663"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "3761c5615059375ea4a8d2199a84aa5959c1af38"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0015.json",
+      "gitBlobSha1": "4a656030f1788849be23f3d030e5ab47fe984948"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0015-M11-CONTRACT-CANDIDATE-C01.md",
+      "gitBlobSha1": "cf7f51761e7b9d773dd825c128c562021db39069"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+      "gitBlobSha1": "6c850187b7d1dd0713892b9492d0d9decb8863ec"
+    },
+    {
+      "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+    },
+    {
+      "path": "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+      "gitBlobSha1": "da7ba9800341d02d8d6b6619fc0e16d71b16f6ed"
+    },
+    {
+      "path": "planning/compatibility/M11-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "baf3575a7b4df69151c2f0104129825776d067ec"
+    },
+    {
+      "path": "planning/reviews/M11-FINAL-TECHNOLOGY-REVIEW.md",
+      "gitBlobSha1": "f2c5ab25272ddcee96fbacf2b5144fcb9a58dbbd"
+    },
+    {
+      "path": "planning/reviews/M11-INDEPENDENT-PLANNING-AUDIT-C01.md",
+      "gitBlobSha1": "3b706b31696ab8ae9d42a5b7a41d10e4f7612756"
+    },
+    {
+      "path": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+      "gitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5"
+    },
+    {
+      "path": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "gitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e"
+    },
+    {
+      "path": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "gitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933"
+    },
+    {
+      "path": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "gitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae"
+    },
+    {
+      "path": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "gitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+    },
+    {
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a"
+    },
+    {
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "gitBlobSha1": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "gitBlobSha1": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "18029f4c685cc8597242a6f949adbe2861f9f89e"
+    },
+    {
+      "path": "planning/reviews/M11-INDEPENDENT-PLANNING-AUDIT-C02.md",
+      "gitBlobSha1": "a3b48cdda1243fa7607816e5b44a85b30619138e"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0015-M11-C02-POST-MERGE-CHECKPOINT-EVIDENCE-CLOSEOUT.md",
+      "gitBlobSha1": "c2ede27137032c960c00fdfa4f3948994e967de2"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-M11-C02-POST-MERGE-CHECKPOINT-EVIDENCE-CLOSEOUT.json",
+      "gitBlobSha1": "955ea864edff8f8355746eeb3eef49a2712cc204"
+    },
+    {
+      "path": ".engineering/evidence/M11-C03-DECISION-PROOF-REGISTER.json",
+      "gitBlobSha1": "7b901e45770441a3a44f88a3ff8a83fecb480ccd"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0015-M11-C03-DECISION-PROOF-REGISTER.md",
+      "gitBlobSha1": "49b917de8e925066a42ac47fae4848597b0638d7"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-M11-C03-DECISION-PROOF-REGISTER.json",
+      "gitBlobSha1": "ab66a1c314d38e518a050db9576a0ac694a37392"
+    },
+    {
+      "path": "planning/reviews/M11-C03-DECISION-PROOF-REGISTER.md",
+      "gitBlobSha1": "3ef11f2d257f4cc885789658e8e9757e19c0f62f"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0015-M11-C04-OWNER-ROUTING.json",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    ".engineering/evidence/M11-C04-OWNER-ROUTING.json",
+    ".engineering/work-orders/IRIS-WO-0015-M11-C04-OWNER-ROUTING.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/reviews/M11-C04-OWNER-ROUTING.md"
+  ],
+  "exactHeadGovernance": {
+    "status": "REQUIRED_ON_FINAL_PR_HEAD"
+  },
+  "stopCondition": "Leave proposal PR OPEN/UNMERGED following exact-head Governance for separate review. No M11 freeze or runtime admission."
+}

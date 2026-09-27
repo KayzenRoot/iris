@@ -2146,7 +2146,7 @@
     }
   },
   "m11C03DecisionProofRegister": {
-    "status": "PROPOSED_PENDING_EXACT_HEAD_GOVERNANCE_AND_REVIEW",
+    "status": "MERGED_EXACT_MAIN_VALIDATED_SOURCE_REGISTER_ONLY",
     "workOrder": "IRIS-WO-0015",
     "increment": "M11-C03-DECISION-PROOF-REGISTER",
     "issue": 82,
@@ -2167,6 +2167,56 @@
     "candidate": "m11-contract-candidate-v0.2 NOT_FROZEN",
     "M10M11Implementation": "NOT_ADMITTED",
     "futureOwners": "M12-M60 PENDING/UNRATED",
-    "exactHeadGovernance": "REQUIRED"
+    "exactHeadGovernance": {
+      "run": 36292142852,
+      "job": 108544149198,
+      "number": 445,
+      "headSha": "e608c95dee84363ffd09b88ef315c16b265fe8d5",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "reviewComment": 5852371566,
+    "reviewedHeadSha": "e608c95dee84363ffd09b88ef315c16b265fe8d5",
+    "protectedMerge": {
+      "pullRequest": 106,
+      "method": "squash",
+      "sha": "3df76a21f113959b01127c05d20eb7abe5a5a269",
+      "result": "MERGED"
+    },
+    "exactMainGovernance": {
+      "run": 36292194144,
+      "job": 108544291487,
+      "number": 446,
+      "headSha": "3df76a21f113959b01127c05d20eb7abe5a5a269",
+      "treeSha": "730993accc15c20d9669645f2cc68a9b0abd539a",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "questionDisposition": "86/86 OPEN_UNRATED",
+    "proofDisposition": "8/8 NOT_EXECUTED"
+  },
+  "m11C04OwnerRouting": {
+    "status": "PROPOSED_PENDING_EXACT_HEAD_AND_SEPARATE_REVIEW",
+    "workOrder": "IRIS-WO-0015",
+    "increment": "M11-C04-OWNER-ROUTING",
+    "issue": 82,
+    "exactBaseSha": "3df76a21f113959b01127c05d20eb7abe5a5a269",
+    "exactBaseTreeSha": "730993accc15c20d9669645f2cc68a9b0abd539a",
+    "criticalSourceBlobs": "39/39 MATCHED",
+    "changedPaths": "9 ALLOWLISTED",
+    "originalQuestions": "86/86 VERBATIM OPEN_UNRATED",
+    "ownerRouting": "ADVISORY_PROPOSAL_NOT_OWNER_APPROVAL",
+    "lanes": {
+      "M11LedFutureOwnerGated": 17,
+      "M11DocProposableAvailableOwnerReview": 4,
+      "externalOwnerDecision": 63,
+      "sourceVerification": 2
+    },
+    "futureOwners": "M12-M60 PENDING_UNRATED",
+    "proofObligations": "8/8 DEFINED_NOT_EXECUTED",
+    "processActions": "DISABLED",
+    "m11Contract": "PROPOSED_NOT_FROZEN",
+    "implementation": "M10/M11 NOT_ADMITTED",
+    "issue82": "OPEN"
   }
 }
