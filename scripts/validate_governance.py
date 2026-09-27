@@ -47,36 +47,50 @@ def section(text: str, heading: str) -> str:
         fail(f"checkpoint heading has no value: {heading}")
     return "\n".join(values)
 
-for relative in REQUIRED:
-    if not (ROOT / relative).is_file():
-        fail(f"missing required file: {relative}")
+def validate_checkpoint_consistency(canonical_bytes: bytes, bridge_bytes: bytes, machine: dict[str, object]) -> None:
+    """Fail closed on byte-level mirror drift and keep existing machine-field checks."""
+    if canonical_bytes != bridge_bytes:
+        fail("human checkpoint Markdown mirrors are not byte-identical")
+    canonical = canonical_bytes.decode("utf-8")
+    for heading in HEADINGS:
+        section(canonical, heading)
+    if machine.get("canonicalCheckpoint") != "docs/project-brain/13-CHECKPOINT.md":
+        fail("machine checkpoint target mismatch")
+    for field, heading in {"status": "## STATUS", "version": "## VERSION", "phase": "## PHASE", "nextStep": "## NEXT STEP"}.items():
+        if machine.get(field) != section(canonical, heading):
+            fail(f"machine checkpoint drift for {field}")
 
-canonical = (ROOT / "docs/project-brain/13-CHECKPOINT.md").read_text(encoding="utf-8")
-for heading in HEADINGS:
-    section(canonical, heading)
-bridge = (ROOT / ".engineering/CHECKPOINT.md").read_text(encoding="utf-8")
-machine = json.loads((ROOT / ".engineering/CHECKPOINT.json").read_text(encoding="utf-8"))
-if machine.get("canonicalCheckpoint") != "docs/project-brain/13-CHECKPOINT.md": fail("machine checkpoint target mismatch")
-for field, heading in {"status":"## STATUS","version":"## VERSION","phase":"## PHASE","nextStep":"## NEXT STEP"}.items():
-    if section(bridge, heading) != section(canonical, heading): fail(f"human checkpoint drift for {field}")
-    if machine.get(field) != section(canonical, heading): fail(f"machine checkpoint drift for {field}")
 
-profile = json.loads((ROOT / ".engineering/gef/GEF-PROJECT-PROFILE.json").read_text(encoding="utf-8"))
-if profile.get("gefVersion") != "1.0.0" or profile.get("gefReleaseCommit") != GEF_SHA: fail("GEF profile pin mismatch")
-expected = ("docs/project-brain/13-CHECKPOINT.md","docs/project-brain/16-DECISIONS-LEDGER.md","docs/project-brain/03-SCOPE.md","docs/project-brain/15-DEFINITION-OF-DONE.md","docs/project-brain/04-ARCHITECTURE.md","docs/project-brain/02-REQUIREMENTS.md")
-if tuple(profile.get("sourceHierarchy", ())[:6]) != expected: fail("GEF source hierarchy mismatch")
+def main() -> None:
+    for relative in REQUIRED:
+        if not (ROOT / relative).is_file():
+            fail(f"missing required file: {relative}")
 
-manifest = json.loads((ROOT / ".engineering/BOOTSTRAP-MANIFEST.json").read_text(encoding="utf-8"))
-if manifest.get("gef", {}).get("releaseCommit") != GEF_SHA: fail("manifest GEF pin mismatch")
-if manifest.get("hive", {}).get("releaseCommit") != HIVE_SHA: fail("manifest HIVE pin mismatch")
+    canonical_bytes = (ROOT / "docs/project-brain/13-CHECKPOINT.md").read_bytes()
+    bridge_bytes = (ROOT / ".engineering/CHECKPOINT.md").read_bytes()
+    machine = json.loads((ROOT / ".engineering/CHECKPOINT.json").read_text(encoding="utf-8"))
+    validate_checkpoint_consistency(canonical_bytes, bridge_bytes, machine)
 
-source = json.loads((ROOT / ".engineering/gef/GEF-SOURCE-BRIDGE.json").read_text(encoding="utf-8"))
-if source.get("canonicalCheckpoint") != "docs/project-brain/13-CHECKPOINT.md": fail("source bridge checkpoint mismatch")
-required_domains = {"PROJECT_STATE":"docs/project-brain/13-CHECKPOINT.md","DECISION":"docs/project-brain/16-DECISIONS-LEDGER.md","SCOPE":"docs/project-brain/03-SCOPE.md","COMPLETION":"docs/project-brain/15-DEFINITION-OF-DONE.md","ARCHITECTURE":"docs/project-brain/04-ARCHITECTURE.md","REQUIREMENT":"docs/project-brain/02-REQUIREMENTS.md","SECURITY":"docs/project-brain/10-SECURITY-GOVERNANCE.md","VALIDATION":"docs/project-brain/11-TEST-BENCHMARK-PLAN.md","DEPLOYMENT":"docs/project-brain/12-LOCAL-DEPLOYMENT.md","INTEGRATION":"docs/project-brain/05-INTEGRATION-CONTRACTS.md"}
-for domain, relative in required_domains.items():
-    if source.get("domains", {}).get(domain) != relative: fail(f"source bridge mismatch: {domain}")
+    profile = json.loads((ROOT / ".engineering/gef/GEF-PROJECT-PROFILE.json").read_text(encoding="utf-8"))
+    if profile.get("gefVersion") != "1.0.0" or profile.get("gefReleaseCommit") != GEF_SHA: fail("GEF profile pin mismatch")
+    expected = ("docs/project-brain/13-CHECKPOINT.md","docs/project-brain/16-DECISIONS-LEDGER.md","docs/project-brain/03-SCOPE.md","docs/project-brain/15-DEFINITION-OF-DONE.md","docs/project-brain/04-ARCHITECTURE.md","docs/project-brain/02-REQUIREMENTS.md")
+    if tuple(profile.get("sourceHierarchy", ())[:6]) != expected: fail("GEF source hierarchy mismatch")
 
-print("IRIS governance validation: PASS")
-print(f"GEF: v1.0.0 @ {GEF_SHA}")
-print(f"HIVE: v1.0.0 @ {HIVE_SHA}")
-print(f"Required artifacts: {len(REQUIRED)}")
+    manifest = json.loads((ROOT / ".engineering/BOOTSTRAP-MANIFEST.json").read_text(encoding="utf-8"))
+    if manifest.get("gef", {}).get("releaseCommit") != GEF_SHA: fail("manifest GEF pin mismatch")
+    if manifest.get("hive", {}).get("releaseCommit") != HIVE_SHA: fail("manifest HIVE pin mismatch")
+
+    source = json.loads((ROOT / ".engineering/gef/GEF-SOURCE-BRIDGE.json").read_text(encoding="utf-8"))
+    if source.get("canonicalCheckpoint") != "docs/project-brain/13-CHECKPOINT.md": fail("source bridge checkpoint mismatch")
+    required_domains = {"PROJECT_STATE":"docs/project-brain/13-CHECKPOINT.md","DECISION":"docs/project-brain/16-DECISIONS-LEDGER.md","SCOPE":"docs/project-brain/03-SCOPE.md","COMPLETION":"docs/project-brain/15-DEFINITION-OF-DONE.md","ARCHITECTURE":"docs/project-brain/04-ARCHITECTURE.md","REQUIREMENT":"docs/project-brain/02-REQUIREMENTS.md","SECURITY":"docs/project-brain/10-SECURITY-GOVERNANCE.md","VALIDATION":"docs/project-brain/11-TEST-BENCHMARK-PLAN.md","DEPLOYMENT":"docs/project-brain/12-LOCAL-DEPLOYMENT.md","INTEGRATION":"docs/project-brain/05-INTEGRATION-CONTRACTS.md"}
+    for domain, relative in required_domains.items():
+        if source.get("domains", {}).get(domain) != relative: fail(f"source bridge mismatch: {domain}")
+
+    print("IRIS governance validation: PASS")
+    print(f"GEF: v1.0.0 @ {GEF_SHA}")
+    print(f"HIVE: v1.0.0 @ {HIVE_SHA}")
+    print(f"Required artifacts: {len(REQUIRED)}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0017",
+  "module": "GEF_GOVERNANCE_MAINTENANCE",
+  "issue": 118,
+  "status": "PROPOSED_PENDING_EXACT_HEAD_AND_SEPARATE_AUDIT",
+  "baseSha": "467cea12c78b875d8a9966e48bde2dade8d48f8a",
+  "baseTreeSha": "ed1454de247b7ad26e186b55f999dfebcf74f0d4",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "expected": 27,
+    "checked": 27,
+    "matched": 27,
+    "mismatches": 0
+  },
+  "authorizedChangedFiles": [
+    "scripts/validate_governance.py",
+    "tests/test_checkpoint_mirror_guard.py",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    ".engineering/evidence/IRIS-WO-0017.json",
+    ".engineering/context-locks/IRIS-WO-0017-CHECKPOINT-MIRROR-GUARD.json",
+    ".engineering/work-orders/IRIS-WO-0017-CHECKPOINT-MIRROR-GUARD.md",
+    "planning/reviews/IRIS-WO-0017-CHECKPOINT-GUARD-AUDIT-TARGET.md"
+  ],
+  "sourceFinding": {
+    "file": "scripts/validate_governance.py",
+    "type": "CHAT_FIXABLE_CHECKPOINT_MARKDOWN_MIRROR_GAP",
+    "originalChecks": [
+      "STATUS",
+      "VERSION",
+      "PHASE",
+      "NEXT_STEP"
+    ],
+    "missedSections": [
+      "OBJECTIVE",
+      "IN_PROGRESS",
+      "BLOCKERS"
+    ],
+    "correction": "BYTE_EXACT_MARKDOWN_MIRROR_BEFORE_UNCHANGED_MACHINE_FIELD_CHECKS"
+  },
+  "regressionCases": [
+    {
+      "id": "CG-01",
+      "condition": "equal Markdown mirrors and matching JSON fields",
+      "expected": "PASS",
+      "status": "SPECIFIED_IN_CANDIDATE_TEST_CODE_NOT_YET_CI_VERIFIED"
+    },
+    {
+      "id": "CG-02",
+      "condition": "OBJECTIVE drift",
+      "expected": "FAIL_CLOSED",
+      "status": "SPECIFIED_IN_CANDIDATE_TEST_CODE_NOT_YET_CI_VERIFIED"
+    },
+    {
+      "id": "CG-03",
+      "condition": "IN PROGRESS drift",
+      "expected": "FAIL_CLOSED",
+      "status": "SPECIFIED_IN_CANDIDATE_TEST_CODE_NOT_YET_CI_VERIFIED"
+    },
+    {
+      "id": "CG-04",
+      "condition": "BLOCKERS drift",
+      "expected": "FAIL_CLOSED",
+      "status": "SPECIFIED_IN_CANDIDATE_TEST_CODE_NOT_YET_CI_VERIFIED"
+    },
+    {
+      "id": "CG-05",
+      "condition": "trailing LF drift",
+      "expected": "FAIL_CLOSED",
+      "status": "SPECIFIED_IN_CANDIDATE_TEST_CODE_NOT_YET_CI_VERIFIED"
+    },
+    {
+      "id": "CG-06",
+      "condition": "CRLF vs LF drift",
+      "expected": "FAIL_CLOSED",
+      "status": "SPECIFIED_IN_CANDIDATE_TEST_CODE_NOT_YET_CI_VERIFIED"
+    },
+    {
+      "id": "CG-07",
+      "condition": "JSON nextStep mismatch",
+      "expected": "FAIL_CLOSED",
+      "status": "SPECIFIED_IN_CANDIDATE_TEST_CODE_NOT_YET_CI_VERIFIED"
+    },
+    {
+      "id": "CG-08",
+      "condition": "JSON status mismatch",
+      "expected": "FAIL_CLOSED",
+      "status": "SPECIFIED_IN_CANDIDATE_TEST_CODE_NOT_YET_CI_VERIFIED"
+    },
+    {
+      "id": "CG-09",
+      "condition": "JSON canonicalCheckpoint wrong target",
+      "expected": "FAIL_CLOSED",
+      "status": "SPECIFIED_IN_CANDIDATE_TEST_CODE_NOT_YET_CI_VERIFIED"
+    }
+  ],
+  "priorC09": {
+    "pr": 117,
+    "reviewedHead": "af1f4da285be2177c6bb7afbba4a41866b112231",
+    "headGovernance": {
+      "number": 463,
+      "run": 36316542448,
+      "job": 108612199308,
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "protectedSquashMerge": "467cea12c78b875d8a9966e48bde2dade8d48f8a",
+    "mainGovernance": {
+      "number": 464,
+      "run": 36316620677,
+      "job": 108612415989,
+      "result": "PASS",
+      "tests": "3940/3940"
+    }
+  },
+  "M09OwnerDecision": "PENDING_ISSUE_110",
+  "M11": "NOT_FROZEN",
+  "M09": "FROZEN_UNCHANGED",
+  "implementationM10M11": "NOT_ADMITTED",
+  "processes": "DISABLED",
+  "fourC02Highs": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "M11QuestionRegister": "86_OF_86_OPEN_UNRATED",
+  "exactHeadGovernance": "REQUIRED",
+  "independentBoundedAudit": "REQUIRED",
+  "exactMainGovernance": "REQUIRED_AFTER_GUARDED_MERGE"
+}
