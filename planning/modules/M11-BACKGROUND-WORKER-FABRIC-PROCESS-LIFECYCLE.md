@@ -82,3 +82,7 @@ PR #99's independent bounded chat audit corrected three invalid owner-source lin
 ### Owner-contract candidate C01 planning proposal
 
 FCS C01 is complete for module planning after independent checkpoint closeout PR #100 exact-head Governance 36285307444 / 108524829278, protected merge 9acfe5400a490a996602d5b09f7adb3d92b3050b and exact-main Governance #435 (36285351940 / 108524953905). The next separately bounded 94-source C01 proposal is the versioned M11 semantic owner-contract candidate, not a freeze or implementation gate. Its 26 proposed invariant IDs and all 44 original S04/S05 OPEN questions require source-backed independent audit. M12-M60 contracts remain pending/unrated; M11/M10 implementation NOT_ADMITTED, Issue #82 OPEN.
+
+### C01 owner-contract candidate merged; separate freeze-readiness audit
+
+PR #101 exact head 2df777a14aaac9bdb673f9c812c75a5af188b31d passed Governance #436 (3,940/3,940 tests), protected squash merge 9c7cafcfc73700728981f8f90e27110be8dd9fd0 passed exact-main Governance #438 (3,940/3,940). Candidate m11-contract-candidate-v0.1 remains NOT_FROZEN. A separate audit proposal identifies three HIGH_FOR_FREEZE gaps for positive interface/authority proofs, without alleging defects in admitted runtime (none). Correction Delta C02, subsequent read-only re-audit and owner-contract freeze are separate gated work; all prior owner unknowns remain.
