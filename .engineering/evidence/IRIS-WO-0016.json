@@ -104,7 +104,7 @@
     "frozenM09": "PRESERVED_V1_0"
   },
   "extensionC02": {
-    "status": "PROPOSED_DOC_AUDIT_PENDING_EXACT_HEAD_AND_SEPARATE_REVIEW",
+    "status": "CANONICAL_DOCUMENTARY_COMPATIBILITY_AUDIT_ONLY_EXACT_MAIN_PASS",
     "workOrder": "IRIS-WO-0016",
     "issue": 112,
     "sourceBaseSha": "452aff2f09e3f9130c26eb2068401b385cea67d1",
@@ -128,6 +128,24 @@
       82,
       110,
       112
-    ]
+    ],
+    "headSha": "af4d829193833939903aa64d9b2b19220b81afb5",
+    "mergeCommit": "885659cecdd8865bb713f80c1b503583311233e9",
+    "mergeTreeSha": "8767077dbed3599829855373a6bb7da2f829c581",
+    "exactHeadGovernance": {
+      "number": 461,
+      "run": 36315712111,
+      "job": 108609901760,
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "exactMainGovernance": {
+      "number": 462,
+      "run": 36315791781,
+      "job": 108610123330,
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "ownerDisposition": "PENDING_ISSUE_110"
   }
 }

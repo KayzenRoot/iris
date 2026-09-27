@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0015",
+  "increment": "M11-C09-REVERSE-LIVENESS-RESEARCH",
+  "issue": 82,
+  "ownerReviewIssues": [
+    110,
+    112
+  ],
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0015-m11-c09-reverse-liveness-research-20260927",
+  "baseRef": "main",
+  "baseSha": "885659cecdd8865bb713f80c1b503583311233e9",
+  "baseTreeSha": "8767077dbed3599829855373a6bb7da2f829c581",
+  "status": "PROPOSED_PENDING_EXACT_HEAD_GOVERNANCE_AND_SEPARATE_AUDIT",
+  "risk": "ELEVATED",
+  "planningOnly": true,
+  "implementationAdmission": "NOT_ADMITTED",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "885659cecdd8865bb713f80c1b503583311233e9",
+    "baseTreeSha": "8767077dbed3599829855373a6bb7da2f829c581",
+    "expected": 38,
+    "checked": 38,
+    "matched": 38,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "faed43279534a23f985fc4f3238b0f8fba7f6cc8"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "ed2bac9f9699311ee0683c23e64be2588b35ea2a"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "ed2bac9f9699311ee0683c23e64be2588b35ea2a"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "69fffd85b3e8562a200aeab231e7199489812798"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "748182e1c72434526d3d7958c4588be90af638de"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/05-INTEGRATION-CONTRACTS.md",
+      "gitBlobSha1": "1c2d0e3462794cee64f83831ea07d9f9ac120663"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "d4c4ef54c481314121cee0c8c3af5eba6a0a6c8b"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0015.json",
+      "gitBlobSha1": "04a84a0c13200c1dd6921f94d230db06fb114432"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0016.json",
+      "gitBlobSha1": "c116d36937ceae62f559d1e74cc5dbc470763cbb"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+      "gitBlobSha1": "6c850187b7d1dd0713892b9492d0d9decb8863ec"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0015-M11-C08-M09-READINESS-AND-CASE-SPLIT.md",
+      "gitBlobSha1": "b72359cb354abb831bcf0368771ec731f3fdda9e"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0016-M09-HANDOFF-C02-COMPATIBILITY-AUDIT.md",
+      "gitBlobSha1": "2369f080614dec1c89bbd89250cc906dbf5399ac"
+    },
+    {
+      "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+    },
+    {
+      "path": "planning/contracts/M09-READ-ONLY-EVIDENCE-HANDOFF-CANDIDATE.md",
+      "gitBlobSha1": "30eb7e369b2996cc5e9b5f49736e29232b45b69e"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+    },
+    {
+      "path": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "1e5898f36b49e71f28eb18eb9582d48de60a58b4"
+    },
+    {
+      "path": "planning/compatibility/M09-HANDOFF-C02-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "ab65953a29d30819133b7fedc7193f12cae8eb47"
+    },
+    {
+      "path": "planning/reviews/M09-HANDOFF-C02-FREEZE-READINESS-REVIEW.md",
+      "gitBlobSha1": "d39211851a0d52593a35965892e60e857a311d35"
+    },
+    {
+      "path": "planning/reviews/M11-C08-M09-SOURCE-READINESS-AND-C06-CORRECTION.md",
+      "gitBlobSha1": "c03655c2bb5b1006636f07c60659c960eb559d15"
+    },
+    {
+      "path": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "gitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae"
+    },
+    {
+      "path": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "gitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392"
+    },
+    {
+      "path": "iris_resource_twin/recovery.py",
+      "gitBlobSha1": "65678b060bdfafabb78ab63772794be410c48a92"
+    },
+    {
+      "path": "iris_resource_twin/model.py",
+      "gitBlobSha1": "e64228e6a58b787ee107da8e737dd640ad4dad56"
+    },
+    {
+      "path": "iris_resource_twin/twin.py",
+      "gitBlobSha1": "f8d217d46ca4284d439aba418d6113eb0c4059e2"
+    },
+    {
+      "path": "iris_resource_twin/leases.py",
+      "gitBlobSha1": "5757d15156d62ac8cc49a1763eba62b944af52d9"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json",
+      "gitBlobSha1": "935abe4323618ac6d583e3bd8acc827d5fe80d2c"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-CANDIDATE-C01.json",
+      "gitBlobSha1": "3236ff8146c71da247208b0896e4e37573123fa8"
+    },
+    {
+      "path": ".engineering/evidence/M11-C08-M09-READINESS-AND-CASE-SPLIT.json",
+      "gitBlobSha1": "bb184ea7373dd40b768cb54d6aa11f8656d26b33"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "18029f4c685cc8597242a6f949adbe2861f9f89e"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "gitBlobSha1": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    ".engineering/evidence/IRIS-WO-0016.json",
+    ".engineering/evidence/M11-C09-REVERSE-LIVENESS-OWNER-RESEARCH.json",
+    ".engineering/context-locks/IRIS-WO-0015-M11-C09-REVERSE-LIVENESS-RESEARCH.json",
+    ".engineering/work-orders/IRIS-WO-0015-M11-C09-REVERSE-LIVENESS-RESEARCH.md",
+    "planning/research/M11-C09-REVERSE-LIVENESS-OWNER-RESEARCH.md",
+    "planning/reviews/M11-C09-REVERSE-LIVENESS-AUDIT-TARGET.md"
+  ],
+  "exactHeadGovernance": {
+    "status": "REQUIRED_ON_FINAL_PR_HEAD"
+  },
+  "stopCondition": "Leave PR OPEN after exact-head Governance for a separate bounded audit. No M09 owner adoption, M11 contract freeze, process/runtime action or issue closure."
+}
