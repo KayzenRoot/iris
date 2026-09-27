@@ -3,7 +3,7 @@
   "workOrder": "IRIS-WO-0025",
   "module": "M12",
   "issue": 128,
-  "status": "PROPOSED_S04_REFERENCE_RESEARCH_NOT_FROZEN",
+  "status": "S04_COMPLETE_FOR_REFERENCE_PLANNING_ONLY",
   "baseSha": "d94f19de4a7b5ed8e248ea41239bc53df90a58b1",
   "baseTreeSha": "963d02cf2083e44f1f78a651bc383e8fc7386eed",
   "authorizedChangedFiles": [
@@ -22,7 +22,7 @@
   ],
   "research": {
     "session": "S04_LAN_REMOTE_CLOUD_FEDERATION",
-    "status": "PROPOSED_REFERENCE_ONLY_PENDING_CI_REVIEW",
+    "status": "S04_REFERENCE_RESEARCH_EXACT_MAIN_VALIDATED",
     "externalDocs": [
       "https://docs.ray.io/en/latest/cluster/key-concepts.html",
       "https://docs.ray.io/en/latest/ray-security/index.html",
@@ -57,7 +57,7 @@
     "M09C02": "H01_H04_OPEN_HIGH_FOR_FUTURE_FREEZE",
     "M11": "v0.2 NOT_FROZEN_86_OPEN_UNRATED",
     "M10M11M12Runtime": "NOT_ADMITTED",
-    "M12Later": "S05_NOT_STARTED",
+    "M12Later": "S05_PROPOSED_WO0026",
     "M54M58M60": "PENDING_OWNER_CONTRACT",
     "processNetworkCloudGPUActions": "DISABLED"
   },
@@ -67,6 +67,34 @@
     "exactHeadCI": "REQUIRED",
     "boundedReview": "REQUIRED",
     "exactMainCI": "REQUIRED",
-    "actualOSNetworkHardwareTests": "NOT_EXECUTED_NOT_APPLICABLE_TO_DOC_ONLY"
+    "actualOSNetworkHardwareTests": "NOT_EXECUTED_NOT_APPLICABLE_TO_DOC_ONLY",
+    "exactHeadGovernance": {
+      "number": 490,
+      "run": 36326479434,
+      "job": 108640114953,
+      "head": "d566495e1690a5e8c54be7e315820352d323db07",
+      "result": "PASS",
+      "tests": "3979/3979"
+    },
+    "boundedAudit": {
+      "commentId": 5856788029,
+      "verdict": "APPROVED_S04_REFERENCE_ONLY",
+      "reviewer": "SAME_ASSISTANT_SEPARATE_PASS_NOT_INDEPENDENT_HUMAN",
+      "newHigh": 0,
+      "newCritical": 0
+    },
+    "protectedMerge": {
+      "pr": 132,
+      "sha": "278d3c2905237dfb90a1d0db60cc5db54b834811",
+      "tree": "030650da12d2ac36d5bf162c0f61b1578de8a291"
+    },
+    "exactMainGovernance": {
+      "number": 491,
+      "run": 36326583542,
+      "job": 108640404616,
+      "head": "278d3c2905237dfb90a1d0db60cc5db54b834811",
+      "result": "PASS",
+      "tests": "3979/3979"
+    }
   }
 }
