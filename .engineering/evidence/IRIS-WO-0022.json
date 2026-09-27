@@ -3,7 +3,7 @@
   "workOrder": "IRIS-WO-0022",
   "module": "M12",
   "issue": 128,
-  "status": "PROPOSED_S01_REFERENCE_RESEARCH_NOT_FROZEN",
+  "status": "S01_COMPLETE_FOR_REFERENCE_PLANNING_ONLY",
   "baseSha": "e3fc858d3c92a8a3eba3c7c6119fc490c4098129",
   "baseTreeSha": "171bb58cec6a327a2cdab8a9b63bcc78a32363a0",
   "sourceSnapshot": {
@@ -29,7 +29,7 @@
   ],
   "research": {
     "session": "S01_WORKER_REGISTRY_AND_CAPABILITY_ADVERTISEMENTS",
-    "status": "PROPOSED_REFERENCE_ONLY_PENDING_EXACT_HEAD_AND_REVIEW",
+    "status": "S01_REFERENCE_RESEARCH_EXACT_MAIN_VALIDATED",
     "architectureCandidates": 5,
     "ownerQuestions": 18,
     "questionsStatus": "18_OPEN_UNRATED",
@@ -38,7 +38,8 @@
     "selectedTopology": "NONE",
     "selectedTransport": "NONE",
     "publicRegistry": "NOT_ADMITTED",
-    "workerProcessOperations": "DISABLED"
+    "workerProcessOperations": "DISABLED",
+    "ownerQuestionsStatus": "18_OPEN_UNRATED"
   },
   "priorWO21": {
     "pr": 127,
@@ -56,16 +57,42 @@
     "M11": "v0.2 NOT_FROZEN_86_OPEN_UNRATED",
     "M10M11Implementation": "NOT_ADMITTED",
     "M12Implementation": "NOT_ADMITTED",
-    "M12LaterSessions": "NOT_STARTED",
+    "M12LaterSessions": "S02_PROPOSED_UNDER_IRIS_WO_0023_S03_S05_NOT_STARTED",
     "processNetworkGpuOperations": "DISABLED",
     "M09C02Highs": "H01_H02_H03_H04_OPEN_HIGH_FOR_FUTURE_FREEZE"
   },
   "testPlan": {
     "repoBaseline": 3979,
     "extraNewTests": 0,
-    "exactHeadGovernance": "REQUIRED",
-    "boundedAudit": "REQUIRED",
-    "exactMainGovernance": "REQUIRED",
-    "OSHardwareRemoteTests": "NOT_EXECUTED_NOT_REQUIRED_FOR_DOC_PLANNING"
+    "exactHeadGovernance": {
+      "number": 484,
+      "run": 36324795399,
+      "job": 108635360544,
+      "head": "f9b2dcb2dab13f43b409fb1ba3ca68ea85573e50",
+      "tests": "3979/3979",
+      "result": "PASS"
+    },
+    "boundedAudit": {
+      "commentId": 5856578831,
+      "head": "f9b2dcb2dab13f43b409fb1ba3ca68ea85573e50",
+      "verdict": "APPROVED_S01_REFERENCE_ONLY",
+      "reviewer": "SEPARATE_PASS_SAME_ASSISTANT_NOT_DISTINCT_HUMAN",
+      "newHigh": 0,
+      "newCritical": 0
+    },
+    "exactMainGovernance": {
+      "number": 485,
+      "run": 36324884488,
+      "job": 108635619085,
+      "head": "032dcda35df48d53012b3b32fdabb78de17c2b41",
+      "tests": "3979/3979",
+      "result": "PASS"
+    },
+    "OSHardwareRemoteTests": "NOT_EXECUTED_NOT_REQUIRED_FOR_DOC_PLANNING",
+    "protectedMerge": {
+      "pr": 129,
+      "sha": "032dcda35df48d53012b3b32fdabb78de17c2b41",
+      "tree": "b83f0e8c1572fe2164baee606f0653116e1be2b5"
+    }
   }
 }
