@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0035",
+  "increment": "M09_H01_EXISTING_REVERSE_LIVENESS_ACK_SYNTHETIC_PROBE_ONLY",
+  "issue": 110,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0035-h01-synthetic-reverse-proof-seams-20260927",
+  "baseRef": "main",
+  "baseSha": "a50686bfb551d5b106957685aa30a9c0f4e8c86e",
+  "baseTreeSha": "cc1d12622621989321b3d69212c9ec5cd095e78a",
+  "status": "PROPOSED_PENDING_OWN_EXACT_HEAD_CI_AND_BOUNDED_REVIEW",
+  "risk": "H01_H04_HIGH_FOR_FUTURE_FREEZE_ALL_OPEN_NO_ISSUER_APPROVAL",
+  "scope": "20_DETERMINISTIC_M09_INPROCESS_SYNTHETIC_REVERSE_SEMANTIC_FIXTURES_8_DOCUMENTARY_INTEGRITY_TESTS",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "a50686bfb551d5b106957685aa30a9c0f4e8c86e",
+    "baseTreeSha": "cc1d12622621989321b3d69212c9ec5cd095e78a",
+    "expected": 24,
+    "checked": 24,
+    "matched": 24,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "30cc0b17d34b6324aad34113cf4c40a438c990a7"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "iris_resource_twin/recovery.py",
+      "gitBlobSha1": "65678b060bdfafabb78ab63772794be410c48a92"
+    },
+    {
+      "path": "iris_resource_twin/leases.py",
+      "gitBlobSha1": "5757d15156d62ac8cc49a1763eba62b944af52d9"
+    },
+    {
+      "path": "iris_resource_twin/model.py",
+      "gitBlobSha1": "e64228e6a58b787ee107da8e737dd640ad4dad56"
+    },
+    {
+      "path": "tests/m09_support.py",
+      "gitBlobSha1": "63a0e77f623afdc350a602d9ffd2fc93b4f52fd8"
+    },
+    {
+      "path": "tests/test_m09_recovery.py",
+      "gitBlobSha1": "3976f8e27b6da66e2403611806886da8f18807e1"
+    },
+    {
+      "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
+      "gitBlobSha1": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json",
+      "gitBlobSha1": "935abe4323618ac6d583e3bd8acc827d5fe80d2c"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-CANDIDATE-C01.json",
+      "gitBlobSha1": "3236ff8146c71da247208b0896e4e37573123fa8"
+    },
+    {
+      "path": "planning/research/M11-C09-REVERSE-LIVENESS-OWNER-RESEARCH.md",
+      "gitBlobSha1": "de97d44a49b9c8483aa6d5a051a0b42f97f5a3cc"
+    },
+    {
+      "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+    },
+    {
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "a1b3300d1433ead0c83b8fd088643c89f3240f45"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0034.json",
+      "gitBlobSha1": "bcf4c86663885cec4edf694cb11fe72aff1b8826"
+    },
+    {
+      "path": "planning/reviews/M09-H02-SYNTHETIC-SEAM-PROBE.md",
+      "gitBlobSha1": "70dd245aaef5f747ebdf2ab84a97f0d4e5a7eaf2"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/context-locks/IRIS-WO-0035-M09-H01-REVERSE-SEAMS.json",
+    ".engineering/evidence/IRIS-WO-0035.json",
+    ".engineering/evidence/M09-H01-REVERSE-SEAM-EVIDENCE.json",
+    ".engineering/work-orders/IRIS-WO-0035-M09-H01-REVERSE-SEAMS.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0035-M09-H01-REVERSE-SEAMS.md",
+    "planning/reviews/IRIS-WO-0035-M09-H01-REVERSE-AUDIT-TARGET.md",
+    "planning/reviews/M09-H01-SYNTHETIC-REVERSE-SEAM-PROBE.md",
+    "tests/test_m09_h01_reverse_integrity.py",
+    "tests/test_m09_h01_synthetic_reverse_seams.py"
+  ],
+  "stopCondition": "20 new synthetic H01-P existing API fixture tests, 8 integrity tests; 4186 expected full tests. Original LV-01..06/HX/C08/POC02/M12 not executed. No authentication or actual M11 issuer, no M09 v1.0 code edits, B owner direction only, H01-H04 OPEN HIGH, M09 C01 unadopted, no capacity reclaim/process/OS/GPU/network/cloud action. Actual 24/24 source pins 10/10 diff, guarded protected merge and separate exact-main CI required."
+}

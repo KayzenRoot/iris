@@ -1,0 +1,237 @@
+{
+  "schemaVersion": "iris-m09-h01-existing-reverse-source-probes-v1",
+  "workOrder": "IRIS-WO-0035",
+  "issue": 110,
+  "relatedOpenIssues": [
+    82,
+    112,
+    128
+  ],
+  "scope": "20_EXISTING_M09_REVERSE_SOURCE_SYNTHETIC_FIXTURES_NO_RUNTIME_CODE_CHANGE",
+  "ownerSelectedDirection": "B_FUTURE_OWNER_RECEIPT_DIRECTION_ONLY",
+  "ownerRatificationUrl": "https://github.com/KayzenRoot/iris/issues/110#issuecomment-5857665032",
+  "baseSha": "a50686bfb551d5b106957685aa30a9c0f4e8c86e",
+  "baseTreeSha": "cc1d12622621989321b3d69212c9ec5cd095e78a",
+  "sourceFacts": {
+    "ownerLivenessRef": "NONUNKNOWN_M11_TEXT_PREFIX_ONLY_NOT_ISSUER_AUTH",
+    "confirmLeak": "CALLER_SUPPLIED_TERMINATED_REF_CAN_CONFIRM_LOCAL_INPROCESS_SEMANTIC_WITH_FRESH_SNAPSHOT_AND_TWO_OBSERVATIONS_NOT_ACTUAL_M11_ISSUER_PROOF",
+    "staleReaper": "INPROCESS_TERMINATED_REF_RECORDS_RECONCILIATION_PENDING_FRESH_TRUTH_FREED_BYTES_NONE",
+    "cooperativeRelease": "ACK_MATCHES_REQUEST_AND_OWNER_AND_UPPER_TIME_BOUND_BUT_NO_ISSUER_OR_REPLAY_PROOF_ACCEPTED_NEVER_RECLAIMS",
+    "preRequestAck": "EXISTING_INPROCESS_EVALUATOR_HAS_NO_REQUESTED_AT_LOWER_BOUND"
+  },
+  "probes": [
+    {
+      "id": "H01-P01",
+      "test": "test_01_textual_m11_prefix_creates_structurally_accepted_terminated_ref",
+      "expected": "STRUCTURAL_M11_PREFIX_ACCEPTED",
+      "interpretation": "The source value accepts caller-supplied TERMINATED text with M11 prefix; issuer remains unverified.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P02",
+      "test": "test_02_non_m11_prefix_for_nonunknown_liveness_is_rejected",
+      "expected": "NON_M11_NONUNKNOWN_REJECTED",
+      "interpretation": "A non-M11 prefix is rejected structurally, not authentication.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P03",
+      "test": "test_03_unknown_allows_unverified_external_reference_without_authority",
+      "expected": "UNKNOWN_NON_M11_ALLOWED_NONCONFIRMING",
+      "interpretation": "UNKNOWN does not prove liveness or confirm leak regardless of unverified ref.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P04",
+      "test": "test_04_caller_claimed_m11_prefix_can_confirm_inprocess_leak_semantics",
+      "expected": "SYNTHETIC_FORGED_M11_TERMINATION_CONFIRMS_LOCAL_INPROCESS_LEAK",
+      "interpretation": "A caller-created M11-prefixed TERMINATED ref plus distinct fixture observations and fresh production-looking snapshot can satisfy existing in-process confirm_leak; not a verified actual M11 producer.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P05",
+      "test": "test_05_alive_structural_ref_does_not_confirm_leak",
+      "expected": "ALIVE_NONCONFIRMING",
+      "interpretation": "ALIVE does not confirm leak.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P06",
+      "test": "test_06_wrong_owner_terminated_ref_does_not_confirm_leak",
+      "expected": "WRONG_OWNER_NONCONFIRMING",
+      "interpretation": "Owner scope mismatch cannot confirm leak.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P07",
+      "test": "test_07_stale_terminated_ref_does_not_confirm_leak",
+      "expected": "STALE_LIVENESS_WITH_FRESH_SNAPSHOT_NONCONFIRMING",
+      "interpretation": "Old liveness must not confirm despite independently fresh resource truth.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P08",
+      "test": "test_08_synthetic_reported_looking_resource_does_not_confirm_leak",
+      "expected": "SYNTHETIC_SNAPSHOT_NONCONFIRMING",
+      "interpretation": "Synthetic resource origin cannot confirm leak despite OBSERVED confidence.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P09",
+      "test": "test_09_caller_claimed_termination_reaper_remains_pending_resource_truth",
+      "expected": "CLAIMED_TERMINATION_STALE_REAPER_STILL_PENDING_NO_FREED_BYTES",
+      "interpretation": "Caller-claimed termination can produce pending reconciliation record, never freed capacity.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P10",
+      "test": "test_10_unknown_liveness_reaper_quarantines_without_freed_bytes",
+      "expected": "UNKNOWN_REAPER_QUARANTINED",
+      "interpretation": "UNKNOWN liveness leads quarantine, not capacity reuse.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P11",
+      "test": "test_11_alive_liveness_reaper_preserves_owner_and_does_not_reclaim",
+      "expected": "ALIVE_REAPER_PRESERVED",
+      "interpretation": "ALIVE liveness preserves owner, never reclaims capacity.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P12",
+      "test": "test_12_unverified_caller_claimed_acceptance_is_only_local_ack_state",
+      "expected": "UNVERIFIED_ACCEPTED_ACK_NO_CAPACITY_RECLAIM",
+      "interpretation": "In-process ACCEPTED maps to accepted pending independent resource reconciliation.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P13",
+      "test": "test_13_wrong_request_ack_is_rejected",
+      "expected": "WRONG_REQUEST_ACK_REJECTED",
+      "interpretation": "Mismatched request rejected by local evaluator.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P14",
+      "test": "test_14_wrong_owner_ack_is_rejected",
+      "expected": "WRONG_OWNER_ACK_REJECTED",
+      "interpretation": "Mismatched owner rejected by local evaluator.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P15",
+      "test": "test_15_response_claiming_a_future_timestamp_is_rejected",
+      "expected": "FUTURE_ACK_REJECTED",
+      "interpretation": "A response timestamp beyond evaluation time is rejected.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P16",
+      "test": "test_16_pre_request_time_ack_can_pass_local_shape_check_not_issuer",
+      "expected": "PRE_REQUEST_ACK_STRUCTURALLY_ACCEPTED_BUT_NONRECLAIMING",
+      "interpretation": "A caller-claimed response timestamp before request creation currently passes local shape check; future verifier must separately require causality and trustworthy issuer.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P17",
+      "test": "test_17_late_matching_ack_times_out_without_reclaim",
+      "expected": "LATE_ACK_TIMED_OUT",
+      "interpretation": "Matching but late response times out without reclaim.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P18",
+      "test": "test_18_missing_ack_before_and_after_deadline_never_reclaims",
+      "expected": "NO_ACK_PENDING_THEN_TIMEOUT",
+      "interpretation": "No response remains pending before deadline and timeout afterward.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P19",
+      "test": "test_19_replayed_identical_ack_is_deterministic_but_has_no_replay_store",
+      "expected": "IDENTICAL_ACK_REPLAY_STATELESS_AND_NONRECLAIMING",
+      "interpretation": "Repeated same ACK yields same local result with no replay store; external verifier must independently bind nonce/replay protection.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    },
+    {
+      "id": "H01-P20",
+      "test": "test_20_claimed_dead_reaper_rejects_wrong_owner_or_future_evidence",
+      "expected": "WRONG_OWNER_OR_FUTURE_REAPER_REJECTED",
+      "interpretation": "Stale commitment reaper rejects wrong owner and future evidence.",
+      "status": "SYNTHETIC_SOURCE_TEST_PENDING_CI",
+      "originalLVCaseExecuted": false,
+      "noM11IssuerProof": true
+    }
+  ],
+  "probeCount": 20,
+  "probeFile": "tests/test_m09_h01_synthetic_reverse_seams.py",
+  "probeStatusAtCreation": "PENDING_OWN_EXACT_HEAD_CI",
+  "originalFutureCases": {
+    "LV": 6,
+    "HX": 12,
+    "C08": 10,
+    "POC02": 8,
+    "M12": 80,
+    "status": "SPECIFIED_NOT_EXECUTED"
+  },
+  "inheritedHighs": [
+    "C02-FR-H01",
+    "C02-FR-H02",
+    "C02-FR-H03",
+    "C02-FR-H04"
+  ],
+  "H01": "OPEN_OWNER_EVIDENCE_REQUIRED",
+  "risk": "HIGH_FOR_FUTURE_FREEZE",
+  "m09Frozen": "m09-contract-v1.0_FROZEN_UNCHANGED",
+  "m09C01": "UNADOPTED_NOT_FROZEN",
+  "M11": "NOT_FROZEN_86_OPEN",
+  "M12": "NOT_FROZEN_110_OPEN_80_NOT_EXECUTED",
+  "runtime": "M10_M11_M12_NOT_ADMITTED",
+  "OSGPUProcessNetworkCloud": "DISABLED",
+  "futureOwnerProofs": [
+    "M11_ISSUER_AND_PROCESS_CAPABILITY",
+    "M54_ACTUAL_PRINCIPAL_AUTH",
+    "M60_ACTUAL_OS_OBSERVATION_RIGHTS",
+    "M09_EXACT_REQUEST_ACK_CORRELATION_AND_RESOURCE_RECONCILIATION",
+    "M02_M06_EXACT_WORK_ATTEMPT_BINDING"
+  ],
+  "stop": "Even passing source-only deterministic fixtures neither executes original LV cases nor authenticates a real process producer, adopts a reverse contract, permits capacity reclamation, closes H01-H04 or admits runtime."
+}
