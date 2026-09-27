@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0043",
+  "increment": "ACTUAL_OFFLINE_WORKSHEET_POSIX_EMPTY_DIRECTORY_CLOBBER_RACE_FIX_AND_PREVIOUS_WO0042_CHECKPOINT",
+  "issue": 110,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0043-owner-worksheet-no-clobber-20260927",
+  "baseRef": "main",
+  "baseSha": "c787bd02e58748b23fb00a552300d6f9d57e007b",
+  "baseTreeSha": "c398f63c401ce4367e46a07ac89703fb2f234a14",
+  "status": "PROPOSED_PENDING_EXACT_HEAD_GOVERNANCE_AUDIT_PROTECTED_SQUASH_AND_EXACT_MAIN",
+  "risk": "LOCAL_WORKSHEET_OUTPUT_DATA_SAFETY_H01_H04_HIGH_UNCHANGED",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "c787bd02e58748b23fb00a552300d6f9d57e007b",
+    "baseTreeSha": "c398f63c401ce4367e46a07ac89703fb2f234a14",
+    "expected": 21,
+    "checked": 21,
+    "matched": 21,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "465ddf48e363903843d2fe49dd48cb3f4e8193d3"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "3a0442fcbb4b3d5a0543713af8f2c8938ad89913"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "8a3b9706af173bcb6fd64c7e97e1a7dedeeb5ebc"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "465ddf48e363903843d2fe49dd48cb3f4e8193d3"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": ".engineering/evidence/M09-H03-FOUR-OWNER-SOURCE-PACKETS.json",
+      "gitBlobSha1": "c82093e393722acb39081e9d76c974d0cddcfd3b"
+    },
+    {
+      "path": ".engineering/evidence/M09-H03-OWNER-REVIEW-ROUTES-E01.json",
+      "gitBlobSha1": "3e95777c7cd10a18881615a60b53d44b25098add"
+    },
+    {
+      "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
+      "gitBlobSha1": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0042-H03-OWNER-DRAFT-SCAFFOLD.json",
+      "gitBlobSha1": "960b592daccaa477245d7edfb953a24b608c6c29"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0042.json",
+      "gitBlobSha1": "b89fbf2609b634e36984e6e3f9368832756bbadc"
+    },
+    {
+      "path": "scripts/verify_m09_h03_owner_routes.py",
+      "gitBlobSha1": "311ecd211d1e94f157abf6695affd45dfa2376e2"
+    },
+    {
+      "path": "scripts/scaffold_m09_h03_owner_drafts.py",
+      "gitBlobSha1": "b9fd42975e7a257ee4dba8f88d60f8bc1ebda27c"
+    },
+    {
+      "path": "tests/test_wo0042_h03_owner_draft_scaffold.py",
+      "gitBlobSha1": "4d198f1489bb7c6d6c6c4f21a52e92381a349896"
+    },
+    {
+      "path": "planning/reviews/M09-H03-UNTRUSTED-OWNER-REPLY-TRIAGE-E02.md",
+      "gitBlobSha1": "de18cb9511df546456c0d9ed15cf889df795bcbe"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0043-OWNER-WORKSHEET-NO-CLOBBER.json",
+    ".engineering/evidence/IRIS-WO-0043.json",
+    ".engineering/work-orders/IRIS-WO-0043-OWNER-WORKSHEET-NO-CLOBBER.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0043-OWNER-WORKSHEET-NO-CLOBBER.md",
+    "planning/reviews/IRIS-WO-0043-NO-CLOBBER-AUDIT-TARGET.md",
+    "planning/reviews/M09-H03-UNTRUSTED-OWNER-REPLY-TRIAGE-E02.md",
+    "scripts/scaffold_m09_h03_owner_drafts.py",
+    "tests/test_wo0043_owner_worksheet_no_clobber.py"
+  ],
+  "stopCondition": "Only local worksheet output exclusive no-clobber race fix and previously verified WO0042 factual canonical checkpoint. No real M12/M54/M58/M60 owners, H01-H04 remain OPEN HIGH, B direction only, C01 unadopted, no M09 frozen change, M11/M12 freeze, original future negative tests, runtime, GPU/OS/process/network/cloud/API permissions."
+}

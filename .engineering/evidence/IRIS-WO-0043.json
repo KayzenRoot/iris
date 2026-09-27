@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0043",
+  "issue": 110,
+  "status": "PROPOSED_PENDING_EXACT_HEAD_CI_SCOPED_REVIEW_MERGE_AND_EXACT_MAIN",
+  "baseSha": "c787bd02e58748b23fb00a552300d6f9d57e007b",
+  "baseTreeSha": "c398f63c401ce4367e46a07ac89703fb2f234a14",
+  "criticalSourceCount": 21,
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0043-OWNER-WORKSHEET-NO-CLOBBER.json",
+    ".engineering/evidence/IRIS-WO-0043.json",
+    ".engineering/work-orders/IRIS-WO-0043-OWNER-WORKSHEET-NO-CLOBBER.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0043-OWNER-WORKSHEET-NO-CLOBBER.md",
+    "planning/reviews/IRIS-WO-0043-NO-CLOBBER-AUDIT-TARGET.md",
+    "planning/reviews/M09-H03-UNTRUSTED-OWNER-REPLY-TRIAGE-E02.md",
+    "scripts/scaffold_m09_h03_owner_drafts.py",
+    "tests/test_wo0043_owner_worksheet_no_clobber.py"
+  ],
+  "previousVerified": {
+    "pr": 152,
+    "head": "a39dfa69f85854c3fbba18acb1b94c9bdadc1e5f",
+    "headRun": 36348458245,
+    "main": "c787bd02e58748b23fb00a552300d6f9d57e007b",
+    "mainRun": 36348539569,
+    "tests": "4326/4326"
+  },
+  "newTests": 9,
+  "expectedFullSuite": 4335,
+  "scope": "FIX_PROVEN_POSIX_EMPTY_DIRECTORY_RENAME_RACE_WITH_EXCLUSIVE_CREATION_AND_BOUNDED_ROLLBACK_PLUS_WO0042_FACTUAL_CP",
+  "actualOwnerApprovals": 0,
+  "h01h02h03h04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "bStatus": "DIRECTION_ONLY",
+  "m09C01": "UNADOPTED_NOT_FROZEN",
+  "runtime": "NOT_ADMITTED",
+  "originalFutureTests": "SPECIFIED_NOT_EXECUTED",
+  "ownHeadCI": "PENDING",
+  "ownMerge": "NOT_MERGED"
+}

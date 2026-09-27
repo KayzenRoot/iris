@@ -1,0 +1,6 @@
+# WO0043 proposed checkpoint: source-exact local owner worksheet no-clobber fix
+
+- Exact source main `c787bd02e58748b23fb00a552300d6f9d57e007b` tree `c398f63c401ce4367e46a07ac89703fb2f234a14`, prior WO0042 protected PR #152, final head Governance 36348458245 / independently green exact-main Governance 36348539569 **4326/4326**.
+- Identified genuine local output safety bug: POSIX directory rename may overwrite concurrently created EMPTY output folder after an earlier existence check. New exclusive `mkdir` claim, `open("x")` file creation, bounded rollback only of own files, preserve unexpected external files, private local permissions. Nine new deterministic tests expected **4335/4335**.
+- 21/21 original exact-base source Git blob pins and strict 12/12 changed paths; historical WO0042 factual canonical checkpoint reconciled. Own exact-head CI / scoped audit / protected merge / independent exact-main CI PENDING at authoring. Generator's 9 blank local documents never constitute actual owner answers.
+- Four real H03 owners #128/#145/#146/#147 still OPEN/unassigned, no approved contracts; H01-H04 HIGH OPEN, B DIRECTION_ONLY, C01 UNADOPTED_NOT_FROZEN, M09 v1 frozen, M11/M12 not frozen, M10/M11/M12 runtime NOT_ADMITTED, original future negatives NOT_EXECUTED.
