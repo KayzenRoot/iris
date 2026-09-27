@@ -3,7 +3,7 @@
   "workOrder": "IRIS-WO-0026",
   "module": "M12",
   "issue": 128,
-  "status": "PROPOSED_S05_REFERENCE_RESEARCH_NOT_FROZEN",
+  "status": "S05_COMPLETE_FOR_REFERENCE_PLANNING_ONLY",
   "baseSha": "278d3c2905237dfb90a1d0db60cc5db54b834811",
   "baseTreeSha": "030650da12d2ac36d5bf162c0f61b1578de8a291",
   "authorizedChangedFiles": [
@@ -22,7 +22,7 @@
   ],
   "research": {
     "session": "S05_FAILOVER_PREEMPTION_COST_QUALITY_TRUST",
-    "status": "PROPOSED_REFERENCE_ONLY_PENDING_OWN_CI",
+    "status": "S05_SOURCE_RESEARCH_EXACT_MAIN_VALIDATED",
     "externalReferences": [
       "https://docs.ray.io/en/latest/ray-core/fault_tolerance/tasks.html",
       "https://kueue.sigs.k8s.io/docs/concepts/preemption/",
@@ -57,16 +57,41 @@
     "M09H01H04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
     "M11": "v0.2 NOT_FROZEN_86_OPEN_UNRATED",
     "M10M11M12Implementation": "NOT_ADMITTED",
-    "M12PostResearch": "TECH_DISCOVERY_FTR_FCS_CONTRACT_FREEZE_PENDING",
+    "M12PostResearch": "FTR_FCS_PROPOSED_IRIS_WO_0027_FREEZE_IMPLEMENTATION_PENDING",
     "processCloudGPUActions": "DISABLED",
     "M54M58M60": "PENDING_OWNER_CONTRACT"
   },
   "testPlan": {
     "baseline": 3979,
     "extraImplementationTests": 0,
-    "exactHeadGovernance": "REQUIRED",
-    "separateBoundedAudit": "REQUIRED",
-    "exactMainGovernance": "REQUIRED",
-    "runtimeFaultInjection": "NOT_EXECUTED_NOT_APPLICABLE_TO_SOURCE_RESEARCH"
+    "exactHeadGovernance": {
+      "number": 492,
+      "run": 36326925298,
+      "job": 108641355269,
+      "head": "e5fe289bcb0ca9914ebdfea32b4f2dfe76307b8d",
+      "result": "PASS",
+      "tests": "3979/3979"
+    },
+    "separateBoundedAudit": {
+      "commentId": 5856851745,
+      "verdict": "APPROVED_S05_REFERENCE_ONLY",
+      "reviewer": "SAME_ASSISTANT_SEPARATE_PASS_NOT_INDEPENDENT_HUMAN",
+      "newHigh": 0,
+      "newCritical": 0
+    },
+    "exactMainGovernance": {
+      "number": 493,
+      "run": 36327026956,
+      "job": 108641644708,
+      "head": "a69830dd963e0800d8f1e294254b97cc57cd5d60",
+      "result": "PASS",
+      "tests": "3979/3979"
+    },
+    "runtimeFaultInjection": "NOT_EXECUTED_NOT_APPLICABLE_TO_SOURCE_RESEARCH",
+    "protectedMerge": {
+      "pr": 133,
+      "sha": "a69830dd963e0800d8f1e294254b97cc57cd5d60",
+      "tree": "02820f866a1acc662e9fec8aef162f6a7da59330"
+    }
   }
 }
