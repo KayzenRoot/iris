@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0031",
+  "increment": "M12_C02_SOURCE_EXACT_OWNER_INTAKE_ROUTING_ONLY",
+  "issue": 128,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0031-m12-owner-intake-routing-20260927",
+  "baseRef": "main",
+  "baseSha": "cccc9f3cd23be53e6154f605a37eb9cd6f28b1ca",
+  "baseTreeSha": "f3178da68514279ef5454b8520debed6871d7416",
+  "status": "PROPOSED_PENDING_OWN_EXACT_HEAD_CI_AND_BOUNDED_REVIEW",
+  "risk": "LOW_REFERENCE_ONLY_WITH_FOUR_INHERITED_HIGH_FREEZE_BLOCKERS",
+  "scope": "M12_OWNER_ROUTING_110_80_FIVE_LANES_17_SOURCE_TOKENS_36_TESTS_PRIOR_SUBSTANTIVE_RECEIPT",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "cccc9f3cd23be53e6154f605a37eb9cd6f28b1ca",
+    "baseTreeSha": "f3178da68514279ef5454b8520debed6871d7416",
+    "expected": 27,
+    "checked": 27,
+    "matched": 27,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "6dfa91e0bb11280a403a8c46843432fff17f5e9d"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "69fffd85b3e8562a200aeab231e7199489812798"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "71b871387255f9148d482278aa95619dc5a1ca72"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "6dfa91e0bb11280a403a8c46843432fff17f5e9d"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "05cfdcf0ede45e7a69db122b733a024fd3fc93cb"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "8b2b1ba99c18a612af7a55e14752b59e9f082240"
+    },
+    {
+      "path": ".engineering/evidence/M12-OWNER-DECISION-REGISTER.json",
+      "gitBlobSha1": "3a78744de4db70222a74ce25f00c0ef022583c77"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json",
+      "gitBlobSha1": "935abe4323618ac6d583e3bd8acc827d5fe80d2c"
+    },
+    {
+      "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+    },
+    {
+      "path": "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "28b3802901349263100ceaaf80c0990513dbbded"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": "planning/reviews/M12-FINAL-TECHNOLOGY-REVIEW.md",
+      "gitBlobSha1": "94c8881384da6fa32973aa0f2893c6611dad96af"
+    },
+    {
+      "path": "planning/compatibility/M12-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "cab0cde1233f6b86c58783ab64d328fc8b9bd9b4"
+    },
+    {
+      "path": "scripts/verify_m12_planning_evidence.py",
+      "gitBlobSha1": "85667b83f4ea6e8c10b535b4063e9efa2078ac63"
+    },
+    {
+      "path": "tests/test_m12_planning_evidence.py",
+      "gitBlobSha1": "36173426d37e314fd04617e9f918286b6e6c3f05"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0030.json",
+      "gitBlobSha1": "b398cab2554d3ec712fd17beb616f5cc010dee0d"
+    },
+    {
+      "path": ".github/workflows/governance.yml",
+      "gitBlobSha1": "02510797919b603ee94c367dc45f6ca1c9367a41"
+    },
+    {
+      "path": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "gitBlobSha1": "3d76f9a11b0056b9b7e595fa63624445ec50ba53"
+    },
+    {
+      "path": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "gitBlobSha1": "d841ff57fa347b4d5cacd10dbdbc6d842872d1df"
+    },
+    {
+      "path": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "gitBlobSha1": "2c176b248ba0758b5e4cb102e0ac173156db72ae"
+    },
+    {
+      "path": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "gitBlobSha1": "a3928271da822b1460e4844ad3d829e03d40869e"
+    },
+    {
+      "path": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "gitBlobSha1": "1bf18ff4311457c710f7b3b95caa5e4f6127badc"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/context-locks/IRIS-WO-0031-M12-OWNER-INTAKE-ROUTING.json",
+    ".engineering/evidence/IRIS-WO-0030.json",
+    ".engineering/evidence/IRIS-WO-0031.json",
+    ".engineering/evidence/M12-OWNER-INTAKE-C02.json",
+    ".engineering/work-orders/IRIS-WO-0031-M12-OWNER-INTAKE-ROUTING.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0031-M12-OWNER-INTAKE.md",
+    "planning/reviews/IRIS-WO-0031-M12-OWNER-INTAKE-AUDIT-TARGET.md",
+    "planning/reviews/M12-C02-OWNER-INTAKE-ROUTING.md",
+    "scripts/verify_m12_owner_intake.py",
+    "tests/test_m12_owner_intake.py"
+  ],
+  "stopCondition": "Routing is source-only, no choice, approval, score, module freeze or runtime. Require own exact-head 4054 tests including 36 new, 27 exact pinned sources and 11 allowed paths, bounded review, protected squash exact audited head and exact-main Governance before #128 receipt. H01–H04 and all four issues stay OPEN."
+}

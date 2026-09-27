@@ -1,0 +1,5 @@
+# IRIS-WO-0031 C02 source-owner intake checkpoint (historical proposed-state snapshot)
+
+At creation, current verified Git main `cccc9f3cd23be53e6154f605a37eb9cd6f28b1ca` (tree `f3178da68514279ef5454b8520debed6871d7416`) passed exact-main Governance #505 run `36330557141`, job `108651533807`, 4018/4018 tests. The previous authoritative-Scope correction IRIS-WO-0030 was protected-merged in PR #137; original M12 v0.1 PREPARED_FOR_OWNER_REVIEW_ONLY, M11 v0.2 NOT_FROZEN, four H01–H04 HIGHs OPEN and all four issues #82/#110/#112/#128 OPEN.
+
+This bounded IRIS-WO-0031 checkpoint records the *proposed* derived intake routing as an audit candidate, not as an owner decision or its own final PR success. The authoritative project-state `docs/project-brain/13-CHECKPOINT.md` remains unchanged because this source-only routing does not advance any module freeze gate; the issue #128 final Git/CI receipt must be separately posted after real verification. All 110 M12 questions OPEN/UNRATED and 80 future tests SPECIFIED_NOT_EXECUTED. M09 #110 A/B/C/DEFER NONE_SELECTED; M10/M11/M12 runtime NOT_ADMITTED.

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0031",
+  "issue": 128,
+  "status": "PROPOSED_PENDING_OWN_EXACT_HEAD_CI_AND_BOUNDED_REVIEW",
+  "risk": "LOW_REFERENCE_PLANNING_NO_RUNTIME",
+  "baseSha": "cccc9f3cd23be53e6154f605a37eb9cd6f28b1ca",
+  "baseTreeSha": "f3178da68514279ef5454b8520debed6871d7416",
+  "priorSubstantiveIncrement": {
+    "workOrder": "IRIS-WO-0030",
+    "pr": 137,
+    "headGovernance": 504,
+    "mainGovernance": 505,
+    "mainSha": "cccc9f3cd23be53e6154f605a37eb9cd6f28b1ca",
+    "tests": "4018/4018"
+  },
+  "sourcePins": 27,
+  "sourcePinAlgorithm": "Git blob SHA-1",
+  "authorizedChangedFiles": [
+    ".engineering/context-locks/IRIS-WO-0031-M12-OWNER-INTAKE-ROUTING.json",
+    ".engineering/evidence/IRIS-WO-0030.json",
+    ".engineering/evidence/IRIS-WO-0031.json",
+    ".engineering/evidence/M12-OWNER-INTAKE-C02.json",
+    ".engineering/work-orders/IRIS-WO-0031-M12-OWNER-INTAKE-ROUTING.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0031-M12-OWNER-INTAKE.md",
+    "planning/reviews/IRIS-WO-0031-M12-OWNER-INTAKE-AUDIT-TARGET.md",
+    "planning/reviews/M12-C02-OWNER-INTAKE-ROUTING.md",
+    "scripts/verify_m12_owner_intake.py",
+    "tests/test_m12_owner_intake.py"
+  ],
+  "scope": "110_OPEN_QUESTIONS_80_FUTURE_NEGATIVES_FIVE_ROUTING_LANES_17_SOURCE_MENTIONED_OWNERS",
+  "expectedLaneCounts": {
+    "EXPLICIT_ISSUE_110_REVIEW": 5,
+    "LATER_OWNER_CONTRACT_REQUIRED": 70,
+    "M11_CANDIDATE_CROSS_OWNER_REVIEW": 13,
+    "FROZEN_OWNER_HANDOFF_REVIEW": 3,
+    "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS": 19
+  },
+  "expectedExplicitIssue110Ids": [
+    "M12-S01-U05",
+    "M12-S02-U08",
+    "M12-S03-U02",
+    "M12-S04-U06",
+    "M12-S05-U04"
+  ],
+  "ownerApprovals": 0,
+  "questionStatus": "OPEN_UNRATED_PENDING_OWNER",
+  "negativeTestStatus": "SPECIFIED_NOT_EXECUTED",
+  "newFocusedTests": 36,
+  "baselineFullSuite": 4018,
+  "expectedFullSuite": 4054,
+  "openIssues": [
+    82,
+    110,
+    112,
+    128
+  ],
+  "openInheritedHighs": [
+    "C02-FR-H01",
+    "C02-FR-H02",
+    "C02-FR-H03",
+    "C02-FR-H04"
+  ],
+  "m09ActualOwnerDecision": "NONE_SELECTED",
+  "m11": "V0_2_NOT_FROZEN_86_OPEN",
+  "m12": "V0_1_PREPARED_FOR_OWNER_REVIEW_ONLY_NOT_FROZEN_110_OPEN_80_NOT_EXECUTED",
+  "runtime": "M10_M11_M12_NOT_ADMITTED",
+  "testsStatus": "PENDING_OWN_EXACT_HEAD_CI",
+  "boundedAudit": "NOT_PERFORMED",
+  "merge": "NOT_MERGED",
+  "exactMain": "PENDING",
+  "ownerApproval": "NOT_PERFORMED",
+  "independentHumanReview": "NOT_PERFORMED"
+}
