@@ -29,9 +29,9 @@
   "sourceSnapshot": {
     "algorithm": "Git blob SHA-1",
     "baseSha": "b3fc093cfc5b5370872dacc7ff6694af6bcfd1cd",
-    "expected": 88,
-    "checked": 88,
-    "matched": 88,
+    "expected": 89,
+    "checked": 89,
+    "matched": 89,
     "mismatches": 0
   },
   "criticalSources": [
@@ -326,6 +326,10 @@
     {
       "path": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
       "gitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae"
+    },
+    {
+      "path": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "gitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392"
     },
     {
       "path": "planning/reviews/IRIS-WO-0014-M11-M60-OWNER-DEPENDENCY-REGISTER.md",
