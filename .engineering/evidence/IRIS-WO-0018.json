@@ -3,7 +3,7 @@
   "workOrder": "IRIS-WO-0018",
   "module": "GEF_GOVERNANCE_CONTEXT_LOCK",
   "issue": 120,
-  "status": "PROPOSED_PENDING_EXACT_HEAD_CI_AND_SEPARATE_REVIEW",
+  "status": "CANONICAL_GOVERNANCE_GUARDRAIL_CLOSED",
   "baseSha": "407078499027253703ee09ec986832095d355b0f",
   "baseTreeSha": "b1c4d9db004f152acf2cdfabf689c73566be1d78",
   "sourceSnapshot": {
@@ -36,7 +36,7 @@
   },
   "proposedTests": {
     "count": 19,
-    "status": "AUTHORED_PENDING_CI",
+    "status": "PROVEN_EXACT_HEAD_AND_MAIN",
     "categories": [
       "exact-valid-pure",
       "forged/missing/duplicate sources",
@@ -65,7 +65,37 @@
   "M10M11Implementation": "NOT_ADMITTED",
   "processActions": "DISABLED",
   "hiveLocalPreflight": "NOT_EXECUTED_GITHUB_CI_BRIDGES_REQUIRED",
-  "exactHeadGovernance": "REQUIRED",
-  "separateBoundedReview": "REQUIRED",
-  "exactMainGovernance": "REQUIRED_AFTER_REVIEWED_PROTECTED_MERGE"
+  "exactHeadGovernance": {
+    "number": 469,
+    "run": 36318722382,
+    "job": 108618279385,
+    "head": "6dfec31a19047e4aa8fde71054c48b2926acb5dc",
+    "result": "PASS",
+    "tests": "3968/3968"
+  },
+  "separateBoundedReview": {
+    "verdict": "APPROVED_FOR_GOVERNANCE_ONLY",
+    "commentId": 5855781753,
+    "head": "6dfec31a19047e4aa8fde71054c48b2926acb5dc",
+    "reviewer": "SEPARATE_PASS_SAME_ASSISTANT_NOT_INDEPENDENT_HUMAN",
+    "newHigh": 0,
+    "newCritical": 0
+  },
+  "exactMainGovernance": {
+    "number": 470,
+    "run": 36318795466,
+    "job": 108618488485,
+    "head": "32e1ecc3edd698460c34bce1f28045a20d53e804",
+    "result": "PASS",
+    "tests": "3968/3968"
+  },
+  "protectedSquashMerge": {
+    "sha": "32e1ecc3edd698460c34bce1f28045a20d53e804",
+    "tree": "5e3818a1719047f185c34aeb545d50ed7065f73a",
+    "pr": 121
+  },
+  "issueClosure": {
+    "issue": 120,
+    "status": "CLOSED_AFTER_EXACT_MAIN"
+  }
 }

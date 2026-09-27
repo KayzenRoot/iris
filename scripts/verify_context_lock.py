@@ -16,6 +16,11 @@ SHA40 = re.compile(r"[0-9a-f]{40}\Z")
 LOCK_PREFIX = ".engineering/context-locks/"
 LOCK_SUFFIX = ".json"
 
+# Strict exception for a GitHub-authenticated Dependabot one-line action SHA bump.
+DEPENDABOT_PIN_ONLY = "DEPENDABOT_ACTION_PIN_ONLY"
+WORKFLOW_PATH = ".github/workflows/governance.yml"
+BOT_PIN_LINE = re.compile(r"        uses: actions/(checkout|setup-python)@([0-9a-f]{40}) # v([0-9]+(?:\.[0-9]+){0,2})\Z")
+
 MANDATORY_SOURCE_PATHS = frozenset(['AGENTS.md','.engineering/SOURCE-HIERARCHY.md','docs/project-brain/13-CHECKPOINT.md','docs/project-brain/16-DECISIONS-LEDGER.md','docs/project-brain/03-SCOPE.md','docs/project-brain/15-DEFINITION-OF-DONE.md','docs/project-brain/04-ARCHITECTURE.md','docs/project-brain/02-REQUIREMENTS.md'])
 
 
@@ -119,7 +124,42 @@ def reject_duplicate_json_keys(pairs: list[tuple[str, object]]) -> dict[str, obj
     return result
 
 
-def verify_current_pr(repo: Path, *, base_sha: str, head_sha: str) -> list[str]:
+def verify_dependabot_action_pin(
+    repo: Path, *, base_sha: str, head_sha: str,
+    changed_paths: set[str], pr_author: str, pr_head_ref: str,
+    pr_head_repo: str, pr_base_repo: str,
+) -> None:
+    """Accept *only* a trusted bot's single workflow action pin-line change.
+
+    CI obtains PR metadata from the GitHub event, never from a PR-authored file.
+    Passing this check does not authorize merging an unreviewed action upgrade.
+    """
+    require(pr_author == "dependabot[bot]", "dependabot exception requires GitHub bot author")
+    require(bool(pr_base_repo) and pr_head_repo == pr_base_repo, "dependabot exception requires same-repository head")
+    require(pr_head_ref.startswith("dependabot/github_actions/actions/"), "unexpected dependabot branch")
+    require(changed_paths == {WORKFLOW_PATH}, "dependabot exception allows exactly the Governance workflow")
+    old = git(repo, "ls-tree", base_sha, "--", WORKFLOW_PATH).decode("ascii").strip()
+    new = git(repo, "ls-tree", head_sha, "--", WORKFLOW_PATH).decode("ascii").strip()
+    require(old.startswith("100644 blob ") and new.startswith("100644 blob "), "workflow must remain a regular non-executable Git file")
+    diff = git(repo, "diff", "--no-ext-diff", "--no-renames", "--unified=0",
+               base_sha, head_sha, "--", WORKFLOW_PATH).decode("utf-8")
+    lines = diff.splitlines()
+    require(lines and lines[0] == f"diff --git a/{WORKFLOW_PATH} b/{WORKFLOW_PATH}",
+            "unexpected workflow patch")
+    removed = [s[1:] for s in lines if s.startswith("-") and not s.startswith("---")]
+    added = [s[1:] for s in lines if s.startswith("+") and not s.startswith("+++")]
+    require(len(removed) == 1 and len(added) == 1, "dependabot patch must change exactly one action pin line")
+    old_match, new_match = BOT_PIN_LINE.fullmatch(removed[0]), BOT_PIN_LINE.fullmatch(added[0])
+    require(old_match is not None and new_match is not None, "dependabot patch must use full pinned official action SHA syntax")
+    require(old_match.group(1) == new_match.group(1), "dependabot patch cannot switch action names")
+    require(old_match.group(2) != new_match.group(2), "dependabot action SHA must actually change")
+
+
+def verify_current_pr(
+    repo: Path, *, base_sha: str, head_sha: str,
+    pr_author: str = "", pr_head_ref: str = "",
+    pr_head_repo: str = "", pr_base_repo: str = "",
+) -> list[str]:
     """Check the actual base tree, changed lock(s) and full changed-file allowlist."""
     check_sha(base_sha, "PR base")
     check_sha(head_sha, "PR head")
@@ -134,6 +174,13 @@ def verify_current_pr(repo: Path, *, base_sha: str, head_sha: str) -> list[str]:
     changed_bytes = git(repo, "diff", "--name-only", "--no-renames", "-z", base_sha, head_sha)
     changed_paths = {item.decode("utf-8") for item in filter(None, changed_bytes.split(b"\x00"))}
     changed_locks = sorted(path for path in changed_paths if path.startswith(LOCK_PREFIX) and path.endswith(LOCK_SUFFIX))
+    if not changed_locks and pr_author == "dependabot[bot]":
+        verify_dependabot_action_pin(
+            repo, base_sha=base_sha, head_sha=head_sha, changed_paths=changed_paths,
+            pr_author=pr_author, pr_head_ref=pr_head_ref,
+            pr_head_repo=pr_head_repo, pr_base_repo=pr_base_repo,
+        )
+        return [DEPENDABOT_PIN_ONLY]
     require(bool(changed_locks), "PR must change at least one governed Context Lock")
     for lock_path in changed_locks:
         safe_path(lock_path, "changed lock")
@@ -149,13 +196,24 @@ def main() -> int:
     parser.add_argument("--base-sha", required=True, help="Trusted GitHub PR base SHA")
     parser.add_argument("--head-sha", required=True, help="Trusted GitHub PR head SHA")
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--pr-author", default="", help="Trusted GitHub event PR author login")
+    parser.add_argument("--pr-head-ref", default="", help="Trusted GitHub event PR source branch")
+    parser.add_argument("--pr-head-repo", default="", help="Trusted GitHub event PR source repository")
+    parser.add_argument("--pr-base-repo", default="", help="Trusted GitHub event base repository")
     args = parser.parse_args()
     try:
-        locks = verify_current_pr(args.repo, base_sha=args.base_sha, head_sha=args.head_sha)
+        locks = verify_current_pr(
+            args.repo, base_sha=args.base_sha, head_sha=args.head_sha,
+            pr_author=args.pr_author, pr_head_ref=args.pr_head_ref,
+            pr_head_repo=args.pr_head_repo, pr_base_repo=args.pr_base_repo,
+        )
     except (ContextLockError, json.JSONDecodeError, UnicodeError) as exc:
         print(f"CONTEXT LOCK VERIFICATION FAILED: {exc}", file=sys.stderr)
         return 1
-    print(f"IRIS Context Lock: PASS {len(locks)} changed lock(s), exact base source fingerprints and PR diff allowlists")
+    if locks == [DEPENDABOT_PIN_ONLY]:
+        print("IRIS guarded Dependabot action update: PASS GitHub bot identity, one exact full-SHA workflow action pin diff; separate review still required")
+    else:
+        print(f"IRIS Context Lock: PASS {len(locks)} changed lock(s), exact base source fingerprints and PR diff allowlists")
     return 0
 
 
