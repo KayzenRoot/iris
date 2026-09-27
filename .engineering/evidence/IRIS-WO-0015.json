@@ -1645,7 +1645,7 @@
     "nextGate": "M11 Forward Compatibility Scan against available owner contracts and M12-M60 index-level candidates, preserving missing owner contracts as PENDING."
   },
   "forwardCompatibilityScan": {
-    "status": "PROPOSAL_PENDING_EXACT_HEAD_GOVERNANCE",
+    "status": "PROPOSAL_MERGED_EXACT_MAIN_VALIDATED_PENDING_SEPARATE_CLOSEOUT",
     "increment": "M11-FORWARD-COMPATIBILITY-SCAN-C01",
     "issue": 82,
     "issueState": "OPEN",
@@ -1710,10 +1710,16 @@
       "contextSearch": "timeout after 60s"
     },
     "exactHeadGovernance": {
-      "status": "REQUIRED_ON_FINAL_PR_HEAD",
-      "runId": null,
-      "jobId": null,
-      "headSha": "MUST_MATCH_GITHUB_PR_HEAD"
+      "status": "PASS",
+      "runId": 36285058612,
+      "jobId": 108524110396,
+      "headSha": "9571b24b0a22c1d48e5ccf48d8cb1e9fda31c164",
+      "checkoutAssertion": "PASS",
+      "validator": "PASS",
+      "gefBridge": "PASS pinned v1.0.0",
+      "hiveBridge": "PASS pinned v1.0.0",
+      "tests": "3940/3940",
+      "testSeconds": 16.525
     },
     "outcome": {
       "m11Contract": "NOT_FROZEN",
@@ -1725,7 +1731,7 @@
       "s05Questions": "U01-U23 OPEN",
       "m12ToM60Contracts": "PENDING",
       "runtimeOrPolicySelected": false,
-      "nextBoundary": "Stop after exact-head Governance PASS and PR OPEN/UNMERGED"
+      "nextBoundary": "After this independent checkpoint closeout is audited, protected-merged and exact-main validated, prepare a separate versioned M11 owner-contract candidate; independent planning audit and freeze remain later gates."
     },
     "auditCorrections": [
       {
@@ -1739,6 +1745,103 @@
         "path": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
         "baseBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392"
       }
-    ]
+    ],
+    "chatAudit": {
+      "verdict": "APPROVED",
+      "reviewedHead": "9571b24b0a22c1d48e5ccf48d8cb1e9fda31c164",
+      "correctedInvalidSourcePaths": 3,
+      "addedMissingS05ResearchToLock": true,
+      "exactBaseFingerprintCount": 89,
+      "sourceRows": 30,
+      "futureIndexRows": 49,
+      "unresolvedHighOrCriticalFindingsWithinBoundedScan": 0,
+      "formalGitHubOrIndependentHumanReview": false,
+      "residualUnknowns": "S04-U01..U21 and S05-U01..U23 OPEN; all M12-M60 future-owner rows INDEX_ONLY/PENDING_OWNER_CONTRACT and UNRATED."
+    },
+    "protectedMerge": {
+      "pullRequest": 99,
+      "method": "squash",
+      "proposalHeadSha": "9571b24b0a22c1d48e5ccf48d8cb1e9fda31c164",
+      "mergeSha": "019de28b59db4b1b1dc39bd76780f331a655ccca",
+      "result": "MERGED"
+    },
+    "exactMainGovernance": {
+      "runId": 36285123475,
+      "runNumber": 433,
+      "jobId": 108524313508,
+      "headSha": "019de28b59db4b1b1dc39bd76780f331a655ccca",
+      "treeSha": "9d0dd1f3198609a225ffd00d20deb66e6f07d7e7",
+      "checkoutAssertion": "PASS",
+      "validator": "PASS",
+      "gefBridge": "PASS pinned v1.0.0",
+      "hiveBridge": "PASS pinned v1.0.0",
+      "tests": "3940/3940",
+      "testSeconds": 16.437,
+      "result": "PASS"
+    }
+  },
+  "forwardCompatibilityScanCloseout": {
+    "status": "PROPOSAL_PENDING_EXACT_HEAD_GOVERNANCE",
+    "workOrder": "IRIS-WO-0015",
+    "increment": "M11-FORWARD-COMPATIBILITY-SCAN-CLOSEOUT-C01",
+    "issue": 82,
+    "issueState": "OPEN",
+    "baseSha": "019de28b59db4b1b1dc39bd76780f331a655ccca",
+    "baseTreeSha": "9d0dd1f3198609a225ffd00d20deb66e6f07d7e7",
+    "branch": "iris-wo-0015-m11-fcs-closeout-20260926",
+    "upstreamPullRequest": 99,
+    "upstreamApprovedHeadSha": "9571b24b0a22c1d48e5ccf48d8cb1e9fda31c164",
+    "upstreamMergeSha": "019de28b59db4b1b1dc39bd76780f331a655ccca",
+    "upstreamExactMainGovernance": {
+      "runId": 36285123475,
+      "runNumber": 433,
+      "jobId": 108524313508,
+      "result": "PASS",
+      "tests": "3940/3940",
+      "testSeconds": 16.437
+    },
+    "reconciledScan": {
+      "sourceMatrix": "30/30",
+      "futureOwnerMatrix": "49/49 INDEX_ONLY/PENDING_OWNER_CONTRACT",
+      "fingerprints": "89/89",
+      "correctedSourcePaths": 3,
+      "addedOmittedS05Research": true,
+      "findings": 8,
+      "unknownFutureOwnerRisks": "UNRATED",
+      "m11Contract": "NOT_FROZEN",
+      "m10Contract": "m10-contract-v1.0 FROZEN",
+      "m11Implementation": "NOT_ADMITTED",
+      "m10Implementation": "NOT_ADMITTED",
+      "wo0014Preflight": "BLOCKED",
+      "s04": "U01-U21 OPEN",
+      "s05": "U01-U23 OPEN"
+    },
+    "closeoutLock": {
+      "path": ".engineering/context-locks/IRIS-WO-0015-M11-FORWARD-COMPATIBILITY-CLOSEOUT.json",
+      "baseSha": "019de28b59db4b1b1dc39bd76780f331a655ccca",
+      "baseTreeSha": "9d0dd1f3198609a225ffd00d20deb66e6f07d7e7",
+      "checked": 92,
+      "matched": 92,
+      "mismatches": 0,
+      "rebound": 7
+    },
+    "authorizedChangedFiles": [
+      ".engineering/CHECKPOINT.json",
+      ".engineering/CHECKPOINT.md",
+      ".engineering/context-locks/IRIS-WO-0015-M11-FORWARD-COMPATIBILITY-CLOSEOUT.json",
+      ".engineering/evidence/IRIS-WO-0015.json",
+      ".engineering/work-orders/IRIS-WO-0015-M11-FORWARD-COMPATIBILITY-CLOSEOUT.md",
+      ".engineering/work-orders/IRIS-WO-0015-M11-FORWARD-COMPATIBILITY-SCAN.md",
+      ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+      "docs/project-brain/13-CHECKPOINT.md",
+      "docs/project-brain/14-BACKLOG.md",
+      "planning/compatibility/M11-FORWARD-COMPATIBILITY-SCAN.md",
+      "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
+    ],
+    "exactHeadGovernance": {
+      "status": "REQUIRED_ON_FINAL_CLOSEOUT_PR_HEAD",
+      "headSha": "MUST_MATCH_GITHUB_PR_HEAD"
+    },
+    "nextGate": "After closeout exact-head Governance, audit, protected merge and exact-main Governance, begin separate M11 owner-contract candidate increment. No implementation or policy authorization."
   }
 }
