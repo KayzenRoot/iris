@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0030",
+  "increment": "AUTHORITATIVE_SCOPE_STATUS_REPAIR",
+  "issue": 128,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0030-authoritative-scope-20260927",
+  "baseRef": "main",
+  "baseSha": "becf5cc4d4e3540d051b5402c0d930647f2ffdd8",
+  "baseTreeSha": "40d4af2d66b6e9375c445587fc522a173434d584",
+  "status": "PROPOSED_PENDING_OWN_EXACT_HEAD_CI_AND_BOUNDED_REVIEW",
+  "risk": "LOW_DOC_STATUS_FOUR_INHERITED_HIGHS_UNTOUCHED",
+  "scope": "SCOPE_STALE_FUTURE_TENSE_REPAIR_STANDALONE_FOUR_TEST_HARNESS",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "becf5cc4d4e3540d051b5402c0d930647f2ffdd8",
+    "baseTreeSha": "40d4af2d66b6e9375c445587fc522a173434d584",
+    "expected": 18,
+    "checked": 18,
+    "matched": 18,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "6dfa91e0bb11280a403a8c46843432fff17f5e9d"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "69fffd85b3e8562a200aeab231e7199489812798"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "cf959ad3faa1e3bb1ae75887ae5af2006a4ec54c"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "05cfdcf0ede45e7a69db122b733a024fd3fc93cb"
+    },
+    {
+      "path": "README.md",
+      "gitBlobSha1": "1a1fc9cdfb48e02649c67d5624607d9bf315067d"
+    },
+    {
+      "path": "docs/project-brain/01-PROJECT-OVERVIEW.md",
+      "gitBlobSha1": "5aebd5281ae9b27c6e87119b972acd2950835e40"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "8b2b1ba99c18a612af7a55e14752b59e9f082240"
+    },
+    {
+      "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+    },
+    {
+      "path": "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "28b3802901349263100ceaaf80c0990513dbbded"
+    },
+    {
+      "path": "tests/test_public_status_docs.py",
+      "gitBlobSha1": "89c98b48892417e5823d23bb6331b138ef797c76"
+    },
+    {
+      "path": "scripts/verify_context_lock.py",
+      "gitBlobSha1": "e86bc1e25a4d85e7cac64bfcba86e23993f96351"
+    },
+    {
+      "path": ".github/workflows/governance.yml",
+      "gitBlobSha1": "02510797919b603ee94c367dc45f6ca1c9367a41"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0029.json",
+      "gitBlobSha1": "cb4bc3a6f595e7178ada2adbd05acccadd3f8402"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/context-locks/IRIS-WO-0030-AUTHORITATIVE-SCOPE-RECONCILIATION.json",
+    ".engineering/evidence/IRIS-WO-0030.json",
+    ".engineering/work-orders/IRIS-WO-0030-AUTHORITATIVE-SCOPE-RECONCILIATION.md",
+    "docs/project-brain/03-SCOPE.md",
+    "planning/checkpoints/IRIS-WO-0030-AUTHORITATIVE-SCOPE.md",
+    "planning/reviews/IRIS-WO-0030-AUTHORITATIVE-SCOPE-AUDIT-TARGET.md",
+    "tests/test_scope_authority.py"
+  ],
+  "stopCondition": "Correct Scope only and four isolated tests with 18 exact-source pins, seven scoped paths, own exact-head CI and bounded review, protected squash then exact-main CI. Preserve all four issues, four HIGHs, NONE_SELECTED topology and all M10/M11/M12 NOT_ADMITTED."
+}
