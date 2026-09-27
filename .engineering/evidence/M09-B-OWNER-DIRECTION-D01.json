@@ -1,0 +1,302 @@
+{
+  "schemaVersion": "iris-m09-b-owner-direction-d01",
+  "workOrder": "IRIS-WO-0033",
+  "issue": 110,
+  "relatedOpenIssues": [
+    82,
+    112,
+    128
+  ],
+  "decisionSource": {
+    "kind": "EXPLICIT_OWNER_RATIFICATION_RECORDED_ON_GITHUB",
+    "commentUrl": "https://github.com/KayzenRoot/iris/issues/110#issuecomment-5857665032",
+    "commentId": 5857665032,
+    "sourceBaseSha": "97a9fe1666b764278de1379eadd7eda7d04799fe",
+    "sourceBaseTreeSha": "a86e2553a630d93e64fefcf4fa9b722e10f81cd1",
+    "exactMainGovernanceNumber": 509,
+    "exactMainGovernanceRun": 36332401893,
+    "tests": "4090/4090"
+  },
+  "direction": {
+    "name": "B_FUTURE_OWNER_RECEIPT",
+    "status": "OWNER_SELECTED_FOR_DOCUMENTARY_PLANNING_ONLY",
+    "scope": "FUTURE_M09_IMMUTABLE_VERSIONED_EXACT_REQUEST_READ_ONLY_RECEIPT_PLUS_VERIFIER",
+    "alternativeA": "NOT_SELECTED",
+    "alternativeC": "NOT_SELECTED",
+    "c01Adopted": false,
+    "positiveGrantAuthorized": false,
+    "implementationAdmitted": false,
+    "decisionsOutsideTopology": "NOT_APPROVED"
+  },
+  "historicalSource": {
+    "C01topologySelected": "NONE",
+    "C02issue110Decision": "NOT_RECORDED",
+    "C02noSelectedTopology": true,
+    "note": "HISTORICAL_SOURCE_SNAPSHOTS_NOT_CURRENT_OWNER_DIRECTION"
+  },
+  "sourceAnchors": [
+    {
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a"
+    },
+    {
+      "path": "planning/contracts/M09-READ-ONLY-EVIDENCE-HANDOFF-CANDIDATE.md",
+      "gitBlobSha1": "30eb7e369b2996cc5e9b5f49736e29232b45b69e"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json",
+      "gitBlobSha1": "935abe4323618ac6d583e3bd8acc827d5fe80d2c"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-CANDIDATE-C01.json",
+      "gitBlobSha1": "3236ff8146c71da247208b0896e4e37573123fa8"
+    },
+    {
+      "path": "planning/research/M11-C09-REVERSE-LIVENESS-OWNER-RESEARCH.md",
+      "gitBlobSha1": "de97d44a49b9c8483aa6d5a051a0b42f97f5a3cc"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+    },
+    {
+      "path": ".engineering/evidence/M12-OWNER-INTAKE-C02.json",
+      "gitBlobSha1": "75c8ecea8e59a0931afc1c6558a0265cff7ac919"
+    }
+  ],
+  "conceptualRoles": [
+    {
+      "id": "B-R01",
+      "name": "M09 owner issuance",
+      "candidateObligation": "Future immutable versioned issuer-verifiable M09 receipt for one exact consumer request; no format, signature, transport or adoption.",
+      "pendingProofGates": [
+        "H02",
+        "H03",
+        "H04"
+      ],
+      "status": "CONCEPTUAL_NOT_ADOPTED"
+    },
+    {
+      "id": "B-R02",
+      "name": "Exact owner context",
+      "candidateObligation": "Exact M02 accepted work/revision, applicable M06 attempt only if owner-issued, M09 resource, claims, consumer, intended action, target and provenance; missing associations nonadmitting.",
+      "pendingProofGates": [
+        "H03",
+        "H04"
+      ],
+      "status": "CONCEPTUAL_NOT_ADOPTED"
+    },
+    {
+      "id": "B-R03",
+      "name": "Owner joint cut",
+      "candidateObligation": "M09 must prove one coherent snapshot+lease cut across all mandatory composite members and their epochs/expiry/revocation; independent twin/lease reads cannot be composed.",
+      "pendingProofGates": [
+        "H02"
+      ],
+      "status": "CONCEPTUAL_NOT_ADOPTED"
+    },
+    {
+      "id": "B-R04",
+      "name": "Owner verifier and at-use recheck",
+      "candidateObligation": "Issuer and features, original origin/confidence, exact grant/claim/lease, joint cut, expiry, invalidation, revocation and time-of-use race must be owner-proven.",
+      "pendingProofGates": [
+        "H02",
+        "H03",
+        "H04"
+      ],
+      "status": "CONCEPTUAL_NOT_ADOPTED"
+    },
+    {
+      "id": "B-R05",
+      "name": "Reverse M11 liveness and ACK",
+      "candidateObligation": "Separately verified M11 owner/process observation with UNKNOWN fallback and exact request-coordinated cooperative release; M54/M60 identity and OS authority required; ACCEPTED is not reclaim.",
+      "pendingProofGates": [
+        "H01",
+        "H03",
+        "H04"
+      ],
+      "status": "CONCEPTUAL_NOT_ADOPTED"
+    },
+    {
+      "id": "B-R06",
+      "name": "External owner separation",
+      "candidateObligation": "Even a future valid M09 receipt cannot substitute for M12 placement, M54 permission, M60 OS rights, M58 publication and M02/M06 production/attempt authority.",
+      "pendingProofGates": [
+        "H01",
+        "H02",
+        "H03",
+        "H04"
+      ],
+      "status": "CONCEPTUAL_NOT_ADOPTED"
+    }
+  ],
+  "inheritedHighs": [
+    {
+      "id": "C02-FR-H01",
+      "severity": "HIGH_FOR_FUTURE_FREEZE",
+      "historicalStatus": "OPEN_OWNER_EVIDENCE_REQUIRED",
+      "currentStatus": "OPEN_OWNER_EVIDENCE_REQUIRED",
+      "owners": [
+        "M11",
+        "M09",
+        "M54",
+        "M60"
+      ],
+      "proofRequired": "OwnerLivenessRef checks type/state/timestamp and M11 string prefix for non-UNKNOWN, not an approved verifiable intermodule issuer; no adopted M11 producer, freshness/revocation/rights or cooperative-release transport. A read-only M09-to-M11 receipt does not close the reverse FC-09-03 handoff.",
+      "interim": "UNKNOWN liveness and no inferred reclaim/control or grant",
+      "disposition": "BLOCKED_REQUIRE_SEPARATE_OWNER_EVIDENCE"
+    },
+    {
+      "id": "C02-FR-H02",
+      "severity": "HIGH_FOR_FUTURE_FREEZE",
+      "historicalStatus": "OPEN_M09_OWNER_ATOMICITY_DECISION",
+      "currentStatus": "OPEN_M09_OWNER_ATOMICITY_DECISION",
+      "owners": [
+        "M09",
+        "M12"
+      ],
+      "proofRequired": "Independent in-process twin/lease locks and optional/mandatory composite member outcomes cannot be projected as an atomic external grant; revocation and mixed epochs remain undecided.",
+      "interim": "Non-admitting without owner-issued coherent exact-scope joint cut and current verification",
+      "disposition": "BLOCKED_REQUIRE_SEPARATE_OWNER_EVIDENCE"
+    },
+    {
+      "id": "C02-FR-H03",
+      "severity": "HIGH_FOR_FUTURE_FREEZE",
+      "historicalStatus": "OPEN_FUTURE_OWNER_CONTRACTS",
+      "currentStatus": "OPEN_FUTURE_OWNER_CONTRACTS",
+      "owners": [
+        "M12",
+        "M54",
+        "M58",
+        "M60"
+      ],
+      "proofRequired": "Index-only future owner contracts cannot supply accepted trust/transport, target placement, public SDK/redaction or OS capability; even negative public C needs owner-approved exposure.",
+      "interim": "No external/public verified port, no worker/OS action",
+      "disposition": "BLOCKED_REQUIRE_SEPARATE_OWNER_EVIDENCE"
+    },
+    {
+      "id": "C02-FR-H04",
+      "severity": "HIGH_FOR_FUTURE_FREEZE",
+      "historicalStatus": "OPEN_CROSS_OWNER_DISPOSITION",
+      "currentStatus": "OPEN_CROSS_OWNER_DISPOSITION",
+      "owners": [
+        "M02",
+        "M06",
+        "M09",
+        "M11"
+      ],
+      "proofRequired": "Exact M02 accepted plan/claim identity and M06 materiality/attempt associations plus M09 atomic owner revalidation at time-of-use have no new approved handoff; stale token or process exit never establishes grant/materialization.",
+      "interim": "Preserve opaque owner evidence separately; no request admission or lease mutation",
+      "disposition": "BLOCKED_REQUIRE_SEPARATE_OWNER_EVIDENCE"
+    }
+  ],
+  "futureOriginalNegatives": {
+    "HX": [
+      {
+        "id": "HX-01",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "HX-02",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "HX-03",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "HX-04",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "HX-05",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "HX-06",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "HX-07",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "HX-08",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "HX-09",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "HX-10",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "HX-11",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "HX-12",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      }
+    ],
+    "LV": [
+      {
+        "id": "LV-01",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "LV-02",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "LV-03",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "LV-04",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "LV-05",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      },
+      {
+        "id": "LV-06",
+        "status": "SPECIFIED_NOT_EXECUTED"
+      }
+    ],
+    "C08count": 10,
+    "POC02count": 8,
+    "executed": 0
+  },
+  "linkedOriginalM12Issue110QuestionIds": [
+    "M12-S01-U05",
+    "M12-S02-U08",
+    "M12-S03-U02",
+    "M12-S04-U06",
+    "M12-S05-U04"
+  ],
+  "openM11Questions": 86,
+  "openM12Questions": 110,
+  "notExecutedM12Cases": 80,
+  "m09FrozenContract": "m09-contract-v1.0_FROZEN_UNCHANGED",
+  "m09C01": "m09-evidence-handoff-candidate-v0.1_UNADOPTED_NOT_FROZEN",
+  "m11": "m11-contract-candidate-v0.2_NOT_FROZEN",
+  "m12": "m12-contract-candidate-v0.1_PREPARED_FOR_OWNER_REVIEW_ONLY_NOT_FROZEN",
+  "runtime": "M10_M11_M12_NOT_ADMITTED",
+  "actions": "OS_GPU_NETWORK_CLOUD_PROCESS_DISABLED",
+  "pendingRealOwnerContracts": [
+    "M12",
+    "M54",
+    "M58",
+    "M60"
+  ],
+  "nextGate": "REAL_H01_H04_OWNER_PROOFS_AND_INDEPENDENT_FREEZE_AUDIT",
+  "stop": "Owner-approved B is a direction to investigate on paper, not a grant, C01 adoption, H01-H04 closure, implemented interface or runtime permission."
+}

@@ -58,5 +58,16 @@ class PublicStatusDocsTests(unittest.TestCase):
         self.assertEqual(evidence["verifiedCloseout"]["exactMainGovernance"]["tests"], "4009/4009")
 
 
+
+    def test_public_snapshots_report_actual_b_direction_without_admitting_c01(self) -> None:
+        for text in (self.readme, self.overview):
+            for marker in ("B_FUTURE_OWNER_RECEIPT", "DIRECTION_ONLY",
+                           "5857665032", "UNADOPTED_NOT_FROZEN",
+                           "H01", "H04", "OPEN HIGH_FOR_FUTURE_FREEZE",
+                           "PR #139", "4090/4090"):
+                self.assertIn(marker, text)
+            self.assertNotIn("awaits an actual owner topology/deferral decision", text)
+            self.assertNotIn("topology A/B/C or explicit deferral needs the actual decision", text)
+
 if __name__ == "__main__":
     unittest.main()
