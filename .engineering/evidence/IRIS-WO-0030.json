@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0030",
+  "issue": 128,
+  "status": "PROPOSED_PENDING_OWN_EXACT_HEAD_CI_AND_BOUNDED_REVIEW",
+  "risk": "LOW_AUTHORITATIVE_SCOPE_DRIFT",
+  "baseSha": "becf5cc4d4e3540d051b5402c0d930647f2ffdd8",
+  "baseTreeSha": "40d4af2d66b6e9375c445587fc522a173434d584",
+  "observedExactMain": {
+    "governanceNumber": 503,
+    "run": 36329882300,
+    "job": 108649664872,
+    "tests": "4014/4014",
+    "conclusion": "PASS"
+  },
+  "priorM12Candidate": {
+    "pr": 135,
+    "headGovernance": 498,
+    "mainGovernance": 499,
+    "tests": "4009/4009",
+    "status": "PREPARED_FOR_OWNER_REVIEW_ONLY_NOT_FROZEN"
+  },
+  "priorPublicStatus": {
+    "pr": 136,
+    "headGovernance": 502,
+    "mainGovernance": 503,
+    "tests": "4014/4014"
+  },
+  "finding": "Canonical Scope future-tenses completed M11 FTR/FCS and already merged M12 candidate",
+  "classification": "CHAT_FIXABLE",
+  "scopeCorrectionOnly": true,
+  "sourcePins": 18,
+  "authorizedChangedFiles": [
+    ".engineering/context-locks/IRIS-WO-0030-AUTHORITATIVE-SCOPE-RECONCILIATION.json",
+    ".engineering/evidence/IRIS-WO-0030.json",
+    ".engineering/work-orders/IRIS-WO-0030-AUTHORITATIVE-SCOPE-RECONCILIATION.md",
+    "docs/project-brain/03-SCOPE.md",
+    "planning/checkpoints/IRIS-WO-0030-AUTHORITATIVE-SCOPE.md",
+    "planning/reviews/IRIS-WO-0030-AUTHORITATIVE-SCOPE-AUDIT-TARGET.md",
+    "tests/test_scope_authority.py"
+  ],
+  "newIsolatedTests": 4,
+  "expectedFullSuite": 4018,
+  "ownerDecision": "NONE_SELECTED",
+  "openIssues": [
+    82,
+    110,
+    112,
+    128
+  ],
+  "openInheritedHighs": [
+    "C02-FR-H01",
+    "C02-FR-H02",
+    "C02-FR-H03",
+    "C02-FR-H04"
+  ],
+  "m11Status": "V0_2_NOT_FROZEN_86_OPEN",
+  "m12Status": "V0_1_PREPARED_FOR_OWNER_REVIEW_ONLY_NOT_FROZEN_110_OPEN_80_UNEXECUTED",
+  "runtime": "M10_M11_M12_NOT_ADMITTED",
+  "testsStatus": "PENDING_OWN_EXACT_HEAD_CI",
+  "auditStatus": "PENDING_BOUNDED_REVIEW",
+  "mergeStatus": "NOT_MERGED",
+  "exactMainStatus": "PENDING",
+  "ownerApproval": "NOT_PERFORMED"
+}
