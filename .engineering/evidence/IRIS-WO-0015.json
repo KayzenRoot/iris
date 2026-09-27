@@ -2115,7 +2115,7 @@
     "reviewerIdentity": "Separate read-only audit task; same GitHub connection for the top-level comment; no separate human identity or formal GitHub review approval claimed."
   },
   "m11C02PostMergeCloseout": {
-    "status": "PROPOSED_CHECKPOINT_EVIDENCE_RECONCILIATION_NOT_CANONICAL",
+    "status": "VERIFIED_PROTECTED_MERGE_AND_EXACT_MAIN",
     "workOrder": "IRIS-WO-0015",
     "increment": "M11-C02-POST-MERGE-CHECKPOINT-EVIDENCE-CLOSEOUT",
     "issue": 82,
@@ -2125,8 +2125,48 @@
     "authorizedChangedFiles": 8,
     "sourceFingerprints": "32/32 exact-main",
     "exactHeadGovernance": {
-      "status": "REQUIRED_ON_FINAL_CLOSEOUT_PR_HEAD"
+      "run": 36289449205,
+      "job": 108536580915,
+      "number": 443,
+      "headSha": "22da8291204ad08e9f595a7ee589001f45208ca6",
+      "result": "PASS",
+      "tests": "3940/3940"
     },
-    "stopCondition": "Leave its PR OPEN/UNMERGED after exact-head Governance; no contract freeze or implementation admission."
+    "stopCondition": "Leave its PR OPEN/UNMERGED after exact-head Governance; no contract freeze or implementation admission.",
+    "reviewCommentId": 5852323250,
+    "mergeSha": "754fdf95878b1def4b5800a1a50cbb4e9c72957c",
+    "exactMainGovernance": {
+      "run": 36291757526,
+      "job": 108543056517,
+      "number": 444,
+      "headSha": "754fdf95878b1def4b5800a1a50cbb4e9c72957c",
+      "treeSha": "47434c004bcfc9f0cab7c5158aacf2cdf40b57ca",
+      "result": "PASS",
+      "tests": "3940/3940"
+    }
+  },
+  "m11C03DecisionProofRegister": {
+    "status": "PROPOSED_PENDING_EXACT_HEAD_GOVERNANCE_AND_REVIEW",
+    "workOrder": "IRIS-WO-0015",
+    "increment": "M11-C03-DECISION-PROOF-REGISTER",
+    "issue": 82,
+    "baseSha": "754fdf95878b1def4b5800a1a50cbb4e9c72957c",
+    "baseTreeSha": "47434c004bcfc9f0cab7c5158aacf2cdf40b57ca",
+    "sourceFingerprints": "35/35 MATCHED",
+    "questionCounts": {
+      "S01": 10,
+      "S02": 12,
+      "S03": 20,
+      "S04": 21,
+      "S05": 23
+    },
+    "questions": "86/86 OPEN",
+    "verbatimS04S05": "44/44 MATCHED",
+    "proofObligations": "8/8 DEFINED_NOT_EXECUTED",
+    "processActions": "DISABLED",
+    "candidate": "m11-contract-candidate-v0.2 NOT_FROZEN",
+    "M10M11Implementation": "NOT_ADMITTED",
+    "futureOwners": "M12-M60 PENDING/UNRATED",
+    "exactHeadGovernance": "REQUIRED"
   }
 }

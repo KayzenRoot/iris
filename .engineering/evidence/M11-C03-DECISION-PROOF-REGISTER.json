@@ -1,0 +1,778 @@
+{
+  "schemaVersion": "m11-c03-decision-register-v1",
+  "sourceBaseSha": "754fdf95878b1def4b5800a1a50cbb4e9c72957c",
+  "status": "PROPOSED_86_OPEN",
+  "sessions": {
+    "S01": 10,
+    "S02": 12,
+    "S03": 20,
+    "S04": 21,
+    "S05": 23
+  },
+  "sourceDocs": [
+    {
+      "session": "S01",
+      "path": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+      "gitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5"
+    },
+    {
+      "session": "S02",
+      "path": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "gitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e"
+    },
+    {
+      "session": "S03",
+      "path": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "gitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933"
+    },
+    {
+      "session": "S04",
+      "path": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "gitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae"
+    },
+    {
+      "session": "S05",
+      "path": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "gitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392"
+    }
+  ],
+  "questions": [
+    {
+      "id": "S01-U01",
+      "source": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+      "question": "Is the supervisor embedded, a separate per-user service, or optionally hosted by an OS service manager? What should happen on UI exit, user logout, reboot, upgrade, and shutdown?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S01-U02",
+      "source": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+      "question": "How does M11's logical job refer to M02 work/plan identity and M06's ExecutionAttemptPort without creating or duplicating attempt authority? What are the cardinality and restart rules?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S01-U03",
+      "source": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+      "question": "Which operating systems and minimum versions are supported, and what containment/reference primitive is required on each?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S01-U04",
+      "source": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+      "question": "Does one job own one worker, a tree of child processes, or a sequence of worker invocations? Can descendants detach or escape the chosen scope?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S01-U05",
+      "source": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+      "question": "What durable registry or evidence allows a restarted supervisor to distinguish live, exited, reaped, unknown, or foreign processes?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S01-U06",
+      "source": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+      "question": "Which authentication, permission and trust rules apply to control and inspection of the supervisor?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S01-U07",
+      "source": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+      "question": "How do M09 leases/headroom and M12 placement relate to job admission and lifetime without M11 asserting resource truth?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S01-U08",
+      "source": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+      "question": "What is M11's process observation/evidence handoff to M06's ExecutionAttemptPort, including unknown/incomplete result behavior?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S01-U09",
+      "source": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+      "question": "Which M11 concerns rely on unavailable UGAS/HIVE/CORE materials, and what authoritative evidence would prove reuse?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S01-U10",
+      "source": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
+      "question": "Which M56 observation/audit details are owner-defined and which remain pending?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S02-U01",
+      "source": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "question": "Which owner-issued request, if any, can cause an M11 supervisor to create a process? Preserve M10's prohibition and M02/M12 authority.",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S02-U02",
+      "source": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "question": "Is a worker tied to the launching supervisor's lifetime, or can it detach and be rediscovered? Coordinate with S01 and M12/M60.",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S02-U03",
+      "source": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "question": "What evidence constitutes readiness and registration, and who owns the protocol/version negotiation?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S02-U04",
+      "source": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "question": "How are M02 identity and plan references bound to M06 ExecutionAttemptPort evidence without choosing mapping/cardinality?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S02-U05",
+      "source": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "question": "Which principals may launch, connect, inspect or send control messages; how are multiple users and logon sessions isolated under M54?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S02-U06",
+      "source": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "question": "What executable, Blender version, scene/script trust, environment variables and inherited handles are permitted under M26/M54?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S02-U07",
+      "source": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "question": "Which framing, size limits, backpressure, stdout/stderr and log redaction rules are needed for each transport?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S02-U08",
+      "source": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "question": "How are duplicate, replayed, stale, out-of-order or post-restart registrations handled? Carry into S04/S05 without inventing semantics.",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S02-U09",
+      "source": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "question": "How does protocol-request cancellation relate to M11 process/job cancellation? The transport specification does not decide process lifecycle; carry into S05.",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S02-U10",
+      "source": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "question": "Which local/remote endpoint and placement responsibilities belong to M12?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S02-U11",
+      "source": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "question": "Which health, progress, event and retention fields belong to M56?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S02-U12",
+      "source": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
+      "question": "Which OS and Blender release matrix is supported, and what setup/recovery is owned by M60?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U01",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "Does concurrency count queued work, admitted work, an M02 workload, an M06 attempt, a provider operation, a process, or a process tree?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U02",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "Is a limit local to one event loop, one supervisor, one workstation, a pool, or a remote aggregate, and which owner coordinates it?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U03",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "What M02 work/plan reference is preserved, and which owner controls the relationship between that identity and queue/admission state?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U04",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "What is the M06 attempt relationship and cardinality for retries, overlapping attempts and process descendants?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U05",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "What opaque M09 claim/lease/grant reference, if any, can M11 receive without owning its schema or mutation?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U06",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "Who defines resource reference freshness, epoch/version, expiry, revocation and stale/conflict behavior?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U07",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "How are M09 grant/deny outcomes distinguished from observed CPU/RAM/VRAM feasibility and from a free process slot?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U08",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "What caller-visible state is required when resource evidence is unknown, stale, conflicting, denied or unsupported?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U09",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "What happens when a bounded queue has no capacity: wait, reject, defer or another owner-defined response, and who owns cancellation/timeouts?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U10",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "Which priority concepts exist, who may assert them, and how are M10 advisory output and any operator urgency kept non-authoritative until an owner decides?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U11",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "What ordering, tie handling and priority provenance are required, if any?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U12",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "Which fairness or starvation guarantee is required across workload classes and tenants, if any?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U13",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "Are aging, weighted service or separate queues acceptable, and who owns their policy and proof?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U14",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "How is resource priority inversion treated, and is preemption permitted after M09/M12/S05 define interruption, partial output and cleanup semantics?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U15",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "Is PR-009 headroom operator-configured, evidence-driven or something else, and which owner controls configuration and enforcement?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U16",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "Which CPU, RAM and VRAM measurements and uncertainty/freshness semantics are authoritative?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U17",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "Which OS process/job controls are supported by each M60-approved platform and what does unsupported or failed setup mean?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U18",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "What evidence and responsiveness target represent coexistence with interactive workstation use?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U19",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "Which M12 owner coordinates multiple supervisors, GPUs, LAN/remote hosts, quotas and placement?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S03-U20",
+      "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "question": "Which M54 trust and authorization rules protect queue/priority/lease references, and what queue/worker evidence belongs to M56?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U01",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "Which owner-issued identity can bind a process to a semantic job without replacing M02 work identity or ExecutionPlan?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U02",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "How, if at all, does a process reference map to M06's operational attempt and evidence?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U03",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "Which component may create, observe, wait for, collect, reap or clean up each direct child?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U04",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "Which state is OS process evidence versus M06 attempt outcome, and how are unknown or contradictory results represented?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U05",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "What child relationship grants wait/reap rights, and who inherits that duty when a parent exits?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U06",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "How are Linux orphan reparenting and optional subreaper behavior handled without assuming the original parent retains ownership?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U07",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "Which identity remains safe when a numeric PID or parent PID is stale or reused?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U08",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "Which descendant mechanisms are supported, and what happens when a child escapes a POSIX group or breaks away from a Windows Job Object?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U09",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "How do existing host jobs, nesting restrictions, privileges and handle inheritance affect a Windows deployment?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U10",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "Which OS/kernel versions and launch mechanisms are supported and tested?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U11",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "Which wait/open/assignment errors are evidence of failure, permission denial or an unknown state, including ECHILD and stale references?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U12",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "What evidence is emitted for launch error, child exit status, signal termination, incomplete initialization and partial output?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U13",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "What argument boundary is accepted for shell-free execution, and how are Windows batch files treated?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U14",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "Who authorizes the executable and validates its path, search order, working directory, file replacement and target-specific argument parsing?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U15",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "Which environment variables are inherited, replaced, redacted or excluded, and how are secrets protected?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U16",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "Which correlation IDs, freshness, redaction and retention rules apply to process-lifecycle evidence?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U17",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "What platform-support and acceptance evidence must M60 require for descendant observation or cleanup claims?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U18",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "How do process launch and observation hand off to M12 placement, remote orchestration and queue ownership?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U19",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "Which Blender/DCC process wrappers, version support and application-startup evidence belong to M26?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U20",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "Which cancellation, timeout, restart, retry, partial-result, recovery and workstation-coexistence questions remain for S05 or another owner?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S04-U21",
+      "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
+      "question": "Can HIVE/UGAS/CORE provide current, source-verifiable process-lifecycle evidence in a later planning session?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U01",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "Who may request cancellation, through which authenticated control surface, and what authorization evidence accompanies it?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U02",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "Which cancellation scopes exist (queue, coroutine, attempt, direct child, process group, worker, host), and who owns their propagation?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U03",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "How are cancellation intent, request acceptance, signal delivery, process exit, attempt outcome, and materialization acceptance represented distinctly?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U04",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "Which deadline scopes are needed (queue wait, startup, handshake, runtime, shutdown, recovery), and who defines each clock and deadline owner?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U05",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "How do monotonic deadlines interact with suspend/resume, wall-clock evidence, remote hosts, and event timestamps?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U06",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "Is any graceful-to-forceful interruption sequence permitted, and what owner, permission, delay, and proof gate would authorize each step?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U07",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "Which terminal, partial, unknown, unsupported, denied, timed-out, cancelled, crashed, or still-running outcomes are required at each owner boundary?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U08",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "Which partial outputs remain temporary, committed, reusable, invalid, quarantined, or recoverable after cancellation or crash?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U09",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "Which source of truth survives supervisor crash, service restart, OS restart, or machine power loss?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U10",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "If a journal is permitted, what are its owner, durability, atomicity, schema evolution, corruption and retention contract?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U11",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "How does restart reconciliation prevent duplicate launch, replayed external side effect, duplicate commitment, or false completion?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U12",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "What is the safe outcome if the durable record says running while the OS reference is absent, reused, inaccessible, or ambiguous?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U13",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "What owner reconciles M09 leases, residency and capacity if a child survives after supervisor loss or cancellation?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U14",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "Who may reclaim or delete temporary/partial output, and what M06/M55 reachability/retention evidence is required first?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U15",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "What operator CPU/RAM/VRAM headroom dimensions, units, freshness, and priority rules are supported by M09?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U16",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "How do worker operations coexist with interactive DCC/GUI sessions, and which process discovery or operator controls are permitted?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U17",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "What user-visible control, notice, override, and audit behavior is required for cancellation and unknown recovery state?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U18",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "What correlation, freshness, redaction, retention, and provenance bind cancellation/recovery evidence to an attempt?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U19",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "What OS, kernel, Python, service-host and deployment matrix is supported, and what capability proof is required per platform?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U20",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "How do local cancellation, remote placement, queue ownership, and agent/operator disconnects hand off across M12?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U21",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "Which retry/restart/backoff limits, if any, are permitted, and which effects must be proven idempotent first?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U22",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "How is the process/reference/wait right from S04 kept valid across cancellation, parent exit, supervisor replacement and PID reuse?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    },
+    {
+      "id": "S05-U23",
+      "source": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+      "question": "What proves a workstation remains within safe headroom and responsive without turning sampled or stale telemetry into a grant?",
+      "status": "OPEN",
+      "risk": "UNRATED",
+      "ownerDecision": "PENDING"
+    }
+  ],
+  "proofs": [
+    {
+      "id": "PO-C02-01",
+      "source": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "status": "DEFINED_NOT_EXECUTED"
+    },
+    {
+      "id": "PO-C02-02",
+      "source": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "status": "DEFINED_NOT_EXECUTED"
+    },
+    {
+      "id": "PO-C02-03",
+      "source": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "status": "DEFINED_NOT_EXECUTED"
+    },
+    {
+      "id": "PO-C02-04",
+      "source": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "status": "DEFINED_NOT_EXECUTED"
+    },
+    {
+      "id": "PO-C02-05",
+      "source": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "status": "DEFINED_NOT_EXECUTED"
+    },
+    {
+      "id": "PO-C02-06",
+      "source": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "status": "DEFINED_NOT_EXECUTED"
+    },
+    {
+      "id": "PO-C02-07",
+      "source": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "status": "DEFINED_NOT_EXECUTED"
+    },
+    {
+      "id": "PO-C02-08",
+      "source": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "status": "DEFINED_NOT_EXECUTED"
+    }
+  ],
+  "gates": {
+    "M11": "PROPOSED_NOT_FROZEN",
+    "M10": "IMPLEMENTATION_NOT_ADMITTED",
+    "M12_M54_M60": "PENDING_OWNER_CONTRACT",
+    "processActions": "DISABLED",
+    "issue82": "OPEN"
+  }
+}
