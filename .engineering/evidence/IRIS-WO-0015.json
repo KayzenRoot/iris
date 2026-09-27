@@ -2310,7 +2310,7 @@
     "routingNote": "MINIMUM_NON_EXHAUSTIVE_NOT_OWNER_ACCEPTED"
   },
   "m11C06S03U08ResourceStatus": {
-    "status": "PROPOSED_DOCUMENT_ONLY_PENDING_EXACT_HEAD_REVIEW",
+    "status": "VERIFIED_PROTECTED_MERGE_EXACT_MAIN_DOCUMENTATION_ONLY",
     "workOrder": "IRIS-WO-0015",
     "increment": "M11-C06-S03-U08-RESOURCE-STATUS",
     "issue": 82,
@@ -2326,6 +2326,53 @@
     "futureOwnerContracts": "M12-M60 PENDING_UNRATED",
     "M10M11Implementation": "NOT_ADMITTED",
     "processActions": "DISABLED",
-    "issue82": "OPEN"
+    "issue82": "OPEN",
+    "reviewedHeadSha": "41ce88d15a113ae65a7931ce2b1ddb9f3ab24fd2",
+    "reviewCommentId": 5855060935,
+    "protectedMerge": {
+      "pullRequest": 109,
+      "method": "squash",
+      "sha": "1ecdbc4136b75d01771720b1e65ad0c4a8c14f8d",
+      "result": "MERGED"
+    },
+    "exactHeadGovernance": {
+      "number": 451,
+      "run": 36312772808,
+      "job": 108601752893,
+      "headSha": "41ce88d15a113ae65a7931ce2b1ddb9f3ab24fd2",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "exactMainGovernance": {
+      "number": 452,
+      "run": 36312843307,
+      "job": 108601943874,
+      "headSha": "1ecdbc4136b75d01771720b1e65ad0c4a8c14f8d",
+      "treeSha": "f21bfb1cc43e1fcbfb6ca2ebea1362cbf8c36e07",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "draftCases": "9 DESIGNED_NOT_EXECUTED",
+    "actualM09OwnerDisposition": "PENDING_ISSUE_110",
+    "S03U08": "OPEN_UNRATED"
+  },
+  "m11C07M09OwnerHandoffIntake": {
+    "status": "PROPOSED_PENDING_EXACT_HEAD_GOVERNANCE_AND_SEPARATE_REVIEW",
+    "workOrder": "IRIS-WO-0015",
+    "increment": "M11-C07-C06-CLOSEOUT-M09-HANDOFF",
+    "issue": 82,
+    "ownerReviewIssue": 110,
+    "ownerReviewStatus": "OPEN_PENDING_M09_OWNER_RESPONSE",
+    "baseSha": "1ecdbc4136b75d01771720b1e65ad0c4a8c14f8d",
+    "baseTreeSha": "f21bfb1cc43e1fcbfb6ca2ebea1362cbf8c36e07",
+    "criticalSources": "54/54 MATCHED",
+    "changedPaths": "8 AUTHORIZED",
+    "candidate": "m11-contract-candidate-v0.2 NOT_FROZEN",
+    "originalQuestions": "86/86 OPEN_UNRATED",
+    "priorPOs": "8/8 NOT_EXECUTED",
+    "c06Cases": "9/9 DESIGNED_NOT_EXECUTED",
+    "processActions": "DISABLED",
+    "M10M11Implementation": "NOT_ADMITTED",
+    "missingOwnerContracts": "M12-M60 PENDING/UNRATED"
   }
 }
