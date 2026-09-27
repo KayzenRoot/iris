@@ -86,3 +86,7 @@ FCS C01 is complete for module planning after independent checkpoint closeout PR
 ### C01 owner-contract candidate merged; separate freeze-readiness audit
 
 PR #101 exact head 2df777a14aaac9bdb673f9c812c75a5af188b31d passed Governance #436 (3,940/3,940 tests), protected squash merge 9c7cafcfc73700728981f8f90e27110be8dd9fd0 passed exact-main Governance #438 (3,940/3,940). Candidate m11-contract-candidate-v0.1 remains NOT_FROZEN. A separate audit proposal identifies three HIGH_FOR_FREEZE gaps for positive interface/authority proofs, without alleging defects in admitted runtime (none). Correction Delta C02, subsequent read-only re-audit and owner-contract freeze are separate gated work; all prior owner unknowns remain.
+
+### C02 targeted correction proposal
+
+The separate C01 freeze-readiness audit PR #103 exact head 58493193261a2f4cf1d3fda6faff998882836d24 passed Governance #439, protected squash merge 6006be5af8f58ac6eec00df030fffab2d1d121ab passed exact-main Governance #440. Candidate v0.2 now proposes minimum M11-owned semantic preflight, action-scoped OS capability and uncertain control/recovery evidence for AUD-C01-H01..H03. All process actions remain DISABLED until M12/M54/M60 owner-issued proofs are separately defined and admitted. C01 invariant IDs, all 44 original OPEN questions and frozen upstream boundaries stay unchanged. This is a Correction Delta proposal, not independent approval or freeze.

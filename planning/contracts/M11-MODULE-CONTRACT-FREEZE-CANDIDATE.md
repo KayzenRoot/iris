@@ -1,7 +1,8 @@
 # M11 Background Worker Fabric & Process Lifecycle: Versioned Owner-Contract Candidate
 
-Status: PROPOSED_C01_NOT_FROZEN
-Candidate ID: m11-contract-candidate-v0.1 (not a frozen module contract)
+Status: PROPOSED_C02_CORRECTION_NOT_FROZEN
+Candidate ID: m11-contract-candidate-v0.2 (C02 correction; not a frozen module contract)
+C01 lineage: m11-contract-candidate-v0.1 merged through PR #101; audit C01 through PR #103; original M11-I01..I26 and 44 original S04/S05 questions retained.
 Module: M11 | Work Order: IRIS-WO-0015 | Issue: #82 OPEN
 Planning base: 9acfe5400a490a996602d5b09f7adb3d92b3050b | base tree: 578a11b3a90f5087bc7fd66c8e72e28d0d04d4af
 
@@ -143,3 +144,58 @@ CI validation in this documentation increment proves repository consistency only
 ## 8. Disposition
 
 This is m11-contract-candidate-v0.1 PROPOSED_C01, not frozen m11-contract-v1.0. Independent planning audit and source-backed owner decisions are separate necessary gates; no M11/M10 implementation, process/IPC action, authorization model, numeric policy or technology default is admitted. M10 remains frozen at m10-contract-v1.0; WO-0014 BLOCKED; Issue #82 OPEN.
+
+## 9. C02 Correction Delta: minimum semantic safety interfaces (proposal, not freeze)
+
+C02 revises only this candidate to `m11-contract-candidate-v0.2` from the audited C01 draft. Bound correction base: `6006be5af8f58ac6eec00df030fffab2d1d121ab` / tree `039f6fc7e4d89a20af830bdd09ad994a8a26ee58`, after separate audit PR #103 protected merge and exact-main Governance #440 (run 36285939240). C01 I01–I26 and all 44 original S04/S05 OPEN questions remain unchanged; this annex adds positive M11-owned *semantic records and refusal behavior* without adopting a wire schema, IPC, OS adapter, authentication principal, provider, concurrency limit or executable policy. M12/M54/M60 owner contracts are not available. Therefore every callable process start/control capability remains **DISABLED**. Read this annex together with §§2–8 and the AUD-C01-H01..H03 audit obligations.
+
+### 9.1 M11 semantic input and preflight envelope (AUD-C01-H01)
+
+The proposed M11-owned `WorkerRequestEnvelope` has required fields with the following semantic meanings. These names are candidate logical roles, not an exported API or an assertion that another owner already exposes a matching port:
+
+| Required role | Minimum semantic obligation | Authority |
+|---|---|---|
+| M11 correlation reference | A request-local opaque unique reference and revision scoped solely to M11 process evidence; not M02 work identity or authorization. | M11 |
+| M02 accepted-work evidence | Exact owner-issued work/plan reference and verifiable accepted-status evidence, with issuer/contract revision and provenance. Missing or merely proposed M10/M02 evidence is non-admitting. | M02 |
+| M09 grant-state evidence | An owner-issued, verifiable, currently applicable resource decision/reference, bound to the same workload/resource scope. M11 does not create or renew a lease or assert current capacity. | M09 |
+| M12 placement decision | Owner-issued target/scope and validity evidence under the future M12 contract. No local/remote placement or queue ownership is inferred. | M12 (PENDING) |
+| M54 authorization decision | Owner-issued and verifiable permission decision bound to actor/subject reference, requested action, target scope and current validity. Principal schema, cryptography and policy stay exclusively M54-owned. | M54 (PENDING) |
+| M60 platform capability | Owner-proven platform/adapter capability and supported action/target validity, including executable, environment and process-rights prerequisites where applicable. | M60 (PENDING) |
+| M06 attempt association | Only when an actual M06-issued attempt reference is available; absence must be represented explicitly and cannot be fabricated. Never an M11 completion result. | M06 |
+
+Each owner proof requires an opaque issuer/source reference, contract/revision reference, evidence scope, capture/freshness disposition and explicit validity or unknown/error result **when such an owning port exists**. These obligations do not specify another owner's data schema or numeric expiry. The envelope is invalid if proofs conflict or are not for the *same exact request and intended action*. An unavailable owner contract/port is `UNSUPPORTED`, not a convenient default. If M54 or M12 cannot issue/verify an applicable decision, a positive execution preflight is impossible.
+
+`M11PreflightDisposition` has separate logical outcomes `DENIED`, `UNSUPPORTED`, `INDETERMINATE`, `STALE_OR_CONFLICTING`, and `CONTRACT_ELIGIBLE`. The last is a documentation-only statement that all applicable **owner-issued** obligations were verified in a future admitted implementation; it is neither a dispatch permission nor an OS-action receipt. No outcome permits execution from this candidate. Fail-closed is mandatory for every nonpositive/missing input. M11 may never infer permissions from an OS handle, a numeric PID, an existing process, an M10 recommendation, local availability or stale telemetry. A future M54-owned permission port and M12-owned placement port are mandatory before any positive start/control outcome can be admitted.
+
+### 9.2 Positive process-ownership evidence boundary (AUD-C01-H02)
+
+The proposed `ProcessCapabilityEvidence` is an opaque, versioned and action-scoped OS-association proof, minted only from an actual M11-authorized launch and an M60-qualified platform/adapter owner. Its required logical roles are: the exact M11 request/revision, source and provenance of the **OS-issued process handle or equivalent owner capability**, verified direct-child/parent or owner relationship, rights to observe/wait/control *for the requested operation*, handle lifetime and freshness/validity result, platform/adapter capability proof, and distinct descendant-containment support or explicit `UNSUPPORTED`. A numeric PID/PPID, process name, command line, inherited environment, process group ID or OS exit code never substitutes for this proof. If any proof is absent, reused, stale, inaccessible, foreign or conflicting, disposition is `NO_CONTROL` / `INDETERMINATE`. No process is signaled, collected, waited on, terminated or claimed cleaned up under this proposal.
+
+`ProcessObservation` must bind that exact capability and explicitly distinguish `RUNNING_OBSERVED`, `EXIT_OBSERVED`, `OBSERVATION_FAILED`, `UNKNOWN` and `UNSUPPORTED` at the evidence scope and capture time. No observation establishes current M09 lease state or final M06 attempt status. Descendant observation/containment is independent from a direct-child relationship; unsupported POSIX group, optional subreaper, Windows Job Object, inherited job, process breakaway and OS privilege semantics remain separate M60 proofs. Reaping must be `NOT_PERMITTED` until a still-valid owner-issued wait/reap right is positively verified; neither parent death nor PID matching grants that right. No default supported OS/kernel/service matrix is selected.
+
+### 9.3 Ordered control, incomplete outcome and recovery boundary (AUD-C01-H03)
+
+The proposed `M11ControlEvidenceSeries` is an append-only *logical* sequence, with one M11 correlation reference, exact request/action/scope and versioned provenance. Each distinct stage is independently observable and may remain unknown: `INTENT_RECORDED`, `OWNER_AUTHORIZATION_VERIFIED`, `OS_OPERATION_ATTEMPTED`, `OS_DELIVERY_OBSERVED`, `EXIT_OBSERVED`, `M06_OUTCOME_REFERENCED`. These are evidence categories, not an adopted state machine, transport protocol or assumption that every stage occurred. A cancellation request, accepted request, coroutine/IPC timeout, signal attempt and process exit must never be collapsed. Only an M06-issued outcome reference can describe the M06 attempt; only the owning quality/provenance/storage/publishing owners may accept or discard outputs.
+
+`M11RecoveryReconciliation` is observation-first and has `UNKNOWN` as its safe default for lost/stale/ambiguous handles, supervisor crash, conflicting records, unreachable worker or unknown external side effects. No automatic retry/restart, duplicate launch, process reclamation, owner lease release, storage deletion, attempt promotion or recovery journal is selected or allowed by this candidate. A future positive replay/restart requires *all* independently verified owner decisions for M02 causality/idempotency, M06 attempt/recovery evidence, M09 resource state, M12 placement, M54 authorization and M60 platform support; their schema and policy are external and pending. Missing any one yields `NOT_ADMITTED` and an explicit owner-specific missing/unknown reason. M11's local correlation reference alone never establishes idempotency.
+
+### 9.4 C02 additive proof obligations and invariant proposals
+
+| ID | Additional proposed invariant |
+|---|---|
+| M11-I27 | Every candidate M11 request binds one exact owner-accepted M02 work/plan reference and per-action M11 correlation; neither identity authorizes execution. |
+| M11-I28 | An M11 preflight may be positive only with mutually applicable, currently verifiable M02/M09/M12/M54/M60 owner proofs; any missing, stale, conflicting, denied or unsupported owner decision is non-admitting. |
+| M11-I29 | Until versioned M12, M54 and M60 ports and independent platform/security proof exist, start/control remain DISABLED even if documentation CI passes. |
+| M11-I30 | A controllable process requires an M60-qualified, action-scoped and lifetime-valid OS capability bound to the exact M11 request, never just PID/PPID or process name. |
+| M11-I31 | Foreign, ambiguous, stale, reused, inherited or inaccessible process identities are never controllable by M11. |
+| M11-I32 | Waiting/reaping and descendant containment require separately proven valid platform/owner rights and capabilities; unsupported behavior remains UNSUPPORTED. |
+| M11-I33 | Record control intent, authorization verification, OS attempt, delivery observation, OS exit and M06 outcome as separate provenance-bound evidence categories. |
+| M11-I34 | Timeout, interrupted IPC, lost parent, cancellation or unknown process observation cannot be promoted to a confirmed OS exit or M06 success. |
+| M11-I35 | Recovery with missing or conflicting authority remains UNKNOWN and cannot trigger retries, relaunches, deletion, lease changes or duplicate external effects. |
+| M11-I36 | Any future replay/restart requires independent fresh owner-issued M02/M06/M09/M12/M54/M60 authorizations; M11 supplies evidence, never overrides their policy. |
+
+The minimum semantic proof matrix for later owner-approved implementation/benchmark planning is: `PO-C02-01` M54 authorization unavailable ⇒ no positive preflight; `PO-C02-02` stale/conflicting M09 evidence ⇒ no resource claim or start; `PO-C02-03` M12 placement unknown ⇒ no implicit local placement; `PO-C02-04` PID reuse/foreign handle ⇒ no control or reap; `PO-C02-05` cancelled coroutine/IPC timeout without exit evidence ⇒ unknown process outcome; `PO-C02-06` supervisor crash with ambiguous external effects ⇒ no automatic relaunch; `PO-C02-07` partial output after OS exit ⇒ no M06 materialization, rights, quality or release claim; `PO-C02-08` unsupported POSIX/Windows descendant capability ⇒ no cleanup guarantee. These are **future proof obligations**, not executed runtime tests in this documentation correction.
+
+### 9.5 Corrective disposition and STOP boundary
+
+This C02 proposal responds to `AUD-C01-H01`, `H02` and `H03` with concrete M11-owned input, output, error/unknown and permission-verification *boundary semantics*. The actual M54 principal and security policy, M12 placement, M60 adapter/OS rights, M06 attempt port, numeric timeouts, resource/workstation headroom, runtime technology and IPC serialization remain pending their owners. Re-audit the corrected candidate on its **exact final head**; an independent reviewer, not the executor, must decide whether those three findings are discharged within the inert semantic-freeze scope. Nothing here freezes `m11-contract-v1.0`, grants executable process authority or admits M10/M11 implementation. Issue #82 stays OPEN.
