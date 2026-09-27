@@ -2406,7 +2406,7 @@
     "ownerDecision": "PENDING_NOT_APPROVED"
   },
   "m11C08M09ReadinessAndCaseSplit": {
-    "status": "PROPOSED_PENDING_EXACT_HEAD_SEPARATE_REVIEW",
+    "status": "MERGED_EXACT_MAIN_PASS_M09_OWNER_UNDECIDED",
     "workOrder": "IRIS-WO-0015",
     "increment": "M11-C08-M09-READINESS-AND-CASE-SPLIT",
     "issue": 82,
@@ -2427,6 +2427,53 @@
     "M10M11Implementation": "NOT_ADMITTED",
     "processActions": "DISABLED",
     "futureOwners": "M12-M60 PENDING/UNRATED",
-    "issues110112": "OPEN"
+    "issues110112": "OPEN",
+    "reviewedHead": "8fd92397689079f62b8fa00458186e6790317f61",
+    "reviewCommentId": 5855170620,
+    "mergeCommit": "7cdfa0015eaf67bac570deea67177239bb4549af",
+    "exactHeadGovernance": {
+      "number": 455,
+      "run": 36313625629,
+      "job": 108604107101,
+      "headSha": "8fd92397689079f62b8fa00458186e6790317f61",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "exactMainGovernance": {
+      "number": 456,
+      "run": 36313693003,
+      "job": 108604292035,
+      "headSha": "7cdfa0015eaf67bac570deea67177239bb4549af",
+      "treeSha": "6030279a39a95920c6e1e5ef7288ecfce1818239",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "ownerReviewIssues": [
+      110,
+      112
+    ],
+    "ownerContractStatus": "UNDECIDED_PRESERVE_FROZEN_V1_0",
+    "C08Drafts": "10/10 NOT_EXECUTED",
+    "S03U08": "OPEN_UNRATED"
+  },
+  "m11C09M09WO0016PlanningAdmission": {
+    "status": "PROPOSED_PENDING_EXACT_HEAD_GOVERNANCE_AND_SEPARATE_SCOPED_REVIEW",
+    "workOrder": "IRIS-WO-0016",
+    "sourceWorkOrder": "IRIS-WO-0015",
+    "issue": 112,
+    "dependencyIssues": [
+      110,
+      82
+    ],
+    "baseSha": "7cdfa0015eaf67bac570deea67177239bb4549af",
+    "baseTreeSha": "6030279a39a95920c6e1e5ef7288ecfce1818239",
+    "criticalSourceBlobs": "68/68 EXACT_BASE",
+    "authorizedFiles": 10,
+    "M09OwnerExtension": "PLANNING_ADMISSION_ONLY_NOT_OWNER_CONTRACT",
+    "oldM09Contract": "m09-contract-v1.0 FROZEN_UNCHANGED",
+    "options": "3 RESEARCHED_NONE_SELECTED",
+    "HXProofs": "12 SPECIFIED_NOT_EXECUTED",
+    "M11Questions": "86 OPEN_UNRATED",
+    "M11Process": "DISABLED"
   }
 }

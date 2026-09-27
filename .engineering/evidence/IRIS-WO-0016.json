@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "iris-evidence-v1",
+  "workOrder": "IRIS-WO-0016",
+  "issue": 112,
+  "dependencyIssues": [
+    110,
+    82
+  ],
+  "proposal": "M09_READ_ONLY_RESOURCE_EVIDENCE_HANDOFF_PLANNING_ADMISSION",
+  "baseSha": "7cdfa0015eaf67bac570deea67177239bb4549af",
+  "baseTreeSha": "6030279a39a95920c6e1e5ef7288ecfce1818239",
+  "status": "PROPOSED_PLANNING_ADMISSION_PENDING_REVIEW",
+  "criticalSourceBlobs": {
+    "expected": 68,
+    "matched": 68,
+    "mismatches": 0
+  },
+  "allowlistedPaths": 10,
+  "oldM09Contract": {
+    "version": "m09-contract-v1.0",
+    "state": "FROZEN_UNCHANGED",
+    "surfaces": 83,
+    "absorbed": 15,
+    "invariants": 514
+  },
+  "preflight": {
+    "threeAlternatives": [
+      "EXISTING_SINGLE_OWNER_IN_PROCESS_READ_ONLY",
+      "FUTURE_M09_VERSIONED_OWNER_READ_ONLY_RECEIPT",
+      "NEGATIVE_ONLY_STATUS_PROJECTION"
+    ],
+    "selected": "NONE_PENDING_OWNER_REVIEW",
+    "futureNegativeProofs": 12,
+    "executed": 0,
+    "physicalTests": 0,
+    "scope": "PLANNING_ONLY"
+  },
+  "S03U08": "OPEN_UNRATED",
+  "C08Drafts": "10 NOT_EXECUTED",
+  "POC02": "8 NOT_EXECUTED",
+  "M11": "NOT_FROZEN",
+  "M10M11Implementation": "NOT_ADMITTED",
+  "processActions": "DISABLED",
+  "M12M60": "PENDING_UNRATED",
+  "approval": "NOT_OWNER_ADOPTED",
+  "exactHeadGovernance": "REQUIRED",
+  "separateReview": "REQUIRED",
+  "merge": "BLOCKED_UNTIL_GATES"
+}
