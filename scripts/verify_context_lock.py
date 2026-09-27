@@ -16,6 +16,8 @@ SHA40 = re.compile(r"[0-9a-f]{40}\Z")
 LOCK_PREFIX = ".engineering/context-locks/"
 LOCK_SUFFIX = ".json"
 
+MANDATORY_SOURCE_PATHS = frozenset(['AGENTS.md','.engineering/SOURCE-HIERARCHY.md','docs/project-brain/13-CHECKPOINT.md','docs/project-brain/16-DECISIONS-LEDGER.md','docs/project-brain/03-SCOPE.md','docs/project-brain/15-DEFINITION-OF-DONE.md','docs/project-brain/04-ARCHITECTURE.md','docs/project-brain/02-REQUIREMENTS.md'])
+
 
 class ContextLockError(ValueError):
     """A PR lacks verifiable, internally consistent Git source/scope evidence."""
@@ -70,6 +72,8 @@ def verify_lock(
         source_paths.add(path)
         expected = check_sha(row.get("gitBlobSha1"), f"source {path}")
         require(base_blobs.get(path) == expected, f"source Git blob mismatch or absent at base: {path}")
+    missing = sorted(MANDATORY_SOURCE_PATHS - source_paths)
+    require(not missing, f"missing canonical mandatory sources: {missing}")
     for field in ("expected", "checked", "matched"):
         require(type(snapshot.get(field)) is int and snapshot[field] == len(sources), f"source count {field} mismatch")
     require(type(snapshot.get("mismatches")) is int and snapshot["mismatches"] == 0, "source mismatches must be zero")

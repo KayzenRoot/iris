@@ -31,10 +31,11 @@
     "source": ".github/workflows/governance.yml",
     "gap": "EXISTING_CI_VALIDATES_CHECKPOINT_AND_SUITE_BUT_NOT_CONTEXT_LOCK_SOURCE_SHAS_OR_PR_FILE_ALLOWLIST",
     "classification": "CHAT_FIXABLE",
-    "scope": "NEW_PR_ONLY_STRICT_LOCK_CHECK_GIT_EVIDENCE"
+    "scope": "NEW_PR_ONLY_STRICT_LOCK_CHECK_GIT_EVIDENCE",
+    "additionalGuard": "EIGHT_CANONICAL_SOURCE_HIERARCHY_ROOTS_MANDATORY"
   },
   "proposedTests": {
-    "count": 18,
+    "count": 19,
     "status": "AUTHORED_PENDING_CI",
     "categories": [
       "exact-valid-pure",
@@ -44,7 +45,8 @@
       "unauthorized actual PR changes",
       "unsafe paths",
       "duplicate JSON keys",
-      "real local Git positive and negative fixtures"
+      "real local Git positive and negative fixtures",
+      "mandatory source hierarchy cannot be omitted even with truthful counters"
     ]
   },
   "priorWO17": {

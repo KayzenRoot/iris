@@ -9,6 +9,7 @@ from pathlib import Path
 
 from scripts.verify_context_lock import (
     ContextLockError,
+    MANDATORY_SOURCE_PATHS,
     reject_duplicate_json_keys,
     safe_path,
     verify_current_pr,
@@ -20,7 +21,7 @@ BASE = "a" * 40
 TREE = "b" * 40
 LOCK_PATH = ".engineering/context-locks/IRIS-WO-0018.json"
 SOURCE_PATH = ".engineering/SOURCE-HIERARCHY.md"
-BLOB = "c" * 40
+SOURCES = {path: f"{index + 1:040x}" for index, path in enumerate(sorted(MANDATORY_SOURCE_PATHS))}
 
 
 def fixture():
@@ -34,15 +35,15 @@ def fixture():
             "algorithm": "Git blob SHA-1",
             "baseSha": BASE,
             "baseTreeSha": TREE,
-            "expected": 1,
-            "checked": 1,
-            "matched": 1,
+            "expected": len(SOURCES),
+            "checked": len(SOURCES),
+            "matched": len(SOURCES),
             "mismatches": 0,
         },
-        "criticalSources": [{"path": SOURCE_PATH, "gitBlobSha1": BLOB}],
+        "criticalSources": [{"path": path, "gitBlobSha1": blob} for path, blob in SOURCES.items()],
         "authorizedChangedFiles": [LOCK_PATH, "scripts/verify_context_lock.py"],
     }
-    return lock, {SOURCE_PATH: BLOB}, {LOCK_PATH, "scripts/verify_context_lock.py"}
+    return lock, dict(SOURCES), {LOCK_PATH, "scripts/verify_context_lock.py"}
 
 
 class ContextLockPureTests(unittest.TestCase):
@@ -67,6 +68,14 @@ class ContextLockPureTests(unittest.TestCase):
         lock, sources, changed = fixture()
         lock["criticalSources"].append(deepcopy(lock["criticalSources"][0]))
         with self.assertRaisesRegex(ContextLockError, "duplicate critical source"):
+            self.check(lock, sources, changed)
+
+    def test_missing_canonical_mandatory_source_fails_closed(self):
+        lock, sources, changed = fixture()
+        lock["criticalSources"] = [row for row in lock["criticalSources"] if row["path"] != SOURCE_PATH]
+        for field in ("expected", "checked", "matched"):
+            lock["sourceSnapshot"][field] -= 1
+        with self.assertRaisesRegex(ContextLockError, "missing canonical mandatory sources"):
             self.check(lock, sources, changed)
 
     def test_false_count_fails_closed(self):
@@ -135,14 +144,15 @@ class ContextLockRealGitTests(unittest.TestCase):
         self.git(root, "init", "-q")
         self.git(root, "config", "user.email", "ci@example.invalid")
         self.git(root, "config", "user.name", "CI Fixture")
-        source = root / SOURCE_PATH
-        source.parent.mkdir(parents=True)
-        source.write_text("# Hierarchy\n", encoding="utf-8")
-        self.git(root, "add", SOURCE_PATH)
+        for path in sorted(MANDATORY_SOURCE_PATHS):
+            source = root / path
+            source.parent.mkdir(parents=True, exist_ok=True)
+            source.write_text(f"# Pinned source {path}\n", encoding="utf-8")
+        self.git(root, "add", "-A")
         self.git(root, "commit", "-q", "-m", "base")
         base = self.git(root, "rev-parse", "HEAD")
         tree = self.git(root, "rev-parse", "HEAD^{tree}")
-        blob = self.git(root, "rev-parse", f"HEAD:{SOURCE_PATH}")
+        base_sources = [{"path": path, "gitBlobSha1": self.git(root, "rev-parse", f"HEAD:{path}")} for path in sorted(MANDATORY_SOURCE_PATHS)]
         script = root / "scripts" / "verify_context_lock.py"
         script.parent.mkdir()
         script.write_text("# changed script fixture\n", encoding="utf-8")
@@ -152,8 +162,8 @@ class ContextLockRealGitTests(unittest.TestCase):
                 "schemaVersion": "iris-context-lock-v1",
                 "workOrder": "IRIS-WO-0018", "issue": 120,
                 "baseSha": base, "baseTreeSha": tree,
-                "sourceSnapshot": {"algorithm": "Git blob SHA-1", "expected": 1, "checked": 1, "matched": 1, "mismatches": 0},
-                "criticalSources": [{"path": SOURCE_PATH, "gitBlobSha1": blob}],
+                "sourceSnapshot": {"algorithm": "Git blob SHA-1", "expected": len(base_sources), "checked": len(base_sources), "matched": len(base_sources), "mismatches": 0},
+                "criticalSources": base_sources,
                 "authorizedChangedFiles": allowed,
             }
             path = root / LOCK_PATH
