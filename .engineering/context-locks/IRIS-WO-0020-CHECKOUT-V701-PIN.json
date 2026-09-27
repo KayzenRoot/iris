@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0020",
+  "increment": "OFFICIAL_CHECKOUT_V701_FULL_SHA_ACTION_PIN",
+  "issue": 124,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0020-checkout-v701-pin-20260927",
+  "baseRef": "main",
+  "baseSha": "ad99f343431a0984fedb99746c64fb26462d7ad2",
+  "baseTreeSha": "f74b481d51953d183b8a84ea8ee24cc85155b96d",
+  "status": "PROPOSED_PENDING_EXACT_HEAD_AUDIT",
+  "risk": "ELEVATED_SUPPLY_CHAIN_CI",
+  "scope": "ONE_WORKFLOW_PIN_UPDATE_WITH_PRIOR_RECEIPTS_AND_GOVERNANCE_EVIDENCE_ONLY",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "ad99f343431a0984fedb99746c64fb26462d7ad2",
+    "baseTreeSha": "f74b481d51953d183b8a84ea8ee24cc85155b96d",
+    "expected": 31,
+    "checked": 31,
+    "matched": 31,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "18029f4c685cc8597242a6f949adbe2861f9f89e"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "6b9146ac052d895b662a14de988c290339dcc64e"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "f4bdb060e48984e021518aee7c20929bf7399e45"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "f4bdb060e48984e021518aee7c20929bf7399e45"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "69fffd85b3e8562a200aeab231e7199489812798"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "748182e1c72434526d3d7958c4588be90af638de"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "39ebd902e1c80d0e991247927fe9c40005e0edb8"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "docs/project-brain/05-INTEGRATION-CONTRACTS.md",
+      "gitBlobSha1": "1c2d0e3462794cee64f83831ea07d9f9ac120663"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "gitBlobSha1": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/gef/GEF-EVIDENCE-SPEC.md",
+      "gitBlobSha1": "ddb082eb7066e3c1e807f04a0037312d06e454df"
+    },
+    {
+      "path": ".engineering/gef/GEF-SOURCE-BRIDGE.json",
+      "gitBlobSha1": "58d3e8df127ac504cc965485badd705de67492bf"
+    },
+    {
+      "path": ".engineering/gef/GEF-PROJECT-PROFILE.json",
+      "gitBlobSha1": "26f0cdb0225249b242c4189cd8d8257976513b66"
+    },
+    {
+      "path": ".engineering/BOOTSTRAP-MANIFEST.json",
+      "gitBlobSha1": "5767037d78ca6f9dfe60178b7c67f854e40db1b9"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0019-DEPENDABOT-ACTION-PIN-GATE.md",
+      "gitBlobSha1": "c2aec8f7355a007e0da1ff38d9cd2fe727d8755f"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0019-DEPENDABOT-ACTION-PIN-GATE.json",
+      "gitBlobSha1": "18753c7e14f788f19529235cfecf89395db05cad"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0019.json",
+      "gitBlobSha1": "4abcca4295f3320dee95953ddfbad3fbf46f49e7"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0018.json",
+      "gitBlobSha1": "8afb471b18f3325376929db2334563c3be953abd"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "gitBlobSha1": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": ".github/workflows/governance.yml",
+      "gitBlobSha1": "2d12de159a12ef1470cd4f8cd5639b976d6adc1f"
+    },
+    {
+      "path": "scripts/validate_governance.py",
+      "gitBlobSha1": "063df39b7513bd1e6226e574a4722185823bb694"
+    },
+    {
+      "path": "scripts/verify_context_lock.py",
+      "gitBlobSha1": "e86bc1e25a4d85e7cac64bfcba86e23993f96351"
+    },
+    {
+      "path": "tests/test_context_lock_verifier.py",
+      "gitBlobSha1": "05addbe3153d749d0201331665bcee212784c702"
+    },
+    {
+      "path": "tests/test_dependabot_pin_guard.py",
+      "gitBlobSha1": "06e3775a5a9d09099181b514d1a862ebdfdae85f"
+    },
+    {
+      "path": "tests/test_checkpoint_mirror_guard.py",
+      "gitBlobSha1": "b93784230e00c288ab517d2790d8678ec5e52b2b"
+    },
+    {
+      "path": "planning/reviews/IRIS-WO-0019-DEPENDABOT-ACTION-PIN-AUDIT.md",
+      "gitBlobSha1": "5ae5c663cac5147f7aa573fdc8f7d5473ecd956a"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".github/workflows/governance.yml",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0019.json",
+    ".engineering/evidence/IRIS-WO-0020.json",
+    ".engineering/context-locks/IRIS-WO-0020-CHECKOUT-V701-PIN.json",
+    ".engineering/work-orders/IRIS-WO-0020-CHECKOUT-V701-PIN.md",
+    "planning/reviews/IRIS-WO-0020-CHECKOUT-V701-PIN-AUDIT.md"
+  ],
+  "exactHeadGovernance": {
+    "status": "REQUIRED_ON_FINAL_PR_HEAD"
+  },
+  "stopCondition": "No bot PR #16 merge before own exact-head CI. Do not change any frozen module contract, product runtime, process controls, GEF/HIVE pins or approved historical sources."
+}

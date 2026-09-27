@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0020",
+  "issue": 124,
+  "status": "PROPOSED_PENDING_EXACT_HEAD_CI_AND_BOUNDED_AUDIT",
+  "scope": "ONE_LINE_OFFICIAL_CHECKOUT_FULL_PIN",
+  "baseSha": "ad99f343431a0984fedb99746c64fb26462d7ad2",
+  "baseTreeSha": "f74b481d51953d183b8a84ea8ee24cc85155b96d",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "expected": 31,
+    "checked": 31,
+    "matched": 31,
+    "mismatches": 0
+  },
+  "authorizedChangedFiles": [
+    ".github/workflows/governance.yml",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0019.json",
+    ".engineering/evidence/IRIS-WO-0020.json",
+    ".engineering/context-locks/IRIS-WO-0020-CHECKOUT-V701-PIN.json",
+    ".engineering/work-orders/IRIS-WO-0020-CHECKOUT-V701-PIN.md",
+    "planning/reviews/IRIS-WO-0020-CHECKOUT-V701-PIN-AUDIT.md"
+  ],
+  "upstreamOfficialRelease": {
+    "repository": "actions/checkout",
+    "tag": "v7.0.1",
+    "refApi": "https://api.github.com/repos/actions/checkout/git/ref/tags/v7.0.1",
+    "refType": "commit",
+    "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+    "verifiedViaGitHubAPI": true
+  },
+  "workflow": {
+    "path": ".github/workflows/governance.yml",
+    "oldPinnedLine": "uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5",
+    "newPinnedLine": "uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1",
+    "setupPythonPinnedSha": "5fda3b95a4ea91299a34e894583c3862153e4b97",
+    "keepFetchDepthZero": true,
+    "workflowChangeCount": 1
+  },
+  "dependabotPR16": {
+    "state": "OPEN_BUT_STALLED_NO_EXACT_HEAD_CI",
+    "oldCI": {
+      "n": 476,
+      "head": "78b5fa62e5c444e602acc8b57e2140e925dac328",
+      "result": "PASS_ON_OBSOLETE_HEAD"
+    },
+    "rebasedHead": "1c4ed2ad23cdb0b91c34d081215b6c29a3b3cce3",
+    "rebasedBase": "ad99f343431a0984fedb99746c64fb26462d7ad2",
+    "headCI": "MISSING_AFTER_REBASE_AND_REOPEN",
+    "postMergeDisposition": "CLOSE_AS_SUPERSEDED_IF_THIS_PR_SUCCEEDS"
+  },
+  "prior": {
+    "WO0019": {
+      "pr": 123,
+      "headGovernance": 473,
+      "mainGovernance": 474,
+      "tests": "3979/3979"
+    },
+    "PR15": {
+      "pr": 15,
+      "headGovernance": 475,
+      "mainGovernance": 477,
+      "tests": "3979/3979",
+      "merge": "ad99f343431a0984fedb99746c64fb26462d7ad2"
+    }
+  },
+  "validation": {
+    "baselineTests": 3979,
+    "newTests": 0,
+    "exactHeadGovernance": "REQUIRED",
+    "separateBoundedAudit": "REQUIRED",
+    "exactMainGovernance": "REQUIRED"
+  },
+  "M09": "m09-contract-v1.0 FROZEN_UNCHANGED",
+  "M11": "m11-contract-candidate-v0.2 NOT_FROZEN",
+  "M10M11Implementation": "NOT_ADMITTED",
+  "M09OwnerDecision": "ISSUE_110_PENDING_NONE_SELECTED"
+}
