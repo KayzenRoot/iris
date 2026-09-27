@@ -1,0 +1,18 @@
+# IRIS-WO-0032: M12 C03 19 source-constrained owner discussion packets
+
+Status: ADMITTED_FOR_SOURCE_ONLY_NONBINDING_ANALYSIS_AND_TESTS
+Issue: #128 OPEN | #82/#110/#112 OPEN
+Exact source base: `1856e91eac15deeb6ba553dcfbdc24b8651de0a1` (tree `66f946a2c8ae8b36f5b0ed34c9ace9dbf5e5ddc3`), exact-main Governance #507 run 36331435773/job 108654016783 PASS **4054/4054**.
+Branch: `iris-wo-0032-m12-19-nonbinding-owner-packets-20260927`.
+
+## OBJECTIVE
+IRIS-WO-0031 via protected PR #138 created a deterministic owner-intake map from 110 OPEN/UNRATED M12 questions. The 19-question lane `M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS` has source facts available from M02/M06/M09/M10 without the still-missing #110 topology selection. Produce a substantive, source-anchored *discussion* for each of those 19 original questions: a bounded nonbinding candidate interpretation, one clear unproved owner/cross-module gap, and direct traceability to exact existing future negative scenario IDs. This is source-only owner preparation, never the owner's formal answer, contract freeze, risk rating or implementation authority.
+
+## EXACT SOURCES, OWNER CONSTRAINTS AND DIFFERENTIATION
+Pin 31 Git-base SHA-1 blobs including eight authority roots and live C02 routing, register and original research, frozen-source contract/docs M02/M06/M09/M10, explicit unadopted M09 C01 candidate, M09 C02 inherited blockers, M11/M12 unapproved candidates, prior WO0031 evidence and pinned CI policy. Do not reassign original owner labels or add owners by citing supporting cross-module sources. Frozen source guarantees establish *constraints*, not M12 API/adoption. Preserve original M12 110 OPEN/UNRATED and all original 80 NOT_EXECUTED future cases and four inherited C02 HIGH-for-freeze blockers.
+
+## CHANGED FILES AND ACCEPTANCE
+Exactly 11 authorized paths, 31/31 exact source blob SHA-1 pins in Context Lock. New machine C03 packet has 19 unique original questions (S01 3; S02 7; S03 6; S05 3) and 23 distinct references to **existing** future negative oracle IDs, never new executed cases. New `scripts/verify_m12_c03_discussion.py` independently re-verifies C02 and original M12 evidence, checks each original ID/text/owner/session/open status, pinned frozen-source text anchors and Git-blob fingerprints, exact negative scenario IDs and inherited high links, fail-closed stop, and exact human report mirror. Add 36 stdlib regression tests including hostile forgery of statuses, owner IDs, source SHA/anchor, #110 selection, deleted H01–H04 and scenario execution claims. Reconcile verified PR #138 head #506/exact-main #507 historical receipts within this meaningful increment. Update necessary-next backlog and create historical WO checkpoint; do not promote canonical project-state checkpoint, change candidate contracts, source register/route or frozen code, pin/deployment or GitHub workflow.
+
+## INVARIANT STOP
+M09 #110 A/B/C/limited stages/DEFER **NONE_SELECTED**, C01 **UNADOPTED**; H01–H04 remain **OPEN HIGH_FOR_FUTURE_FREEZE**. M11 v0.2 **NOT_FROZEN** 86 OPEN, M12 v0.1 **PREPARED_FOR_OWNER_REVIEW_ONLY/NOT_FROZEN** 110 OPEN, 80 future tests SPECIFIED_NOT_EXECUTED, M54/M58/M60 source-specific owner contracts absent. M10/M11/M12 runtime NOT_ADMITTED; no GPU/OS/network/cloud actions, resource grants or positive dispatch. Exact-head Governance expected **4090/4090** (4054+36), bounded separate same-assistant audit explicitly not independent human/owner, guarded protected squash exact audited head, exact-main PASS and issue #128 receipt required. STOP after a source-only packet; later freeze/implementation only after actual source-backed #110 owner choice/H01–H04 proofs and separate Work Order.

@@ -1,0 +1,163 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0032",
+  "increment": "M12_C03_NINETEEN_SOURCE_CONSTRAINED_DISCUSSION_PACKETS_ONLY",
+  "issue": 128,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0032-m12-19-nonbinding-owner-packets-20260927",
+  "baseRef": "main",
+  "baseSha": "1856e91eac15deeb6ba553dcfbdc24b8651de0a1",
+  "baseTreeSha": "66f946a2c8ae8b36f5b0ed34c9ace9dbf5e5ddc3",
+  "status": "PROPOSED_PENDING_OWN_EXACT_HEAD_CI_AND_BOUNDED_REVIEW",
+  "risk": "LOW_SOURCE_DOCUMENTATION_WITH_INHERITED_OPEN_HIGH_FREEZE_BLOCKERS",
+  "scope": "19_NONBINDING_FROZEN_SOURCE_ANCHORED_QUESTIONS_23_DISTINCT_EXISTING_ORACLES_36_TESTS",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "1856e91eac15deeb6ba553dcfbdc24b8651de0a1",
+    "baseTreeSha": "66f946a2c8ae8b36f5b0ed34c9ace9dbf5e5ddc3",
+    "expected": 31,
+    "checked": 31,
+    "matched": 31,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "6dfa91e0bb11280a403a8c46843432fff17f5e9d"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "69fffd85b3e8562a200aeab231e7199489812798"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "71b871387255f9148d482278aa95619dc5a1ca72"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "6dfa91e0bb11280a403a8c46843432fff17f5e9d"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "05cfdcf0ede45e7a69db122b733a024fd3fc93cb"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "67a1b6ccd94f52f8072158517b2dddd915601da1"
+    },
+    {
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+    },
+    {
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828"
+    },
+    {
+      "path": "planning/contracts/M09-READ-ONLY-EVIDENCE-HANDOFF-CANDIDATE.md",
+      "gitBlobSha1": "30eb7e369b2996cc5e9b5f49736e29232b45b69e"
+    },
+    {
+      "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+    },
+    {
+      "path": "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "28b3802901349263100ceaaf80c0990513dbbded"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json",
+      "gitBlobSha1": "935abe4323618ac6d583e3bd8acc827d5fe80d2c"
+    },
+    {
+      "path": ".engineering/evidence/M12-OWNER-DECISION-REGISTER.json",
+      "gitBlobSha1": "3a78744de4db70222a74ce25f00c0ef022583c77"
+    },
+    {
+      "path": ".engineering/evidence/M12-OWNER-INTAKE-C02.json",
+      "gitBlobSha1": "75c8ecea8e59a0931afc1c6558a0265cff7ac919"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0031.json",
+      "gitBlobSha1": "5518f6a7adf3f0a68c7cf16291c40513415263a0"
+    },
+    {
+      "path": "scripts/verify_m12_owner_intake.py",
+      "gitBlobSha1": "f44cbeed3d183b000f541f85b2fad15c602ba69e"
+    },
+    {
+      "path": "scripts/verify_m12_planning_evidence.py",
+      "gitBlobSha1": "85667b83f4ea6e8c10b535b4063e9efa2078ac63"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "gitBlobSha1": "3d76f9a11b0056b9b7e595fa63624445ec50ba53"
+    },
+    {
+      "path": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "gitBlobSha1": "d841ff57fa347b4d5cacd10dbdbc6d842872d1df"
+    },
+    {
+      "path": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "gitBlobSha1": "2c176b248ba0758b5e4cb102e0ac173156db72ae"
+    },
+    {
+      "path": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "gitBlobSha1": "1bf18ff4311457c710f7b3b95caa5e4f6127badc"
+    },
+    {
+      "path": "planning/reviews/M12-C02-OWNER-INTAKE-ROUTING.md",
+      "gitBlobSha1": "b6c6c7764c54b3e51e0838cafd778176fc16754e"
+    },
+    {
+      "path": ".github/workflows/governance.yml",
+      "gitBlobSha1": "02510797919b603ee94c367dc45f6ca1c9367a41"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/context-locks/IRIS-WO-0032-M12-C03-SOURCE-OWNER-PACKETS.json",
+    ".engineering/evidence/IRIS-WO-0031.json",
+    ".engineering/evidence/IRIS-WO-0032.json",
+    ".engineering/evidence/M12-C03-SOURCE-OWNER-PACKETS.json",
+    ".engineering/work-orders/IRIS-WO-0032-M12-C03-SOURCE-OWNER-PACKETS.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0032-M12-C03-SOURCE-OWNER-PACKETS.md",
+    "planning/reviews/IRIS-WO-0032-M12-C03-SOURCE-OWNER-PACKETS-AUDIT-TARGET.md",
+    "planning/reviews/M12-C03-SOURCE-OWNER-PACKETS.md",
+    "scripts/verify_m12_c03_discussion.py",
+    "tests/test_m12_c03_discussion.py"
+  ],
+  "stopCondition": "Exact-base 31/31 sources and 11/11 scoped files; all 19 original questions OPEN/UNRATED, 80 future cases NOT_EXECUTED, M09 #110 NONE_SELECTED, all H01-H04 OPEN HIGH, no runtime; require full 4090 tests and head/main Governance. No owner admission from this proposal."
+}
