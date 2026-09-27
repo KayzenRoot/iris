@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0037",
+  "increment": "H03_FOUR_OWNER_EXACT_SOURCE_ROUTING_AND_FAIL_CLOSED_DOCUMENTARY_VERIFICATION",
+  "issue": 110,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0037-h03-m12-m54-m58-m60-source-owner-packets-20260927",
+  "baseRef": "main",
+  "baseSha": "46916bdda8eef454542975cddfa527a51cb96b70",
+  "baseTreeSha": "b3bf2adaaf471f73d9b5b98acdc1fcad3a2861fe",
+  "status": "PROPOSED_PENDING_EXACT_HEAD_CI_AND_BOUNDED_AUDIT",
+  "risk": "ALL_FOUR_ORIGINAL_HIGH_FOR_FUTURE_FREEZE_BLOCKERS_STILL_OPEN",
+  "scope": "M12_72_M54_39_M58_9_M60_27_SOURCE_EXACT_OVERLAPPING_OWNER_PACKETS_24_DOCUMENTARY_TESTS_12_UNEXECUTED_FUTURE_NEGATIVES",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "46916bdda8eef454542975cddfa527a51cb96b70",
+    "baseTreeSha": "b3bf2adaaf471f73d9b5b98acdc1fcad3a2861fe",
+    "expected": 30,
+    "checked": 30,
+    "matched": 30,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "30cc0b17d34b6324aad34113cf4c40a438c990a7"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "28b3802901349263100ceaaf80c0990513dbbded"
+    },
+    {
+      "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+    },
+    {
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json",
+      "gitBlobSha1": "935abe4323618ac6d583e3bd8acc827d5fe80d2c"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-CANDIDATE-C01.json",
+      "gitBlobSha1": "3236ff8146c71da247208b0896e4e37573123fa8"
+    },
+    {
+      "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
+      "gitBlobSha1": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb"
+    },
+    {
+      "path": ".engineering/evidence/M12-OWNER-DECISION-REGISTER.json",
+      "gitBlobSha1": "3a78744de4db70222a74ce25f00c0ef022583c77"
+    },
+    {
+      "path": ".engineering/evidence/M12-OWNER-INTAKE-C02.json",
+      "gitBlobSha1": "75c8ecea8e59a0931afc1c6558a0265cff7ac919"
+    },
+    {
+      "path": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "gitBlobSha1": "3d76f9a11b0056b9b7e595fa63624445ec50ba53"
+    },
+    {
+      "path": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "gitBlobSha1": "d841ff57fa347b4d5cacd10dbdbc6d842872d1df"
+    },
+    {
+      "path": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "gitBlobSha1": "2c176b248ba0758b5e4cb102e0ac173156db72ae"
+    },
+    {
+      "path": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "gitBlobSha1": "a3928271da822b1460e4844ad3d829e03d40869e"
+    },
+    {
+      "path": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "gitBlobSha1": "1bf18ff4311457c710f7b3b95caa5e4f6127badc"
+    },
+    {
+      "path": "planning/reviews/M12-C03-SOURCE-OWNER-PACKETS.md",
+      "gitBlobSha1": "58d8a163294102dcfc1d46ce0c73901ed9449140"
+    },
+    {
+      "path": "planning/reviews/M12-C02-OWNER-INTAKE-ROUTING.md",
+      "gitBlobSha1": "b6c6c7764c54b3e51e0838cafd778176fc16754e"
+    },
+    {
+      "path": "planning/reviews/IRIS-WO-0014-M11-M60-OWNER-DEPENDENCY-REGISTER.md",
+      "gitBlobSha1": "9112422bdb6cc0b7a0309bc20366285a76921c98"
+    },
+    {
+      "path": "planning/compatibility/M12-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "cab0cde1233f6b86c58783ab64d328fc8b9bd9b4"
+    },
+    {
+      "path": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "1e5898f36b49e71f28eb18eb9582d48de60a58b4"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0036.json",
+      "gitBlobSha1": "4059fc6fed9e7fea82a1eeedcd496ceda2a0abba"
+    },
+    {
+      "path": "planning/reviews/M09-H04-SYNTHETIC-WORK-ATTEMPT-SEAM-PROBE.md",
+      "gitBlobSha1": "8b707648af93b39328ef580569f64b312f48d0ee"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "e0b052b9f97a048be73bcf8b109509eed06fa465"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/context-locks/IRIS-WO-0037-M09-H03-OWNER-PACKETS.json",
+    ".engineering/evidence/IRIS-WO-0037.json",
+    ".engineering/evidence/M09-H03-FOUR-OWNER-SOURCE-PACKETS.json",
+    ".engineering/work-orders/IRIS-WO-0037-M09-H03-OWNER-PACKETS.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0037-M09-H03-OWNER-PACKETS.md",
+    "planning/reviews/IRIS-WO-0037-M09-H03-BOUNDARY-AUDIT-TARGET.md",
+    "planning/reviews/M09-H03-FOUR-OWNER-SOURCE-PACKETS.md",
+    "scripts/verify_m09_h03_owner_packets.py",
+    "tests/test_m09_h03_owner_packets.py"
+  ],
+  "stopCondition": "H03 packets for M12 proposed and M54/M58/M60 index-only owner lanes only. Verify 30/30 exact base source SHA1, 10/10 diff and 4236/4236 suite before scoped same-assistant review, guarded protected squash and separate exact-main Governance. All 110 original M12 questions OPEN/UNRATED, all 80 original and 12 proposed H03 negative future scenarios NOT_EXECUTED, H01–H04 OPEN HIGH. No M54/M58/M60 approved contracts, M12 placement admission, M09 C01 port, API/public projection, runtime/OS/GPU/network/cloud actions or fabricated other-owner signature."
+}
