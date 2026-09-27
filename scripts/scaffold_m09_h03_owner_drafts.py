@@ -3,10 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 from pathlib import Path
-import shutil
-import tempfile
 
 from scripts.verify_m09_h03_owner_routes import (
     ROOT, PRIOR, ROUTES, read, verify_all as verify_source)
@@ -112,27 +109,67 @@ def build(packets, routes):
 
 
 def write(output: Path, files: dict[str, str]):
+    """No-clobber local publication; destination is claimed with exclusive mkdir.
+
+    No rename over the final path: on POSIX, rename may replace an EMPTY
+    directory that appeared after a previous exists() check. Fail closed if
+    another process claims the destination first. A failed write rolls back
+    only our own recorded files and our original directory inode. Any file
+    created by somebody else is preserved, never recursively removed.
+    """
     check(set(files) == FILES, "unsafe output file manifest")
+    check(all(type(content) is str for content in files.values()),
+          "every owner worksheet must contain inert UTF-8 text")
+    check(output.name not in ("", ".", ".."),
+          "a dedicated non-root output directory is required")
     check(output.parent.is_dir(), "output parent directory must exist")
+    for filename in files:
+        check(filename == Path(filename).name and "/" not in filename
+              and "\\" not in filename and not filename.startswith("."),
+              "unsafe output filename")
     check(not output.exists() and not output.is_symlink(),
           "output already exists; never overwrite user files")
-    temp = Path(tempfile.mkdtemp(prefix=".iris-h03-owner-", dir=output.parent))
+
+    # mkdir(exist_ok=False) atomically claims the final path. This is
+    # deliberately not os.rename(temp, output), which can clobber a newly
+    # created empty target directory under POSIX race conditions.
     try:
+        output.mkdir(mode=0o700, parents=False, exist_ok=False)
+    except FileExistsError as error:
+        raise ScaffoldError(
+            "output appeared during exclusive creation; never overwrite") from error
+
+    made: list[Path] = []
+    owner_stat = None
+    try:
+        owner_stat = output.stat(follow_symlinks=False)
         for filename in sorted(files):
-            check(filename == Path(filename).name and "/" not in filename
-                  and "\\" not in filename and not filename.startswith("."),
-                  "unsafe output filename")
-            path = temp / filename
+            path = output / filename
             with path.open("x", encoding="utf-8") as destination:
+                made.append(path)
                 destination.write(files[filename])
             path.chmod(0o600)
-        check(not output.exists() and not output.is_symlink(),
-              "output appeared during generation; never overwrite")
-        os.rename(temp, output)
-    finally:
-        if temp.exists():
-            shutil.rmtree(temp)
-
+    except BaseException:
+        # Do not delete a different directory substituted by another actor.
+        # Never recursively remove unexpected contents from a shared parent.
+        try:
+            if owner_stat is not None and not output.is_symlink():
+                current = output.stat(follow_symlinks=False)
+                if (current.st_dev, current.st_ino) == (
+                        owner_stat.st_dev, owner_stat.st_ino):
+                    for path in reversed(made):
+                        try:
+                            if not path.is_symlink():
+                                path.unlink(missing_ok=True)
+                        except OSError:
+                            pass
+                    try:
+                        output.rmdir()  # preserves unexpected external files
+                    except OSError:
+                        pass
+        except OSError:
+            pass
+        raise
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
