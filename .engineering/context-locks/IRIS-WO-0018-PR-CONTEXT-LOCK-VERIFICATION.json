@@ -1,0 +1,164 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0018",
+  "increment": "PR_CONTEXT_LOCK_SOURCE_SCOPE_VERIFICATION",
+  "issue": 120,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0018-ci-context-lock-verifier-20260927",
+  "baseRef": "main",
+  "baseSha": "407078499027253703ee09ec986832095d355b0f",
+  "baseTreeSha": "b1c4d9db004f152acf2cdfabf689c73566be1d78",
+  "status": "PROPOSED_PENDING_EXACT_HEAD_AND_BOUNDED_AUDIT",
+  "risk": "ELEVATED_GOVERNANCE",
+  "scope": "DETERMINISTIC_PR_GIT_BASE_CONTEXT_LOCK_AND_CHANGE_SCOPE_CHECK_ONLY",
+  "M09M11ImplementationAdmission": "NOT_ADMITTED",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "407078499027253703ee09ec986832095d355b0f",
+    "baseTreeSha": "b1c4d9db004f152acf2cdfabf689c73566be1d78",
+    "expected": 30,
+    "checked": 30,
+    "matched": 30,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "18029f4c685cc8597242a6f949adbe2861f9f89e"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "1699ef76ea3d47d164ad12587e3b821ac5b47d9f"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "6856e868edcc5cc601741f584b2a92fa6497b209"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "6856e868edcc5cc601741f584b2a92fa6497b209"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "69fffd85b3e8562a200aeab231e7199489812798"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "748182e1c72434526d3d7958c4588be90af638de"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "c495091625c0e1b937586999f0a0325588139fab"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "gitBlobSha1": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/gef/GEF-EVIDENCE-SPEC.md",
+      "gitBlobSha1": "ddb082eb7066e3c1e807f04a0037312d06e454df"
+    },
+    {
+      "path": ".engineering/gef/GEF-SOURCE-BRIDGE.json",
+      "gitBlobSha1": "58d3e8df127ac504cc965485badd705de67492bf"
+    },
+    {
+      "path": ".engineering/gef/GEF-PROJECT-PROFILE.json",
+      "gitBlobSha1": "26f0cdb0225249b242c4189cd8d8257976513b66"
+    },
+    {
+      "path": ".engineering/BOOTSTRAP-MANIFEST.json",
+      "gitBlobSha1": "5767037d78ca6f9dfe60178b7c67f854e40db1b9"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0015.json",
+      "gitBlobSha1": "e0f81f92a1db2db7431080453b0ce7a354d57ef4"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0016.json",
+      "gitBlobSha1": "b50fe3328f91ded160ebdfcf3f76e305fd62fe8c"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0017.json",
+      "gitBlobSha1": "cdc8f2a85655f1fb13a5d536cdb47e2b1c21e8e3"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0017-CHECKPOINT-MIRROR-GUARD.json",
+      "gitBlobSha1": "7339449844d20fe42d813ba9acb6684a0a3d0eaa"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0017-CHECKPOINT-MIRROR-GUARD.md",
+      "gitBlobSha1": "81e9bc5b350b427ed892fa7d3c8c461707cc0e5f"
+    },
+    {
+      "path": "planning/reviews/IRIS-WO-0017-CHECKPOINT-GUARD-AUDIT-TARGET.md",
+      "gitBlobSha1": "15740b7798fefb81fabccbd3a6aca509c5ed911c"
+    },
+    {
+      "path": "planning/research/M11-C09-REVERSE-LIVENESS-OWNER-RESEARCH.md",
+      "gitBlobSha1": "de97d44a49b9c8483aa6d5a051a0b42f97f5a3cc"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json",
+      "gitBlobSha1": "935abe4323618ac6d583e3bd8acc827d5fe80d2c"
+    },
+    {
+      "path": "scripts/validate_governance.py",
+      "gitBlobSha1": "063df39b7513bd1e6226e574a4722185823bb694"
+    },
+    {
+      "path": "tests/test_checkpoint_mirror_guard.py",
+      "gitBlobSha1": "b93784230e00c288ab517d2790d8678ec5e52b2b"
+    },
+    {
+      "path": ".github/workflows/governance.yml",
+      "gitBlobSha1": "69ad10baaf919af2789e4a91bc9614a7373ffb82"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "gitBlobSha1": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    }
+  ],
+  "authorizedChangedFiles": [
+    "scripts/verify_context_lock.py",
+    "tests/test_context_lock_verifier.py",
+    ".github/workflows/governance.yml",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0017.json",
+    ".engineering/evidence/IRIS-WO-0018.json",
+    ".engineering/context-locks/IRIS-WO-0018-PR-CONTEXT-LOCK-VERIFICATION.json",
+    ".engineering/work-orders/IRIS-WO-0018-PR-CONTEXT-LOCK-VERIFICATION.md",
+    "planning/reviews/IRIS-WO-0018-PR-CONTEXT-LOCK-AUDIT-TARGET.md"
+  ],
+  "exactHeadGovernance": {
+    "status": "REQUIRED_ON_FINAL_PR_HEAD"
+  },
+  "stopCondition": "PR must remain OPEN pending exact-head Governance and separate bounded audit. No owner-selected topology, contract freeze, product runtime/OS/GPU/process/lease action. Only reviewed protected squash merge then exact-main Governance."
+}
