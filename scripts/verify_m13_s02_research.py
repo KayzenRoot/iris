@@ -107,7 +107,7 @@ def check_packet(p: dict, root: Path = ROOT, *,
          "S01 original research falsely promoted or lost")
     refs = p["officialReferences"]
     must(type(refs) is list and len(refs) == len(URLS)
-         and [(x.get("id"), x.get("url")) for x in refs] == URLS,
+         and [[x.get("id"), x.get("url")] for x in refs] == URLS,
          "original eight upstream URL/identity source routes changed")
     for row in refs:
         must(set(row) == {
