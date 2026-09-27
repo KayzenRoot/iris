@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0019",
+  "issue": 122,
+  "status": "PROPOSED_PENDING_EXACT_HEAD_AND_SEPARATE_AUDIT",
+  "scope": "STRICT_BOT_ONLY_ACTION_PIN_CI_ELIGIBILITY",
+  "baseSha": "32e1ecc3edd698460c34bce1f28045a20d53e804",
+  "baseTreeSha": "5e3818a1719047f185c34aeb545d50ed7065f73a",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "expected": 32,
+    "checked": 32,
+    "matched": 32,
+    "mismatches": 0
+  },
+  "authorizedChangedFiles": [
+    "scripts/verify_context_lock.py",
+    "tests/test_dependabot_pin_guard.py",
+    ".github/workflows/governance.yml",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0018.json",
+    ".engineering/evidence/IRIS-WO-0019.json",
+    ".engineering/context-locks/IRIS-WO-0019-DEPENDABOT-ACTION-PIN-GATE.json",
+    ".engineering/work-orders/IRIS-WO-0019-DEPENDABOT-ACTION-PIN-GATE.md",
+    "planning/reviews/IRIS-WO-0019-DEPENDABOT-ACTION-PIN-AUDIT.md"
+  ],
+  "verifiedRegressions": [
+    {
+      "pr": 15,
+      "CI": 472,
+      "run": 36318908636,
+      "reason": "NO_CHANGED_CONTEXT_LOCK",
+      "changed": [
+        ".github/workflows/governance.yml"
+      ],
+      "actor": "dependabot[bot]",
+      "action": "setup-python"
+    },
+    {
+      "pr": 16,
+      "CI": 471,
+      "run": 36318895588,
+      "reason": "NO_CHANGED_CONTEXT_LOCK",
+      "changed": [
+        ".github/workflows/governance.yml"
+      ],
+      "actor": "dependabot[bot]",
+      "action": "checkout"
+    }
+  ],
+  "newTests": {
+    "count": 11,
+    "status": "AUTHORED_NOT_YET_CI_VERIFIED"
+  },
+  "ownerGate": "#110 PENDING NO_SELECTION",
+  "fourC02Highs": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "M09": "FROZEN_UNCHANGED",
+  "M11": "NOT_FROZEN",
+  "M10M11Implementation": "NOT_ADMITTED",
+  "processes": "DISABLED",
+  "oldTests": "3968/3968",
+  "exactHeadGovernance": "REQUIRED",
+  "independentBoundedReview": "REQUIRED",
+  "exactMainGovernance": "REQUIRED",
+  "botPRMergeAuthorization": "NONE_AUTO_MERGE"
+}

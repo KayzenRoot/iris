@@ -38,7 +38,15 @@ jobs:
         env:
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
           PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: python scripts/verify_context_lock.py --base-sha "$PR_BASE_SHA" --head-sha "$PR_HEAD_SHA"
+          PR_AUTHOR_LOGIN: ${{ github.event.pull_request.user.login }}
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          PR_HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          PR_BASE_REPO: ${{ github.repository }}
+        run: |
+          python scripts/verify_context_lock.py \
+            --base-sha "$PR_BASE_SHA" --head-sha "$PR_HEAD_SHA" \
+            --pr-author "$PR_AUTHOR_LOGIN" --pr-head-ref "$PR_HEAD_REF" \
+            --pr-head-repo "$PR_HEAD_REPO" --pr-base-repo "$PR_BASE_REPO"
       - name: Validate IRIS governance
         run: python scripts/validate_governance.py
       - name: Test GEF and HIVE bridges
