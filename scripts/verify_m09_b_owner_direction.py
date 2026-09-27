@@ -148,6 +148,12 @@ def verify_decision(record:dict,c01:dict,c02:dict,routing:dict,
             need(all(s in doc for s in (COMMENT,"B_FUTURE_OWNER_RECEIPT",
                                         "H01","H04","NOT_ADMITTED")),
                  f"authoritative {path} still lacks current B-only STOP")
+        for public_path in ("README.md","docs/project-brain/01-PROJECT-OVERVIEW.md"):
+            text=(root/public_path).read_text(encoding="utf-8")
+            need(all(m in text for m in ("B_FUTURE_OWNER_RECEIPT",
+                "DIRECTION_ONLY","5857665032","UNADOPTED_NOT_FROZEN",
+                "H01","H04","OPEN HIGH_FOR_FUTURE_FREEZE",
+                "PR #139","4090/4090")),f"stale public D01 owner state in {public_path}")
         canonical=(root/"docs/project-brain/13-CHECKPOINT.md").read_bytes()
         mirror=(root/".engineering/CHECKPOINT.md").read_bytes()
         machine=read_json(root,".engineering/CHECKPOINT.json")

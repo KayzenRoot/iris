@@ -15,8 +15,8 @@
     "mainSha": "97a9fe1666b764278de1379eadd7eda7d04799fe",
     "tests": "4090/4090"
   },
-  "scope": "FORMAL_RATIFIED_B_DIRECTION_SIX_CONCEPTUAL_ROLES_FOUR_INHERITED_OPEN_HIGH_GATES_CHECKPOINT_ADR_DELTA",
-  "sourcePins": 32,
+  "scope": "FORMAL_RATIFIED_B_DIRECTION_SIX_CONCEPTUAL_ROLES_FOUR_INHERITED_OPEN_HIGH_GATES_CHECKPOINT_ADR_DELTA_README_OVERVIEW_CURRENT_OWNER_DIRECTION",
+  "sourcePins": 35,
   "sourcePinAlgorithm": "Git blob SHA-1",
   "authorizedChangedFiles": [
     ".engineering/CHECKPOINT.json",
@@ -26,6 +26,8 @@
     ".engineering/evidence/IRIS-WO-0033.json",
     ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
     ".engineering/work-orders/IRIS-WO-0033-M09-B-DOCUMENTARY-DIRECTION.md",
+    "README.md",
+    "docs/project-brain/01-PROJECT-OVERVIEW.md",
     "docs/project-brain/03-SCOPE.md",
     "docs/project-brain/13-CHECKPOINT.md",
     "docs/project-brain/14-BACKLOG.md",
@@ -34,7 +36,8 @@
     "planning/contracts/M09-B-FUTURE-OWNER-RECEIPT-D01.md",
     "planning/reviews/IRIS-WO-0033-M09-B-DIRECTION-AUDIT-TARGET.md",
     "scripts/verify_m09_b_owner_direction.py",
-    "tests/test_m09_b_owner_direction.py"
+    "tests/test_m09_b_owner_direction.py",
+    "tests/test_public_status_docs.py"
   ],
   "legacySourcesUntouched": [
     "M09_C01",
@@ -57,12 +60,13 @@
   "m11": "NOT_FROZEN",
   "m12": "NOT_FROZEN",
   "runtime": "M10_M11_M12_NOT_ADMITTED",
-  "newFocusedTests": 45,
+  "newFocusedTests": 46,
   "baselineFullSuite": 4090,
-  "expectedFullSuite": 4135,
+  "expectedFullSuite": 4136,
   "testsStatus": "PENDING_OWN_EXACT_HEAD_CI",
   "boundedAudit": "NOT_PERFORMED",
   "merge": "NOT_MERGED",
   "exactMain": "PENDING",
-  "otherOwnerOrIndependentAudit": "NOT_PERFORMED"
+  "otherOwnerOrIndependentAudit": "NOT_PERFORMED",
+  "publicStatusRegressionTests": 1
 }
