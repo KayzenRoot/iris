@@ -1,7 +1,7 @@
 # M12 — Compute Orchestration: Local, Multi-GPU, LAN, Remote & Cloud
 
-Status: S01_COMPLETE_FOR_REFERENCE_PLANNING_S02_PROPOSED | NOT_FROZEN | IMPLEMENTATION_NOT_ADMITTED
-Planning Issue: #128 | S01 Work Order: IRIS-WO-0022, merged exact-main `032dcda35df48d53012b3b32fdabb78de17c2b41` (#485 PASS) | S02 proposal Work Order: IRIS-WO-0023, source base `032dcda35df48d53012b3b32fdabb78de17c2b41`
+Status: S01_S02_COMPLETE_FOR_REFERENCE_PLANNING_S03_PROPOSED | NOT_FROZEN | IMPLEMENTATION_NOT_ADMITTED
+Planning Issue: #128 | S01 Work Order: IRIS-WO-0022, merged exact-main `032dcda35df48d53012b3b32fdabb78de17c2b41` (#485 PASS) | S02 Work Order: IRIS-WO-0023, merged exact-main `7ab6743ce2d88d596a6da73abbcfc6456d7762e6` (#487 PASS) | S03 proposal: IRIS-WO-0024, base `7ab6743ce2d88d596a6da73abbcfc6456d7762e6`
 Canonical scope: `planning/MASTER-MODULE-INDEX.md`; no individual M12 owner contract, placement API or runtime has been adopted.
 
 ## Mission and disciplined boundaries
@@ -13,8 +13,8 @@ M12 planning investigates how a future orchestration owner would locate possible
 | Session | Bounded exploration | Status |
 | --- | --- | --- |
 | S01 | Worker registry and capability advertisements; advertisement vs verified truth, identity, permission and current grant | COMPLETE_FOR_REFERENCE_PLANNING_ONLY; PR #129 exact-head #484 / exact-main #485 PASS 3979/3979, 18 OPEN/UNRATED owner questions and 12 future NOT_EXECUTED oracles |
-| S02 | Placement, queues, quotas and priority scheduling; no M09 grants, M11 process permission, chosen scheduler or real queue operations | PROPOSED_NON_EXECUTABLE_RESEARCH_ONLY; IRIS-WO-0023 |
-| S03 | Multi-GPU/heterogeneous execution, exact composite-member requirements and evidence, no assumed joint M09 snapshot+lease proof | NOT_STARTED |
+| S02 | Placement, queues, quotas and priority scheduling; six unselected strategies, 20 open questions, 14 future tests | COMPLETE_FOR_REFERENCE_PLANNING_ONLY; PR #130 exact-head #486 / exact-main #487 PASS 3979/3979 |
+| S03 | Multi-GPU and heterogeneous execution, actual per-device topology and all-or-nothing owner proof questions, no capacity aggregation shortcuts | PROPOSED_NON_EXECUTABLE_RESEARCH_ONLY; IRIS-WO-0024 |
 | S04 | LAN/remote/cloud spillover and federated nodes; trust, isolation and network endpoints pending M54/M58/M60 | NOT_STARTED |
 | S05 | Failover, preemption, cost/quality placement and trust; no autonomous re-dispatch/retry without M02/M06/M09/M11 authorization | NOT_STARTED |
 
@@ -37,6 +37,10 @@ The positive M09→M11 topology A/B/C, coherent joint snapshot+lease and reverse
 ## S01 completion and S02 source admission
 
 S01 source research completed for **reference exploration only** through PR #129, reviewed head `f9b2dcb2dab13f43b409fb1ba3ca68ea85573e50` (40/40 exact Git sources, 12/12 paths), Governance #484 run 36324795399/job 108635360544 PASS 3979/3979, protected squash main `032dcda35df48d53012b3b32fdabb78de17c2b41` (tree `b83f0e8c1572fe2164baee606f0653116e1be2b5`) and exact-main Governance #485 run 36324884488/job 108635619085 PASS 3979/3979. Issue #128 remains OPEN. S02 reference research is proposed as separately bounded IRIS-WO-0023; it must not be marked complete until its own final-head review, guarded merge and exact-main Governance pass. S03–S05, technology selection, future M12 contract/freeze and implementation remain pending.
+
+## S02 completion and S03 source admission
+
+S02 reference research completed through audited PR #130, exact-head Governance #486 run 36325232475/job 108636612763 PASS 3979/3979, protected squash `7ab6743ce2d88d596a6da73abbcfc6456d7762e6` / tree `a5bcc17a93d228c3f66d5c51b755fbe11d85281e`, and exact-main Governance #487 run 36325338819/job 108636913754 PASS 3979/3979. All six S02 options remain NOT_SELECTED, twenty S02 owner questions OPEN/UNRATED, fourteen SQ scenarios SPECIFIED_NOT_EXECUTED; no scheduler selected, installed or tested. S03 source study is a separate proposal IRIS-WO-0024, pending own exact-head CI/review/protected merge/exact-main. S04–S05, FTR/FCS, owner-contract candidate, independent freeze audit and all M12 runtime remain pending.
 
 ## Completion and STOP
 
