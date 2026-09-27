@@ -25,7 +25,7 @@ HIVE lists the IRIS project as READY but its registered checkout remains at the 
 |---:|---|---|---|
 | 1 | `.engineering/SOURCE-HIERARCHY.md` — canonical authority map | Defines source precedence and current checkpoint-first rule. | Follow hierarchy for all claims; **COMPATIBLE_WITH_BOUNDARY**. |
 | 2 | `docs/project-brain/13-CHECKPOINT.md` — current canonical checkpoint | M11 planning active; S01–S05 and FTR C01 complete for planning; M11 NOT_FROZEN, implementation NOT_ADMITTED; M12–M60 pending. | Preserve these exact statuses; **COMPATIBLE_WITH_BOUNDARY**. |
-| 3 | `docs/project-brain/16-DECISIONS.md` — canonical decisions | Includes frozen owner decisions, including M09 closure and M10 authority boundary. | Do not rewrite frozen decisions in M11; **COMPATIBLE_WITH_BOUNDARY**. |
+| 3 | `docs/project-brain/16-DECISIONS-LEDGER.md` — canonical decisions | Includes frozen owner decisions, including M09 closure and M10 authority boundary. | Do not rewrite frozen decisions in M11; **COMPATIBLE_WITH_BOUNDARY**. |
 | 4 | `docs/project-brain/03-SCOPE.md` — canonical scope | Product/module scope does not grant M11 authority over other owners. | Process lifecycle remains a bounded M11 concern; **COMPATIBLE_WITH_BOUNDARY**. |
 | 5 | `docs/project-brain/15-DEFINITION-OF-DONE.md` — canonical DoD | Completion and evidence require governed, verifiable outcomes. | This scan is planning evidence, not module or product completion; **COMPATIBLE_WITH_BOUNDARY**. |
 | 6 | `docs/project-brain/04-ARCHITECTURE.md` — canonical architecture | Records system-level ownership and architecture boundaries. | No new architecture or runtime is selected; **COMPATIBLE_WITH_BOUNDARY**. |
@@ -49,8 +49,8 @@ HIVE lists the IRIS project as READY but its registered checkout remains at the 
 | 24 | `.engineering/evidence/IRIS-WO-0015.json` — canonical evidence bundle | Records planning state, frozen M10, M11 NOT_FROZEN and implementation NOT_ADMITTED. | Add proposal evidence without promotion; **COMPATIBLE_WITH_BOUNDARY**. |
 | 25 | `docs/project-brain/14-BACKLOG.md` — canonical backlog | Next is the M11 forward scan; owner contracts remain pending. | Advance only the recorded next planning gate; **COMPATIBLE_WITH_BOUNDARY**. |
 | 26 | `planning/MASTER-MODULE-INDEX.md` — candidate index | Has 49 M12–M60 module headings but no individual owner contract semantics. | Evidence depth is index-only for all 49; **PENDING_OWNER_CONTRACT**. |
-| 27 | `planning/reviews/M09-FORWARD-COMPATIBILITY-SCAN.md` — prior crosscheck | Contains M09-owned FC-09 findings over later module boundaries. | Carry only M11-relevant resource/lease separation; **CONDITIONAL**. |
-| 28 | `planning/reviews/M10-FORWARD-COMPATIBILITY-SCAN.md` — prior crosscheck | Contains M10-owned FC-10 findings, including M11–M60 index-level coverage. | Carry planner-advisory boundary only; **CONDITIONAL**. |
+| 27 | `planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md` — prior crosscheck | Contains M09-owned FC-09 findings over later module boundaries. | Carry only M11-relevant resource/lease separation; **CONDITIONAL**. |
+| 28 | `planning/compatibility/M10-FORWARD-COMPATIBILITY-SCAN.md` — prior crosscheck | Contains M10-owned FC-10 findings, including M11–M60 index-level coverage. | Carry planner-advisory boundary only; **CONDITIONAL**. |
 | 29 | `.engineering/CHECKPOINT.json` — machine-readable canonical mirror | `nextStep` must equal the final section body of both Markdown checkpoint mirrors. | Update as one byte-consistent checkpoint delta; **COMPATIBLE_WITH_BOUNDARY**. |
 | 30 | `.engineering/CHECKPOINT.md` — human-readable canonical mirror | Current next step is this scan; is a required byte-identical mirror of project-brain checkpoint. | Keep byte-identical; **COMPATIBLE_WITH_BOUNDARY**. |
 
