@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0027",
+  "module": "M12",
+  "issue": 128,
+  "status": "PROPOSED_FTR_FCS_REFERENCE_REVIEW_PENDING_EXACT_HEAD",
+  "baseSha": "a69830dd963e0800d8f1e294254b97cc57cd5d60",
+  "baseTreeSha": "02820f866a1acc662e9fec8aef162f6a7da59330",
+  "authorizedChangedFiles": [
+    "docs/project-brain/03-SCOPE.md",
+    "planning/modules/M12-COMPUTE-ORCHESTRATION.md",
+    "planning/reviews/M12-FINAL-TECHNOLOGY-REVIEW.md",
+    "planning/compatibility/M12-FORWARD-COMPATIBILITY-SCAN.md",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0026.json",
+    ".engineering/evidence/IRIS-WO-0027.json",
+    ".engineering/context-locks/IRIS-WO-0027-M12-FTR-FCS.json",
+    ".engineering/work-orders/IRIS-WO-0027-M12-FTR-FCS.md",
+    "planning/reviews/IRIS-WO-0027-M12-FTR-FCS-AUDIT-TARGET.md"
+  ],
+  "review": {
+    "fiveReferenceSessions": "COMPLETE_FOR_REFERENCE_PLANNING_ONLY",
+    "priorExactMainRuns": [
+      485,
+      487,
+      489,
+      491,
+      493
+    ],
+    "priorS05": {
+      "pr": 133,
+      "head": "e5fe289bcb0ca9914ebdfea32b4f2dfe76307b8d",
+      "headGovernance": 492,
+      "headJob": 108641355269,
+      "mergeSha": "a69830dd963e0800d8f1e294254b97cc57cd5d60",
+      "mergeTree": "02820f866a1acc662e9fec8aef162f6a7da59330",
+      "mainGovernance": 493,
+      "mainJob": 108641644708,
+      "tests": "3979/3979"
+    },
+    "technologyReview": {
+      "status": "PROPOSED_REFERENCE_ONLY",
+      "individuallyDispositioned": 16,
+      "runtimeTechnologySelected": "NONE"
+    },
+    "forwardScan": {
+      "status": "PROPOSED_INDEX_BOUNDARY_ONLY",
+      "moduleRange": "M13_M60",
+      "moduleCount": 48,
+      "acceptedOwnerContracts": 0
+    },
+    "ownerQuestions": {
+      "S01": 18,
+      "S02": 20,
+      "S03": 22,
+      "S04": 24,
+      "S05": 26,
+      "total": 110,
+      "status": "ALL_OPEN_UNRATED"
+    },
+    "futureNegativeCases": {
+      "WR": 12,
+      "SQ": 14,
+      "MG": 16,
+      "FN": 18,
+      "FT": 20,
+      "total": 80,
+      "status": "ALL_SPECIFIED_NOT_EXECUTED"
+    },
+    "sessionAlternativesUnselected": 28
+  },
+  "scopeGuards": {
+    "M09": "v1.0 FROZEN_UNCHANGED_83_15_514",
+    "M09Owner": "ISSUE_110_A_B_C_NONE_SELECTED",
+    "M09H01H04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+    "M11": "v0.2_NOT_FROZEN_86_OPEN_UNRATED",
+    "M12": "OWNER_CONTRACT_NOT_FROZEN_IMPLEMENTATION_NOT_ADMITTED",
+    "M13M60": "INDEX_ONLY_PENDING_INDIVIDUAL_OWNER_CONTRACT",
+    "M10M11M12Runtime": "NOT_ADMITTED",
+    "processOSGPUNetworkCloud": "DISABLED"
+  },
+  "testPlan": {
+    "baseline": 3979,
+    "implementationTestsAdded": 0,
+    "exactHeadGovernance": "REQUIRED",
+    "boundedAudit": "REQUIRED",
+    "exactMainGovernance": "REQUIRED",
+    "actualHardwareFaultNetworkTrials": "NOT_EXECUTED_NOT_REQUIRED_FOR_SOURCE_REVIEW"
+  }
+}
