@@ -1,0 +1,180 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0048",
+  "increment": "M13_S04_SOURCE_ONLY_CPU_GPU_OVERLAP_IO_STORAGE_EFFICIENCY_WITH_PREVIOUS_WO0047_FACTUAL_CHECKPOINT",
+  "issue": 155,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0048-m13-s04-overlap-io-20260927",
+  "baseRef": "main",
+  "baseSha": "c73b524e90a433d3476521d7a4b47f9451e3d32c",
+  "baseTreeSha": "489187561ab7c581c932a4721edfcadf9ac7dd9e",
+  "status": "PROPOSED_EXACT_HEAD_CI_BOUNDED_AUDIT_PROTECTED_MERGE_AND_EXACT_MAIN_PENDING",
+  "risk": "SOURCE_ONLY_NO_ACTUAL_CPU_GPU_IO_OR_OWNER_CONTRACTS",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "c73b524e90a433d3476521d7a4b47f9451e3d32c",
+    "baseTreeSha": "489187561ab7c581c932a4721edfcadf9ac7dd9e",
+    "expected": 35,
+    "checked": 35,
+    "matched": 35,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "0738b5425557f2fb287e1ec126ad13fa95c31b17"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "0738b5425557f2fb287e1ec126ad13fa95c31b17"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "d99a062d5259b53bdd00785d063bd47e91da3eb5"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "703bc2731d7ca7010c543dc62f3dc8037c167e31"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+    },
+    {
+      "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "c4b39c03f86f7a8e112d22a25ca91169c02c5e4d"
+    },
+    {
+      "path": "planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "97e8ed228b29c47911e3d3a0ed10ade91f76d723"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+    },
+    {
+      "path": "planning/research/M02-S04-INCREMENTAL-BUILD-RESEARCH-2026-09-20.md",
+      "gitBlobSha1": "1e3979dfb258eb6bb4a96d56b85b003eebe1e98a"
+    },
+    {
+      "path": "docs/M01-QUALITY-KERNEL.md",
+      "gitBlobSha1": "930af57944fa83c44745873c42eb3a7740972ee6"
+    },
+    {
+      "path": "docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "gitBlobSha1": "2a0b95dd3cc665e2206e454caef5858ef7fb61b0"
+    },
+    {
+      "path": "docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "461e0f332d9be2af694634bbdc8cf67e29d56393"
+    },
+    {
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a"
+    },
+    {
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828"
+    },
+    {
+      "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+    },
+    {
+      "path": "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "28b3802901349263100ceaaf80c0990513dbbded"
+    },
+    {
+      "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
+      "gitBlobSha1": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb"
+    },
+    {
+      "path": "planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md",
+      "gitBlobSha1": "7701c1e744d2b459d2f6bb4fa754352374fb67fd"
+    },
+    {
+      "path": ".engineering/evidence/M13-S01-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "ee65b960ca7e4f83f5419ec744f4c1f304edb6d7"
+    },
+    {
+      "path": "planning/research/M13-S02-COMPILATION-ATTENTION-BACKENDS.md",
+      "gitBlobSha1": "33736cc40214af1ee25586d6c94789d8c0d95739"
+    },
+    {
+      "path": ".engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json",
+      "gitBlobSha1": "2e94983865cf72aa6c5a63510b8a4b41586048c7"
+    },
+    {
+      "path": "scripts/verify_m13_s02_research.py",
+      "gitBlobSha1": "587e61b31ee8b0010a3cb66786db15689d288b02"
+    },
+    {
+      "path": "tests/test_m13_s02_research.py",
+      "gitBlobSha1": "b92bc3485668b199816ff10458ce54f81fc2e422"
+    },
+    {
+      "path": "planning/research/M13-S03-INTERMEDIATE-REUSE-GENERATION-DELTA.md",
+      "gitBlobSha1": "96a9952086300a1ae2d46195bd7dc6d50dea06ba"
+    },
+    {
+      "path": ".engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json",
+      "gitBlobSha1": "16737ecbb836b1e0736f4851ce6e0b56b8916bea"
+    },
+    {
+      "path": "scripts/verify_m13_s03_research.py",
+      "gitBlobSha1": "9c9954536c9064fe579be9be2703e3433bcc974c"
+    },
+    {
+      "path": "tests/test_m13_s03_research.py",
+      "gitBlobSha1": "ef4b8e462ad5d096aad6ccde67710c1d019c768f"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0048-M13-S04-OVERLAP-IO-RESEARCH.json",
+    ".engineering/evidence/IRIS-WO-0048.json",
+    ".engineering/evidence/M13-S04-OVERLAP-IO-RESEARCH.json",
+    ".engineering/work-orders/IRIS-WO-0048-M13-S04-OVERLAP-IO-RESEARCH.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0048-M13-S04-OVERLAP-IO-RESEARCH.md",
+    "planning/research/M13-S04-CPU-GPU-OVERLAP-IO-STORAGE.md",
+    "planning/reviews/IRIS-WO-0048-M13-S04-AUDIT-TARGET.md",
+    "scripts/verify_m13_s04_research.py",
+    "tests/test_m13_s04_research.py"
+  ],
+  "stopCondition": "Only substantial M13 S04 original-source nonbinding CPU/GPU/I/O research with one mutable official technology reference, offline document integrity tests and factual previously independently green WO0047 closeout. No selected transfer pipeline, real hardware benchmark, CUDA/pinned-memory or physical M55 storage/OS operation, qualified source-owner signoff, M09/C01 revision, H01–H04 gate clearance, M10/M11/M12/M13 runtime admission."
+}
