@@ -65,5 +65,18 @@
   "mergeStatus": "NOT_MERGED",
   "exactMainStatus": "PENDING",
   "ownerApproval": "NOT_PERFORMED",
-  "runtimeImplementation": "NOT_ADMITTED"
+  "runtimeImplementation": "NOT_ADMITTED",
+  "correctionHistory": [
+    {
+      "headSha": "e3a37d988c3927bbdd1a7ea9bee0f62e34f9c3e3",
+      "governanceNumber": 500,
+      "governanceRun": 36329737404,
+      "result": "FAILED_1_OF_4014_TESTS",
+      "failure": "Case-sensitive issue #110 reference assertion in new test; README uses 'issue' and Overview correctly capitalizes link as 'Issue'",
+      "classification": "CHAT_FIXABLE_TEST_ONLY",
+      "correction": "Normalize casing only for issue-link assertion; preserve the same contractual ownership checks and unchanged public docs.",
+      "scope": "tests/test_public_status_docs.py",
+      "noRuntimeChanges": true
+    }
+  ]
 }
