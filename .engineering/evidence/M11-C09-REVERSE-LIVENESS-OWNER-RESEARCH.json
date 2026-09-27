@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "iris-m11-c09-reverse-owner-research-v1",
+  "workOrder": "IRIS-WO-0015",
+  "increment": "C09_M11_REVERSE_LIVENESS_OWNER_RESEARCH",
+  "issue": 82,
+  "dependencies": [
+    110,
+    112
+  ],
+  "scope": "DOCUMENTATION_ONLY_NO_ACTUAL_OWNER_PORT",
+  "status": "PROPOSED_PENDING_EXACT_HEAD_AND_SEPARATE_BOUNDED_AUDIT",
+  "risk": "ELEVATED",
+  "baseSha": "885659cecdd8865bb713f80c1b503583311233e9",
+  "baseTreeSha": "8767077dbed3599829855373a6bb7da2f829c581",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "expected": 38,
+    "checked": 38,
+    "matched": 38,
+    "mismatches": 0
+  },
+  "allowlistedFiles": 11,
+  "priorC02": {
+    "pr": 116,
+    "head": "af4d829193833939903aa64d9b2b19220b81afb5",
+    "merge": "885659cecdd8865bb713f80c1b503583311233e9",
+    "exactHeadGovernance": {
+      "number": 461,
+      "run": 36315712111,
+      "job": 108609901760,
+      "tests": "3940/3940",
+      "result": "PASS"
+    },
+    "exactMainGovernance": {
+      "number": 462,
+      "run": 36315791781,
+      "job": 108610123330,
+      "tests": "3940/3940",
+      "result": "PASS"
+    }
+  },
+  "reviewTargets": [
+    "M11_PROCESS_CAPABILITY_BOUND_PRODUCER",
+    "M11_VERSIONED_ISSUER_VERIFICATION_DEPENDENCIES",
+    "M11_UNKNOWN_STALE_CONFLICT_REFUSAL",
+    "M09_OWNED_COOPERATIVE_RELEASE_RECONCILIATION",
+    "M09_OWNED_COMPOSITE_LEASE_GRANT"
+  ],
+  "futureProofs": [
+    {
+      "id": "LV-01",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "noProcessAction": true,
+      "noM09Mutation": true
+    },
+    {
+      "id": "LV-02",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "noProcessAction": true,
+      "noM09Mutation": true
+    },
+    {
+      "id": "LV-03",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "noProcessAction": true,
+      "noM09Mutation": true
+    },
+    {
+      "id": "LV-04",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "noProcessAction": true,
+      "noM09Mutation": true
+    },
+    {
+      "id": "LV-05",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "noProcessAction": true,
+      "noM09Mutation": true
+    },
+    {
+      "id": "LV-06",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "noProcessAction": true,
+      "noM09Mutation": true
+    }
+  ],
+  "priorHX": "12 NOT_EXECUTED",
+  "priorC08": "10 NOT_EXECUTED",
+  "priorPOC02": "8 NOT_EXECUTED",
+  "futureFreezeHighs": [
+    {
+      "id": "C02-FR-H01",
+      "status": "OPEN_OWNER_PROOF_PENDING"
+    },
+    {
+      "id": "C02-FR-H02",
+      "status": "OPEN_OWNER_PROOF_PENDING"
+    },
+    {
+      "id": "C02-FR-H03",
+      "status": "OPEN_OWNER_PROOF_PENDING"
+    },
+    {
+      "id": "C02-FR-H04",
+      "status": "OPEN_OWNER_PROOF_PENDING"
+    }
+  ],
+  "selectedTopology": "NONE",
+  "M09owner": "PENDING_ISSUE_110",
+  "M11": "NOT_FROZEN",
+  "S03U08": "OPEN_UNRATED",
+  "M11Questions": "86/86 OPEN_UNRATED",
+  "M10M11Implementation": "NOT_ADMITTED",
+  "processActions": "DISABLED",
+  "laterOwners": "M12-M60 PENDING_UNRATED",
+  "HIVE": "NOT_VERIFIED_LOCALLY_GIT_SOURCE_PRIMARY_CI_BRIDGES_REQUIRED",
+  "exactHeadGovernance": "REQUIRED",
+  "separateReview": "REQUIRED",
+  "merge": "BLOCKED_UNTIL_GATES"
+}

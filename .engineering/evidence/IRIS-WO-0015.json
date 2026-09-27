@@ -2497,5 +2497,33 @@
     },
     "WO0016": "ADMITTED_FOR_PLANNING_ONLY",
     "ownerApproval": "PENDING_ISSUE_110"
+  },
+  "reverseLivenessC09": {
+    "status": "PROPOSED_M11_OWNED_REVERSE_HANDSHAKE_RESEARCH_ONLY_PENDING_EXACT_HEAD_AND_SEPARATE_REVIEW",
+    "baseSha": "885659cecdd8865bb713f80c1b503583311233e9",
+    "baseTreeSha": "8767077dbed3599829855373a6bb7da2f829c581",
+    "sourceFingerprints": "38/38 EXACT_BASE",
+    "allowlistedFiles": 11,
+    "scope": "NONEXECUTABLE_OWNER_SIDE_SEMANTICS",
+    "priorC02": {
+      "pr": 116,
+      "head": "af4d829193833939903aa64d9b2b19220b81afb5",
+      "merge": "885659cecdd8865bb713f80c1b503583311233e9",
+      "headGovernance": 461,
+      "mainGovernance": 462,
+      "tests": "3940/3940",
+      "status": "CANONICAL_DOCUMENTARY_SCAN_ONLY"
+    },
+    "fourFutureFreezeHighs": "OPEN",
+    "LV": "6/6 SPECIFIED_NOT_EXECUTED",
+    "HX": "12 NOT_EXECUTED",
+    "C08": "10 NOT_EXECUTED",
+    "POC02": "8 NOT_EXECUTED",
+    "S03U08": "OPEN_UNRATED",
+    "M11Questions": "86/86 OPEN_UNRATED",
+    "ownerDecision": "PENDING_ISSUE_110",
+    "candidate": "m11-contract-candidate-v0.2 NOT_FROZEN",
+    "implementation": "NOT_ADMITTED",
+    "processActions": "DISABLED"
   }
 }
