@@ -2,7 +2,7 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0019",
   "issue": 122,
-  "status": "PROPOSED_PENDING_EXACT_HEAD_AND_SEPARATE_AUDIT",
+  "status": "CANONICAL_CI_GOVERNANCE_GUARDRAIL_CLOSED",
   "scope": "STRICT_BOT_ONLY_ACTION_PIN_CI_ELIGIBILITY",
   "baseSha": "32e1ecc3edd698460c34bce1f28045a20d53e804",
   "baseTreeSha": "5e3818a1719047f185c34aeb545d50ed7065f73a",
@@ -53,7 +53,7 @@
   ],
   "newTests": {
     "count": 11,
-    "status": "AUTHORED_NOT_YET_CI_VERIFIED"
+    "status": "PROVEN_EXACT_HEAD_AND_MAIN"
   },
   "ownerGate": "#110 PENDING NO_SELECTION",
   "fourC02Highs": "OPEN_HIGH_FOR_FUTURE_FREEZE",
@@ -62,8 +62,39 @@
   "M10M11Implementation": "NOT_ADMITTED",
   "processes": "DISABLED",
   "oldTests": "3968/3968",
-  "exactHeadGovernance": "REQUIRED",
+  "exactHeadGovernance": {
+    "number": 473,
+    "run": 36319323621,
+    "job": 108619971425,
+    "head": "72db95b4948d34847875e51c5f1def404f20c83b",
+    "tests": "3979/3979",
+    "result": "PASS"
+  },
   "independentBoundedReview": "REQUIRED",
-  "exactMainGovernance": "REQUIRED",
-  "botPRMergeAuthorization": "NONE_AUTO_MERGE"
+  "exactMainGovernance": {
+    "number": 474,
+    "run": 36319400513,
+    "job": 108620191016,
+    "head": "d1df1bbe614f0e7be6b323e6bcdf20d96ff963c9",
+    "result": "PASS",
+    "tests": "3979/3979"
+  },
+  "botPRMergeAuthorization": "NONE_AUTO_MERGE",
+  "separateBoundedAudit": {
+    "verdict": "APPROVED_FOR_GOVERNANCE_ONLY",
+    "commentId": 5855852367,
+    "head": "72db95b4948d34847875e51c5f1def404f20c83b",
+    "reviewer": "SEPARATE_PASS_SAME_ASSISTANT_NOT_INDEPENDENT_HUMAN",
+    "newHigh": 0,
+    "newCritical": 0
+  },
+  "protectedSquashMerge": {
+    "pr": 123,
+    "sha": "d1df1bbe614f0e7be6b323e6bcdf20d96ff963c9",
+    "tree": "0d02559c160d6c2cf595afa48b1fd3f6dd44e284"
+  },
+  "issueClosure": {
+    "issue": 122,
+    "status": "CLOSED_AFTER_EXACT_MAIN"
+  }
 }
