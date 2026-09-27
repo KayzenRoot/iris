@@ -3,7 +3,7 @@
   "workOrder": "IRIS-WO-0023",
   "module": "M12",
   "issue": 128,
-  "status": "PROPOSED_S02_REFERENCE_RESEARCH_NOT_FROZEN",
+  "status": "S02_COMPLETE_FOR_REFERENCE_PLANNING_ONLY",
   "baseSha": "032dcda35df48d53012b3b32fdabb78de17c2b41",
   "baseTreeSha": "b83f0e8c1572fe2164baee606f0653116e1be2b5",
   "sourceSnapshot": {
@@ -29,7 +29,7 @@
   ],
   "research": {
     "session": "S02_PLACEMENT_QUEUES_QUOTAS_PRIORITY",
-    "status": "PROPOSED_REFERENCE_ONLY_PENDING_EXACT_HEAD_AND_REVIEW",
+    "status": "S02_REFERENCE_RESEARCH_EXACT_MAIN_VALIDATED",
     "technologyReferences": [
       {
         "system": "Kubernetes Scheduling Framework",
@@ -77,16 +77,42 @@
     "M11": "v0.2 NOT_FROZEN_86_OPEN_UNRATED",
     "M10M11Implementation": "NOT_ADMITTED",
     "M12Implementation": "NOT_ADMITTED",
-    "M12LaterSessions": "S03_S05_NOT_STARTED",
+    "M12LaterSessions": "S03_PROPOSED_UNDER_WO0024_S04_S05_NOT_STARTED",
     "actions": "DISABLED",
     "M54M58M60": "PENDING_OWNER_CONTRACT_UNRATED"
   },
   "testPlan": {
     "repoBaseline": 3979,
     "newImplementationTests": 0,
-    "exactHeadGovernance": "REQUIRED",
-    "boundedAudit": "REQUIRED",
-    "exactMainGovernance": "REQUIRED",
-    "runtimeHardwareNetworkTests": "NOT_EXECUTED_NOT_APPLICABLE_TO_REFERENCE_RESEARCH"
+    "exactHeadGovernance": {
+      "number": 486,
+      "run": 36325232475,
+      "job": 108636612763,
+      "head": "a1cc864bec718b277d175439f0d2b00202d4a5cd",
+      "tests": "3979/3979",
+      "result": "PASS"
+    },
+    "boundedAudit": {
+      "commentId": 5856632739,
+      "head": "a1cc864bec718b277d175439f0d2b00202d4a5cd",
+      "verdict": "APPROVED_REFERENCE_ONLY",
+      "reviewer": "SEPARATE_PASS_SAME_ASSISTANT_NOT_DISTINCT_HUMAN",
+      "newHigh": 0,
+      "newCritical": 0
+    },
+    "exactMainGovernance": {
+      "number": 487,
+      "run": 36325338819,
+      "job": 108636913754,
+      "head": "7ab6743ce2d88d596a6da73abbcfc6456d7762e6",
+      "tests": "3979/3979",
+      "result": "PASS"
+    },
+    "runtimeHardwareNetworkTests": "NOT_EXECUTED_NOT_APPLICABLE_TO_REFERENCE_RESEARCH",
+    "protectedMerge": {
+      "pr": 130,
+      "sha": "7ab6743ce2d88d596a6da73abbcfc6456d7762e6",
+      "tree": "a5bcc17a93d228c3f66d5c51b755fbe11d85281e"
+    }
   }
 }

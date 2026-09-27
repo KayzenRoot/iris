@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0024",
+  "module": "M12",
+  "issue": 128,
+  "status": "PROPOSED_S03_REFERENCE_RESEARCH_NOT_FROZEN",
+  "baseSha": "7ab6743ce2d88d596a6da73abbcfc6456d7762e6",
+  "baseTreeSha": "a5bcc17a93d228c3f66d5c51b755fbe11d85281e",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "expected": 42,
+    "checked": 42,
+    "matched": 42,
+    "mismatches": 0
+  },
+  "authorizedChangedFiles": [
+    "docs/project-brain/03-SCOPE.md",
+    "planning/modules/M12-COMPUTE-ORCHESTRATION.md",
+    "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0023.json",
+    ".engineering/evidence/IRIS-WO-0024.json",
+    ".engineering/context-locks/IRIS-WO-0024-M12-S03-PLANNING.json",
+    ".engineering/work-orders/IRIS-WO-0024-M12-S03-PLANNING.md",
+    "planning/reviews/IRIS-WO-0024-M12-S03-AUDIT-TARGET.md"
+  ],
+  "research": {
+    "session": "S03_MULTI_GPU_HETEROGENEOUS_EXECUTION",
+    "status": "PROPOSED_REFERENCE_ONLY_PENDING_EXACT_HEAD_AND_REVIEW",
+    "officialSources": [
+      "https://docs.nvidia.com/cuda/cuda-programming-guide/03-advanced/multi-gpu-systems.html",
+      "https://kubernetes.io/docs/concepts/resource-management/dynamic-resource-allocation/",
+      "https://docs.ray.io/en/latest/ray-core/scheduling/placement-group.html",
+      "https://docs.pytorch.org/docs/main/generated/torch.nn.parallel.DistributedDataParallel.html"
+    ],
+    "adoptedTechnology": "NONE",
+    "topologyCandidates": 5,
+    "selectedTopology": "NONE",
+    "ownerQuestions": 22,
+    "questionsStatus": "22_OPEN_UNRATED",
+    "negativeAmbiguityCases": 16,
+    "casesStatus": "16_SPECIFIED_NOT_EXECUTED",
+    "M09JointGrant": "UNPROVEN_PENDING_ISSUE_110_H02",
+    "driverOrHardwareBenchmarks": "NOT_EXECUTED",
+    "runtimePlacement": "NOT_ADMITTED"
+  },
+  "priorWO23": {
+    "pr": 130,
+    "headGovernance": 486,
+    "headJob": 108636612763,
+    "mergeSha": "7ab6743ce2d88d596a6da73abbcfc6456d7762e6",
+    "mergeTree": "a5bcc17a93d228c3f66d5c51b755fbe11d85281e",
+    "mainGovernance": 487,
+    "mainJob": 108636913754,
+    "tests": "3979/3979",
+    "status": "S02_COMPLETE_FOR_REFERENCE_PLANNING_ONLY"
+  },
+  "scopeGuards": {
+    "M09": "v1.0 FROZEN_UNCHANGED",
+    "M09OwnerChoice": "NONE_SELECTED_ISSUE_110_OPEN",
+    "M09H01H04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+    "M11": "v0.2 NOT_FROZEN_86_OPEN_UNRATED",
+    "M10M11Implementation": "NOT_ADMITTED",
+    "M12Implementation": "NOT_ADMITTED",
+    "M12LaterSessions": "S04_S05_NOT_STARTED",
+    "actions": "DISABLED",
+    "M54M58M60": "PENDING_OWNER_CONTRACT_UNRATED"
+  },
+  "testPlan": {
+    "repoBaseline": 3979,
+    "newRuntimeTests": 0,
+    "exactHeadGovernance": "REQUIRED",
+    "boundedAudit": "REQUIRED",
+    "exactMainGovernance": "REQUIRED",
+    "actualGPU_OS_NetworkTests": "NOT_EXECUTED_NOT_APPLICABLE_TO_REFERENCE_RESEARCH"
+  }
+}
