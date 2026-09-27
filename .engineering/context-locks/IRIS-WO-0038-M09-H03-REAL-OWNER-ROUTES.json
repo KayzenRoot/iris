@@ -1,0 +1,154 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0038",
+  "increment": "H03_ACTUAL_OWNER_GITHUB_INTAKE_ROUTING_AND_SOURCE_BOUND_RESPONSE_GUARDS",
+  "issue": 110,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0038-h03-owner-response-route-e01-20260927",
+  "baseRef": "main",
+  "baseSha": "b3c09e7b0485055f25a6e6debd507af8e1ae1c92",
+  "baseTreeSha": "3c3b38ae1d51c8dcd20cdbfaed15ca7069d72df5",
+  "status": "PROPOSED_PENDING_EXACT_HEAD_CI_SEPARATE_BOUNDED_AUDIT_AND_EXACT_MAIN",
+  "risk": "ALL_FOUR_ORIGINAL_HIGH_FOR_FUTURE_FREEZE_BLOCKERS_STAY_OPEN_NO_FAKE_OWNER_SIGNATURES",
+  "scope": "4_GITHUB_REVIEW_INBOXES_1_EXISTING_M12_3_NEW_INDEX_ONLY_24_STATIC_REGRESSION_TESTS_NO_RUNTIME_OR_FROZEN_CONTRACT_CHANGES",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "b3c09e7b0485055f25a6e6debd507af8e1ae1c92",
+    "baseTreeSha": "3c3b38ae1d51c8dcd20cdbfaed15ca7069d72df5",
+    "expected": 29,
+    "checked": 29,
+    "matched": 29,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "30cc0b17d34b6324aad34113cf4c40a438c990a7"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "28b3802901349263100ceaaf80c0990513dbbded"
+    },
+    {
+      "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json",
+      "gitBlobSha1": "935abe4323618ac6d583e3bd8acc827d5fe80d2c"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-CANDIDATE-C01.json",
+      "gitBlobSha1": "3236ff8146c71da247208b0896e4e37573123fa8"
+    },
+    {
+      "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
+      "gitBlobSha1": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb"
+    },
+    {
+      "path": ".engineering/evidence/M12-OWNER-DECISION-REGISTER.json",
+      "gitBlobSha1": "3a78744de4db70222a74ce25f00c0ef022583c77"
+    },
+    {
+      "path": ".engineering/evidence/M12-OWNER-INTAKE-C02.json",
+      "gitBlobSha1": "75c8ecea8e59a0931afc1c6558a0265cff7ac919"
+    },
+    {
+      "path": ".engineering/evidence/M09-H03-FOUR-OWNER-SOURCE-PACKETS.json",
+      "gitBlobSha1": "c82093e393722acb39081e9d76c974d0cddcfd3b"
+    },
+    {
+      "path": "planning/reviews/M09-H03-FOUR-OWNER-SOURCE-PACKETS.md",
+      "gitBlobSha1": "1f855f9c9aa2f900f38cbe59a9598089dfeac5a8"
+    },
+    {
+      "path": "scripts/verify_m09_h03_owner_packets.py",
+      "gitBlobSha1": "dd00f453fb1951537853ab17992f43d3cb33d7f5"
+    },
+    {
+      "path": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "gitBlobSha1": "3d76f9a11b0056b9b7e595fa63624445ec50ba53"
+    },
+    {
+      "path": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "gitBlobSha1": "d841ff57fa347b4d5cacd10dbdbc6d842872d1df"
+    },
+    {
+      "path": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "gitBlobSha1": "2c176b248ba0758b5e4cb102e0ac173156db72ae"
+    },
+    {
+      "path": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "gitBlobSha1": "a3928271da822b1460e4844ad3d829e03d40869e"
+    },
+    {
+      "path": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "gitBlobSha1": "1bf18ff4311457c710f7b3b95caa5e4f6127badc"
+    },
+    {
+      "path": "planning/reviews/M12-C02-OWNER-INTAKE-ROUTING.md",
+      "gitBlobSha1": "b6c6c7764c54b3e51e0838cafd778176fc16754e"
+    },
+    {
+      "path": "planning/reviews/M12-C03-SOURCE-OWNER-PACKETS.md",
+      "gitBlobSha1": "58d8a163294102dcfc1d46ce0c73901ed9449140"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "d2685f563e27a5dccce4e7f18d6b0579cfaee84a"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0037.json",
+      "gitBlobSha1": "840ebbf823d728f0b82b534eb0509516dee2d792"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0037-M09-H03-OWNER-PACKETS.json",
+      "gitBlobSha1": "99da38e27b20f26e73551241f4f3efb332f99f63"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/context-locks/IRIS-WO-0038-M09-H03-REAL-OWNER-ROUTES.json",
+    ".engineering/evidence/IRIS-WO-0038.json",
+    ".engineering/evidence/M09-H03-OWNER-REVIEW-ROUTES-E01.json",
+    ".engineering/work-orders/IRIS-WO-0038-M09-H03-REAL-OWNER-ROUTING.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0038-M09-H03-REAL-OWNER-ROUTING.md",
+    "planning/reviews/IRIS-WO-0038-M09-H03-OWNER-ROUTING-AUDIT-TARGET.md",
+    "planning/reviews/M09-H03-ACTUAL-OWNER-RESPONSE-ROUTES-E01.md",
+    "scripts/verify_m09_h03_owner_routes.py",
+    "tests/test_m09_h03_owner_routes.py"
+  ],
+  "stopCondition": "Verify 29/29 exact original Git blob SHA1 and 10/10 actual doc/script/test scope, expected full-suite 4260/4260, IRIS governance plus pinned GEF/HIVE, separate bounded same-assistant exact-head audit, guarded protected squash, independent exact-main success. Issues #128/#145/#146/#147 are discussion routes, NOT owner approval. Live issue state requires refetch; three index-only owner contracts M54/M58/M60 still absent, M12 not frozen, all original 110 M12 decisions remain open, H01-H04 OPEN HIGH, all original 80 M12/12 HX/6 LV/10 C08/8 PO-C02 and 12 H03-N designs remain NOT_EXECUTED. No production interfaces, placement, API/publication, M54 trust, M60 OS rights, M10/M11/M12 runtime or OS/GPU/network/cloud/process actions."
+}
