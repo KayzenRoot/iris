@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0042",
+  "issue": 110,
+  "status": "PROPOSED_OWN_HEAD_CI_AND_REVIEW_PENDING",
+  "baseSha": "1e19a0f8d45ec948082e8258c306dcab048bf0fd",
+  "baseTreeSha": "fae06f27059920e85189995b2ba9332682b61a6a",
+  "sourcePins": 23,
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0042-H03-OWNER-DRAFT-SCAFFOLD.json",
+    ".engineering/evidence/IRIS-WO-0042.json",
+    ".engineering/work-orders/IRIS-WO-0042-H03-OWNER-DRAFT-SCAFFOLD.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0042-H03-OWNER-DRAFT-SCAFFOLD.md",
+    "planning/reviews/IRIS-WO-0042-H03-OWNER-DRAFT-SCAFFOLD-AUDIT-TARGET.md",
+    "planning/reviews/M09-H03-UNTRUSTED-OWNER-REPLY-TRIAGE-E02.md",
+    "scripts/scaffold_m09_h03_owner_drafts.py",
+    "tests/test_wo0042_h03_owner_draft_scaffold.py"
+  ],
+  "verifiedPrior": {
+    "pr": 151,
+    "finalHead": "7fca221a5f85121055849de49f0494b460183980",
+    "exactHeadRun": 36347399601,
+    "mainSha": "1e19a0f8d45ec948082e8258c306dcab048bf0fd",
+    "exactMainRun": 36347498096,
+    "fullTests": "4313/4313"
+  },
+  "scope": "BLANK_LOCAL_H03_SOURCE_EXACT_WORKSHEET_GENERATOR_PLUS_WO0041_FACTUAL_CHECKPOINT",
+  "newSyntheticTests": 13,
+  "expectedFullSuite": 4326,
+  "outputFiles": 9,
+  "sourceAssignments": 147,
+  "uniqueOriginalQuestions": 91,
+  "actualOwnerAnswers": 0,
+  "H01toH04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "m09C01": "UNADOPTED_NOT_FROZEN",
+  "runtime": "NOT_ADMITTED",
+  "ownExactHeadCI": "PENDING",
+  "ownMerge": "NOT_MERGED"
+}
