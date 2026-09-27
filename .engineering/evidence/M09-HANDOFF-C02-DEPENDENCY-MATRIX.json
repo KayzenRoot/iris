@@ -1,0 +1,441 @@
+{
+  "schemaVersion": "iris-m09-c02-compatibility-gates-v1",
+  "workOrder": "IRIS-WO-0016",
+  "issue": 112,
+  "relatedIssues": [
+    110,
+    82
+  ],
+  "sourceBaseSha": "452aff2f09e3f9130c26eb2068401b385cea67d1",
+  "sourceBaseTreeSha": "84c9b89179c0eddcc617524e20ea122966679085",
+  "upstreamC01": {
+    "pr": 115,
+    "head": "1a3bf2e1893bc3e613bcf10a521bc2c6e5fdea32",
+    "merge": "452aff2f09e3f9130c26eb2068401b385cea67d1",
+    "headGovernance": {
+      "number": 459,
+      "run": 36314802538,
+      "job": 108607374613,
+      "tests": "3940/3940"
+    },
+    "mainGovernance": {
+      "number": 460,
+      "run": 36314869116,
+      "job": 108607558865,
+      "tests": "3940/3940"
+    },
+    "candidate": "m09-evidence-handoff-candidate-v0.1 UNADOPTED"
+  },
+  "status": "PROPOSED_SOURCE_BACKED_COMPATIBILITY_AUDIT_ONLY",
+  "scope": "READ_ONLY_PLANNING_NO_CONTRACT_AMENDMENT",
+  "fc09Matrix": [
+    {
+      "id": "FC-09-01",
+      "theme": "Consumer resource-claim handshake",
+      "ownerLanes": "M09/M02/M11",
+      "evidence": "C01 proposes exact work/resource/action reference but owner-admitted consumer-to-claim schema not selected",
+      "disposition": "OWNER_REVIEW_REQUIRED",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    },
+    {
+      "id": "FC-09-02",
+      "theme": "External quality constraints",
+      "ownerLanes": "M01/M03/M09",
+      "evidence": "Preserve frozen domain quality references; read-only handoff cannot weaken or reinterpret them",
+      "disposition": "PRESERVE_EXISTING",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    },
+    {
+      "id": "FC-09-03",
+      "theme": "Reverse typed owner-liveness handshake",
+      "ownerLanes": "M11/M09/M54/M60",
+      "evidence": "Existing M09 OwnerLivenessRef and cooperative-release in-process types exist, but no authenticated M11-owned producer/verifier port or freshness policy is approved",
+      "disposition": "SEPARATE_COMPANION_HANDSHAKE_BLOCKER",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    },
+    {
+      "id": "FC-09-04",
+      "theme": "Placement-neutral resource identity",
+      "ownerLanes": "M09/M12",
+      "evidence": "M09 retains identity, but actual M12 placement target/scope proof and multi-host rebinding absent",
+      "disposition": "FUTURE_OWNER_PENDING",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    },
+    {
+      "id": "FC-09-05",
+      "theme": "Provider control capabilities",
+      "ownerLanes": "M09/M17/M26",
+      "evidence": "Existing frozen capability negotiation preserved; no process/provider control from read-only proof",
+      "disposition": "OUT_OF_SCOPE_PRESERVE",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    },
+    {
+      "id": "FC-09-06",
+      "theme": "Domain context boundary descriptor",
+      "ownerLanes": "M09/domain owners",
+      "evidence": "Opaque domain boundary integrity preserved; no inferred video/3D provider control",
+      "disposition": "OUT_OF_SCOPE_PRESERVE",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    },
+    {
+      "id": "FC-09-07",
+      "theme": "Composite transaction atomicity/member outcomes",
+      "ownerLanes": "M09/M12",
+      "evidence": "C01 references composite claims, but a future receipt still needs owner-approved all-mandatory member consistency, optional member outcomes and atomicity scope",
+      "disposition": "FUTURE_FREEZE_BLOCKER",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    },
+    {
+      "id": "FC-09-08",
+      "theme": "External quality/fitness namespaces",
+      "ownerLanes": "M01/M14/M24/M48/M51",
+      "evidence": "Maintain original external quality evidence; no M09 claim of suitability, evaluation or promotion",
+      "disposition": "OUT_OF_SCOPE_PRESERVE",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    },
+    {
+      "id": "FC-09-09",
+      "theme": "Versioned public evidence projection",
+      "ownerLanes": "M09/M54/M58",
+      "evidence": "Generic frozen projection/evidence qualification is not a request-scoped M11 verifying port; publishing/redaction/trust require owners",
+      "disposition": "SEPARATE_PUBLICATION_OWNER_GATE",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    },
+    {
+      "id": "FC-09-10",
+      "theme": "Automated mutation attribution",
+      "ownerLanes": "M09/M54/M57",
+      "evidence": "C01 read-only request must not become a mutation; any future grant/revoke needs existing actor/cause/authorization/idempotency",
+      "disposition": "PRESERVE_EXISTING",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    },
+    {
+      "id": "FC-09-11",
+      "theme": "Storage capability/cleanup",
+      "ownerLanes": "M09/M55",
+      "evidence": "Existing typed storage capability and cleanup eligibility preserved; no deletion from owner receipt or process exit",
+      "disposition": "OUT_OF_SCOPE_PRESERVE",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    },
+    {
+      "id": "FC-09-12",
+      "theme": "Observability schema/epoch/provenance",
+      "ownerLanes": "M09/M56/M54",
+      "evidence": "An event projection is not current resource truth; future external revocation/liveness telemetry needs owner-defined verified event and redaction",
+      "disposition": "FUTURE_OWNER_PENDING",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    },
+    {
+      "id": "FC-09-13",
+      "theme": "Reproducibility materiality",
+      "ownerLanes": "M09/M06",
+      "evidence": "Resource pressure/shape/transfer effects require owner-issued M06 materiality refs; M11 process exit cannot create M06 outcome",
+      "disposition": "FUTURE_OWNER_PENDING",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    },
+    {
+      "id": "FC-09-14",
+      "theme": "Exact acceptance evidence",
+      "ownerLanes": "M09/M60",
+      "evidence": "Frozen 514 proof set and exact test SHA remain normative; 12 HX plus 6 LV are unexecuted planning oracles, physical qualification still absent",
+      "disposition": "SEPARATE_ADMISSION_AND_TEST_GATE",
+      "source": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+      "ownerDecision": "PENDING_IF_NEW_PORT"
+    }
+  ],
+  "ownerMatrix": [
+    {
+      "id": "M02",
+      "sourceDepth": "FROZEN_AVAILABLE",
+      "boundary": "Accepted work/plan revision and immutable production causality; M09 receipt cannot mint/accept plan",
+      "gate": "MATCH_EXACT_WORK_PENDING_HANDOFF",
+      "acceptedNewHandoff": false
+    },
+    {
+      "id": "M06",
+      "sourceDepth": "FROZEN_AVAILABLE",
+      "boundary": "Attempts/materialization and resource-change reproducibility refs; no success from M11 exit",
+      "gate": "OWNER_REFERENCE_PENDING",
+      "acceptedNewHandoff": false
+    },
+    {
+      "id": "M09",
+      "sourceDepth": "FROZEN_V1_0",
+      "boundary": "Owner of observations, grants, leases, epoch/revocation and compound atomicity; additive C01 unadopted",
+      "gate": "ACTUAL_OWNER_DISPOSITION_PENDING_ISSUE_110",
+      "acceptedNewHandoff": false
+    },
+    {
+      "id": "M10",
+      "sourceDepth": "FROZEN_ADVISORY",
+      "boundary": "Plan recommendations do not grant, place, dispatch or reserve",
+      "gate": "PRESERVE_BOUNDARY",
+      "acceptedNewHandoff": false
+    },
+    {
+      "id": "M11",
+      "sourceDepth": "CANDIDATE_NOT_FROZEN",
+      "boundary": "Worker request, process-liveness producer, cooperative release consumer, signal/wait/reap control only after external gates",
+      "gate": "REVERSE_COMPANION_OWNER_PORT_PENDING",
+      "acceptedNewHandoff": false
+    },
+    {
+      "id": "M12",
+      "sourceDepth": "INDEX_ONLY_PENDING",
+      "boundary": "Placement/quota/host target and locality selection, no inferred local default",
+      "gate": "PENDING_OWNER_CONTRACT",
+      "acceptedNewHandoff": false
+    },
+    {
+      "id": "M53",
+      "sourceDepth": "INDEX_ONLY_PENDING",
+      "boundary": "Provenance/rights/consent policy and optional classification; M09 cannot decide domain rights",
+      "gate": "PENDING_OWNER_CONTRACT_IF_APPLICABLE",
+      "acceptedNewHandoff": false
+    },
+    {
+      "id": "M54",
+      "sourceDepth": "INDEX_ONLY_PENDING",
+      "boundary": "Issuer trust, purpose/redaction, request-action authorization, cross-process principal policy",
+      "gate": "PENDING_OWNER_CONTRACT",
+      "acceptedNewHandoff": false
+    },
+    {
+      "id": "M55",
+      "sourceDepth": "INDEX_ONLY_PENDING",
+      "boundary": "Persistence/CAS/cleanup capabilities only if selected; no resource proof implies deletion",
+      "gate": "PENDING_OWNER_CONTRACT_IF_APPLICABLE",
+      "acceptedNewHandoff": false
+    },
+    {
+      "id": "M56",
+      "sourceDepth": "INDEX_ONLY_PENDING",
+      "boundary": "Resource/liveness/incident event projection and aggregation without mutable M09 state authority",
+      "gate": "PENDING_OWNER_CONTRACT_IF_APPLICABLE",
+      "acceptedNewHandoff": false
+    },
+    {
+      "id": "M58",
+      "sourceDepth": "INDEX_ONLY_PENDING",
+      "boundary": "Any external M09 schema/SDK/public port lifecycle and negotiated surface",
+      "gate": "PENDING_OWNER_CONTRACT_IF_PUBLIC",
+      "acceptedNewHandoff": false
+    },
+    {
+      "id": "M60",
+      "sourceDepth": "INDEX_ONLY_PENDING",
+      "boundary": "Platform adapter/process rights and system qualification; no OS-rights schema presumed from heading",
+      "gate": "PENDING_OWNER_CONTRACT",
+      "acceptedNewHandoff": false
+    }
+  ],
+  "futureFreezeBlockers": [
+    {
+      "id": "C02-FR-H01",
+      "severity": "HIGH_FOR_FUTURE_FREEZE",
+      "title": "M11-to-M09 owner-liveness/cooperative-release reverse port",
+      "basis": [
+        "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
+        "iris_resource_twin/recovery.py",
+        "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md"
+      ],
+      "status": "OPEN_OWNER_EVIDENCE_REQUIRED",
+      "owningModules": [
+        "M11",
+        "M09",
+        "M54",
+        "M60"
+      ],
+      "why": "OwnerLivenessRef checks type/state/timestamp and M11 string prefix for non-UNKNOWN, not an approved verifiable intermodule issuer; no adopted M11 producer, freshness/revocation/rights or cooperative-release transport. A read-only M09-to-M11 receipt does not close the reverse FC-09-03 handoff.",
+      "safeInterim": "UNKNOWN liveness and no inferred reclaim/control or grant"
+    },
+    {
+      "id": "C02-FR-H02",
+      "severity": "HIGH_FOR_FUTURE_FREEZE",
+      "title": "Owner-coherent snapshot+lease and composite all-mandatory-member proof",
+      "basis": [
+        "iris_resource_twin/twin.py",
+        "iris_resource_twin/leases.py",
+        "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md"
+      ],
+      "status": "OPEN_M09_OWNER_ATOMICITY_DECISION",
+      "owningModules": [
+        "M09",
+        "M12"
+      ],
+      "why": "Independent in-process twin/lease locks and optional/mandatory composite member outcomes cannot be projected as an atomic external grant; revocation and mixed epochs remain undecided.",
+      "safeInterim": "Non-admitting without owner-issued coherent exact-scope joint cut and current verification"
+    },
+    {
+      "id": "C02-FR-H03",
+      "severity": "HIGH_FOR_FUTURE_FREEZE",
+      "title": "Missing independent placement/security/publication/platform owners",
+      "basis": [
+        "planning/MASTER-MODULE-INDEX.md",
+        "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+        "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md"
+      ],
+      "status": "OPEN_FUTURE_OWNER_CONTRACTS",
+      "owningModules": [
+        "M12",
+        "M54",
+        "M58",
+        "M60"
+      ],
+      "why": "Index-only future owner contracts cannot supply accepted trust/transport, target placement, public SDK/redaction or OS capability; even negative public C needs owner-approved exposure.",
+      "safeInterim": "No external/public verified port, no worker/OS action"
+    },
+    {
+      "id": "C02-FR-H04",
+      "severity": "HIGH_FOR_FUTURE_FREEZE",
+      "title": "Exact consumer claim/attempt and revocation-to-action race ownership",
+      "basis": [
+        "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+        "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+        "planning/contracts/M09-READ-ONLY-EVIDENCE-HANDOFF-CANDIDATE.md"
+      ],
+      "status": "OPEN_CROSS_OWNER_DISPOSITION",
+      "owningModules": [
+        "M02",
+        "M06",
+        "M09",
+        "M11"
+      ],
+      "why": "Exact M02 accepted plan/claim identity and M06 materiality/attempt associations plus M09 atomic owner revalidation at time-of-use have no new approved handoff; stale token or process exit never establishes grant/materialization.",
+      "safeInterim": "Preserve opaque owner evidence separately; no request admission or lease mutation"
+    }
+  ],
+  "additionalReverseProofs": [
+    {
+      "id": "LV-01",
+      "condition": "Forged/unverified M11-prefixed OwnerLivenessRef with fresh TERMINATED state",
+      "oracle": "No externally authorized termination proof, no leak-confirmation promotion for a cross-module consumer",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "noProcessAction": true,
+      "noM09Mutation": true,
+      "requiresOwnerReview": [
+        "M09",
+        "M11"
+      ],
+      "securityPlatformReview": [
+        "M54",
+        "M60"
+      ]
+    },
+    {
+      "id": "LV-02",
+      "condition": "OwnerLivenessRef UNKNOWN, stale, mismatched owner_ref or authority absent",
+      "oracle": "No confirmed owner death and no lease reclamation",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "noProcessAction": true,
+      "noM09Mutation": true,
+      "requiresOwnerReview": [
+        "M09",
+        "M11"
+      ],
+      "securityPlatformReview": [
+        "M54",
+        "M60"
+      ]
+    },
+    {
+      "id": "LV-03",
+      "condition": "CooperativeReleaseResponse ACCEPTED with matching request",
+      "oracle": "ACCEPTED_AWAITING_RESOURCE_RECONCILIATION, capacity reclaimed remains false",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "noProcessAction": true,
+      "noM09Mutation": true,
+      "requiresOwnerReview": [
+        "M09",
+        "M11"
+      ],
+      "securityPlatformReview": [
+        "M54",
+        "M60"
+      ]
+    },
+    {
+      "id": "LV-04",
+      "condition": "CooperativeReleaseResponse absent, past deadline, mismatched owner/request or duplicate contradictory delivery",
+      "oracle": "Explicit pending/timeout/invalid; no automatic release/reuse/OS kill",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "noProcessAction": true,
+      "noM09Mutation": true,
+      "requiresOwnerReview": [
+        "M09",
+        "M11"
+      ],
+      "securityPlatformReview": [
+        "M54",
+        "M60"
+      ]
+    },
+    {
+      "id": "LV-05",
+      "condition": "Composite claim containing mandatory member stale or revoked despite other active members",
+      "oracle": "No composite positive grant from an independently positive subset or active list",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "noProcessAction": true,
+      "noM09Mutation": true,
+      "requiresOwnerReview": [
+        "M09",
+        "M11"
+      ],
+      "securityPlatformReview": [
+        "M54",
+        "M60"
+      ]
+    },
+    {
+      "id": "LV-06",
+      "condition": "Owner-liveness evidence conflicts with lease epoch or fresh resource snapshot, or owner exits between verification and action",
+      "oracle": "No inferred final liveness/current grant or reaper authorization; require source-defined recheck",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "noProcessAction": true,
+      "noM09Mutation": true,
+      "requiresOwnerReview": [
+        "M09",
+        "M11"
+      ],
+      "securityPlatformReview": [
+        "M54",
+        "M60"
+      ]
+    }
+  ],
+  "counts": {
+    "FC09Rows": 14,
+    "ownerRows": 12,
+    "highForFutureFreeze": 4,
+    "newLVProposedNotExecuted": 6,
+    "priorHXNotExecuted": 12,
+    "priorC08NotExecuted": 10,
+    "priorPOC02NotExecuted": 8,
+    "originalM11QuestionsOpen": 86
+  },
+  "noSelectedTopology": true,
+  "readOnlyCandidate": "UNADOPTED_NOT_FROZEN",
+  "existingM09Contract": "m09-contract-v1.0 FROZEN_UNCHANGED",
+  "issue110OwnerDecision": "NOT_RECORDED",
+  "prohibit": [
+    "NO_M09_OR_M11_PRODUCT_CODE",
+    "NO_SELECTED_M09_TO_M11_PORT",
+    "NO_M11_TO_M09_PRODUCER_VERIFIER_PORT",
+    "NO_OWNER_AUTHORIZATION_INFERRED",
+    "NO_POSITIVE_GRANT_FROM_LIVENESS_OR_RELEASE_RESPONSE",
+    "NO_OS_OR_PROCESS_ACTION"
+  ]
+}
