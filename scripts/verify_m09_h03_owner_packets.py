@@ -209,7 +209,7 @@ def verify_h03(p:dict,i:dict,original:dict,c02:dict,d01:dict,
                        "147 overlapping owner assignments","91 unique",
                        *H03_NEGS,*i["explicitIssue110QuestionIds"],*i["ownerQueues"]["M58"]):
             guard(marker in doc,f"public H03 source discussion omits {marker}")
-        w=(root/".engineering/work-orders/IRIS-WO-0037-M09-H03-SOURCE-PACKETS.md").read_text(encoding="utf-8")
+        w=(root/".engineering/work-orders/IRIS-WO-0037-M09-H03-OWNER-PACKETS.md").read_text(encoding="utf-8")
         guard("NOT_ADMITTED" in w and "H01–H04" in w
               and "M58" in w and "M60" in w,
               "WO0037 missing non-admission/H03 source dependency controls")
