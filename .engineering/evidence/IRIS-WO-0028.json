@@ -3,7 +3,7 @@
   "workOrder": "IRIS-WO-0028",
   "module": "M12",
   "issue": 128,
-  "status": "PROPOSED_OWNER_CANDIDATE_V0_1_NOT_FROZEN_PENDING_OWN_CI",
+  "status": "PREPARED_FOR_OWNER_REVIEW_ONLY_NOT_FROZEN_EXACT_MAIN_VERIFIED",
   "baseSha": "3dfacc4fd93f1c4d12255bb400b35a397073bf3e",
   "baseTreeSha": "191a01663402881ee00bcf0e4c2ceda9716a962c",
   "authorizedChangedFiles": [
@@ -105,5 +105,43 @@
     "exactMainGovernance": "REQUIRED",
     "hardwareOSNetworkTrials": "NOT_EXECUTED",
     "actualOwnerAudit": "NOT_PERFORMED"
+  },
+  "verifiedCloseout": {
+    "pr": 135,
+    "reviewType": "BOUNDED_SEPARATE_PASS_SAME_ASSISTANT_NOT_INDEPENDENT_HUMAN_OR_OWNER",
+    "reviewComment": "https://github.com/KayzenRoot/iris/pull/135#issuecomment-5857122902",
+    "finalReviewedHead": "0addb0d768cfc7365fd0b492a4c83dcb790864e9",
+    "baseSha": "3dfacc4fd93f1c4d12255bb400b35a397073bf3e",
+    "sourceBlobs": "50/50",
+    "authorizedPaths": "16/16",
+    "newHighCritical": 0,
+    "exactHeadGovernance": {
+      "number": 498,
+      "run": 36328992393,
+      "job": 108647169430,
+      "tests": "4009/4009",
+      "contextLock": "PASS",
+      "validator": "PASS",
+      "gefHive": "PASS"
+    },
+    "protectedSquashSha": "b137a99157df3c72b2eaaf7b6209da399802d580",
+    "protectedSquashTree": "207d8c7b604ac07952609bbec766175776a88ab4",
+    "exactMainGovernance": {
+      "number": 499,
+      "run": 36329122328,
+      "job": 108647545166,
+      "tests": "4009/4009"
+    },
+    "intermediateFailures": {
+      "runs": [
+        496,
+        497
+      ],
+      "correctedBeforeReviewedHead": true
+    },
+    "admission": "PREPARED_FOR_OWNER_REVIEW_ONLY",
+    "ownerAcceptance": "NOT_PERFORMED",
+    "freeze": "BLOCKED_FOR_FREEZE",
+    "implementation": "NOT_ADMITTED"
   }
 }

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0029",
+  "issue": 128,
+  "status": "PROPOSED_PENDING_OWN_EXACT_HEAD_CI_AND_BOUNDED_REVIEW",
+  "risk": "LOW_PUBLIC_DOCUMENTATION_STATUS_INTEGRITY",
+  "baseSha": "b137a99157df3c72b2eaaf7b6209da399802d580",
+  "baseTreeSha": "207d8c7b604ac07952609bbec766175776a88ab4",
+  "priorWo": "IRIS-WO-0028",
+  "priorPr": 135,
+  "priorPrFinalHead": "0addb0d768cfc7365fd0b492a4c83dcb790864e9",
+  "priorHeadGovernance": {
+    "number": 498,
+    "run": 36328992393,
+    "job": 108647169430,
+    "tests": "4009/4009"
+  },
+  "priorProtectedMerge": {
+    "sha": "b137a99157df3c72b2eaaf7b6209da399802d580",
+    "tree": "207d8c7b604ac07952609bbec766175776a88ab4"
+  },
+  "priorMainGovernance": {
+    "number": 499,
+    "run": 36329122328,
+    "job": 108647545166,
+    "tests": "4009/4009"
+  },
+  "inheritedBlockedGates": [
+    "C02-FR-H01",
+    "C02-FR-H02",
+    "C02-FR-H03",
+    "C02-FR-H04"
+  ],
+  "m09ActualOwnerChoice": "NONE_SELECTED",
+  "m11Status": "V0_2_NOT_FROZEN",
+  "m12Status": "PREPARED_FOR_OWNER_REVIEW_ONLY_NOT_FROZEN",
+  "m12OpenQuestions": 110,
+  "m12UnexecutedFutureOracles": 80,
+  "m11OpenQuestions": 86,
+  "issuesRemainingOpen": [
+    82,
+    110,
+    112,
+    128
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0029-PUBLIC-STATUS-RECONCILIATION.json",
+    ".engineering/evidence/IRIS-WO-0028.json",
+    ".engineering/evidence/IRIS-WO-0029.json",
+    ".engineering/work-orders/IRIS-WO-0029-PUBLIC-STATUS-RECONCILIATION.md",
+    "README.md",
+    "docs/project-brain/01-PROJECT-OVERVIEW.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/reviews/IRIS-WO-0029-PUBLIC-STATUS-AUDIT-TARGET.md",
+    "tests/test_public_status_docs.py"
+  ],
+  "addedTests": 5,
+  "priorFullSuiteTests": 4009,
+  "expectedFullSuiteTests": 4014,
+  "testsStatus": "PENDING_OWN_EXACT_HEAD_CI",
+  "auditStatus": "PENDING_BOUNDED_REVIEW",
+  "mergeStatus": "NOT_MERGED",
+  "exactMainStatus": "PENDING",
+  "ownerApproval": "NOT_PERFORMED",
+  "runtimeImplementation": "NOT_ADMITTED"
+}
