@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0041",
+  "increment": "H03_OFFLINE_FOUR_OWNER_BATCH_FORMAT_TRIAGE_AND_PARSER_RESOURCE_BOUNDS_NO_AUTHORITY",
+  "issue": 110,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0041-h03-offline-batch-triage-20260927",
+  "baseRef": "main",
+  "baseSha": "c3d10ab9dd5a9bb247ae6d0672b3516d1af5efae",
+  "baseTreeSha": "d7f6d1e07cf0b722b1f43497327460287ec9f5a4",
+  "status": "PROPOSED_PENDING_EXACT_HEAD_GOVERNANCE_SCOPED_AUDIT_PROTECTED_SQUASH_AND_EXACT_MAIN",
+  "risk": "OFFLINE_UNTRUSTED_INPUT_WITH_INHERITED_H01_H04_HIGH_UNRESOLVED",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "c3d10ab9dd5a9bb247ae6d0672b3516d1af5efae",
+    "baseTreeSha": "d7f6d1e07cf0b722b1f43497327460287ec9f5a4",
+    "expected": 19,
+    "checked": 19,
+    "matched": 19,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "ed85152ff1a9891957e5b3073abf9a1582ba73e5"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "73aa1b314a3f074de8f4cffbdb3812fbd5679a34"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+    },
+    {
+      "path": "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "28b3802901349263100ceaaf80c0990513dbbded"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json",
+      "gitBlobSha1": "935abe4323618ac6d583e3bd8acc827d5fe80d2c"
+    },
+    {
+      "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
+      "gitBlobSha1": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb"
+    },
+    {
+      "path": ".engineering/evidence/M09-H03-FOUR-OWNER-SOURCE-PACKETS.json",
+      "gitBlobSha1": "c82093e393722acb39081e9d76c974d0cddcfd3b"
+    },
+    {
+      "path": ".engineering/evidence/M09-H03-OWNER-REVIEW-ROUTES-E01.json",
+      "gitBlobSha1": "3e95777c7cd10a18881615a60b53d44b25098add"
+    },
+    {
+      "path": "scripts/verify_m09_h03_owner_routes.py",
+      "gitBlobSha1": "311ecd211d1e94f157abf6695affd45dfa2376e2"
+    },
+    {
+      "path": "scripts/triage_m09_h03_untrusted_owner_reply.py",
+      "gitBlobSha1": "a7f6867720b007be526367f87e4c6c8e563e4ec4"
+    },
+    {
+      "path": "tests/test_m09_h03_untrusted_owner_reply_triage.py",
+      "gitBlobSha1": "59200d4f8d2bbfad0180806d2a268e866cd43a71"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/context-locks/IRIS-WO-0041-H03-OFFLINE-BATCH-TRIAGE.json",
+    ".engineering/evidence/IRIS-WO-0041.json",
+    ".engineering/work-orders/IRIS-WO-0041-H03-OFFLINE-BATCH-TRIAGE.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0041-H03-OFFLINE-BATCH-TRIAGE.md",
+    "planning/reviews/IRIS-WO-0041-H03-OFFLINE-BATCH-AUDIT-TARGET.md",
+    "planning/reviews/M09-H03-UNTRUSTED-OWNER-REPLY-TRIAGE-E02.md",
+    "scripts/triage_m09_h03_untrusted_owner_reply.py",
+    "tests/test_wo0041_h03_offline_batch_triage.py"
+  ],
+  "stopCondition": "Only four-owner offline draft FORMAT-ONLY bundle and bounded JSON parsing; new 18 local synthetic tests, no real owner response or approvals, H01-H04 remain OPEN HIGH; no original frozen M09 or M10/M11/M12 runtime, OS/process/GPU/network/cloud, M58 API or C01 port; independent real owners still required. Merge only after exact-head CI bounded audit and separate exact-main checks."
+}

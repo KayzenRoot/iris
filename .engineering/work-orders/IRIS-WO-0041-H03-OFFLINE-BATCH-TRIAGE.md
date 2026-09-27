@@ -1,0 +1,17 @@
+# IRIS-WO-0041 — one-pass four-owner OFFLINE untrusted draft triage hardening
+
+**Source and admission:** exact main `c3d10ab9dd5a9bb247ae6d0672b3516d1af5efae`, tree `d7f6d1e07cf0b722b1f43497327460287ec9f5a4` independently green [Governance #532](https://github.com/KayzenRoot/iris/actions/runs/36345958912), 4295/4295 tests, IRIS/GEF/HIVE PASS. Issue #110 still tracks the original cross-owner H01–H04 HIGH gates. Current four owner inboxes #128/#145/#146/#147 remain OPEN and unassigned; their GitHub issue comments have **no genuine signed source contracts**. Owner-selected B is DIRECTION_ONLY and C01 is UNADOPTED_NOT_FROZEN.
+
+## Objective and admitted change
+
+The existing WO0039 local E02 script processes **one untrusted JSON draft at a time**. Improve the existing REAL offline intake workflow, not issue another duplicate owner receipt: support **one CLI invocation over one to four separately scoped owner draft files**, deterministic source-order output, explicit absent owner files and missing shared-question *draft* dispositions, atomic rejection for any duplicate/malformed/foreign owner, and retain exact single-file API compatibility. Add a bounded one-MiB per-file reader, reject invalid UTF-8, nonstandard JSON numeric constants and excessive parser nesting with a clean fail-closed error. These are local parse and presentation controls only.
+
+## Exact scope and proof
+
+Changed path allowlist is strictly 9/9: `.engineering/context-locks/IRIS-WO-0041-H03-OFFLINE-BATCH-TRIAGE.json`, `.engineering/evidence/IRIS-WO-0041.json`, `.engineering/work-orders/IRIS-WO-0041-H03-OFFLINE-BATCH-TRIAGE.md`, `docs/project-brain/14-BACKLOG.md`, `planning/checkpoints/IRIS-WO-0041-H03-OFFLINE-BATCH-TRIAGE.md`, `planning/reviews/IRIS-WO-0041-H03-OFFLINE-BATCH-AUDIT-TARGET.md`, `planning/reviews/M09-H03-UNTRUSTED-OWNER-REPLY-TRIAGE-E02.md`, `scripts/triage_m09_h03_untrusted_owner_reply.py`, `tests/test_wo0041_h03_offline_batch_triage.py`. Lock exactly 19/19 original base Git blob SHA1 source paths, including all eight mandatory canonical roots, old C02/D01, unmodified H03 original packets/E01 routes, prior CLI/tests and M11/M12 unapproved candidates. Add **18 deterministic synthetic/adversarial local tests** (4295+18=4313 expected). Confirm original single-file output is backward compatible, all four complete drafts never infer owner authority, shared-question gaps, malicious case atomic failure, input resource bounds and clean CLI errors.
+
+**Out of scope:** no frozen M09 changes, no M11/M12 contract freeze, no M54 principal or M58 API or M60 process permission, no network/GitHub lookup/credential verification, no OS/process/GPU/runtime action, no execution of original M12 80/H03-N 12/HX 12/LV 6/C08 10/PO-C02 8 future integration cases, no source-owner creation or automatic issue closure. All H01–H04 stay OPEN HIGH_FOR_FUTURE_FREEZE, all M11 86 and M12 110 original owner questions remain OPEN, M10/M11/M12 runtime NOT_ADMITTED.
+
+## Review, evidence and STOP
+
+PR requires exact base pin validation, 9/9 path diff, exact-head Governance full suite 4313/4313, IRIS validator and pinned GEF/HIVE; bounded same-assistant audit is NOT an actual independent qualified security/OS or cross-owner review. Guarded squash only of the reviewed green head, then separately verify exact-main Governance; issue #110 receives factual checkpoint only after evidence. STOP at genuine independent M12/#128, M54/#145, M58/#146, M60/#147 owner-issued scope decisions; four fully formatted synthetic drafts never close H03 or authorize runtime.
