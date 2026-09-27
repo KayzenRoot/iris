@@ -1,0 +1,685 @@
+{
+  "schemaVersion": "iris-m12-c03-source-constrained-discussion-v0.1",
+  "workOrder": "IRIS-WO-0032",
+  "issue": 128,
+  "sourceBaseSha": "1856e91eac15deeb6ba553dcfbdc24b8651de0a1",
+  "sourceBaseTreeSha": "66f946a2c8ae8b36f5b0ed34c9ace9dbf5e5ddc3",
+  "status": "NINETEEN_NONBINDING_PROPOSALS_OWNER_REVIEW_PENDING",
+  "sourceRegister": ".engineering/evidence/M12-OWNER-DECISION-REGISTER.json",
+  "sourceRouting": ".engineering/evidence/M12-OWNER-INTAKE-C02.json",
+  "sourceC02": ".engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json",
+  "sourceDocs": [
+    {
+      "role": "M02",
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+      "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
+    },
+    {
+      "role": "M06",
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+      "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
+    },
+    {
+      "role": "M09",
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+      "exactNeedle": "Composite claims, grants and transfers report atomicity and per-member outcomes."
+    },
+    {
+      "role": "M10",
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828",
+      "exactNeedle": "A recommendation SHALL NOT imply reservation, placement, dispatch, worker control, provider submission or authorization."
+    },
+    {
+      "role": "C01",
+      "path": "planning/contracts/M09-READ-ONLY-EVIDENCE-HANDOFF-CANDIDATE.md",
+      "gitBlobSha1": "30eb7e369b2996cc5e9b5f49736e29232b45b69e",
+      "exactNeedle": "Status: **PROPOSED_UNADOPTED_NOT_FROZEN**"
+    }
+  ],
+  "counts": {
+    "originalQuestionsOpen": 110,
+    "nonbindingPackets": 19,
+    "otherOriginalQuestionsOpen": 91,
+    "futureOriginalOraclesNotExecuted": 80
+  },
+  "selectedM09Topology": "NONE_SELECTED",
+  "ownerApprovals": 0,
+  "openHighs": [
+    "C02-FR-H01",
+    "C02-FR-H02",
+    "C02-FR-H03",
+    "C02-FR-H04"
+  ],
+  "m11": "V0_2_NOT_FROZEN_86_OPEN",
+  "m12": "V0_1_PREPARED_FOR_OWNER_REVIEW_ONLY_110_OPEN",
+  "runtime": "M10_M11_M12_NOT_ADMITTED",
+  "proposals": [
+    {
+      "id": "M12-S01-U13",
+      "session": "S01",
+      "originalQuestion": "How are composite member grants and mismatched expiry/revocation handled without partial admission?",
+      "originalOwners": "M12/M09",
+      "canonicalResearchSource": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Review composite membership as an indivisible owner-proven set, not independent apparently-fresh observations.",
+      "gap": "No joint M09 snapshot+lease decision, at-use invalidation or member revocation rule exists.",
+      "linkedInheritedHighs": [
+        "C02-FR-H02"
+      ],
+      "existingFutureOracleIds": [
+        "WR-09"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M09",
+          "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+          "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+          "exactNeedle": "Composite claims, grants and transfers report atomicity and per-member outcomes."
+        },
+        {
+          "sourceRole": "C01",
+          "path": "planning/contracts/M09-READ-ONLY-EVIDENCE-HANDOFF-CANDIDATE.md",
+          "gitBlobSha1": "30eb7e369b2996cc5e9b5f49736e29232b45b69e",
+          "exactNeedle": "Status: **PROPOSED_UNADOPTED_NOT_FROZEN**"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U15",
+      "session": "S01",
+      "originalQuestion": "Can duplicate announcements from two nodes ever imply a new attempt or retry? (Default: no claim.)",
+      "originalOwners": "M12/M02/M06",
+      "canonicalResearchSource": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Treat repeated announcements as observations only; retain distinct M02 work and M06 attempt identities.",
+      "gap": "A genuine cross-owner work-to-attempt epoch and external-effect dedup decision is missing.",
+      "linkedInheritedHighs": [
+        "C02-FR-H04"
+      ],
+      "existingFutureOracleIds": [
+        "WR-10"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M02",
+          "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
+        },
+        {
+          "sourceRole": "M06",
+          "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U17",
+      "session": "S01",
+      "originalQuestion": "How is M10's plan recommendation kept separate from M12 placement and all owner grants?",
+      "originalOwners": "M12/M10",
+      "canonicalResearchSource": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Keep versioned M10 recommendations strictly advisory, separate from future M12 consideration.",
+      "gap": "No M12 placement, resource, process or trust authorization follows from optimizer advice.",
+      "linkedInheritedHighs": [],
+      "existingFutureOracleIds": [
+        "WR-11"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M10",
+          "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828",
+          "exactNeedle": "A recommendation SHALL NOT imply reservation, placement, dispatch, worker control, provider submission or authorization."
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U01",
+      "session": "S02",
+      "originalQuestion": "What canonical accepted M02 work/plan reference permits queue consideration without manufacturing M02 state?",
+      "originalOwners": "M02/M12",
+      "canonicalResearchSource": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "A prospective queue association could reference only exact owner-issued M02 accepted work; it cannot create accepted state.",
+      "gap": "M02-to-M12 queue semantics, epoch revalidation and M06 optional attempt linkage require real cross-owner decision.",
+      "linkedInheritedHighs": [
+        "C02-FR-H04"
+      ],
+      "existingFutureOracleIds": [
+        "SQ-01"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M02",
+          "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U04",
+      "session": "S02",
+      "originalQuestion": "Who supplies allowable priority policy evidence and can it vary by project?",
+      "originalOwners": "M12/M02",
+      "canonicalResearchSource": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Preserve M02 accepted-work scope while considering priority only as an unselected M12 policy question.",
+      "gap": "There is no approved project-priority source, selected policy or authorized M54 override.",
+      "linkedInheritedHighs": [],
+      "existingFutureOracleIds": [
+        "SQ-06"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M02",
+          "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U07",
+      "session": "S02",
+      "originalQuestion": "Are hard quotas policy limits or M09 grants, and how are they separately versioned?",
+      "originalOwners": "M12/M09",
+      "canonicalResearchSource": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Keep proposed project quotas and M09-issued live grants in separate versioned source namespaces.",
+      "gap": "M12 quota policy and the M09 joint per-request grant handoff are unapproved.",
+      "linkedInheritedHighs": [
+        "C02-FR-H02"
+      ],
+      "existingFutureOracleIds": [
+        "SQ-05"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M09",
+          "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+          "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+          "exactNeedle": "Composite claims, grants and transfers report atomicity and per-member outcomes."
+        },
+        {
+          "sourceRole": "C01",
+          "path": "planning/contracts/M09-READ-ONLY-EVIDENCE-HANDOFF-CANDIDATE.md",
+          "gitBlobSha1": "30eb7e369b2996cc5e9b5f49736e29232b45b69e",
+          "exactNeedle": "Status: **PROPOSED_UNADOPTED_NOT_FROZEN**"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U09",
+      "session": "S02",
+      "originalQuestion": "How are unknown/stale quota or headroom estimates represented without positive claims?",
+      "originalOwners": "M12/M09",
+      "canonicalResearchSource": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Represent unknown, stale, contradicted, revoked or unsupported estimates as non-admitting observations.",
+      "gap": "The M09 coherent at-use validity port and owner-approved fallback do not exist.",
+      "linkedInheritedHighs": [
+        "C02-FR-H02"
+      ],
+      "existingFutureOracleIds": [
+        "SQ-02",
+        "SQ-03"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M09",
+          "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+          "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+          "exactNeedle": "Composite claims, grants and transfers report atomicity and per-member outcomes."
+        },
+        {
+          "sourceRole": "C01",
+          "path": "planning/contracts/M09-READ-ONLY-EVIDENCE-HANDOFF-CANDIDATE.md",
+          "gitBlobSha1": "30eb7e369b2996cc5e9b5f49736e29232b45b69e",
+          "exactNeedle": "Status: **PROPOSED_UNADOPTED_NOT_FROZEN**"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U13",
+      "session": "S02",
+      "originalQuestion": "Can expected duration/VRAM be used for backfill, and what uncertainty bounds are required?",
+      "originalOwners": "M12/M06",
+      "canonicalResearchSource": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Compare proposed duration/VRAM only as uncertain evidence-linked projections without promoting M06 outcome history into a forecast guarantee.",
+      "gap": "Calibrated estimator, uncertainty threshold, safe backfill policy and permission to preempt remain undefined.",
+      "linkedInheritedHighs": [],
+      "existingFutureOracleIds": [
+        "SQ-14"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M06",
+          "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U17",
+      "session": "S02",
+      "originalQuestion": "Who decides cancellation/retry/idempotency when a queued job's plan or attempt changes?",
+      "originalOwners": "M12/M02/M06",
+      "canonicalResearchSource": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Keep cancellation intent, M02 work supersession and M06 attempt receipts distinct; a stale ranking is not a retry.",
+      "gap": "Epoch/fencing, idempotent external-effect disposition and H04 handoff are unresolved.",
+      "linkedInheritedHighs": [
+        "C02-FR-H04"
+      ],
+      "existingFutureOracleIds": [
+        "SQ-08",
+        "SQ-09"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M02",
+          "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
+        },
+        {
+          "sourceRole": "M06",
+          "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U20",
+      "session": "S02",
+      "originalQuestion": "How does advisory optimization input stay separate from admitted scheduling and proof?",
+      "originalOwners": "M12/M10",
+      "canonicalResearchSource": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Present M10 advice as a separately versioned input; preserve distinct M12 selection and M09 lease proofs.",
+      "gap": "No admitted M10 implementation, M12 scheduler or authoritative resource handoff exists.",
+      "linkedInheritedHighs": [],
+      "existingFutureOracleIds": [
+        "SQ-11"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M10",
+          "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828",
+          "exactNeedle": "A recommendation SHALL NOT imply reservation, placement, dispatch, worker control, provider submission or authorization."
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U01",
+      "session": "S03",
+      "originalQuestion": "What exact request-scoped per-device claims may future composite placement consume from a separately admitted M09 owner port?",
+      "originalOwners": "M09/M12",
+      "canonicalResearchSource": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Record intended request and per-device members only as candidate inventory until M09 issues a member-complete receipt.",
+      "gap": "M09 C01 is unadopted, issue #110 topology is undecided and H02 proof is absent.",
+      "linkedInheritedHighs": [
+        "C02-FR-H02"
+      ],
+      "existingFutureOracleIds": [
+        "MG-01"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M09",
+          "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+          "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+          "exactNeedle": "Composite claims, grants and transfers report atomicity and per-member outcomes."
+        },
+        {
+          "sourceRole": "C01",
+          "path": "planning/contracts/M09-READ-ONLY-EVIDENCE-HANDOFF-CANDIDATE.md",
+          "gitBlobSha1": "30eb7e369b2996cc5e9b5f49736e29232b45b69e",
+          "exactNeedle": "Status: **PROPOSED_UNADOPTED_NOT_FROZEN**"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U03",
+      "session": "S03",
+      "originalQuestion": "How does each member's freshness/expiry and time-of-use revalidation work without mixing different observation epochs?",
+      "originalOwners": "M12/M09",
+      "canonicalResearchSource": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Require future member-complete M09 epoch, expiry, revocation and at-use verification; never assemble independent samples.",
+      "gap": "The future atomic M09 snapshot+lease owner port remains unapproved under H02.",
+      "linkedInheritedHighs": [
+        "C02-FR-H02"
+      ],
+      "existingFutureOracleIds": [
+        "MG-02",
+        "MG-03"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M09",
+          "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+          "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+          "exactNeedle": "Composite claims, grants and transfers report atomicity and per-member outcomes."
+        },
+        {
+          "sourceRole": "C01",
+          "path": "planning/contracts/M09-READ-ONLY-EVIDENCE-HANDOFF-CANDIDATE.md",
+          "gitBlobSha1": "30eb7e369b2996cc5e9b5f49736e29232b45b69e",
+          "exactNeedle": "Status: **PROPOSED_UNADOPTED_NOT_FROZEN**"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U12",
+      "session": "S03",
+      "originalQuestion": "How are per-device headroom and the 8 GB-class production route preserved without summing unrelated VRAM?",
+      "originalOwners": "M12/M09",
+      "canonicalResearchSource": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Preserve separate per-device VRAM evidence and independently qualified 8GB-class routes; do not add unrelated VRAM.",
+      "gap": "M09 member grant, model/provider sharding qualification and physical performance evidence are missing.",
+      "linkedInheritedHighs": [
+        "C02-FR-H02",
+        "C02-FR-H03"
+      ],
+      "existingFutureOracleIds": [
+        "MG-11"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M09",
+          "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+          "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+          "exactNeedle": "Composite claims, grants and transfers report atomicity and per-member outcomes."
+        },
+        {
+          "sourceRole": "C01",
+          "path": "planning/contracts/M09-READ-ONLY-EVIDENCE-HANDOFF-CANDIDATE.md",
+          "gitBlobSha1": "30eb7e369b2996cc5e9b5f49736e29232b45b69e",
+          "exactNeedle": "Status: **PROPOSED_UNADOPTED_NOT_FROZEN**"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U14",
+      "session": "S03",
+      "originalQuestion": "Which exact plan/attempt/output lineage binds each split subtask without promoting partial output to success?",
+      "originalOwners": "M02/M06/M12",
+      "canonicalResearchSource": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Tie each proposed shard to exact M02 work and distinct M06 revision/attempt/output lineage; partial output never implies success.",
+      "gap": "Shard aggregation, parent acceptance, external effects and H04 replay semantics require owner decision.",
+      "linkedInheritedHighs": [
+        "C02-FR-H04"
+      ],
+      "existingFutureOracleIds": [
+        "MG-08",
+        "MG-13"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M02",
+          "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
+        },
+        {
+          "sourceRole": "M06",
+          "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U18",
+      "session": "S03",
+      "originalQuestion": "How are advisory cost/quality/latency estimates kept separate from M12 selection and M09 lease authorization?",
+      "originalOwners": "M12/M10",
+      "canonicalResearchSource": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Keep predicted cost/quality/latency as M10 advisory evidence; no score becomes grant, placement or rights permission.",
+      "gap": "Any real M12 selection, M09 lease handoff or platform permission remains unadopted.",
+      "linkedInheritedHighs": [
+        "C02-FR-H02"
+      ],
+      "existingFutureOracleIds": [
+        "MG-16"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M10",
+          "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828",
+          "exactNeedle": "A recommendation SHALL NOT imply reservation, placement, dispatch, worker control, provider submission or authorization."
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U21",
+      "session": "S03",
+      "originalQuestion": "How will the outcome distinguish data parallel output aggregation from merely observed worker process exits?",
+      "originalOwners": "M12/M06",
+      "canonicalResearchSource": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Request actual M06 disposition of verified materialization and accepted output; worker exit remains observation only.",
+      "gap": "No adopted shard aggregation/immutable provenance-to-parent acceptance handoff exists.",
+      "linkedInheritedHighs": [
+        "C02-FR-H04"
+      ],
+      "existingFutureOracleIds": [
+        "MG-13"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M06",
+          "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U07",
+      "session": "S05",
+      "originalQuestion": "Who decides the future retry budget, attempt revision and dedup semantics?",
+      "originalOwners": "M02/M06/M12",
+      "canonicalResearchSource": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Treat retry budget and dedup as M02/M06 owner questions; preserve exact work, attempt and external-effect identities.",
+      "gap": "No actual epoch/fencing/retry cap or H04 owner-authorized replay proof exists.",
+      "linkedInheritedHighs": [
+        "C02-FR-H04"
+      ],
+      "existingFutureOracleIds": [
+        "FT-04",
+        "FT-19"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M02",
+          "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
+        },
+        {
+          "sourceRole": "M06",
+          "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U08",
+      "session": "S05",
+      "originalQuestion": "What effect classes are non-idempotent and must require explicit owner/operator adjudication?",
+      "originalOwners": "M02/M06/M12",
+      "canonicalResearchSource": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Distinguish potentially non-idempotent external effects from M06 attempts; no inferred replay before owner adjudication.",
+      "gap": "An authorized effect-class catalog and operator procedure are not selected; M02 idempotency law is not per-effect proof.",
+      "linkedInheritedHighs": [
+        "C02-FR-H04"
+      ],
+      "existingFutureOracleIds": [
+        "FT-04"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M02",
+          "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
+        },
+        {
+          "sourceRole": "M06",
+          "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U18",
+      "session": "S05",
+      "originalQuestion": "What resource protection keeps user-interactive 8GB hardware responsive during preemption decisions?",
+      "originalOwners": "M12/M09",
+      "canonicalResearchSource": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "candidateStatus": "NONBINDING_SOURCE_CONSTRAINED_DISCUSSION",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "proposal": "Keep workstation interaction policy distinct from M09 conservative resource truth and verified actual reclamation.",
+      "gap": "No numeric interactive reserve, override, process right or at-use M09 composite grant exists.",
+      "linkedInheritedHighs": [
+        "C02-FR-H02"
+      ],
+      "existingFutureOracleIds": [
+        "FT-13",
+        "FT-02"
+      ],
+      "oraclesStatus": "SPECIFIED_NOT_EXECUTED",
+      "anchors": [
+        {
+          "sourceRole": "M09",
+          "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+          "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+          "exactNeedle": "Composite claims, grants and transfers report atomicity and per-member outcomes."
+        },
+        {
+          "sourceRole": "C01",
+          "path": "planning/contracts/M09-READ-ONLY-EVIDENCE-HANDOFF-CANDIDATE.md",
+          "gitBlobSha1": "30eb7e369b2996cc5e9b5f49736e29232b45b69e",
+          "exactNeedle": "Status: **PROPOSED_UNADOPTED_NOT_FROZEN**"
+        }
+      ],
+      "ownerApproval": "NONE",
+      "executableAuthority": "NONE"
+    }
+  ],
+  "stop": "All 19 are source-constrained proposed discussion only; no actual owner decision, risk rating, selected policy, adopted port, future test execution, freeze or runtime admission."
+}

@@ -71,5 +71,34 @@
   "merge": "NOT_MERGED",
   "exactMain": "PENDING",
   "ownerApproval": "NOT_PERFORMED",
-  "independentHumanReview": "NOT_PERFORMED"
+  "independentHumanReview": "NOT_PERFORMED",
+  "verifiedCloseout": {
+    "pr": 138,
+    "head": "4a30392ac52c59a3adfa844b11c9a7614b1da581",
+    "exactHeadGovernance": {
+      "number": 506,
+      "run": 36331356411,
+      "job": 108653789612,
+      "tests": "4054/4054",
+      "sourcePins": "27/27",
+      "allowlist": "11/11",
+      "result": "PASS"
+    },
+    "boundedReview": "https://github.com/KayzenRoot/iris/pull/138#issuecomment-5857437760",
+    "reviewScope": "SEPARATE_BOUNDED_SAME_ASSISTANT_NOT_INDEPENDENT_HUMAN_OR_OWNER",
+    "protectedSquash": {
+      "sha": "1856e91eac15deeb6ba553dcfbdc24b8651de0a1",
+      "tree": "66f946a2c8ae8b36f5b0ed34c9ace9dbf5e5ddc3"
+    },
+    "exactMainGovernance": {
+      "number": 507,
+      "run": 36331435773,
+      "job": 108654016783,
+      "tests": "4054/4054",
+      "result": "PASS"
+    },
+    "issueReceipt": "https://github.com/KayzenRoot/iris/issues/128#issuecomment-5857448052",
+    "noOwnerAcceptance": true,
+    "noRuntime": true
+  }
 }
