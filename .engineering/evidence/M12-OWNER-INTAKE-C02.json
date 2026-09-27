@@ -1,0 +1,3475 @@
+{
+  "schemaVersion": "iris-m12-owner-intake-c02",
+  "workOrder": "IRIS-WO-0031",
+  "sourceWorkOrder": "IRIS-WO-0028",
+  "issue": 128,
+  "sourceBaseSha": "cccc9f3cd23be53e6154f605a37eb9cd6f28b1ca",
+  "sourceBaseTreeSha": "f3178da68514279ef5454b8520debed6871d7416",
+  "sourceRegisterPath": ".engineering/evidence/M12-OWNER-DECISION-REGISTER.json",
+  "sourceC02Path": ".engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json",
+  "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
+  "status": "ROUTING_ONLY_ALL_OWNER_DECISIONS_PENDING",
+  "ownerApproval": "NONE_RECORDED",
+  "selectedTopology": "NONE",
+  "publicOrExecutablePort": "NONE",
+  "implementationStatus": "NOT_ADMITTED",
+  "questionStatus": "OPEN_UNRATED_PENDING_OWNER",
+  "futureNegativeStatus": "SPECIFIED_NOT_EXECUTED",
+  "priorityOrOwnerChoice": "NOT_ASSIGNED_BY_ROUTING",
+  "ownerSourceTiers": {
+    "frozenInputs": [
+      "M02",
+      "M06",
+      "M09",
+      "M10"
+    ],
+    "proposedUnfrozenCandidates": [
+      "M11",
+      "M12"
+    ],
+    "futureIndexOnlyOwners": [
+      "M13",
+      "M14",
+      "M15",
+      "M16",
+      "M17",
+      "M18",
+      "M19",
+      "M20",
+      "M21",
+      "M22",
+      "M23",
+      "M24",
+      "M25",
+      "M26",
+      "M27",
+      "M28",
+      "M29",
+      "M30",
+      "M31",
+      "M32",
+      "M33",
+      "M34",
+      "M35",
+      "M36",
+      "M37",
+      "M38",
+      "M39",
+      "M40",
+      "M41",
+      "M42",
+      "M43",
+      "M44",
+      "M45",
+      "M46",
+      "M47",
+      "M48",
+      "M49",
+      "M50",
+      "M51",
+      "M52",
+      "M53",
+      "M54",
+      "M55",
+      "M56",
+      "M57",
+      "M58",
+      "M59",
+      "M60"
+    ],
+    "warning": "A frozen source is not an adopted cross-owner grant; a review lane never selects a policy."
+  },
+  "counts": {
+    "sessions": 5,
+    "questions": 110,
+    "futureNegativeScenarios": 80,
+    "uniqueOwnerTokens": 17,
+    "explicitIssue110": 5,
+    "byLane": {
+      "EXPLICIT_ISSUE_110_REVIEW": 5,
+      "LATER_OWNER_CONTRACT_REQUIRED": 70,
+      "M11_CANDIDATE_CROSS_OWNER_REVIEW": 13,
+      "FROZEN_OWNER_HANDOFF_REVIEW": 3,
+      "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS": 19
+    }
+  },
+  "explicitIssue110QuestionIds": [
+    "M12-S01-U05",
+    "M12-S02-U08",
+    "M12-S03-U02",
+    "M12-S04-U06",
+    "M12-S05-U04"
+  ],
+  "reviewLanes": {
+    "EXPLICIT_ISSUE_110_REVIEW": [
+      "M12-S01-U05",
+      "M12-S02-U08",
+      "M12-S03-U02",
+      "M12-S04-U06",
+      "M12-S05-U04"
+    ],
+    "LATER_OWNER_CONTRACT_REQUIRED": [
+      "M12-S01-U02",
+      "M12-S01-U03",
+      "M12-S01-U04",
+      "M12-S01-U07",
+      "M12-S01-U08",
+      "M12-S01-U10",
+      "M12-S01-U11",
+      "M12-S01-U12",
+      "M12-S01-U14",
+      "M12-S01-U16",
+      "M12-S01-U18",
+      "M12-S02-U03",
+      "M12-S02-U05",
+      "M12-S02-U06",
+      "M12-S02-U11",
+      "M12-S02-U12",
+      "M12-S02-U15",
+      "M12-S02-U16",
+      "M12-S02-U18",
+      "M12-S03-U04",
+      "M12-S03-U05",
+      "M12-S03-U06",
+      "M12-S03-U07",
+      "M12-S03-U08",
+      "M12-S03-U09",
+      "M12-S03-U10",
+      "M12-S03-U11",
+      "M12-S03-U13",
+      "M12-S03-U16",
+      "M12-S03-U17",
+      "M12-S03-U19",
+      "M12-S03-U20",
+      "M12-S03-U22",
+      "M12-S04-U01",
+      "M12-S04-U02",
+      "M12-S04-U03",
+      "M12-S04-U04",
+      "M12-S04-U05",
+      "M12-S04-U07",
+      "M12-S04-U09",
+      "M12-S04-U10",
+      "M12-S04-U11",
+      "M12-S04-U12",
+      "M12-S04-U13",
+      "M12-S04-U14",
+      "M12-S04-U16",
+      "M12-S04-U18",
+      "M12-S04-U19",
+      "M12-S04-U20",
+      "M12-S04-U21",
+      "M12-S04-U22",
+      "M12-S04-U23",
+      "M12-S04-U24",
+      "M12-S05-U02",
+      "M12-S05-U03",
+      "M12-S05-U06",
+      "M12-S05-U09",
+      "M12-S05-U11",
+      "M12-S05-U12",
+      "M12-S05-U13",
+      "M12-S05-U14",
+      "M12-S05-U15",
+      "M12-S05-U16",
+      "M12-S05-U17",
+      "M12-S05-U19",
+      "M12-S05-U21",
+      "M12-S05-U22",
+      "M12-S05-U23",
+      "M12-S05-U24",
+      "M12-S05-U26"
+    ],
+    "M11_CANDIDATE_CROSS_OWNER_REVIEW": [
+      "M12-S01-U01",
+      "M12-S01-U06",
+      "M12-S02-U02",
+      "M12-S02-U10",
+      "M12-S02-U14",
+      "M12-S02-U19",
+      "M12-S03-U15",
+      "M12-S04-U15",
+      "M12-S04-U17",
+      "M12-S05-U05",
+      "M12-S05-U10",
+      "M12-S05-U20",
+      "M12-S05-U25"
+    ],
+    "FROZEN_OWNER_HANDOFF_REVIEW": [
+      "M12-S01-U09",
+      "M12-S04-U08",
+      "M12-S05-U01"
+    ],
+    "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS": [
+      "M12-S01-U13",
+      "M12-S01-U15",
+      "M12-S01-U17",
+      "M12-S02-U01",
+      "M12-S02-U04",
+      "M12-S02-U07",
+      "M12-S02-U09",
+      "M12-S02-U13",
+      "M12-S02-U17",
+      "M12-S02-U20",
+      "M12-S03-U01",
+      "M12-S03-U03",
+      "M12-S03-U12",
+      "M12-S03-U14",
+      "M12-S03-U18",
+      "M12-S03-U21",
+      "M12-S05-U07",
+      "M12-S05-U08",
+      "M12-S05-U18"
+    ]
+  },
+  "ownerQueues": {
+    "M02": [
+      "M12-S01-U09",
+      "M12-S01-U15",
+      "M12-S02-U01",
+      "M12-S02-U04",
+      "M12-S02-U17",
+      "M12-S03-U14",
+      "M12-S04-U08",
+      "M12-S04-U15",
+      "M12-S05-U01",
+      "M12-S05-U07",
+      "M12-S05-U08",
+      "M12-S05-U17",
+      "M12-S05-U26"
+    ],
+    "M06": [
+      "M12-S01-U09",
+      "M12-S01-U15",
+      "M12-S02-U02",
+      "M12-S02-U13",
+      "M12-S02-U17",
+      "M12-S03-U14",
+      "M12-S03-U21",
+      "M12-S04-U08",
+      "M12-S04-U10",
+      "M12-S04-U15",
+      "M12-S04-U23",
+      "M12-S05-U01",
+      "M12-S05-U02",
+      "M12-S05-U07",
+      "M12-S05-U08",
+      "M12-S05-U17",
+      "M12-S05-U26"
+    ],
+    "M09": [
+      "M12-S01-U05",
+      "M12-S01-U06",
+      "M12-S01-U13",
+      "M12-S02-U07",
+      "M12-S02-U08",
+      "M12-S02-U09",
+      "M12-S02-U10",
+      "M12-S02-U14",
+      "M12-S02-U19",
+      "M12-S03-U01",
+      "M12-S03-U02",
+      "M12-S03-U03",
+      "M12-S03-U12",
+      "M12-S03-U15",
+      "M12-S03-U20",
+      "M12-S04-U06",
+      "M12-S04-U17",
+      "M12-S05-U04",
+      "M12-S05-U05",
+      "M12-S05-U10",
+      "M12-S05-U18",
+      "M12-S05-U20",
+      "M12-S05-U25"
+    ],
+    "M10": [
+      "M12-S01-U17",
+      "M12-S02-U20",
+      "M12-S03-U18",
+      "M12-S04-U18",
+      "M12-S05-U14",
+      "M12-S05-U16"
+    ],
+    "M11": [
+      "M12-S01-U01",
+      "M12-S01-U06",
+      "M12-S01-U10",
+      "M12-S01-U14",
+      "M12-S01-U18",
+      "M12-S02-U02",
+      "M12-S02-U10",
+      "M12-S02-U11",
+      "M12-S02-U14",
+      "M12-S02-U19",
+      "M12-S03-U04",
+      "M12-S03-U13",
+      "M12-S03-U15",
+      "M12-S03-U19",
+      "M12-S04-U02",
+      "M12-S04-U05",
+      "M12-S04-U07",
+      "M12-S04-U14",
+      "M12-S04-U15",
+      "M12-S04-U16",
+      "M12-S04-U17",
+      "M12-S04-U24",
+      "M12-S05-U03",
+      "M12-S05-U05",
+      "M12-S05-U06",
+      "M12-S05-U09",
+      "M12-S05-U10",
+      "M12-S05-U19",
+      "M12-S05-U20",
+      "M12-S05-U25"
+    ],
+    "M12": [
+      "M12-S01-U01",
+      "M12-S01-U03",
+      "M12-S01-U04",
+      "M12-S01-U07",
+      "M12-S01-U08",
+      "M12-S01-U10",
+      "M12-S01-U11",
+      "M12-S01-U12",
+      "M12-S01-U13",
+      "M12-S01-U14",
+      "M12-S01-U15",
+      "M12-S01-U16",
+      "M12-S01-U17",
+      "M12-S01-U18",
+      "M12-S02-U01",
+      "M12-S02-U02",
+      "M12-S02-U03",
+      "M12-S02-U04",
+      "M12-S02-U05",
+      "M12-S02-U06",
+      "M12-S02-U07",
+      "M12-S02-U08",
+      "M12-S02-U09",
+      "M12-S02-U10",
+      "M12-S02-U11",
+      "M12-S02-U12",
+      "M12-S02-U13",
+      "M12-S02-U14",
+      "M12-S02-U15",
+      "M12-S02-U16",
+      "M12-S02-U17",
+      "M12-S02-U18",
+      "M12-S02-U19",
+      "M12-S02-U20",
+      "M12-S03-U01",
+      "M12-S03-U03",
+      "M12-S03-U05",
+      "M12-S03-U06",
+      "M12-S03-U07",
+      "M12-S03-U08",
+      "M12-S03-U09",
+      "M12-S03-U10",
+      "M12-S03-U11",
+      "M12-S03-U12",
+      "M12-S03-U13",
+      "M12-S03-U14",
+      "M12-S03-U15",
+      "M12-S03-U16",
+      "M12-S03-U17",
+      "M12-S03-U18",
+      "M12-S03-U19",
+      "M12-S03-U20",
+      "M12-S03-U21",
+      "M12-S03-U22",
+      "M12-S04-U12",
+      "M12-S04-U18",
+      "M12-S04-U19",
+      "M12-S05-U07",
+      "M12-S05-U08",
+      "M12-S05-U10",
+      "M12-S05-U12",
+      "M12-S05-U13",
+      "M12-S05-U14",
+      "M12-S05-U15",
+      "M12-S05-U16",
+      "M12-S05-U18",
+      "M12-S05-U21",
+      "M12-S05-U22",
+      "M12-S05-U23",
+      "M12-S05-U24",
+      "M12-S05-U25",
+      "M12-S05-U26"
+    ],
+    "M13": [
+      "M12-S03-U10",
+      "M12-S04-U12",
+      "M12-S05-U15"
+    ],
+    "M14": [
+      "M12-S03-U09",
+      "M12-S04-U19"
+    ],
+    "M17": [
+      "M12-S01-U12",
+      "M12-S03-U07",
+      "M12-S04-U19"
+    ],
+    "M26": [
+      "M12-S01-U12",
+      "M12-S03-U08",
+      "M12-S04-U19"
+    ],
+    "M48": [
+      "M12-S05-U17"
+    ],
+    "M54": [
+      "M12-S01-U02",
+      "M12-S01-U03",
+      "M12-S01-U08",
+      "M12-S01-U10",
+      "M12-S01-U11",
+      "M12-S01-U16",
+      "M12-S01-U18",
+      "M12-S02-U03",
+      "M12-S02-U05",
+      "M12-S02-U12",
+      "M12-S02-U15",
+      "M12-S02-U18",
+      "M12-S03-U05",
+      "M12-S03-U11",
+      "M12-S03-U16",
+      "M12-S03-U20",
+      "M12-S03-U22",
+      "M12-S04-U01",
+      "M12-S04-U02",
+      "M12-S04-U03",
+      "M12-S04-U04",
+      "M12-S04-U07",
+      "M12-S04-U09",
+      "M12-S04-U11",
+      "M12-S04-U13",
+      "M12-S04-U16",
+      "M12-S04-U18",
+      "M12-S04-U20",
+      "M12-S04-U21",
+      "M12-S04-U22",
+      "M12-S04-U24",
+      "M12-S05-U06",
+      "M12-S05-U11",
+      "M12-S05-U12",
+      "M12-S05-U14",
+      "M12-S05-U21",
+      "M12-S05-U22",
+      "M12-S05-U23",
+      "M12-S05-U26"
+    ],
+    "M55": [
+      "M12-S04-U10",
+      "M12-S04-U23",
+      "M12-S05-U02",
+      "M12-S05-U24"
+    ],
+    "M56": [
+      "M12-S01-U04",
+      "M12-S01-U16",
+      "M12-S02-U06",
+      "M12-S02-U16",
+      "M12-S03-U17",
+      "M12-S04-U05",
+      "M12-S04-U12",
+      "M12-S04-U14",
+      "M12-S04-U22",
+      "M12-S05-U09",
+      "M12-S05-U13",
+      "M12-S05-U15",
+      "M12-S05-U16",
+      "M12-S05-U21"
+    ],
+    "M58": [
+      "M12-S01-U08",
+      "M12-S02-U15",
+      "M12-S03-U16",
+      "M12-S04-U01",
+      "M12-S04-U03",
+      "M12-S04-U13",
+      "M12-S04-U20",
+      "M12-S04-U21",
+      "M12-S05-U22"
+    ],
+    "M59": [
+      "M12-S04-U09",
+      "M12-S04-U23",
+      "M12-S05-U24"
+    ],
+    "M60": [
+      "M12-S01-U02",
+      "M12-S01-U07",
+      "M12-S01-U11",
+      "M12-S01-U14",
+      "M12-S01-U18",
+      "M12-S02-U05",
+      "M12-S02-U11",
+      "M12-S02-U18",
+      "M12-S03-U04",
+      "M12-S03-U06",
+      "M12-S03-U11",
+      "M12-S03-U13",
+      "M12-S03-U19",
+      "M12-S03-U22",
+      "M12-S04-U01",
+      "M12-S04-U02",
+      "M12-S04-U04",
+      "M12-S04-U07",
+      "M12-S04-U09",
+      "M12-S04-U11",
+      "M12-S04-U20",
+      "M12-S04-U24",
+      "M12-S05-U03",
+      "M12-S05-U06",
+      "M12-S05-U11",
+      "M12-S05-U19",
+      "M12-S05-U23"
+    ]
+  },
+  "sessions": {
+    "S01": {
+      "questionCount": 18,
+      "questionIds": [
+        "M12-S01-U01",
+        "M12-S01-U02",
+        "M12-S01-U03",
+        "M12-S01-U04",
+        "M12-S01-U05",
+        "M12-S01-U06",
+        "M12-S01-U07",
+        "M12-S01-U08",
+        "M12-S01-U09",
+        "M12-S01-U10",
+        "M12-S01-U11",
+        "M12-S01-U12",
+        "M12-S01-U13",
+        "M12-S01-U14",
+        "M12-S01-U15",
+        "M12-S01-U16",
+        "M12-S01-U17",
+        "M12-S01-U18"
+      ],
+      "negativeCount": 12,
+      "byLane": {
+        "EXPLICIT_ISSUE_110_REVIEW": 1,
+        "LATER_OWNER_CONTRACT_REQUIRED": 11,
+        "M11_CANDIDATE_CROSS_OWNER_REVIEW": 2,
+        "FROZEN_OWNER_HANDOFF_REVIEW": 1,
+        "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS": 3
+      }
+    },
+    "S02": {
+      "questionCount": 20,
+      "questionIds": [
+        "M12-S02-U01",
+        "M12-S02-U02",
+        "M12-S02-U03",
+        "M12-S02-U04",
+        "M12-S02-U05",
+        "M12-S02-U06",
+        "M12-S02-U07",
+        "M12-S02-U08",
+        "M12-S02-U09",
+        "M12-S02-U10",
+        "M12-S02-U11",
+        "M12-S02-U12",
+        "M12-S02-U13",
+        "M12-S02-U14",
+        "M12-S02-U15",
+        "M12-S02-U16",
+        "M12-S02-U17",
+        "M12-S02-U18",
+        "M12-S02-U19",
+        "M12-S02-U20"
+      ],
+      "negativeCount": 14,
+      "byLane": {
+        "EXPLICIT_ISSUE_110_REVIEW": 1,
+        "LATER_OWNER_CONTRACT_REQUIRED": 8,
+        "M11_CANDIDATE_CROSS_OWNER_REVIEW": 4,
+        "FROZEN_OWNER_HANDOFF_REVIEW": 0,
+        "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS": 7
+      }
+    },
+    "S03": {
+      "questionCount": 22,
+      "questionIds": [
+        "M12-S03-U01",
+        "M12-S03-U02",
+        "M12-S03-U03",
+        "M12-S03-U04",
+        "M12-S03-U05",
+        "M12-S03-U06",
+        "M12-S03-U07",
+        "M12-S03-U08",
+        "M12-S03-U09",
+        "M12-S03-U10",
+        "M12-S03-U11",
+        "M12-S03-U12",
+        "M12-S03-U13",
+        "M12-S03-U14",
+        "M12-S03-U15",
+        "M12-S03-U16",
+        "M12-S03-U17",
+        "M12-S03-U18",
+        "M12-S03-U19",
+        "M12-S03-U20",
+        "M12-S03-U21",
+        "M12-S03-U22"
+      ],
+      "negativeCount": 16,
+      "byLane": {
+        "EXPLICIT_ISSUE_110_REVIEW": 1,
+        "LATER_OWNER_CONTRACT_REQUIRED": 14,
+        "M11_CANDIDATE_CROSS_OWNER_REVIEW": 1,
+        "FROZEN_OWNER_HANDOFF_REVIEW": 0,
+        "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS": 6
+      }
+    },
+    "S04": {
+      "questionCount": 24,
+      "questionIds": [
+        "M12-S04-U01",
+        "M12-S04-U02",
+        "M12-S04-U03",
+        "M12-S04-U04",
+        "M12-S04-U05",
+        "M12-S04-U06",
+        "M12-S04-U07",
+        "M12-S04-U08",
+        "M12-S04-U09",
+        "M12-S04-U10",
+        "M12-S04-U11",
+        "M12-S04-U12",
+        "M12-S04-U13",
+        "M12-S04-U14",
+        "M12-S04-U15",
+        "M12-S04-U16",
+        "M12-S04-U17",
+        "M12-S04-U18",
+        "M12-S04-U19",
+        "M12-S04-U20",
+        "M12-S04-U21",
+        "M12-S04-U22",
+        "M12-S04-U23",
+        "M12-S04-U24"
+      ],
+      "negativeCount": 18,
+      "byLane": {
+        "EXPLICIT_ISSUE_110_REVIEW": 1,
+        "LATER_OWNER_CONTRACT_REQUIRED": 20,
+        "M11_CANDIDATE_CROSS_OWNER_REVIEW": 2,
+        "FROZEN_OWNER_HANDOFF_REVIEW": 1,
+        "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS": 0
+      }
+    },
+    "S05": {
+      "questionCount": 26,
+      "questionIds": [
+        "M12-S05-U01",
+        "M12-S05-U02",
+        "M12-S05-U03",
+        "M12-S05-U04",
+        "M12-S05-U05",
+        "M12-S05-U06",
+        "M12-S05-U07",
+        "M12-S05-U08",
+        "M12-S05-U09",
+        "M12-S05-U10",
+        "M12-S05-U11",
+        "M12-S05-U12",
+        "M12-S05-U13",
+        "M12-S05-U14",
+        "M12-S05-U15",
+        "M12-S05-U16",
+        "M12-S05-U17",
+        "M12-S05-U18",
+        "M12-S05-U19",
+        "M12-S05-U20",
+        "M12-S05-U21",
+        "M12-S05-U22",
+        "M12-S05-U23",
+        "M12-S05-U24",
+        "M12-S05-U25",
+        "M12-S05-U26"
+      ],
+      "negativeCount": 20,
+      "byLane": {
+        "EXPLICIT_ISSUE_110_REVIEW": 1,
+        "LATER_OWNER_CONTRACT_REQUIRED": 17,
+        "M11_CANDIDATE_CROSS_OWNER_REVIEW": 4,
+        "FROZEN_OWNER_HANDOFF_REVIEW": 1,
+        "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS": 3
+      }
+    }
+  },
+  "futureNegatives": {
+    "S01": {
+      "count": 12,
+      "ids": [
+        "WR-01",
+        "WR-02",
+        "WR-03",
+        "WR-04",
+        "WR-05",
+        "WR-06",
+        "WR-07",
+        "WR-08",
+        "WR-09",
+        "WR-10",
+        "WR-11",
+        "WR-12"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md"
+    },
+    "S02": {
+      "count": 14,
+      "ids": [
+        "SQ-01",
+        "SQ-02",
+        "SQ-03",
+        "SQ-04",
+        "SQ-05",
+        "SQ-06",
+        "SQ-07",
+        "SQ-08",
+        "SQ-09",
+        "SQ-10",
+        "SQ-11",
+        "SQ-12",
+        "SQ-13",
+        "SQ-14"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md"
+    },
+    "S03": {
+      "count": 16,
+      "ids": [
+        "MG-01",
+        "MG-02",
+        "MG-03",
+        "MG-04",
+        "MG-05",
+        "MG-06",
+        "MG-07",
+        "MG-08",
+        "MG-09",
+        "MG-10",
+        "MG-11",
+        "MG-12",
+        "MG-13",
+        "MG-14",
+        "MG-15",
+        "MG-16"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md"
+    },
+    "S04": {
+      "count": 18,
+      "ids": [
+        "FN-01",
+        "FN-02",
+        "FN-03",
+        "FN-04",
+        "FN-05",
+        "FN-06",
+        "FN-07",
+        "FN-08",
+        "FN-09",
+        "FN-10",
+        "FN-11",
+        "FN-12",
+        "FN-13",
+        "FN-14",
+        "FN-15",
+        "FN-16",
+        "FN-17",
+        "FN-18"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md"
+    },
+    "S05": {
+      "count": 20,
+      "ids": [
+        "FT-01",
+        "FT-02",
+        "FT-03",
+        "FT-04",
+        "FT-05",
+        "FT-06",
+        "FT-07",
+        "FT-08",
+        "FT-09",
+        "FT-10",
+        "FT-11",
+        "FT-12",
+        "FT-13",
+        "FT-14",
+        "FT-15",
+        "FT-16",
+        "FT-17",
+        "FT-18",
+        "FT-19",
+        "FT-20"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md"
+    }
+  },
+  "questions": [
+    {
+      "id": "M12-S01-U01",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "What canonical reference identifies a worker independent of OS PID, job and node?",
+      "exactOwnerLabel": "M11/M12",
+      "ownerIds": [
+        "M11",
+        "M12"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M11",
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M11_CANDIDATE_CROSS_OWNER_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U02",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "Which proof binds a principal to that worker/node on each supported platform?",
+      "exactOwnerLabel": "M54/M60",
+      "ownerIds": [
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U03",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "How is announcement issuer authenticity/replay/revocation verified?",
+      "exactOwnerLabel": "M12/M54",
+      "ownerIds": [
+        "M12",
+        "M54"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U04",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "What source and expiry make an observed capability/health descriptor current?",
+      "exactOwnerLabel": "M12/M56",
+      "ownerIds": [
+        "M12",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U05",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "What jointly coherent M09 snapshot+lease evidence can qualify current per-action resource admission?",
+      "exactOwnerLabel": "M09/#110",
+      "ownerIds": [
+        "M09"
+      ],
+      "explicitIssue110": true,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "EXPLICIT_ISSUE_110_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U06",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "How is reverse M11 owner liveness bound/authenticated without interpreting `M11:` prefixes as signatures?",
+      "exactOwnerLabel": "M09/M11",
+      "ownerIds": [
+        "M09",
+        "M11"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M11_CANDIDATE_CROSS_OWNER_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U07",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "How are exact host/OS/accelerator and unsupported-platform capabilities described safely?",
+      "exactOwnerLabel": "M12/M60",
+      "ownerIds": [
+        "M12",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U08",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "Which registry fields, if any, may cross node/project/tenant/public API boundaries?",
+      "exactOwnerLabel": "M12/M58/M54",
+      "ownerIds": [
+        "M12",
+        "M58",
+        "M54"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M58",
+        "M54"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U09",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "What exact work/attempt/epoch binds an advertisement to a separately authorized action?",
+      "exactOwnerLabel": "M02/M06",
+      "ownerIds": [
+        "M02",
+        "M06"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M02",
+        "M06"
+      ],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "FROZEN_OWNER_HANDOFF_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U10",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "Which observable state distinguishes discoverable, reachable, running and owner-controllable?",
+      "exactOwnerLabel": "M12/M11/M54",
+      "ownerIds": [
+        "M12",
+        "M11",
+        "M54"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12",
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U11",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "How are host clock skew, partitions and local-vs-remote identity handled?",
+      "exactOwnerLabel": "M12/M54/M60",
+      "ownerIds": [
+        "M12",
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U12",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "Who verifies installed adapter/provider/task compatibility and qualified versions?",
+      "exactOwnerLabel": "M12/M17/M26",
+      "ownerIds": [
+        "M12",
+        "M17",
+        "M26"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M17",
+        "M26"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U13",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "How are composite member grants and mismatched expiry/revocation handled without partial admission?",
+      "exactOwnerLabel": "M12/M09",
+      "ownerIds": [
+        "M12",
+        "M09"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U14",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "What worker retirement/draining lifecycle would invalidate stale announcements?",
+      "exactOwnerLabel": "M12/M11/M60",
+      "ownerIds": [
+        "M12",
+        "M11",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12",
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U15",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "Can duplicate announcements from two nodes ever imply a new attempt or retry? (Default: no claim.)",
+      "exactOwnerLabel": "M12/M02/M06",
+      "ownerIds": [
+        "M12",
+        "M02",
+        "M06"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M02",
+        "M06"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U16",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "What permission-filtered provenance/telemetry can be retained without leaking tenant/node secrets?",
+      "exactOwnerLabel": "M12/M54/M56",
+      "ownerIds": [
+        "M12",
+        "M54",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U17",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "How is M10's plan recommendation kept separate from M12 placement and all owner grants?",
+      "exactOwnerLabel": "M12/M10",
+      "ownerIds": [
+        "M12",
+        "M10"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M10"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S01-U18",
+      "session": "S01",
+      "source": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "question": "What separately reviewed minimal capabilities would be required for a future local-only registry before any remote federation?",
+      "exactOwnerLabel": "M12/M11/M54/M60",
+      "ownerIds": [
+        "M12",
+        "M11",
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12",
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U01",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "What canonical accepted M02 work/plan reference permits queue consideration without manufacturing M02 state?",
+      "exactOwnerLabel": "M02/M12",
+      "ownerIds": [
+        "M02",
+        "M12"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M02"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U02",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "What exact attempt and supervisor cardinality prevents duplicate external effects across requeue?",
+      "exactOwnerLabel": "M06/M11/M12",
+      "ownerIds": [
+        "M06",
+        "M11",
+        "M12"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M06"
+      ],
+      "pendingCandidateOwners": [
+        "M11",
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M11_CANDIDATE_CROSS_OWNER_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U03",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "What tenant/project/user scope may a queue own, and who verifies it?",
+      "exactOwnerLabel": "M12/M54",
+      "ownerIds": [
+        "M12",
+        "M54"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U04",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "Who supplies allowable priority policy evidence and can it vary by project?",
+      "exactOwnerLabel": "M12/M02",
+      "ownerIds": [
+        "M12",
+        "M02"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M02"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U05",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "Is interactive workstation co-existence a mandatory preemption/hold boundary?",
+      "exactOwnerLabel": "M12/M54/M60",
+      "ownerIds": [
+        "M12",
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U06",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "What verified timestamps/evidence allow aging or starvation metrics?",
+      "exactOwnerLabel": "M12/M56",
+      "ownerIds": [
+        "M12",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U07",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "Are hard quotas policy limits or M09 grants, and how are they separately versioned?",
+      "exactOwnerLabel": "M12/M09",
+      "ownerIds": [
+        "M12",
+        "M09"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U08",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "What coherent per-request M09 lease+snapshot recheck is needed before any positive placement?",
+      "exactOwnerLabel": "M12/M09/#110",
+      "ownerIds": [
+        "M12",
+        "M09"
+      ],
+      "explicitIssue110": true,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "EXPLICIT_ISSUE_110_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U09",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "How are unknown/stale quota or headroom estimates represented without positive claims?",
+      "exactOwnerLabel": "M12/M09",
+      "ownerIds": [
+        "M12",
+        "M09"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U10",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "Who may request cooperative preemption, and what proof prohibits assumed capacity reclaimed?",
+      "exactOwnerLabel": "M12/M09/M11",
+      "ownerIds": [
+        "M12",
+        "M09",
+        "M11"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12",
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M11_CANDIDATE_CROSS_OWNER_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U11",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "What exact owner proof authorizes worker lifecycle after a placement decision?",
+      "exactOwnerLabel": "M12/M11/M60",
+      "ownerIds": [
+        "M12",
+        "M11",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12",
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U12",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "What are fair-share weights, principal authorization and audit requirements?",
+      "exactOwnerLabel": "M12/M54",
+      "ownerIds": [
+        "M12",
+        "M54"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U13",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "Can expected duration/VRAM be used for backfill, and what uncertainty bounds are required?",
+      "exactOwnerLabel": "M12/M06",
+      "ownerIds": [
+        "M12",
+        "M06"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M06"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U14",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "What atomic/composite grant semantics are necessary for gang scheduling?",
+      "exactOwnerLabel": "M12/M09/M11",
+      "ownerIds": [
+        "M12",
+        "M09",
+        "M11"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12",
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M11_CANDIDATE_CROSS_OWNER_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U15",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "Which queue descriptors and priority values may be published outside local trust boundary?",
+      "exactOwnerLabel": "M12/M54/M58",
+      "ownerIds": [
+        "M12",
+        "M54",
+        "M58"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M58"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U16",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "What observation/event record distinguishes enqueue, eligible, selected and actually dispatched?",
+      "exactOwnerLabel": "M12/M56",
+      "ownerIds": [
+        "M12",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U17",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "Who decides cancellation/retry/idempotency when a queued job's plan or attempt changes?",
+      "exactOwnerLabel": "M12/M02/M06",
+      "ownerIds": [
+        "M12",
+        "M02",
+        "M06"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M02",
+        "M06"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U18",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "Can any remote quota borrow occur before node/principal/OS security contracts exist?",
+      "exactOwnerLabel": "M12/M54/M60",
+      "ownerIds": [
+        "M12",
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U19",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "Who revalidates leases and process rights at the TOCTOU edge between ranking and use?",
+      "exactOwnerLabel": "M12/M11/M09",
+      "ownerIds": [
+        "M12",
+        "M11",
+        "M09"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12",
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M11_CANDIDATE_CROSS_OWNER_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S02-U20",
+      "session": "S02",
+      "source": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "question": "How does advisory optimization input stay separate from admitted scheduling and proof?",
+      "exactOwnerLabel": "M12/M10",
+      "ownerIds": [
+        "M12",
+        "M10"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M10"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U01",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "What exact request-scoped per-device claims may future composite placement consume from a separately admitted M09 owner port?",
+      "exactOwnerLabel": "M09/M12",
+      "ownerIds": [
+        "M09",
+        "M12"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U02",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "Can M09 prove one coherent jointly owned snapshot+lease cut for all mandatory GPU/CPU/RAM members, including epoch/revocation?",
+      "exactOwnerLabel": "M09/#110",
+      "ownerIds": [
+        "M09"
+      ],
+      "explicitIssue110": true,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "EXPLICIT_ISSUE_110_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U03",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "How does each member's freshness/expiry and time-of-use revalidation work without mixing different observation epochs?",
+      "exactOwnerLabel": "M12/M09",
+      "ownerIds": [
+        "M12",
+        "M09"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U04",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "Who proves worker/process ownership and OS rights for one-process-per-GPU and one-process-multiple-GPU candidates?",
+      "exactOwnerLabel": "M11/M60",
+      "ownerIds": [
+        "M11",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U05",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "Who verifies topology and device identities without trusting self-advertised accelerator counts?",
+      "exactOwnerLabel": "M12/M54",
+      "ownerIds": [
+        "M12",
+        "M54"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U06",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "Which physical/virtual GPU partitions and supported platforms may be represented without conflating device count and isolation?",
+      "exactOwnerLabel": "M12/M60",
+      "ownerIds": [
+        "M12",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U07",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "Which ComfyUI/provider adapters actually support multi-device placement and validated output provenance?",
+      "exactOwnerLabel": "M12/M17",
+      "ownerIds": [
+        "M12",
+        "M17"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M17"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U08",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "Which Blender/headless workloads support multi-GPU and which use one GPU per independent render task?",
+      "exactOwnerLabel": "M12/M26",
+      "ownerIds": [
+        "M12",
+        "M26"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M26"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U09",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "Which model cards prove architecture, precision, memory and version support per heterogeneous accelerator?",
+      "exactOwnerLabel": "M12/M14",
+      "ownerIds": [
+        "M12",
+        "M14"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M14"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U10",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "What evidence bounds copy/IPC/PCIe/NVLink/host staging latency and net benefit without guessing throughput?",
+      "exactOwnerLabel": "M12/M13",
+      "ownerIds": [
+        "M12",
+        "M13"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M13"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U11",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "What authenticated authority permits peer or cross-process memory sharing and revokes it?",
+      "exactOwnerLabel": "M12/M54/M60",
+      "ownerIds": [
+        "M12",
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U12",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "How are per-device headroom and the 8 GB-class production route preserved without summing unrelated VRAM?",
+      "exactOwnerLabel": "M12/M09",
+      "ownerIds": [
+        "M12",
+        "M09"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U13",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "What does failure of one member mean for still-running peers and OS cleanup rights?",
+      "exactOwnerLabel": "M12/M11/M60",
+      "ownerIds": [
+        "M12",
+        "M11",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12",
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U14",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "Which exact plan/attempt/output lineage binds each split subtask without promoting partial output to success?",
+      "exactOwnerLabel": "M02/M06/M12",
+      "ownerIds": [
+        "M02",
+        "M06",
+        "M12"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M02",
+        "M06"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U15",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "How is grant revocation while a multi-GPU action runs represented without silently reclaiming capacity or killing workers?",
+      "exactOwnerLabel": "M12/M09/M11",
+      "ownerIds": [
+        "M12",
+        "M09",
+        "M11"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12",
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M11_CANDIDATE_CROSS_OWNER_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U16",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "Which topology/capability details may be published across tenant or host boundaries?",
+      "exactOwnerLabel": "M12/M54/M58",
+      "ownerIds": [
+        "M12",
+        "M54",
+        "M58"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M58"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U17",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "What verified telemetry separates advertised accelerator capability, observed utilization and resource owner truth?",
+      "exactOwnerLabel": "M12/M56",
+      "ownerIds": [
+        "M12",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U18",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "How are advisory cost/quality/latency estimates kept separate from M12 selection and M09 lease authorization?",
+      "exactOwnerLabel": "M12/M10",
+      "ownerIds": [
+        "M12",
+        "M10"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M10"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U19",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "What explicit CPU NUMA/affinity and process-containment evidence may influence heterogeneous placement?",
+      "exactOwnerLabel": "M12/M11/M60",
+      "ownerIds": [
+        "M12",
+        "M11",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12",
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U20",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "What fail-closed behavior applies when two matching devices report conflicting stable IDs or provenance?",
+      "exactOwnerLabel": "M12/M09/M54",
+      "ownerIds": [
+        "M12",
+        "M09",
+        "M54"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U21",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "How will the outcome distinguish data parallel output aggregation from merely observed worker process exits?",
+      "exactOwnerLabel": "M12/M06",
+      "ownerIds": [
+        "M12",
+        "M06"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M06"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S03-U22",
+      "session": "S03",
+      "source": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "question": "What additional remote-node security and data-movement consent must S04 define before multi-host placement?",
+      "exactOwnerLabel": "M12/M54/M60",
+      "ownerIds": [
+        "M12",
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U01",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "What source-issued proof binds a remote endpoint, worker and principal to the allowed tenant?",
+      "exactOwnerLabel": "M54/M58/M60",
+      "ownerIds": [
+        "M54",
+        "M58",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M58",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U02",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "How would a rebooted/readdressed node prevent reuse of stale worker/PID ownership?",
+      "exactOwnerLabel": "M11/M54/M60",
+      "ownerIds": [
+        "M11",
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U03",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "Who authorizes discovery publication and versions of future remote APIs?",
+      "exactOwnerLabel": "M54/M58",
+      "ownerIds": [
+        "M54",
+        "M58"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M58"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U04",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "What source-backed transport encryption, peer authentication and key rotation evidence is mandatory?",
+      "exactOwnerLabel": "M54/M60",
+      "ownerIds": [
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U05",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "How is remote liveness observed without treating heartbeat age as worker/process proof?",
+      "exactOwnerLabel": "M11/M56",
+      "ownerIds": [
+        "M11",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U06",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "Which owner-approved M09 grant could bind remote per-device resources and all group members coherently?",
+      "exactOwnerLabel": "M09/#110",
+      "ownerIds": [
+        "M09"
+      ],
+      "explicitIssue110": true,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "EXPLICIT_ISSUE_110_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U07",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "What authenticated M11 process-owner evidence can cross operating-system and node boundaries?",
+      "exactOwnerLabel": "M11/M54/M60",
+      "ownerIds": [
+        "M11",
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U08",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "Which accepted work/attempt/revision identities must accompany any proposed cross-host execution?",
+      "exactOwnerLabel": "M02/M06",
+      "ownerIds": [
+        "M02",
+        "M06"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M02",
+        "M06"
+      ],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "FROZEN_OWNER_HANDOFF_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U09",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "Who owns remote media/model export, consent, jurisdiction and data-residency permissions?",
+      "exactOwnerLabel": "M54/M59/M60",
+      "ownerIds": [
+        "M54",
+        "M59",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M59",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U10",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "How would remote staged data retain integrity, exact provenance and accepted-output boundaries?",
+      "exactOwnerLabel": "M55/M06",
+      "ownerIds": [
+        "M55",
+        "M06"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M06"
+      ],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M55"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U11",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "How are privileged credentials prevented from being exported to a remote worker?",
+      "exactOwnerLabel": "M54/M60",
+      "ownerIds": [
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U12",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "What measured latency, throughput, warm-model state and egress cost permit a future placement comparison?",
+      "exactOwnerLabel": "M12/M13/M56",
+      "ownerIds": [
+        "M12",
+        "M13",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M13",
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U13",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "What project/tenant/capacity fields may be exposed to another federation domain?",
+      "exactOwnerLabel": "M54/M58",
+      "ownerIds": [
+        "M54",
+        "M58"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M58"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U14",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "What is the safe meaning of missing heartbeat versus verified process exit?",
+      "exactOwnerLabel": "M11/M56",
+      "ownerIds": [
+        "M11",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U15",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "Who approves retries and prevents duplicated side effects after remote link loss?",
+      "exactOwnerLabel": "M02/M06/M11",
+      "ownerIds": [
+        "M02",
+        "M06",
+        "M11"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M02",
+        "M06"
+      ],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M11_CANDIDATE_CROSS_OWNER_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U16",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "What authenticated generation/epoch fences stale federation controllers and recycled node identifiers?",
+      "exactOwnerLabel": "M11/M54",
+      "ownerIds": [
+        "M11",
+        "M54"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U17",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "When is remote resource capacity truly reclaimed after cancellation or instance interruption?",
+      "exactOwnerLabel": "M09/M11",
+      "ownerIds": [
+        "M09",
+        "M11"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M11_CANDIDATE_CROSS_OWNER_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U18",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "Who may approve paid cloud usage and exact budgets, regional policies, and quality/cost preferences?",
+      "exactOwnerLabel": "M10/M12/M54",
+      "ownerIds": [
+        "M10",
+        "M12",
+        "M54"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M10"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U19",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "Who qualifies runtime, model, license, provider and accelerator compatibility on foreign hosts?",
+      "exactOwnerLabel": "M12/M14/M17/M26",
+      "ownerIds": [
+        "M12",
+        "M14",
+        "M17",
+        "M26"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M14",
+        "M17",
+        "M26"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U20",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "What network ingress/egress, NAT, firewall, endpoint allowlist and private-link contract is necessary?",
+      "exactOwnerLabel": "M54/M58/M60",
+      "ownerIds": [
+        "M54",
+        "M58",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M58",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U21",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "How is malicious endpoint substitution or unintended local-network reachability excluded?",
+      "exactOwnerLabel": "M54/M58",
+      "ownerIds": [
+        "M54",
+        "M58"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M58"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U22",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "What filtered telemetry/provenance is permitted without leaking project identity, IPs or secrets?",
+      "exactOwnerLabel": "M54/M56",
+      "ownerIds": [
+        "M54",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U23",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "How do partial uploads and conflicting output revisions avoid false master acceptance?",
+      "exactOwnerLabel": "M06/M55/M59",
+      "ownerIds": [
+        "M06",
+        "M55",
+        "M59"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M06"
+      ],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M55",
+        "M59"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S04-U24",
+      "session": "S04",
+      "source": "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+      "question": "What separately admitted local-LAN canary and security review precedes any cloud federation?",
+      "exactOwnerLabel": "M11/M54/M60",
+      "ownerIds": [
+        "M11",
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U01",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "Which exact accepted work and operational attempt IDs can be resumed or retried without replaying external effects?",
+      "exactOwnerLabel": "M02/M06",
+      "ownerIds": [
+        "M02",
+        "M06"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M02",
+        "M06"
+      ],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "FROZEN_OWNER_HANDOFF_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U02",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What committed checkpoint and artifact lineage distinguishes safe resume from copying partial bytes?",
+      "exactOwnerLabel": "M06/M55",
+      "ownerIds": [
+        "M06",
+        "M55"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M06"
+      ],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M55"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U03",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "Who can attest that a worker really exited rather than merely losing connectivity?",
+      "exactOwnerLabel": "M11/M60",
+      "ownerIds": [
+        "M11",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U04",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "How does M09 prove that an interrupted request's capacity was actually reclaimed?",
+      "exactOwnerLabel": "M09/#110",
+      "ownerIds": [
+        "M09"
+      ],
+      "explicitIssue110": true,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "EXPLICIT_ISSUE_110_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U05",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "Does an ACCEPTED_AWAITING_RESOURCE_RECONCILIATION acknowledgment prohibit positive capacity reclamation?",
+      "exactOwnerLabel": "M09/M11",
+      "ownerIds": [
+        "M09",
+        "M11"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M11_CANDIDATE_CROSS_OWNER_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U06",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What independently authorized process identity and rights permit a future cancel/reap/signal?",
+      "exactOwnerLabel": "M11/M54/M60",
+      "ownerIds": [
+        "M11",
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U07",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "Who decides the future retry budget, attempt revision and dedup semantics?",
+      "exactOwnerLabel": "M02/M06/M12",
+      "ownerIds": [
+        "M02",
+        "M06",
+        "M12"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M02",
+        "M06"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U08",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What effect classes are non-idempotent and must require explicit owner/operator adjudication?",
+      "exactOwnerLabel": "M02/M06/M12",
+      "ownerIds": [
+        "M02",
+        "M06",
+        "M12"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M02",
+        "M06"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U09",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What evidence distinguishes missed heartbeat, local OS crash, remote network partition and node restart?",
+      "exactOwnerLabel": "M11/M56",
+      "ownerIds": [
+        "M11",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U10",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "How can a new placement be fenced from stale grants, old worker epochs and duplicate supervisors?",
+      "exactOwnerLabel": "M09/M11/M12",
+      "ownerIds": [
+        "M09",
+        "M11",
+        "M12"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M11",
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M11_CANDIDATE_CROSS_OWNER_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U11",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What trust revocation proof immediately blocks retry to a previously trusted node?",
+      "exactOwnerLabel": "M54/M60",
+      "ownerIds": [
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U12",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "Who can authorize manual versus automated failover and what is the approval evidence?",
+      "exactOwnerLabel": "M12/M54",
+      "ownerIds": [
+        "M12",
+        "M54"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U13",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What measurement/source qualifies observed MTTR, recovery success or failure rate?",
+      "exactOwnerLabel": "M12/M56",
+      "ownerIds": [
+        "M12",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U14",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What price source, budget owner, paid-cloud cap and user consent enable future spillover?",
+      "exactOwnerLabel": "M12/M10/M54",
+      "ownerIds": [
+        "M12",
+        "M10",
+        "M54"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M10"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U15",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "How are cold-start, staging time, network transfer and compute duration measured per candidate?",
+      "exactOwnerLabel": "M12/M13/M56",
+      "ownerIds": [
+        "M12",
+        "M13",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M13",
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U16",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What empirical quality/latency/cost uncertainty may inform advice without becoming authorization?",
+      "exactOwnerLabel": "M12/M10/M56",
+      "ownerIds": [
+        "M12",
+        "M10",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M10"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U17",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "Who decides partial-output quality and accepted master after interrupted multi-GPU work?",
+      "exactOwnerLabel": "M02/M06/M48",
+      "ownerIds": [
+        "M02",
+        "M06",
+        "M48"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M02",
+        "M06"
+      ],
+      "pendingCandidateOwners": [],
+      "laterIndexOnlyOwners": [
+        "M48"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U18",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What resource protection keeps user-interactive 8GB hardware responsive during preemption decisions?",
+      "exactOwnerLabel": "M12/M09",
+      "ownerIds": [
+        "M12",
+        "M09"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M12_PROPOSABLE_WITH_FROZEN_SOURCE_INPUTS",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U19",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "Which platform-specific graceful shutdown and timeout observations would be verified on Windows/Linux?",
+      "exactOwnerLabel": "M11/M60",
+      "ownerIds": [
+        "M11",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U20",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What does preemption requested versus accepted versus fully reclaimed mean per owner contract?",
+      "exactOwnerLabel": "M09/M11",
+      "ownerIds": [
+        "M09",
+        "M11"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M11_CANDIDATE_CROSS_OWNER_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U21",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "Which incident/evidence telemetry can be exposed without leaking tenant/workflow credentials?",
+      "exactOwnerLabel": "M12/M54/M56",
+      "ownerIds": [
+        "M12",
+        "M54",
+        "M56"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M56"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U22",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "Who is permitted to publish or invoke any future recovery/preemption API and rate policy?",
+      "exactOwnerLabel": "M12/M54/M58",
+      "ownerIds": [
+        "M12",
+        "M54",
+        "M58"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M58"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U23",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What security checks prevent unknown foreign PID or worker ownership from forced termination?",
+      "exactOwnerLabel": "M12/M54/M60",
+      "ownerIds": [
+        "M12",
+        "M54",
+        "M60"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54",
+        "M60"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U24",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What checksum, rights and remote artifact/export guarantees are required after cloud interruption?",
+      "exactOwnerLabel": "M12/M55/M59",
+      "ownerIds": [
+        "M12",
+        "M55",
+        "M59"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M55",
+        "M59"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U25",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What evidence simultaneously qualifies a composite multi-device grant and worker controls after one GPU fails?",
+      "exactOwnerLabel": "M12/M09/M11",
+      "ownerIds": [
+        "M12",
+        "M09",
+        "M11"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M09"
+      ],
+      "pendingCandidateOwners": [
+        "M12",
+        "M11"
+      ],
+      "laterIndexOnlyOwners": [],
+      "intakeLane": "M11_CANDIDATE_CROSS_OWNER_REVIEW",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M12-S05-U26",
+      "session": "S05",
+      "source": "planning/research/M12-S05-FAILOVER-PREEMPTION-COST-TRUST.md",
+      "question": "What default future policy applies when any owner proof is missing, stale, conflicted or unsupported?",
+      "exactOwnerLabel": "M12/M02/M06/M54",
+      "ownerIds": [
+        "M12",
+        "M02",
+        "M06",
+        "M54"
+      ],
+      "explicitIssue110": false,
+      "frozenOwnerInputs": [
+        "M02",
+        "M06"
+      ],
+      "pendingCandidateOwners": [
+        "M12"
+      ],
+      "laterIndexOnlyOwners": [
+        "M54"
+      ],
+      "intakeLane": "LATER_OWNER_CONTRACT_REQUIRED",
+      "ownerDecisionStatus": "OPEN_UNRATED_PENDING_OWNER",
+      "risk": "UNRATED",
+      "executableAuthority": "NONE"
+    }
+  ],
+  "unresolvedHighs": [
+    {
+      "id": "C02-FR-H01",
+      "severity": "HIGH_FOR_FUTURE_FREEZE",
+      "status": "OPEN_OWNER_EVIDENCE_REQUIRED"
+    },
+    {
+      "id": "C02-FR-H02",
+      "severity": "HIGH_FOR_FUTURE_FREEZE",
+      "status": "OPEN_M09_OWNER_ATOMICITY_DECISION"
+    },
+    {
+      "id": "C02-FR-H03",
+      "severity": "HIGH_FOR_FUTURE_FREEZE",
+      "status": "OPEN_FUTURE_OWNER_CONTRACTS"
+    },
+    {
+      "id": "C02-FR-H04",
+      "severity": "HIGH_FOR_FUTURE_FREEZE",
+      "status": "OPEN_CROSS_OWNER_DISPOSITION"
+    }
+  ],
+  "unresolvedHardDependencies": [
+    "M09_ISSUE_110_TOPOLOGY_NONE_SELECTED",
+    "C02_FR_H01_OPEN",
+    "C02_FR_H02_OPEN",
+    "C02_FR_H03_OPEN",
+    "C02_FR_H04_OPEN",
+    "M11_V02_NOT_FROZEN",
+    "M54_OWNER_CONTRACT_PENDING",
+    "M58_OWNER_CONTRACT_PENDING",
+    "M60_OWNER_CONTRACT_PENDING",
+    "M02_M06_EXACT_CROSS_OWNER_DISPOSITIONS_PENDING",
+    "M12_RUNTIME_TRIALS_NOT_EXECUTED"
+  ]
+}
