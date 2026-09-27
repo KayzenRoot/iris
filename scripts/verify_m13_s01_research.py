@@ -55,13 +55,13 @@ def render_report(p: dict) -> str:
         "## 1. Bounded mission and existing source authority", "",
         "Investigate whether future source-qualified warm model and artifact/cache locality could improve production startup without competing with M01 quality, M02/M06 identity, M07/M08 evidence, M09 resource grants/residency, M10 advisory plans, M11 real process ownership, M12 placement or future M14/M18/M53/M54/M55/M60 owners.",
         "",
-        f'Historical exact source main: \`{p["sourceBaseSha"]}\`, tree \`{p["sourceBaseTreeSha"]}\`. Current B_FUTURE_OWNER_RECEIPT is DIRECTION_ONLY; older source documents may legitimately preserve historical NONE_SELECTED. All H01-H04 remain OPEN HIGH_FOR_FUTURE_FREEZE.',
+        f'Historical exact source main: `{p["sourceBaseSha"]}`, tree `{p["sourceBaseTreeSha"]}`. Current B_FUTURE_OWNER_RECEIPT is DIRECTION_ONLY; older source documents may legitimately preserve historical NONE_SELECTED. All H01-H04 remain OPEN HIGH_FOR_FUTURE_FREEZE.',
         "",
         f'### {len(p["sourceDocs"])} immutable exact historical source inputs', "",
     ]
     for s in p["sourceDocs"]:
         lines.append(
-            f'- **{s["role"]}**: [\`{s["path"]}\`](../../{s["path"]}); original Git blob \`{s["gitBlobSha1"]}\`; required source anchor: \`{s["exactNeedle"]}\`.'
+            f'- **{s["role"]}**: [`{s["path"]}`](../../{s["path"]}); original Git blob `{s["gitBlobSha1"]}`; required source anchor: `{s["exactNeedle"]}`.'
         )
     lines.extend(["", "## 2. Five cache classes, none adopted", ""])
     for q in p["cacheClasses"]:
@@ -87,7 +87,7 @@ def render_report(p: dict) -> str:
     ])
     for m in p["measurementPlan"]["metrics"]:
         lines.append(
-            f'- \`{m["id"]}\` [{m["measurementOwner"]}] {m["definition"]} **{m["status"]}**'
+            f'- `{m["id"]}` [{m["measurementOwner"]}] {m["definition"]} **{m["status"]}**'
         )
     lines.extend([
         "", "## 5. Eighteen source-anchored OPEN owner questions", "",
@@ -95,7 +95,7 @@ def render_report(p: dict) -> str:
         "",
     ])
     for q in p["questions"]:
-        roles = ", ".join(f'\`{name}\`' for name in q["sourceRoles"])
+        roles = ", ".join(f'`{name}`' for name in q["sourceRoles"])
         lines.extend([
             f'### {q["id"]} | {q["originalOwners"]}', "",
             q["question"], "",
@@ -104,17 +104,17 @@ def render_report(p: dict) -> str:
         ])
     lines.extend(["## 6. Twelve future negative-case designs, NOT EXECUTED", ""])
     for n in p["negativeScenarios"]:
-        qids = ", ".join(f'\`{qid}\`' for qid in n["questionIds"])
+        qids = ", ".join(f'`{qid}`' for qid in n["questionIds"])
         lines.extend([
             f'### {n["id"]} | {n["originalOwners"]}', "",
             f'- Proposed hostile/ambiguous input: {n["trigger"]}',
-            f'- Proposed non-authorizing oracle: \`{n["nonAuthorizingOracle"]}\`.',
+            f'- Proposed non-authorizing oracle: `{n["nonAuthorizingOracle"]}`.',
             f'- Related new M13 S01 questions: {qids}.',
             f'- Test status: **{n["status"]}**; no real hardware/OS/provider test was run.', "",
         ])
     lines.extend([
         "## 7. Explicit gates and STOP", "",
-        f'- Source state: M09 \`{p["m09v1"]}\`, selected future M09 receipt \`{p["ownerB"]}\`, C01 \`{p["m09C01"]}\`, M10 \`{p["m10"]}\`, M11 \`{p["m11"]}\`, M12 \`{p["m12"]}\`.',
+        f'- Source state: M09 `{p["m09v1"]}`, selected future M09 receipt `{p["ownerB"]}`, C01 `{p["m09C01"]}`, M10 `{p["m10"]}`, M11 `{p["m11"]}`, M12 `{p["m12"]}`.',
         f'- H01-H04: **{p["h01h02h03h04"]}**; no actual qualified M12/M54/M58/M60 contract received, no H03 closure and no M10/M11/M12 runtime.',
         "- This report neither adopts a new interface nor runs a benchmark, prefetch, warmup, process/GPU/storage/network/cloud action, source download or public API.",
         f'- STOP: {p["stop"]}', "",
@@ -182,7 +182,9 @@ def verify_packet(p: dict, root: Path = ROOT, *,
                            "originalOwners", "status"}
                 and x["status"] == "UNADOPTED_CONCEPT_ONLY"
                 and all(type(x[k]) is str and len(x[k]) >= 18
-                        for k in ("title", "boundedPotential", "unresolvedProof", "originalOwners")),
+                        for k in ("title", "boundedPotential", "unresolvedProof"))
+                and type(x["originalOwners"]) is str
+                and len(x["originalOwners"]) >= 7,
                 "cache class claims selected or no original owner caveats")
     alternatives = p["alternatives"]
     require(type(alternatives) is list

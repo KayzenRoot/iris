@@ -62,28 +62,28 @@ Historical exact source main: `2dbb91495804338f46aad9716f36e10409c64935`, tree `
 
 ## 3. Architectural candidates, all unselected
 
-### ALT01_NO_EARLY_PREFETCH: Measure cold baseline, require exact source before considering warm state.
+### ALT01_NO_EARLY_PREFETCH: Cold-only measured source-qualified baseline
 
-- Conditional research hypothesis: Simplifies authority and supports a deterministic comparison, but possible startup latency remains.
-- Tradeoffs and unqualified dependencies: undefined
+- Conditional research hypothesis: Measure cold baseline, require exact source before considering warm state.
+- Tradeoffs and unqualified dependencies: Simplifies authority and supports a deterministic comparison, but possible startup latency remains.
 - Decision: **DISCUSSION_NOT_ADOPTED**; no preferred or selected candidate.
 
-### ALT02_HOST_LOCAL_VERIFIED_WARMING: Study read-only, versioned host-local reference reuse after independent model/tenant/storage owner qualifications.
+### ALT02_HOST_LOCAL_VERIFIED_WARMING: Future host-local source-qualified warm reference reuse
 
-- Conditional research hypothesis: Could reduce cold load when truly source-equivalent; cost, deletion races and license changes remain unqualified.
-- Tradeoffs and unqualified dependencies: undefined
+- Conditional research hypothesis: Study read-only, versioned host-local reference reuse after independent model/tenant/storage owner qualifications.
+- Tradeoffs and unqualified dependencies: Could reduce cold load when truly source-equivalent; cost, deletion races and license changes remain unqualified.
 - Decision: **DISCUSSION_NOT_ADOPTED**; no preferred or selected candidate.
 
-### ALT03_READ_ONLY_M09_RESIDENCY_HINT: Study provenance-bound M09 warm residency observations without granting, transferring, holding or changing any lease.
+### ALT03_READ_ONLY_M09_RESIDENCY_HINT: Read-only owner-issued M09 residency hint research
 
-- Conditional research hypothesis: Could avoid misleading duplicate loads in a later admitted system; stale all-member and H01–H04 proofs absent.
-- Tradeoffs and unqualified dependencies: undefined
+- Conditional research hypothesis: Study provenance-bound M09 warm residency observations without granting, transferring, holding or changing any lease.
+- Tradeoffs and unqualified dependencies: Could avoid misleading duplicate loads in a later admitted system; stale all-member and H01–H04 proofs absent.
 - Decision: **DISCUSSION_NOT_ADOPTED**; no preferred or selected candidate.
 
-### ALT04_OWNER_QUALIFIED_ADAPTIVE_PREFETCH: Study possible future predictive per-model/locality policy constrained by actual M08 metrics and independently admitted M09/M11/M12/M54/M55/M60 contracts.
+### ALT04_OWNER_QUALIFIED_ADAPTIVE_PREFETCH: Future owner-qualified adaptive prefetch investigation
 
-- Conditional research hypothesis: May reduce later cold latency, but unnecessary warming can harm interactive use, power/VRAM safety, rights and quality.
-- Tradeoffs and unqualified dependencies: undefined
+- Conditional research hypothesis: Study possible future predictive per-model/locality policy constrained by actual M08 metrics and independently admitted M09/M11/M12/M54/M55/M60 contracts.
+- Tradeoffs and unqualified dependencies: May reduce later cold latency, but unnecessary warming can harm interactive use, power/VRAM safety, rights and quality.
 - Decision: **DISCUSSION_NOT_ADOPTED**; no preferred or selected candidate.
 
 ## 4. Cold/warm evidence design, no measurement or numeric gate

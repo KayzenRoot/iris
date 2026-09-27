@@ -136,31 +136,35 @@
   "alternatives": [
     {
       "id": "ALT01_NO_EARLY_PREFETCH",
-      "title": "Measure cold baseline, require exact source before considering warm state.",
-      "hypothesis": "Simplifies authority and supports a deterministic comparison, but possible startup latency remains.",
+      "title": "Cold-only measured source-qualified baseline",
+      "hypothesis": "Measure cold baseline, require exact source before considering warm state.",
       "selected": false,
-      "status": "DISCUSSION_NOT_ADOPTED"
+      "status": "DISCUSSION_NOT_ADOPTED",
+      "tradeoffs": "Simplifies authority and supports a deterministic comparison, but possible startup latency remains."
     },
     {
       "id": "ALT02_HOST_LOCAL_VERIFIED_WARMING",
-      "title": "Study read-only, versioned host-local reference reuse after independent model/tenant/storage owner qualifications.",
-      "hypothesis": "Could reduce cold load when truly source-equivalent; cost, deletion races and license changes remain unqualified.",
+      "title": "Future host-local source-qualified warm reference reuse",
+      "hypothesis": "Study read-only, versioned host-local reference reuse after independent model/tenant/storage owner qualifications.",
       "selected": false,
-      "status": "DISCUSSION_NOT_ADOPTED"
+      "status": "DISCUSSION_NOT_ADOPTED",
+      "tradeoffs": "Could reduce cold load when truly source-equivalent; cost, deletion races and license changes remain unqualified."
     },
     {
       "id": "ALT03_READ_ONLY_M09_RESIDENCY_HINT",
-      "title": "Study provenance-bound M09 warm residency observations without granting, transferring, holding or changing any lease.",
-      "hypothesis": "Could avoid misleading duplicate loads in a later admitted system; stale all-member and H01–H04 proofs absent.",
+      "title": "Read-only owner-issued M09 residency hint research",
+      "hypothesis": "Study provenance-bound M09 warm residency observations without granting, transferring, holding or changing any lease.",
       "selected": false,
-      "status": "DISCUSSION_NOT_ADOPTED"
+      "status": "DISCUSSION_NOT_ADOPTED",
+      "tradeoffs": "Could avoid misleading duplicate loads in a later admitted system; stale all-member and H01–H04 proofs absent."
     },
     {
       "id": "ALT04_OWNER_QUALIFIED_ADAPTIVE_PREFETCH",
-      "title": "Study possible future predictive per-model/locality policy constrained by actual M08 metrics and independently admitted M09/M11/M12/M54/M55/M60 contracts.",
-      "hypothesis": "May reduce later cold latency, but unnecessary warming can harm interactive use, power/VRAM safety, rights and quality.",
+      "title": "Future owner-qualified adaptive prefetch investigation",
+      "hypothesis": "Study possible future predictive per-model/locality policy constrained by actual M08 metrics and independently admitted M09/M11/M12/M54/M55/M60 contracts.",
       "selected": false,
-      "status": "DISCUSSION_NOT_ADOPTED"
+      "status": "DISCUSSION_NOT_ADOPTED",
+      "tradeoffs": "May reduce later cold latency, but unnecessary warming can harm interactive use, power/VRAM safety, rights and quality."
     }
   ],
   "measurementPlan": {
