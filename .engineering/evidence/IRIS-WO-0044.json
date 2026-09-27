@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0044",
+  "issue": 110,
+  "status": "PROPOSED_PENDING_OWN_EXACT_HEAD_CI_BOUNDED_REVIEW_PROTECTED_MERGE_AND_EXACT_MAIN",
+  "baseSha": "4b9a87e86d87316288e1431e88db35b684a34199",
+  "baseTreeSha": "5437383d549aed3d41cb4ec73bbd345433a1366a",
+  "criticalSourceCount": 25,
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0044-M12-H03-CROSS-LANE-INTEGRITY.json",
+    ".engineering/evidence/IRIS-WO-0044.json",
+    ".engineering/work-orders/IRIS-WO-0044-M12-H03-CROSS-LANE-INTEGRITY.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0044-M12-H03-CROSS-LANE-INTEGRITY.md",
+    "planning/reviews/IRIS-WO-0044-M12-H03-CROSS-LANE-AUDIT-TARGET.md",
+    "scripts/verify_m12_h03_cross_lane.py",
+    "tests/test_wo0044_m12_h03_cross_lane.py"
+  ],
+  "verifiedPrevious": {
+    "pr": 153,
+    "head": "721619c55d0d7448ac6febdc6ce608faee5231d8",
+    "headCI": 36349209018,
+    "mainSha": "4b9a87e86d87316288e1431e88db35b684a34199",
+    "exactMainCI": 36349321021,
+    "fullTests": "4335/4335"
+  },
+  "scope": "CROSS_VALIDATE_110_OPEN_M12_QUESTIONS_AGAINST_H03_91_PLUS_19_AND_DISJOINT_C03_19_UNCHANGED_SOURCE",
+  "newSyntheticTests": 18,
+  "expectedFullSuite": 4353,
+  "actualOwnerApprovals": 0,
+  "realNegativeCasesExecuted": 0,
+  "h01h02h03h04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "ownerB": "DIRECTION_ONLY",
+  "m09C01": "UNADOPTED_NOT_FROZEN",
+  "runtime": "NOT_ADMITTED",
+  "ownHeadCI": "PENDING",
+  "ownMerge": "NOT_MERGED"
+}
