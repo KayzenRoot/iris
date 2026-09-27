@@ -78,7 +78,7 @@ class RegistryTests(unittest.TestCase):
                     selectedTopology="NONE", publicOrExecutablePort="NONE", implementationStatus="NOT_ADMITTED",
                     counts=dict(sessions=5, ownerQuestions=110, futureNegativeScenarios=80,
                                 laterIndexModules=48, technologyRecords=16),
-                    questions=q, negativeScenarios=n, unresolvedHardDependencies=sorted(REQUIRED_DEPENDENCIES)), q, n
+                    questions=deepcopy(q), negativeScenarios=deepcopy(n), unresolvedHardDependencies=sorted(REQUIRED_DEPENDENCIES)), q, n
 
     def check(self, alter):
         reg, q, n = self.valid()
