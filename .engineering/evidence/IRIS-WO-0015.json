@@ -1912,5 +1912,55 @@
     "exactHeadGovernance": {
       "status": "REQUIRED_ON_PR_FINAL_HEAD"
     }
+  },
+  "planningAuditC01": {
+    "status": "PROPOSAL_PENDING_EXACT_HEAD_GOVERNANCE",
+    "workOrder": "IRIS-WO-0015",
+    "increment": "M11-INDEPENDENT-PLANNING-AUDIT-C01",
+    "issue": 82,
+    "reviewedCandidate": {
+      "pr": 101,
+      "headSha": "2df777a14aaac9bdb673f9c812c75a5af188b31d",
+      "mergeSha": "9c7cafcfc73700728981f8f90e27110be8dd9fd0",
+      "exactMainGovernance": {
+        "run": 36285702518,
+        "job": 108525960964,
+        "number": 438,
+        "result": "PASS",
+        "tests": "3940/3940",
+        "tree": "b1b3084905b6f5f81212fcafce3b6509a3d02832"
+      }
+    },
+    "checks": {
+      "candidateInvariants": "26/26 unique",
+      "openS04": "21/21 verbatim",
+      "openS05": "23/23 verbatim",
+      "candidateLock": "94/94 exact-base",
+      "futureOwnerContracts": "49/49 PENDING_OWNER_CONTRACT UNRATED"
+    },
+    "proposedVerdict": "CORRECTION_REQUIRED_FOR_FREEZE",
+    "findings": [
+      {
+        "id": "AUD-C01-H01",
+        "severity": "HIGH_FOR_FREEZE",
+        "summary": "Missing positive authorization/preflight contract",
+        "disposition": "OPEN_PENDING_C02"
+      },
+      {
+        "id": "AUD-C01-H02",
+        "severity": "HIGH_FOR_FREEZE",
+        "summary": "Unresolved positive process ownership and wait/reap safety",
+        "disposition": "OPEN_PENDING_C02"
+      },
+      {
+        "id": "AUD-C01-H03",
+        "severity": "HIGH_FOR_FREEZE",
+        "summary": "No replay-safe partial/cancel/recovery interface contract",
+        "disposition": "OPEN_PENDING_C02"
+      }
+    ],
+    "reviewerIdentity": "Separate read-only ChatGPT audit of PR101. Same GitHub credential, no separate human/formal GitHub approval claimed.",
+    "nextGate": "Govern audit report then C02 bounded correction and independent re-audit; M11 not frozen",
+    "auditPrHeadGovernance": "PENDING"
   }
 }

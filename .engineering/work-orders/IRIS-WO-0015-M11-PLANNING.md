@@ -87,3 +87,7 @@ Corrected PR #99 head 9571b24b0a22c1d48e5ccf48d8cb1e9fda31c164 received a bounde
 ### M11 FCS closeout promoted; owner-contract candidate C01
 
 Closeout PR #100 exact head 749eafeafa79463920cc3c0399d9bdac16f0ade4 passed Governance 36285307444 / 108524829278, protected-merged as 9acfe5400a490a996602d5b09f7adb3d92b3050b and passed exact-main Governance #435 (36285351940 / 108524953905; 3,940/3,940 tests). FCS is COMPLETE_FOR_MODULE_PLANNING. The separate C01 candidate document carries 26 invariant proposals and all 44 S04/S05 OPEN questions, bound by 94/94 exact-base Git sources. Missing M12-M60 owner contracts remain PENDING/UNRATED. Independent contract audit, freeze and implementation are not admitted by this documentation proposal; Issue #82 stays OPEN.
+
+### Separate C01 freeze-readiness audit proposal
+
+Candidate PR #101 passed exact-head Governance #436, protected-merged as 9c7cafcfc73700728981f8f90e27110be8dd9fd0 and passed exact-main Governance #438 (3,940/3,940 tests). Separate audit C01 proposes CORRECTION REQUIRED for three HIGH_FOR_FREEZE missing positive interface/authority proofs; no freeze or implementation is admitted by this report.
