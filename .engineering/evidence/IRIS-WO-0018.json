@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0018",
+  "module": "GEF_GOVERNANCE_CONTEXT_LOCK",
+  "issue": 120,
+  "status": "PROPOSED_PENDING_EXACT_HEAD_CI_AND_SEPARATE_REVIEW",
+  "baseSha": "407078499027253703ee09ec986832095d355b0f",
+  "baseTreeSha": "b1c4d9db004f152acf2cdfabf689c73566be1d78",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "expected": 30,
+    "checked": 30,
+    "matched": 30,
+    "mismatches": 0
+  },
+  "authorizedChangedFiles": [
+    "scripts/verify_context_lock.py",
+    "tests/test_context_lock_verifier.py",
+    ".github/workflows/governance.yml",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0017.json",
+    ".engineering/evidence/IRIS-WO-0018.json",
+    ".engineering/context-locks/IRIS-WO-0018-PR-CONTEXT-LOCK-VERIFICATION.json",
+    ".engineering/work-orders/IRIS-WO-0018-PR-CONTEXT-LOCK-VERIFICATION.md",
+    "planning/reviews/IRIS-WO-0018-PR-CONTEXT-LOCK-AUDIT-TARGET.md"
+  ],
+  "finding": {
+    "source": ".github/workflows/governance.yml",
+    "gap": "EXISTING_CI_VALIDATES_CHECKPOINT_AND_SUITE_BUT_NOT_CONTEXT_LOCK_SOURCE_SHAS_OR_PR_FILE_ALLOWLIST",
+    "classification": "CHAT_FIXABLE",
+    "scope": "NEW_PR_ONLY_STRICT_LOCK_CHECK_GIT_EVIDENCE"
+  },
+  "proposedTests": {
+    "count": 18,
+    "status": "AUTHORED_PENDING_CI",
+    "categories": [
+      "exact-valid-pure",
+      "forged/missing/duplicate sources",
+      "false counters",
+      "stale base/tree",
+      "unauthorized actual PR changes",
+      "unsafe paths",
+      "duplicate JSON keys",
+      "real local Git positive and negative fixtures"
+    ]
+  },
+  "priorWO17": {
+    "issue": 118,
+    "status": "CLOSED_AFTER_EXACT_MAIN_PASS",
+    "pr": 119,
+    "mergeSha": "407078499027253703ee09ec986832095d355b0f",
+    "headGovernance": 466,
+    "mainGovernance": 467,
+    "tests": "3949/3949"
+  },
+  "ownerDecision": "ISSUE_110_PENDING_A_B_C_NONE_SELECTED",
+  "C02H01toH04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "M09": "m09-contract-v1.0 FROZEN_UNCHANGED",
+  "M11": "m11-contract-candidate-v0.2 NOT_FROZEN",
+  "M10M11Implementation": "NOT_ADMITTED",
+  "processActions": "DISABLED",
+  "hiveLocalPreflight": "NOT_EXECUTED_GITHUB_CI_BRIDGES_REQUIRED",
+  "exactHeadGovernance": "REQUIRED",
+  "separateBoundedReview": "REQUIRED",
+  "exactMainGovernance": "REQUIRED_AFTER_REVIEWED_PROTECTED_MERGE"
+}

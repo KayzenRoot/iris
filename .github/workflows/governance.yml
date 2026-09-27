@@ -18,6 +18,7 @@ jobs:
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0 # required to inspect the exact PR base commit/tree
       - name: Assert exact candidate
         shell: bash
         run: |
@@ -31,7 +32,13 @@ jobs:
         with:
           python-version: "3.12"
       - name: Compile bootstrap tooling
-        run: python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/hive_bootstrap.py scripts/hive_mcp.py
+        run: python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/hive_bootstrap.py scripts/hive_mcp.py scripts/verify_context_lock.py
+      - name: Verify exact PR Context Lock source fingerprints and changed-file scope
+        if: github.event_name == 'pull_request'
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: python scripts/verify_context_lock.py --base-sha "$PR_BASE_SHA" --head-sha "$PR_HEAD_SHA"
       - name: Validate IRIS governance
         run: python scripts/validate_governance.py
       - name: Test GEF and HIVE bridges

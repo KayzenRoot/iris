@@ -3,7 +3,7 @@
   "workOrder": "IRIS-WO-0017",
   "module": "GEF_GOVERNANCE_MAINTENANCE",
   "issue": 118,
-  "status": "PROPOSED_PENDING_EXACT_HEAD_AND_SEPARATE_AUDIT",
+  "status": "CANONICAL_GOVERNANCE_MAINTENANCE_CLOSED",
   "baseSha": "467cea12c78b875d8a9966e48bde2dade8d48f8a",
   "baseTreeSha": "ed1454de247b7ad26e186b55f999dfebcf74f0d4",
   "sourceSnapshot": {
@@ -124,7 +124,43 @@
   "processes": "DISABLED",
   "fourC02Highs": "OPEN_HIGH_FOR_FUTURE_FREEZE",
   "M11QuestionRegister": "86_OF_86_OPEN_UNRATED",
-  "exactHeadGovernance": "REQUIRED",
-  "independentBoundedAudit": "REQUIRED",
-  "exactMainGovernance": "REQUIRED_AFTER_GUARDED_MERGE"
+  "exactHeadGovernance": {
+    "number": 466,
+    "run": 36317460937,
+    "job": 108614772746,
+    "head": "0ea57efa7fa12aac5269d08057550bf28e882dd8",
+    "result": "PASS",
+    "tests": "3949/3949",
+    "initialFailedRun": {
+      "number": 465,
+      "run": 36317440528,
+      "reason": "TWO_LF_CRLF_FIXTURE_ESCAPES_CORRECTED_IN_SAME_PR"
+    }
+  },
+  "independentBoundedAudit": {
+    "verdict": "APPROVED_FOR_GOVERNANCE_BUGFIX_ONLY",
+    "commentId": 5855625800,
+    "reviewedHead": "0ea57efa7fa12aac5269d08057550bf28e882dd8",
+    "reviewer": "SEPARATE_PASS_SAME_ASSISTANT_NOT_INDEPENDENT_HUMAN",
+    "newHigh": 0,
+    "newCritical": 0
+  },
+  "exactMainGovernance": {
+    "number": 467,
+    "run": 36317516875,
+    "job": 108614924118,
+    "head": "407078499027253703ee09ec986832095d355b0f",
+    "result": "PASS",
+    "tests": "3949/3949"
+  },
+  "protectedSquashMerge": {
+    "sha": "407078499027253703ee09ec986832095d355b0f",
+    "tree": "b1c4d9db004f152acf2cdfabf689c73566be1d78",
+    "pr": 119,
+    "method": "squash"
+  },
+  "issueClosure": {
+    "issue": 118,
+    "status": "CLOSED_AFTER_EXACT_MAIN"
+  }
 }
