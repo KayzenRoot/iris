@@ -1962,5 +1962,45 @@
     "reviewerIdentity": "Separate read-only ChatGPT audit of PR101. Same GitHub credential, no separate human/formal GitHub approval claimed.",
     "nextGate": "Govern audit report then C02 bounded correction and independent re-audit; M11 not frozen",
     "auditPrHeadGovernance": "PENDING"
+  },
+  "c02CorrectionDelta": {
+    "status": "PROPOSED_NOT_VERIFIED",
+    "workOrder": "IRIS-WO-0015",
+    "increment": "M11-C02-CORRECTION-DELTA",
+    "issue": 82,
+    "branch": "iris-wo-0015-m11-c02-correction-20260926",
+    "exactBaseSha": "6006be5af8f58ac6eec00df030fffab2d1d121ab",
+    "exactBaseTreeSha": "039f6fc7e4d89a20af830bdd09ad994a8a26ee58",
+    "upstreamAudit": {
+      "pr": 103,
+      "headSha": "58493193261a2f4cf1d3fda6faff998882836d24",
+      "mergedSha": "6006be5af8f58ac6eec00df030fffab2d1d121ab",
+      "exactHeadGovernance": {
+        "run": 36285889458,
+        "job": 108526469125,
+        "result": "PASS",
+        "tests": "3940/3940"
+      },
+      "exactMainGovernance": {
+        "run": 36285939240,
+        "job": 108526609059,
+        "result": "PASS"
+      }
+    },
+    "candidate": "m11-contract-candidate-v0.2 PROPOSED_NOT_FROZEN",
+    "preservedInvariants": "I01-I26",
+    "addedInvariants": "I27-I36",
+    "openQuestions": "S04 21/21 + S05 23/23 verbatim OPEN",
+    "auditFindings": [
+      "AUD-C01-H01",
+      "AUD-C01-H02",
+      "AUD-C01-H03"
+    ],
+    "response": "Proposed positive semantic boundaries and fail-closed action gate only; no findings discharged before separate re-audit",
+    "nextGate": "Exact-head Governance, independent C02 re-audit, no freeze until zero HIGH/CRITICAL",
+    "processActions": "DISABLED",
+    "m11Implementation": "NOT_ADMITTED",
+    "m10Implementation": "NOT_ADMITTED",
+    "futureOwners": "M12-M60 PENDING/UNRATED"
   }
 }
