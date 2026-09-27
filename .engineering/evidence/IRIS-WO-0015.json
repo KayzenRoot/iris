@@ -2,8 +2,8 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0015",
   "module": "M11",
-  "status": "S05_COMPLETE_FOR_MODULE_PLANNING",
-  "capturePhase": "M11_S05_CHECKPOINT_EVIDENCE_CLOSEOUT",
+  "status": "M11_C02_AUDITED_APPROVED_FOR_CANDIDATE_PROGRESS_NOT_FROZEN",
+  "capturePhase": "M11_C02_POST_MERGE_CHECKPOINT_EVIDENCE_CLOSEOUT",
   "repository": "KayzenRoot/iris",
   "origin": "https://github.com/KayzenRoot/iris.git",
   "issue": 82,
@@ -339,7 +339,7 @@
     ".engineering/evidence/IRIS-WO-0015.json",
     "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
   ],
-  "currentPhase": "M11_S05_COMPLETE_FOR_MODULE_PLANNING",
+  "currentPhase": "M11_C02_AUDITED_CANDIDATE_PROGRESS",
   "sessionCloseoutChangedFiles": [
     ".engineering/context-locks/IRIS-WO-0015-S01-CLOSEOUT.json",
     ".engineering/evidence/IRIS-WO-0015.json",
@@ -1964,7 +1964,7 @@
     "auditPrHeadGovernance": "PENDING"
   },
   "c02CorrectionDelta": {
-    "status": "PROPOSED_NOT_VERIFIED",
+    "status": "AUDITED_APPROVED_AND_MERGED_FOR_CANDIDATE_PROGRESS",
     "workOrder": "IRIS-WO-0015",
     "increment": "M11-C02-CORRECTION-DELTA",
     "issue": 82,
@@ -1996,11 +1996,137 @@
       "AUD-C01-H02",
       "AUD-C01-H03"
     ],
-    "response": "Proposed positive semantic boundaries and fail-closed action gate only; no findings discharged before separate re-audit",
-    "nextGate": "Exact-head Governance, independent C02 re-audit, no freeze until zero HIGH/CRITICAL",
+    "response": "Separate audit approved C02 for candidate progress with zero residual C01 findings. This does not freeze the contract, admit implementation, or enable any process action.",
+    "nextGate": "Post-merge checkpoint/evidence reconciliation only; M11 remains NOT_FROZEN until separately authorized owner decisions and a future governed freeze gate.",
     "processActions": "DISABLED",
     "m11Implementation": "NOT_ADMITTED",
     "m10Implementation": "NOT_ADMITTED",
-    "futureOwners": "M12-M60 PENDING/UNRATED"
+    "futureOwners": "M12-M60 PENDING/UNRATED",
+    "independentAudit": {
+      "status": "APPROVED_FOR_FREEZE_CANDIDATE_PROGRESS",
+      "reviewType": "Separate read-only C02 semantic audit",
+      "issueCommentId": 5851908832,
+      "reviewedPr": 104,
+      "reviewedHeadSha": "f3d53b0e21f6c64a22d3d7e9a71dd5d1436a92f4",
+      "baseSha": "6006be5af8f58ac6eec00df030fffab2d1d121ab",
+      "residualFindings": 0,
+      "findingDispositions": {
+        "AUD-C01-H01": "RESOLVED_FOR_CANDIDATE_PROGRESS_ONLY",
+        "AUD-C01-H02": "RESOLVED_FOR_CANDIDATE_PROGRESS_ONLY",
+        "AUD-C01-H03": "RESOLVED_FOR_CANDIDATE_PROGRESS_ONLY"
+      },
+      "checks": {
+        "exactHeadGovernance": {
+          "run": 36286063222,
+          "job": 108526953203,
+          "headSha": "f3d53b0e21f6c64a22d3d7e9a71dd5d1436a92f4",
+          "result": "PASS",
+          "tests": "3940/3940"
+        },
+        "c02BaseFingerprints": "32/32 MATCHED",
+        "changedFiles": "10/10 AUTHORIZED",
+        "originalQuestions": "44/44 VERBATIM, UNIQUE IDS, OPEN",
+        "processActions": "DISABLED"
+      },
+      "reviewerIdentity": "Separate read-only audit task; comment posted with KayzenRoot connection. No separate human identity or formal GitHub review approval claimed."
+    },
+    "protectedMerge": {
+      "pullRequest": 104,
+      "method": "squash",
+      "reviewedHeadSha": "f3d53b0e21f6c64a22d3d7e9a71dd5d1436a92f4",
+      "mergeSha": "5ce6bc9644d659b57b9c4e3a0fae84f645d05a50",
+      "result": "MERGED"
+    },
+    "exactMainGovernance": {
+      "run": 36288122922,
+      "job": 108532716746,
+      "number": 442,
+      "headSha": "5ce6bc9644d659b57b9c4e3a0fae84f645d05a50",
+      "treeSha": "505dd179851edc19f5eeae23b3dc3f03e5502c3b",
+      "result": "PASS",
+      "tests": "3940/3940"
+    }
+  },
+  "planningAuditC02": {
+    "status": "APPROVED_FOR_FREEZE_CANDIDATE_PROGRESS",
+    "workOrder": "IRIS-WO-0015",
+    "increment": "M11-INDEPENDENT-PLANNING-AUDIT-C02",
+    "issue": 82,
+    "reviewedPr": 104,
+    "reviewedHeadSha": "f3d53b0e21f6c64a22d3d7e9a71dd5d1436a92f4",
+    "baseSha": "6006be5af8f58ac6eec00df030fffab2d1d121ab",
+    "verdict": "APPROVED_FOR_FREEZE_CANDIDATE_PROGRESS",
+    "residualHighFindings": 0,
+    "residualCriticalFindings": 0,
+    "findings": [
+      {
+        "id": "AUD-C01-H01",
+        "severity": "HIGH_FOR_FREEZE",
+        "disposition": "RESOLVED_FOR_CANDIDATE_PROGRESS_ONLY"
+      },
+      {
+        "id": "AUD-C01-H02",
+        "severity": "HIGH_FOR_FREEZE",
+        "disposition": "RESOLVED_FOR_CANDIDATE_PROGRESS_ONLY"
+      },
+      {
+        "id": "AUD-C01-H03",
+        "severity": "HIGH_FOR_FREEZE",
+        "disposition": "RESOLVED_FOR_CANDIDATE_PROGRESS_ONLY"
+      }
+    ],
+    "exactHeadGovernance": {
+      "run": 36286063222,
+      "job": 108526953203,
+      "headSha": "f3d53b0e21f6c64a22d3d7e9a71dd5d1436a92f4",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "sourceEvidence": {
+      "contextLockBase": "6006be5af8f58ac6eec00df030fffab2d1d121ab",
+      "criticalFingerprints": "32/32 MATCHED",
+      "changedPaths": "10/10 AUTHORIZED",
+      "questions": "S04 21/21 + S05 23/23 exact text, OPEN"
+    },
+    "merge": {
+      "pullRequest": 104,
+      "method": "squash",
+      "sha": "5ce6bc9644d659b57b9c4e3a0fae84f645d05a50",
+      "result": "MERGED"
+    },
+    "exactMainGovernance": {
+      "run": 36288122922,
+      "job": 108532716746,
+      "number": 442,
+      "headSha": "5ce6bc9644d659b57b9c4e3a0fae84f645d05a50",
+      "treeSha": "505dd179851edc19f5eeae23b3dc3f03e5502c3b",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "limits": {
+      "candidate": "m11-contract-candidate-v0.2 PROPOSED_NOT_FROZEN",
+      "processActions": "DISABLED",
+      "M11Implementation": "NOT_ADMITTED",
+      "M10Implementation": "NOT_ADMITTED",
+      "futureOwners": "M12-M60 PENDING/UNRATED",
+      "issue82": "OPEN",
+      "runtimeEvidence": "NONE"
+    },
+    "reviewerIdentity": "Separate read-only audit task; same GitHub connection for the top-level comment; no separate human identity or formal GitHub review approval claimed."
+  },
+  "m11C02PostMergeCloseout": {
+    "status": "PROPOSED_CHECKPOINT_EVIDENCE_RECONCILIATION_NOT_CANONICAL",
+    "workOrder": "IRIS-WO-0015",
+    "increment": "M11-C02-POST-MERGE-CHECKPOINT-EVIDENCE-CLOSEOUT",
+    "issue": 82,
+    "branch": "codex/iris-wo-0015-m11-c02-postmerge-closeout",
+    "exactBaseSha": "5ce6bc9644d659b57b9c4e3a0fae84f645d05a50",
+    "exactBaseTreeSha": "505dd179851edc19f5eeae23b3dc3f03e5502c3b",
+    "authorizedChangedFiles": 8,
+    "sourceFingerprints": "32/32 exact-main",
+    "exactHeadGovernance": {
+      "status": "REQUIRED_ON_FINAL_CLOSEOUT_PR_HEAD"
+    },
+    "stopCondition": "Leave its PR OPEN/UNMERGED after exact-head Governance; no contract freeze or implementation admission."
   }
 }
