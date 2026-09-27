@@ -1,0 +1,203 @@
+{
+  "schemaVersion": "iris-m09-h04-work-attempt-epoch-seam-v1",
+  "workOrder": "IRIS-WO-0036",
+  "issue": 110,
+  "relatedOpenIssues": [
+    82,
+    112,
+    128
+  ],
+  "scope": "EXISTING_FROZEN_M09_INPROCESS_WORK_ATTEMPT_EPOCH_SEMANTIC_FIXTURES_ONLY",
+  "ownerDirection": "B_FUTURE_OWNER_RECEIPT_PLANNING_ONLY",
+  "ownerDecisionUrl": "https://github.com/KayzenRoot/iris/issues/110#issuecomment-5857665032",
+  "baseSha": "caa0bb74ffc91b307d7fbd7f74c4c04bc3f5893b",
+  "baseTreeSha": "4ee8fa15c64d5f3264853fa8da66cf9750ae8858",
+  "sourceFacts": {
+    "leaseRequest": "EXACT_M09_OWNER_ACTOR_AUTH_CLAIM_PURPOSE_IDEMPOTENCY_REQUEST_CONTEXT_NOT_M02_WORK_REVISION_OR_M06_ATTEMPT_PROOF",
+    "lease": "IN_BOOK_EPOCH_STATE_REQUEST_DIGEST_NO_EXTERNAL_M02_ACCEPTED_WORK_M06_OPERATIONAL_ATTEMPT_M11_ACTION_SCOPE_PROOF",
+    "replay": "SAME_M09_FULL_REQUEST_DIGEST_IS_BOOK_LOCAL_IDEMPOTENT_NOT_CROSS_OWNER_REPLAY_PROTECTION",
+    "renew": "EXACT_EPOCH_CHECK_AND_INCREMENT_PRESERVE_ORIGINAL_REQUEST_DIGEST_NO_NEW_EXTERNAL_PROOF",
+    "revoke": "STATE_REVOKE_REQUESTED_INCREMENTS_EPOCH_WITH_OLD_IMMUTABLE_ACTIVE_COPY_STILL_READABLE",
+    "release": "EXACT_EPOCH_AND_CAUSAL_TOMBSTONE_IDEMPOTENT_INSIDE_BOOK_ONLY"
+  },
+  "probes": [
+    {
+      "id": "H04-P01",
+      "test": "test_01_local_grant_records_typed_owner_claims_digest_and_epoch",
+      "meaning": "Existing LeaseBook records request/owner/claim/digest and lease epoch but does not attest M02 accepted plan or M06 issued attempt.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P02",
+      "test": "test_02_same_full_request_idempotently_returns_same_grant",
+      "meaning": "Same complete M09 request idempotently returns same grant locally; not cross-owner replay authorization.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P03",
+      "test": "test_03_same_idempotency_different_unverified_owner_ref_conflicts",
+      "meaning": "M09 correctly rejects request identity reuse with a different supplied owner_ref.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P04",
+      "test": "test_04_same_idempotency_changed_m06_purpose_text_conflicts",
+      "meaning": "M09 correctly rejects request identity reuse when caller-supplied purpose text changes.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P05",
+      "test": "test_05_distinct_leases_same_owner_accept_separate_unverified_purposes",
+      "meaning": "Distinct M09 lease IDs can refer to the same textual owner but different purpose labels without M02/M06 verification.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P06",
+      "test": "test_06_arbitrary_m02_looking_owner_ref_is_a_structural_label_only",
+      "meaning": "M02-looking label is syntactically accepted, not an M02 issuer-signed accepted-plan revision.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P07",
+      "test": "test_07_arbitrary_m06_looking_purpose_ref_is_a_structural_label_only",
+      "meaning": "M06-looking claim purpose text is accepted but cannot certify issued operational attempt.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P08",
+      "test": "test_08_lease_has_no_combined_m02_m06_m11_work_action_attestation",
+      "meaning": "Lease public dataclass has no exact combined M02 work/revision, M06 attempt, M11 action/target or B receipt attestation fields.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P09",
+      "test": "test_09_mutation_context_binds_actor_auth_idempotency_not_owner_work",
+      "meaning": "Existing mutation context binds actor/authorization/idempotency but not external accepted M02 plan/M06 attempt.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P10",
+      "test": "test_10_renewal_updates_lease_epoch_without_adding_m02_or_m06_evidence",
+      "meaning": "M09 renew changes lease epoch while retaining original request digest, without minting external owner-issued work/attempt proof.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P11",
+      "test": "test_11_stale_original_epoch_is_rejected_for_second_renewal",
+      "meaning": "M09 rejects stale epoch renew within its book.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P12",
+      "test": "test_12_renewal_does_not_mutate_captured_old_lease_copy",
+      "meaning": "An immutable old active lease copy remains unchanged after a real book-local renewal; a future M11 action must revalidate.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P13",
+      "test": "test_13_revocation_updates_lease_epoch_without_cross_owner_fence",
+      "meaning": "M09 increments epoch for revocation but neither issues nor proves an M11 action-time fence.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P14",
+      "test": "test_14_captured_prior_active_lease_remains_after_revocation",
+      "meaning": "Old detached active lease copies remain apparently ACTIVE after actual book state is REVOCATION_REQUESTED.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P15",
+      "test": "test_15_stale_pre_renewal_epoch_cannot_release_current_lease",
+      "meaning": "M09 book correctly rejects stale epoch release following renewal.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P16",
+      "test": "test_16_exact_current_epoch_release_tombstones_the_lease",
+      "meaning": "M09 book accepts valid exact-epoch release and removes it from active listing.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P17",
+      "test": "test_17_replay_identical_release_causal_ref_is_book_local_idempotent",
+      "meaning": "Matching causal text allows idempotent M09-local release receipt, not verified M11 OS side effect.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    },
+    {
+      "id": "H04-P18",
+      "test": "test_18_different_causal_release_after_tombstone_is_rejected",
+      "meaning": "Conflicting causal release id is rejected by existing book-local tombstone protection.",
+      "statusAtCreation": "SYNTHETIC_EXISTING_M09_FIXTURE_PENDING_CI",
+      "externalOwnerProof": false,
+      "originalHxLvExecuted": false
+    }
+  ],
+  "probeCount": 18,
+  "probeSourceFile": "tests/test_m09_h04_work_attempt_epoch_seams.py",
+  "probeStatusAtCreation": "PENDING_OWN_EXACT_HEAD_CI",
+  "originalFutureCases": {
+    "HX": 12,
+    "LV": 6,
+    "C08": 10,
+    "POC02": 8,
+    "M12": 80,
+    "status": "SPECIFIED_NOT_EXECUTED"
+  },
+  "inheritedHighs": [
+    "C02-FR-H01",
+    "C02-FR-H02",
+    "C02-FR-H03",
+    "C02-FR-H04"
+  ],
+  "H04": "OPEN_CROSS_OWNER_DISPOSITION",
+  "H04severity": "HIGH_FOR_FUTURE_FREEZE",
+  "externalOwnerProofsPending": [
+    "M02_OWNER_ACCEPTED_SEMANTIC_WORK_EXACT_REVISION",
+    "M06_OWNER_ISSUED_OPERATIONAL_ATTEMPT_WHERE_ACTUALLY_AVAILABLE",
+    "M09_OWNER_JOINT_SNAPSHOT_LEASE_GRANT_AND_EPOCH",
+    "M11_OWNER_ISSUED_ACTION_TARGET_REQUEST_PROVENANCE",
+    "M54_M60_TRUST_PLATFORM_CAPABILITY",
+    "M12_M58_SEPARATE_PLACEMENT_PUBLICATION_IF_APPLICABLE"
+  ],
+  "m09Frozen": "m09-contract-v1.0_FROZEN_UNCHANGED",
+  "m09C01": "UNADOPTED_NOT_FROZEN",
+  "m11": "NOT_FROZEN_86_OPEN",
+  "m12": "NOT_FROZEN_110_OPEN_80_NOT_EXECUTED",
+  "runtime": "M10_M11_M12_NOT_ADMITTED",
+  "osGpuNetworkCloudProcess": "DISABLED",
+  "stop": "Passing new H04-P synthetic in-memory semantic tests does not execute original future cases or prove cross-owner identity, revocation-at-use barrier, grant, execution authorization, H01-H04 closure or M11 runtime."
+}
