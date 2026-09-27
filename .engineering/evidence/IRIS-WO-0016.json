@@ -9,7 +9,7 @@
   "proposal": "M09_READ_ONLY_RESOURCE_EVIDENCE_HANDOFF_PLANNING_ADMISSION",
   "baseSha": "7cdfa0015eaf67bac570deea67177239bb4549af",
   "baseTreeSha": "6030279a39a95920c6e1e5ef7288ecfce1818239",
-  "status": "PROPOSED_PLANNING_ADMISSION_PENDING_REVIEW",
+  "status": "ADMITTED_FOR_PLANNING_ONLY_EXACT_MAIN_PASS",
   "criticalSourceBlobs": {
     "expected": 68,
     "matched": 68,
@@ -45,5 +45,40 @@
   "approval": "NOT_OWNER_ADOPTED",
   "exactHeadGovernance": "REQUIRED",
   "separateReview": "REQUIRED",
-  "merge": "BLOCKED_UNTIL_GATES"
+  "merge": "BLOCKED_UNTIL_GATES",
+  "admissionReceipt": {
+    "pr": 114,
+    "head": "2a166d6cbc79e5613dea2babfd49b11cfd3f89c5",
+    "mergeSha": "045d82ce1328d85dfcb6c09cd602a2fbd5af3f9b",
+    "treeSha": "801fa6fd436cdfd36794f2b881627d1657ce306f",
+    "headGovernance": {
+      "number": 457,
+      "run": 36314330161,
+      "job": 108606058448,
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "mainGovernance": {
+      "number": 458,
+      "run": 36314519657,
+      "job": 108606580186,
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "risk": "ELEVATED",
+    "scope": "PLANNING_ONLY"
+  },
+  "extensionC01": {
+    "status": "PROPOSED_CONTRACT_CANDIDATE_NOT_FROZEN_NOT_OWNER_ACCEPTED",
+    "version": "m09-evidence-handoff-candidate-v0.1",
+    "sourceBaseSha": "045d82ce1328d85dfcb6c09cd602a2fbd5af3f9b",
+    "sourceTreeSha": "801fa6fd436cdfd36794f2b881627d1657ce306f",
+    "sourceFingerprints": "73/73 MATCHED",
+    "allowlistedFiles": 11,
+    "topologySelected": "NONE",
+    "HX": "12 SPECIFIED_NOT_EXECUTED",
+    "ownerReview": "PENDING_ISSUE_110",
+    "S03U08": "OPEN_UNRATED",
+    "execution": "DISABLED"
+  }
 }

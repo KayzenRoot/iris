@@ -1,0 +1,182 @@
+{
+  "schemaVersion": "iris-m09-evidence-handoff-candidate-c01-v1",
+  "workOrder": "IRIS-WO-0016",
+  "issue": 112,
+  "ownerReviewIssue": 110,
+  "M11ParentIssue": 82,
+  "sourceBase": "045d82ce1328d85dfcb6c09cd602a2fbd5af3f9b",
+  "status": "PROPOSED_NOT_OWNER_ADOPTED_NOT_FROZEN",
+  "candidateVersion": "m09-evidence-handoff-candidate-v0.1",
+  "priorM09": {
+    "version": "m09-contract-v1.0",
+    "state": "FROZEN_UNCHANGED",
+    "surfaces": 83,
+    "absorbedComponents": 15,
+    "invariants": 514
+  },
+  "topologyAlternatives": {
+    "A": "EXISTING_SINGLE_AUTHORITY_SAME_PROCESS_READ_ONLY_NEEDS_OWNER_PROOF",
+    "B": "FUTURE_VERSIONED_OWNER_ISSUED_EXACT_REQUEST_RECEIPT_WITH_VERIFIER_NEEDS_OWNER_ADMISSION",
+    "C": "NEGATIVE_ONLY_OWNER_APPROVED_STATUS_PROJECTION_NEEDS_OWNER_ADMISSION"
+  },
+  "topologySelected": "NONE",
+  "proposedLogicalRoles": [
+    "verified_M09_issuer_and_revision",
+    "exact_M02_accepted_work_provenance",
+    "M11_intended_action_and_correlation",
+    "exact_resource_claim_and_owner_source",
+    "M12_placement_target_if_owner_defined",
+    "M09_observation_id_digest_confidence_evidence_origin_freshness",
+    "M09_grant_lease_id_epoch_owner_claims_state_revocation_expiry",
+    "M09_coherent_snapshot_lease_cut_and_owner_defined_invalidation",
+    "M09_owner_decision_distinct_from_M11_projection",
+    "future_M54_M60_security_transport_owner_refs"
+  ],
+  "actualOwnerPort": "NONE_VERIFIED_IN_REVIEWED_SOURCES",
+  "M09OwnerAcceptance": "PENDING_ISSUE_110",
+  "sourceExistingPublicAPI": "IN_PROCESS_PYTHON_TYPES_NOT_AUTHORIZING_INTERMODULE_PORT",
+  "proofObligations": [
+    {
+      "id": "HX-01",
+      "trigger": "Owner M09-to-M11 port is not admitted or unavailable",
+      "expectedRefusal": "PROPOSED_M11_UNSUPPORTED",
+      "noDispatch": true,
+      "noM09Mutation": true,
+      "oracle": "No fallback to direct lease book or local queue",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "testSource": "OWNER_DEFINED_IN_FUTURE",
+      "runtimeQualification": "NOT_ADMITTED"
+    },
+    {
+      "id": "HX-02",
+      "trigger": "Owner port exists but exact owner receipt missing/indecidable",
+      "expectedRefusal": "PROPOSED_M11_INDETERMINATE",
+      "noDispatch": true,
+      "noM09Mutation": true,
+      "oracle": "No inferred owner denial or fake grant",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "testSource": "OWNER_DEFINED_IN_FUTURE",
+      "runtimeQualification": "NOT_ADMITTED"
+    },
+    {
+      "id": "HX-03",
+      "trigger": "ResourceSnapshot confidence OBSERVED but evidence_origin SYNTHETIC_FIXTURE or DERIVED_ESTIMATE",
+      "expectedRefusal": "PROPOSED_NON_PRODUCTION_EVIDENCE",
+      "noDispatch": true,
+      "noM09Mutation": true,
+      "oracle": "No production grant despite is_fresh",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "testSource": "OWNER_DEFINED_IN_FUTURE",
+      "runtimeQualification": "NOT_ADMITTED"
+    },
+    {
+      "id": "HX-04",
+      "trigger": "LeaseBook.active includes PREEMPTION_REQUESTED or REVOCATION_REQUESTED state",
+      "expectedRefusal": "PROPOSED_GRANT_AMBIGUOUS_OR_NONPOSITIVE",
+      "noDispatch": true,
+      "noM09Mutation": true,
+      "oracle": "No unqualified active-list proof",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "testSource": "OWNER_DEFINED_IN_FUTURE",
+      "runtimeQualification": "NOT_ADMITTED"
+    },
+    {
+      "id": "HX-05",
+      "trigger": "Snapshot and Lease state observed from different owner epochs or racy concurrent mutations",
+      "expectedRefusal": "PROPOSED_NO_OWNER_ATOMICITY_PROOF",
+      "noDispatch": true,
+      "noM09Mutation": true,
+      "oracle": "No positive from independent locks",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "testSource": "OWNER_DEFINED_IN_FUTURE",
+      "runtimeQualification": "NOT_ADMITTED"
+    },
+    {
+      "id": "HX-06",
+      "trigger": "M02 work, resource, action, requested claims, host, scope or target mismatches",
+      "expectedRefusal": "PROPOSED_EXACT_SCOPE_MISMATCH",
+      "noDispatch": true,
+      "noM09Mutation": true,
+      "oracle": "No rebind of foreign owner receipt",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "testSource": "OWNER_DEFINED_IN_FUTURE",
+      "runtimeQualification": "NOT_ADMITTED"
+    },
+    {
+      "id": "HX-07",
+      "trigger": "Revocation/expiry after receipt issuance but before verification or action",
+      "expectedRefusal": "PROPOSED_OWNER_VALIDITY_LOST",
+      "noDispatch": true,
+      "noM09Mutation": true,
+      "oracle": "No cached grant positive or hidden retry",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "testSource": "OWNER_DEFINED_IN_FUTURE",
+      "runtimeQualification": "NOT_ADMITTED"
+    },
+    {
+      "id": "HX-08",
+      "trigger": "UNKNOWN/STALE/CONFLICTED/UNSUPPORTED/QUARANTINED/invalidated observation",
+      "expectedRefusal": "PROPOSED_NONPOSITIVE_SOURCE_STATUS",
+      "noDispatch": true,
+      "noM09Mutation": true,
+      "oracle": "Retain exact original M09 reason and origin",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "testSource": "OWNER_DEFINED_IN_FUTURE",
+      "runtimeQualification": "NOT_ADMITTED"
+    },
+    {
+      "id": "HX-09",
+      "trigger": "Issuer unverifiable or mandatory feature/version unknown",
+      "expectedRefusal": "PROPOSED_UNVERIFIABLE_OWNER_OR_SCHEMA",
+      "noDispatch": true,
+      "noM09Mutation": true,
+      "oracle": "No schema downgrade or implied trust",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "testSource": "OWNER_DEFINED_IN_FUTURE",
+      "runtimeQualification": "NOT_ADMITTED"
+    },
+    {
+      "id": "HX-10",
+      "trigger": "M09 positive evidence but M12 placement, M54 permission or M60 OS capability missing",
+      "expectedRefusal": "PROPOSED_EXTERNAL_OWNER_GATES_MISSING",
+      "noDispatch": true,
+      "noM09Mutation": true,
+      "oracle": "No worker dispatch despite owner M09 proof",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "testSource": "OWNER_DEFINED_IN_FUTURE",
+      "runtimeQualification": "NOT_ADMITTED"
+    },
+    {
+      "id": "HX-11",
+      "trigger": "Cross-process/cross-host consumer with only in-memory RLock and no owner coordination proof",
+      "expectedRefusal": "PROPOSED_TOPOLOGY_UNSUPPORTED",
+      "noDispatch": true,
+      "noM09Mutation": true,
+      "oracle": "No unsupported atomicity claims",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "testSource": "OWNER_DEFINED_IN_FUTURE",
+      "runtimeQualification": "NOT_ADMITTED"
+    },
+    {
+      "id": "HX-12",
+      "trigger": "M09 read, timeout, crashed owner or refresh unavailable during required revalidation",
+      "expectedRefusal": "PROPOSED_OWNER_UNAVAILABLE_OR_UNKNOWN",
+      "noDispatch": true,
+      "noM09Mutation": true,
+      "oracle": "No automatic lease mutation, release or process restart",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "testSource": "OWNER_DEFINED_IN_FUTURE",
+      "runtimeQualification": "NOT_ADMITTED"
+    }
+  ],
+  "proofCount": 12,
+  "proofsExecuted": 0,
+  "legacyM09Invariants": "514/514 PRESERVED_NOT_NEWLY_EXECUTED_HERE",
+  "priorC08Cases": "10/10 NOT_EXECUTED",
+  "priorPOC02": "8/8 NOT_EXECUTED",
+  "M11Questions": "86/86 OPEN_UNRATED",
+  "M11Candidate": "m11-contract-candidate-v0.2 NOT_FROZEN",
+  "M10M11Implementation": "NOT_ADMITTED",
+  "processActions": "DISABLED",
+  "futureOwnerContracts": "M12-M60 PENDING_UNRATED"
+}

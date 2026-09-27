@@ -2457,7 +2457,7 @@
     "S03U08": "OPEN_UNRATED"
   },
   "m11C09M09WO0016PlanningAdmission": {
-    "status": "PROPOSED_PENDING_EXACT_HEAD_GOVERNANCE_AND_SEPARATE_SCOPED_REVIEW",
+    "status": "MERGED_EXACT_MAIN_PASS_PLANNING_ONLY",
     "workOrder": "IRIS-WO-0016",
     "sourceWorkOrder": "IRIS-WO-0015",
     "issue": 112,
@@ -2474,6 +2474,28 @@
     "options": "3 RESEARCHED_NONE_SELECTED",
     "HXProofs": "12 SPECIFIED_NOT_EXECUTED",
     "M11Questions": "86 OPEN_UNRATED",
-    "M11Process": "DISABLED"
+    "M11Process": "DISABLED",
+    "reviewedHeadSha": "2a166d6cbc79e5613dea2babfd49b11cfd3f89c5",
+    "reviewCommentId": 5855266394,
+    "mergeCommit": "045d82ce1328d85dfcb6c09cd602a2fbd5af3f9b",
+    "exactHeadGovernance": {
+      "number": 457,
+      "run": 36314330161,
+      "job": 108606058448,
+      "headSha": "2a166d6cbc79e5613dea2babfd49b11cfd3f89c5",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "exactMainGovernance": {
+      "number": 458,
+      "run": 36314519657,
+      "job": 108606580186,
+      "headSha": "045d82ce1328d85dfcb6c09cd602a2fbd5af3f9b",
+      "treeSha": "801fa6fd436cdfd36794f2b881627d1657ce306f",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "WO0016": "ADMITTED_FOR_PLANNING_ONLY",
+    "ownerApproval": "PENDING_ISSUE_110"
   }
 }
