@@ -2,7 +2,7 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0021",
   "issue": 126,
-  "status": "PROPOSED_PENDING_EXACT_HEAD_AND_BOUNDED_REVIEW",
+  "status": "CANONICAL_DOC_GUIDANCE_CLOSED",
   "scope": "DOC_ONLY_EXECUTOR_CONTEXT_PROMPT_POLICY",
   "baseSha": "a186fe2d6c659c3e410a16eccd42f3b82166428e",
   "baseTreeSha": "1ace7ea201487593f4bd6b1358c9c6df3d79d77b",
@@ -59,7 +59,7 @@
   },
   "supersededOldPR": {
     "number": 91,
-    "status": "OPEN_UNMERGEABLE_STALE_BASE_UNTIL_NEW_EXACT_MAIN_PASS"
+    "status": "CLOSED_SUPERSEDED_NOT_MERGED"
   },
   "scopeGuards": {
     "HIVEProductPinVersion": "1.0.0",
@@ -73,8 +73,39 @@
   "validation": {
     "baselineTests": 3979,
     "additions": 0,
-    "exactHeadGovernance": "REQUIRED",
+    "exactHeadGovernance": {
+      "number": 482,
+      "run": 36324221232,
+      "job": 108633744853,
+      "head": "ae9830c179fd8fc2c1592a8fdbf030c14c80553f",
+      "tests": "3979/3979",
+      "result": "PASS"
+    },
     "separateBoundedAudit": "REQUIRED",
-    "exactMainGovernance": "REQUIRED"
+    "exactMainGovernance": {
+      "number": 483,
+      "run": 36324303557,
+      "job": 108633979540,
+      "head": "e3fc858d3c92a8a3eba3c7c6119fc490c4098129",
+      "tests": "3979/3979",
+      "result": "PASS"
+    },
+    "boundedAudit": {
+      "commentId": 5856509988,
+      "head": "ae9830c179fd8fc2c1592a8fdbf030c14c80553f",
+      "verdict": "APPROVED_EXECUTOR_DOCS_ONLY",
+      "reviewer": "SAME_ASSISTANT_SEPARATE_PASS_NOT_DISTINCT_HUMAN",
+      "newHigh": 0,
+      "newCritical": 0
+    },
+    "protectedMerge": {
+      "pr": 127,
+      "sha": "e3fc858d3c92a8a3eba3c7c6119fc490c4098129",
+      "tree": "171bb58cec6a327a2cdab8a9b63bcc78a32363a0"
+    }
+  },
+  "issueClosure": {
+    "issue": 126,
+    "status": "CLOSED_AFTER_EXACT_MAIN"
   }
 }
