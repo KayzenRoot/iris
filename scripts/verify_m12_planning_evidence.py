@@ -33,11 +33,11 @@ REQUIRED_DEPENDENCIES = frozenset((
     "M12_RUNTIME_TRIALS_NOT_EXECUTED",
 ))
 FTR_STATUS = frozenset(("ACCEPT_REFERENCE", "DEFER_OWNER_CONTRACT", "REJECT_AS_CURRENT_AUTHORITY"))
-QROW = re.compile(r"^\\| (M12-S\\d{2}-U\\d{2}) \\| ([^|]+) \\| ([^|]+) \\|$")
-NROW = re.compile(r"^\\| ([A-Z]{2}-\\d{2}) \\| ([^|]+) \\| ([^|]+) \\| ([^|]+) \\|$")
-INDEX_ROW = re.compile(r"^### (M\\d{2}) — (.+)$")
-FCS_ROW = re.compile(r"^\\| (M\\d{2}) \\| ([^|]+) \\| ([^|]+) \\| ([^|]+) \\| ([^|]+) \\|$")
-FTR_ROW = re.compile(r"^\\| (FTR-\\d{2}) \\| (.+) \\| (ACCEPT_REFERENCE|DEFER_OWNER_CONTRACT|REJECT_AS_CURRENT_AUTHORITY) \\| ([^|]+) \\| ([^|]+) \\|$")
+QROW = re.compile(r"^[|] (M12-S[0-9]{2}-U[0-9]{2}) [|] ([^|]+) [|] ([^|]+) [|]$")
+NROW = re.compile(r"^[|] ([A-Z]{2}-[0-9]{2}) [|] ([^|]+) [|] ([^|]+) [|] ([^|]+) [|]$")
+INDEX_ROW = re.compile(r"^### (M[0-9]{2}) — (.+)$")
+FCS_ROW = re.compile(r"^[|] (M[0-9]{2}) [|] ([^|]+) [|] ([^|]+) [|] ([^|]+) [|] ([^|]+) [|]$")
+FTR_ROW = re.compile(r"^[|] (FTR-[0-9]{2}) [|] (.+) [|] (ACCEPT_REFERENCE|DEFER_OWNER_CONTRACT|REJECT_AS_CURRENT_AUTHORITY) [|] ([^|]+) [|] ([^|]+) [|]$")
 
 
 class M12EvidenceError(ValueError):
@@ -157,7 +157,7 @@ def verify_all(root: Path) -> dict[str, int]:
     require("Candidate ID: m12-contract-candidate-v0.1" in candidate, "M12 candidate version missing")
     require("Status: PROPOSED_NOT_FROZEN" in candidate and
             "Implementation authority: NOT_ADMITTED" in candidate, "M12 candidate falsely promoted")
-    invariant_ids = re.findall(r"^\\| (M12-I\\d{2}) \\|", candidate, flags=re.MULTILINE)
+    invariant_ids = re.findall(r"^[|] (M12-I[0-9]{2}) [|]", candidate, flags=re.MULTILINE)
     require(invariant_ids == [f"M12-I{i:02d}" for i in range(1, 25)],
             "M12 candidate invariant IDs missing, duplicated or reordered")
     return dict(questions=len(questions), negative=len(negative), ftr=16, fcs=48, invariants=24, c02HighOpen=4)
