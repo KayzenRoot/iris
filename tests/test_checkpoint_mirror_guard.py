@@ -45,11 +45,11 @@ class CheckpointMirrorGuardTests(unittest.TestCase):
 
     def test_newline_drift_is_rejected(self) -> None:
         with self.assertRaisesRegex(SystemExit, "not byte-identical"):
-            validate_checkpoint_consistency(CANONICAL, CANONICAL.rstrip(b"\\n"), MACHINE)
+            validate_checkpoint_consistency(CANONICAL, CANONICAL.rstrip(b"\n"), MACHINE)
 
     def test_windows_crlf_mirror_is_not_byte_identical(self) -> None:
         with self.assertRaisesRegex(SystemExit, "not byte-identical"):
-            validate_checkpoint_consistency(CANONICAL, CANONICAL.replace(b"\\n", b"\\r\\n"), MACHINE)
+            validate_checkpoint_consistency(CANONICAL, CANONICAL.replace(b"\n", b"\r\n"), MACHINE)
 
     def test_machine_next_step_mismatch_is_rejected(self) -> None:
         with self.assertRaisesRegex(SystemExit, "machine checkpoint drift for nextStep"):
