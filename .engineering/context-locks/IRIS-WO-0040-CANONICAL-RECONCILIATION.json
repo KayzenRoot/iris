@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0040",
+  "increment": "WO0039_POST_MERGE_CANONICAL_CHECKPOINT_PUBLIC_SNAPSHOT_RECONCILIATION_ONLY",
+  "issue": 110,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0040-canonical-wo0039-closeout-20260927",
+  "baseRef": "main",
+  "baseSha": "be18231423651c5dbff584613fc46d3e0104107f",
+  "baseTreeSha": "2523f74c514bbac9c278c76eaa04b0424ab41f7c",
+  "status": "PROPOSED_PENDING_EXACT_HEAD_GOVERNANCE_SCOPED_AUDIT_PROTECTED_MERGE_AND_EXACT_MAIN",
+  "risk": "STANDARD_DOC_INTEGRITY_WITH_INHERITED_H01_H04_HIGH_ALL_OPEN",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "be18231423651c5dbff584613fc46d3e0104107f",
+    "baseTreeSha": "2523f74c514bbac9c278c76eaa04b0424ab41f7c",
+    "expected": 16,
+    "checked": 16,
+    "matched": 16,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "30cc0b17d34b6324aad34113cf4c40a438c990a7"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "f437732f9f324ed3a49f908450238d02db53c689"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "30cc0b17d34b6324aad34113cf4c40a438c990a7"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "2c24f5218659f244a39081204dadd61a4a1b2905"
+    },
+    {
+      "path": "README.md",
+      "gitBlobSha1": "a192f8e2110c2965a67fcb256c5fd3b5cb499d66"
+    },
+    {
+      "path": "docs/project-brain/01-PROJECT-OVERVIEW.md",
+      "gitBlobSha1": "b5e5cbccb4f78c30880f8c841ecb1cfc4a35ed69"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0039.json",
+      "gitBlobSha1": "c8de415d2b5aa107b9487b0ca5d632e6c6d5c7a4"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0039-M09-H03-REPLY-TRIAGE.json",
+      "gitBlobSha1": "44e74fe869a801013c80cd71b9a204c725901842"
+    },
+    {
+      "path": "scripts/triage_m09_h03_untrusted_owner_reply.py",
+      "gitBlobSha1": "a7f6867720b007be526367f87e4c6c8e563e4ec4"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0040-CANONICAL-RECONCILIATION.json",
+    ".engineering/evidence/IRIS-WO-0040.json",
+    ".engineering/work-orders/IRIS-WO-0040-CANONICAL-RECONCILIATION.md",
+    "README.md",
+    "docs/project-brain/01-PROJECT-OVERVIEW.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0040-CANONICAL-RECONCILIATION.md",
+    "tests/test_wo0040_canonical_closeout.py"
+  ],
+  "stopCondition": "Only reconcile already confirmed WO0039 PR149, head #527 and exact-main #528; 5 new deterministic doc tests, exact source pins, strict changed path allowlist, governance/pinned GEF/HIVE and bounded review before protected merge. Do NOT change M09 frozen runtime, M11/M12 candidates, original C01 history or approved decisions; H01-H04 OPEN HIGH and genuine M12/M54/M58/M60 source-backed owners still missing. No runtime/process/OS/GPU/network/cloud/API/placement admission."
+}
