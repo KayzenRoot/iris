@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0015",
+  "increment": "M11-FCS-POSTMERGE-RECONCILIATION-C01",
+  "issue": 82,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0015-m11-fcs-postmerge-reconciliation-20260926",
+  "baseRef": "main",
+  "baseSha": "9acfe5400a490a996602d5b09f7adb3d92b3050b",
+  "baseTreeSha": "578a11b3a90f5087bc7fd66c8e72e28d0d04d4af",
+  "status": "POSTMERGE_RECONCILIATION_PROPOSED",
+  "risk": "STANDARD",
+  "planningOnly": true,
+  "implementationAdmission": "NOT_ADMITTED",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "9acfe5400a490a996602d5b09f7adb3d92b3050b",
+    "baseTreeSha": "578a11b3a90f5087bc7fd66c8e72e28d0d04d4af",
+    "expected": 20,
+    "checked": 20,
+    "matched": 20,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "afae8a042f6088529ba7756e203fbda96b012bfe"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "f8b797ec229b129cdc8cebdd3389ab21898e9b69"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "f8b797ec229b129cdc8cebdd3389ab21898e9b69"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "69fffd85b3e8562a200aeab231e7199489812798"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "748182e1c72434526d3d7958c4588be90af638de"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0015.json",
+      "gitBlobSha1": "cd9221b3e5007fef4d4e0bfcbc532cdd162b61dd"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-M11-FORWARD-COMPATIBILITY-CLOSEOUT.json",
+      "gitBlobSha1": "faccd40ab65fd139fbb395e7f360e5fa6a05930e"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0015-M11-FORWARD-COMPATIBILITY-CLOSEOUT.md",
+      "gitBlobSha1": "1a4af7ea2743cfaa8de52a0b3165feff1997fb3e"
+    },
+    {
+      "path": "planning/compatibility/M11-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "baf3575a7b4df69151c2f0104129825776d067ec"
+    },
+    {
+      "path": "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+      "gitBlobSha1": "3c6a1140f171a38ccc1dea6979289150d905f517"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "bddde328de66b0cb49c7ff9bc1600ed6c01bd02e"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "gitBlobSha1": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "gitBlobSha1": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": ".engineering/github/main-governance.ruleset.json",
+      "gitBlobSha1": "f0854a05382340dde52ac1e2e1e866b38c37247c"
+    },
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "18029f4c685cc8597242a6f949adbe2861f9f89e"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+      "gitBlobSha1": "4ab2cbe84a7ed5557414b5ba0b72bd7b2d26b076"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0015-M11-FCS-POSTMERGE-RECONCILIATION.json",
+    ".engineering/evidence/IRIS-WO-0015.json",
+    ".engineering/work-orders/IRIS-WO-0015-M11-FCS-POSTMERGE-RECONCILIATION.md",
+    ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/compatibility/M11-FORWARD-COMPATIBILITY-SCAN.md",
+    "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
+  ],
+  "exactHeadGovernance": {
+    "status": "PENDING_ON_PR_HEAD"
+  },
+  "stopCondition": "No owner-contract candidate before this reconciliation's exact-main Governance"
+}

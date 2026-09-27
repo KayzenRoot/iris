@@ -1843,5 +1843,48 @@
       "headSha": "MUST_MATCH_GITHUB_PR_HEAD"
     },
     "nextGate": "After closeout exact-head Governance, audit, protected merge and exact-main Governance, begin separate M11 owner-contract candidate increment. No implementation or policy authorization."
+  },
+  "forwardCompatibilityScanPromotion": {
+    "status": "UPSTREAM_MERGED_EXACT_MAIN_VERIFIED; RECONCILIATION_PR_PENDING_GOVERNANCE",
+    "workOrder": "IRIS-WO-0015",
+    "increment": "M11-FCS-POSTMERGE-RECONCILIATION-C01",
+    "issue": 82,
+    "predecessorPR": 100,
+    "baseSha": "9acfe5400a490a996602d5b09f7adb3d92b3050b",
+    "baseTreeSha": "578a11b3a90f5087bc7fd66c8e72e28d0d04d4af",
+    "priorFCS": {
+      "proposalPR": 99,
+      "sourceRows": 30,
+      "moduleRows": 49,
+      "proposalFingerprints": 89,
+      "closeoutFingerprints": 92,
+      "sourcePathRepairs": 3,
+      "addedS05Fingerprint": true
+    },
+    "closeout": {
+      "pr": 100,
+      "headSha": "749eafeafa79463920cc3c0399d9bdac16f0ade4",
+      "exactHeadGovernance": {
+        "runId": 36285307444,
+        "jobId": 108524829278,
+        "result": "PASS",
+        "tests": "3940/3940"
+      },
+      "protectedMergeSha": "9acfe5400a490a996602d5b09f7adb3d92b3050b",
+      "exactMainGovernance": {
+        "runId": 36285351940,
+        "jobId": 108524953905,
+        "result": "PASS",
+        "tests": "3940/3940",
+        "treeSha": "578a11b3a90f5087bc7fd66c8e72e28d0d04d4af"
+      }
+    },
+    "statusPromotion": "FCS_COMPLETE_FOR_MODULE_PLANNING",
+    "m11Contract": "NOT_FROZEN",
+    "m11Implementation": "NOT_ADMITTED",
+    "m10Implementation": "NOT_ADMITTED",
+    "issueState": "OPEN",
+    "nextGate": "Versioned M11 owner-contract candidate then independent planning audit",
+    "reconciliationHeadGovernance": "PENDING_THIS_PR"
   }
 }
