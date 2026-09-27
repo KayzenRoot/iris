@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "iris-m09-h02-existing-semantic-probes-v1",
+  "workOrder": "IRIS-WO-0034",
+  "issue": 110,
+  "relatedOpenIssues": [
+    82,
+    112,
+    128
+  ],
+  "scope": "CURRENT_FROZEN_M09_SOURCE_SEMANTIC_INTERLEAVING_PROBES_NO_IMPLEMENTATION_MODIFICATION",
+  "exactBaseSha": "ed743fda62764fedb5d31b55c04b9c939979f6f8",
+  "exactBaseTreeSha": "1acba17d5d2301e067c4abb219142a106fe414a5",
+  "ownerSelectedDirection": "B_FUTURE_OWNER_RECEIPT_PLANNING_ONLY",
+  "ownerDecisionReference": "https://github.com/KayzenRoot/iris/issues/110#issuecomment-5857665032",
+  "baselineGovernance": {
+    "number": 513,
+    "run": 36334277712,
+    "passed": "4136/4136"
+  },
+  "sourceFacts": {
+    "ResourceTwinRLock": "INDEPENDENT_RESOURCE_TWIN_LOCK",
+    "LeaseBookRLock": "INDEPENDENT_LEASE_BOOK_LOCK",
+    "ResourceTwinAdmissionSnapshot": "CHECKS_TIME_CONFIDENCE_INVALIDATION_QUARANTINE_NOT_PRODUCTION_ORIGIN",
+    "LeaseBookGrant": "CHECKS_SUPPLIED_SNAPSHOT_ORIGIN_AND_TIME_UNDER_ITS_OWN_LOCK_NOT_TWIN_INVALIDATION",
+    "LeaseBookActive": "INCLUDES_ACTIVE_PREEMPTION_REQUESTED_REVOCATION_REQUESTED_WITHOUT_NOW_MS",
+    "compositeGrant": "ATOMically_WITHIN_BOOK_USING_SUPPLIED_SNAPSHOTS_ONLY"
+  },
+  "probes": [
+    {
+      "id": "H02-P01",
+      "test": "test_01_control_individual_snapshot_and_lease_are_valid_at_capture",
+      "expected": "CONTROL_INDIVIDUAL_VALID_AT_CAPTURE",
+      "interpretation": "Individual valid states do not imply jointly verified external receipt.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    },
+    {
+      "id": "H02-P02",
+      "test": "test_02_detached_earlier_snapshot_remains_fresh_after_twin_invalidates",
+      "expected": "DETACHED_SNAPSHOT_STILL_TIME_FRESH_AFTER_TWIN_INVALIDATION",
+      "interpretation": "The detached snapshot retains its own expiry while ResourceTwin invalidation makes it ineligible at the source.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    },
+    {
+      "id": "H02-P03",
+      "test": "test_03_detached_snapshot_can_be_passed_to_separate_lease_grant",
+      "expected": "NAIVE_CACHED_SNAPSHOT_CAN_STILL_FEED_LEASE_GRANT",
+      "interpretation": "Independent in-memory LeaseBook grant can consume previously captured, source-invalidated snapshot; not a cross-module owner grant.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    },
+    {
+      "id": "H02-P04",
+      "test": "test_04_invalidation_after_grant_does_not_transition_independent_lease",
+      "expected": "SNAPSHOT_INVALIDATION_DOES_NOT_AUTOMATICALLY_CHANGE_LEASE",
+      "interpretation": "The two in-memory authorities need a future owner-defined joint consistency protocol.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    },
+    {
+      "id": "H02-P05",
+      "test": "test_05_revocation_requested_is_still_in_active_collection",
+      "expected": "ACTIVE_COLLECTION_INCLUDES_REVOCATION_REQUESTED",
+      "interpretation": "Active-list membership alone is not positive M11 run authorization.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    },
+    {
+      "id": "H02-P06",
+      "test": "test_06_detached_active_lease_copy_survives_subsequent_revocation",
+      "expected": "CACHED_ACTIVE_VALUE_OUTLIVES_LIVE_REVOCATION",
+      "interpretation": "Lease owner state/epoch at later use must be revalidated.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    },
+    {
+      "id": "H02-P07",
+      "test": "test_07_active_without_a_clock_cannot_prove_unexpired_at_use",
+      "expected": "ACTIVE_LIST_HAS_NO_ACTION_TIME_ARGUMENT",
+      "interpretation": "A detached active value cannot independently attest action-time expiry status.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    },
+    {
+      "id": "H02-P08",
+      "test": "test_08_twin_event_epoch_and_lease_epoch_are_not_jointly_bound",
+      "expected": "SOURCE_EPOCHS_ARE_NOT_ONE_JOINT_CUT",
+      "interpretation": "Twin state epoch can change while the independently managed lease epoch remains unchanged.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    },
+    {
+      "id": "H02-P09",
+      "test": "test_09_observed_synthetic_is_not_sufficient_for_production_grant",
+      "expected": "SYNTHETIC_OBSERVED_NON_PRODUCTION",
+      "interpretation": "The existing book correctly rejects a fresh-looking synthetic OBSERVED snapshot.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    },
+    {
+      "id": "H02-P10",
+      "test": "test_10_complete_composite_grant_is_atomic_inside_leasebook",
+      "expected": "LEASEBOOK_COMPOSITE_GRANT_IS_ATOMIC_WITHIN_BOOK",
+      "interpretation": "Existing book enforces a complete all-member grant from supplied data; this is not a cross-fabric proof.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    },
+    {
+      "id": "H02-P11",
+      "test": "test_11_detached_composite_member_can_be_invalidated_before_grant",
+      "expected": "CACHED_COMPOSITE_MEMBER_INVALIDATED_BETWEEN_SOURCE_AND_BOOK",
+      "interpretation": "Independent book can grant from detached member snapshots despite subsequent source invalidation; missing joint source cut.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    },
+    {
+      "id": "H02-P12",
+      "test": "test_12_missing_mandatory_composite_member_still_fails_closed",
+      "expected": "MISSING_COMPOSITE_MEMBER_REJECTED",
+      "interpretation": "Existing book correctly refuses incomplete mandatory member inputs.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    },
+    {
+      "id": "H02-P13",
+      "test": "test_13_revoking_lease_cannot_be_renewed_as_active",
+      "expected": "REVOCATION_REQUESTED_RENEWAL_REJECTED",
+      "interpretation": "Existing book correctly refuses renewal of a revocation-requested lease.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    },
+    {
+      "id": "H02-P14",
+      "test": "test_14_wrong_original_lease_epoch_cannot_authorize_revocation",
+      "expected": "STALE_EPOCH_MUTATION_REJECTED",
+      "interpretation": "Existing book correctly refuses stale repeated revocation attempts.",
+      "status": "SOURCE_SEMANTIC_FIXTURE_SPECIFIED_PENDING_CI",
+      "originalHxLvCasesNotRun": true,
+      "noOSGPUOrNetwork": true
+    }
+  ],
+  "probeCount": 14,
+  "probeSourceFile": "tests/test_m09_h02_seam_probe.py",
+  "probeExecutionStatus": "PENDING_OWN_EXACT_HEAD_CI_AT_PROPOSAL_CREATION",
+  "interpretation": "SOURCE_ONLY_IN_MEMORY_SYNTHETIC_CONTROLS_AND_INTERLEAVINGS_DO_NOT_VERIFY_CROSS_PROCESS_ATOMICITY_OR_CLOSE_H02",
+  "originalFutureTests": {
+    "HX": 12,
+    "LV": 6,
+    "C08": 10,
+    "POC02": 8,
+    "M12": 80,
+    "status": "SPECIFIED_NOT_EXECUTED"
+  },
+  "inheritedHighs": [
+    "C02-FR-H01",
+    "C02-FR-H02",
+    "C02-FR-H03",
+    "C02-FR-H04"
+  ],
+  "H02status": "OPEN_M09_OWNER_ATOMICITY_DECISION",
+  "H02severity": "HIGH_FOR_FUTURE_FREEZE",
+  "otherOwnerApprovals": "NOT_INFERRED",
+  "m09Frozen": "m09-contract-v1.0_FROZEN_UNCHANGED",
+  "m09C01": "UNADOPTED_NOT_FROZEN",
+  "m11": "NOT_FROZEN_86_OPEN",
+  "m12": "NOT_FROZEN_110_OPEN",
+  "runtime": "M10_M11_M12_NOT_ADMITTED",
+  "OSGPUProcessNetworkCloud": "DISABLED",
+  "nextRealGate": "M09_OWNER_APPROVED_COHERENT_SNAPSHOT_LEASE_COMPOSITE_CUT_PLUS_AT_USE_REVOCATION_AND_H01_H03_H04_CROSS_OWNER_PROOFS"
+}
