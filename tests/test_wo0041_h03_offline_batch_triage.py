@@ -121,6 +121,7 @@ class H03OfflineBatchTriageTests(unittest.TestCase):
         with TemporaryDirectory() as tmp:
             p=Path(tmp)/"draft.json"
             expected=self.draft("M54",1)
+            expected["scopeAndExclusions"]["scope"]="quoted brackets "+("["*150)
             p.write_text(json.dumps(expected,ensure_ascii=False),encoding="utf-8")
             self.assertEqual(read_draft(p),expected)
 

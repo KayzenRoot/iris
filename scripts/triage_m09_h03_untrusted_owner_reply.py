@@ -18,6 +18,7 @@ from scripts.verify_m09_h03_owner_routes import (
 
 SCHEMA="iris-h03-untrusted-reply-draft-v0"
 MAX_DRAFT_BYTES=1_048_576  # bounded local untrusted input; not a network payload
+MAX_JSON_DEPTH=128  # explicit structural nesting cap independent of JSON decoder
 DISPOSITIONS=("PROPOSED_ANSWER","DEFER","UNSUPPORTED")
 MODULE_ISSUES={"M12":128,"M54":145,"M58":146,"M60":147}
 REQUIRED={
@@ -71,8 +72,34 @@ def read_draft(path:Path)->dict[str,Any]:
     require(len(raw_bytes)<=MAX_DRAFT_BYTES,
             "untrusted draft exceeds one-MiB local input limit")
     try:
-        raw=json.loads(raw_bytes.decode("utf-8"),
-                       object_pairs_hook=no_duplicates,
+        payload=raw_bytes.decode("utf-8")
+    except UnicodeDecodeError as exc:
+        raise UntrustedReplyError("untrusted draft is not valid UTF-8") from exc
+
+    # A native JSON decoder may accept thousands of nested arrays. Enforce
+    # a structural cap before decoding, ignoring delimiters inside strings.
+    depth=0
+    inside_string=False
+    escaped=False
+    for character in payload:
+        if inside_string:
+            if escaped:
+                escaped=False
+            elif character=="\\": 
+                escaped=True
+            elif character=='"':
+                inside_string=False
+        elif character=='"':
+            inside_string=True
+        elif character in "[{":
+            depth+=1
+            require(depth<=MAX_JSON_DEPTH,
+                    "untrusted JSON nesting exceeds the local safety limit")
+        elif character in "]}":
+            depth-=1
+            require(depth>=0,"unbalanced untrusted JSON delimiter")
+    try:
+        raw=json.loads(payload,object_pairs_hook=no_duplicates,
                        parse_constant=reject_constant)
     except UnicodeDecodeError as exc:
         raise UntrustedReplyError("untrusted draft is not valid UTF-8") from exc
