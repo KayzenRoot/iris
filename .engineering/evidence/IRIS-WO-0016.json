@@ -69,7 +69,7 @@
     "scope": "PLANNING_ONLY"
   },
   "extensionC01": {
-    "status": "PROPOSED_CONTRACT_CANDIDATE_NOT_FROZEN_NOT_OWNER_ACCEPTED",
+    "status": "CANONICAL_PROPOSED_UNADOPTED_NOT_FROZEN_EXACT_MAIN_PASS",
     "version": "m09-evidence-handoff-candidate-v0.1",
     "sourceBaseSha": "045d82ce1328d85dfcb6c09cd602a2fbd5af3f9b",
     "sourceTreeSha": "801fa6fd436cdfd36794f2b881627d1657ce306f",
@@ -79,6 +79,55 @@
     "HX": "12 SPECIFIED_NOT_EXECUTED",
     "ownerReview": "PENDING_ISSUE_110",
     "S03U08": "OPEN_UNRATED",
-    "execution": "DISABLED"
+    "execution": "DISABLED",
+    "headSha": "1a3bf2e1893bc3e613bcf10a521bc2c6e5fdea32",
+    "reviewCommentId": 5855308211,
+    "mergeCommit": "452aff2f09e3f9130c26eb2068401b385cea67d1",
+    "exactHeadGovernance": {
+      "number": 459,
+      "run": 36314802538,
+      "job": 108607374613,
+      "headSha": "1a3bf2e1893bc3e613bcf10a521bc2c6e5fdea32",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "exactMainGovernance": {
+      "number": 460,
+      "run": 36314869116,
+      "job": 108607558865,
+      "headSha": "452aff2f09e3f9130c26eb2068401b385cea67d1",
+      "treeSha": "84c9b89179c0eddcc617524e20ea122966679085",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "ownerDecision": "PENDING_ISSUE_110",
+    "frozenM09": "PRESERVED_V1_0"
+  },
+  "extensionC02": {
+    "status": "PROPOSED_DOC_AUDIT_PENDING_EXACT_HEAD_AND_SEPARATE_REVIEW",
+    "workOrder": "IRIS-WO-0016",
+    "issue": 112,
+    "sourceBaseSha": "452aff2f09e3f9130c26eb2068401b385cea67d1",
+    "sourceBaseTreeSha": "84c9b89179c0eddcc617524e20ea122966679085",
+    "criticalSourceBlobs": "79/79 MATCHED",
+    "authorizedFiles": 10,
+    "FC09Coverage": "14/14 DOCUMENTARY",
+    "ownerLanes": "12/12 DOCUMENTARY",
+    "freezeBlockers": "4 OPEN_HIGH_FOR_FUTURE_FREEZE",
+    "reverseLivenessProofs": "6 SPECIFIED_NOT_EXECUTED",
+    "priorHX": "12 NOT_EXECUTED",
+    "priorC08": "10 NOT_EXECUTED",
+    "priorPOC02": "8 NOT_EXECUTED",
+    "originalM11Questions": "86/86 OPEN_UNRATED",
+    "statusOwnerM09": "PENDING_ISSUE_110",
+    "candidate": "m09-evidence-handoff-candidate-v0.1 UNADOPTED_UNFROZEN",
+    "M11": "NOT_FROZEN",
+    "processActions": "DISABLED",
+    "M10M11Implementation": "NOT_ADMITTED",
+    "issues": [
+      82,
+      110,
+      112
+    ]
   }
 }
