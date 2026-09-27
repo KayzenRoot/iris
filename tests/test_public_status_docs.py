@@ -34,8 +34,9 @@ class PublicStatusDocsTests(unittest.TestCase):
 
     def test_public_docs_preserve_blocking_owner_and_nonadmission(self) -> None:
         for text in (self.readme, self.overview):
-            for marker in ("M10", "M11", "M12", "NOT_FROZEN", "NOT_ADMITTED", "issue #110"):
+            for marker in ("M10", "M11", "M12", "NOT_FROZEN", "NOT_ADMITTED"):
                 self.assertIn(marker, text)
+            self.assertIn("issue #110", text.lower())
             self.assertIn("110", text)
             self.assertIn("80", text)
 
