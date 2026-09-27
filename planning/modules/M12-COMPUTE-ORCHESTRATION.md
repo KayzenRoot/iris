@@ -1,7 +1,7 @@
 # M12 — Compute Orchestration: Local, Multi-GPU, LAN, Remote & Cloud
 
-Status: S01_S02_S03_S04_COMPLETE_FOR_REFERENCE_PLANNING_S05_PROPOSED | NOT_FROZEN | IMPLEMENTATION_NOT_ADMITTED
-Planning Issue: #128 | S01 Work Order: IRIS-WO-0022, merged exact-main `032dcda35df48d53012b3b32fdabb78de17c2b41` (#485 PASS) | S02 Work Order: IRIS-WO-0023, merged exact-main `7ab6743ce2d88d596a6da73abbcfc6456d7762e6` (#487 PASS) | S03 completed: IRIS-WO-0024, exact-main `d94f19de4a7b5ed8e248ea41239bc53df90a58b1` (#489 PASS) | S04 completed: IRIS-WO-0025, exact-main `278d3c2905237dfb90a1d0db60cc5db54b834811` (#491 PASS) | S05 proposed: IRIS-WO-0026, base `278d3c2905237dfb90a1d0db60cc5db54b834811`
+Status: S01_TO_S05_COMPLETE_FOR_REFERENCE_PLANNING_FTR_FCS_PROPOSED | NOT_FROZEN | IMPLEMENTATION_NOT_ADMITTED | NOT_FROZEN | IMPLEMENTATION_NOT_ADMITTED
+Planning Issue: #128 | S01 Work Order: IRIS-WO-0022, merged exact-main `032dcda35df48d53012b3b32fdabb78de17c2b41` (#485 PASS) | S02 Work Order: IRIS-WO-0023, merged exact-main `7ab6743ce2d88d596a6da73abbcfc6456d7762e6` (#487 PASS) | S03 completed: IRIS-WO-0024, exact-main `d94f19de4a7b5ed8e248ea41239bc53df90a58b1` (#489 PASS) | S04 completed: IRIS-WO-0025, exact-main `278d3c2905237dfb90a1d0db60cc5db54b834811` (#491 PASS) | S05 completed: IRIS-WO-0026, exact-main `a69830dd963e0800d8f1e294254b97cc57cd5d60` (#493 PASS) | FTR/FCS proposed: IRIS-WO-0027, base `a69830dd963e0800d8f1e294254b97cc57cd5d60`
 Canonical scope: `planning/MASTER-MODULE-INDEX.md`; no individual M12 owner contract, placement API or runtime has been adopted.
 
 ## Mission and disciplined boundaries
@@ -16,7 +16,7 @@ M12 planning investigates how a future orchestration owner would locate possible
 | S02 | Placement, queues, quotas and priority scheduling; six unselected strategies, 20 open questions, 14 future tests | COMPLETE_FOR_REFERENCE_PLANNING_ONLY; PR #130 exact-head #486 / exact-main #487 PASS 3979/3979 |
 | S03 | Multi-GPU/heterogeneous execution reference study; five unselected shapes, 22 open owner questions, 16 future MG scenarios | COMPLETE_FOR_REFERENCE_PLANNING_ONLY; PR #131 exact-head #488 and exact-main #489 PASS 3979/3979 |
 | S04 | LAN/remote/cloud federation research: six unselected shapes, 24 unresolved questions, 18 hypothetical FN cases | COMPLETE_FOR_REFERENCE_PLANNING_ONLY; PR #132 head #490 / exact-main #491 PASS 3979/3979 |
-| S05 | Failover, preemption, cost/quality placement and trust; idempotency/worker authority/resource reconciliation boundaries | PROPOSED_NON_EXECUTABLE_REFERENCE_RESEARCH; IRIS-WO-0026 |
+| S05 | Failover, preemption, cost/quality and trust; six options unselected, 26 questions open, 20 future FT scenarios | COMPLETE_FOR_REFERENCE_PLANNING_ONLY; PR #133 head #492 / exact-main #493 PASS 3979/3979 |
 
 ## Existing source boundaries as of admission
 
@@ -50,6 +50,10 @@ S03 audited PR #131 head `0026b1fb85932b42d075493d953f0bbc5c1b023d`, Governance 
 
 S04 PR #132 audited head `d566495e1690a5e8c54be7e315820352d323db07`, exact-head Governance #490 run 36326479434/job 108640114953 PASS 3979/3979; protected squash `278d3c2905237dfb90a1d0db60cc5db54b834811` (tree `030650da12d2ac36d5bf162c0f61b1578de8a291`) and exact-main #491 run 36326583542/job 108640404616 PASS 3979/3979. Six candidate federation architectures NOT_SELECTED, 24 owner questions OPEN/UNRATED, eighteen future FN cases SPECIFIED_NOT_EXECUTED; no network/cloud action. S05 separately proposed as source research via WO0026, not freeze or recovery runtime. All five reference sessions, once proved, still need technology review/FCS, individual M12 owner candidate and independent freeze-readiness audit.
 
+## S05 source completion and FTR/FCS admission
+
+S05 PR #133 final head `e5fe289bcb0ca9914ebdfea32b4f2dfe76307b8d`, exact-head Governance #492 run 36326925298/job 108641355269 PASS 3979/3979; protected squash `a69830dd963e0800d8f1e294254b97cc57cd5d60` / tree `02820f866a1acc662e9fec8aef162f6a7da59330`; exact-main Governance #493 run 36327026956/job 108641644708 PASS 3979/3979. Six S05 options remain unselected; 26 owner questions OPEN/UNRATED and 20 future FT cases SPECIFIED_NOT_EXECUTED. All five S01–S05 planning sessions are now COMPLETE_FOR_REFERENCE_PLANNING_ONLY. The source-only FTR/FCS WO0027 follows as a separate non-executable governed increment: sixteen existing-technology evidence records are *reference* dispositions, forty-eight M13–M60 index-module relationships are prospective only, with zero owner contract approval or technology adoption. FTR/FCS completion requires own reviewed PR, exact-head checks and exact-main Governance before promotion.
+
 ## Completion and STOP
 
-S01 research source: `planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md`. Each subsequent session requires a separately scoped Work Order/review under Issue #128. Technology discovery/FTR, forward compatibility scan, versioned M12 owner candidate, independent freeze-readiness audit and **separate future implementation** remain pending. After S01–S04 exact-main PASS while S05 is proposed, M12 remains NOT_FROZEN / IMPLEMENTATION_NOT_ADMITTED, M09/M11 owner blockers stay OPEN and no hardware/network/process behavior has been tested.
+S01 research source: `planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md`. Each subsequent session requires a separately scoped Work Order/review under Issue #128. Technology discovery/FTR, forward compatibility scan, versioned M12 owner candidate, independent freeze-readiness audit and **separate future implementation** remain pending. After S01–S05 exact-main PASS while FTR/FCS source reviews are proposed, M12 remains NOT_FROZEN / IMPLEMENTATION_NOT_ADMITTED, M09/M11 owner blockers stay OPEN and no hardware/network/process behavior has been tested.
