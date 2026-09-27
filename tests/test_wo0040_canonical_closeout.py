@@ -20,7 +20,7 @@ class WO0040CanonicalCloseoutTests(unittest.TestCase):
 
     def test_checkpoint_mirror_and_machine_exact(self):
         self.assertEqual(self.checkpoint, self.bridge)
-        self.assertEqual(self.machine["nextStep"], self.checkpoint.split("## NEXT STEP\\n", 1)[1].strip())
+        self.assertEqual(self.machine["nextStep"], self.checkpoint.split("## NEXT STEP" + chr(10), 1)[1].strip())
 
     def test_completed_wo39_receipt_and_current_next_step(self):
         for marker in ("IRIS-WO-0039", "PR #149", "Governance #528", "4290/4290",
