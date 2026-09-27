@@ -1,0 +1,603 @@
+{
+  "schemaVersion": "iris-m13-s01-source-research-v0.1",
+  "workOrder": "IRIS-WO-0045",
+  "issue": 155,
+  "module": "M13",
+  "session": "S01",
+  "sourceBaseSha": "2dbb91495804338f46aad9716f36e10409c64935",
+  "sourceBaseTreeSha": "2746e60e410940e191bf65aa50cbf9ba86031144",
+  "status": "SOURCE_RESEARCH_ONLY_NONBINDING",
+  "ownerApproval": "NONE",
+  "selectedTechnology": "NONE",
+  "runtime": "NOT_ADMITTED",
+  "m09v1": "FROZEN_UNCHANGED",
+  "ownerB": "B_FUTURE_OWNER_RECEIPT_DIRECTION_ONLY",
+  "m09C01": "UNADOPTED_NOT_FROZEN",
+  "m10": "FROZEN_PLANNING_IMPLEMENTATION_NOT_ADMITTED",
+  "m11": "V0_2_NOT_FROZEN_86_ORIGINAL_QUESTIONS_OPEN",
+  "m12": "V0_1_NOT_FROZEN_110_QUESTIONS_OPEN_80_FUTURE_NEGATIVES_NOT_EXECUTED",
+  "currentFourHighs": [
+    "C02-FR-H01",
+    "C02-FR-H02",
+    "C02-FR-H03",
+    "C02-FR-H04"
+  ],
+  "h01h02h03h04": "ALL_OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "sourceDocs": [
+    {
+      "role": "INDEX",
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970",
+      "exactNeedle": "### M13 — Performance, Cache & Execution Efficiency"
+    },
+    {
+      "role": "M01",
+      "path": "docs/M01-QUALITY-KERNEL.md",
+      "gitBlobSha1": "930af57944fa83c44745873c42eb3a7740972ee6",
+      "exactNeedle": "Frozen contract: `m01-contract-v1.0`"
+    },
+    {
+      "role": "M02",
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+      "exactNeedle": "cache/warm-state loss changes performance, not production truth;"
+    },
+    {
+      "role": "M06",
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+      "exactNeedle": "Digest equality proves byte equality under the declared digest domain only."
+    },
+    {
+      "role": "M07",
+      "path": "docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "gitBlobSha1": "2a0b95dd3cc665e2206e454caef5858ef7fb61b0",
+      "exactNeedle": "M07 does not lower quality targets"
+    },
+    {
+      "role": "M08",
+      "path": "docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "461e0f332d9be2af694634bbdc8cf67e29d56393",
+      "exactNeedle": "M08 records empirical performance evidence"
+    },
+    {
+      "role": "M09",
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+      "exactNeedle": "M09 is the provider-neutral resource-state"
+    },
+    {
+      "role": "M10",
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828",
+      "exactNeedle": "Implementation authority: NOT ADMITTED"
+    },
+    {
+      "role": "M11",
+      "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48",
+      "exactNeedle": "Status: PROPOSED_C02_CORRECTION_NOT_FROZEN"
+    },
+    {
+      "role": "M12",
+      "path": "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "28b3802901349263100ceaaf80c0990513dbbded",
+      "exactNeedle": "Status: PROPOSED_NOT_FROZEN"
+    },
+    {
+      "role": "D01",
+      "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
+      "gitBlobSha1": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb",
+      "exactNeedle": "B_FUTURE_OWNER_RECEIPT"
+    }
+  ],
+  "cacheClasses": [
+    {
+      "id": "C01_SOURCE_ARTIFACT_IDENTITY",
+      "title": "Immutable source/model and derivative references",
+      "boundedPotential": "Content-addressable bytes may be an index only when genuine M02/M06 revisions, M14/M18 model provenance and future M53 licensing allow it.",
+      "unresolvedProof": "M55 storage/rights and M14/M18 verification absent; no physical CAS implementation.",
+      "originalOwners": "M02/M06/M14/M18/M53/M55",
+      "status": "UNADOPTED_CONCEPT_ONLY"
+    },
+    {
+      "id": "C02_HOST_LOCAL_WARM_WORKSET",
+      "title": "Observed decoded host memory and local disk locality",
+      "boundedPotential": "Potential local cold-start reduction without assuming remote availability or a standing GPU lease.",
+      "unresolvedProof": "M55 storage lifecycle, M54 tenant scope, M07 hardware fingerprint and actual measured M08 protocols still required.",
+      "originalOwners": "M07/M08/M54/M55",
+      "status": "UNADOPTED_CONCEPT_ONLY"
+    },
+    {
+      "id": "C03_DEVICE_RESIDENCY_HINT",
+      "title": "Non-authorizing observed GPU residency hint",
+      "boundedPotential": "Only a potential reference to genuine M09 owner-issued immutable residency evidence, never an owner-issued grant.",
+      "unresolvedProof": "H01/H02/H03/H04 source-qualified future joint snapshot/lease, real M11 liveness, M54/M60 rights and at-use revocation absent.",
+      "originalOwners": "M09/M11/M12/M54/M60",
+      "status": "UNADOPTED_CONCEPT_ONLY"
+    },
+    {
+      "id": "C04_COMPILED_BACKEND_ARTIFACT",
+      "title": "Versioned compiled graph/backend-local artifact candidate",
+      "boundedPotential": "S02 may later study compatibility of exact model, driver, kernel, compiler and adapter revisions.",
+      "unresolvedProof": "No future M14/M16/M17 owner contracts, no chosen compiler or provider, no executable code generation.",
+      "originalOwners": "M07/M14/M16/M17",
+      "status": "UNADOPTED_CONCEPT_ONLY"
+    },
+    {
+      "id": "C05_INTERMEDIATE_AND_DELTA_REUSE",
+      "title": "Semantic production graph intermediate reuse candidate",
+      "boundedPotential": "S03 may later consider reuse only under separately accepted M02 semantic graph and immutable M06 lineage.",
+      "unresolvedProof": "Content digest alone never proves stochastic semantic equivalence, consent, validated quality or accepted master.",
+      "originalOwners": "M01/M02/M06/M53/M55",
+      "status": "UNADOPTED_CONCEPT_ONLY"
+    }
+  ],
+  "alternatives": [
+    {
+      "id": "ALT01_NO_EARLY_PREFETCH",
+      "title": "Measure cold baseline, require exact source before considering warm state.",
+      "hypothesis": "Simplifies authority and supports a deterministic comparison, but possible startup latency remains.",
+      "selected": false,
+      "status": "DISCUSSION_NOT_ADOPTED"
+    },
+    {
+      "id": "ALT02_HOST_LOCAL_VERIFIED_WARMING",
+      "title": "Study read-only, versioned host-local reference reuse after independent model/tenant/storage owner qualifications.",
+      "hypothesis": "Could reduce cold load when truly source-equivalent; cost, deletion races and license changes remain unqualified.",
+      "selected": false,
+      "status": "DISCUSSION_NOT_ADOPTED"
+    },
+    {
+      "id": "ALT03_READ_ONLY_M09_RESIDENCY_HINT",
+      "title": "Study provenance-bound M09 warm residency observations without granting, transferring, holding or changing any lease.",
+      "hypothesis": "Could avoid misleading duplicate loads in a later admitted system; stale all-member and H01–H04 proofs absent.",
+      "selected": false,
+      "status": "DISCUSSION_NOT_ADOPTED"
+    },
+    {
+      "id": "ALT04_OWNER_QUALIFIED_ADAPTIVE_PREFETCH",
+      "title": "Study possible future predictive per-model/locality policy constrained by actual M08 metrics and independently admitted M09/M11/M12/M54/M55/M60 contracts.",
+      "hypothesis": "May reduce later cold latency, but unnecessary warming can harm interactive use, power/VRAM safety, rights and quality.",
+      "selected": false,
+      "status": "DISCUSSION_NOT_ADOPTED"
+    }
+  ],
+  "measurementPlan": {
+    "protocolStatus": "CONCEPT_ONLY_NO_HARDWARE_OR_PROVIDER_MEASUREMENT",
+    "adoptedNumericThresholds": false,
+    "metrics": [
+      {
+        "id": "LATENCY_COLD_P50_P95",
+        "measurementOwner": "M08",
+        "definition": "Paired matched-run cold-start distribution with exact hardware/model/runtime/protocol context.",
+        "status": "PROTOCOL_TO_QUALIFY_NOT_MEASURED"
+      },
+      {
+        "id": "LATENCY_WARM_P50_P95",
+        "measurementOwner": "M08",
+        "definition": "Separately measured warm-start distribution with preload and interference accounted.",
+        "status": "PROTOCOL_TO_QUALIFY_NOT_MEASURED"
+      },
+      {
+        "id": "SOURCE_QUALIFIED_HIT_RATE",
+        "measurementOwner": "M13/M55",
+        "definition": "Only hits whose version, tenant, rights, source and invalidation match, not raw key collisions.",
+        "status": "PROTOCOL_TO_QUALIFY_NOT_MEASURED"
+      },
+      {
+        "id": "HOST_AND_DEVICE_OBSERVED_BYTES",
+        "measurementOwner": "M07/M09",
+        "definition": "Measured RAM/VRAM residency observations distinct from actual lease/grant.",
+        "status": "PROTOCOL_TO_QUALIFY_NOT_MEASURED"
+      },
+      {
+        "id": "CACHE_INVALIDATION_AND_RELOAD_COST",
+        "measurementOwner": "M13/M55",
+        "definition": "Time/bytes from declared invalidations, deletion and safe reload as later qualified by owners.",
+        "status": "PROTOCOL_TO_QUALIFY_NOT_MEASURED"
+      },
+      {
+        "id": "DISK_AND_TRANSFER_COST",
+        "measurementOwner": "M08/M55",
+        "definition": "Declared local read bytes/bandwidth and physical owner storage traces under an admitted protocol.",
+        "status": "PROTOCOL_TO_QUALIFY_NOT_MEASURED"
+      },
+      {
+        "id": "WORKSTATION_INTERFERENCE",
+        "measurementOwner": "M07/M08/M09/M60",
+        "definition": "Record interactive latency, concurrent pressure and UNKNOWN when telemetry absent.",
+        "status": "PROTOCOL_TO_QUALIFY_NOT_MEASURED"
+      },
+      {
+        "id": "M01_QUALITY_NONREGRESSION",
+        "measurementOwner": "M01",
+        "definition": "Independent fidelity and master validation of equivalent outputs; no quality decision in M13.",
+        "status": "PROTOCOL_TO_QUALIFY_NOT_MEASURED"
+      },
+      {
+        "id": "WASTED_PREFETCH_AND_EVICTION",
+        "measurementOwner": "M13/M55",
+        "definition": "Track avoided/unused loads and owner-qualified evictions with complete provenance.",
+        "status": "PROTOCOL_TO_QUALIFY_NOT_MEASURED"
+      },
+      {
+        "id": "EVIDENCE_FRESHNESS_AND_DRIFT",
+        "measurementOwner": "M08",
+        "definition": "Compare only exact compatible protocols, noise guards and hardware/runtime qualification.",
+        "status": "PROTOCOL_TO_QUALIFY_NOT_MEASURED"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "M13-S01-U01",
+      "originalOwners": "M13/M02/M06",
+      "sourceRoles": [
+        "M02",
+        "M06"
+      ],
+      "question": "Which exact accepted M02 work/revision and immutable M06 operational identity can a warm-cache key reference without treating matching bytes as accepted semantic production state?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U02",
+      "originalOwners": "M13/M14/M18",
+      "sourceRoles": [
+        "INDEX",
+        "M06"
+      ],
+      "question": "Which genuinely owner-qualified model source, weights digest, license, variant and trusted package provenance must match before a local cached model could be considered for reuse?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U03",
+      "originalOwners": "M13/M07",
+      "sourceRoles": [
+        "M07"
+      ],
+      "question": "Which exact M07 device, runtime, software and topology evidence invalidates a prior device-specific warm or compiled-cache observation when hardware or drivers materially change?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U04",
+      "originalOwners": "M13/M08",
+      "sourceRoles": [
+        "M08"
+      ],
+      "question": "Which M08 benchmark protocol, clock, sample size, noise and hardware-binding evidence can support comparable cold-versus-warm measurements without manufacturing GPU results?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U05",
+      "originalOwners": "M13/M09",
+      "sourceRoles": [
+        "M09"
+      ],
+      "question": "How can a cache observation reference M09 residency and resource truth without inventing a new lease, reservation, fresh capacity or ownership of device memory?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U06",
+      "originalOwners": "M13/M09/M11/M12",
+      "sourceRoles": [
+        "M09",
+        "M11",
+        "M12",
+        "D01"
+      ],
+      "question": "Which future exact request, owner liveness, coherent all-member lease and at-use epoch/revocation proofs would have to precede any positive GPU prewarming action?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U07",
+      "originalOwners": "M13/M54/M55",
+      "sourceRoles": [
+        "INDEX",
+        "M02"
+      ],
+      "question": "What independently approved tenant, project, principal and physical-storage boundaries must partition cache keys even when two callers reference identical source bytes?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U08",
+      "originalOwners": "M13/M55",
+      "sourceRoles": [
+        "INDEX",
+        "M06"
+      ],
+      "question": "Who may own physical cache retention, eviction, disk quotas, archive and deletion receipts, and how can M13 avoid becoming a second M55 storage authority?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U09",
+      "originalOwners": "M13/M01",
+      "sourceRoles": [
+        "M01",
+        "M02"
+      ],
+      "question": "Which M01 Fidelity Contract and independently evaluated quality gates make it impermissible for a fast cache hit to bypass output validation or promote a draft as a final master?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U10",
+      "originalOwners": "M13/M53",
+      "sourceRoles": [
+        "INDEX",
+        "M06"
+      ],
+      "question": "What exact owner-issued consent, model/media rights, license version and revocation evidence must invalidate reuse before a cached source or derivative can cross its allowed scope?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U11",
+      "originalOwners": "M13/M14/M16/M17",
+      "sourceRoles": [
+        "INDEX",
+        "M07"
+      ],
+      "question": "What separately reviewed model, compiler, attention kernel, backend, custom-node and provider-version identities define compatibility for any future compiled-cache artifact?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U12",
+      "originalOwners": "M13/M10/M12",
+      "sourceRoles": [
+        "M10",
+        "M12"
+      ],
+      "question": "How may frozen advisory M10 plan hints and still-unfrozen M12 placement candidates inform documentary locality comparison without selecting a runtime worker or resource grant?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U13",
+      "originalOwners": "M13/M56/M08",
+      "sourceRoles": [
+        "M08",
+        "INDEX"
+      ],
+      "question": "Which versioned observed cold/warm hit, latency, loading-time, I/O and memory-attribution metrics with uncertainty are publishable without treating claimed hit rate as real speedup?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U14",
+      "originalOwners": "M13/M60",
+      "sourceRoles": [
+        "INDEX",
+        "M09"
+      ],
+      "question": "What independently qualified host OS, device/process instance and isolation proofs would be necessary before a future local warm residency observation became safe across worker restarts?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U15",
+      "originalOwners": "M13/M11",
+      "sourceRoles": [
+        "M11"
+      ],
+      "question": "What does a worker exit, heartbeat loss, stale process identifier or missing independent ACK do to previously cached state references, without authorizing termination or capacity reclamation?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U16",
+      "originalOwners": "M13/M02/M06",
+      "sourceRoles": [
+        "M02",
+        "M06"
+      ],
+      "question": "When must stochastic generation, changed semantic graph, operational revision or non-deterministic provider behavior prohibit output or intermediate reuse despite an identical digest?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U17",
+      "originalOwners": "M13/M55/M54",
+      "sourceRoles": [
+        "INDEX",
+        "M09"
+      ],
+      "question": "What source-backed deletion, key revocation and tenant-isolated eviction evidence proves that a warmed artifact cannot be reused after its authorization is withdrawn?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M13-S01-U18",
+      "originalOwners": "M13/M08/M01",
+      "sourceRoles": [
+        "M08",
+        "M01",
+        "M10"
+      ],
+      "question": "Which future measurement methodology separates actual performance gain from quality loss, thermal throttling, cache interference and uncontrolled workload variance without selecting numeric production gates?",
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    }
+  ],
+  "negativeScenarios": [
+    {
+      "id": "CWS-01",
+      "questionIds": [
+        "M13-S01-U07",
+        "M13-S01-U17"
+      ],
+      "trigger": "A second tenant claims identical content hashes and requests reuse of another tenant's warm weights or metadata.",
+      "nonAuthorizingOracle": "NO_CROSS_TENANT_REUSE_OR_PERMISSION_INFERENCE",
+      "originalOwners": "M13/M54/M55",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "CWS-02",
+      "questionIds": [
+        "M13-S01-U01",
+        "M13-S01-U16"
+      ],
+      "trigger": "A cached intermediate has the same bytes but belongs to a different accepted M02 semantic revision or M06 operational attempt.",
+      "nonAuthorizingOracle": "NO_UNQUALIFIED_SEMANTIC_REUSE",
+      "originalOwners": "M02/M06/M13",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "CWS-03",
+      "questionIds": [
+        "M13-S01-U02",
+        "M13-S01-U11"
+      ],
+      "trigger": "A cached model or compiled kernel claims an obsolete model/package/license or mismatched backend/custom-node version.",
+      "nonAuthorizingOracle": "INVALIDATE_OR_ABSTAIN_UNTIL_OWNER_SOURCE_PROVEN",
+      "originalOwners": "M13/M14/M16/M18",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "CWS-04",
+      "questionIds": [
+        "M13-S01-U05",
+        "M13-S01-U06"
+      ],
+      "trigger": "A warm GPU descriptor has stale M09 snapshot/lease or one revoked member while other device observations remain current.",
+      "nonAuthorizingOracle": "NO_RESIDENCY_HINT_TO_GRANT_OR_DISPATCH",
+      "originalOwners": "M09/M11/M12/M13",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "CWS-05",
+      "questionIds": [
+        "M13-S01-U14",
+        "M13-S01-U15"
+      ],
+      "trigger": "An old cached worker identifier is reused after process exit, node reboot or lost authenticated ACK.",
+      "nonAuthorizingOracle": "NO_PROCESS_RIGHTS_OR_CAPACITY_RECLAMATION_INFERENCE",
+      "originalOwners": "M11/M54/M60/M13",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "CWS-06",
+      "questionIds": [
+        "M13-S01-U08",
+        "M13-S01-U17"
+      ],
+      "trigger": "M55 deletion or M54 credential/tenant revocation occurs while M13 still holds an apparent reusable entry.",
+      "nonAuthorizingOracle": "FAIL_CLOSED_REUSE_AND_DEFER_STORAGE_DELETION_TO_OWNER",
+      "originalOwners": "M54/M55/M13",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "CWS-07",
+      "questionIds": [
+        "M13-S01-U09",
+        "M13-S01-U16"
+      ],
+      "trigger": "A valid local cache hit produces a draft that lacks independent M01 quality verification or has changed creative constraints.",
+      "nonAuthorizingOracle": "NO_DRAFT_TO_MASTER_PROMOTION",
+      "originalOwners": "M01/M02/M06/M13",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "CWS-08",
+      "questionIds": [
+        "M13-S01-U04",
+        "M13-S01-U13",
+        "M13-S01-U18"
+      ],
+      "trigger": "A synthetic, incompatible or stale M08 cold/warm benchmark is cited as observed production GPU speedup.",
+      "nonAuthorizingOracle": "NO_UNVERIFIED_PERFORMANCE_CLAIM_OR_SELECTED_THRESHOLD",
+      "originalOwners": "M07/M08/M13",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "CWS-09",
+      "questionIds": [
+        "M13-S01-U08",
+        "M13-S01-U12"
+      ],
+      "trigger": "A future planner treats unused cached bytes or advisory M10 predicted locality as actual granted M09 capacity.",
+      "nonAuthorizingOracle": "NO_M09_GRANT_OR_M12_PLACEMENT_INFERENCE",
+      "originalOwners": "M09/M10/M12/M13",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "CWS-10",
+      "questionIds": [
+        "M13-S01-U02",
+        "M13-S01-U10"
+      ],
+      "trigger": "License scope, consent or media/model export approval is revoked after a local model bundle is cached.",
+      "nonAuthorizingOracle": "REUSE_BLOCKED_PENDING_REAL_RIGHTS_OWNER_PROOF",
+      "originalOwners": "M13/M18/M53/M55",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "CWS-11",
+      "questionIds": [
+        "M13-S01-U03",
+        "M13-S01-U11"
+      ],
+      "trigger": "Hardware driver/accelerator/runtime fingerprint materially changes while an old device-compiled cache remains present.",
+      "nonAuthorizingOracle": "NO_UNQUALIFIED_DEVICE_COMPILED_REUSE",
+      "originalOwners": "M07/M13/M16/M17",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "CWS-12",
+      "questionIds": [
+        "M13-S01-U04",
+        "M13-S01-U18"
+      ],
+      "trigger": "A claimed warm result is faster only because interactive foreground work was preempted or output fidelity silently lowered.",
+      "nonAuthorizingOracle": "NO_UNAUTHORIZED_WORKSTATION_INTERFERENCE_OR_QUALITY_DOWNGRADE",
+      "originalOwners": "M01/M08/M09/M13",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    }
+  ],
+  "stop": "S01 adds NONBINDING source-anchored M13 warm-cache locality research only. No technology, warmed residency, cold/warm result, model/license/reviewer signature, future model registry/security/storage/OS contract, public API, executable hardware operation or cache engine is adopted. No real M13/M14/M18/M53/M54/M55/M56/M60 owner approval or independent review is inferred. No M09 C01 adoption or H01-H04 closure. M10/M11/M12 runtime stays NOT_ADMITTED and original M12 80/H03 12/HX12/LV6/C08-10/PO-C02-8 future cases remain NOT_EXECUTED."
+}
