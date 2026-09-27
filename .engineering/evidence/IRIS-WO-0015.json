@@ -1643,5 +1643,89 @@
       "headSha": "MUST_MATCH_GITHUB_PR_HEAD"
     },
     "nextGate": "M11 Forward Compatibility Scan against available owner contracts and M12-M60 index-level candidates, preserving missing owner contracts as PENDING."
+  },
+  "forwardCompatibilityScan": {
+    "status": "PROPOSAL_PENDING_EXACT_HEAD_GOVERNANCE",
+    "increment": "M11-FORWARD-COMPATIBILITY-SCAN-C01",
+    "issue": 82,
+    "issueState": "OPEN",
+    "branch": "iris-wo-0015-m11-forward-compatibility-scan-20260926",
+    "baseSha": "b3fc093cfc5b5370872dacc7ff6694af6bcfd1cd",
+    "baseTreeSha": "be410381b1e940aa906ebceb7ba89520353a52e5",
+    "contextLock": {
+      "path": ".engineering/context-locks/IRIS-WO-0015-M11-FORWARD-COMPATIBILITY-SCAN.json",
+      "expected": 88,
+      "checked": 88,
+      "matched": 88,
+      "missing": 0,
+      "duplicates": 0,
+      "rebasedPriorHashes": 9
+    },
+    "sourceMatrix": {
+      "expected": 30,
+      "recorded": 30
+    },
+    "moduleMatrix": {
+      "range": "M12-M60",
+      "expected": 49,
+      "recorded": 49,
+      "evidenceDepth": "INDEX_ONLY",
+      "disposition": "PENDING_OWNER_CONTRACT",
+      "risk": "UNRATED"
+    },
+    "findings": [
+      "FCS-C01-01",
+      "FCS-C01-02",
+      "FCS-C01-03",
+      "FCS-C01-04",
+      "FCS-C01-05",
+      "FCS-C01-06",
+      "FCS-C01-07",
+      "FCS-C01-08"
+    ],
+    "carriedForward": [
+      "M09 boundary: process liveness is not resource/lease truth",
+      "M10 boundary: planner recommendation is not execution authorization"
+    ],
+    "baseGovernance": {
+      "runId": 36272216363,
+      "jobId": 108488207459,
+      "headSha": "b3fc093cfc5b5370872dacc7ff6694af6bcfd1cd",
+      "treeSha": "be410381b1e940aa906ebceb7ba89520353a52e5",
+      "checkoutAssertion": "PASS",
+      "validator": "PASS",
+      "gefBridge": "PASS: v1.0.0 pinned",
+      "hiveBridge": "PASS: v1.0.0 pinned",
+      "tests": "3940/3940",
+      "testSeconds": 10.336,
+      "result": "PASS"
+    },
+    "hivePreflight": {
+      "registeredProject": "Iris (D:/Projects)",
+      "registeredBranch": "iris-wo-0013-m09-closure-reconciliation",
+      "registeredHead": "2432cfe (stale)",
+      "status": "STALE_DERIVED_CONTEXT_NOT_USED",
+      "contextBuild": "invalid_arguments",
+      "checkpointRead": "timeout after 60s",
+      "contextSearch": "timeout after 60s"
+    },
+    "exactHeadGovernance": {
+      "status": "REQUIRED_ON_FINAL_PR_HEAD",
+      "runId": null,
+      "jobId": null,
+      "headSha": "MUST_MATCH_GITHUB_PR_HEAD"
+    },
+    "outcome": {
+      "m11Contract": "NOT_FROZEN",
+      "m11Implementation": "NOT_ADMITTED",
+      "m10Contract": "m10-contract-v1.0 FROZEN",
+      "m10Implementation": "NOT_ADMITTED",
+      "wo0014Preflight": "BLOCKED",
+      "s04Questions": "U01-U21 OPEN",
+      "s05Questions": "U01-U23 OPEN",
+      "m12ToM60Contracts": "PENDING",
+      "runtimeOrPolicySelected": false,
+      "nextBoundary": "Stop after exact-head Governance PASS and PR OPEN/UNMERGED"
+    }
   }
 }
