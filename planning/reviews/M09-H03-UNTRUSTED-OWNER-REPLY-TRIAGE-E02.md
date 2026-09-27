@@ -55,6 +55,16 @@ Run from the repo root: `python -m scripts.triage_m09_h03_untrusted_owner_reply 
 
 New **30 deterministic local synthetic and tampered-draft unit tests**, distinct from original 12 HX/6 LV/10 C08/8 PO-C02/80 M12 future negatives and 12 new H03-N design cases; *all original future tests and H03-N scenarios remain SPECIFIED_NOT_EXECUTED*. Tests cover four exact module/issue queues, synthetic partial/full/missing statuses, overlapping-co-owner notices, duplicate/foreign question IDs, fake approved/runtime fields, wrong source path, path traversal, spoofed GitHub URL, empty scope/exclusions, false owner signature, duplicate JSON keys, and permanent output no-authority guarantees. No process/GPU/OS/network/cloud integration scenarios run.
 
+## 4A. WO0041 bounded four-owner batch (offline FORMAT ONLY)
+
+The original single-file command and JSON output remain supported. For the real owner-response *preparation* workflow, an operator may now supply up to four separate local untrusted draft files in **one** invocation:
+
+`python -m scripts.triage_m09_h03_untrusted_owner_reply --candidate m12-draft.json m54-draft.json m58-draft.json m60-draft.json`
+
+This is an offline format workflow, **not a real owner verification or H03 gate-closure workflow**. Before triage, the tool verifies the same immutable original WO0037/E01 registers. Multi-file results are deterministic in M12/M54/M58/M60 order regardless of argument order; duplicate owner modules, wrong issue, bogus approvals, non-UTF-8, NaN/Infinity, excess JSON nesting and inputs exceeding 1 MiB **per file** fail closed. One rejected member rejects the entire batch rather than printing a misleading partial result. This is a local parsing safety bound, not a network endpoint or external quota.
+
+The bundle explicitly displays present/missing owner drafts, original 147 overlapping assignments / 91 unique questions, shared original questions with missing co-owner *draft dispositions*, and the underlying individual untrusted syntax-only reports. Even when four full drafts yield `FOUR_OWNER_DRAFTS_COMPLETE_FORMAT_ONLY`, actual owner approvals remain **zero**, real negative tests **not executed**, and identity, source commit, review, co-owner permission, API publication and OS authority **unverified/false**. This helper cannot convert authored `DEFER` responses into real decisions. Existing H01–H04 remain HIGH OPEN; M09 frozen v1 and C01 unadopted; M10/M11/M12 runtime not admitted. New WO0041 local tests cannot count toward original H03-N/M12/HX/LV/C08/PO-C02 future integration tests.
+
 ## 5. Future real signoff is a different, owner-qualified process
 
 After receiving an actual claim, independently inspect the **claimed GitHub source commit/path** on the right actual owner's authorized branch, verify the claimed author's identity/rights and independent security/platform review as needed, compare exact owner question dispositions to real M09/M11/M12/M54/M58/M60 contract scopes, verify actual tests (not merely specified designs), and preserve any shared questions pending separate co-owner proof. That future work requires a separate source-locked Work Order and independently qualified evidence. An offline `COMPLETE_DRAFT_FORMAT_ONLY` result may help triage a review, but by design cannot change frozen contracts or open issue gates.

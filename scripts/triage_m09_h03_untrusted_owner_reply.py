@@ -17,6 +17,7 @@ from scripts.verify_m09_h03_owner_routes import (
 )
 
 SCHEMA="iris-h03-untrusted-reply-draft-v0"
+MAX_DRAFT_BYTES=1_048_576  # bounded local untrusted input; not a network payload
 DISPOSITIONS=("PROPOSED_ANSWER","DEFER","UNSUPPORTED")
 MODULE_ISSUES={"M12":128,"M54":145,"M58":146,"M60":147}
 REQUIRED={
@@ -54,14 +55,29 @@ def require(ok:bool, message:str)->None:
 
 
 def read_draft(path:Path)->dict[str,Any]:
+    """Read at most one MiB; reject non-standard JSON and excessive nesting."""
     def no_duplicates(pairs):
         found={}
         for key,value in pairs:
             require(key not in found,"duplicate untrusted JSON key: "+key)
             found[key]=value
         return found
-    raw=json.loads(path.read_text(encoding="utf-8"),
-                   object_pairs_hook=no_duplicates)
+
+    def reject_constant(value):
+        raise UntrustedReplyError("non-standard JSON numeric constant: "+value)
+
+    with path.open("rb") as candidate:
+        raw_bytes=candidate.read(MAX_DRAFT_BYTES+1)
+    require(len(raw_bytes)<=MAX_DRAFT_BYTES,
+            "untrusted draft exceeds one-MiB local input limit")
+    try:
+        raw=json.loads(raw_bytes.decode("utf-8"),
+                       object_pairs_hook=no_duplicates,
+                       parse_constant=reject_constant)
+    except UnicodeDecodeError as exc:
+        raise UntrustedReplyError("untrusted draft is not valid UTF-8") from exc
+    except RecursionError as exc:
+        raise UntrustedReplyError("untrusted JSON nesting exceeds safe parser depth") from exc
     require(isinstance(raw,dict),"top-level candidate must be an object")
     return raw
 
@@ -186,6 +202,67 @@ def triage(candidate:dict[str,Any],packets:dict[str,Any],
     }
 
 
+def triage_batch(candidates:list[dict[str,Any]],packets:dict[str,Any],
+                 routes:dict[str,Any])->dict[str,Any]:
+    """Atomic, order-stable multi-owner FORMAT-ONLY intake; never owner signoff.
+
+    Call only after verifying repository-local historical owner packets/routes.
+    One invalid or repeated owner rejects the whole batch without partial proof.
+    """
+    require(type(candidates) is list and 1<=len(candidates)<=len(MODULE_ISSUES),
+            "one to four separate untrusted owner drafts required")
+    checked={}
+    for candidate in candidates:
+        report=triage(candidate,packets,routes)
+        module=report["module"]
+        require(module not in checked,"duplicate draft for owner "+module)
+        checked[module]=report
+
+    ordered=[checked[m] for m in MODULE_ISSUES if m in checked]
+    source_ids={}
+    for route in routes["routes"]:
+        for qid in route["sourceQuestionIds"]:
+            source_ids.setdefault(qid,set()).add(route["module"])
+    submitted={report["module"]:set(report["sourceQuestionIds"])
+               for report in ordered}
+    shared_gaps=[
+        {"questionId":qid,"requiresOwners":sorted(owners),
+         "missingDraftDispositionsFrom":sorted(
+             owner for owner in owners if qid not in submitted.get(owner,set()))}
+        for qid,owners in sorted(source_ids.items())
+        if len(owners)>1 and any(
+            qid not in submitted.get(owner,set()) for owner in owners)
+    ]
+    all_four=len(checked)==len(MODULE_ISSUES)
+    all_formatted=all_four and all(
+        report["formatStatus"]=="COMPLETE_DRAFT_FORMAT_ONLY"
+        for report in ordered)
+    return {
+        "schemaVersion":"iris-h03-offline-four-owner-batch-v0",
+        "batchFormatStatus":("FOUR_OWNER_DRAFTS_COMPLETE_FORMAT_ONLY"
+                             if all_formatted else "INCOMPLETE_DRAFT_BATCH_FORMAT_ONLY"),
+        "drafts":ordered,
+        "receivedDraftModules":[m for m in MODULE_ISSUES if m in checked],
+        "missingDraftModules":[m for m in MODULE_ISSUES if m not in checked],
+        "originalSourceAssignmentCount":sum(len(x["sourceQuestionIds"])
+                                             for x in routes["routes"]),
+        "uniqueOriginalSourceQuestionCount":len(source_ids),
+        "sharedQuestionsMissingOneOrMoreDraftDispositions":shared_gaps,
+        "allFourDraftsPresent":all_four,
+        "allFourDraftsCompleteFormatOnly":all_formatted,
+        "actualOwnerApprovals":0,
+        "claimedOwnerAuthenticated":False,
+        "claimedSourceWasFetched":False,
+        "claimedReviewIndependentlyVerified":False,
+        "otherOwnerSignaturesVerified":False,
+        "realNegativeTestsExecuted":False,
+        "actualApprovedContract":False,
+        "permissionToPlacePublishUseOsOrExecute":False,
+        "h01h02h03h04":"ALL_OPEN_HIGH_FOR_FUTURE_FREEZE",
+        "mandatoryWarnings":list(ALWAYS_PENDING),
+    }
+
+
 def triage_verified_checkout(candidate:dict[str,Any],root:Path=ROOT)->dict[str,Any]:
     # Historical owners/source hashes and unadopted status must be checked
     # before using either evidence file for a real local owner-reply draft.
@@ -195,11 +272,16 @@ def triage_verified_checkout(candidate:dict[str,Any],root:Path=ROOT)->dict[str,A
 
 def main()->int:
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--candidate",required=True,type=Path,
-                        help="Path to a local UNTRUSTED proposed owner response JSON; no network")
+    parser.add_argument("--candidate",required=True,nargs="+",type=Path,
+                        help="One to four local UNTRUSTED proposed owner JSON drafts; no network")
     args=parser.parse_args()
     try:
-        output=triage_verified_checkout(read_draft(args.candidate))
+        if len(args.candidate)==1:
+            output=triage_verified_checkout(read_draft(args.candidate[0]))
+        else:
+            verify_existing_h03(ROOT)
+            output=triage_batch([read_draft(p) for p in args.candidate],
+                                read(ROOT,PRIOR),read(ROOT,ROUTES))
     except (UntrustedReplyError,ValueError,OSError,KeyError,TypeError) as exc:
         print(json.dumps({"status":"REJECTED_UNTRUSTED_DRAFT",
                           "actualApprovedContract":False,
