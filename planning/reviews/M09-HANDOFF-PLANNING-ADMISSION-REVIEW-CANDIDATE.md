@@ -1,0 +1,7 @@
+# Independent review target: WO0016 M09 planning admission
+
+Status: REVIEW_REQUIRED for exact PR head; this file is a review checklist, **not** a self-awarded APPROVED verdict.
+
+At exact base `7cdfa0015eaf67bac570deea67177239bb4549af` (tree `6030279a39a95920c6e1e5ef7288ecfce1818239`), confirm that this PR only proposes a separately governed **planning** Work Order under open issue #112, with #110/#82 still open. Required checks: 68/68 base Git blob fingerprints; ten exact allowlisted documentation/evidence paths; no M09 frozen owner contract, implementation, invariant or test edit; exact C08 PR #113 merge `7cdfa0015eaf67bac570deea67177239bb4549af` and Governance #456 receipts; faithful source citation for ResourceTwin separate lock, LeaseBook states and the distinction between generic FC-09-09 public evidence projection vs M09 qualification EvidenceBundle vs any future action-scoped verifier. Evaluate all A/B/C options without selecting one, plus all HX-01..HX-12 **NOT_EXECUTED**, especially snapshot/lease TOCTOU.
+
+If a scoped review finds HIGH/CRITICAL evidence gaps, amend on the same PR and re-run exact-head CI; do not merge. After reviewed protected merge and exact-main Governance, WO0016 becomes **admitted for planning only** by its conditional gate. Owner decisions and implementation remain separate, no M11 runtime authority from this admission. Next increment may draft a source-backed M09 extension *candidate* only; later owner acceptance/freeze requires independent formal gates.
