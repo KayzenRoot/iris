@@ -192,7 +192,7 @@ def check_packet(p: dict, root: Path = ROOT, *,
     require(type(cases) is list and
             [x.get("id") for x in cases] ==
             [f"DCS-{i:02d}" for i in range(1, 17)]
-            and [(x["label"], x["futureNonAuthorizingOracle"])
+            and [[x["label"], x["futureNonAuthorizingOracle"]]
                  for x in cases] == NEGATIVE_CASES,
             "sixteen original future negative scenarios changed")
     for row in cases:
