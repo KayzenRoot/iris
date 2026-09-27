@@ -1781,7 +1781,7 @@
     }
   },
   "forwardCompatibilityScanCloseout": {
-    "status": "PROPOSAL_PENDING_EXACT_HEAD_GOVERNANCE",
+    "status": "COMPLETE_FOR_MODULE_PLANNING",
     "workOrder": "IRIS-WO-0015",
     "increment": "M11-FORWARD-COMPATIBILITY-SCAN-CLOSEOUT-C01",
     "issue": 82,
@@ -1842,6 +1842,75 @@
       "status": "REQUIRED_ON_FINAL_CLOSEOUT_PR_HEAD",
       "headSha": "MUST_MATCH_GITHUB_PR_HEAD"
     },
-    "nextGate": "After closeout exact-head Governance, audit, protected merge and exact-main Governance, begin separate M11 owner-contract candidate increment. No implementation or policy authorization."
+    "nextGate": "After closeout exact-head Governance, audit, protected merge and exact-main Governance, begin separate M11 owner-contract candidate increment. No implementation or policy authorization.",
+    "canonical": true,
+    "closeoutExactHeadGovernance": {
+      "runId": 36285307444,
+      "jobId": 108524829278,
+      "headSha": "749eafeafa79463920cc3c0399d9bdac16f0ade4",
+      "result": "PASS",
+      "tests": "3940/3940",
+      "testSeconds": 16.703
+    },
+    "protectedMerge": {
+      "pullRequest": 100,
+      "method": "squash",
+      "headSha": "749eafeafa79463920cc3c0399d9bdac16f0ade4",
+      "mergeSha": "9acfe5400a490a996602d5b09f7adb3d92b3050b",
+      "result": "MERGED"
+    },
+    "closeoutExactMainGovernance": {
+      "runId": 36285351940,
+      "runNumber": 435,
+      "jobId": 108524953905,
+      "headSha": "9acfe5400a490a996602d5b09f7adb3d92b3050b",
+      "treeSha": "578a11b3a90f5087bc7fd66c8e72e28d0d04d4af",
+      "result": "PASS",
+      "tests": "3940/3940",
+      "testSeconds": 12.346
+    }
+  },
+  "m11ContractCandidateC01": {
+    "status": "PROPOSAL_NOT_FROZEN",
+    "candidate": "m11-contract-candidate-v0.1",
+    "issue": 82,
+    "baseSha": "9acfe5400a490a996602d5b09f7adb3d92b3050b",
+    "baseTreeSha": "578a11b3a90f5087bc7fd66c8e72e28d0d04d4af",
+    "branch": "iris-wo-0015-m11-owner-contract-candidate-c01-20260926",
+    "contextLock": {
+      "path": ".engineering/context-locks/IRIS-WO-0015-M11-CONTRACT-CANDIDATE-C01.json",
+      "checked": 94,
+      "matched": 94,
+      "mismatches": 0,
+      "reboundInherited": 9
+    },
+    "invariants": 26,
+    "sourceQuestionRegister": {
+      "s04": 21,
+      "s05": 23,
+      "open": true
+    },
+    "futureOwners": {
+      "count": 49,
+      "status": "INDEX_ONLY/PENDING_OWNER_CONTRACT",
+      "risk": "UNRATED"
+    },
+    "authorizedChangedFiles": [
+      ".engineering/CHECKPOINT.json",
+      ".engineering/CHECKPOINT.md",
+      ".engineering/context-locks/IRIS-WO-0015-M11-CONTRACT-CANDIDATE-C01.json",
+      ".engineering/evidence/IRIS-WO-0015.json",
+      ".engineering/work-orders/IRIS-WO-0015-M11-CONTRACT-CANDIDATE-C01.md",
+      ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
+      "docs/project-brain/13-CHECKPOINT.md",
+      "docs/project-brain/14-BACKLOG.md",
+      "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md"
+    ],
+    "implementationAdmission": "NOT_ADMITTED",
+    "independentPlanningAudit": "LATER_REQUIRED_BEFORE_FREEZE",
+    "exactHeadGovernance": {
+      "status": "REQUIRED_ON_PR_FINAL_HEAD"
+    }
   }
 }
