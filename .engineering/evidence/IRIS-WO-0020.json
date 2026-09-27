@@ -2,7 +2,7 @@
   "schemaVersion": "iris-evidence-bundle-v1",
   "workOrder": "IRIS-WO-0020",
   "issue": 124,
-  "status": "PROPOSED_PENDING_EXACT_HEAD_CI_AND_BOUNDED_AUDIT",
+  "status": "CANONICAL_CI_DEPENDENCY_UPGRADE_CLOSED",
   "scope": "ONE_LINE_OFFICIAL_CHECKOUT_FULL_PIN",
   "baseSha": "ad99f343431a0984fedb99746c64fb26462d7ad2",
   "baseTreeSha": "f74b481d51953d183b8a84ea8ee24cc85155b96d",
@@ -51,7 +51,12 @@
     "rebasedHead": "1c4ed2ad23cdb0b91c34d081215b6c29a3b3cce3",
     "rebasedBase": "ad99f343431a0984fedb99746c64fb26462d7ad2",
     "headCI": "MISSING_AFTER_REBASE_AND_REOPEN",
-    "postMergeDisposition": "CLOSE_AS_SUPERSEDED_IF_THIS_PR_SUCCEEDS"
+    "postMergeDisposition": "CLOSED_AS_SUPERSEDED_NO_MERGE",
+    "lateCI": {
+      "number": 479,
+      "head": "1c4ed2ad23cdb0b91c34d081215b6c29a3b3cce3",
+      "result": "PASS_BUT_REDUNDANT_SUPERSEDED"
+    }
   },
   "prior": {
     "WO0019": {
@@ -71,9 +76,37 @@
   "validation": {
     "baselineTests": 3979,
     "newTests": 0,
-    "exactHeadGovernance": "REQUIRED",
-    "separateBoundedAudit": "REQUIRED",
-    "exactMainGovernance": "REQUIRED"
+    "exactHeadGovernance": {
+      "number": 478,
+      "run": 36323905149,
+      "job": 108632868022,
+      "head": "2559fe8294cfddb13f5e308a2009de99db45b211",
+      "result": "PASS",
+      "tests": "3979/3979",
+      "actualCheckoutSha": "3d3c42e5aac5ba805825da76410c181273ba90b1"
+    },
+    "separateBoundedAudit": {
+      "review": "APPROVED_PIN_ONLY",
+      "commentId": 5856464773,
+      "head": "2559fe8294cfddb13f5e308a2009de99db45b211",
+      "reviewer": "SAME_ASSISTANT_SEPARATE_PASS_NOT_INDEPENDENT_HUMAN",
+      "newHigh": 0,
+      "newCritical": 0
+    },
+    "exactMainGovernance": {
+      "number": 480,
+      "run": 36323987194,
+      "job": 108633086480,
+      "head": "a186fe2d6c659c3e410a16eccd42f3b82166428e",
+      "result": "PASS",
+      "tests": "3979/3979",
+      "actualCheckoutSha": "3d3c42e5aac5ba805825da76410c181273ba90b1"
+    },
+    "protectedMerge": {
+      "sha": "a186fe2d6c659c3e410a16eccd42f3b82166428e",
+      "tree": "1ace7ea201487593f4bd6b1358c9c6df3d79d77b",
+      "pr": 125
+    }
   },
   "M09": "m09-contract-v1.0 FROZEN_UNCHANGED",
   "M11": "m11-contract-candidate-v0.2 NOT_FROZEN",

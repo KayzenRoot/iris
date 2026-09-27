@@ -1,0 +1,189 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0021",
+  "increment": "PUBLISHED_HIVE_V103_CONTEXT_FIRST_PROMPT_GUIDANCE_ONLY",
+  "issue": 126,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0021-hive-v103-context-guidance-20260927",
+  "baseRef": "main",
+  "baseSha": "a186fe2d6c659c3e410a16eccd42f3b82166428e",
+  "baseTreeSha": "1ace7ea201487593f4bd6b1358c9c6df3d79d77b",
+  "status": "PROPOSED_PENDING_EXACT_HEAD_AND_BOUNDED_REVIEW",
+  "risk": "ELEVATED_REPO_WIDE_EXECUTOR_POLICY",
+  "scope": "AGENTS_EXECUTOR_GUIDANCE_ONLY_PLUS_CHECKPOINT_EVIDENCE_PRIOR_RECEIPTS",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "a186fe2d6c659c3e410a16eccd42f3b82166428e",
+    "baseTreeSha": "1ace7ea201487593f4bd6b1358c9c6df3d79d77b",
+    "expected": 34,
+    "checked": 34,
+    "matched": 34,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "18029f4c685cc8597242a6f949adbe2861f9f89e"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "fd92612d1944105efe507bf955ec2e0c3c56cba0"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "e1a2086163295fe9eb452953a7146f76941004b3"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "e1a2086163295fe9eb452953a7146f76941004b3"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "69fffd85b3e8562a200aeab231e7199489812798"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "748182e1c72434526d3d7958c4588be90af638de"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "d26833ba174c7d95b5457f203cce0271be331229"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "docs/project-brain/05-INTEGRATION-CONTRACTS.md",
+      "gitBlobSha1": "1c2d0e3462794cee64f83831ea07d9f9ac120663"
+    },
+    {
+      "path": "docs/project-brain/12-LOCAL-DEPLOYMENT.md",
+      "gitBlobSha1": "f27bf06af4418762b3e667928877f5f1d7e59a06"
+    },
+    {
+      "path": "docs/HIVE-INTEGRATION.md",
+      "gitBlobSha1": "9072537a722ecea7edc0ea2ce1223da8b4deb165"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "gitBlobSha1": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "gitBlobSha1": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": ".engineering/gef/GEF-EVIDENCE-SPEC.md",
+      "gitBlobSha1": "ddb082eb7066e3c1e807f04a0037312d06e454df"
+    },
+    {
+      "path": ".engineering/gef/GEF-SOURCE-BRIDGE.json",
+      "gitBlobSha1": "58d3e8df127ac504cc965485badd705de67492bf"
+    },
+    {
+      "path": ".engineering/gef/GEF-PROJECT-PROFILE.json",
+      "gitBlobSha1": "26f0cdb0225249b242c4189cd8d8257976513b66"
+    },
+    {
+      "path": ".engineering/BOOTSTRAP-MANIFEST.json",
+      "gitBlobSha1": "5767037d78ca6f9dfe60178b7c67f854e40db1b9"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0020-CHECKOUT-V701-PIN.md",
+      "gitBlobSha1": "ff329b335b4b4fe238de1795c7058d4459c5411f"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0020-CHECKOUT-V701-PIN.json",
+      "gitBlobSha1": "2ff497a90aee28b6e951cc5814e2b79d4bd34b08"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0020.json",
+      "gitBlobSha1": "0a46702f2f41eeffc1746a3f57704fc38d552c5b"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0019.json",
+      "gitBlobSha1": "de5b3a7dc1bcb42c75cb45ca09d0bf22d2ac80bd"
+    },
+    {
+      "path": "scripts/validate_governance.py",
+      "gitBlobSha1": "063df39b7513bd1e6226e574a4722185823bb694"
+    },
+    {
+      "path": "scripts/verify_context_lock.py",
+      "gitBlobSha1": "e86bc1e25a4d85e7cac64bfcba86e23993f96351"
+    },
+    {
+      "path": "scripts/hive_bootstrap.py",
+      "gitBlobSha1": "8c7780e34bcd2404bccdc4c4ffa7bed1ff1c6973"
+    },
+    {
+      "path": "scripts/hive_mcp.py",
+      "gitBlobSha1": "0ad9cd173c29b8aedf60ee0f3b5d928112d23a0a"
+    },
+    {
+      "path": ".github/workflows/governance.yml",
+      "gitBlobSha1": "02510797919b603ee94c367dc45f6ca1c9367a41"
+    },
+    {
+      "path": "tests/test_context_lock_verifier.py",
+      "gitBlobSha1": "05addbe3153d749d0201331665bcee212784c702"
+    },
+    {
+      "path": "tests/test_dependabot_pin_guard.py",
+      "gitBlobSha1": "06e3775a5a9d09099181b514d1a862ebdfdae85f"
+    },
+    {
+      "path": "planning/reviews/IRIS-WO-0020-CHECKOUT-V701-PIN-AUDIT.md",
+      "gitBlobSha1": "23184c722b2fa3b7e15340929128546f2562406c"
+    }
+  ],
+  "authorizedChangedFiles": [
+    "AGENTS.md",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0020.json",
+    ".engineering/evidence/IRIS-WO-0021.json",
+    ".engineering/context-locks/IRIS-WO-0021-HIVE-CONTEXT-PROMPTS.json",
+    ".engineering/work-orders/IRIS-WO-0021-HIVE-CONTEXT-PROMPTS.md",
+    "planning/reviews/IRIS-WO-0021-HIVE-CONTEXT-PROMPTS-AUDIT.md"
+  ],
+  "externalReference": {
+    "repository": "KayzenRoot/hive",
+    "releasedTag": "v1.0.3",
+    "annotatedTagSha": "f0db3464debcde75d78e6b321e8a27b0404d02a6",
+    "commit": "52bd3dab54dd4f16264072e198ed1fc23168f7fa",
+    "publishedAt": "2026-09-24T09:02:41Z"
+  },
+  "runtimePin": {
+    "version": "1.0.0",
+    "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
+    "state": "UNMODIFIED"
+  },
+  "exactHeadGovernance": {
+    "status": "REQUIRED"
+  },
+  "stopCondition": "No live HIVE installation claimed, no runtime pin modifications, no HIVE DB/context writes, no new M09/M11 owner contract admissions. Separate review before merge; supersede old PR #91 only after exact-main."
+}
