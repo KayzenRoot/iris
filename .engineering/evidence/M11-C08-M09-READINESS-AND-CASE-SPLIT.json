@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "iris-m11-c08-m09-source-readiness-v1",
+  "workOrder": "IRIS-WO-0015",
+  "issue": 82,
+  "ownerReviewIssues": [
+    110,
+    112
+  ],
+  "baseSha": "33f9eb934db8a262a7ba705f5667f832c4abdca4",
+  "baseTreeSha": "4c15513bae0f5e2312617de5beeb8cc4f9e43ba2",
+  "scope": "SOURCE_BACKED_READ_ONLY_AUDIT_AND_C06_DRAFT_CORRECTION_ONLY",
+  "status": "PROPOSED_PENDING_SEPARATE_REVIEW_AND_M09_OWNER",
+  "sourceC06GitBlobSha1": "eb9d89b035c7e60f472e9f6ad40d482829dc7a2d",
+  "originalC06CaseCount": 9,
+  "correctedDraftCaseCount": 10,
+  "finding": {
+    "id": "AUD-C06-H01",
+    "severity": "HIGH_FOR_FUTURE_FREEZE_IF_UNCORRECTED",
+    "source": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md §9.1",
+    "evidence": "C06-01 joined missing port (UNSUPPORTED) and missing evidence on existing port (INDETERMINATE) into one INDETERMINATE branch",
+    "scope": "INERT_DRAFT_ONLY_NO_RUNTIME_OR_TEST_PROOF",
+    "correction": "SPLIT_IN_VERSIONED_C08_DRAFT_PENDING_OWNER_REVIEW"
+  },
+  "existingCodeFacts": [
+    {
+      "source": "iris_resource_twin/__init__.py",
+      "fact": "Exported 1.0.0 public in-process Python symbols, not an authenticated M11 handoff",
+      "gitBlobSha1": "b1185520c0d02a368803b8a160b5ef09f220a994"
+    },
+    {
+      "source": "iris_resource_twin/twin.py",
+      "fact": "ResourceTwin.latest/get/admission_snapshot return in-memory snapshots; admission_snapshot checks is_fresh/invalidated/quarantine, not production evidence origin",
+      "gitBlobSha1": "f8d217d46ca4284d439aba418d6113eb0c4059e2"
+    },
+    {
+      "source": "iris_resource_twin/model.py",
+      "fact": "ResourceSnapshot.is_fresh checks time+Confidence.OBSERVED; EvidenceOrigin remains distinct and is not itself a lease/grant",
+      "gitBlobSha1": "e64228e6a58b787ee107da8e737dd640ad4dad56"
+    },
+    {
+      "source": "iris_resource_twin/leases.py",
+      "fact": "LeaseBook.active includes ACTIVE, PREEMPTION_REQUESTED, REVOCATION_REQUESTED; no unqualified grant inference or external atomic snapshot+lease proof",
+      "gitBlobSha1": "5757d15156d62ac8cc49a1763eba62b944af52d9"
+    },
+    {
+      "source": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "fact": "Cross-process coordination, persistent storage and concrete M11 integration are deferred",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a"
+    }
+  ],
+  "gap": "NO_VERIFIED_PER_REQUEST_INTERMODULE_M09_OWNER_READ_ONLY_PORT_IDENTIFIED_IN_REVIEWED_SOURCES",
+  "externalOwnerDecision": "PENDING_ISSUE_110_AND_SEPARATELY_ADMITTED_WO0016_PROPOSED_ISSUE_112",
+  "originalS03U08": "OPEN_UNRATED",
+  "allS01S05": "86/86 OPEN_UNRATED",
+  "newCases": [
+    {
+      "id": "S03U08-01A",
+      "originalDraftId": "S03U08-01",
+      "sourceEvidence": "M09_TO_M11_OWNER_PORT_ABSENT_OR_UNVERSIONED",
+      "m11DraftDisposition": "UNSUPPORTED",
+      "origin": "M11 candidate §9.1",
+      "mustDispatch": false,
+      "status": "DRAFT_NOT_OWNER_APPROVED_TEST_NOT_EXECUTED"
+    },
+    {
+      "id": "S03U08-01B",
+      "originalDraftId": "S03U08-01",
+      "sourceEvidence": "VERSIONED_OWNER_PORT_PRESENT_BUT_EXACT_PROOF_MISSING_OR_UNDECIDABLE",
+      "m11DraftDisposition": "INDETERMINATE",
+      "origin": "M11 candidate §9.1",
+      "mustDispatch": false,
+      "status": "DRAFT_NOT_OWNER_APPROVED_TEST_NOT_EXECUTED"
+    },
+    {
+      "id": "S03U08-02",
+      "input": "Owner M09 observation/reference STALE, invalid freshness or conflicting scopes",
+      "m11DraftDisposition": "STALE_OR_CONFLICTING",
+      "qualifier": "M09_STALE_OR_SCOPE_CONFLICT",
+      "callerVisible": "Evidence stale/conflicting; request new owner proof through owner-defined mechanism only",
+      "prohibition": "M11 cannot renew, revoke or infer fresh state",
+      "originalDraftId": "S03U08-02",
+      "mustDispatch": false,
+      "status": "DRAFT_NOT_OWNER_APPROVED_TEST_NOT_EXECUTED"
+    },
+    {
+      "id": "S03U08-03",
+      "input": "Verified M09 owner decision expressly denies applicable resource claim, if such future M11-facing decision exists",
+      "m11DraftDisposition": "DENIED",
+      "qualifier": "M09_OWNER_DENIAL_IF_VERIFIABLE",
+      "callerVisible": "Owner denied resource proof for this exact request/scope",
+      "prohibition": "No override by M10 recommendation, telemetry, queue or available OS slot",
+      "originalDraftId": "S03U08-03",
+      "mustDispatch": false,
+      "status": "DRAFT_NOT_OWNER_APPROVED_TEST_NOT_EXECUTED"
+    },
+    {
+      "id": "S03U08-04",
+      "input": "M09 owner declares needed evidence or capability UNSUPPORTED, when verifiably stated",
+      "m11DraftDisposition": "UNSUPPORTED",
+      "qualifier": "M09_UNSUPPORTED_IF_VERIFIABLE",
+      "callerVisible": "Required resource proof unsupported; no assumed alternative",
+      "prohibition": "No downgrade or alternate allocation chosen by M11",
+      "originalDraftId": "S03U08-04",
+      "mustDispatch": false,
+      "status": "DRAFT_NOT_OWNER_APPROVED_TEST_NOT_EXECUTED"
+    },
+    {
+      "id": "S03U08-05",
+      "input": "M09 snapshot QUARANTINED or reconciliation CONFLICTED; owner decision or safe handoff absent",
+      "m11DraftDisposition": "INDETERMINATE",
+      "qualifier": "M09_QUARANTINED_DISTINCT_EVIDENCE",
+      "callerVisible": "Quarantined evidence preserved in reason; no positive eligibility",
+      "prohibition": "Do not collapse quarantine into observed success or mutate M09 state",
+      "originalDraftId": "S03U08-05",
+      "mustDispatch": false,
+      "status": "DRAFT_NOT_OWNER_APPROVED_TEST_NOT_EXECUTED"
+    },
+    {
+      "id": "S03U08-06",
+      "input": "M09 observation ESTIMATED or synthetic/derived rather than production-reported owner grant",
+      "m11DraftDisposition": "INDETERMINATE",
+      "qualifier": "NON_AUTHORITATIVE_OBSERVATION",
+      "callerVisible": "Observed/estimated/synthetic material does not prove a resource grant",
+      "prohibition": "No production lease from synthetic or estimated observation",
+      "originalDraftId": "S03U08-06",
+      "mustDispatch": false,
+      "status": "DRAFT_NOT_OWNER_APPROVED_TEST_NOT_EXECUTED"
+    },
+    {
+      "id": "S03U08-07",
+      "input": "M09 grant ref REVOKED, EXPIRED or mismatched current epoch/scope/action",
+      "m11DraftDisposition": "STALE_OR_CONFLICTING",
+      "qualifier": "M09_INVALID_OR_TERMINAL_REFERENCE",
+      "callerVisible": "Reference is no longer applicable; preserve distinct owner state",
+      "prohibition": "No release, renew, revoke or reclaim by M11; owner mapping review pending",
+      "originalDraftId": "S03U08-07",
+      "mustDispatch": false,
+      "status": "DRAFT_NOT_OWNER_APPROVED_TEST_NOT_EXECUTED"
+    },
+    {
+      "id": "S03U08-08",
+      "input": "Evidence for another work/resource/host/action, even if fresh and owner-issued",
+      "m11DraftDisposition": "STALE_OR_CONFLICTING",
+      "qualifier": "EXACT_REQUEST_SCOPE_MISMATCH",
+      "callerVisible": "Proof does not match request/resource/target/action",
+      "prohibition": "Never rebind another grant or infer permission",
+      "originalDraftId": "S03U08-08",
+      "mustDispatch": false,
+      "status": "DRAFT_NOT_OWNER_APPROVED_TEST_NOT_EXECUTED"
+    },
+    {
+      "id": "S03U08-09",
+      "input": "Fresh verified M09-issued applicable grant-state evidence, if future handoff defined",
+      "m11DraftDisposition": "INDETERMINATE",
+      "qualifier": "RESOURCE_EVIDENCE_PRESENT_OTHER_OWNER_GATES_PENDING",
+      "callerVisible": "Resource evidence recorded, but execution preflight remains nonpositive while M12/M54/M60 ports absent",
+      "prohibition": "M09 proof alone never authorizes placement, dispatch, worker startup or process control",
+      "originalDraftId": "S03U08-09",
+      "mustDispatch": false,
+      "status": "DRAFT_NOT_OWNER_APPROVED_TEST_NOT_EXECUTED"
+    }
+  ],
+  "allCaseOutcomes": "NON_DISPATCH_DRAFT_ONLY",
+  "originalC06": "9_DESIGNED_NOT_EXECUTED_HISTORICAL",
+  "allPriorPOs": "8/8 NOT_EXECUTED",
+  "futureOwnerContracts": "M12-M60 PENDING_UNRATED",
+  "processActions": "DISABLED",
+  "candidate": "m11-contract-candidate-v0.2 NOT_FROZEN",
+  "M10M11Implementation": "NOT_ADMITTED"
+}

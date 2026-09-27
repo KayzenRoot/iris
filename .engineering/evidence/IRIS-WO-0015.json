@@ -2357,7 +2357,7 @@
     "S03U08": "OPEN_UNRATED"
   },
   "m11C07M09OwnerHandoffIntake": {
-    "status": "PROPOSED_PENDING_EXACT_HEAD_GOVERNANCE_AND_SEPARATE_REVIEW",
+    "status": "VERIFIED_PROTECTED_MERGE_EXACT_MAIN_M09_OWNER_INTAKE_ONLY",
     "workOrder": "IRIS-WO-0015",
     "increment": "M11-C07-C06-CLOSEOUT-M09-HANDOFF",
     "issue": 82,
@@ -2373,6 +2373,60 @@
     "c06Cases": "9/9 DESIGNED_NOT_EXECUTED",
     "processActions": "DISABLED",
     "M10M11Implementation": "NOT_ADMITTED",
-    "missingOwnerContracts": "M12-M60 PENDING/UNRATED"
+    "missingOwnerContracts": "M12-M60 PENDING/UNRATED",
+    "reviewedHeadSha": "8a0a262e63f3cf16402b94d0ff95ee405a7b0f84",
+    "reviewCommentId": 5855094689,
+    "protectedMerge": {
+      "pullRequest": 111,
+      "sha": "33f9eb934db8a262a7ba705f5667f832c4abdca4",
+      "method": "squash",
+      "result": "MERGED"
+    },
+    "exactHeadGovernance": {
+      "number": 453,
+      "run": 36313068016,
+      "job": 108602579873,
+      "headSha": "8a0a262e63f3cf16402b94d0ff95ee405a7b0f84",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "exactMainGovernance": {
+      "number": 454,
+      "run": 36313136323,
+      "job": 108602764257,
+      "headSha": "33f9eb934db8a262a7ba705f5667f832c4abdca4",
+      "treeSha": "4c15513bae0f5e2312617de5beeb8cc4f9e43ba2",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "ownerReviewIssues": [
+      110,
+      112
+    ],
+    "ownerDecision": "PENDING_NOT_APPROVED"
+  },
+  "m11C08M09ReadinessAndCaseSplit": {
+    "status": "PROPOSED_PENDING_EXACT_HEAD_SEPARATE_REVIEW",
+    "workOrder": "IRIS-WO-0015",
+    "increment": "M11-C08-M09-READINESS-AND-CASE-SPLIT",
+    "issue": 82,
+    "sourceAuditIssue": 110,
+    "proposedM09ExtensionIssue": 112,
+    "sourceAuditCommentId": 5855135378,
+    "baseSha": "33f9eb934db8a262a7ba705f5667f832c4abdca4",
+    "baseTreeSha": "4c15513bae0f5e2312617de5beeb8cc4f9e43ba2",
+    "criticalSourceBlobs": "60/60 MATCHED",
+    "changedPaths": "9 AUTHORIZED",
+    "finding": "AUD-C06-H01 HIGH_FOR_FUTURE_FREEZE_IF_UNCORRECTED",
+    "correctedCases": "10 VERSIONED DRAFT_NOT_EXECUTED",
+    "originalC06Cases": "9 HISTORICAL_NOT_EXECUTED",
+    "priorPOs": "8/8 NOT_EXECUTED",
+    "originalQuestions": "86/86 OPEN_UNRATED",
+    "M09OwnerPort": "PENDING_UNDECIDED",
+    "M11Contract": "m11-contract-candidate-v0.2 NOT_FROZEN",
+    "M10M11Implementation": "NOT_ADMITTED",
+    "processActions": "DISABLED",
+    "futureOwners": "M12-M60 PENDING/UNRATED",
+    "issues110112": "OPEN"
   }
 }
