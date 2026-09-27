@@ -303,6 +303,9 @@ def main()->int:
                         help="One to four local UNTRUSTED proposed owner JSON drafts; no network")
     args=parser.parse_args()
     try:
+        # Reject an unbounded path list BEFORE opening any untrusted files.
+        require(1<=len(args.candidate)<=len(MODULE_ISSUES),
+                "one to four separate untrusted owner drafts required")
         if len(args.candidate)==1:
             output=triage_verified_checkout(read_draft(args.candidate[0]))
         else:

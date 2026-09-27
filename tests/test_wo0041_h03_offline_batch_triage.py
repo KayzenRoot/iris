@@ -85,6 +85,14 @@ class H03OfflineBatchTriageTests(unittest.TestCase):
     def test_07_more_than_four_untrusted_drafts_rejected(self):
         with self.assertRaises(UntrustedReplyError):
             self.run_batch(*(self.draft("M54") for _ in range(5)))
+        # The real CLI must reject before opening any path in an oversized list.
+        args=["triage","--candidate",*(f"nonexistent-{i}.json" for i in range(5))]
+        out=StringIO()
+        with patch("sys.argv",args):
+            with redirect_stdout(out):
+                code=main()
+        self.assertEqual(code,2)
+        self.assertIn("one to four separate",json.loads(out.getvalue())["reason"])
 
     def test_08_one_foreign_or_wrong_issue_rejects_everything(self):
         bad=self.draft("M60")
