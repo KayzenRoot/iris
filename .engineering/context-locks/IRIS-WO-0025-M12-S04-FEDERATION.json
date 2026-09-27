@@ -1,0 +1,212 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0025",
+  "increment": "M12_S04_LAN_REMOTE_CLOUD_FEDERATION_REFERENCE_RESEARCH",
+  "issue": 128,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0025-m12-s04-federation-20260927",
+  "baseRef": "main",
+  "baseSha": "d94f19de4a7b5ed8e248ea41239bc53df90a58b1",
+  "baseTreeSha": "963d02cf2083e44f1f78a651bc383e8fc7386eed",
+  "status": "PROPOSED_PENDING_OWN_EXACT_HEAD_AND_REVIEW",
+  "risk": "ELEVATED_REMOTE_TRUST_AND_RESOURCE_BOUNDARIES",
+  "scope": "NONEXECUTABLE_S04_STUDY_AND_S03_PROVEN_RECEIPT",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "d94f19de4a7b5ed8e248ea41239bc53df90a58b1",
+    "baseTreeSha": "963d02cf2083e44f1f78a651bc383e8fc7386eed",
+    "expected": 43,
+    "checked": 43,
+    "matched": 43,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "f4b618423d0386a94d35b897a116a1826e51e56b"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "b05e2c98c34b0aa289db2ffd442639a957d947df"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "b05e2c98c34b0aa289db2ffd442639a957d947df"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "69fffd85b3e8562a200aeab231e7199489812798"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "deed5b2f330ee1f9bed77489460d89fdc222c277"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "cde1df2ab5bb3367b649d4ea6030672cd95586fd"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "docs/project-brain/05-INTEGRATION-CONTRACTS.md",
+      "gitBlobSha1": "1c2d0e3462794cee64f83831ea07d9f9ac120663"
+    },
+    {
+      "path": "docs/project-brain/12-LOCAL-DEPLOYMENT.md",
+      "gitBlobSha1": "f27bf06af4418762b3e667928877f5f1d7e59a06"
+    },
+    {
+      "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
+      "gitBlobSha1": "43af3f5912493529c39c1d7f9d2e504d0c12529a"
+    },
+    {
+      "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
+      "gitBlobSha1": "c6d5a02131c7da1f0434159ac1ef0e1406419212"
+    },
+    {
+      "path": ".engineering/gef/GEF-EVIDENCE-SPEC.md",
+      "gitBlobSha1": "ddb082eb7066e3c1e807f04a0037312d06e454df"
+    },
+    {
+      "path": ".engineering/gef/GEF-SOURCE-BRIDGE.json",
+      "gitBlobSha1": "58d3e8df127ac504cc965485badd705de67492bf"
+    },
+    {
+      "path": ".engineering/gef/GEF-PROJECT-PROFILE.json",
+      "gitBlobSha1": "26f0cdb0225249b242c4189cd8d8257976513b66"
+    },
+    {
+      "path": ".engineering/BOOTSTRAP-MANIFEST.json",
+      "gitBlobSha1": "5767037d78ca6f9dfe60178b7c67f854e40db1b9"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+    },
+    {
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828"
+    },
+    {
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a"
+    },
+    {
+      "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+    },
+    {
+      "path": "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
+      "gitBlobSha1": "da7ba9800341d02d8d6b6619fc0e16d71b16f6ed"
+    },
+    {
+      "path": "planning/modules/M12-COMPUTE-ORCHESTRATION.md",
+      "gitBlobSha1": "6a7f5a2de1e4f1286bd1dd86d302ca87f14f059c"
+    },
+    {
+      "path": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
+      "gitBlobSha1": "3d76f9a11b0056b9b7e595fa63624445ec50ba53"
+    },
+    {
+      "path": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
+      "gitBlobSha1": "d841ff57fa347b4d5cacd10dbdbc6d842872d1df"
+    },
+    {
+      "path": "planning/research/M12-S03-MULTI-GPU-HETEROGENEOUS-EXECUTION.md",
+      "gitBlobSha1": "2c176b248ba0758b5e4cb102e0ac173156db72ae"
+    },
+    {
+      "path": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+      "gitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933"
+    },
+    {
+      "path": "planning/research/M11-C09-REVERSE-LIVENESS-OWNER-RESEARCH.md",
+      "gitBlobSha1": "de97d44a49b9c8483aa6d5a051a0b42f97f5a3cc"
+    },
+    {
+      "path": "planning/compatibility/M11-FORWARD-COMPATIBILITY-SCAN.md",
+      "gitBlobSha1": "baf3575a7b4df69151c2f0104129825776d067ec"
+    },
+    {
+      "path": ".engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json",
+      "gitBlobSha1": "935abe4323618ac6d583e3bd8acc827d5fe80d2c"
+    },
+    {
+      "path": ".engineering/evidence/M11-C03-DECISION-PROOF-REGISTER.json",
+      "gitBlobSha1": "7b901e45770441a3a44f88a3ff8a83fecb480ccd"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0024.json",
+      "gitBlobSha1": "1826c96223ab291c27012b9c8524c4c99b736331"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0024-M12-S03-PLANNING.json",
+      "gitBlobSha1": "a280842118dfc44311741e5c09551a4142d047d6"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0024-M12-S03-PLANNING.md",
+      "gitBlobSha1": "443dfd75f1ee5dd32d41b63326f5ad0fbc5cf192"
+    },
+    {
+      "path": "scripts/validate_governance.py",
+      "gitBlobSha1": "063df39b7513bd1e6226e574a4722185823bb694"
+    },
+    {
+      "path": "scripts/verify_context_lock.py",
+      "gitBlobSha1": "e86bc1e25a4d85e7cac64bfcba86e23993f96351"
+    },
+    {
+      "path": ".github/workflows/governance.yml",
+      "gitBlobSha1": "02510797919b603ee94c367dc45f6ca1c9367a41"
+    }
+  ],
+  "authorizedChangedFiles": [
+    "docs/project-brain/03-SCOPE.md",
+    "planning/modules/M12-COMPUTE-ORCHESTRATION.md",
+    "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0024.json",
+    ".engineering/evidence/IRIS-WO-0025.json",
+    ".engineering/context-locks/IRIS-WO-0025-M12-S04-FEDERATION.json",
+    ".engineering/work-orders/IRIS-WO-0025-M12-S04-FEDERATION.md",
+    "planning/reviews/IRIS-WO-0025-M12-S04-AUDIT-TARGET.md"
+  ],
+  "stopCondition": "No remote worker, network or cloud actions; #110 owner still unselected, #128 OPEN; final exact-head and exact-main Governance required."
+}

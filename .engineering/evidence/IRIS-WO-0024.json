@@ -3,7 +3,7 @@
   "workOrder": "IRIS-WO-0024",
   "module": "M12",
   "issue": 128,
-  "status": "PROPOSED_S03_REFERENCE_RESEARCH_NOT_FROZEN",
+  "status": "S03_COMPLETE_FOR_REFERENCE_PLANNING_ONLY",
   "baseSha": "7ab6743ce2d88d596a6da73abbcfc6456d7762e6",
   "baseTreeSha": "a5bcc17a93d228c3f66d5c51b755fbe11d85281e",
   "sourceSnapshot": {
@@ -29,7 +29,7 @@
   ],
   "research": {
     "session": "S03_MULTI_GPU_HETEROGENEOUS_EXECUTION",
-    "status": "PROPOSED_REFERENCE_ONLY_PENDING_EXACT_HEAD_AND_REVIEW",
+    "status": "S03_REFERENCE_RESEARCH_EXACT_MAIN_VALIDATED",
     "officialSources": [
       "https://docs.nvidia.com/cuda/cuda-programming-guide/03-advanced/multi-gpu-systems.html",
       "https://kubernetes.io/docs/concepts/resource-management/dynamic-resource-allocation/",
@@ -65,16 +65,42 @@
     "M11": "v0.2 NOT_FROZEN_86_OPEN_UNRATED",
     "M10M11Implementation": "NOT_ADMITTED",
     "M12Implementation": "NOT_ADMITTED",
-    "M12LaterSessions": "S04_S05_NOT_STARTED",
+    "M12LaterSessions": "S04_PROPOSED_IRIS_WO_0025_S05_NOT_STARTED",
     "actions": "DISABLED",
     "M54M58M60": "PENDING_OWNER_CONTRACT_UNRATED"
   },
   "testPlan": {
     "repoBaseline": 3979,
     "newRuntimeTests": 0,
-    "exactHeadGovernance": "REQUIRED",
-    "boundedAudit": "REQUIRED",
-    "exactMainGovernance": "REQUIRED",
-    "actualGPU_OS_NetworkTests": "NOT_EXECUTED_NOT_APPLICABLE_TO_REFERENCE_RESEARCH"
+    "exactHeadGovernance": {
+      "number": 488,
+      "run": 36325625861,
+      "job": 108637727139,
+      "head": "0026b1fb85932b42d075493d953f0bbc5c1b023d",
+      "tests": "3979/3979",
+      "result": "PASS"
+    },
+    "boundedAudit": {
+      "commentId": 5856677856,
+      "head": "0026b1fb85932b42d075493d953f0bbc5c1b023d",
+      "verdict": "APPROVED_S03_REFERENCE_ONLY",
+      "reviewer": "SAME_ASSISTANT_SEPARATE_PASS_NOT_HUMAN",
+      "newHigh": 0,
+      "newCritical": 0
+    },
+    "exactMainGovernance": {
+      "number": 489,
+      "run": 36325721431,
+      "job": 108637995310,
+      "head": "d94f19de4a7b5ed8e248ea41239bc53df90a58b1",
+      "result": "PASS",
+      "tests": "3979/3979"
+    },
+    "actualGPU_OS_NetworkTests": "NOT_EXECUTED_NOT_APPLICABLE_TO_REFERENCE_RESEARCH",
+    "protectedMerge": {
+      "pr": 131,
+      "sha": "d94f19de4a7b5ed8e248ea41239bc53df90a58b1",
+      "tree": "963d02cf2083e44f1f78a651bc383e8fc7386eed"
+    }
   }
 }

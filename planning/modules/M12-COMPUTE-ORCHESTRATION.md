@@ -1,7 +1,7 @@
 # M12 — Compute Orchestration: Local, Multi-GPU, LAN, Remote & Cloud
 
-Status: S01_S02_COMPLETE_FOR_REFERENCE_PLANNING_S03_PROPOSED | NOT_FROZEN | IMPLEMENTATION_NOT_ADMITTED
-Planning Issue: #128 | S01 Work Order: IRIS-WO-0022, merged exact-main `032dcda35df48d53012b3b32fdabb78de17c2b41` (#485 PASS) | S02 Work Order: IRIS-WO-0023, merged exact-main `7ab6743ce2d88d596a6da73abbcfc6456d7762e6` (#487 PASS) | S03 proposal: IRIS-WO-0024, base `7ab6743ce2d88d596a6da73abbcfc6456d7762e6`
+Status: S01_S02_S03_COMPLETE_FOR_REFERENCE_PLANNING_S04_PROPOSED | NOT_FROZEN | IMPLEMENTATION_NOT_ADMITTED
+Planning Issue: #128 | S01 Work Order: IRIS-WO-0022, merged exact-main `032dcda35df48d53012b3b32fdabb78de17c2b41` (#485 PASS) | S02 Work Order: IRIS-WO-0023, merged exact-main `7ab6743ce2d88d596a6da73abbcfc6456d7762e6` (#487 PASS) | S03 completed: IRIS-WO-0024, exact-main `d94f19de4a7b5ed8e248ea41239bc53df90a58b1` (#489 PASS) | S04 proposed: IRIS-WO-0025, base `d94f19de4a7b5ed8e248ea41239bc53df90a58b1`
 Canonical scope: `planning/MASTER-MODULE-INDEX.md`; no individual M12 owner contract, placement API or runtime has been adopted.
 
 ## Mission and disciplined boundaries
@@ -14,8 +14,8 @@ M12 planning investigates how a future orchestration owner would locate possible
 | --- | --- | --- |
 | S01 | Worker registry and capability advertisements; advertisement vs verified truth, identity, permission and current grant | COMPLETE_FOR_REFERENCE_PLANNING_ONLY; PR #129 exact-head #484 / exact-main #485 PASS 3979/3979, 18 OPEN/UNRATED owner questions and 12 future NOT_EXECUTED oracles |
 | S02 | Placement, queues, quotas and priority scheduling; six unselected strategies, 20 open questions, 14 future tests | COMPLETE_FOR_REFERENCE_PLANNING_ONLY; PR #130 exact-head #486 / exact-main #487 PASS 3979/3979 |
-| S03 | Multi-GPU and heterogeneous execution, actual per-device topology and all-or-nothing owner proof questions, no capacity aggregation shortcuts | PROPOSED_NON_EXECUTABLE_RESEARCH_ONLY; IRIS-WO-0024 |
-| S04 | LAN/remote/cloud spillover and federated nodes; trust, isolation and network endpoints pending M54/M58/M60 | NOT_STARTED |
+| S03 | Multi-GPU/heterogeneous execution reference study; five unselected shapes, 22 open owner questions, 16 future MG scenarios | COMPLETE_FOR_REFERENCE_PLANNING_ONLY; PR #131 exact-head #488 and exact-main #489 PASS 3979/3979 |
+| S04 | LAN/remote/cloud spillover and federated nodes; candidate topologies, identity, consent, partitions, cost and security boundaries | PROPOSED_NON_EXECUTABLE_REFERENCE_RESEARCH; IRIS-WO-0025 |
 | S05 | Failover, preemption, cost/quality placement and trust; no autonomous re-dispatch/retry without M02/M06/M09/M11 authorization | NOT_STARTED |
 
 ## Existing source boundaries as of admission
@@ -42,6 +42,10 @@ S01 source research completed for **reference exploration only** through PR #129
 
 S02 reference research completed through audited PR #130, exact-head Governance #486 run 36325232475/job 108636612763 PASS 3979/3979, protected squash `7ab6743ce2d88d596a6da73abbcfc6456d7762e6` / tree `a5bcc17a93d228c3f66d5c51b755fbe11d85281e`, and exact-main Governance #487 run 36325338819/job 108636913754 PASS 3979/3979. All six S02 options remain NOT_SELECTED, twenty S02 owner questions OPEN/UNRATED, fourteen SQ scenarios SPECIFIED_NOT_EXECUTED; no scheduler selected, installed or tested. S03 source study is a separate proposal IRIS-WO-0024, pending own exact-head CI/review/protected merge/exact-main. S04–S05, FTR/FCS, owner-contract candidate, independent freeze audit and all M12 runtime remain pending.
 
+## S03 completion and S04 research admission
+
+S03 audited PR #131 head `0026b1fb85932b42d075493d953f0bbc5c1b023d`, Governance #488 run 36325625861/job 108637727139 PASS 3979/3979, protected squash `d94f19de4a7b5ed8e248ea41239bc53df90a58b1` (tree `963d02cf2083e44f1f78a651bc383e8fc7386eed`) and exact-main Governance #489 run 36325721431/job 108637995310 PASS 3979/3979. Five S03 alternatives NOT_SELECTED, 22 questions OPEN/UNRATED and 16 future MG scenarios NOT_EXECUTED. S04 is newly proposed in a separate Work Order, not frozen or executable; S05, FTR/FCS and later owner contract/implementation remain pending.
+
 ## Completion and STOP
 
-S01 research source: `planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md`. Each subsequent session requires a separately scoped Work Order/review under Issue #128. Technology discovery/FTR, forward compatibility scan, versioned M12 owner candidate, independent freeze-readiness audit and **separate future implementation** remain pending. After S01 exact-main PASS and while S02 is proposed, M12 remains NOT_FROZEN / IMPLEMENTATION_NOT_ADMITTED, M09/M11 owner blockers stay OPEN and no hardware/network/process behavior has been tested.
+S01 research source: `planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md`. Each subsequent session requires a separately scoped Work Order/review under Issue #128. Technology discovery/FTR, forward compatibility scan, versioned M12 owner candidate, independent freeze-readiness audit and **separate future implementation** remain pending. After S01–S03 exact-main PASS while S04 is proposed, M12 remains NOT_FROZEN / IMPLEMENTATION_NOT_ADMITTED, M09/M11 owner blockers stay OPEN and no hardware/network/process behavior has been tested.

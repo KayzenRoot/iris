@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0025",
+  "module": "M12",
+  "issue": 128,
+  "status": "PROPOSED_S04_REFERENCE_RESEARCH_NOT_FROZEN",
+  "baseSha": "d94f19de4a7b5ed8e248ea41239bc53df90a58b1",
+  "baseTreeSha": "963d02cf2083e44f1f78a651bc383e8fc7386eed",
+  "authorizedChangedFiles": [
+    "docs/project-brain/03-SCOPE.md",
+    "planning/modules/M12-COMPUTE-ORCHESTRATION.md",
+    "planning/research/M12-S04-LAN-REMOTE-CLOUD-FEDERATION.md",
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    ".engineering/evidence/IRIS-WO-0024.json",
+    ".engineering/evidence/IRIS-WO-0025.json",
+    ".engineering/context-locks/IRIS-WO-0025-M12-S04-FEDERATION.json",
+    ".engineering/work-orders/IRIS-WO-0025-M12-S04-FEDERATION.md",
+    "planning/reviews/IRIS-WO-0025-M12-S04-AUDIT-TARGET.md"
+  ],
+  "research": {
+    "session": "S04_LAN_REMOTE_CLOUD_FEDERATION",
+    "status": "PROPOSED_REFERENCE_ONLY_PENDING_CI_REVIEW",
+    "externalDocs": [
+      "https://docs.ray.io/en/latest/cluster/key-concepts.html",
+      "https://docs.ray.io/en/latest/ray-security/index.html",
+      "https://docs.ray.io/en/latest/cluster/kubernetes/user-guides/kuberay-gcs-ft.html",
+      "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html"
+    ],
+    "adoptedTechnology": "NONE",
+    "architectureCandidates": 6,
+    "candidatesSelected": "NONE",
+    "ownerQuestions": 24,
+    "questionsStatus": "24_OPEN_UNRATED",
+    "futureNegativeCases": 18,
+    "casesStatus": "18_SPECIFIED_NOT_EXECUTED",
+    "remoteNetworkCloudTrials": "NOT_EXECUTED",
+    "runtimeFederation": "NOT_ADMITTED"
+  },
+  "priorWO24": {
+    "pr": 131,
+    "reviewedHead": "0026b1fb85932b42d075493d953f0bbc5c1b023d",
+    "headGovernance": 488,
+    "headJob": 108637727139,
+    "mergeSha": "d94f19de4a7b5ed8e248ea41239bc53df90a58b1",
+    "mergeTree": "963d02cf2083e44f1f78a651bc383e8fc7386eed",
+    "mainGovernance": 489,
+    "mainJob": 108637995310,
+    "tests": "3979/3979",
+    "status": "S03_COMPLETE_FOR_REFERENCE_PLANNING_ONLY"
+  },
+  "scopeGuards": {
+    "M09": "v1.0 FROZEN_UNCHANGED",
+    "M09Owner": "ISSUE_110_A_B_C_NONE_SELECTED",
+    "M09C02": "H01_H04_OPEN_HIGH_FOR_FUTURE_FREEZE",
+    "M11": "v0.2 NOT_FROZEN_86_OPEN_UNRATED",
+    "M10M11M12Runtime": "NOT_ADMITTED",
+    "M12Later": "S05_NOT_STARTED",
+    "M54M58M60": "PENDING_OWNER_CONTRACT",
+    "processNetworkCloudGPUActions": "DISABLED"
+  },
+  "testPlan": {
+    "baseline": 3979,
+    "implementationTestsAdded": 0,
+    "exactHeadCI": "REQUIRED",
+    "boundedReview": "REQUIRED",
+    "exactMainCI": "REQUIRED",
+    "actualOSNetworkHardwareTests": "NOT_EXECUTED_NOT_APPLICABLE_TO_DOC_ONLY"
+  }
+}
