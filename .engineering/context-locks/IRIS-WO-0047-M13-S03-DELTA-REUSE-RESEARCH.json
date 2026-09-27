@@ -1,0 +1,164 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0047",
+  "increment": "M13_S03_ORIGINAL_SOURCE_INTERMEDIATE_REUSE_DELTA_NONBINDING_RESEARCH_AND_FACTUAL_WO0046_CLOSEOUT",
+  "issue": 155,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0047-m13-s03-intermediate-reuse-20260927",
+  "baseRef": "main",
+  "baseSha": "63baffa4183149eb7476af6787b51e8a021c7d45",
+  "baseTreeSha": "c8c0feaaf99e09e802a4789ef97aa854f251264c",
+  "status": "PROPOSED_PENDING_OWN_EXACT_HEAD_GOVERNANCE_BOUNDED_REVIEW_GUARDED_MERGE_AND_EXACT_MAIN",
+  "risk": "DOCUMENTARY_ONLY_NO_M02_M06_REUSE_ADMISSION_OR_M55_STORAGE_AUTHORITY",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "63baffa4183149eb7476af6787b51e8a021c7d45",
+    "baseTreeSha": "c8c0feaaf99e09e802a4789ef97aa854f251264c",
+    "expected": 31,
+    "checked": 31,
+    "matched": 31,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "9b8567a4b9a2ca2beac1260670f2c24646ca8f38"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "9b8567a4b9a2ca2beac1260670f2c24646ca8f38"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "b1ea8012b8eec437fc9320a4de71eccafa455261"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "6a8b359a29c114bd96f6ea63d39484492e50a74d"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX.md",
+      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+    },
+    {
+      "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "c4b39c03f86f7a8e112d22a25ca91169c02c5e4d"
+    },
+    {
+      "path": "planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "97e8ed228b29c47911e3d3a0ed10ade91f76d723"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+    },
+    {
+      "path": "planning/research/M02-S04-INCREMENTAL-BUILD-RESEARCH-2026-09-20.md",
+      "gitBlobSha1": "1e3979dfb258eb6bb4a96d56b85b003eebe1e98a"
+    },
+    {
+      "path": "docs/M01-QUALITY-KERNEL.md",
+      "gitBlobSha1": "930af57944fa83c44745873c42eb3a7740972ee6"
+    },
+    {
+      "path": "docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "gitBlobSha1": "2a0b95dd3cc665e2206e454caef5858ef7fb61b0"
+    },
+    {
+      "path": "docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "461e0f332d9be2af694634bbdc8cf67e29d56393"
+    },
+    {
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a"
+    },
+    {
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828"
+    },
+    {
+      "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+    },
+    {
+      "path": "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "28b3802901349263100ceaaf80c0990513dbbded"
+    },
+    {
+      "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
+      "gitBlobSha1": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb"
+    },
+    {
+      "path": "planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md",
+      "gitBlobSha1": "7701c1e744d2b459d2f6bb4fa754352374fb67fd"
+    },
+    {
+      "path": ".engineering/evidence/M13-S01-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "ee65b960ca7e4f83f5419ec744f4c1f304edb6d7"
+    },
+    {
+      "path": "planning/research/M13-S02-COMPILATION-ATTENTION-BACKENDS.md",
+      "gitBlobSha1": "33736cc40214af1ee25586d6c94789d8c0d95739"
+    },
+    {
+      "path": ".engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json",
+      "gitBlobSha1": "2e94983865cf72aa6c5a63510b8a4b41586048c7"
+    },
+    {
+      "path": "scripts/verify_m13_s02_research.py",
+      "gitBlobSha1": "587e61b31ee8b0010a3cb66786db15689d288b02"
+    },
+    {
+      "path": "tests/test_m13_s02_research.py",
+      "gitBlobSha1": "b92bc3485668b199816ff10458ce54f81fc2e422"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0047-M13-S03-DELTA-REUSE-RESEARCH.json",
+    ".engineering/evidence/IRIS-WO-0047.json",
+    ".engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json",
+    ".engineering/work-orders/IRIS-WO-0047-M13-S03-DELTA-REUSE-RESEARCH.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0047-M13-S03-DELTA-REUSE-RESEARCH.md",
+    "planning/research/M13-S03-INTERMEDIATE-REUSE-GENERATION-DELTA.md",
+    "planning/reviews/IRIS-WO-0047-M13-S03-AUDIT-TARGET.md",
+    "scripts/verify_m13_s03_research.py",
+    "tests/test_m13_s03_research.py"
+  ],
+  "stopCondition": "Create substantial M13 S03 original source-only intermediate/delta reuse research and 28 offline source/static/synthetic tests, plus factual previously independently green WO0046 checkpoint. No M13 cache engine, real semantic or byte reuse admission, M01 quality/master promotion, M53/M54 actual rights/owner decisions, M55 physical CAS/GC or real CPU/GPU/OS/process/network/cloud execution, M09 C01 adoption or H01-H04 HIGH closure; M10/M11/M12/M13 runtime NOT_ADMITTED."
+}
