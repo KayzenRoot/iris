@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "iris-h03-untrusted-owner-reply-offline-triage-e02",
+  "workOrder": "IRIS-WO-0039",
+  "parentWorkOrder": "IRIS-WO-0038",
+  "parentIssue": 110,
+  "baseSha": "47a1a41096ebb3153e7e5918edeedb58a0706154",
+  "baseTreeSha": "af5ddf3fa2de211a3c1bf3d48df7fd801d27793c",
+  "sourceRouteFile": ".engineering/evidence/M09-H03-OWNER-REVIEW-ROUTES-E01.json",
+  "sourceRouteBlobSha1": "3e95777c7cd10a18881615a60b53d44b25098add",
+  "sourcePacketFile": ".engineering/evidence/M09-H03-FOUR-OWNER-SOURCE-PACKETS.json",
+  "sourcePacketBlobSha1": "c82093e393722acb39081e9d76c974d0cddcfd3b",
+  "triageScript": "scripts/triage_m09_h03_untrusted_owner_reply.py",
+  "triageUnitTests": "tests/test_m09_h03_untrusted_owner_reply_triage.py",
+  "currentReplyCandidatesInRepo": 0,
+  "anyActualQualifiedReply": false,
+  "anySignedOwnerContract": false,
+  "anyActualOwnerOrReviewerVerified": false,
+  "githubLiveFetchOrCommentSignatureVerificationInCLI": false,
+  "untrustedInputTransport": "LOCAL_JSON_FILE_ONLY_NO_NETWORK",
+  "moduleSourceQueues": [
+    {
+      "module": "M12",
+      "issue": 128,
+      "count": 72,
+      "origin": "PROPOSED_NONFROZEN_M12_CANDIDATE"
+    },
+    {
+      "module": "M54",
+      "issue": 145,
+      "count": 39,
+      "origin": "MASTER_INDEX_ONLY_NO_MODULE_CONTRACT"
+    },
+    {
+      "module": "M58",
+      "issue": 146,
+      "count": 9,
+      "origin": "MASTER_INDEX_ONLY_NO_MODULE_CONTRACT"
+    },
+    {
+      "module": "M60",
+      "issue": 147,
+      "count": 27,
+      "origin": "MASTER_INDEX_ONLY_NO_MODULE_CONTRACT"
+    }
+  ],
+  "overlappingAssignments": 147,
+  "uniqueOriginalM12QuestionsInScope": 91,
+  "totalOriginalM12QuestionsOpenUnrated": 110,
+  "originalM12FutureNegatives": "80_SPECIFIED_NOT_EXECUTED",
+  "newH03NegativeDesigns": "12_SPECIFIED_NOT_EXECUTED",
+  "originalM09HX": "12_SPECIFIED_NOT_EXECUTED",
+  "originalM09LV": "6_SPECIFIED_NOT_EXECUTED",
+  "originalC08": "10_SPECIFIED_NOT_EXECUTED",
+  "originalPOC02": "8_SPECIFIED_NOT_EXECUTED",
+  "originalM11OwnerQuestionsOpen": 86,
+  "schemaCandidate": "iris-h03-untrusted-reply-draft-v0",
+  "allowedLocalFormattingStatuses": [
+    "MISSING_FIELDS_NOT_REVIEWABLE",
+    "PARTIAL_DRAFT_FORMAT_ONLY",
+    "COMPLETE_DRAFT_FORMAT_ONLY"
+  ],
+  "malformedStatus": "REJECTED_UNTRUSTED_DRAFT",
+  "foreverUnverifiedFields": [
+    "claimedSourceWasFetched",
+    "claimedOwnerAuthenticated",
+    "claimedReviewIndependentlyVerified",
+    "otherOwnerSignaturesVerified",
+    "realNegativeTestsExecuted",
+    "actualApprovedContract",
+    "permissionToPlacePublishUseOsOrExecute"
+  ],
+  "mandatoryWarnings": [
+    "OWNER_IDENTITY_NOT_AUTHENTICATED",
+    "SOURCE_COMMIT_AND_PATH_NOT_FETCHED",
+    "INDEPENDENT_REVIEW_NOT_VERIFIED",
+    "CROSS_OWNER_APPROVAL_NOT_PROVEN",
+    "FUTURE_NEGATIVE_TESTS_NOT_EXECUTED",
+    "H01_H02_H03_H04_STILL_OPEN_HIGH",
+    "NO_GRANT_NO_RUNTIME_NO_PUBLICATION_NO_OS_RIGHTS"
+  ],
+  "intendedTestCoverage": "30_LOCAL_SYNTHETIC_INPUT_AND_ADVERSARIAL_MUTATION_TESTS_NOT_FUTURE_H03_RUNTIME_NEGATIVE_EXECUTION",
+  "baselineSuite": 4260,
+  "expectedSuite": 4290,
+  "liveRouteSnapshotNote": "2026-09-27_INITIAL_ISSUES_UNASSIGNED_NO_FUTURE_LIVE_CI_QUERY",
+  "observedGithubIssues": [
+    82,
+    110,
+    112,
+    128,
+    145,
+    146,
+    147
+  ],
+  "H01": "OPEN_OWNER_EVIDENCE_REQUIRED",
+  "H02": "OPEN_M09_OWNER_ATOMICITY_DECISION",
+  "H03": "OPEN_FUTURE_OWNER_CONTRACTS",
+  "H04": "OPEN_CROSS_OWNER_DISPOSITION",
+  "allSeverity": "HIGH_FOR_FUTURE_FREEZE",
+  "ownerRatification": "B_FUTURE_OWNER_RECEIPT_DOCUMENTARY_DIRECTION_ONLY",
+  "ownerRatificationComment": "https://github.com/KayzenRoot/iris/issues/110#issuecomment-5857665032",
+  "M09": "m09-contract-v1.0_FROZEN_UNCHANGED",
+  "M09C01": "UNADOPTED_NOT_FROZEN",
+  "M11": "v0.2_NOT_FROZEN",
+  "M12": "v0.1_PROPOSED_NOT_FROZEN",
+  "M54M58M60": "INDEX_ONLY_NO_APPROVED_OWNER_CONTRACTS",
+  "M10M11M12runtime": "NOT_ADMITTED",
+  "OSGPUProcessNetworkCloud": "DISABLED",
+  "stop": "No local draft formatting status is approval, attestation, actual source verification, security owner review, cross-owner consensus, case execution, freeze, positive grant, public API or OS permission. No genuine owner response yet; leave all H01–H04 HIGH gates OPEN. Any actual owner claim needs a new source-locked review and qualified verification."
+}
