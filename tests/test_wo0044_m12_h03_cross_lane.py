@@ -92,7 +92,7 @@ class WO0044M12H03CrossLaneTests(unittest.TestCase):
     def test_11_h03_extra_shared_owner_assignment_fails_closed(self):
         h03 = deepcopy(self.h03)
         h03["sourceOwners"][3]["questions"][0] = deepcopy(
-            h03["sourceOwners"][1]["questions"][0])
+            h03["sourceOwners"][1]["questions"][1])
         with self.assertRaises(CrossLaneIntegrityError):
             self.audit(h03=h03)
 
