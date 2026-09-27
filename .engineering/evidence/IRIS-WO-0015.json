@@ -1654,9 +1654,9 @@
     "baseTreeSha": "be410381b1e940aa906ebceb7ba89520353a52e5",
     "contextLock": {
       "path": ".engineering/context-locks/IRIS-WO-0015-M11-FORWARD-COMPATIBILITY-SCAN.json",
-      "expected": 88,
-      "checked": 88,
-      "matched": 88,
+      "expected": 89,
+      "checked": 89,
+      "matched": 89,
       "missing": 0,
       "duplicates": 0,
       "rebasedPriorHashes": 9
@@ -1726,6 +1726,19 @@
       "m12ToM60Contracts": "PENDING",
       "runtimeOrPolicySelected": false,
       "nextBoundary": "Stop after exact-head Governance PASS and PR OPEN/UNMERGED"
-    }
+    },
+    "auditCorrections": [
+      {
+        "id": "FCS-AUDIT-01",
+        "action": "CORRECTED_CANONICAL_SOURCE_PATHS",
+        "count": 3
+      },
+      {
+        "id": "FCS-AUDIT-02",
+        "action": "ADDED_OMITTED_S05_RESEARCH_TO_EXACT_BASE_CONTEXT_LOCK",
+        "path": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
+        "baseBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392"
+      }
+    ]
   }
 }
