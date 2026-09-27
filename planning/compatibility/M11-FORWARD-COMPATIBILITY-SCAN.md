@@ -1,6 +1,6 @@
 # M11 Forward Compatibility Scan
 
-Status: **PROPOSAL — complete for this planning increment; not merged or frozen**
+Status: **MERGED_EXACT_MAIN_VALIDATED — pending separate canonical checkpoint closeout; M11 NOT_FROZEN**
 
 ## 1. Scope and binding
 
@@ -136,3 +136,10 @@ Disposition vocabulary: `COMPATIBLE_WITH_BOUNDARY`, `CONDITIONAL`, `CONFLICT`, `
 ## 7. Gate and stop boundary
 
 The scan proposal is complete when the 89/89 lock, 30/30 source inventory, 49/49 module matrix, evidence/checkpoint mirrors and required local validations agree. Submit one PR to `main` with the ten-path allowlist and `Refs #82`. Require Governance on the exact PR head, including exact-checkout assertion, validator, pinned GEF/HIVE bridges and the 3,940-test baseline. Stop only after that exact-head Governance is PASS and the PR is verified OPEN and UNMERGED. No owner-contract candidate, independent audit, freeze, implementation, runtime/process/IPC action, resource mutation or issue closure is part of this increment.
+
+## 8. Independent scan audit, merge and exact-main receipts
+
+- Bounded chat audit of PR #99 found and corrected three nonexistent canonical source paths and a missing S05 research fingerprint. Corrected exact-base lock: **89/89**; verified source matrix: **30/30** and future-owner matrix: **49/49 INDEX_ONLY / PENDING_OWNER_CONTRACT**.
+- Corrected exact PR head `9571b24b0a22c1d48e5ccf48d8cb1e9fda31c164` passed Governance run `36285058612`, job `108524110396`, including exact checkout, repository validator, pinned GEF/HIVE bridges and 3,940/3,940 tests (16.525s). Review verdict APPROVED for the bounded scan; no formal separate human/GitHub approval asserted.
+- Protected squash merge `019de28b59db4b1b1dc39bd76780f331a655ccca` passed exact-main Governance #433, run `36285123475`, job `108524313508`, on tree `9d0dd1f3198609a225ffd00d20deb66e6f07d7e7` with 3,940/3,940 tests (16.437s).
+- The separate checkpoint closeout binds 92 exact-main critical sources. The scan becomes canonical COMPLETE_FOR_MODULE_PLANNING only when the closeout passes its own independent review, exact-head Governance, protected merge and exact-main Governance. Until then no owner-contract candidate starts. Missing M12-M60 owner semantics remain pending and unrated. Issue #82 remains OPEN, M11 NOT_FROZEN, M11/M10 implementation NOT_ADMITTED.

@@ -51,3 +51,7 @@ Planning and evidence only. No freeze, M11/M10 implementation admission, technol
 ## Required stop conditions
 
 Stop if the authoritative base or any required gate is inconsistent, the exact path set/fingerprints fail, a source conflict changes the bounded scope, the PR head differs from the Governance head, required bridges/tests fail, or the PR is not open and unmerged. Report observed evidence without inventing a workaround or completion claim.
+
+## Historical executor gate fulfilled; audited post-merge transition
+
+The prior stop requirement to leave the executor's PR OPEN/UNMERGED was met. Subsequent independent chat review corrected three invalid source paths and the omitted S05 research Context Lock entry in the same PR (89/89). The corrected exact head 9571b24b0a22c1d48e5ccf48d8cb1e9fda31c164 passed Governance run 36285058612 / job 108524110396, 3,940/3,940 tests. Per subsequent user direction to continue and approved review, PR #99 was protected squash-merged as 019de28b59db4b1b1dc39bd76780f331a655ccca and passed exact-main Governance #433 (36285123475 / 108524313508), 3,940/3,940 tests. The separate FCS closeout binds 92/92 sources and is governed independently before starting any versioned owner-contract candidate. M11 NOT_FROZEN; M11/M10 implementation NOT_ADMITTED; Issue #82 OPEN.
