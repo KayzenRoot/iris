@@ -2251,7 +2251,7 @@
     }
   },
   "m11C05OwnerRoutingCorrection": {
-    "status": "PROPOSED_PENDING_EXACT_HEAD_GOVERNANCE_AND_SEPARATE_REVIEW",
+    "status": "VERIFIED_PROTECTED_MERGE_AND_EXACT_MAIN",
     "workOrder": "IRIS-WO-0015",
     "increment": "M11-C05-OWNER-ROUTING-CORRECTION",
     "issue": 82,
@@ -2281,6 +2281,51 @@
     "M10M11Implementation": "NOT_ADMITTED",
     "processActions": "DISABLED",
     "futureContracts": "M12-M60 PENDING_UNRATED",
+    "issue82": "OPEN",
+    "reviewedHeadSha": "c717715a8cc4e2fd36bc6d4e8e3b0a5db1863a4b",
+    "reviewCommentId": 5855012070,
+    "protectedMerge": {
+      "pullRequest": 108,
+      "method": "squash",
+      "sha": "9af145412decfb6083574cf0d890b22b7df04c5c",
+      "result": "MERGED"
+    },
+    "exactHeadGovernance": {
+      "number": 449,
+      "run": 36312357732,
+      "job": 108600620655,
+      "headSha": "c717715a8cc4e2fd36bc6d4e8e3b0a5db1863a4b",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "exactMainGovernance": {
+      "number": 450,
+      "run": 36312414947,
+      "job": 108600777464,
+      "headSha": "9af145412decfb6083574cf0d890b22b7df04c5c",
+      "treeSha": "615977775536694e4530cab526db0f8a3e576a57",
+      "result": "PASS",
+      "tests": "3940/3940"
+    },
+    "routingNote": "MINIMUM_NON_EXHAUSTIVE_NOT_OWNER_ACCEPTED"
+  },
+  "m11C06S03U08ResourceStatus": {
+    "status": "PROPOSED_DOCUMENT_ONLY_PENDING_EXACT_HEAD_REVIEW",
+    "workOrder": "IRIS-WO-0015",
+    "increment": "M11-C06-S03-U08-RESOURCE-STATUS",
+    "issue": 82,
+    "baseSha": "9af145412decfb6083574cf0d890b22b7df04c5c",
+    "baseTreeSha": "615977775536694e4530cab526db0f8a3e576a57",
+    "criticalSourceBlobs": "50/50 MATCHED",
+    "changedPaths": "9 AUTHORIZED",
+    "originalQuestion": "S03-U08 OPEN UNRATED",
+    "candidateM11": "m11-contract-candidate-v0.2 NOT_FROZEN",
+    "negativeDraftCases": "9/9 DESIGNED_NOT_EXECUTED",
+    "priorPOs": "8/8 NOT_EXECUTED",
+    "futureM09Handoff": "PENDING_OWNER_REVIEW_NO_WIRE_SCHEMA",
+    "futureOwnerContracts": "M12-M60 PENDING_UNRATED",
+    "M10M11Implementation": "NOT_ADMITTED",
+    "processActions": "DISABLED",
     "issue82": "OPEN"
   }
 }

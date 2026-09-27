@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "iris-m11-c06-s03-u08-resource-status-draft-v1",
+  "workOrder": "IRIS-WO-0015",
+  "issue": 82,
+  "baseSha": "9af145412decfb6083574cf0d890b22b7df04c5c",
+  "baseTreeSha": "615977775536694e4530cab526db0f8a3e576a57",
+  "originalQuestion": {
+    "id": "S03-U08",
+    "text": "What caller-visible state is required when resource evidence is unknown, stale, conflicting, denied or unsupported?",
+    "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
+    "status": "OPEN",
+    "risk": "UNRATED",
+    "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933"
+  },
+  "currentCandidate": "m11-contract-candidate-v0.2 PROPOSED_NOT_FROZEN",
+  "proposal": "DOCUMENTATION_ONLY_M11_CALLER_VISIBILITY_DRAFT_REQUIRES_M09_REVIEW",
+  "sourceFacts": {
+    "M09Model": "iris_resource_twin/model.py",
+    "M09Leases": "iris_resource_twin/leases.py",
+    "M09Reconciliation": "iris_resource_twin/twin.py",
+    "M09Authority": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+    "M11Proposal": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md §9.1"
+  },
+  "obligations": [
+    "Never treat sampled metrics or a free process/queue slot as M09 grant",
+    "Bind exact M02 work/plan scope, M09 resource and issuance/freshness/validity references only when owner-approved port exists",
+    "M09 observation Confidence, LeaseState, and owner decision are distinct concepts; this draft does not export those types or assert M09 handoff schema",
+    "M09-defined denied/unsupported/revoked states only projected if explicit owner-verifiable evidence exists",
+    "No M11 lease grant/renew/release/revoke/reclaim, retry, resource fallback, priority or numeric threshold",
+    "No runnable positive path without future owner-issued M12/M54/M60 contracts; process actions DISABLED"
+  ],
+  "proposedMinimalCallerEvidence": [
+    "exact M11 correlation and intended action",
+    "exact opaque M02 accepted work/plan ref if already owner-issued",
+    "exact opaque M09 owner evidence ref and original owner status where present",
+    "bound request/resource/target/scope and capture/freshness/verification outcome, if owner port exists",
+    "M11 draft refusal category and explicit unknown/unsupported/contradictory reason",
+    "no-dispatch indication; no M06 attempt or materialization inference"
+  ],
+  "draftCases": [
+    {
+      "id": "S03U08-01",
+      "input": "No owner-issued M09 evidence/reference or M09-facing port unavailable",
+      "m11DraftDisposition": "INDETERMINATE",
+      "qualifier": "OWNER_EVIDENCE_MISSING",
+      "callerVisible": "Missing owner evidence; no worker admission or resource operation",
+      "prohibition": "no fallback grant or retry"
+    },
+    {
+      "id": "S03U08-02",
+      "input": "Owner M09 observation/reference STALE, invalid freshness or conflicting scopes",
+      "m11DraftDisposition": "STALE_OR_CONFLICTING",
+      "qualifier": "M09_STALE_OR_SCOPE_CONFLICT",
+      "callerVisible": "Evidence stale/conflicting; request new owner proof through owner-defined mechanism only",
+      "prohibition": "M11 cannot renew, revoke or infer fresh state"
+    },
+    {
+      "id": "S03U08-03",
+      "input": "Verified M09 owner decision expressly denies applicable resource claim, if such future M11-facing decision exists",
+      "m11DraftDisposition": "DENIED",
+      "qualifier": "M09_OWNER_DENIAL_IF_VERIFIABLE",
+      "callerVisible": "Owner denied resource proof for this exact request/scope",
+      "prohibition": "No override by M10 recommendation, telemetry, queue or available OS slot"
+    },
+    {
+      "id": "S03U08-04",
+      "input": "M09 owner declares needed evidence or capability UNSUPPORTED, when verifiably stated",
+      "m11DraftDisposition": "UNSUPPORTED",
+      "qualifier": "M09_UNSUPPORTED_IF_VERIFIABLE",
+      "callerVisible": "Required resource proof unsupported; no assumed alternative",
+      "prohibition": "No downgrade or alternate allocation chosen by M11"
+    },
+    {
+      "id": "S03U08-05",
+      "input": "M09 snapshot QUARANTINED or reconciliation CONFLICTED; owner decision or safe handoff absent",
+      "m11DraftDisposition": "INDETERMINATE",
+      "qualifier": "M09_QUARANTINED_DISTINCT_EVIDENCE",
+      "callerVisible": "Quarantined evidence preserved in reason; no positive eligibility",
+      "prohibition": "Do not collapse quarantine into observed success or mutate M09 state"
+    },
+    {
+      "id": "S03U08-06",
+      "input": "M09 observation ESTIMATED or synthetic/derived rather than production-reported owner grant",
+      "m11DraftDisposition": "INDETERMINATE",
+      "qualifier": "NON_AUTHORITATIVE_OBSERVATION",
+      "callerVisible": "Observed/estimated/synthetic material does not prove a resource grant",
+      "prohibition": "No production lease from synthetic or estimated observation"
+    },
+    {
+      "id": "S03U08-07",
+      "input": "M09 grant ref REVOKED, EXPIRED or mismatched current epoch/scope/action",
+      "m11DraftDisposition": "STALE_OR_CONFLICTING",
+      "qualifier": "M09_INVALID_OR_TERMINAL_REFERENCE",
+      "callerVisible": "Reference is no longer applicable; preserve distinct owner state",
+      "prohibition": "No release, renew, revoke or reclaim by M11; owner mapping review pending"
+    },
+    {
+      "id": "S03U08-08",
+      "input": "Evidence for another work/resource/host/action, even if fresh and owner-issued",
+      "m11DraftDisposition": "STALE_OR_CONFLICTING",
+      "qualifier": "EXACT_REQUEST_SCOPE_MISMATCH",
+      "callerVisible": "Proof does not match request/resource/target/action",
+      "prohibition": "Never rebind another grant or infer permission"
+    },
+    {
+      "id": "S03U08-09",
+      "input": "Fresh verified M09-issued applicable grant-state evidence, if future handoff defined",
+      "m11DraftDisposition": "INDETERMINATE",
+      "qualifier": "RESOURCE_EVIDENCE_PRESENT_OTHER_OWNER_GATES_PENDING",
+      "callerVisible": "Resource evidence recorded, but execution preflight remains nonpositive while M12/M54/M60 ports absent",
+      "prohibition": "M09 proof alone never authorizes placement, dispatch, worker startup or process control"
+    }
+  ],
+  "proofPlan": {
+    "status": "DESIGNED_NOT_EXECUTED",
+    "count": 9,
+    "oracle": "All nine examples are no-dispatch; no M09 state mutation; distinguish raw owner evidence from M11 draft projection; test exact request mismatch and synthetic/quarantine cases after owner review",
+    "runtime": "NOT_ADMITTED"
+  },
+  "relatedPOs": [
+    "PO-C02-02",
+    "PO-C02-03"
+  ],
+  "externalOwnerStatus": {
+    "M09": "IMPLEMENTED_CANONICAL_BUT_NO_NEW_M11_HANDOFF_SELECTED",
+    "M12": "PENDING",
+    "M54": "PENDING",
+    "M60": "PENDING"
+  },
+  "questionDisposition": "S03-U08 OPEN_PENDING_M09_OWNER_SOURCE_BACKED_REVIEW",
+  "allOriginalQuestions": "86/86 OPEN_UNRATED",
+  "allPriorPOs": "8/8 NOT_EXECUTED",
+  "processActions": "DISABLED"
+}
