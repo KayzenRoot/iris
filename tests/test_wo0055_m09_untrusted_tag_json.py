@@ -58,10 +58,10 @@ class M09MalformedUntrustedTags(unittest.TestCase):
                     deserialize(self.enum_input(tag).encode("utf-8"))
 
     def test_07_nested_malformed_tags_are_caught_before_record_construction(self):
-        for malformed in ({"$enum": [], "name": "VRAM"},
-                          {"$record": [], "fields": {}}):
+        for malformed, kind in (({"$enum": [], "name": "VRAM"}, "enum"),
+                                ({"$record": [], "fields": {}}, "record")):
             with self.subTest(malformed=malformed):
-                with self.assertRaises(ValueError):
+                with self.assertRaisesRegex(ValueError, f"serialized {kind} tag must be a string"):
                     deserialize(self.mutate_nested_snapshot(malformed))
 
     def test_08_invalid_utf8_bytes_have_typed_value_error(self):

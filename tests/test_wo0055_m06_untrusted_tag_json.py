@@ -92,10 +92,13 @@ class M06MalformedUntrustedTags(unittest.TestCase):
             canonical_deserialize(changed)
 
     def test_09_nested_nonstring_tag_inside_enum_value_is_not_reclassified(self):
-        for malformed in ({"$enum": [], "value": "fake"},
-                          {"$record": [], "fields": {}}):
+        for malformed, kind in (({"$enum": [], "value": "fake"}, "enum"),
+                                ({"$record": [], "fields": {}}, "record")):
             with self.subTest(malformed=malformed):
-                with self.assertRaises(ProductionStateValidationError):
+                with self.assertRaisesRegex(
+                    ProductionStateValidationError,
+                    f"serialized {kind} tag must be a string",
+                ):
                     canonical_deserialize(self.enum_input(malformed, as_value=True))
 
     def test_10_invalid_value_of_registered_enum_is_typed_validation(self):
