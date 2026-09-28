@@ -40,6 +40,7 @@ class WO0062CanonicalCloseoutTests(unittest.TestCase):
         active = self.backlog.split("## ACTIVE SCOPED EXISTING-KERNEL MAINTENANCE, NO NEW AUTHORITY", 1)[1].split("\n## VERIFIED SCOPED", 1)[0]
         verified = self.backlog.split("## VERIFIED SCOPED EXISTING-KERNEL MAINTENANCE, NO NEW AUTHORITY", 1)[1].split("\n## COMPLETED FOUNDATION", 1)[0]
         self.assertIn("None recorded", active)
+        self.assertNotIn("- WO0061", active)
         self.assertIn("WO0061", verified)
         for token in ("PR #180", H, M, "Governance #36450986971", "Governance #36452077561", "4643/4643", "#179", "#5874353354"):
             self.assertIn(token, verified)
