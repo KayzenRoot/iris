@@ -84,7 +84,10 @@ def deserialize_record(
     limits: DNARecordLimits = DEFAULT_LIMITS,
 ) -> CanonicalRecord:
     if isinstance(data, str):
-        encoded = data.encode("utf-8")
+        try:
+            encoded = data.encode("utf-8", errors="strict")
+        except UnicodeEncodeError as error:
+            raise DNAValidationError("M05 JSON transport must be valid UTF-8 text") from error
         source = data
     elif isinstance(data, (bytes, bytearray, memoryview)):
         encoded = bytes(data)

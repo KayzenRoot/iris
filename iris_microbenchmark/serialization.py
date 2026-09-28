@@ -152,7 +152,13 @@ def _decode_node(value: Any, records: dict[str, type], enums: dict[str, type[Enu
 
 
 def decode_document(payload: str | bytes) -> VersionedRecordDocument:
-    raw = payload.encode("utf-8") if isinstance(payload, str) else payload
+    if isinstance(payload, str):
+        try:
+            raw = payload.encode("utf-8", errors="strict")
+        except UnicodeEncodeError as error:
+            raise MicrobenchmarkValidationError("serialized document must be valid UTF-8 text") from error
+    else:
+        raw = payload
     if type(raw) is not bytes:
         raise MicrobenchmarkValidationError("serialized document must be UTF-8 text or bytes")
     DEFAULT_LIMITS.require("max_inline_payload_bytes", len(raw))
