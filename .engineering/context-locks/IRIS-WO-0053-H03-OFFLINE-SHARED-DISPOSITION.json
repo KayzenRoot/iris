@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0053",
+  "increment": "EXISTING_ADMITTED_OFFLINE_H03_CROSS_OWNER_DRAFT_LABEL_MISMATCH_REPORT_ONLY",
+  "issue": 110,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0053-h03-offline-shared-disposition-20260928",
+  "baseRef": "main",
+  "baseSha": "2dfedd8e299befa82042f121c442e8e83242b113",
+  "baseTreeSha": "8e124c250047ec3e64b6a64a3f611dda4c4fc4ec",
+  "status": "PROPOSED_EXACT_HEAD_CI_SCOPED_AUDIT_PROTECTED_MERGE_EXACT_MAIN_PENDING",
+  "risk": "OFFLINE_FORMAT_AND_PRESENTATION_ONLY_ORIGINAL_H01_H04_HIGH_OWNER_GATES_OPEN",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "2dfedd8e299befa82042f121c442e8e83242b113",
+    "baseTreeSha": "8e124c250047ec3e64b6a64a3f611dda4c4fc4ec",
+    "expected": 17,
+    "checked": 17,
+    "matched": 17,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "9abfa4c610c46a4df6f8892f08773e024e7601eb"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "9abfa4c610c46a4df6f8892f08773e024e7601eb"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "1f19526ee98f5496ae8289d6c06058c73cdf89bb"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "e20df22c96288637377b54cf9fef131c91d82996"
+    },
+    {
+      "path": "scripts/triage_m09_h03_untrusted_owner_reply.py",
+      "gitBlobSha1": "c0db4e35b5ef8ec8e8e89942e749a20e3f1afcef"
+    },
+    {
+      "path": "tests/test_wo0041_h03_offline_batch_triage.py",
+      "gitBlobSha1": "466532eda1ad7a54cb5a317b97638ae77bf65a72"
+    },
+    {
+      "path": ".engineering/evidence/M09-H03-FOUR-OWNER-SOURCE-PACKETS.json",
+      "gitBlobSha1": "c82093e393722acb39081e9d76c974d0cddcfd3b"
+    },
+    {
+      "path": ".engineering/evidence/M09-H03-OWNER-REVIEW-ROUTES-E01.json",
+      "gitBlobSha1": "3e95777c7cd10a18881615a60b53d44b25098add"
+    },
+    {
+      "path": "planning/reviews/M09-H03-UNTRUSTED-OWNER-REPLY-TRIAGE-E02.md",
+      "gitBlobSha1": "6ba76f22ca06ec970bc9c38c06e8407b124c374b"
+    },
+    {
+      "path": ".engineering/work-orders/IRIS-WO-0041-H03-OFFLINE-BATCH-TRIAGE.md",
+      "gitBlobSha1": "482252e8133900a1d6523f9b1307b05a51dfec3f"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0053-H03-OFFLINE-SHARED-DISPOSITION.json",
+    ".engineering/evidence/IRIS-WO-0053.json",
+    ".engineering/work-orders/IRIS-WO-0053-H03-OFFLINE-SHARED-DISPOSITION.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0053-H03-OFFLINE-SHARED-DISPOSITION.md",
+    "planning/reviews/M09-H03-UNTRUSTED-OWNER-REPLY-TRIAGE-E02.md",
+    "scripts/triage_m09_h03_untrusted_owner_reply.py",
+    "tests/test_wo0053_h03_shared_disposition_triage.py"
+  ],
+  "stopCondition": "Detect source-known shared H03 untrusted draft enum differences without interpreting approved owner contradiction. All original M12/M54/M58/M60 proof missing, H01-H04 HIGH OPEN, B DIRECTION_ONLY, C01 UNADOPTED; no real hardware/OS/GPU/network/worker/storage/API/runtime permission; own CI/merge cannot substitute real independent owner review."
+}

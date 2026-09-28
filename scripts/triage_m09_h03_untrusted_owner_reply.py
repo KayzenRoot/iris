@@ -239,11 +239,18 @@ def triage_batch(candidates:list[dict[str,Any]],packets:dict[str,Any],
     require(type(candidates) is list and 1<=len(candidates)<=len(MODULE_ISSUES),
             "one to four separate untrusted owner drafts required")
     checked={}
+    proposed_dispositions={}
     for candidate in candidates:
         report=triage(candidate,packets,routes)
         module=report["module"]
         require(module not in checked,"duplicate draft for owner "+module)
         checked[module]=report
+        # These are only untrusted draft labels validated by triage(), NEVER
+        # independently qualified original owner decisions or approvals.
+        proposed_dispositions[module]={
+            row["questionId"]:row["decision"]
+            for row in candidate.get("questionDispositions",[])
+        }
 
     ordered=[checked[m] for m in MODULE_ISSUES if m in checked]
     source_ids={}
@@ -260,14 +267,36 @@ def triage_batch(candidates:list[dict[str,Any]],packets:dict[str,Any],
         if len(owners)>1 and any(
             qid not in submitted.get(owner,set()) for owner in owners)
     ]
+    # Two or more distinct *untrusted draft labels* for the SAME original
+    # shared question need explicit human cross-owner reconciliation. A matching
+    # label, or a difference in free-text rationale, proves no owner agreement.
+    # Missing co-owner drafts remain separately visible in shared_gaps.
+    mismatches=[]
+    for qid, owners in sorted(source_ids.items()):
+        if len(owners)<2:
+            continue
+        claims={module:proposed_dispositions[module][qid]
+                for module in sorted(owners)
+                if qid in proposed_dispositions.get(module,{})}
+        if len(claims)>1 and len(set(claims.values()))>1:
+            mismatches.append({
+                "questionId":qid,
+                "untrustedDraftDispositions":claims,
+                "otherRequiredOwnerDraftsAbsent":sorted(
+                    module for module in owners if module not in claims),
+                "interpretation":"DRAFT_LABEL_MISMATCH_REQUIRES_INDEPENDENT_REVIEW",
+            })
     all_four=len(checked)==len(MODULE_ISSUES)
     all_formatted=all_four and all(
         report["formatStatus"]=="COMPLETE_DRAFT_FORMAT_ONLY"
         for report in ordered)
     return {
         "schemaVersion":"iris-h03-offline-four-owner-batch-v0",
-        "batchFormatStatus":("FOUR_OWNER_DRAFTS_COMPLETE_FORMAT_ONLY"
-                             if all_formatted else "INCOMPLETE_DRAFT_BATCH_FORMAT_ONLY"),
+        "batchFormatStatus":(
+            "FOUR_OWNER_DRAFTS_DISPOSITION_MISMATCH_FORMAT_ONLY"
+            if all_formatted and mismatches else
+            "FOUR_OWNER_DRAFTS_COMPLETE_FORMAT_ONLY"
+            if all_formatted else "INCOMPLETE_DRAFT_BATCH_FORMAT_ONLY"),
         "drafts":ordered,
         "receivedDraftModules":[m for m in MODULE_ISSUES if m in checked],
         "missingDraftModules":[m for m in MODULE_ISSUES if m not in checked],
@@ -275,6 +304,9 @@ def triage_batch(candidates:list[dict[str,Any]],packets:dict[str,Any],
                                              for x in routes["routes"]),
         "uniqueOriginalSourceQuestionCount":len(source_ids),
         "sharedQuestionsMissingOneOrMoreDraftDispositions":shared_gaps,
+        "sharedQuestionDispositionMismatches":mismatches,
+        "sharedQuestionDispositionMismatchCount":len(mismatches),
+        "syntacticAgreementIsOwnerApproval":False,
         "allFourDraftsPresent":all_four,
         "allFourDraftsCompleteFormatOnly":all_formatted,
         "actualOwnerApprovals":0,
@@ -286,7 +318,9 @@ def triage_batch(candidates:list[dict[str,Any]],packets:dict[str,Any],
         "actualApprovedContract":False,
         "permissionToPlacePublishUseOsOrExecute":False,
         "h01h02h03h04":"ALL_OPEN_HIGH_FOR_FUTURE_FREEZE",
-        "mandatoryWarnings":list(ALWAYS_PENDING),
+        "mandatoryWarnings":list(ALWAYS_PENDING)+(
+            ["UNTRUSTED_CROSS_OWNER_DRAFT_LABEL_MISMATCH_NOT_REAL_OWNER_DECISION"]
+            if mismatches else []),
     }
 
 
