@@ -91,7 +91,7 @@ class WO0063RealGitManifestTests(unittest.TestCase):
     def git(self, root, *args):
         return subprocess.check_output(["git", *args], cwd=root, text=True).strip()
 
-    def make_repo(self, root, *, omit=(), forge=False, wrong_anchor=False):
+    def make_repo(self, root, *, omit=(), forge=False, wrong_anchor=False, weaker_older_anchor=False):
         self.git(root, "init", "-q")
         self.git(root, "config", "user.email", "ci@example.invalid")
         self.git(root, "config", "user.name", "CI Fixture")
@@ -104,12 +104,22 @@ class WO0063RealGitManifestTests(unittest.TestCase):
                          for path in source_paths]
         anchor_file = root / ANCHOR
         anchor_file.parent.mkdir(parents=True, exist_ok=True)
+        older_rows = ([row for row in original_rows if row["path"] != EXTRA]
+                      if weaker_older_anchor else original_rows)
         anchor_file.write_text(json.dumps({
             "schemaVersion": "iris-context-lock-v1",
-            "criticalSources": original_rows,
-            "sourceSnapshot": {"expected": len(original_rows),
-                               "checked": len(original_rows), "matched": len(original_rows)}
+            "criticalSources": older_rows,
+            "sourceSnapshot": {"expected": len(older_rows),
+                               "checked": len(older_rows), "matched": len(older_rows)}
         }), encoding="utf-8")
+        if weaker_older_anchor:
+            newer = root / ".engineering/context-locks/IRIS-WO-0001.json"
+            newer.write_text(json.dumps({
+                "schemaVersion": "iris-context-lock-v1",
+                "criticalSources": original_rows,
+                "sourceSnapshot": {"expected": len(original_rows),
+                                   "checked": len(original_rows), "matched": len(original_rows)}
+            }), encoding="utf-8")
         self.git(root, "add", "-A")
         self.git(root, "commit", "-q", "-m", "trusted-base")
         base, tree = self.git(root, "rev-parse", "HEAD"), self.git(root, "rev-parse", "HEAD^{tree}")
@@ -168,6 +178,13 @@ class WO0063RealGitManifestTests(unittest.TestCase):
             root = Path(tmp)
             base, head = self.make_repo(root, wrong_anchor=True)
             with self.assertRaisesRegex(ContextLockError, "anchor blob mismatch"):
+                verify_current_pr(root, base_sha=base, head_sha=head)
+
+    def test_12_older_weaker_anchor_cannot_omit_latest_original_optional_source(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            base, head = self.make_repo(root, omit={EXTRA}, weaker_older_anchor=True)
+            with self.assertRaisesRegex(ContextLockError, "not the latest original-base Context Lock"):
                 verify_current_pr(root, base_sha=base, head_sha=head)
 
 

@@ -45,6 +45,23 @@ def check_sha(value: object, label: str) -> str:
     return value
 
 
+def latest_original_base_lock_path(base_blobs: dict[str, str]) -> str:
+    """Find the single newest numbered original Context Lock in the trusted base."""
+    candidates: list[tuple[int, str]] = []
+    for path in base_blobs:
+        if not path.startswith(LOCK_PREFIX):
+            continue
+        name = path[len(LOCK_PREFIX):]
+        match = re.fullmatch(r"IRIS-WO-(\d+)(?:-[A-Za-z0-9][A-Za-z0-9-]*)?\.json", name)
+        if match is not None:
+            candidates.append((int(match.group(1)), path))
+    require(bool(candidates), "missing numbered original-base Context Lock")
+    latest_number = max(number for number, _ in candidates)
+    latest = sorted(path for number, path in candidates if number == latest_number)
+    require(len(latest) == 1, f"ambiguous latest original-base Context Lock: {latest}")
+    return latest[0]
+
+
 def verify_lock(
     lock: dict[str, object], *,
     base_sha: str,
@@ -89,6 +106,8 @@ def verify_lock(
                 and anchor_path != lock_path, "invalid base Context Lock anchor path")
         require(base_blobs.get(anchor_path) == check_sha(anchor["gitBlobSha1"], "anchor gitBlobSha1"),
                 "source manifest anchor blob mismatch or absent at original base")
+        require(anchor_path == latest_original_base_lock_path(base_blobs),
+                "anchor is not the latest original-base Context Lock")
         require(anchor_path in source_paths, "source manifest anchor itself must be pinned")
         require(isinstance(inherited_source_paths, set) and bool(inherited_source_paths),
                 "missing trusted original-base source manifest")
@@ -214,6 +233,8 @@ def verify_current_pr(
                     and anchor_path != lock_path, "invalid base Context Lock anchor path")
             require(base_blobs.get(anchor_path) == check_sha(anchor["gitBlobSha1"], "anchor gitBlobSha1"),
                     "source manifest anchor blob mismatch or absent at original base")
+            require(anchor_path == latest_original_base_lock_path(base_blobs),
+                    "anchor is not the latest original-base Context Lock")
             original_payload = git(repo, "show", f"{base_sha}:{anchor_path}")
             try:
                 original_anchor = json.loads(
