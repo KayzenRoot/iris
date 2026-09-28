@@ -97,5 +97,31 @@ class M07UntrustedTagTypeTests(unittest.TestCase):
             canonical_deserialize(altered)
 
 
+    def test_11_nested_nonstring_tag_preserves_typed_validation(self):
+        # A registered enum may contain a malformed nested tagged object.
+        # Its outer enum constructor must not swallow the nested M07 error.
+        for malformed in (
+            {"$record": [], "fields": {}},
+            {"$enum": [], "value": "fake"},
+        ):
+            with self.subTest(malformed=malformed):
+                envelope = json.loads(canonical_serialize(genome()))
+
+                def replace_first_enum_value(node):
+                    if isinstance(node, dict):
+                        if set(node) == {"$enum", "value"}:
+                            node["value"] = malformed
+                            return True
+                        return any(replace_first_enum_value(v)
+                                   for v in node.values())
+                    if isinstance(node, list):
+                        return any(replace_first_enum_value(v) for v in node)
+                    return False
+
+                self.assertTrue(replace_first_enum_value(envelope))
+                with self.assertRaises(HardwareGenomeValidationError):
+                    canonical_deserialize(json.dumps(envelope))
+
+
 if __name__ == "__main__":
     unittest.main()

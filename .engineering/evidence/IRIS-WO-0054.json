@@ -30,8 +30,8 @@
     "changedPaths": 11
   },
   "ownScope": "EXISTING_M07_STATIC_JSON_NONSTRING_CLOSED_TAG_TYPED_ERROR_ONLY",
-  "newLocalOfflineTests": 10,
-  "fullSuiteExpected": 4553,
+  "newLocalOfflineTests": 11,
+  "fullSuiteExpected": 4554,
   "contractOrSchemaChanged": false,
   "hiveMcp": "UNAVAILABLE_CURRENT_EXECUTION_ENVIRONMENT",
   "realOsGpuProbeExecuted": false,

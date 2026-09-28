@@ -180,8 +180,12 @@ def _decode(value: Any, records: dict[str, type], enums: dict[str, type], *, dep
         cls = enums.get(tag)
         if cls is None:
             raise HardwareGenomeAdmissionError(f"unknown or forbidden M07 enum tag {tag!r}")
+        # Decode the untrusted nested tag OUTSIDE the enum-constructor guard:
+        # HardwareGenomeValidationError subclasses ValueError and must not be
+        # reclassified as an unknown (but otherwise well-formed) enum value.
+        decoded_value = _decode(value["value"], records, enums, depth=depth + 1, limits=limits)
         try:
-            return cls(_decode(value["value"], records, enums, depth=depth + 1, limits=limits))
+            return cls(decoded_value)
         except ValueError as error:
             raise HardwareGenomeAdmissionError("serialized M07 enum value is unknown") from error
     if set(value) == {"$record", "fields"}:
