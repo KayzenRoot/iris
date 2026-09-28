@@ -264,6 +264,16 @@ def dumps(value: Any) -> str:
     return canonical_json(serialize(value))
 
 
+def _reject_duplicate_object_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    """Untrusted text must not hide two values behind one canonical digest key."""
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise SchemaValidationError(f"duplicate JSON object key {key!r} is forbidden")
+        result[key] = value
+    return result
+
+
 def loads(text: Any) -> Record:
     """Parse text into a record, refusing anything that is not an M03 envelope.
 
@@ -275,7 +285,9 @@ def loads(text: Any) -> Record:
     if not isinstance(text, str):
         raise SchemaValidationError(f"loads expects a string, got {type(text).__name__}")
     try:
-        document = json.loads(text)
+        document = json.loads(text, object_pairs_hook=_reject_duplicate_object_keys)
+    except SchemaValidationError:
+        raise
     except json.JSONDecodeError as error:
         raise SchemaValidationError(f"transport text is not JSON: {error}") from error
     if not isinstance(document, Mapping):
