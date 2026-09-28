@@ -23,8 +23,8 @@
     "scripts/verify_context_lock.py",
     "tests/test_wo0063_source_manifest_anchor.py"
   ],
-  "newOfflineManifestTests": 11,
-  "fullSuiteExpected": 4660,
+  "newOfflineManifestTests": 12,
+  "fullSuiteExpected": 4661,
   "previousActuallyGreen": {
     "workOrder": "IRIS-WO-0062",
     "pr": 181,
@@ -56,6 +56,19 @@
     "actualFullSuite": "Ran 4660 tests, FAILED failures=1",
     "observed": "Only pre-existing WO0062 backlog consistency regression failed because new WO0063 active record replaced the literal prior `None recorded` phrase; all 11 newly added manifest-anchor tests and all other historical tests passed. Not a verifier or auth source failure.",
     "sameWOFix": "Keep new WO0063 active backlog truthful and add separate narrative `None recorded for completed WO0061 as an active maintenance item` to preserve original WO0062 historical guard without falsely declaring no current active work. No source verifier/runtime/contracts/tests changed.",
-    "ownRevalidatedExactHead": "PENDING"
+    "ownRevalidatedExactHead": "PENDING",
+    "greptileIndependentP1P2": {
+      "sourceHead": "5fe830c12388e280d3b40c5d0e8915bd65eef868",
+      "threads": [
+        "PRRT_kwDOUilwXs6m2jo-",
+        "PRRT_kwDOUilwXs6m2jpK"
+      ],
+      "originalFinding": "The selected sourceManifestAnchor could point to an older weaker original base lock (e.g. WO0060 16 pins instead of latest WO0062 22), dropping newest optional sources while adjusting counters; the original eleven new tests used only a single previous manifest.",
+      "classification": "VALID_CHAT_FIXABLE",
+      "samePRFix": "Require sourceManifestAnchor to match the UNIQUE largest numbered original Context Lock from immutable original exact Git base. Fail closed on older, missing or ambiguous largest-number predecessor. Add real-Git two-predecessor negative regression with valid older weaker and newer stronger original manifests, selecting older and omitting newest optional pin. No historical owner contract, prior lock or frozen runtime code edited.",
+      "ownCorrectedHeadCI": "PENDING",
+      "reviewThreadResolution": "PENDING",
+      "newExactHeadExternalReviews": "PENDING"
+    }
   }
 }

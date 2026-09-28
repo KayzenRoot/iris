@@ -3,7 +3,7 @@
 Status: `M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED`
 
 ## ACTIVE SCOPED EXISTING-KERNEL MAINTENANCE, NO NEW AUTHORITY
-- WO0063 [scoped #182](https://github.com/KayzenRoot/iris/issues/182): PROPOSED ONLY. Optional original Git-base sourceManifestAnchor in Context Lock verifier prevents inherited optional critical-source omissions/substitutions; source 25/25 includes WO0062 22/22 original source identities, strict 10-path allowlist, 11 new deterministic offline tests target 4660 full tests. Exact-head CI/review/protected merge/exact-main PENDING AT AUTHORING; previous WO0062 and WO0061 protected results historically VERIFIED, original eight owner issues H01–H04 and runtime STOP unchanged.
+- WO0063 [scoped #182](https://github.com/KayzenRoot/iris/issues/182): PROPOSED ONLY. Optional original Git-base sourceManifestAnchor in Context Lock verifier prevents inherited optional critical-source omissions/substitutions; source 25/25 includes WO0062 22/22 original source identities, strict 10-path allowlist, 12 new deterministic offline tests target 4661 full tests. Exact-head CI/review/protected merge/exact-main PENDING AT AUTHORING; previous WO0062 and WO0061 protected results historically VERIFIED, original eight owner issues H01–H04 and runtime STOP unchanged.
 None recorded for completed WO0061 as an active maintenance item; it remains VERIFIED in the dedicated section below.
 
 ## VERIFIED SCOPED EXISTING-KERNEL MAINTENANCE, NO NEW AUTHORITY
