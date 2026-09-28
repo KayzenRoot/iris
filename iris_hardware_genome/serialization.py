@@ -174,17 +174,27 @@ def _decode(value: Any, records: dict[str, type], enums: dict[str, type], *, dep
     if type(value) is not dict:
         raise HardwareGenomeValidationError("serialized M07 values must be primitives or tagged objects")
     if set(value) == {"$enum", "value"}:
-        cls = enums.get(value["$enum"])
+        tag = value["$enum"]
+        if type(tag) is not str:
+            raise HardwareGenomeValidationError("serialized M07 enum tag must be a string")
+        cls = enums.get(tag)
         if cls is None:
-            raise HardwareGenomeAdmissionError(f"unknown or forbidden M07 enum tag {value['$enum']!r}")
+            raise HardwareGenomeAdmissionError(f"unknown or forbidden M07 enum tag {tag!r}")
+        # Decode the untrusted nested tag OUTSIDE the enum-constructor guard:
+        # HardwareGenomeValidationError subclasses ValueError and must not be
+        # reclassified as an unknown (but otherwise well-formed) enum value.
+        decoded_value = _decode(value["value"], records, enums, depth=depth + 1, limits=limits)
         try:
-            return cls(_decode(value["value"], records, enums, depth=depth + 1, limits=limits))
+            return cls(decoded_value)
         except ValueError as error:
             raise HardwareGenomeAdmissionError("serialized M07 enum value is unknown") from error
     if set(value) == {"$record", "fields"}:
-        cls = records.get(value["$record"])
+        tag = value["$record"]
+        if type(tag) is not str:
+            raise HardwareGenomeValidationError("serialized M07 record tag must be a string")
+        cls = records.get(tag)
         if cls is None:
-            raise HardwareGenomeAdmissionError(f"unknown or forbidden M07 record tag {value['$record']!r}")
+            raise HardwareGenomeAdmissionError(f"unknown or forbidden M07 record tag {tag!r}")
         payload = value["fields"]
         if type(payload) is not dict:
             raise HardwareGenomeValidationError("serialized M07 record fields must be an object")
