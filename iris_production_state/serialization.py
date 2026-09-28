@@ -87,7 +87,11 @@ def canonical_deserialize(data: bytes | str, *, limits: ProductionStateLimits = 
             raise ProductionStateValidationError("serialized document must be valid UTF-8") from error
     elif type(data) is str:
         source = data
-        if len(source.encode("utf-8")) > limits.max_inline_payload_bytes:
+        try:
+            source_bytes = source.encode("utf-8", errors="strict")
+        except UnicodeEncodeError as error:
+            raise ProductionStateValidationError("serialized document must be valid UTF-8 text") from error
+        if len(source_bytes) > limits.max_inline_payload_bytes:
             raise ProductionStateLimitError("serialized document exceeds configured byte limit")
     else:
         raise ProductionStateValidationError("serialized document must be exact bytes or text")

@@ -33,8 +33,8 @@
     "originalIssue165State": "CLOSED_COMPLETED"
   },
   "ownScope": "EXISTING_M06_M09_PURE_OFFLINE_UNTRUSTED_JSON_TYPED_ERRORS_ONLY",
-  "newLocalOfflineTests": 20,
-  "fullSuiteExpected": 4574,
+  "newLocalOfflineTests": 22,
+  "fullSuiteExpected": 4576,
   "frozenContractOrSchemaChanged": false,
   "hiveMcp": "UNAVAILABLE_CURRENT_EXECUTION_ENVIRONMENT",
   "actualIndependentOriginalOwnerApproval": false,

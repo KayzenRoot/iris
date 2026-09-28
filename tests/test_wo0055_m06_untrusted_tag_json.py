@@ -103,5 +103,10 @@ class M06MalformedUntrustedTags(unittest.TestCase):
             canonical_deserialize(self.enum_input("WO0055-INVALID-ENUM-VALUE", as_value=True))
 
 
+    def test_11_unpaired_surrogate_in_text_is_typed_validation(self):
+        with self.assertRaisesRegex(ProductionStateValidationError, "valid UTF-8"):
+            canonical_deserialize("\\ud800")
+
+
 if __name__ == "__main__":
     unittest.main()

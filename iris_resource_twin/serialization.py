@@ -47,7 +47,11 @@ def deserialize(payload: str | bytes, *, limits: M09Limits = DEFAULT_LIMITS) -> 
             raise ValueError("serialized payload must be valid UTF-8") from error
     if type(payload) is not str:
         raise ValueError("serialized payload must be bounded UTF-8 text")
-    if len(payload.encode("utf-8")) > limits.max_payload_bytes:
+    try:
+        payload_bytes = payload.encode("utf-8", errors="strict")
+    except UnicodeEncodeError as error:
+        raise ValueError("serialized payload must be valid UTF-8 text") from error
+    if len(payload_bytes) > limits.max_payload_bytes:
         raise ValueError("serialized payload exceeds maximum byte length")
 
     def no_duplicate_keys(items: list[tuple[str, Any]]) -> dict[str, Any]:

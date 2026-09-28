@@ -83,5 +83,10 @@ class M09MalformedUntrustedTags(unittest.TestCase):
         self.assertEqual(round_trip(source), source)
 
 
+    def test_11_unpaired_surrogate_in_text_is_typed_value_error(self):
+        with self.assertRaisesRegex(ValueError, "valid UTF-8"):
+            deserialize("\\ud800")
+
+
 if __name__ == "__main__":
     unittest.main()
