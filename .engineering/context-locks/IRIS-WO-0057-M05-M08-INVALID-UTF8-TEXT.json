@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0057",
+  "issue": 171,
+  "increment": "EXISTING_FROZEN_M05_M08_OFFLINE_NONENCODABLE_UNICODE_STRING_INPUT_TYPED_FAIL_CLOSED_ONLY",
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0057-m05-m08-invalid-utf8-text-20260928",
+  "baseRef": "main",
+  "baseSha": "dd8196cb989a02bbacb6dc7b2683244f786cbf25",
+  "baseTreeSha": "cf171e60d2ab09f5363a0e98268e100a34f7cd63",
+  "status": "PROPOSED_OWN_EXACT_HEAD_CI_EXTERNAL_REVIEW_PROTECTED_MERGE_INDEPENDENT_MAIN_PENDING",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "dd8196cb989a02bbacb6dc7b2683244f786cbf25",
+    "baseTreeSha": "cf171e60d2ab09f5363a0e98268e100a34f7cd63",
+    "expected": 28,
+    "checked": 28,
+    "matched": 28,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "cd74dd53394ccf9679a0075cc427756a12765656"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "cd74dd53394ccf9679a0075cc427756a12765656"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "b39c4cde3aac3c4452d2c70d5379bcaa5fb045e0"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "50e5b1805bd9c954cc9b3e76be0ba339bcbbddfe"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "planning/modules/M05-ASSET-DNA-CROSS-MODAL-IDENTITY.md",
+      "gitBlobSha1": "22160605cd8f8d90b18418b316653adcd4d9b30e"
+    },
+    {
+      "path": "planning/modules/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "804387a28c318fc82f53e51651f279d76895095c"
+    },
+    {
+      "path": "iris_asset_dna/serialization.py",
+      "gitBlobSha1": "81149b51f88008055ac35ca879477922b91ec4b0"
+    },
+    {
+      "path": "iris_microbenchmark/serialization.py",
+      "gitBlobSha1": "d6782dc7615e0d8e57a34216eed4e06017656907"
+    },
+    {
+      "path": "iris_asset_dna/errors.py",
+      "gitBlobSha1": "870f71ca4509cfe98dd2b9047d2ed1140932f2ad"
+    },
+    {
+      "path": "iris_microbenchmark/errors.py",
+      "gitBlobSha1": "59260dcec44fe34e70787369d5f65e02948cc2e1"
+    },
+    {
+      "path": "tests/test_m05_serialization_security.py",
+      "gitBlobSha1": "17ae6618ea182cd4ca9218ebd89a96e0ea6c2d1d"
+    },
+    {
+      "path": "tests/test_m08_schema_migration.py",
+      "gitBlobSha1": "3371e0140e6b8e73a2e455abd285ee12743ab497"
+    },
+    {
+      "path": "tests/m05_support.py",
+      "gitBlobSha1": "2944213e9a6d49c49c9e026a4f3e2c715146654c"
+    },
+    {
+      "path": "tests/m08_support.py",
+      "gitBlobSha1": "94b80bb924fc6543a4106d6a65551e90dcb121bf"
+    },
+    {
+      "path": "iris_asset_dna/versions.py",
+      "gitBlobSha1": "338a4b4535cce0e6646f01166f1445afa2f703a7"
+    },
+    {
+      "path": "iris_microbenchmark/versions.py",
+      "gitBlobSha1": "6f82ca6cb9f74474aedc9e97964c137c9ecdf8fe"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0056-M01-M03-DUPLICATE-JSON-KEYS.json",
+      "gitBlobSha1": "6b064e9038dc6fe16e2bfba0e6041b03231d08bd"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0056.json",
+      "gitBlobSha1": "b4cca70a04798b8c8bead38f379c3188ce8301bd"
+    },
+    {
+      "path": "iris_microbenchmark/schema.py",
+      "gitBlobSha1": "a02375ecbfa2e58fcc4c1910f32dd741309739b1"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0057-M05-M08-INVALID-UTF8-TEXT.json",
+    ".engineering/evidence/IRIS-WO-0057.json",
+    ".engineering/work-orders/IRIS-WO-0057-M05-M08-INVALID-UTF8-TEXT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "iris_asset_dna/serialization.py",
+    "iris_microbenchmark/serialization.py",
+    "planning/checkpoints/IRIS-WO-0057-M05-M08-INVALID-UTF8-TEXT.md",
+    "tests/test_wo0057_m05_invalid_utf8_text.py",
+    "tests/test_wo0057_m08_invalid_utf8_text.py"
+  ],
+  "stopCondition": "Only original existing offline M05/M08 reader text input UnicodeEncodeError becomes existing typed module validation errors, preserve original valid canonical text/bytes and duplicate keys/security; no schema/authority/OS/GPU/network/M08 empirical measurement or original H01-H04 owner gate."
+}
