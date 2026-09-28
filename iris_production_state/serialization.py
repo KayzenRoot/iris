@@ -87,7 +87,11 @@ def canonical_deserialize(data: bytes | str, *, limits: ProductionStateLimits = 
             raise ProductionStateValidationError("serialized document must be valid UTF-8") from error
     elif type(data) is str:
         source = data
-        if len(source.encode("utf-8")) > limits.max_inline_payload_bytes:
+        try:
+            source_bytes = source.encode("utf-8", errors="strict")
+        except UnicodeEncodeError as error:
+            raise ProductionStateValidationError("serialized document must be valid UTF-8 text") from error
+        if len(source_bytes) > limits.max_inline_payload_bytes:
             raise ProductionStateLimitError("serialized document exceeds configured byte limit")
     else:
         raise ProductionStateValidationError("serialized document must be exact bytes or text")
@@ -183,14 +187,24 @@ def _decode(value: Any, records: dict[str, type], enums: dict[str, type], *, dep
     if type(value) is not dict:
         raise ProductionStateValidationError("serialized values must be tagged objects or JSON primitives")
     if set(value) == {"$enum", "value"}:
-        cls = enums.get(value["$enum"])
+        tag = value["$enum"]
+        if type(tag) is not str:
+            raise ProductionStateValidationError("serialized enum tag must be a string")
+        cls = enums.get(tag)
         if cls is None:
-            raise ProductionStateAdmissionError(f"unknown or forbidden enum tag {value['$enum']!r}")
-        return cls(_decode(value["value"], records, enums, depth=depth + 1, limits=limits))
+            raise ProductionStateAdmissionError(f"unknown or forbidden enum tag {tag!r}")
+        decoded_value = _decode(value["value"], records, enums, depth=depth + 1, limits=limits)
+        try:
+            return cls(decoded_value)
+        except (TypeError, ValueError) as error:
+            raise ProductionStateValidationError("serialized enum value is invalid") from error
     if set(value) == {"$record", "fields"}:
-        cls = records.get(value["$record"])
+        tag = value["$record"]
+        if type(tag) is not str:
+            raise ProductionStateValidationError("serialized record tag must be a string")
+        cls = records.get(tag)
         if cls is None:
-            raise ProductionStateAdmissionError(f"unknown or forbidden record tag {value['$record']!r}")
+            raise ProductionStateAdmissionError(f"unknown or forbidden record tag {tag!r}")
         payload = value["fields"]
         if type(payload) is not dict:
             raise ProductionStateValidationError("record fields must be an object")
