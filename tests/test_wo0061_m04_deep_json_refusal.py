@@ -1,6 +1,8 @@
 """WO0061: original M04 OFFLINE parser deep JSON typed-refusal regressions."""
 from __future__ import annotations
 
+import json
+import sys
 import unittest
 from unittest.mock import patch
 
@@ -21,10 +23,19 @@ class WO0061M04DeepJsonRefusalTests(unittest.TestCase):
         return '{"a":' * 2500 + "0" + "}" * 2500
 
     def _assert_deep_json_typed(self, payload: str | bytes) -> None:
-        # The particular JSON parser/runtime may raise an M04 schema error
-        # before actually exhausting its Python recursion limit.
-        with self.assertRaises(IRSchemaError):
-            deserialize_envelope(payload)
+        # Use a controlled interpreter recursion limit so this real, unmocked
+        # JSON fixture MUST fail during parsing rather than later M04 schema
+        # checks. Restore any pre-existing process setting even on failure.
+        previous_limit = sys.getrecursionlimit()
+        try:
+            sys.setrecursionlimit(1000)
+            with self.assertRaises(RecursionError):
+                json.loads(payload)
+            with self.assertRaises(IRSchemaError) as refusal:
+                deserialize_envelope(payload)
+            self.assertIsInstance(refusal.exception.__cause__, RecursionError)
+        finally:
+            sys.setrecursionlimit(previous_limit)
 
     def test_01_deep_json_array_text_typed(self):
         self._assert_deep_json_typed(self._deep_array())

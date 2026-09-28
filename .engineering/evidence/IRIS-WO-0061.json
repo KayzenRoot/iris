@@ -60,6 +60,22 @@
     "actualFullSuite": "Ran 4643 tests; FAILED failures=4",
     "observed": "All 9 focused methods executed; four deep-array/deep-object text/bytes tests failed solely on new test helper extra assertion that each host parser necessarily chains RecursionError. Actual typed IRSchemaError was raised in each case, but __cause__ was None in exact original runner. Five other new tests passed. No historical baseline failures reported.",
     "sameWOFix": "Keep all 4 original real deep JSON str/bytes typed refusals, remove only brittle host-specific causal-type assertion for those inputs, and add an interpreter-stable unittest.mock.patch json.loads raises RecursionError within test_01; assert direct mapping to existing typed IRSchemaError with actual RecursionError chained. No production or pre-existing test changes.",
-    "ownCorrectedHeadCI": "PENDING"
+    "ownCorrectedHeadCI": "PENDING",
+    "correctedHead": "c5d8a2e32905197f109eda477f04f4da29326e85",
+    "correctedHeadGreenGovernanceRun": 36449474216,
+    "correctedHeadGreenJob": 109020212644,
+    "correctedHeadActualSuite": "4643/4643 PASS",
+    "greptileExternalComment": {
+      "source": "Greptile Review final head c5d8a2e32905197f109eda477f04f4da29326e85",
+      "severity": "P2",
+      "reviewThread": "PRRT_kwDOUilwXs6mxB9f",
+      "commentId": 4124500126,
+      "actualFinding": "The four deep-input tests can falsely pass via outer envelope schema validation even when real json.loads accepted the deep payload.",
+      "classification": "VALID_CHAT_FIXABLE",
+      "samePrRemedy": "For all four real deep array/object str/bytes fixtures, temporarily fix interpreter recursion limit at 1000 with try/finally restore, assert direct real unmocked json.loads(payload) raises RecursionError and actual M04 deserialize_envelope(payload) chains a real RecursionError to the original IRSchemaError; keep independent synthetic patched-parser regression in test_01, all 9 test methods and original production one-line fix unchanged.",
+      "ownNewExactHeadCI": "PENDING",
+      "ownNewExternalReview": "PENDING",
+      "reviewThreadResolution": "PENDING"
+    }
   }
 }
