@@ -41,7 +41,10 @@ def deserialize(payload: str | bytes, *, limits: M09Limits = DEFAULT_LIMITS) -> 
     if type(payload) is bytes:
         if len(payload) > limits.max_payload_bytes:
             raise ValueError("serialized payload exceeds maximum byte length")
-        payload = payload.decode("utf-8")
+        try:
+            payload = payload.decode("utf-8", errors="strict")
+        except UnicodeDecodeError as error:
+            raise ValueError("serialized payload must be valid UTF-8") from error
     if type(payload) is not str:
         raise ValueError("serialized payload must be bounded UTF-8 text")
     if len(payload.encode("utf-8")) > limits.max_payload_bytes:
@@ -138,7 +141,10 @@ def _decode(value: Any, *, limits: M09Limits, depth: int) -> Any:
     if type(value) is not dict:
         raise ValueError("unsupported JSON payload node")
     if set(value) == {"$enum", "name"}:
-        enum_type = _ENUMS.get(value["$enum"])
+        tag = value["$enum"]
+        if type(tag) is not str:
+            raise ValueError("serialized enum tag must be a string")
+        enum_type = _ENUMS.get(tag)
         if enum_type is None or type(value["name"]) is not str:
             raise ValueError("unregistered enum or malformed enum payload")
         try:
@@ -166,7 +172,10 @@ def _decode(value: Any, *, limits: M09Limits, depth: int) -> Any:
             decoded_mapping[key] = _decode(item, limits=limits, depth=depth + 1)
         return MappingProxyType(dict(sorted(decoded_mapping.items())))
     if set(value) == {"$record", "fields"}:
-        cls = _RECORDS.get(value["$record"])
+        tag = value["$record"]
+        if type(tag) is not str:
+            raise ValueError("serialized record tag must be a string")
+        cls = _RECORDS.get(tag)
         data = value["fields"]
         if cls is None or type(data) is not dict:
             raise ValueError("unregistered record or malformed fields")

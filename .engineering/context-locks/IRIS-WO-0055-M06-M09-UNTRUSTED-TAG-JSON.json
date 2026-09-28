@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0055",
+  "issue": 167,
+  "increment": "EXISTING_ALREADY_IMPLEMENTED_FROZEN_M06_M09_OFFLINE_UNTRUSTED_JSON_TAG_AND_M09_UTF8_TYPED_REJECTION_ONLY",
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0055-m06-m09-untrusted-closed-tag-json-20260928",
+  "baseRef": "main",
+  "baseSha": "348625d305ce859200d59fc738bd0c07e71857d5",
+  "baseTreeSha": "3b67931d982dc809c97cb6f1a8bca3f0b8dd4bd0",
+  "status": "PROPOSED_OWN_HEAD_CI_REVIEW_PROTECTED_MERGE_EXACT_MAIN_PENDING",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "348625d305ce859200d59fc738bd0c07e71857d5",
+    "baseTreeSha": "3b67931d982dc809c97cb6f1a8bca3f0b8dd4bd0",
+    "expected": 25,
+    "checked": 25,
+    "matched": 25,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "971417bebae71346b470009a265c84c4d7434153"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "971417bebae71346b470009a265c84c4d7434153"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "1d34949d9ca2260641d53f5ab0687d35454e7dcc"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "649800919e4f15841d36d873a73f19ab364fab59"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "planning/modules/M06-PRODUCTION-STATE-VERSIONING-INCREMENTAL-MEDIA-BUILD.md",
+      "gitBlobSha1": "a888a60eb54037b82f3f6c3576d756f4f688123a"
+    },
+    {
+      "path": "planning/modules/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "3b931f8761372bd3773cc2b5d23244ad08aecee3"
+    },
+    {
+      "path": "iris_production_state/serialization.py",
+      "gitBlobSha1": "7064d63563c2f3255a32bb33a3af655445bf0fe7"
+    },
+    {
+      "path": "iris_resource_twin/serialization.py",
+      "gitBlobSha1": "dd435f95a76275fb5082ec9abf02db2a90989425"
+    },
+    {
+      "path": "iris_production_state/errors.py",
+      "gitBlobSha1": "ad143edceba5bbdf340b9786ce1519a3a1e37543"
+    },
+    {
+      "path": "iris_resource_twin/errors.py",
+      "gitBlobSha1": "a28c2888a44bc89de3e33c5c325c36ecffdb4772"
+    },
+    {
+      "path": "tests/test_m06_serialization_security.py",
+      "gitBlobSha1": "232008a9a2e0dd6d9408801dbc8dc81e71887680"
+    },
+    {
+      "path": "tests/test_m09_invariants.py",
+      "gitBlobSha1": "fe1421355f483d07ce0c2af9d65c4902cfe4a531"
+    },
+    {
+      "path": "tests/m06_support.py",
+      "gitBlobSha1": "9ea8123f7ad24cc458ae0b6ac07c8942b08d0125"
+    },
+    {
+      "path": "tests/m09_support.py",
+      "gitBlobSha1": "63a0e77f623afdc350a602d9ffd2fc93b4f52fd8"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0054-M07-UNTRUSTED-TAG-TYPES.json",
+      "gitBlobSha1": "1ab7f67420442c8f625d480a422bb8dda8ea3c7a"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0054.json",
+      "gitBlobSha1": "1c0e0b50934706a2b44a9ac62c2770f0cb66a3ef"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0055-M06-M09-UNTRUSTED-TAG-JSON.json",
+    ".engineering/evidence/IRIS-WO-0055.json",
+    ".engineering/work-orders/IRIS-WO-0055-M06-M09-UNTRUSTED-TAG-JSON.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "iris_production_state/serialization.py",
+    "iris_resource_twin/serialization.py",
+    "planning/checkpoints/IRIS-WO-0055-M06-M09-UNTRUSTED-TAG-JSON.md",
+    "tests/test_wo0055_m06_untrusted_tag_json.py",
+    "tests/test_wo0055_m09_untrusted_tag_json.py"
+  ],
+  "stopCondition": "Only existing M06/M09 OFFLINE malformed JSON discriminator and M09 invalid UTF-8 bytes typed fail-closed, M06 invalid enum value typed; preserve canonical record/unknown string tags and all frozen schema/authority. No real OS/GPU/process/network/native M09 extensions, owner contracts, H01-H04 relief or M10-M13 runtime."
+}
