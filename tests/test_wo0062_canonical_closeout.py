@@ -1,5 +1,6 @@
 """WO0062 offline documentary regressions for factual WO0061 completion."""
 import json
+import re
 import unittest
 from pathlib import Path
 
@@ -40,7 +41,7 @@ class WO0062CanonicalCloseoutTests(unittest.TestCase):
         active = self.backlog.split("## ACTIVE SCOPED EXISTING-KERNEL MAINTENANCE, NO NEW AUTHORITY", 1)[1].split("\n## VERIFIED SCOPED", 1)[0]
         verified = self.backlog.split("## VERIFIED SCOPED EXISTING-KERNEL MAINTENANCE, NO NEW AUTHORITY", 1)[1].split("\n## COMPLETED FOUNDATION", 1)[0]
         self.assertIn("None recorded", active)
-        self.assertNotIn("- WO0061", active)
+        self.assertIsNone(re.search(r"(?m)^\s*(?:[-*]|\d+[.)])\s+WO0061\b", active))
         self.assertIn("WO0061", verified)
         for token in ("PR #180", H, M, "Governance #36450986971", "Governance #36452077561", "4643/4643", "#179", "#5874353354"):
             self.assertIn(token, verified)
@@ -55,15 +56,26 @@ class WO0062CanonicalCloseoutTests(unittest.TestCase):
         self.assertEqual(self.original["correctionDelta"]["secondCorrection"]["actualFailingGovernanceRun"], 36450620186)
 
     def test_06_this_increment_is_pinned_and_makes_no_authority_claim(self):
+        expected_paths = [
+            ".engineering/CHECKPOINT.json",
+            ".engineering/CHECKPOINT.md",
+            ".engineering/context-locks/IRIS-WO-0062-WO0061-CANONICAL-CLOSEOUT.json",
+            ".engineering/evidence/IRIS-WO-0062.json",
+            ".engineering/work-orders/IRIS-WO-0062-WO0061-CANONICAL-CLOSEOUT.md",
+            "docs/project-brain/13-CHECKPOINT.md",
+            "docs/project-brain/14-BACKLOG.md",
+            "planning/checkpoints/IRIS-WO-0062-WO0061-CANONICAL-CLOSEOUT.md",
+            "tests/test_wo0062_canonical_closeout.py",
+        ]
         self.assertEqual(self.lock["workOrder"], "IRIS-WO-0062")
         self.assertEqual(self.lock["baseSha"], M)
         self.assertEqual(self.lock["baseTreeSha"], TREE)
         self.assertEqual(self.lock["issue"], 179)
         self.assertEqual(self.lock["sourceSnapshot"]["matched"], 22)
         self.assertEqual(len(self.lock["criticalSources"]), 22)
-        self.assertEqual(len(self.lock["authorizedChangedFiles"]), 9)
+        self.assertEqual(self.lock["authorizedChangedFiles"], expected_paths)
         self.assertEqual(self.evidence["originalSourcePins"], 22)
-        self.assertEqual(len(self.evidence["authorizedChangedPaths"]), 9)
+        self.assertEqual(self.evidence["authorizedChangedPaths"], expected_paths)
         self.assertEqual(self.evidence["newOfflineConsistencyTests"], 6)
         self.assertEqual(self.evidence["ownHeadCI"], "PENDING")
         self.assertEqual(self.evidence["ownProtectedMerge"], "PENDING")
