@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0054",
+  "increment": "EXISTING_ADMITTED_M07_OFFLINE_UNTRUSTED_CANONICAL_JSON_TAG_TYPE_VALIDATION_ONLY",
+  "issue": 165,
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0054-m07-untrusted-tag-types-20260928",
+  "baseRef": "main",
+  "baseSha": "b7ccc946e03b3c46e54d95b7db0093a610cd4134",
+  "baseTreeSha": "00befa8d911182964400f953f40321f6cd1419a6",
+  "status": "PROPOSED_EXACT_HEAD_CI_SCOPED_AUDIT_PROTECTED_MERGE_EXACT_MAIN_PENDING",
+  "risk": "OFFLINE_MALFORMED_JSON_FAIL_CLOSED_FROZEN_M07_UNCHANGED_H01_H04_HIGH_OWNER_GATES_OPEN",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "b7ccc946e03b3c46e54d95b7db0093a610cd4134",
+    "baseTreeSha": "00befa8d911182964400f953f40321f6cd1419a6",
+    "expected": 22,
+    "checked": 22,
+    "matched": 22,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "98521a9c1788d5e6874c7fb5f211851ccfc23ec3"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "98521a9c1788d5e6874c7fb5f211851ccfc23ec3"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "ad19ed8d86d59a163058c07028c4f9cf561649b0"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "1b1dc06c93edcb1e5b33d809d83f4b67b9eebd3a"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "planning/modules/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "gitBlobSha1": "d5006fef0643fc0c3c8a7a015d4288dda58b89ec"
+    },
+    {
+      "path": "iris_hardware_genome/serialization.py",
+      "gitBlobSha1": "095c7bdf22df72c3af1506282a958826658a0372"
+    },
+    {
+      "path": "iris_hardware_genome/errors.py",
+      "gitBlobSha1": "f54c9f09d083bb4789cf729ecc5b96e20b33db7d"
+    },
+    {
+      "path": "iris_hardware_genome/versions.py",
+      "gitBlobSha1": "d260d1325eb818a49178fa511bcdfd3a083a5b1a"
+    },
+    {
+      "path": "iris_hardware_genome/__init__.py",
+      "gitBlobSha1": "adcbd76271e552afd600edbf307d6f8802623ca3"
+    },
+    {
+      "path": "tests/test_m07_genome.py",
+      "gitBlobSha1": "e1982d20224602e7ec6dcd3e62a3ae1d2de19071"
+    },
+    {
+      "path": "tests/m07_support.py",
+      "gitBlobSha1": "4e1c3bb31277e7ccbb5192780a7d224f204563ed"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0053-H03-OFFLINE-SHARED-DISPOSITION.json",
+      "gitBlobSha1": "098fb9f54676eb531f3625155db475de0560eb4c"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0053.json",
+      "gitBlobSha1": "d285acc797c491eacbda52436afd735776968509"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0054-M07-UNTRUSTED-TAG-TYPES.json",
+    ".engineering/evidence/IRIS-WO-0054.json",
+    ".engineering/work-orders/IRIS-WO-0054-M07-UNTRUSTED-TAG-TYPES.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "iris_hardware_genome/serialization.py",
+    "planning/checkpoints/IRIS-WO-0054-M07-UNTRUSTED-TAG-TYPES.md",
+    "tests/test_wo0054_m07_untrusted_tag_types.py"
+  ],
+  "stopCondition": "Only M07 malformed non-string record/enum tags fail with typed HardwareGenomeValidationError; unknown string tags remain admission errors, valid canonical bytes unchanged. No frozen contracts, OS/GPU/network/provider/M09 leases/M10+ runtime, original owner approvals or H01-H04 gates."
+}
