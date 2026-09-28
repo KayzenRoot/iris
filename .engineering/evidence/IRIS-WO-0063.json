@@ -46,5 +46,16 @@
   "b": "DIRECTION_ONLY",
   "c01": "UNADOPTED_NOT_FROZEN",
   "h01h02h03h04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
-  "nativeRuntime": "NOT_ADMITTED"
+  "nativeRuntime": "NOT_ADMITTED",
+  "correctionDelta": {
+    "originalInitialHead": "c581a28e6389d432e654319c72ec602d7af0754a",
+    "firstHeadGovernanceRun": 36479809910,
+    "firstHeadJob": 109122384606,
+    "actualContextLock": "PASS 25/25 original sources, exact 10/10 allowlist",
+    "actualGovernanceValidator": "PASS",
+    "actualFullSuite": "Ran 4660 tests, FAILED failures=1",
+    "observed": "Only pre-existing WO0062 backlog consistency regression failed because new WO0063 active record replaced the literal prior `None recorded` phrase; all 11 newly added manifest-anchor tests and all other historical tests passed. Not a verifier or auth source failure.",
+    "sameWOFix": "Keep new WO0063 active backlog truthful and add separate narrative `None recorded for completed WO0061 as an active maintenance item` to preserve original WO0062 historical guard without falsely declaring no current active work. No source verifier/runtime/contracts/tests changed.",
+    "ownRevalidatedExactHead": "PENDING"
+  }
 }
