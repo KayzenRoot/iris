@@ -2,9 +2,9 @@
 
 Status: `M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED`
 
-## ACTIVE SCOPED EXISTING-KERNEL MAINTENANCE, NO NEW AUTHORITY
+## VERIFIED SCOPED EXISTING-KERNEL MAINTENANCE, NO NEW AUTHORITY
 - WO0058: completed protected #174 and independent exact-main #36440410469, 4620/4620, scoped #173 closed. Existing M01/M02 offline error handling only.
-- WO0059: independently source-proven existing frozen M07 invalid unpaired surrogate Python str input escapes its typed error; independent offline scoped #175, code + eight regressions, exact immutable original source pin and guarded PR/CI/review required. Status: PENDING OWN EXACT-HEAD CI/INDEPENDENT REVIEW/PROTECTED MERGE/EXACT-MAIN. Original owner H01–H04 still BLOCKED; no runtime.
+- WO0059 **VERIFIED PROTECTED POSTMERGE** [PR #176](https://github.com/KayzenRoot/iris/pull/176), reviewed exact head `e32ff01bf4503dbf41698a183f727c95894bba24`, head Governance #36443533687 **4628/4628**, 23/23 source pins, 10/10 diff, Greptile/CodeRabbit/Socket PASS, zero threads; protected main `db348eec9b93ed82e380edb7a22bf68e726f9854`, independently green exact-main Governance #36444676423 **4628/4628**, same-sha Socket SUCCESS and independently factual [#175 CLOSED](https://github.com/KayzenRoot/iris/issues/175#issuecomment-5873328937). Original WO0059 author-time artifacts intentionally unchanged as historical proposal; H01–H04 OPEN HIGH_FOR_FUTURE_FREEZE, B DIRECTION_ONLY, C01 UNADOPTED_NOT_FROZEN, no qualified owner proof or native runtime.
 
 ## COMPLETED FOUNDATION
 - M01-M09 implementations are durably closed.
