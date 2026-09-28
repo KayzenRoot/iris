@@ -135,11 +135,23 @@ def dumps(value: Any, *, indent: int | None = None) -> str:
     )
 
 
+def _reject_duplicate_object_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    """Untrusted text must not hide two values behind one canonical digest key."""
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise SchemaValidationError(f"duplicate JSON object key {key!r} is forbidden")
+        result[key] = value
+    return result
+
+
 def loads(text: str) -> Any:
     if not isinstance(text, str):
         raise SchemaValidationError("loads expects JSON text")
     try:
-        record = json.loads(text)
+        record = json.loads(text, object_pairs_hook=_reject_duplicate_object_keys)
+    except SchemaValidationError:
+        raise
     except json.JSONDecodeError as error:
         raise SchemaValidationError(f"kernel payload is not valid JSON: {error.msg}") from error
     return from_envelope(record)

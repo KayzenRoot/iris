@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0056",
+  "issue": 169,
+  "increment": "EXISTING_FROZEN_M01_M02_M03_OFFLINE_TEXT_JSON_DUPLICATE_OBJECT_KEY_FAIL_CLOSED_ONLY",
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0056-m01-m03-duplicate-json-ingress-20260928",
+  "baseRef": "main",
+  "baseSha": "2ef48c97dc2410939d06cdab48438922f7c2800c",
+  "baseTreeSha": "a2743b2f4ec6a45dba81023aea88da1b94f5f171",
+  "status": "PROPOSED_EXACT_HEAD_CI_REVIEW_PROTECTED_MERGE_EXACT_MAIN_PENDING",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "2ef48c97dc2410939d06cdab48438922f7c2800c",
+    "baseTreeSha": "a2743b2f4ec6a45dba81023aea88da1b94f5f171",
+    "expected": 30,
+    "checked": 30,
+    "matched": 30,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "5c06ffc81149ebac56598dd0bc7d55835ee0d34d"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "5c06ffc81149ebac56598dd0bc7d55835ee0d34d"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "389ae2dda79e6c0ec31e17f9ff05050a607863fd"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "2fb5a4d2501d0e7e56a270bdbba89150dcccd017"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "planning/modules/M01-EXTREME-QUALITY.md",
+      "gitBlobSha1": "9190e4c24b6cbf519c6e045cc10b08cf39c5c7c0"
+    },
+    {
+      "path": "planning/modules/M02-PROJECT-OS-PRODUCTION-GRAPH.md",
+      "gitBlobSha1": "3167e2ee8be597a7e33d9083a151c8cbcb462c7f"
+    },
+    {
+      "path": "planning/modules/M03-CREATIVE-BRIEF-INTENT-CONSTRAINT-COMPILER.md",
+      "gitBlobSha1": "05c3b82e8bae88d9a82fe1a2ddb1ef09f5729f8f"
+    },
+    {
+      "path": "iris_quality/serialization.py",
+      "gitBlobSha1": "42089b80c67f60ed34f9d64c2d307eb31adf2737"
+    },
+    {
+      "path": "iris_project_os/serialization.py",
+      "gitBlobSha1": "5f69763c355e61303cd3935c0a291033b591ed20"
+    },
+    {
+      "path": "iris_intent/serialization.py",
+      "gitBlobSha1": "c939204eddc27820a39f98db680422dbdc68d7c2"
+    },
+    {
+      "path": "iris_quality/errors.py",
+      "gitBlobSha1": "28efb4340e54c887f56efa7a595bea16b98e49ff"
+    },
+    {
+      "path": "iris_project_os/errors.py",
+      "gitBlobSha1": "2eacfe8974b2bd3b12a7f896aad67579b310e0d1"
+    },
+    {
+      "path": "iris_intent/errors.py",
+      "gitBlobSha1": "d75881bfdfaf00bdc6a05cc8c96a42f3504a11c2"
+    },
+    {
+      "path": "tests/test_m01_serialization.py",
+      "gitBlobSha1": "038a14b0196fc46fcfc9cad98eea3757875d3cd3"
+    },
+    {
+      "path": "tests/test_m02_serialization.py",
+      "gitBlobSha1": "0683ef06c60d59fbde4976b49461498e82f882ab"
+    },
+    {
+      "path": "tests/test_m03_transport.py",
+      "gitBlobSha1": "77680df0646b6a165306e614bcb085e921fcffec"
+    },
+    {
+      "path": "tests/m01_kernel_support.py",
+      "gitBlobSha1": "b81a56bc3689bb26bb6c777e7f34ce44f7cbc794"
+    },
+    {
+      "path": "tests/m02_kernel_support.py",
+      "gitBlobSha1": "04b80c7848a6eec7a0cb7c5bfdf81e95c72b0c7e"
+    },
+    {
+      "path": "tests/m03_kernel_support.py",
+      "gitBlobSha1": "007bd835dbc628c9b0ac77fd15ec7fe317a5c0dc"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0055-M06-M09-UNTRUSTED-TAG-JSON.json",
+      "gitBlobSha1": "230203a7ff3e9e4af0cba6a96382c8d56bd792c1"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0055.json",
+      "gitBlobSha1": "23f3252653f3e4737cff225620139d499672d86e"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0056-M01-M03-DUPLICATE-JSON-KEYS.json",
+    ".engineering/evidence/IRIS-WO-0056.json",
+    ".engineering/work-orders/IRIS-WO-0056-M01-M03-DUPLICATE-JSON-KEYS.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "iris_intent/serialization.py",
+    "iris_project_os/serialization.py",
+    "iris_quality/serialization.py",
+    "planning/checkpoints/IRIS-WO-0056-M01-M03-DUPLICATE-JSON-KEYS.md",
+    "tests/test_wo0056_m01_m03_duplicate_json_keys.py"
+  ],
+  "stopCondition": "Fail-closed exact duplicate JSON object keys in existing M01/M02/M03 OFFLINE text loads, including nested keys, with each existing SchemaValidationError, preserving legitimate dumps/roundtrip/pretty acceptance and all frozen contracts and original real owner gates. No new native GPU/OS/network/process/M09 leases or M10+ runtime."
+}
