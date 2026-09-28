@@ -24,9 +24,12 @@ class WO0052CanonicalCloseoutTests(unittest.TestCase):
         self.assertEqual(self.machine["status"],"M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED")
     
     def test_previous_exact_head_and_independently_green_main_are_factual(self):
-        # Isolate the newly recorded COMPLETED entry. NEXT STEP must not mask
-        # a wrong historical receipt, suite count or source-coverage claim.
-        completed_entry=self.cp.split("## COMPLETED\n",1)[1].splitlines()[0]
+        # Find the exact WO0051 receipt anywhere within COMPLETED. A later
+        # newest-first WO must not break this regression, and NEXT STEP must
+        # never mask a wrong historical receipt or source-coverage claim.
+        completed_section=self.cp.split("## COMPLETED\n",1)[1].split("\n## IN PROGRESS",1)[0]
+        completed_entry=next((line for line in completed_section.splitlines()
+                              if line.startswith("- 2026-09-28 UTC: **IRIS-WO-0051 COMPLETED**")), "")
         self.assertTrue(completed_entry.startswith("- 2026-09-28 UTC: **IRIS-WO-0051 COMPLETED**"))
         for marker in ("IRIS-WO-0051 COMPLETED","PR #162",HEAD,MAIN,"Governance #36362338152",
                        "Governance #36362432890","4526/4526","47/47","235/235","INDEX_ONLY"):
