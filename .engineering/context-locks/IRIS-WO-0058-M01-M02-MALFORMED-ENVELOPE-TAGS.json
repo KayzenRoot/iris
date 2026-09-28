@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0058",
+  "issue": 173,
+  "increment": "EXISTING_FROZEN_M01_M02_OFFLINE_UNTRUSTED_ENVELOPE_VERSION_TYPE_HASH_LOOKUP_TYPED_FAIL_CLOSED_ONLY",
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0058-m01-m02-malformed-envelope-tags-20260928",
+  "baseRef": "main",
+  "baseSha": "ed9683874f3d241799fe677c38ccb4641b795431",
+  "baseTreeSha": "48963eab4a4e6ea70f20a60c92f1f9a477a4ceca",
+  "status": "PROPOSED_EXACT_HEAD_CI_EXTERNAL_REVIEW_PROTECTED_MERGE_EXACT_MAIN_PENDING",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "ed9683874f3d241799fe677c38ccb4641b795431",
+    "baseTreeSha": "48963eab4a4e6ea70f20a60c92f1f9a477a4ceca",
+    "expected": 27,
+    "checked": 27,
+    "matched": 27,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "a95ba821c91d738bb8ba0bd3abb4f89304eb3b8f"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "a95ba821c91d738bb8ba0bd3abb4f89304eb3b8f"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "67e00bfc9c1206d9b2ab0335ff188c6e5625d4c3"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "81d650ad97552dcca346a181315650e7beb6ff97"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "planning/modules/M01-EXTREME-QUALITY.md",
+      "gitBlobSha1": "9190e4c24b6cbf519c6e045cc10b08cf39c5c7c0"
+    },
+    {
+      "path": "planning/modules/M02-PROJECT-OS-PRODUCTION-GRAPH.md",
+      "gitBlobSha1": "3167e2ee8be597a7e33d9083a151c8cbcb462c7f"
+    },
+    {
+      "path": "iris_quality/serialization.py",
+      "gitBlobSha1": "0c06665d6147fb86bf0de9257f6a9ed580728dfc"
+    },
+    {
+      "path": "iris_project_os/serialization.py",
+      "gitBlobSha1": "d4043ad612d853ec13bc7e586e1ee30e4b8cc6e1"
+    },
+    {
+      "path": "iris_quality/errors.py",
+      "gitBlobSha1": "28efb4340e54c887f56efa7a595bea16b98e49ff"
+    },
+    {
+      "path": "iris_project_os/errors.py",
+      "gitBlobSha1": "2eacfe8974b2bd3b12a7f896aad67579b310e0d1"
+    },
+    {
+      "path": "tests/test_m01_serialization.py",
+      "gitBlobSha1": "038a14b0196fc46fcfc9cad98eea3757875d3cd3"
+    },
+    {
+      "path": "tests/test_m02_serialization.py",
+      "gitBlobSha1": "0683ef06c60d59fbde4976b49461498e82f882ab"
+    },
+    {
+      "path": "tests/m01_kernel_support.py",
+      "gitBlobSha1": "b81a56bc3689bb26bb6c777e7f34ce44f7cbc794"
+    },
+    {
+      "path": "tests/m02_kernel_support.py",
+      "gitBlobSha1": "04b80c7848a6eec7a0cb7c5bfdf81e95c72b0c7e"
+    },
+    {
+      "path": "iris_quality/versions.py",
+      "gitBlobSha1": "ba014c2a21e058a023c6d6662faf7288fd60d93d"
+    },
+    {
+      "path": "iris_project_os/versions.py",
+      "gitBlobSha1": "f80b40e685b6523459ebe9e784f5963451e386bb"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0057-M05-M08-INVALID-UTF8-TEXT.json",
+      "gitBlobSha1": "b8492cfc9728b0330d4e9298a23a5a0855ed6012"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0057.json",
+      "gitBlobSha1": "3ca2cb7dbf5491fdc05c91438f9c967a35e9f1dd"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0058-M01-M02-MALFORMED-ENVELOPE-TAGS.json",
+    ".engineering/evidence/IRIS-WO-0058.json",
+    ".engineering/work-orders/IRIS-WO-0058-M01-M02-MALFORMED-ENVELOPE-TAGS.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "iris_project_os/serialization.py",
+    "iris_quality/serialization.py",
+    "planning/checkpoints/IRIS-WO-0058-M01-M02-MALFORMED-ENVELOPE-TAGS.md",
+    "tests/test_wo0058_m01_m02_malformed_envelope_tags.py"
+  ],
+  "stopCondition": "Only M01/M02 existing frozen offline text/direct envelope malformed non-string schema_version or type and direct validate_payload kind reject via each module's existing SchemaValidationError before hash lookups; unknown string version stays UnsupportedVersionError, unknown string type stays SchemaValidationError, valid canonical bytes/pretty and digest verification unchanged. No original qualified source owner approval/H01-H04 or runtime."
+}
