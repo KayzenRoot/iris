@@ -74,7 +74,11 @@ def canonical_deserialize(data: bytes | str, *, limits: HardwareGenomeLimits = D
             raise HardwareGenomeValidationError("serialized M07 input must be valid UTF-8") from error
     elif type(data) is str:
         source = data
-        limits.require("max_inline_payload_bytes", len(source.encode("utf-8")))
+        try:
+            source_bytes = source.encode("utf-8", errors="strict")
+        except UnicodeEncodeError as error:
+            raise HardwareGenomeValidationError("serialized M07 input must be valid UTF-8") from error
+        limits.require("max_inline_payload_bytes", len(source_bytes))
     else:
         raise HardwareGenomeValidationError("serialized M07 input must be exact bytes or text")
     try:

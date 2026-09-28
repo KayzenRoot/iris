@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0059",
+  "issue": 175,
+  "increment": "EXISTING_FROZEN_M07_OFFLINE_NONENCODABLE_PYTHON_TEXT_READER_TYPED_FAIL_CLOSED_ONLY",
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0059-m07-invalid-utf8-text-20260928",
+  "baseRef": "main",
+  "baseSha": "a50cd601b7e3056b043bcd12e9623f6e5de75d02",
+  "baseTreeSha": "e6952a3d6f3def7cbb609028cf0715284717cb50",
+  "status": "PROPOSED_OWN_EXACT_HEAD_CI_EXTERNAL_REVIEW_PROTECTED_MERGE_EXACT_MAIN_PENDING",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "a50cd601b7e3056b043bcd12e9623f6e5de75d02",
+    "baseTreeSha": "e6952a3d6f3def7cbb609028cf0715284717cb50",
+    "expected": 23,
+    "checked": 23,
+    "matched": 23,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "9fd23140ffd14efc645ae57504cf771e9c291cf1"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "9fd23140ffd14efc645ae57504cf771e9c291cf1"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "4911f059bef79f828d1621fbdab3d0a7dd991dc0"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "b23fb81b32cde75726327e009f81573c41ff323f"
+    },
+    {
+      "path": "docs/project-brain/10-SECURITY-GOVERNANCE.md",
+      "gitBlobSha1": "39d244f935a50620274d5e973893a00f9d8d95d5"
+    },
+    {
+      "path": "docs/project-brain/11-TEST-BENCHMARK-PLAN.md",
+      "gitBlobSha1": "9a38f8603ffd2f789f10be1dfb8ab0fa6f167ed2"
+    },
+    {
+      "path": "planning/modules/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "gitBlobSha1": "d5006fef0643fc0c3c8a7a015d4288dda58b89ec"
+    },
+    {
+      "path": "iris_hardware_genome/serialization.py",
+      "gitBlobSha1": "fb94f238261e015c9729aab1f78d348c1490bfd1"
+    },
+    {
+      "path": "iris_hardware_genome/errors.py",
+      "gitBlobSha1": "f54c9f09d083bb4789cf729ecc5b96e20b33db7d"
+    },
+    {
+      "path": "iris_hardware_genome/limits.py",
+      "gitBlobSha1": "7d336f91a100951d44ff83c17c40ee6ec80fcbfd"
+    },
+    {
+      "path": "iris_hardware_genome/versions.py",
+      "gitBlobSha1": "d260d1325eb818a49178fa511bcdfd3a083a5b1a"
+    },
+    {
+      "path": "tests/test_m07_genome.py",
+      "gitBlobSha1": "e1982d20224602e7ec6dcd3e62a3ae1d2de19071"
+    },
+    {
+      "path": "tests/m07_support.py",
+      "gitBlobSha1": "4e1c3bb31277e7ccbb5192780a7d224f204563ed"
+    },
+    {
+      "path": "tests/test_wo0054_m07_untrusted_tag_types.py",
+      "gitBlobSha1": "ff6bbf7fd0614cb637d4e435e309cdac0acba492"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0058-M01-M02-MALFORMED-ENVELOPE-TAGS.json",
+      "gitBlobSha1": "092d3ce35a86c799d04ed6f2472bd04e8d5e6a55"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0058.json",
+      "gitBlobSha1": "0ca252c44c0326e631c0d2c25a97240e3cc5f6c4"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0059-M07-INVALID-UTF8-TEXT.json",
+    ".engineering/evidence/IRIS-WO-0059.json",
+    ".engineering/work-orders/IRIS-WO-0059-M07-INVALID-UTF8-TEXT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "iris_hardware_genome/serialization.py",
+    "planning/checkpoints/IRIS-WO-0059-M07-INVALID-UTF8-TEXT.md",
+    "tests/test_wo0059_m07_invalid_utf8_text.py"
+  ],
+  "stopCondition": "Only existing frozen M07 OFFLINE canonical_deserialize direct str unpaired Unicode surrogate input becomes existing HardwareGenomeValidationError before size check, preserving accepted exact bytes/text canonical/integrity and original byte invalid/duplicate-key/refusal. No M09 owner contract, M08 native evidence, GPU/OS/process/network runtime or H01-H04 approval."
+}

@@ -2,6 +2,10 @@
 
 Status: `M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED`
 
+## ACTIVE SCOPED EXISTING-KERNEL MAINTENANCE, NO NEW AUTHORITY
+- WO0058: completed protected #174 and independent exact-main #36440410469, 4620/4620, scoped #173 closed. Existing M01/M02 offline error handling only.
+- WO0059: independently source-proven existing frozen M07 invalid unpaired surrogate Python str input escapes its typed error; independent offline scoped #175, code + eight regressions, exact immutable original source pin and guarded PR/CI/review required. Status: PENDING OWN EXACT-HEAD CI/INDEPENDENT REVIEW/PROTECTED MERGE/EXACT-MAIN. Original owner H01–H04 still BLOCKED; no runtime.
+
 ## COMPLETED FOUNDATION
 - M01-M09 implementations are durably closed.
 - M09 contract `m09-contract-v1.0` is frozen and implemented through IRIS-WO-0013.
