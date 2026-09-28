@@ -105,7 +105,7 @@ class M06MalformedUntrustedTags(unittest.TestCase):
 
     def test_11_unpaired_surrogate_in_text_is_typed_validation(self):
         with self.assertRaisesRegex(ProductionStateValidationError, "valid UTF-8"):
-            canonical_deserialize("\\ud800")
+            canonical_deserialize(chr(0xD800))
 
 
 if __name__ == "__main__":
