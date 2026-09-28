@@ -51,5 +51,15 @@
   "b": "DIRECTION_ONLY",
   "c01": "UNADOPTED_NOT_FROZEN",
   "h01h02h03h04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
-  "nativeRuntime": "NOT_ADMITTED"
+  "nativeRuntime": "NOT_ADMITTED",
+  "correctionDelta": {
+    "initialHead": "b9b4acc89d54def057d2faff815ca22c9d964c02",
+    "initialFailingGovernanceRun": 36449220072,
+    "sourceContextLock": "PASS",
+    "validator": "PASS",
+    "actualFullSuite": "Ran 4643 tests; FAILED failures=4",
+    "observed": "All 9 focused methods executed; four deep-array/deep-object text/bytes tests failed solely on new test helper extra assertion that each host parser necessarily chains RecursionError. Actual typed IRSchemaError was raised in each case, but __cause__ was None in exact original runner. Five other new tests passed. No historical baseline failures reported.",
+    "sameWOFix": "Keep all 4 original real deep JSON str/bytes typed refusals, remove only brittle host-specific causal-type assertion for those inputs, and add an interpreter-stable unittest.mock.patch json.loads raises RecursionError within test_01; assert direct mapping to existing typed IRSchemaError with actual RecursionError chained. No production or pre-existing test changes.",
+    "ownCorrectedHeadCI": "PENDING"
+  }
 }

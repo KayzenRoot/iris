@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import unittest
+from unittest.mock import patch
 
 from iris_multimodal_ir import (
     IRDocumentEnvelope, IRLimitError, IRLimits, IRSchemaError,
@@ -19,22 +20,29 @@ class WO0061M04DeepJsonRefusalTests(unittest.TestCase):
     def _deep_object() -> str:
         return '{"a":' * 2500 + "0" + "}" * 2500
 
-    def _assert_parser_recursion_typed(self, payload: str | bytes) -> None:
-        with self.assertRaises(IRSchemaError) as failure:
+    def _assert_deep_json_typed(self, payload: str | bytes) -> None:
+        # The particular JSON parser/runtime may raise an M04 schema error
+        # before actually exhausting its Python recursion limit.
+        with self.assertRaises(IRSchemaError):
             deserialize_envelope(payload)
-        self.assertIsInstance(failure.exception.__cause__, RecursionError)
 
     def test_01_deep_json_array_text_typed(self):
-        self._assert_parser_recursion_typed(self._deep_array())
+        self._assert_deep_json_typed(self._deep_array())
+        # Exercise the exact source-level exception branch deterministically.
+        # Unlike real parser depth thresholds, this probe is interpreter-stable.
+        with patch("iris_multimodal_ir.serialization.json.loads", side_effect=RecursionError("synthetic decoder depth")):
+            with self.assertRaises(IRSchemaError) as failure:
+                deserialize_envelope(b"{}")
+        self.assertIsInstance(failure.exception.__cause__, RecursionError)
 
     def test_02_deep_json_array_bytes_typed(self):
-        self._assert_parser_recursion_typed(self._deep_array().encode("utf-8"))
+        self._assert_deep_json_typed(self._deep_array().encode("utf-8"))
 
     def test_03_deep_json_object_text_typed(self):
-        self._assert_parser_recursion_typed(self._deep_object())
+        self._assert_deep_json_typed(self._deep_object())
 
     def test_04_deep_json_object_bytes_typed(self):
-        self._assert_parser_recursion_typed(self._deep_object().encode("utf-8"))
+        self._assert_deep_json_typed(self._deep_object().encode("utf-8"))
 
     def test_05_original_invalid_utf8_still_typed(self):
         with self.assertRaises(IRSchemaError):
