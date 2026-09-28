@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0061",
+  "issue": 179,
+  "increment": "EXISTING_FROZEN_M04_OFFLINE_DEEPLY_NESTED_JSON_TYPED_RECUSION_REFUSAL_ONLY",
+  "repository": "KayzenRoot/iris",
+  "branch": "iris-wo-0061-m04-deep-json-refusal-20260928",
+  "baseRef": "main",
+  "baseSha": "00e3fd4b7b7ae78be3a448545cc630ed93c58383",
+  "baseTreeSha": "569519be809f61447cdc7e7a95365ff246403b0d",
+  "status": "PROPOSED_OWN_EXACT_HEAD_CI_EXTERNAL_REVIEW_PROTECTED_MERGE_EXACT_MAIN_PENDING",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "00e3fd4b7b7ae78be3a448545cc630ed93c58383",
+    "baseTreeSha": "569519be809f61447cdc7e7a95365ff246403b0d",
+    "expected": 22,
+    "checked": 22,
+    "matched": 22,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "2e84217934cf53ed9eec11c14eb9013f0a0909f1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "891564d7d77caa5554660e286b085092d256f1f8"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "6519f005df8357a4b316fe2c2b756fec8d6263cb"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "9c9352c38728f204b078fe8ad7fb15a106f8a96b"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "dc9c912d68661d663ce35744f8bbdf01517c5e55"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "610f407bdb61a9a54bc92789315393d89a5492da"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "c743c09220b7a3d6ab0f5e252d7d21f4bc2c6c9c"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "6519f005df8357a4b316fe2c2b756fec8d6263cb"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "bb6b445493fbac74cf7aa5163c0ce97e10009ded"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "8b92a99e4fff25aecd688e0366a317eb7b72bbf6"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0060-WO0059-CANONICAL-CLOSEOUT.json",
+      "gitBlobSha1": "bcaac073054e67272507e7174da3c67cd7affea6"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0060.json",
+      "gitBlobSha1": "3c8f594619d2c35194fb000eb95bc93d3c6865a2"
+    },
+    {
+      "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "c4b39c03f86f7a8e112d22a25ca91169c02c5e4d"
+    },
+    {
+      "path": "planning/modules/M04-MULTIMODAL-SCENE-IR.md",
+      "gitBlobSha1": "9a6f2560e1a39e1b50807d33b9a8253e45cc7dfd"
+    },
+    {
+      "path": "iris_multimodal_ir/serialization.py",
+      "gitBlobSha1": "9cc9d7115a349cb06a577d807eb0564d4d3e15ef"
+    },
+    {
+      "path": "iris_multimodal_ir/errors.py",
+      "gitBlobSha1": "47bb32145bfb4b894d35b40567ad34d021070331"
+    },
+    {
+      "path": "iris_multimodal_ir/limits.py",
+      "gitBlobSha1": "1d84ae00cd655ba722eec152ab0bc8bff6ce62ff"
+    },
+    {
+      "path": "iris_multimodal_ir/graph.py",
+      "gitBlobSha1": "38fbfc35db86a95e72a29efca2b5d00ab6ae47bc"
+    },
+    {
+      "path": "tests/test_m04_runtime.py",
+      "gitBlobSha1": "cac69c3f5cf423207216dff6d8018938781b2e6c"
+    },
+    {
+      "path": "tests/m04_support.py",
+      "gitBlobSha1": "33b6d1dc704699b1f7fa9e991bf4651b64f12ad5"
+    },
+    {
+      "path": "tests/test_wo0060_canonical_closeout.py",
+      "gitBlobSha1": "780919fe2e0fed4c5ecbcbdbdd8e2070df3fba7c"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0061-M04-DEEP-JSON-REFUSAL.json",
+    ".engineering/evidence/IRIS-WO-0061.json",
+    ".engineering/work-orders/IRIS-WO-0061-M04-DEEP-JSON-REFUSAL.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "iris_multimodal_ir/serialization.py",
+    "planning/checkpoints/IRIS-WO-0061-M04-DEEP-JSON-REFUSAL.md",
+    "tests/test_wo0061_m04_deep_json_refusal.py"
+  ],
+  "stopCondition": "Only existing frozen M04 OFFLINE json.loads deeply nested arrays/objects RecursionError maps to existing typed IRSchemaError without changing valid transport bytes, schema or byte limits; nine OFFLINE tests. H01–H04 original HIGH OPEN, actual qualified owners NOT_RECEIVED, B DIRECTION_ONLY, C01 UNADOPTED_NOT_FROZEN, M10–M13 native runtime NOT_ADMITTED."
+}
