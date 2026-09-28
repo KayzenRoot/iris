@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0063",
+  "issue": 182,
+  "status": "AUTHOR_TIME_PROPOSED_OWN_HEAD_CI_REVIEW_PROTECTED_MERGE_EXACT_MAIN_PENDING",
+  "originalBaseSha": "2e72b5eb519735d4eba97f01c1f24ff5ea662d58",
+  "originalBaseTreeSha": "4cef501e5bef64977402f1bc7aec772492de1d1d",
+  "originalSourcePins": 25,
+  "inheritedBaseManifestPins": 22,
+  "sourceManifestAnchor": {
+    "path": ".engineering/context-locks/IRIS-WO-0062-WO0061-CANONICAL-CLOSEOUT.json",
+    "gitBlobSha1": "beffaca1a8cc2bf76eff067ccdfa5b8703de7e4b"
+  },
+  "authorizedChangedPaths": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0063-SOURCE-MANIFEST-ANCHOR.json",
+    ".engineering/evidence/IRIS-WO-0063.json",
+    ".engineering/work-orders/IRIS-WO-0063-SOURCE-MANIFEST-ANCHOR.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0063-SOURCE-MANIFEST-ANCHOR.md",
+    "scripts/verify_context_lock.py",
+    "tests/test_wo0063_source_manifest_anchor.py"
+  ],
+  "newOfflineManifestTests": 11,
+  "fullSuiteExpected": 4660,
+  "previousActuallyGreen": {
+    "workOrder": "IRIS-WO-0062",
+    "pr": 181,
+    "reviewedHead": "87265bc7d944872be5cbe5412ba0e10ea849e429",
+    "headGovernanceRun": 36461578044,
+    "protectedMainSha": "2e72b5eb519735d4eba97f01c1f24ff5ea662d58",
+    "protectedMainTree": "4cef501e5bef64977402f1bc7aec772492de1d1d",
+    "independentMainGovernanceRun": 36463629051,
+    "independentMainFullSuite": "4649/4649",
+    "sameMainSocket": "SUCCESS"
+  },
+  "sourcePathAnchorScope": "Optional sourceManifestAnchor pointing at exact pre-existing base Git context lock path and actual original Git blob SHA1; retains all inherited optional and mandatory source paths; old v1 locks unanchored unchanged",
+  "ownHeadCI": "PENDING",
+  "ownExternalReviews": "PENDING",
+  "ownProtectedMerge": "PENDING",
+  "ownIndependentExactMain": "PENDING",
+  "actualOwnerEvidence": false,
+  "actualPhysicalTest": false,
+  "b": "DIRECTION_ONLY",
+  "c01": "UNADOPTED_NOT_FROZEN",
+  "h01h02h03h04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "nativeRuntime": "NOT_ADMITTED"
+}

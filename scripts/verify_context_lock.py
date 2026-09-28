@@ -52,8 +52,9 @@ def verify_lock(
     base_blobs: dict[str, str],
     changed_paths: set[str],
     lock_path: str,
+    inherited_source_paths: set[str] | None = None,
 ) -> None:
-    """Pure, testable validation of one newly authored context lock."""
+    """Pure, testable validation; optionally preserve the prior base-locked source set."""
     safe_path(lock_path, "lock")
     require(lock_path.startswith(LOCK_PREFIX) and lock_path.endswith(LOCK_SUFFIX), "lock path outside context-locks")
     require(lock.get("schemaVersion") == "iris-context-lock-v1", "unsupported lock schema")
@@ -79,6 +80,22 @@ def verify_lock(
         require(base_blobs.get(path) == expected, f"source Git blob mismatch or absent at base: {path}")
     missing = sorted(MANDATORY_SOURCE_PATHS - source_paths)
     require(not missing, f"missing canonical mandatory sources: {missing}")
+    anchor = lock.get("sourceManifestAnchor")
+    if anchor is not None:
+        require(isinstance(anchor, dict) and set(anchor) == {"path", "gitBlobSha1"},
+                "invalid base source manifest anchor")
+        anchor_path = safe_path(anchor["path"], "source manifest anchor")
+        require(anchor_path.startswith(LOCK_PREFIX) and anchor_path.endswith(LOCK_SUFFIX)
+                and anchor_path != lock_path, "invalid base Context Lock anchor path")
+        require(base_blobs.get(anchor_path) == check_sha(anchor["gitBlobSha1"], "anchor gitBlobSha1"),
+                "source manifest anchor blob mismatch or absent at original base")
+        require(anchor_path in source_paths, "source manifest anchor itself must be pinned")
+        require(isinstance(inherited_source_paths, set) and bool(inherited_source_paths),
+                "missing trusted original-base source manifest")
+        for inherited_path in inherited_source_paths:
+            safe_path(inherited_path, "inherited source")
+        omitted = sorted(inherited_source_paths - source_paths)
+        require(not omitted, f"missing inherited original-base critical sources: {omitted}")
     for field in ("expected", "checked", "matched"):
         require(type(snapshot.get(field)) is int and snapshot[field] == len(sources), f"source count {field} mismatch")
     require(type(snapshot.get("mismatches")) is int and snapshot["mismatches"] == 0, "source mismatches must be zero")
@@ -187,7 +204,48 @@ def verify_current_pr(
         payload = git(repo, "show", f"{head_sha}:{lock_path}").decode("utf-8")
         lock = json.loads(payload, object_pairs_hook=reject_duplicate_json_keys)
         require(isinstance(lock, dict), "context lock JSON root must be an object")
-        verify_lock(lock, base_sha=base_sha, base_tree_sha=tree_sha, base_blobs=base_blobs, changed_paths=changed_paths, lock_path=lock_path)
+        inherited_source_paths: set[str] | None = None
+        anchor = lock.get("sourceManifestAnchor")
+        if anchor is not None:
+            require(isinstance(anchor, dict) and set(anchor) == {"path", "gitBlobSha1"},
+                    "invalid base source manifest anchor")
+            anchor_path = safe_path(anchor["path"], "source manifest anchor")
+            require(anchor_path.startswith(LOCK_PREFIX) and anchor_path.endswith(LOCK_SUFFIX)
+                    and anchor_path != lock_path, "invalid base Context Lock anchor path")
+            require(base_blobs.get(anchor_path) == check_sha(anchor["gitBlobSha1"], "anchor gitBlobSha1"),
+                    "source manifest anchor blob mismatch or absent at original base")
+            original_payload = git(repo, "show", f"{base_sha}:{anchor_path}")
+            try:
+                original_anchor = json.loads(
+                    original_payload.decode("utf-8"), object_pairs_hook=reject_duplicate_json_keys
+                )
+            except (UnicodeError, json.JSONDecodeError) as exc:
+                raise ContextLockError("invalid original-base source manifest anchor JSON") from exc
+            require(isinstance(original_anchor, dict)
+                    and original_anchor.get("schemaVersion") == "iris-context-lock-v1",
+                    "invalid original-base Context Lock source manifest")
+            original_rows = original_anchor.get("criticalSources")
+            require(isinstance(original_rows, list) and bool(original_rows),
+                    "missing original-base critical-source manifest")
+            inherited_source_paths = set()
+            for index, original_row in enumerate(original_rows):
+                require(isinstance(original_row, dict), f"original-base source {index}: invalid record")
+                old_path = safe_path(original_row.get("path"), f"original-base source {index}")
+                check_sha(original_row.get("gitBlobSha1"), f"original-base source {old_path}")
+                require(old_path not in inherited_source_paths,
+                        f"duplicate original-base source: {old_path}")
+                inherited_source_paths.add(old_path)
+            require(MANDATORY_SOURCE_PATHS <= inherited_source_paths,
+                    "original-base anchor is missing mandatory authority roots")
+            original_snapshot = original_anchor.get("sourceSnapshot")
+            require(isinstance(original_snapshot, dict)
+                    and all(type(original_snapshot.get(field)) is int
+                            and original_snapshot[field] == len(inherited_source_paths)
+                            for field in ("expected", "checked", "matched")),
+                    "inconsistent original-base source manifest counts")
+        verify_lock(lock, base_sha=base_sha, base_tree_sha=tree_sha,
+                    base_blobs=base_blobs, changed_paths=changed_paths,
+                    lock_path=lock_path, inherited_source_paths=inherited_source_paths)
     return changed_locks
 
 
