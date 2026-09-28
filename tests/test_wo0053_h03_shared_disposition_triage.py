@@ -116,14 +116,26 @@ class SharedDraftDispositionTests(unittest.TestCase):
         self.assertEqual(b["batchFormatStatus"],
                          "INCOMPLETE_DRAFT_BATCH_FORMAT_ONLY")
 
-    def test_07_partial_batch_still_surfaces_actual_draft_label_difference(self):
-        qid=self.m54_m60[0]
+    def test_07_partial_batch_reports_absent_original_third_coowner(self):
+        # The unchanged original source has seven M12+M54+M60 shared IDs.
+        # Use a genuine triple-owner ID, not a synthetic four-owner claim.
+        qid=next(q for q in self.m54_m60
+                 if q in self.question_sets["M12"]
+                 and q not in self.question_sets["M58"])
         drafts=self.changed([self.draft("M54"),self.draft("M60")],
                             "M60",qid)
         b=self.run_batch(drafts)
         self.assertEqual(b["batchFormatStatus"],
                          "INCOMPLETE_DRAFT_BATCH_FORMAT_ONLY")
         self.assertEqual(b["sharedQuestionDispositionMismatchCount"],1)
+        mismatch=next(x for x in b["sharedQuestionDispositionMismatches"]
+                      if x["questionId"]==qid)
+        self.assertEqual(mismatch["otherRequiredOwnerDraftsAbsent"],["M12"])
+        self.assertEqual(mismatch["untrustedDraftDispositions"],
+                         {"M54":"DEFER","M60":"PROPOSED_ANSWER"})
+        missing=next(x for x in b["sharedQuestionsMissingOneOrMoreDraftDispositions"]
+                     if x["questionId"]==qid)
+        self.assertEqual(missing["missingDraftDispositionsFrom"],["M12"])
         self.assertFalse(b["allFourDraftsPresent"])
         self.assertFalse(b["actualApprovedContract"])
 
