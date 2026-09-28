@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import json
-import sys
 import unittest
 from unittest.mock import patch
 
@@ -16,26 +15,26 @@ from tests.m04_support import DOCUMENT_ID, fixture_revision
 class WO0061M04DeepJsonRefusalTests(unittest.TestCase):
     @staticmethod
     def _deep_array() -> str:
-        return "[" * 2500 + "0" + "]" * 2500
+        # 200,001 bytes: far past the real CPython JSON decoder's nesting
+        # budget yet far below the frozen M04 4 MB transport byte limit.
+        return "[" * 100_000 + "0" + "]" * 100_000
 
     @staticmethod
     def _deep_object() -> str:
-        return '{"a":' * 2500 + "0" + "}" * 2500
+        # 600,001 bytes: valid JSON if a decoder could admit this depth.
+        return '{"a":' * 100_000 + "0" + "}" * 100_000
 
     def _assert_deep_json_typed(self, payload: str | bytes) -> None:
-        # Use a controlled interpreter recursion limit so this real, unmocked
-        # JSON fixture MUST fail during parsing rather than later M04 schema
-        # checks. Restore any pre-existing process setting even on failure.
-        previous_limit = sys.getrecursionlimit()
-        try:
-            sys.setrecursionlimit(1000)
-            with self.assertRaises(RecursionError):
-                json.loads(payload)
-            with self.assertRaises(IRSchemaError) as refusal:
-                deserialize_envelope(payload)
-            self.assertIsInstance(refusal.exception.__cause__, RecursionError)
-        finally:
-            sys.setrecursionlimit(previous_limit)
+        raw = payload if isinstance(payload, bytes) else payload.encode("utf-8")
+        self.assertLess(len(raw), IRLimits().max_inline_payload_bytes)
+        # An actual, unmocked parser exception is a prerequisite: these
+        # checks must fail if a different runtime parses the deep input,
+        # even if M04 would reject its root/envelope later.
+        with self.assertRaises(RecursionError):
+            json.loads(payload)
+        with self.assertRaises(IRSchemaError) as refusal:
+            deserialize_envelope(payload)
+        self.assertIsInstance(refusal.exception.__cause__, RecursionError)
 
     def test_01_deep_json_array_text_typed(self):
         self._assert_deep_json_typed(self._deep_array())

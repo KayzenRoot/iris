@@ -76,6 +76,16 @@
       "ownNewExactHeadCI": "PENDING",
       "ownNewExternalReview": "PENDING",
       "reviewThreadResolution": "PENDING"
+    },
+    "secondCorrection": {
+      "oldHead": "2ff0c5c2c3bc1c3cf348c86ee2d8c8ed686d3bd9",
+      "actualFailingGovernanceRun": 36450620186,
+      "actualJob": 109024143200,
+      "observed": "IRIS original Context Lock and governance validator PASS; actual full suite 4643 tests FAILED four new real deep cases because json.loads accepted depth=2,500 even under sys.setrecursionlimit(1,000) on original CI Python 3.12 runner; previous claimed C-parser nesting limit assumption experimentally falsified. No pre-existing test failures. Previous review-thread reply is now superseded; original Greptile P2 remains UNRESOLVED until rerun.",
+      "samePrFix": "Replace real deep-input fixture depth 2,500 with 100,000 array/object nesting while staying within frozen original 4,000,000 byte limit (arrays 200,001 bytes, objects 600,001 bytes). Before invoking M04 on each original real str/bytes case, verify actual native unmocked json.loads of the identical payload throws RecursionError, then insist original typed IRSchemaError chains that actual RecursionError. No artificial sys.setrecursionlimit assumptions or later-schema-only false passing. Retain separate synthetic forced parser test and all nine methods; no new production edits.",
+      "newFinalHeadCI": "PENDING",
+      "newExternalReviews": "PENDING",
+      "greptileP2Resolution": "PENDING"
     }
   }
 }
