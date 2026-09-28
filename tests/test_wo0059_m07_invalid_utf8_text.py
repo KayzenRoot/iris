@@ -4,7 +4,6 @@ from __future__ import annotations
 import unittest
 
 from iris_hardware_genome import (
-    HardwareGenomeIntegrityError,
     HardwareGenomeValidationError,
     canonical_deserialize,
     canonical_serialize,
