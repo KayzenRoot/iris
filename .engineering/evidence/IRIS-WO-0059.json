@@ -43,5 +43,12 @@
   "h01h02h03h04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
   "ownHeadCI": "PENDING",
   "ownProtectedMerge": "PENDING",
-  "ownIndependentExactMain": "PENDING"
+  "ownIndependentExactMain": "PENDING",
+  "correctionDelta": {
+    "initialHead": "4d4ed4e7639bfdbe4a42d4b7e0998310b8e1f799",
+    "initialFailingGovernanceRun": 36443122794,
+    "observed": "Exact PR source Context Lock PASS; Validate IRIS governance FAILED before test execution because machine nextStep already updated but canonical Markdown ## NEXT STEP still carried WO0058 author-time copy",
+    "sameWOFix": "Set the canonical Markdown ## NEXT STEP exactly equal to existing machine nextStep and preserve byte-identical engineering checkpoint mirror; no code or test changes",
+    "ownCorrectedHeadCI": "PENDING"
+  }
 }
