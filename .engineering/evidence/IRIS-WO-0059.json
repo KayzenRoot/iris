@@ -49,6 +49,9 @@
     "initialFailingGovernanceRun": 36443122794,
     "observed": "Exact PR source Context Lock PASS; Validate IRIS governance FAILED before test execution because machine nextStep already updated but canonical Markdown ## NEXT STEP still carried WO0058 author-time copy",
     "sameWOFix": "Set the canonical Markdown ## NEXT STEP exactly equal to existing machine nextStep and preserve byte-identical engineering checkpoint mirror; no code or test changes",
-    "ownCorrectedHeadCI": "PENDING"
+    "ownCorrectedHeadCI": "PENDING",
+    "secondFailingGovernanceRun": 36443341246,
+    "secondObserved": "Exact-head 4628 actual full unittest executed; 7 existing historical source-authority document regression tests FAILED solely because replacing canonical nextStep omitted original literal semantic/owner STOP markers, while PR Context Lock and governance passed. All 8 newly added M07 focused tests completed without their own reported failures. No preclaim of all-green head.",
+    "secondSameWOFix": "Restore previously required NEXT_REQUIRED_OWNER_GATE, exact original M09 owner disposition, M12 PREPARED_FOR_OWNER_REVIEW_ONLY, COMPLETE_DRAFT_FORMAT_ONLY is never approval and SPECIFIED_NOT_EXECUTED markers as factual prefix of current WO0059 nextStep, identical canonical/bridge/machine. Do not weaken or edit historical tests."
   }
 }
