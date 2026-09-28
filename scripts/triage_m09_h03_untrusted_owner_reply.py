@@ -249,7 +249,7 @@ def triage_batch(candidates:list[dict[str,Any]],packets:dict[str,Any],
         # independently qualified original owner decisions or approvals.
         proposed_dispositions[module]={
             row["questionId"]:row["decision"]
-            for row in candidate["questionDispositions"]
+            for row in candidate.get("questionDispositions",[])
         }
 
     ordered=[checked[m] for m in MODULE_ISSUES if m in checked]
