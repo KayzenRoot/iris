@@ -46,7 +46,7 @@ def deserialize_envelope(data: bytes | bytearray | str, *, limits: IRLimits = DE
         value = json.loads(text, object_pairs_hook=_unique_object, parse_constant=_reject_constant)
     except IRSchemaError:
         raise
-    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+    except (UnicodeDecodeError, json.JSONDecodeError, RecursionError) as error:
         raise IRSchemaError(f"invalid canonical JSON transport: {error}") from error
     if not isinstance(value, dict):
         raise IRSchemaError("canonical envelope JSON root must be an object")
