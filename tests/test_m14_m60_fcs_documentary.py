@@ -3,14 +3,14 @@ from __future__ import annotations
 from copy import deepcopy
 import unittest
 from scripts.verify_m14_m60_fcs import (
-    ROOT, REPORT, FCSIntegrityError, load, mock_compatibility_evidence,
+    ROOT, REPORT, FCSIntegrityError, read_packet, mock_compatibility_evidence,
     validate, verify_all,
 )
 
 class M14M60DocumentaryTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.p = load()
+        cls.p = read_packet()
 
     def audit(self, value=None, *, human=False, md=None):
         return validate(self.p if value is None else value, ROOT,
