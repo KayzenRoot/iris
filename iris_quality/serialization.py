@@ -95,11 +95,15 @@ def from_envelope(record: Mapping[str, Any]) -> Any:
     if missing:
         raise SchemaValidationError(f"envelope is missing keys: {sorted(missing)}")
     version = record["schema_version"]
+    if type(version) is not str:
+        raise SchemaValidationError("schema_version must be a string")
     if version not in SUPPORTED_SCHEMA_VERSIONS:
         raise UnsupportedVersionError(
             f"unsupported schema_version {version!r}; this kernel reads {sorted(SUPPORTED_SCHEMA_VERSIONS)}"
         )
     name = record["type"]
+    if type(name) is not str:
+        raise SchemaValidationError("envelope type must be a string")
     handler = SERIALIZABLE_TYPES.get(name)
     if handler is None:
         raise SchemaValidationError(
@@ -118,6 +122,8 @@ def from_envelope(record: Mapping[str, Any]) -> Any:
 def validate_payload(name: str, payload: Mapping[str, Any]) -> Any:
     """Rebuild then re-emit, so a payload is only valid when it round-trips unchanged."""
 
+    if type(name) is not str:
+        raise SchemaValidationError("kernel type must be a string")
     handler = SERIALIZABLE_TYPES.get(name)
     if handler is None:
         raise SchemaValidationError(f"unknown kernel type {name!r}")
