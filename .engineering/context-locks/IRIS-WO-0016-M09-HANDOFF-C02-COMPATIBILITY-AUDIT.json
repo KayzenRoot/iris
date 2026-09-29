@@ -76,7 +76,7 @@
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0015-M11-CONTRACT-CANDIDATE-C01.md",
-      "gitBlobSha1": "cf7f51761e7b9d773dd825c128c562021db39069"
+      "gitBlobSha1": "815b7549fbf2f240495a97c1cdc48caa29556457"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
@@ -84,7 +84,7 @@
     },
     {
       "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+      "gitBlobSha1": "4a5f384271504365701bdd685455d93984617f21"
     },
     {
       "path": "planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md",
@@ -92,43 +92,43 @@
     },
     {
       "path": "planning/compatibility/M11-FORWARD-COMPATIBILITY-SCAN.md",
-      "gitBlobSha1": "baf3575a7b4df69151c2f0104129825776d067ec"
+      "gitBlobSha1": "fd7d2625df50a4bfd39a9759bf2444e597f010d6"
     },
     {
       "path": "planning/reviews/M11-FINAL-TECHNOLOGY-REVIEW.md",
-      "gitBlobSha1": "f2c5ab25272ddcee96fbacf2b5144fcb9a58dbbd"
+      "gitBlobSha1": "80fc4f3b04d31842cc27bddbd2d2f1d59027d2c4"
     },
     {
       "path": "planning/reviews/M11-INDEPENDENT-PLANNING-AUDIT-C01.md",
-      "gitBlobSha1": "3b706b31696ab8ae9d42a5b7a41d10e4f7612756"
+      "gitBlobSha1": "52cb5c80b04660f043e1fae479e502fd80f5ba8d"
     },
     {
       "path": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
-      "gitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5"
+      "gitBlobSha1": "c186e73ad5088711b636ca6ced6b68ebe9643de2"
     },
     {
       "path": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "gitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e"
+      "gitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422"
     },
     {
       "path": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "gitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933"
+      "gitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92"
     },
     {
       "path": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "gitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae"
+      "gitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740"
     },
     {
       "path": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "gitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392"
+      "gitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b"
     },
     {
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+      "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b"
     },
     {
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+      "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037"
     },
     {
       "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
@@ -140,7 +140,7 @@
     },
     {
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+      "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220"
     },
     {
       "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",
@@ -156,27 +156,27 @@
     },
     {
       "path": "planning/reviews/M11-INDEPENDENT-PLANNING-AUDIT-C02.md",
-      "gitBlobSha1": "a3b48cdda1243fa7607816e5b44a85b30619138e"
+      "gitBlobSha1": "8bc2ed10ea42c34b34dd085eb0531e173382c8b6"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0015-M11-C02-POST-MERGE-CHECKPOINT-EVIDENCE-CLOSEOUT.md",
-      "gitBlobSha1": "c2ede27137032c960c00fdfa4f3948994e967de2"
+      "gitBlobSha1": "37b0ebc4d7da5bbb8bc77139c1180e255339028d"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0015-M11-C02-POST-MERGE-CHECKPOINT-EVIDENCE-CLOSEOUT.json",
-      "gitBlobSha1": "955ea864edff8f8355746eeb3eef49a2712cc204"
+      "gitBlobSha1": "376d04d9a920b0333dc93295307706fbd49d3c5e"
     },
     {
       "path": ".engineering/evidence/M11-C03-DECISION-PROOF-REGISTER.json",
-      "gitBlobSha1": "7b901e45770441a3a44f88a3ff8a83fecb480ccd"
+      "gitBlobSha1": "df6e94d9e218df8cde98c2bb1c7f9da2ef7434cd"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0015-M11-C03-DECISION-PROOF-REGISTER.md",
-      "gitBlobSha1": "49b917de8e925066a42ac47fae4848597b0638d7"
+      "gitBlobSha1": "0171ac1a01e65d0d68ef345ac3db7e917e4c4020"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0015-M11-C03-DECISION-PROOF-REGISTER.json",
-      "gitBlobSha1": "ab66a1c314d38e518a050db9576a0ac694a37392"
+      "gitBlobSha1": "552e5b9ac341af942b4247396ecf7deb843b27bc"
     },
     {
       "path": "planning/reviews/M11-C03-DECISION-PROOF-REGISTER.md",
@@ -184,7 +184,7 @@
     },
     {
       "path": ".engineering/evidence/M11-C04-OWNER-ROUTING.json",
-      "gitBlobSha1": "cd0fd361cca615348fa6366af0546d4078fe25e4"
+      "gitBlobSha1": "be003c96b02394ea70e469402073d5db55d995c7"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0015-M11-C04-OWNER-ROUTING.md",
@@ -192,15 +192,15 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0015-M11-C04-OWNER-ROUTING.json",
-      "gitBlobSha1": "2d630ae8380f1c7d7cde436bb75ead7e349fb867"
+      "gitBlobSha1": "eb23a700af0cdf947c5231ea24236734f2a23af8"
     },
     {
       "path": "planning/reviews/M11-C04-OWNER-ROUTING.md",
-      "gitBlobSha1": "2fa97ffe7f9afcfdeed4aa2c457ac94b286e6771"
+      "gitBlobSha1": "f2a24e8ff8f2a22b5f425a0970ee67011d163241"
     },
     {
       "path": ".engineering/evidence/M11-C05-OWNER-ROUTING-CORRECTED.json",
-      "gitBlobSha1": "ee8b43d8503cc79ce6f6526f80514df8f74a196a"
+      "gitBlobSha1": "4923259fd35a94936b193158d37d4fc705faeda4"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0015-M11-C05-OWNER-ROUTING-CORRECTION.md",
@@ -208,7 +208,7 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0015-M11-C05-OWNER-ROUTING-CORRECTION.json",
-      "gitBlobSha1": "a4788719d50c32ecb087aa10af3d1f0b47e4fedc"
+      "gitBlobSha1": "b377da163c12ad982104072dc8f4bedaa79c9e11"
     },
     {
       "path": "planning/reviews/M11-C05-ROUTING-RECHECK.md",
@@ -228,7 +228,7 @@
     },
     {
       "path": ".engineering/evidence/M11-C06-S03-U08-RESOURCE-STATUS.json",
-      "gitBlobSha1": "eb9d89b035c7e60f472e9f6ad40d482829dc7a2d"
+      "gitBlobSha1": "522310225a5cb0e9882df53fe2de72a031436f66"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0015-M11-C06-S03-U08-RESOURCE-STATUS.md",
@@ -236,7 +236,7 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0015-M11-C06-S03-U08-RESOURCE-STATUS.json",
-      "gitBlobSha1": "c3ac770be26b59467e0592f341c706e2777f19b1"
+      "gitBlobSha1": "aa0ef9bbd4b138a02ae841571f75109acad0074f"
     },
     {
       "path": "planning/reviews/M11-C06-S03-U08-RESOURCE-STATUS-PROPOSAL.md",
@@ -244,7 +244,7 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0015-M11-C07-C06-CLOSEOUT-M09-HANDOFF.json",
-      "gitBlobSha1": "d02ed4b2df438091b7ad309ab4d0a020a1e45dc2"
+      "gitBlobSha1": "b3c96fe43f912b08d1d823fd617cb3f2316aa172"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0015-M11-C07-C06-CLOSEOUT-M09-HANDOFF.md",
@@ -268,11 +268,11 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0015-M11-C08-M09-READINESS-AND-CASE-SPLIT.json",
-      "gitBlobSha1": "4327c8f3141ffabd20ded5a41123da7dfe6e2925"
+      "gitBlobSha1": "6bea75857854019dffc1f94693e225606db2f3d5"
     },
     {
       "path": ".engineering/evidence/M11-C08-M09-READINESS-AND-CASE-SPLIT.json",
-      "gitBlobSha1": "bb184ea7373dd40b768cb54d6aa11f8656d26b33"
+      "gitBlobSha1": "4b589e5e4f2b017c32bd4cda8e5c22d3455a1686"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0015-M11-C08-M09-READINESS-AND-CASE-SPLIT.md",
@@ -280,11 +280,11 @@
     },
     {
       "path": "planning/reviews/M11-C08-M09-SOURCE-READINESS-AND-C06-CORRECTION.md",
-      "gitBlobSha1": "c03655c2bb5b1006636f07c60659c960eb559d15"
+      "gitBlobSha1": "33bba6a844ee9d72429a2b89e05719dfb27ef96a"
     },
     {
       "path": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
-      "gitBlobSha1": "1e5898f36b49e71f28eb18eb9582d48de60a58b4"
+      "gitBlobSha1": "17064850e8d3cb15685d26499b75177f19e45252"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0013-M09-RESOURCE-DIGITAL-TWIN.md",
@@ -300,7 +300,7 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0016-M09-HANDOFF-PLANNING-ADMISSION.json",
-      "gitBlobSha1": "f743a3b7be02eea14abcc54b01dd34db2f9d1a45"
+      "gitBlobSha1": "9a3a4d4ec50ade6bc8a72ad1df4da78056f3428f"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0016-M09-READ-ONLY-HANDOFF-PLANNING.md",
@@ -320,7 +320,7 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0016-M09-HANDOFF-CONTRACT-C01.json",
-      "gitBlobSha1": "d9ba0fe35a613d387e0770a6ad3af5199317472e"
+      "gitBlobSha1": "fcdc816bbe8de4494344592c2c8a623bf167b6c5"
     },
     {
       "path": ".engineering/evidence/M09-HANDOFF-CANDIDATE-C01.json",

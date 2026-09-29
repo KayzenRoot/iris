@@ -78,7 +78,7 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0039-M09-H03-REPLY-TRIAGE.json",
-      "gitBlobSha1": "44e74fe869a801013c80cd71b9a204c725901842"
+      "gitBlobSha1": "46b6cfa761b4d19347d696471b162eb3a1fa5242"
     },
     {
       "path": "scripts/triage_m09_h03_untrusted_owner_reply.py",

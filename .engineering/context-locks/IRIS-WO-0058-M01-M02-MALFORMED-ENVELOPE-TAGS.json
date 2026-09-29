@@ -77,7 +77,7 @@
     },
     {
       "path": "planning/modules/M02-PROJECT-OS-PRODUCTION-GRAPH.md",
-      "gitBlobSha1": "3167e2ee8be597a7e33d9083a151c8cbcb462c7f"
+      "gitBlobSha1": "d7d57921abf9edce173a9dc590233e9354f94862"
     },
     {
       "path": "iris_quality/serialization.py",
@@ -101,7 +101,7 @@
     },
     {
       "path": "tests/test_m02_serialization.py",
-      "gitBlobSha1": "0683ef06c60d59fbde4976b49461498e82f882ab"
+      "gitBlobSha1": "b99964a66ef0126737075e89c1ee38d3e22e95be"
     },
     {
       "path": "tests/m01_kernel_support.py",
@@ -109,7 +109,7 @@
     },
     {
       "path": "tests/m02_kernel_support.py",
-      "gitBlobSha1": "04b80c7848a6eec7a0cb7c5bfdf81e95c72b0c7e"
+      "gitBlobSha1": "d2af1ded5ca99cf5af1c21a64c570ecbd7a88481"
     },
     {
       "path": "iris_quality/versions.py",
@@ -121,11 +121,11 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0057-M05-M08-INVALID-UTF8-TEXT.json",
-      "gitBlobSha1": "b8492cfc9728b0330d4e9298a23a5a0855ed6012"
+      "gitBlobSha1": "7555c6cd3e1801999ded89bd33bdc1e98cfdf444"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0057.json",
-      "gitBlobSha1": "3ca2cb7dbf5491fdc05c91438f9c967a35e9f1dd"
+      "gitBlobSha1": "1e4e0258c5a7c34bac67820569b4fcbcf78632fe"
     }
   ],
   "authorizedChangedFiles": [

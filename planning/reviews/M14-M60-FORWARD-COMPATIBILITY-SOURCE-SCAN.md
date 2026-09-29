@@ -4,7 +4,7 @@
 
 **Meaning of full:** Exhaustive index-level review across every M14–M60 module and its exact original five planned sessions. This is NOT independently qualified cross-product executable compatibility, signed owner approvals, M13 final technology choice, model/provider installation, physical GPU/storage verification or system release.
 
-Source lock: [original master module index](../../planning/MASTER-MODULE-INDEX.md) Git blob `19c8ff6126748cb89e53108bdff8289322071970`; [prior actually green WO0050 machine FTR](../../.engineering/evidence/M13-FTR-DOCUMENTARY-RECONCILIATION.json) Git blob `9b20be372c58bfbc6561963ad0e9c2a33461526d`. FTR preserves exactly 96 new still-open M13 questions and 74 future integration negatives NOT EXECUTED; historic M12 original 110/80 and H03 original 147/91 not conflated.
+Source lock: [original master module index](../../planning/MASTER-MODULE-INDEX.md) Git blob `a60d19c86bddd3699498f7d1f248a00368e32220`; [prior actually green WO0050 machine FTR](../../.engineering/evidence/M13-FTR-DOCUMENTARY-RECONCILIATION.json) Git blob `c0150ad80ab44ef7aa3c0f593982cb2a74191545`. FTR preserves exactly 96 new still-open M13 questions and 74 future integration negatives NOT EXECUTED; historic M12 original 110/80 and H03 original 147/91 not conflated.
 
 ## Cross-area evidence hazards, no live execution or signed contracts
 
@@ -61,7 +61,7 @@ Historical IRIS memory or cross-project context is not current production truth,
 ## All 47 modules: original five-session scope, specific M13 compatibility limit and proof route
 
 ### M14: Model Registry & Empirical Model Cards
-Original area: **AREA C — MODEL & WORKFLOW INTELLIGENCE**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA C — MODEL & WORKFLOW INTELLIGENCE**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Model identity, versions, hashes, license and provenance
 - S02 — S02 Capability Genome and task taxonomy
 - S03 — S03 Empirical quality/latency/VRAM model cards
@@ -73,7 +73,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M15: Multi-Model Director & Champion/Challenger Routing
-Original area: **AREA C — MODEL & WORKFLOW INTELLIGENCE**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA C — MODEL & WORKFLOW INTELLIGENCE**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Task-model affinity graph
 - S02 — S02 Candidate tournament and Pareto quality/cost routing
 - S03 — S03 Champion/challenger and canary evaluation
@@ -85,7 +85,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M16: Workflow Registry & Provider Compiler
-Original area: **AREA C — MODEL & WORKFLOW INTELLIGENCE**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA C — MODEL & WORKFLOW INTELLIGENCE**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Canonical workflow format and immutable revisions
 - S02 — S02 Workflow capability contracts and required nodes
 - S03 — S03 Provider compiler from IR/Fidelity Contract
@@ -97,7 +97,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M17: ComfyUI Runtime Integration
-Original area: **AREA C — MODEL & WORKFLOW INTELLIGENCE**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA C — MODEL & WORKFLOW INTELLIGENCE**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Local ComfyUI server/API contract
 - S02 — S02 Queue, websocket/progress and job state integration
 - S03 — S03 Workflow submission, outputs and artifact ingestion
@@ -109,7 +109,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M18: Model Acquisition, Integrity, License & Supply Chain
-Original area: **AREA C — MODEL & WORKFLOW INTELLIGENCE**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA C — MODEL & WORKFLOW INTELLIGENCE**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Trusted model/source registry and hashes
 - S02 — S02 Download/resume/storage and disk planning
 - S03 — S03 License/commercial-use policy and rights gates
@@ -121,7 +121,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M19: Fine-Tuning, LoRA, Adapters & Style/Identity Training
-Original area: **AREA C — MODEL & WORKFLOW INTELLIGENCE**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA C — MODEL & WORKFLOW INTELLIGENCE**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Training-use cases and when not to train
 - S02 — S02 Dataset lineage, consent and quality curation
 - S03 — S03 LoRA/adapter/style/identity training plans
@@ -133,7 +133,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M20: Image & Photography Studio
-Original area: **AREA D — IMAGE & PHOTOGRAPHY**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA D — IMAGE & PHOTOGRAPHY**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Text-to-image and image-to-image master pipeline
 - S02 — S02 Portrait, editorial, concept art and environment workflows
 - S03 — S03 Product photography, key art, posters and thumbnails
@@ -145,7 +145,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M21: Reference Fusion, Pose, Depth, Edge & Segmentation Control
-Original area: **AREA D — IMAGE & PHOTOGRAPHY**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA D — IMAGE & PHOTOGRAPHY**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Multi-reference identity/style fusion
 - S02 — S02 Pose and anatomy control
 - S03 — S03 Depth/normal/edge/line control
@@ -157,7 +157,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M22: Composition, Typography, Product & Design Intelligence
-Original area: **AREA D — IMAGE & PHOTOGRAPHY**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA D — IMAGE & PHOTOGRAPHY**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Composition and visual hierarchy
 - S02 — S02 Text/logo/layout fidelity and typography
 - S03 — S03 Product geometry/packaging consistency
@@ -169,7 +169,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M23: Image Repair, Retouch, Relight, Upscale & Transparency
-Original area: **AREA D — IMAGE & PHOTOGRAPHY**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA D — IMAGE & PHOTOGRAPHY**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Inpaint/outpaint and local defect repair
 - S02 — S02 Relighting, color matching and restoration
 - S03 — S03 Background removal, alpha quality and edge treatment
@@ -181,7 +181,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M24: Image Quality Evals & Visual Acceptance
-Original area: **AREA D — IMAGE & PHOTOGRAPHY**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA D — IMAGE & PHOTOGRAPHY**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Anatomy, identity and composition judges
 - S02 — S02 Artifact, clipping, text and transparency judges
 - S03 — S03 Reference similarity and structural metrics
@@ -193,7 +193,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M25: 3D & Spatial Asset Studio
-Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Image/text-to-3D intake and target classes
 - S02 — S02 Mesh, scene and environment generation strategies
 - S03 — S03 Cross-view consistency and 2D-to-3D identity bridge
@@ -205,7 +205,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M26: Blender 5.2 LTS Headless Automation & MCP
-Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Blender 5.2 LTS production baseline and compatibility
 - S02 — S02 `--background` worker architecture and Python/bpy jobs
 - S03 — S03 MCP control plane for inspection and interactive tasks
@@ -217,7 +217,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M27: Geometry, Retopology, UV, LOD & Topology Quality
-Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Mesh health, manifoldness and geometry standards
 - S02 — S02 Automated/manual retopology strategies
 - S03 — S03 UV unwrap, texel density and packing
@@ -229,7 +229,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M28: Materials, PBR, Textures & Baking
-Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Material IR and PBR channel standards
 - S02 — S02 AI texture generation and projection
 - S03 — S03 UV-aware texture repair and seam handling
@@ -241,7 +241,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M29: Rigging, Skinning, Anatomy & Deformation
-Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Skeleton/rig standards by asset class
 - S02 — S02 Auto-rig and control-rig strategies
 - S03 — S03 Skin weights and deformation quality
@@ -253,7 +253,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M30: Animation & Motion Studio
-Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Motion DNA and semantic motion briefs
 - S02 — S02 Locomotion, combat, loops and cinematic motion
 - S03 — S03 Mocap, motion transfer and retargeting
@@ -265,7 +265,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M31: Camera, Lighting & Rendering
-Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Camera Intent Engine and shot framing
 - S02 — S02 Lighting IR, rigs and relighting
 - S03 — S03 Cycles/EEVEE strategy and hardware-aware renderer choice
@@ -277,7 +277,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M32: VFX, Physics, Particles & Geometry Nodes
-Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 VFX graph and reusable effect families
 - S02 — S02 Geometry Nodes procedural generation
 - S03 — S03 Physics, cloth, hair, rigid/soft body and simulation
@@ -289,7 +289,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M33: Maya & DCC Interoperability
-Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 DCC adapter contract and capability discovery
 - S02 — S02 Maya bridge/MCP strategy when installed
 - S03 — S03 USD, Alembic, FBX, glTF and interchange semantics
@@ -301,7 +301,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M34: Web 3D / WebGPU Asset Compiler
-Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Web asset budgets and scene targets
 - S02 — S02 glTF/GLB, Draco/Meshopt/KTX2 pipeline
 - S03 — S03 LOD, texture streaming and runtime variants
@@ -313,7 +313,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M35: Game Engine Asset Delivery
-Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA E — 3D, BLENDER, MOTION & SPATIAL**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Godot/Unity/Unreal destination profiles
 - S02 — S02 Import presets, skeleton/material and coordinate mapping
 - S03 — S03 Collision, LOD, animation and asset bundle packaging
@@ -325,7 +325,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M36: Video & Cinema Studio
-Original area: **AREA F — VIDEO & CINEMA**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA F — VIDEO & CINEMA**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Shot planning and production timeline
 - S02 — S02 Text/image/video-to-video routing
 - S03 — S03 Camera motion, scene extension and transitions
@@ -337,7 +337,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M37: Temporal Consistency & Shot Continuity
-Original area: **AREA F — VIDEO & CINEMA**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA F — VIDEO & CINEMA**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Temporal Identity Lock and character continuity
 - S02 — S02 Shot Continuity Graph and temporal state memory
 - S03 — S03 Object/environment continuity and camera-state continuity
@@ -349,7 +349,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M38: Editing, Compositing, Color & Encode
-Original area: **AREA F — VIDEO & CINEMA**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA F — VIDEO & CINEMA**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Editorial timeline and shot selection
 - S02 — S02 Compositing/VFX integration and mattes
 - S03 — S03 Color pipeline, grading and display transforms
@@ -361,7 +361,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M39: Digital Humans & Virtual Identity
-Original area: **AREA G — DIGITAL HUMANS & AUDIO**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA G — DIGITAL HUMANS & AUDIO**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 M05-bound Persona Continuity Engine and canonical persona
 - S02 — S02 Face/body/hair/skin/clothing consistency
 - S03 — S03 Expression, gesture, mannerism and acting system
@@ -373,7 +373,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M40: Voice Studio & Dubbing
-Original area: **AREA G — DIGITAL HUMANS & AUDIO**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA G — DIGITAL HUMANS & AUDIO**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Voice DNA and authorized voice design/cloning
 - S02 — S02 TTS, speech-to-speech and narration
 - S03 — S03 Emotion, prosody, pacing and character direction
@@ -385,7 +385,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M41: Music Studio
-Original area: **AREA G — DIGITAL HUMANS & AUDIO**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA G — DIGITAL HUMANS & AUDIO**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Artist DNA, Music DNA and sonic identity
 - S02 — S02 Composition, arrangement and instrumental generation
 - S03 — S03 Vocals, stems, remix and versioning
@@ -397,7 +397,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M42: Sound Design & Audio Post
-Original area: **AREA G — DIGITAL HUMANS & AUDIO**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA G — DIGITAL HUMANS & AUDIO**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 SFX/Foley generation and libraries
 - S02 — S02 Ambience, environmental and spatial audio
 - S03 — S03 Layering, cleanup, denoise and restoration
@@ -409,7 +409,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M43: Narrative, Script & Canon Engine
-Original area: **AREA H — STORY, CONTENT, BRAND & COMMERCIAL MEDIA**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA H — STORY, CONTENT, BRAND & COMMERCIAL MEDIA**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Concept, synopsis, script and scene structure
 - S02 — S02 Canon Graph, Story State Ledger and world state
 - S03 — S03 Character arcs, dialogue and episode memory
@@ -421,7 +421,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M44: Faceless Content Factory
-Original area: **AREA H — STORY, CONTENT, BRAND & COMMERCIAL MEDIA**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA H — STORY, CONTENT, BRAND & COMMERCIAL MEDIA**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Channel DNA, niche and content strategy
 - S02 — S02 Research/topic pipeline and script generation
 - S03 — S03 Narration/presenter, scenes, B-roll, music and subtitles
@@ -433,7 +433,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M45: Advertising & Synthetic UGC Studio
-Original area: **AREA H — STORY, CONTENT, BRAND & COMMERCIAL MEDIA**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA H — STORY, CONTENT, BRAND & COMMERCIAL MEDIA**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Campaign DNA, Creative Genome and audience intents
 - S02 — S02 Hooks, CTA, persistent virtual spokesperson and product demonstration
 - S03 — S03 Creative families, variants and platform crops
@@ -445,7 +445,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M46: Brand & IP Studio
-Original area: **AREA H — STORY, CONTENT, BRAND & COMMERCIAL MEDIA**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA H — STORY, CONTENT, BRAND & COMMERCIAL MEDIA**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Brand DNA, visual/sonic/verbal identity
 - S02 — S02 Typography, palette, photography and style constraints
 - S03 — S03 Character/IP asset graph and approved references
@@ -457,7 +457,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M47: Localization & Culturalization Studio
-Original area: **AREA H — STORY, CONTENT, BRAND & COMMERCIAL MEDIA**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA H — STORY, CONTENT, BRAND & COMMERCIAL MEDIA**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Translation, terminology and locale profiles
 - S02 — S02 Dubbing/subtitle/lip adaptation
 - S03 — S03 Image text replacement and localized graphics
@@ -469,7 +469,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M48: Quality Court & Automated Review
-Original area: **AREA I — QUALITY, REPAIR & BENCHMARKS**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA I — QUALITY, REPAIR & BENCHMARKS**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Judge architecture and evidence contracts
 - S02 — S02 Identity/anatomy/composition/temporal/3D/audio judges
 - S03 — S03 Confidence arbitration and uncertainty
@@ -481,7 +481,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M49: Self-Correction, Partial Repair & Minimal Regeneration
-Original area: **AREA I — QUALITY, REPAIR & BENCHMARKS**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA I — QUALITY, REPAIR & BENCHMARKS**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Defect localization and failure fingerprints
 - S02 — S02 Error-to-Action Compiler and repair planning
 - S03 — S03 Region/frame/mesh/audio selective repair
@@ -493,7 +493,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M50: Render Cascade & Cost-to-Quality Optimization
-Original area: **AREA I — QUALITY, REPAIR & BENCHMARKS**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA I — QUALITY, REPAIR & BENCHMARKS**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Draft→Preview→Evaluate→Select→Enhance→Master cascade
 - S02 — S02 Candidate Tournament and selective enhancement
 - S03 — S03 Cost-to-Quality Predictor and quality budget allocator
@@ -505,7 +505,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M51: Benchmark Lab, Evals & Regression Corpus
-Original area: **AREA I — QUALITY, REPAIR & BENCHMARKS**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA I — QUALITY, REPAIR & BENCHMARKS**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Golden multimodal benchmark corpus
 - S02 — S02 Visual/anatomy/motion/3D/audio benchmark suites
 - S03 — S03 Hardware/model/workflow comparative harness
@@ -517,7 +517,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M52: IRIS Multimodal Memory & Creative RAG Integration
-Original area: **AREA J — MEMORY, PROVENANCE, SECURITY & DATA**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA J — MEMORY, PROVENANCE, SECURITY & DATA**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 IRIS↔IRIS project/context contract
 - S02 — S02 Asset/reference/image/audio/3D metadata retrieval
 - S03 — S03 Creator/project/character/production memory
@@ -529,7 +529,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M53: Provenance, Rights, Consent & C2PA
-Original area: **AREA J — MEMORY, PROVENANCE, SECURITY & DATA**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA J — MEMORY, PROVENANCE, SECURITY & DATA**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Media Provenance Graph and transformation ledger
 - S02 — S02 Model/reference/prompt/seed/parameter lineage
 - S03 — S03 Rights, license and consent ledger
@@ -541,7 +541,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M54: Security, Identity & Restricted Content
-Original area: **AREA J — MEMORY, PROVENANCE, SECURITY & DATA**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA J — MEMORY, PROVENANCE, SECURITY & DATA**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Threat model, RBAC/capabilities and project isolation
 - S02 — S02 Secrets, provider credentials and local trust boundaries
 - S03 — S03 Untrusted model/node/DCC file sandbox policy
@@ -553,7 +553,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M55: Media CAS, Storage, Cache & Archive Fabric
-Original area: **AREA J — MEMORY, PROVENANCE, SECURITY & DATA**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA J — MEMORY, PROVENANCE, SECURITY & DATA**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Content-addressable media store and immutable masters
 - S02 — S02 Perceptual dedup and generation delta storage
 - S03 — S03 Hot/warm/cold tiers, proxies and previews
@@ -565,7 +565,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M56: Observability, Telemetry & IRIS Control Center
-Original area: **AREA K — CONTROL CENTER, AUTONOMY, APIs & RELEASE**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA K — CONTROL CENTER, AUTONOMY, APIs & RELEASE**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Executive/project/production dashboard
 - S02 — S02 GPU/VRAM/RAM/CPU/thermal/worker observability
 - S03 — S03 Model/workflow quality, latency and cost analytics
@@ -577,7 +577,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M57: Automation, Agents & Autonomous Production
-Original area: **AREA K — CONTROL CENTER, AUTONOMY, APIs & RELEASE**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA K — CONTROL CENTER, AUTONOMY, APIs & RELEASE**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Production Director and task decomposition
 - S02 — S02 Render/review/repair/content agents
 - S03 — S03 Multi-agent Production Graph and scope guard
@@ -589,7 +589,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M58: API, SDK, MCP & Plugin Ecosystem
-Original area: **AREA K — CONTROL CENTER, AUTONOMY, APIs & RELEASE**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA K — CONTROL CENTER, AUTONOMY, APIs & RELEASE**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Stable domain APIs and contracts
 - S02 — S02 MCP surfaces for IRIS, Blender and external executors
 - S03 — S03 Python/TypeScript SDKs and job/event clients
@@ -601,7 +601,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M59: Export, Publishing & Adaptive Delivery Compiler
-Original area: **AREA K — CONTROL CENTER, AUTONOMY, APIs & RELEASE**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA K — CONTROL CENTER, AUTONOMY, APIs & RELEASE**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Destination Capability Profiles
 - S02 — S02 Adaptive Media Compiler for game/web/mobile/social
 - S03 — S03 Resolution/aspect/codec/texture/3D/audio variant generation
@@ -613,7 +613,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M60: Deployment, Recovery, System Integration & IRIS 1.0 Final Acceptance
-Original area: **AREA K — CONTROL CENTER, AUTONOMY, APIs & RELEASE**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
+Original area: **AREA K — CONTROL CENTER, AUTONOMY, APIs & RELEASE**. Source index Git blob: `a60d19c86bddd3699498f7d1f248a00368e32220`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Local installation/update/uninstall and background services
 - S02 — S02 Backup, restore, migration and disaster recovery
 - S03 — S03 Full IRIS↔CORE↔IRIS integration validation
@@ -643,13 +643,13 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
   "asOf": "2026-09-27",
   "masterIndex": {
     "path": "planning/MASTER-MODULE-INDEX.md",
-    "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970",
+    "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220",
     "modules": 47,
     "originalSubsessions": 235
   },
   "sourceFTR": {
     "path": ".engineering/evidence/M13-FTR-DOCUMENTARY-RECONCILIATION.json",
-    "gitBlobSha1": "9b20be372c58bfbc6561963ad0e9c2a33461526d",
+    "gitBlobSha1": "c0150ad80ab44ef7aa3c0f593982cb2a74191545",
     "questionsOpen": 96,
     "negativeCasesNotExecuted": 74,
     "ownActualTechReviewStatus": "DOCUMENTARY_RECONCILIATION_NOT_FINAL_TECH_APPROVAL"
@@ -668,7 +668,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F02_COMPILATION_BACKENDS",
@@ -695,7 +695,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -721,7 +721,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F03_PARTIAL_REUSE_DELTA"
@@ -747,7 +747,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F04_OVERLAP_AND_IO"
@@ -773,7 +773,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F02_COMPILATION_BACKENDS"
@@ -799,7 +799,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -825,7 +825,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F03_PARTIAL_REUSE_DELTA",
@@ -852,7 +852,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F03_PARTIAL_REUSE_DELTA"
@@ -878,7 +878,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -904,7 +904,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -930,7 +930,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -956,7 +956,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -982,7 +982,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F04_OVERLAP_AND_IO"
@@ -1008,7 +1008,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1034,7 +1034,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1060,7 +1060,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1086,7 +1086,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1112,7 +1112,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F04_OVERLAP_AND_IO",
@@ -1139,7 +1139,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F04_OVERLAP_AND_IO"
@@ -1165,7 +1165,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F03_PARTIAL_REUSE_DELTA"
@@ -1191,7 +1191,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1217,7 +1217,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1243,7 +1243,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F03_PARTIAL_REUSE_DELTA",
@@ -1270,7 +1270,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1296,7 +1296,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F04_OVERLAP_AND_IO"
@@ -1322,7 +1322,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA"
@@ -1348,7 +1348,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA"
@@ -1374,7 +1374,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA"
@@ -1400,7 +1400,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F04_OVERLAP_AND_IO"
@@ -1426,7 +1426,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1452,7 +1452,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA",
@@ -1479,7 +1479,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA",
@@ -1506,7 +1506,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1532,7 +1532,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1558,7 +1558,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1584,7 +1584,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1610,7 +1610,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA",
@@ -1637,7 +1637,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F04_OVERLAP_AND_IO",
@@ -1664,7 +1664,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA"
@@ -1690,7 +1690,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA",
@@ -1717,7 +1717,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F02_COMPILATION_BACKENDS",
@@ -1746,7 +1746,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA",
@@ -1773,7 +1773,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F04_OVERLAP_AND_IO",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1799,7 +1799,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F04_OVERLAP_AND_IO",
@@ -1826,7 +1826,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F04_OVERLAP_AND_IO",
@@ -1853,7 +1853,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1879,7 +1879,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F02_COMPILATION_BACKENDS",

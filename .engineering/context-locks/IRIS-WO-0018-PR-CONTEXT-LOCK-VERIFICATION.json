@@ -96,7 +96,7 @@
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0015.json",
-      "gitBlobSha1": "e0f81f92a1db2db7431080453b0ce7a354d57ef4"
+      "gitBlobSha1": "a60346c2bcda7b63cc3fe2be64deb9e55b69f557"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0016.json",
@@ -108,15 +108,15 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0017-CHECKPOINT-MIRROR-GUARD.json",
-      "gitBlobSha1": "7339449844d20fe42d813ba9acb6684a0a3d0eaa"
+      "gitBlobSha1": "595cd4ec392bb29dcc7ece0af7a90038f8c32b9e"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0017-CHECKPOINT-MIRROR-GUARD.md",
-      "gitBlobSha1": "81e9bc5b350b427ed892fa7d3c8c461707cc0e5f"
+      "gitBlobSha1": "423fef5f38afcff2db02b3389969ee06fa04fb33"
     },
     {
       "path": "planning/reviews/IRIS-WO-0017-CHECKPOINT-GUARD-AUDIT-TARGET.md",
-      "gitBlobSha1": "15740b7798fefb81fabccbd3a6aca509c5ed911c"
+      "gitBlobSha1": "66642882207bed72f9b994df74e58fe939769bc6"
     },
     {
       "path": "planning/research/M11-C09-REVERSE-LIVENESS-OWNER-RESEARCH.md",

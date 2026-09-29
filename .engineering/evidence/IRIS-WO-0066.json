@@ -8,7 +8,7 @@
   "priorInheritedPins": 26,
   "sourceAnchor": {
     "path": ".engineering/context-locks/IRIS-WO-0064-WO0063-CANONICAL-CLOSEOUT.json",
-    "gitBlobSha1": "1e0788cb1643ab71e60a91be77232faf9b63c364"
+    "gitBlobSha1": "77de09270ef0e4bbcd079dcb9dc0e4a61e358817"
   },
   "strictChangedPaths": [
     ".codex/config.toml",
@@ -70,7 +70,7 @@
   "retiredOldServiceTests": 6,
   "fullSuiteProposed": 4675,
   "activeCurrentIndex": "planning/MASTER-MODULE-INDEX-CURRENT.md",
-  "historicalIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+  "historicalIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
   "gefUpstream": "866fe3af8cccc65c929aaf6a47a924401fa448b3",
   "oldOwnerIssues": [
     82,

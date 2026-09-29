@@ -65,15 +65,15 @@
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0059-M07-INVALID-UTF8-TEXT.md",
-      "gitBlobSha1": "5875f9965444b73fcfed68a141cdb05dcb79176f"
+      "gitBlobSha1": "6b937095aa55143b9d39e6c2d53389dd231f9b69"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0059-M07-INVALID-UTF8-TEXT.json",
-      "gitBlobSha1": "a169daf6398ef49780ffc082d859ea0cd8d1f832"
+      "gitBlobSha1": "5516a1d37085cd3bafb19add915f8d074c2f096b"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0059.json",
-      "gitBlobSha1": "9c7e8566e27eb533d28b006fb6cdce42c68e395c"
+      "gitBlobSha1": "2866db226eecbe88c9c294fd4c095a7f7cc9c967"
     },
     {
       "path": "planning/checkpoints/IRIS-WO-0059-M07-INVALID-UTF8-TEXT.md",

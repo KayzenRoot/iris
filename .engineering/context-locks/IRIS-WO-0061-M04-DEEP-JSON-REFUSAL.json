@@ -65,15 +65,15 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0060-WO0059-CANONICAL-CLOSEOUT.json",
-      "gitBlobSha1": "bcaac073054e67272507e7174da3c67cd7affea6"
+      "gitBlobSha1": "ed7b53ec5a0485086d9857688f7f811e9819bfda"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0060.json",
-      "gitBlobSha1": "3c8f594619d2c35194fb000eb95bc93d3c6865a2"
+      "gitBlobSha1": "54edd6811eaf0028bd1b9334a20316b35a7fee96"
     },
     {
       "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "c4b39c03f86f7a8e112d22a25ca91169c02c5e4d"
+      "gitBlobSha1": "c84c6645a84e1fa41ace5e627411bf953fc77dc5"
     },
     {
       "path": "planning/modules/M04-MULTIMODAL-SCENE-IR.md",

@@ -73,7 +73,7 @@
     },
     {
       "path": "planning/modules/M05-ASSET-DNA-CROSS-MODAL-IDENTITY.md",
-      "gitBlobSha1": "22160605cd8f8d90b18418b316653adcd4d9b30e"
+      "gitBlobSha1": "452e25f1c9f85d1303120b8c89e6046d1e5b5ea6"
     },
     {
       "path": "planning/modules/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
@@ -121,11 +121,11 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0056-M01-M03-DUPLICATE-JSON-KEYS.json",
-      "gitBlobSha1": "6b064e9038dc6fe16e2bfba0e6041b03231d08bd"
+      "gitBlobSha1": "40b5caa3a47ee0cfc220305773c4b5f6b66040a0"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0056.json",
-      "gitBlobSha1": "b4cca70a04798b8c8bead38f379c3188ce8301bd"
+      "gitBlobSha1": "9035a3cbfe1d5e44ff77bfb9f1aaee869551a245"
     },
     {
       "path": "iris_microbenchmark/schema.py",

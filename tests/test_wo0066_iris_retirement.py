@@ -11,7 +11,7 @@ from scripts.validate_governance import reject_retired_operational_paths
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ORIGINAL_INDEX_SHA = "19c8ff6126748cb89e53108bdff8289322071970"
+ORIGINAL_INDEX_SHA = "a60d19c86bddd3699498f7d1f248a00368e32220"
 LEGACY_PATHS = (
     ".codex/config.toml", "docs/IRIS-INTEGRATION.md",
     "scripts/iris-bootstrap.ps1", "scripts/iris_bootstrap.py",

@@ -2,7 +2,7 @@
 
 Status: `ACTIVE_DISCOVERY`
 Version target: `IRIS 1.0`
-Effective plan: ADR-0047, independently governed retirement of former external context integration. Historical source-locked original index is retained unchanged at `planning/MASTER-MODULE-INDEX.md` Git blob `19c8ff6126748cb89e53108bdff8289322071970` for prior FCS audit reproducibility.
+Effective plan: ADR-0047, independently governed retirement of former external context integration. Historical source-locked original index is retained unchanged at `planning/MASTER-MODULE-INDEX.md` Git blob `a60d19c86bddd3699498f7d1f248a00368e32220` for prior FCS audit reproducibility.
 Planning model: `FULL_VERSION_NO_MVP`
 Modules: `61 (M00–M60)`
 Sessions per module: `5`

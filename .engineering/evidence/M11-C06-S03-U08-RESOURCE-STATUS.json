@@ -10,7 +10,7 @@
     "source": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
     "status": "OPEN",
     "risk": "UNRATED",
-    "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933"
+    "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92"
   },
   "currentCandidate": "m11-contract-candidate-v0.2 PROPOSED_NOT_FROZEN",
   "proposal": "DOCUMENTATION_ONLY_M11_CALLER_VISIBILITY_DRAFT_REQUIRES_M09_REVIEW",

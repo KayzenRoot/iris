@@ -249,7 +249,7 @@
   ],
   "scopeDeviations": [
     "Context Lock admission-time checkpoint pin was stale because the admission commit itself changed that checkpoint. Independent review classified it CHAT_FIXABLE and corrected the pin to blob 2854f2606741da4664ecd1b01ed182ecc4381637; no frozen source or base SHA changed.",
-    "No frozen semantic was weakened to reach green: m03-contract-v1.0 is byte-identical to its locked blob (66616ac94f9e4d02b680e9dc4e4f8a8fce21d34a), CONTRACT_VERSION and SCHEMA_VERSION supported sets remain single-member, and the five kernel repairs above narrow refusals or restore documented behaviour rather than relaxing an invariant."
+    "No frozen semantic was weakened to reach green: m03-contract-v1.0 is byte-identical to its locked blob (bb640aaa1711e1c0b939769d579e887029bcbd17), CONTRACT_VERSION and SCHEMA_VERSION supported sets remain single-member, and the five kernel repairs above narrow refusals or restore documented behaviour rather than relaxing an invariant."
   ],
   "risksAndDeferredWork": [
     "The twelve section 12 extension boundaries are types and opaque-ref contracts, not integrations: no provider, DCC, rights system, brand store, canon engine or delivery backend is wired, so every cross-module claim in M03 is a reference the caller must keep honest.",

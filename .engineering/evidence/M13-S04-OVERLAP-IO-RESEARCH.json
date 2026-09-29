@@ -31,7 +31,7 @@
     {
       "role": "INDEX",
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "sha": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sha": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "anchor": "S04 — S04 CPU/GPU overlap, I/O scheduling and storage efficiency"
     },
     {
@@ -61,7 +61,7 @@
     {
       "role": "M11",
       "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "41ab89727c7be14e35e2481aefbd97a0cb81cb48",
+      "sha": "4a5f384271504365701bdd685455d93984617f21",
       "anchor": "PROPOSED_C02_CORRECTION_NOT_FROZEN"
     },
     {
@@ -73,43 +73,43 @@
     {
       "role": "S01",
       "path": "planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md",
-      "sha": "7701c1e744d2b459d2f6bb4fa754352374fb67fd",
+      "sha": "6ef2485c557f5523871db34cd154b1da66699fde",
       "anchor": "C03_DEVICE_RESIDENCY_HINT"
     },
     {
       "role": "S02",
       "path": "planning/research/M13-S02-COMPILATION-ATTENTION-BACKENDS.md",
-      "sha": "33736cc40214af1ee25586d6c94789d8c0d95739",
+      "sha": "c033ac4696ad4a188ca5605470bf9b29396eb3ad",
       "anchor": "AUTO_SDPA"
     },
     {
       "role": "S03",
       "path": "planning/research/M13-S03-INTERMEDIATE-REUSE-GENERATION-DELTA.md",
-      "sha": "96a9952086300a1ae2d46195bd7dc6d50dea06ba",
+      "sha": "fd600eeca5cabd3e367fcbb27f12556830c93bf0",
       "anchor": "Seven unadopted reuse concepts"
     },
     {
       "role": "M01",
       "path": "docs/M01-QUALITY-KERNEL.md",
-      "sha": "930af57944fa83c44745873c42eb3a7740972ee6",
+      "sha": "df4f899ad414c47ad379f26fe1782edb6f43cf6f",
       "anchor": "m01-contract-v1.0"
     },
     {
       "role": "M02",
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+      "sha": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
       "anchor": "semantic reuse requires explicit reuse class/admission"
     },
     {
       "role": "M06",
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+      "sha": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
       "anchor": "Digest equality proves byte equality under the declared digest domain only."
     },
     {
       "role": "D01",
       "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
-      "sha": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb",
+      "sha": "8877331a5004a3e816e4c42fb521ff3408bad08a",
       "anchor": "B_FUTURE_OWNER_RECEIPT"
     }
   ],

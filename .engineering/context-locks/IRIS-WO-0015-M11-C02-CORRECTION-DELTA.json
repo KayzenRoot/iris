@@ -72,7 +72,7 @@
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0015-M11-CONTRACT-CANDIDATE-C01.md",
-      "gitBlobSha1": "cf7f51761e7b9d773dd825c128c562021db39069"
+      "gitBlobSha1": "815b7549fbf2f240495a97c1cdc48caa29556457"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
@@ -88,43 +88,43 @@
     },
     {
       "path": "planning/compatibility/M11-FORWARD-COMPATIBILITY-SCAN.md",
-      "gitBlobSha1": "baf3575a7b4df69151c2f0104129825776d067ec"
+      "gitBlobSha1": "fd7d2625df50a4bfd39a9759bf2444e597f010d6"
     },
     {
       "path": "planning/reviews/M11-FINAL-TECHNOLOGY-REVIEW.md",
-      "gitBlobSha1": "f2c5ab25272ddcee96fbacf2b5144fcb9a58dbbd"
+      "gitBlobSha1": "80fc4f3b04d31842cc27bddbd2d2f1d59027d2c4"
     },
     {
       "path": "planning/reviews/M11-INDEPENDENT-PLANNING-AUDIT-C01.md",
-      "gitBlobSha1": "3b706b31696ab8ae9d42a5b7a41d10e4f7612756"
+      "gitBlobSha1": "52cb5c80b04660f043e1fae479e502fd80f5ba8d"
     },
     {
       "path": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
-      "gitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5"
+      "gitBlobSha1": "c186e73ad5088711b636ca6ced6b68ebe9643de2"
     },
     {
       "path": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "gitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e"
+      "gitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422"
     },
     {
       "path": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "gitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933"
+      "gitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92"
     },
     {
       "path": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "gitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae"
+      "gitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740"
     },
     {
       "path": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "gitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392"
+      "gitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b"
     },
     {
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+      "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b"
     },
     {
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+      "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037"
     },
     {
       "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
@@ -136,7 +136,7 @@
     },
     {
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+      "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220"
     },
     {
       "path": ".engineering/REVIEW-AUTOFIX-POLICY.md",

@@ -21,13 +21,13 @@
   "h03FourOwnerAssignments": "147_ASSIGNMENTS_91_UNIQUE_ORIGINAL",
   "sourceMasterIndex": {
     "path": "planning/MASTER-MODULE-INDEX.md",
-    "sha": "19c8ff6126748cb89e53108bdff8289322071970"
+    "sha": "a60d19c86bddd3699498f7d1f248a00368e32220"
   },
   "sessions": [
     {
       "id": "S01",
       "sourcePath": ".engineering/evidence/M13-S01-SOURCE-RESEARCH.json",
-      "gitBlobSha1": "ee65b960ca7e4f83f5419ec744f4c1f304edb6d7",
+      "gitBlobSha1": "5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0",
       "sourceSchema": "iris-m13-s01-source-research-v0.1",
       "originalWorkOrder": "IRIS-WO-0045",
       "sourceStatus": "SOURCE_RESEARCH_ONLY_NONBINDING",
@@ -71,7 +71,7 @@
     {
       "id": "S02",
       "sourcePath": ".engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json",
-      "gitBlobSha1": "2e94983865cf72aa6c5a63510b8a4b41586048c7",
+      "gitBlobSha1": "8ac11eaa91292a81d10de1d44ccd21b5e240a664",
       "sourceSchema": "iris-m13-s02-source-research-v0.1",
       "originalWorkOrder": "IRIS-WO-0046",
       "sourceStatus": "SOURCE_ONLY_UNSELECTED_NONBINDING",
@@ -117,7 +117,7 @@
     {
       "id": "S03",
       "sourcePath": ".engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json",
-      "gitBlobSha1": "16737ecbb836b1e0736f4851ce6e0b56b8916bea",
+      "gitBlobSha1": "fe0ea0d3a4b4229f79e19d023c255cc6a0cafdf1",
       "sourceSchema": "iris-m13-s03-research-v0.1",
       "originalWorkOrder": "IRIS-WO-0047",
       "sourceStatus": "SOURCE_ONLY_NONBINDING",
@@ -167,7 +167,7 @@
     {
       "id": "S04",
       "sourcePath": ".engineering/evidence/M13-S04-OVERLAP-IO-RESEARCH.json",
-      "gitBlobSha1": "363dc19ed3536ad389a36fedbc5101d1d94bfb2d",
+      "gitBlobSha1": "b9b87ac36189c1cabd75989a07920752c23704fd",
       "sourceSchema": "iris-m13-s04-source-research-v0.1",
       "originalWorkOrder": "IRIS-WO-0048",
       "sourceStatus": "SOURCE_ONLY_NO_HARDWARE_OR_IO_RUNTIME",
@@ -217,7 +217,7 @@
     {
       "id": "S05",
       "sourcePath": ".engineering/evidence/M13-S05-PERFORMANCE-GATES-RESEARCH.json",
-      "gitBlobSha1": "613138430a472367646586645eb5315face35d14",
+      "gitBlobSha1": "ff0cba2138ba1684917414501809dff4193fdd49",
       "sourceSchema": "iris-m13-s05-performance-budgets-v0.1",
       "originalWorkOrder": "IRIS-WO-0049",
       "sourceStatus": "SOURCE_ONLY_FIFTH_SESSION_NOT_MODULE_FREEZE",

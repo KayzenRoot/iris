@@ -117,11 +117,11 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0015-M11-C09-REVERSE-LIVENESS-RESEARCH.json",
-      "gitBlobSha1": "90c4747c8e596103fb7cd0f78f85408c00b6864d"
+      "gitBlobSha1": "47d3856990155eb0da9b07fca3391c355dcbabe2"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0015-M11-C09-REVERSE-LIVENESS-RESEARCH.md",
-      "gitBlobSha1": "213786222feb1464ace94abcb7aeae7e383464b0"
+      "gitBlobSha1": "2f51d91bc5e28c35d335ffc303e1026693ed50a6"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0016-M09-HANDOFF-C02-COMPATIBILITY-AUDIT.md",

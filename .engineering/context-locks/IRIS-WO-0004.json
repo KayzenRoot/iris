@@ -55,15 +55,15 @@
     },
     {
       "path": "planning/compatibility/M02-FORWARD-COMPATIBILITY-SCAN.md",
-      "sha": "ad7069410757de184cb4c35b1a9c41c36047c62b"
+      "sha": "06d852f213ccb94e423a8e9177893fe1a4017aa4"
     },
     {
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+      "sha": "a36fd73c03f06b7558f850a2ad515a0df37c243b"
     },
     {
       "path": "planning/modules/M02-PROJECT-OS-PRODUCTION-GRAPH.md",
-      "sha": "3167e2ee8be597a7e33d9083a151c8cbcb462c7f"
+      "sha": "d7d57921abf9edce173a9dc590233e9354f94862"
     },
     {
       "path": "planning/reviews/M02-FINAL-TECHNOLOGY-REVIEW.md",
@@ -71,7 +71,7 @@
     },
     {
       "path": "planning/technology-registry/M02-TECHNOLOGIES.md",
-      "sha": "caf0cc4065246b2007dc5cb833b52b82686364b5"
+      "sha": "c86b512f99f9d6b7dd86de4f8da706f1868b0a8c"
     }
   ],
   "inScope": [

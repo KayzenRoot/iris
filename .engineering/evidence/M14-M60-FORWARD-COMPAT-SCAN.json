@@ -8,13 +8,13 @@
   "asOf": "2026-09-27",
   "masterIndex": {
     "path": "planning/MASTER-MODULE-INDEX.md",
-    "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970",
+    "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220",
     "modules": 47,
     "originalSubsessions": 235
   },
   "sourceFTR": {
     "path": ".engineering/evidence/M13-FTR-DOCUMENTARY-RECONCILIATION.json",
-    "gitBlobSha1": "9b20be372c58bfbc6561963ad0e9c2a33461526d",
+    "gitBlobSha1": "c0150ad80ab44ef7aa3c0f593982cb2a74191545",
     "questionsOpen": 96,
     "negativeCasesNotExecuted": 74,
     "ownActualTechReviewStatus": "DOCUMENTARY_RECONCILIATION_NOT_FINAL_TECH_APPROVAL"
@@ -33,7 +33,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F02_COMPILATION_BACKENDS",
@@ -60,7 +60,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -86,7 +86,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F03_PARTIAL_REUSE_DELTA"
@@ -112,7 +112,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F04_OVERLAP_AND_IO"
@@ -138,7 +138,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F02_COMPILATION_BACKENDS"
@@ -164,7 +164,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -190,7 +190,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F03_PARTIAL_REUSE_DELTA",
@@ -217,7 +217,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F03_PARTIAL_REUSE_DELTA"
@@ -243,7 +243,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -269,7 +269,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -295,7 +295,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -321,7 +321,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -347,7 +347,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F04_OVERLAP_AND_IO"
@@ -373,7 +373,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -399,7 +399,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -425,7 +425,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -451,7 +451,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -477,7 +477,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F04_OVERLAP_AND_IO",
@@ -504,7 +504,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F04_OVERLAP_AND_IO"
@@ -530,7 +530,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F03_PARTIAL_REUSE_DELTA"
@@ -556,7 +556,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -582,7 +582,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -608,7 +608,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F03_PARTIAL_REUSE_DELTA",
@@ -635,7 +635,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -661,7 +661,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F04_OVERLAP_AND_IO"
@@ -687,7 +687,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA"
@@ -713,7 +713,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA"
@@ -739,7 +739,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA"
@@ -765,7 +765,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F04_OVERLAP_AND_IO"
@@ -791,7 +791,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -817,7 +817,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA",
@@ -844,7 +844,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA",
@@ -871,7 +871,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -897,7 +897,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -923,7 +923,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -949,7 +949,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -975,7 +975,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA",
@@ -1002,7 +1002,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F04_OVERLAP_AND_IO",
@@ -1029,7 +1029,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA"
@@ -1055,7 +1055,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA",
@@ -1082,7 +1082,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F02_COMPILATION_BACKENDS",
@@ -1111,7 +1111,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA",
@@ -1138,7 +1138,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F04_OVERLAP_AND_IO",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1164,7 +1164,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F04_OVERLAP_AND_IO",
@@ -1191,7 +1191,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F02_COMPILATION_BACKENDS",
         "F04_OVERLAP_AND_IO",
@@ -1218,7 +1218,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F03_PARTIAL_REUSE_DELTA",
         "F05_EMPIRICAL_PERFORMANCE_GATES"
@@ -1244,7 +1244,7 @@
       ],
       "version": "ORIGINAL_INDEX_V1",
       "sourceIndexPath": "planning/MASTER-MODULE-INDEX.md",
-      "sourceIndexGitBlob": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sourceIndexGitBlob": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "candidateM13Families": [
         "F01_WARM_MODEL_LOCALITY",
         "F02_COMPILATION_BACKENDS",

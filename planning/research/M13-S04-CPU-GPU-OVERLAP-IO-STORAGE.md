@@ -8,20 +8,20 @@ Study sequencing, concurrency and storage overhead as hypotheses. CPU and GPU op
 
 Exact original protected main `c73b524e90a433d3476521d7a4b47f9451e3d32c`; exact base tree `489187561ab7c581c932a4721edfcadf9ac7dd9e`. Existing frozen M07 and M08 evidence/protocol, M09 immutable resource governor, M10 frozen advisory-only plan, unfrozen M11/M12, and previous S01–S03 research are independent authority layers. No M13 planning exercise selects a stream, worker or storage backend.
 
-- `INDEX`: [planning/MASTER-MODULE-INDEX.md](../../planning/MASTER-MODULE-INDEX.md); exact original Git blob `19c8ff6126748cb89e53108bdff8289322071970`; required original anchor `S04 — S04 CPU/GPU overlap, I/O scheduling and storage efficiency`.
+- `INDEX`: [planning/MASTER-MODULE-INDEX.md](../../planning/MASTER-MODULE-INDEX.md); exact original Git blob `a60d19c86bddd3699498f7d1f248a00368e32220`; required original anchor `S04 — S04 CPU/GPU overlap, I/O scheduling and storage efficiency`.
 - `M07`: [docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md](../../docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md); exact original Git blob `2a0b95dd3cc665e2206e454caef5858ef7fb61b0`; required original anchor `M07 does not lower quality targets`.
 - `M08`: [docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md](../../docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md); exact original Git blob `461e0f332d9be2af694634bbdc8cf67e29d56393`; required original anchor `UNKNOWN_TELEMETRY`.
 - `M09`: [docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md](../../docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md); exact original Git blob `d12b4f48030c1a57b8e6228df39f35dac8c2b20a`; required original anchor `M09 is the provider-neutral resource-state`.
 - `M10`: [planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `f69ec3e3eab24b47c0e31832d64d9ab9cce21828`; required original anchor `m10-contract-v1.0`.
-- `M11`: [planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `41ab89727c7be14e35e2481aefbd97a0cb81cb48`; required original anchor `PROPOSED_C02_CORRECTION_NOT_FROZEN`.
+- `M11`: [planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `4a5f384271504365701bdd685455d93984617f21`; required original anchor `PROPOSED_C02_CORRECTION_NOT_FROZEN`.
 - `M12`: [planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `28b3802901349263100ceaaf80c0990513dbbded`; required original anchor `Implementation authority: NOT_ADMITTED`.
-- `S01`: [planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md](../../planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md); exact original Git blob `7701c1e744d2b459d2f6bb4fa754352374fb67fd`; required original anchor `C03_DEVICE_RESIDENCY_HINT`.
-- `S02`: [planning/research/M13-S02-COMPILATION-ATTENTION-BACKENDS.md](../../planning/research/M13-S02-COMPILATION-ATTENTION-BACKENDS.md); exact original Git blob `33736cc40214af1ee25586d6c94789d8c0d95739`; required original anchor `AUTO_SDPA`.
-- `S03`: [planning/research/M13-S03-INTERMEDIATE-REUSE-GENERATION-DELTA.md](../../planning/research/M13-S03-INTERMEDIATE-REUSE-GENERATION-DELTA.md); exact original Git blob `96a9952086300a1ae2d46195bd7dc6d50dea06ba`; required original anchor `Seven unadopted reuse concepts`.
-- `M01`: [docs/M01-QUALITY-KERNEL.md](../../docs/M01-QUALITY-KERNEL.md); exact original Git blob `930af57944fa83c44745873c42eb3a7740972ee6`; required original anchor `m01-contract-v1.0`.
-- `M02`: [planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `a85d80ab3bb5f4bdc9be915a59caa92569d66af4`; required original anchor `semantic reuse requires explicit reuse class/admission`.
-- `M06`: [planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `18b5303d1e36ef60de17b42dd9e2c371ecf4f191`; required original anchor `Digest equality proves byte equality under the declared digest domain only.`.
-- `D01`: [.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json](../../.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json); exact original Git blob `30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb`; required original anchor `B_FUTURE_OWNER_RECEIPT`.
+- `S01`: [planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md](../../planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md); exact original Git blob `6ef2485c557f5523871db34cd154b1da66699fde`; required original anchor `C03_DEVICE_RESIDENCY_HINT`.
+- `S02`: [planning/research/M13-S02-COMPILATION-ATTENTION-BACKENDS.md](../../planning/research/M13-S02-COMPILATION-ATTENTION-BACKENDS.md); exact original Git blob `c033ac4696ad4a188ca5605470bf9b29396eb3ad`; required original anchor `AUTO_SDPA`.
+- `S03`: [planning/research/M13-S03-INTERMEDIATE-REUSE-GENERATION-DELTA.md](../../planning/research/M13-S03-INTERMEDIATE-REUSE-GENERATION-DELTA.md); exact original Git blob `fd600eeca5cabd3e367fcbb27f12556830c93bf0`; required original anchor `Seven unadopted reuse concepts`.
+- `M01`: [docs/M01-QUALITY-KERNEL.md](../../docs/M01-QUALITY-KERNEL.md); exact original Git blob `df4f899ad414c47ad379f26fe1782edb6f43cf6f`; required original anchor `m01-contract-v1.0`.
+- `M02`: [planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `a36fd73c03f06b7558f850a2ad515a0df37c243b`; required original anchor `semantic reuse requires explicit reuse class/admission`.
+- `M06`: [planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `d6778684e0c34e55d05ddc06cf5aa47fe347c037`; required original anchor `Digest equality proves byte equality under the declared digest domain only.`.
+- `D01`: [.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json](../../.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json); exact original Git blob `8877331a5004a3e816e4c42fb521ff3408bad08a`; required original anchor `B_FUTURE_OWNER_RECEIPT`.
 
 ## Mutable public upstream reference: illustrative technology, never local proof
 
@@ -383,7 +383,7 @@ The S04 comparison must separately bind accepted M02/M06 work and materializatio
     {
       "role": "INDEX",
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "sha": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sha": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "anchor": "S04 — S04 CPU/GPU overlap, I/O scheduling and storage efficiency"
     },
     {
@@ -413,7 +413,7 @@ The S04 comparison must separately bind accepted M02/M06 work and materializatio
     {
       "role": "M11",
       "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "41ab89727c7be14e35e2481aefbd97a0cb81cb48",
+      "sha": "4a5f384271504365701bdd685455d93984617f21",
       "anchor": "PROPOSED_C02_CORRECTION_NOT_FROZEN"
     },
     {
@@ -425,43 +425,43 @@ The S04 comparison must separately bind accepted M02/M06 work and materializatio
     {
       "role": "S01",
       "path": "planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md",
-      "sha": "7701c1e744d2b459d2f6bb4fa754352374fb67fd",
+      "sha": "6ef2485c557f5523871db34cd154b1da66699fde",
       "anchor": "C03_DEVICE_RESIDENCY_HINT"
     },
     {
       "role": "S02",
       "path": "planning/research/M13-S02-COMPILATION-ATTENTION-BACKENDS.md",
-      "sha": "33736cc40214af1ee25586d6c94789d8c0d95739",
+      "sha": "c033ac4696ad4a188ca5605470bf9b29396eb3ad",
       "anchor": "AUTO_SDPA"
     },
     {
       "role": "S03",
       "path": "planning/research/M13-S03-INTERMEDIATE-REUSE-GENERATION-DELTA.md",
-      "sha": "96a9952086300a1ae2d46195bd7dc6d50dea06ba",
+      "sha": "fd600eeca5cabd3e367fcbb27f12556830c93bf0",
       "anchor": "Seven unadopted reuse concepts"
     },
     {
       "role": "M01",
       "path": "docs/M01-QUALITY-KERNEL.md",
-      "sha": "930af57944fa83c44745873c42eb3a7740972ee6",
+      "sha": "df4f899ad414c47ad379f26fe1782edb6f43cf6f",
       "anchor": "m01-contract-v1.0"
     },
     {
       "role": "M02",
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+      "sha": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
       "anchor": "semantic reuse requires explicit reuse class/admission"
     },
     {
       "role": "M06",
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+      "sha": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
       "anchor": "Digest equality proves byte equality under the declared digest domain only."
     },
     {
       "role": "D01",
       "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
-      "sha": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb",
+      "sha": "8877331a5004a3e816e4c42fb521ff3408bad08a",
       "anchor": "B_FUTURE_OWNER_RECEIPT"
     }
   ],

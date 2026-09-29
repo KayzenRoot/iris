@@ -73,7 +73,7 @@
     },
     {
       "path": "planning/modules/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
-      "gitBlobSha1": "d5006fef0643fc0c3c8a7a015d4288dda58b89ec"
+      "gitBlobSha1": "9306e4937ccfb433ff4a0392846aa215ffd6e2a0"
     },
     {
       "path": "iris_hardware_genome/serialization.py",
@@ -105,11 +105,11 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0058-M01-M02-MALFORMED-ENVELOPE-TAGS.json",
-      "gitBlobSha1": "092d3ce35a86c799d04ed6f2472bd04e8d5e6a55"
+      "gitBlobSha1": "bfac2e0d4c6795291854c9d2b38655624ab56a2c"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0058.json",
-      "gitBlobSha1": "0ca252c44c0326e631c0d2c25a97240e3cc5f6c4"
+      "gitBlobSha1": "338350c0934013a03fa417e718ffc0f4dd19b743"
     }
   ],
   "authorizedChangedFiles": [

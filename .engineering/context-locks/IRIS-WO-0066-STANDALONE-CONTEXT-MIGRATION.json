@@ -44,31 +44,31 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0060-WO0059-CANONICAL-CLOSEOUT.json",
-      "gitBlobSha1": "bcaac073054e67272507e7174da3c67cd7affea6"
+      "gitBlobSha1": "ed7b53ec5a0485086d9857688f7f811e9819bfda"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0061-M04-DEEP-JSON-REFUSAL.json",
-      "gitBlobSha1": "87222419cb6685b93bdb2f08fcb792bda266a972"
+      "gitBlobSha1": "e3f5478185313c02bbc64c5dea75c5dae856cdbb"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0062-WO0061-CANONICAL-CLOSEOUT.json",
-      "gitBlobSha1": "beffaca1a8cc2bf76eff067ccdfa5b8703de7e4b"
+      "gitBlobSha1": "4356b09d347af51cb4bb07745b27170a173f3131"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0063-SOURCE-MANIFEST-ANCHOR.json",
-      "gitBlobSha1": "1367455541ddf567ec55a17318f812afeb1b29c2"
+      "gitBlobSha1": "7d29a7faedfc193e1eb2bceab9220c674aec38ac"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0064-WO0063-CANONICAL-CLOSEOUT.json",
-      "gitBlobSha1": "1e0788cb1643ab71e60a91be77232faf9b63c364"
+      "gitBlobSha1": "77de09270ef0e4bbcd079dcb9dc0e4a61e358817"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0060.json",
-      "gitBlobSha1": "3c8f594619d2c35194fb000eb95bc93d3c6865a2"
+      "gitBlobSha1": "54edd6811eaf0028bd1b9334a20316b35a7fee96"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0061.json",
-      "gitBlobSha1": "4613a13f10304c4eb16c6198a4ac0bb9af7dfc60"
+      "gitBlobSha1": "dff405c84d0fc4e160f2998e3d9b7527dc497568"
     },
     {
       "path": ".engineering/gef/GEF-ADOPTION.md",
@@ -88,11 +88,11 @@
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0060-WO0059-CANONICAL-CLOSEOUT.md",
-      "gitBlobSha1": "007d98b653f3a770b35b13c4b23ab69f93368554"
+      "gitBlobSha1": "6abe664caad8e27a58b38a2cc40d0c44f583d6c6"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0061-M04-DEEP-JSON-REFUSAL.md",
-      "gitBlobSha1": "8fb19fc016e71090e5cd54dfd5e1d7da0850798e"
+      "gitBlobSha1": "2d0087a14b5621ad2db76746f0e0dc82db0ca5b7"
     },
     {
       "path": ".github/workflows/governance.yml",
@@ -176,11 +176,11 @@
     },
     {
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+      "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220"
     },
     {
       "path": "planning/checkpoints/IRIS-WO-0061-M04-DEEP-JSON-REFUSAL.md",
-      "gitBlobSha1": "6f3e5d3d6081925b977cfa662eb6f5e20c22c441"
+      "gitBlobSha1": "2c04459eae5b2673fddd3f10d636f1b6c266646a"
     },
     {
       "path": "scripts/README.md",
@@ -204,7 +204,7 @@
     },
     {
       "path": "scripts/verify_context_lock.py",
-      "gitBlobSha1": "6818ddd264aabc0c2530973d20315ef1f3145f6b"
+      "gitBlobSha1": "252840437e31ead839ca020700b84f1a522586d4"
     },
     {
       "path": "tests/test_context_lock_verifier.py",
@@ -233,7 +233,7 @@
   ],
   "sourceManifestAnchor": {
     "path": ".engineering/context-locks/IRIS-WO-0064-WO0063-CANONICAL-CLOSEOUT.json",
-    "gitBlobSha1": "1e0788cb1643ab71e60a91be77232faf9b63c364"
+    "gitBlobSha1": "77de09270ef0e4bbcd079dcb9dc0e4a61e358817"
   },
   "authorizedChangedFiles": [
     ".codex/config.toml",

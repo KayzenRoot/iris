@@ -55,7 +55,7 @@
     },
     {
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+      "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220"
     },
     {
       "path": "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
@@ -63,7 +63,7 @@
     },
     {
       "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+      "gitBlobSha1": "4a5f384271504365701bdd685455d93984617f21"
     },
     {
       "path": ".engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json",
@@ -75,7 +75,7 @@
     },
     {
       "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
-      "gitBlobSha1": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb"
+      "gitBlobSha1": "8877331a5004a3e816e4c42fb521ff3408bad08a"
     },
     {
       "path": ".engineering/evidence/M12-OWNER-DECISION-REGISTER.json",
@@ -95,11 +95,11 @@
     },
     {
       "path": "scripts/verify_m09_h03_owner_packets.py",
-      "gitBlobSha1": "dd00f453fb1951537853ab17992f43d3cb33d7f5"
+      "gitBlobSha1": "ca3c4600589b15ebb1d7a3937544a84452674cd1"
     },
     {
       "path": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
-      "gitBlobSha1": "3d76f9a11b0056b9b7e595fa63624445ec50ba53"
+      "gitBlobSha1": "08cc2507e991fdcbdd6e81db009f676180c3ea62"
     },
     {
       "path": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",
@@ -135,7 +135,7 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0037-M09-H03-OWNER-PACKETS.json",
-      "gitBlobSha1": "99da38e27b20f26e73551241f4f3efb332f99f63"
+      "gitBlobSha1": "4a83049da5caa9860b61edbc5fd48479ea021de0"
     }
   ],
   "authorizedChangedFiles": [
