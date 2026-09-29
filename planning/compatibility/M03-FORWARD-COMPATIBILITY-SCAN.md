@@ -356,7 +356,7 @@ M51 does not own M03 semantics.
 
 Status: `PASS`.
 
-## M52 — HIVE Multimodal Memory & Creative RAG
+## M52 — PROJECT_CONTEXT Multimodal Memory & Creative RAG
 
 M52 owns:
 - retrieval;
@@ -370,7 +370,7 @@ M03 owns:
 - Derived Intent Dependency Ledger;
 - freshness semantics for M03 objects.
 
-HIVE remains derived context, never canonical intent authority.
+PROJECT_CONTEXT remains derived context, never canonical intent authority.
 
 Untrusted retrieved text must pass M03 Semantic Admission Shield.
 
@@ -464,7 +464,7 @@ M60 must validate end-to-end that:
 - Fidelity Contract targets remain truthful;
 - provider/hardware changes do not mutate semantic truth;
 - conflicts/overrides remain auditable;
-- HIVE/agents cannot self-promote authority;
+- PROJECT_CONTEXT/agents cannot self-promote authority;
 - all version/fingerprint chains reconstruct.
 
 Status: `PASS`.
@@ -500,7 +500,7 @@ These are contracts/refs, not implementations.
 - M03 becoming Narrative Canon engine: **avoided**.
 - generic semantic provenance replacing M53: **bounded**.
 - M03 source authority replacing M54 security/RBAC: **avoided**.
-- HIVE becoming canonical intent: **avoided**.
+- PROJECT_CONTEXT becoming canonical intent: **avoided**.
 - agents self-approving overrides: **forbidden**.
 - publishing intent becoming side-effect authorization: **avoided**.
 - M04/M16 provider-compiler naming overlap: **flagged for future ownership freeze; M03 interface remains neutral**.

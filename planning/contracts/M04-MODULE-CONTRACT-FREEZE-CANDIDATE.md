@@ -252,7 +252,7 @@ Detailed `IRIS-MIRX-001..150` are non-normative design history.
 77. deterministic resource/depth/fanout/sample limits are enforced;
 78. validation failures are typed and fail closed where contract-critical;
 79. IR release-readiness is evidence only and cannot replace M01/M02/M53/M54/M59 authority;
-80. HIVE/agents/retrieval may propose or derive context but cannot mutate canonical M04 truth directly.
+80. PROJECT_CONTEXT/agents/retrieval may propose or derive context but cannot mutate canonical M04 truth directly.
 
 ## 6. Ownership overlap freezes
 
@@ -645,7 +645,7 @@ Later implementation must prove at minimum:
 - video editing/compositing/encoding;
 - real quality judges;
 - rights/security engines;
-- HIVE retrieval implementation;
+- PROJECT_CONTEXT retrieval implementation;
 - publishing/export/delivery execution.
 
 ## 24. Evidence obligations for implementation executor

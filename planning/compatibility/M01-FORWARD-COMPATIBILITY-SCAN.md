@@ -37,7 +37,7 @@ M43–M47 require narrative/brand/localization constraints and cross-surface con
 M48–M51 are direct implementation/benchmark consumers of M01 contracts.
 
 ### Memory/provenance/security
-M52–M55 require evidence/provenance IDs and immutable version metadata, but HIVE memory cannot silently alter acceptance contracts.
+M52–M55 require evidence/provenance IDs and immutable version metadata, but PROJECT_CONTEXT memory cannot silently alter acceptance contracts.
 
 ### Control/API/export/release
 M56–M60 require machine-readable quality states, provider ports, export-target validation and final acceptance evidence.

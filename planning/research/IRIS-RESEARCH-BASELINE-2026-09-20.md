@@ -75,4 +75,4 @@ UGAS V1 already contains evidence for a quantized FLUX.2 Klein 4B lane on the 8 
 7. `PIN_CANARY_ROLLBACK`: ComfyUI, Blender adapters, workflows, custom nodes and models are qualified before production promotion.
 8. `PROGRESSIVE_FIDELITY`: draft/preview may be cheap, but final master gates stay strict.
 9. `MINIMAL_REPAIR`: defects should trigger the smallest valid regeneration/repair surface.
-10. `HIVE_DERIVED_CONTEXT`: HIVE accelerates context/retrieval/memory while Git/IRIS canonical sources remain authoritative.
+10. `PROJECT_CONTEXT_DERIVED_CONTEXT`: PROJECT_CONTEXT accelerates context/retrieval/memory while Git/IRIS canonical sources remain authoritative.

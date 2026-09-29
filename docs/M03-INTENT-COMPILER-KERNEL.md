@@ -181,7 +181,7 @@ enforces, and every line is exercised by `tests/test_m03_*.py`.
     family, distinct from M01 `QualityDebt` (§5.34).
 12. **Neighbour authority is borrowed, never duplicated.** Branch, variant and
     rollback topology come from M02 through `ports.ProjectGraphPort` refs and the
-    kernel only reads them (§5.39). HIVE-shaped sources are untrusted derived
+    kernel only reads them (§5.39). PROJECT_CONTEXT-shaped sources are untrusted derived
     context (§5.40). A publishing or delivery desire is a
     `SideEffectClass` question answered by `ports.DestinationPort` —
     `require_answered_ref` refuses an unanswered one, so wanting a release is not
@@ -311,7 +311,7 @@ Per §19: no media generation, no pixel/CV inference, no Blender/ComfyUI/Maya or
 any provider execution, no real worker scheduling, no hardware discovery or
 resource placement, no model routing/training/download, no Scene/Asset/Camera/
 Material IR, no Asset/Persona/Voice/Music/Brand DNA store, no narrative canon
-engine, no real image/video/3D/audio evaluators, no HIVE retrieval
+engine, no real image/video/3D/audio evaluators, no PROJECT_CONTEXT retrieval
 implementation, no universal media provenance/C2PA, no security/RBAC engine, no
 storage/CAS/database, no publishing/export APIs, and no M04+ domain
 implementation. The six profiles in `examples/` are fixtures whose predicates are

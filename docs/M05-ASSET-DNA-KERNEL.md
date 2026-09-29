@@ -65,7 +65,7 @@ Schema/contract pins are `iris-m05-core-v1` and `m05-contract-v1.0`; validator a
 
 ## Extension/ref ports
 
-These 22 port contracts preserve downstream ownership without implementing it: `ProductionStateRefPort`, `HardwareExecutionConstraintRef`, `WorkerPlacementIdentityContextPort`, `ModelCapabilityIdentityEvidencePort`, `ConcreteWorkflowIdentityProjectionPort`, `TrainingIdentityDatasetRefPort`, `ImageReferenceIdentityEvidencePort`, `GeometryAppearanceIdentityPort`, `MotionDNARefPort`, `RenderObservationPort`, `DCCIdentityBindingPort`, `DeliveryProjectionCompatibilityPort`, `TemporalContinuityEvidencePort`, `DigitalHumanPersonaBindingPort`, `VoiceMusicAudioDomainDNAPort`, `CanonContentCampaignBrandPort`, `LocalizationIdentityPreservationPort`, `QualityRepairProposalPort`, `HIVEMemoryIdentitySlicePort`, `RightsSecurityEvidencePort`, `StorageObservabilityAutomationPort` and `APIExportRecoveryIdentityPort`.
+These 22 port contracts preserve downstream ownership without implementing it: `ProductionStateRefPort`, `HardwareExecutionConstraintRef`, `WorkerPlacementIdentityContextPort`, `ModelCapabilityIdentityEvidencePort`, `ConcreteWorkflowIdentityProjectionPort`, `TrainingIdentityDatasetRefPort`, `ImageReferenceIdentityEvidencePort`, `GeometryAppearanceIdentityPort`, `MotionDNARefPort`, `RenderObservationPort`, `DCCIdentityBindingPort`, `DeliveryProjectionCompatibilityPort`, `TemporalContinuityEvidencePort`, `DigitalHumanPersonaBindingPort`, `VoiceMusicAudioDomainDNAPort`, `CanonContentCampaignBrandPort`, `LocalizationIdentityPreservationPort`, `QualityRepairProposalPort`, `ProjectMemoryIdentitySlicePort`, `RightsSecurityEvidencePort`, `StorageObservabilityAutomationPort` and `APIExportRecoveryIdentityPort`.
 
 ## Frozen-family and proof mapping
 

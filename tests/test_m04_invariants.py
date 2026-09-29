@@ -113,7 +113,7 @@ _CASE_BY_TARGET = {
     "bounded_resource_limits": ("tests.test_m04_runtime", "RuntimeAndTransportAcceptanceTests", "test_deterministic_resource_depth_fanout_and_sample_limits"),
     "typed_failures": ("tests.test_m04_runtime", "RuntimeAndTransportAcceptanceTests", "test_public_surface_is_unique_complete_and_uses_typed_failures"),
     "readiness_not_promotion": ("tests.test_m04_runtime", "RuntimeAndTransportAcceptanceTests", "test_governance_authority_fields_and_closed_import_boundary"),
-    "hive_context_non_authority": ("tests.test_m04_runtime", "RuntimeAndTransportAcceptanceTests", "test_governance_authority_fields_and_closed_import_boundary"),
+    "project_context_context_non_authority": ("tests.test_m04_runtime", "RuntimeAndTransportAcceptanceTests", "test_governance_authority_fields_and_closed_import_boundary"),
 }
 
 

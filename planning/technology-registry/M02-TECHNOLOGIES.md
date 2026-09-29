@@ -69,7 +69,7 @@ Rule: internal/proprietary candidates are design candidates only. No novelty or 
 **Purpose:** give every IRIS project a stable machine identity independent of folder/name/UI.
 **How it works:** a versioned envelope binds project_id, domain/profile refs, canonical policy refs, created_at, root graph ref and alias metadata. Mutable presentation fields are separated from identity fields.
 **Benefit:** projects survive rename, move, clone/export and future local/cloud execution.
-**Dependencies:** repository/project manifest, M52 HIVE context namespace.
+**Dependencies:** repository/project manifest, M52 PROJECT_CONTEXT context namespace.
 **Risk:** envelope schema creep.
 **Proof:** rename/move/round-trip tests.
 **Status:** PROPOSED.
@@ -87,7 +87,7 @@ Rule: internal/proprietary candidates are design candidates only. No novelty or 
 **Purpose:** make a production request durable and auditable.
 **How it works:** a production_id binds project_id, immutable intent snapshot, requested outputs, graph/version, quality contract refs, supersession lineage and creation reason.
 **Benefit:** a job can resume or be re-planned without relying on transient UI/session context.
-**Dependencies:** M03 brief compiler, M04 IR, M52 HIVE.
+**Dependencies:** M03 brief compiler, M04 IR, M52 PROJECT_CONTEXT.
 **Risk:** passport may become too heavy if runtime telemetry is embedded rather than referenced.
 **Proof:** deterministic passport serialization + resume-from-repository fixture.
 **Status:** PROPOSED.
@@ -104,7 +104,7 @@ Rule: internal/proprietary candidates are design candidates only. No novelty or 
 ## IRIS-PGX-005 — Transition Receipt
 **Purpose:** make every lifecycle mutation independently auditable/replayable.
 **How it works:** every transition emits immutable from/to state, entity, reason, actor, causal parent, policy version and evidence refs.
-**Benefit:** crash recovery, audit, debugging and HIVE context can rely on facts rather than inferred logs.
+**Benefit:** crash recovery, audit, debugging and PROJECT_CONTEXT context can rely on facts rather than inferred logs.
 **Dependencies:** provenance/event storage, later M55.
 **Risk:** receipt volume.
 **Proof:** replay state from receipts; reject tampered/out-of-order transitions.
@@ -131,7 +131,7 @@ Rule: internal/proprietary candidates are design candidates only. No novelty or 
 ## IRIS-PGX-008 — Supersession & Tombstone Ledger
 **Purpose:** prevent deletion/overwriting from erasing production history.
 **How it works:** obsolete entities point to replacement/superseding refs; governed deletion leaves a minimal tombstone where policy permits.
-**Benefit:** old links, provenance and HIVE memories can explain what happened.
+**Benefit:** old links, provenance and PROJECT_CONTEXT memories can explain what happened.
 **Dependencies:** M53 rights/privacy, M55 retention/archive.
 **Risk:** retention/privacy obligations may require true erasure.
 **Proof:** supersession traversal + policy-driven redaction/deletion tests.
@@ -140,7 +140,7 @@ Rule: internal/proprietary candidates are design candidates only. No novelty or 
 ## IRIS-PGX-009 — Universal Production Locator
 **Purpose:** create stable internal references across local paths, DCCs and future remote nodes.
 **How it works:** canonical URI-like locators resolve semantic IDs, e.g. project/production/artifact/revision, while filesystem/network locations remain replaceable resolution targets.
-**Benefit:** graphs and HIVE context stop embedding Windows paths as identity.
+**Benefit:** graphs and PROJECT_CONTEXT context stop embedding Windows paths as identity.
 **Dependencies:** locator/resolver layer, M12 distributed compute.
 **Risk:** premature URI grammar can become rigid.
 **Proof:** round-trip parsing, relocation and ambiguous-alias tests.
@@ -743,9 +743,9 @@ All remain PROPOSED until M02 Final Technology Review.
 
 ## IRIS-PGX-059 — Context Fingerprint Cache
 **Purpose:** reduce LLM tokens/compute while guaranteeing context freshness.
-**How it works:** fingerprints canonical sources, HIVE retrieval set/order, prompt/compiler/template, model/tokenizer, policy, locale and tool schemas; unchanged slices/prefixes can be reused.
+**How it works:** fingerprints canonical sources, PROJECT_CONTEXT retrieval set/order, prompt/compiler/template, model/tokenizer, policy, locale and tool schemas; unchanged slices/prefixes can be reused.
 **Benefit:** major token and latency savings for repeated planning/content/evaluator jobs.
-**Dependencies:** HIVE/M52, M43/M44/M47/M48.
+**Dependencies:** PROJECT_CONTEXT/M52, M43/M44/M47/M48.
 **Risk:** omitted context dependency creates stale reasoning.
 **Proof:** context mutation matrix.
 **Status:** PROPOSED.
@@ -862,7 +862,7 @@ All remain PROPOSED until M02 Final Technology Review.
 **Purpose:** minimize LLM input rebuilding when only part of production context changed.
 **How it works:** compiles canonical context into fingerprinted semantic segments and transmits/rebuilds only changed segments where the provider protocol allows safe reuse.
 **Benefit:** lower LLM input tokens and faster iterative planning/localization/script work.
-**Dependencies:** HIVE M52, provider context caching.
+**Dependencies:** PROJECT_CONTEXT M52, provider context caching.
 **Risk:** provider APIs differ and semantic ordering may matter.
 **Proof:** full-context vs delta-context task equivalence/calibration.
 **Status:** PROPOSED.
@@ -977,7 +977,7 @@ All remain PROPOSED until M02 Final Technology Review.
 ## IRIS-PGX-079 — Promotion Evidence Bundle
 **Purpose:** provide one immutable evidence package for ACCEPTED/RELEASED promotions.
 **How it works:** binds snapshot, state transition, all gates, QualityDecisions, human decisions, rights/provenance and observations.
-**Benefit:** auditability and HIVE retrieval.
+**Benefit:** auditability and PROJECT_CONTEXT retrieval.
 **Dependencies:** M53/M55.
 **Risk:** bundle size.
 **Proof:** completeness validator.

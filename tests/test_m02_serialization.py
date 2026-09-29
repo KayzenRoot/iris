@@ -128,7 +128,7 @@ BUILDERS: dict[str, Any] = {
         reasons=("input digest moved",),
     ),
     # reuse
-    "context_source": lambda: k.ContextSource(ref=k.ref(EntityKind.HIVE_CONTEXT, "brief.front"), ordinal=0),
+    "context_source": lambda: k.ContextSource(ref=k.ref(EntityKind.PROJECT_CONTEXT, "brief.front"), ordinal=0),
     "context_fingerprint": lambda: k.cache_context(),
     "cache_entry": lambda: k.cache_entry(GRAPH, "render.logo"),
     "cache_key": lambda: k.cache_entry(GRAPH, "render.logo").key,

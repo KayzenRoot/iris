@@ -117,7 +117,7 @@ class SourceKind(Labeled):
 
     The distinction is load-bearing for the admission shield: a value that arrived as
     ``RETRIEVED_CONTEXT`` or ``PROVIDER_RESULT`` cannot be promoted to a rule by anything it
-    says about itself (§5.6), and ``HIVE_MEMORY`` in particular is derived context and never
+    says about itself (§5.6), and ``PROJECT_MEMORY`` in particular is derived context and never
     canonical intent state (§5.40).
     """
 
@@ -126,7 +126,7 @@ class SourceKind(Labeled):
     GOVERNED_POLICY = "GOVERNED_POLICY"
     PROJECT_RECORD = "PROJECT_RECORD"
     CANON_RECORD = "CANON_RECORD"
-    HIVE_MEMORY = "HIVE_MEMORY"
+    PROJECT_MEMORY = "PROJECT_MEMORY"
     RETRIEVED_CONTEXT = "RETRIEVED_CONTEXT"
     MODEL_OUTPUT = "MODEL_OUTPUT"
     PROVIDER_RESULT = "PROVIDER_RESULT"
@@ -187,7 +187,7 @@ UNTRUSTED_SOURCES = frozenset(
         SourceKind.MODEL_OUTPUT,
         SourceKind.PROVIDER_RESULT,
         SourceKind.RETRIEVED_CONTEXT,
-        SourceKind.HIVE_MEMORY,
+        SourceKind.PROJECT_MEMORY,
     }
 )
 
@@ -210,7 +210,7 @@ _SOURCE_CEILINGS: Mapping[SourceKind, AuthorityLevel] = MappingProxyType({
     SourceKind.PROJECT_RECORD: AuthorityLevel.PROJECT_RECORD,
     SourceKind.CANON_RECORD: AuthorityLevel.PROJECT_RECORD,
     SourceKind.DERIVED_FROM_ADMITTED: AuthorityLevel.PROJECT_RECORD,
-    SourceKind.HIVE_MEMORY: AuthorityLevel.RETRIEVED,
+    SourceKind.PROJECT_MEMORY: AuthorityLevel.RETRIEVED,
     SourceKind.RETRIEVED_CONTEXT: AuthorityLevel.RETRIEVED,
     SourceKind.MODEL_OUTPUT: AuthorityLevel.MODEL_INFERRED,
     SourceKind.PROVIDER_RESULT: AuthorityLevel.PROVIDER_OBSERVED,

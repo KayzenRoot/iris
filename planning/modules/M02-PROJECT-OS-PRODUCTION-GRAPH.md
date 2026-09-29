@@ -67,7 +67,7 @@ Minimum identity fields:
 - created_at
 - canonical policy/profile references
 - root production graph reference
-- HIVE context namespace reference
+- PROJECT_CONTEXT context namespace reference
 
 ### Production
 One governed intent to produce a coherent result or result family.
@@ -215,13 +215,13 @@ When an entity is obsolete:
 
 Hard deletion belongs to retention/privacy/security policy and leaves a governed tombstone when policy allows/needs historical reference integrity.
 
-## 7. HIVE / CORE / IRIS ownership
+## 7. PROJECT_CONTEXT / CORE / IRIS ownership
 
 ### IRIS
 Owns production identities, lifecycle transitions, artifact/revision lineage and production graph semantics.
 
-### HIVE
-Indexes/retrieves IRIS identities and evidence as derived memory/context. HIVE does not become canonical identity authority.
+### PROJECT_CONTEXT
+Indexes/retrieves IRIS identities and evidence as derived memory/context. PROJECT_CONTEXT does not become canonical identity authority.
 
 ### CORE
 Reasons/plans against versioned IRIS identity/graph contracts. CORE may propose state transitions/actions; IRIS validates/applies them.
@@ -265,7 +265,7 @@ Voice/music artifacts use the same semantic identity/lifecycle model without for
 - **D-M02-S01-006:** same content may deduplicate storage without collapsing semantic artifact identity.
 - **D-M02-S01-007:** project/production/attempt lifecycle machines are separate.
 - **D-M02-S01-008:** supersession/archival is normal; destructive deletion is governed separately.
-- **D-M02-S01-009:** IRIS is canonical for production lifecycle; HIVE is derived context; CORE is a reasoning client.
+- **D-M02-S01-009:** IRIS is canonical for production lifecycle; PROJECT_CONTEXT is derived context; CORE is a reasoning client.
 - **D-M02-S01-010:** S01 defines semantics only; scheduler/worker implementation waits for M11 and graph execution for later M02 sessions.
 
 ## 10. S01 proof plan
@@ -595,9 +595,9 @@ Quality changes can:
 - block promotion;
 - avoid needlessly regenerating upstream candidates when the candidate bytes did not change.
 
-## 19. HIVE / CORE integration
+## 19. PROJECT_CONTEXT / CORE integration
 
-### HIVE
+### PROJECT_CONTEXT
 Indexes graph definitions, dependency explanations, receipts and impact summaries as derived context. It is not graph canonical storage.
 
 ### CORE
@@ -1380,7 +1380,7 @@ The build system therefore treats context compilation as a cacheable production 
 
 A Context Fingerprint includes as applicable:
 - canonical source IDs/revisions;
-- selected HIVE retrieval results and ordering;
+- selected PROJECT_CONTEXT retrieval results and ordering;
 - prompt/template/compiler version;
 - model/tokenizer version;
 - policy/instruction version;
@@ -1589,7 +1589,7 @@ Future implementation must prove:
 11. untrusted writer cannot populate shared trusted cache;
 12. same immutable materialization can be reused across branches;
 13. cross-project protected persona asset reuse is blocked when policy forbids it;
-14. Context Fingerprint changes when HIVE source/retrieval/template/model/tool schema changes;
+14. Context Fingerprint changes when PROJECT_CONTEXT source/retrieval/template/model/tool schema changes;
 15. unchanged context slices can be reused safely;
 16. KV/prefix cache loss falls back to recomputation with identical semantic inputs;
 17. variant batch coalescing shares only causally common work;

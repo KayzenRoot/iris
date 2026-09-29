@@ -61,10 +61,10 @@ def validate_checkpoint_consistency(canonical_bytes: bytes, bridge_bytes: bytes,
 
 def reject_retired_operational_paths(root: Path) -> None:
     """Fail closed if any retired context launcher, project MCP config or test reappears."""
-    for retired in (".codex/config.toml", "scripts/hive_bootstrap.py",
-                    "scripts/hive-bootstrap.ps1", "scripts/hive_mcp.py",
-                    "docs/HIVE-INTEGRATION.md", "tests/test_hive_bootstrap.py",
-                    "tests/test_hive_mcp.py"):
+    for retired in (".codex/config.toml", "scripts/project_context_bootstrap.py",
+                    "scripts/project_context-bootstrap.ps1", "scripts/project_context_mcp.py",
+                    "docs/PROJECT_CONTEXT-INTEGRATION.md", "tests/test_project_context_bootstrap.py",
+                    "tests/test_project_context_mcp.py"):
         if (root / retired).exists():
             fail(f"retired external integration path still present: {retired}")
 
@@ -89,7 +89,7 @@ def main() -> None:
     if manifest.get("gef", {}).get("releaseCommit") != GEF_SHA: fail("manifest GEF pin mismatch")
     if manifest.get("mode") != "STANDALONE_GIT_FIRST" or manifest.get("contextSource") != "CANONICAL_GIT_PROJECT_BRAIN":
         fail("standalone IRIS manifest mode mismatch")
-    if "hive" in manifest or manifest.get("externalContextRuntime") != "NONE_REQUIRED":
+    if "project_context" in manifest or manifest.get("externalContextRuntime") != "NONE_REQUIRED":
         fail("external context dependency must not be configured")
     reject_retired_operational_paths(ROOT)
 

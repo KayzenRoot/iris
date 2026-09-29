@@ -75,7 +75,7 @@ The scan asks:
 | M49 Self-Correction | defects map to localized IR paths | repair planner owns mutation proposal; accepted change creates governed new revisions. PASS |
 | M50 Render Cascade | preview/final/cost routing | Preview/Final shield and canonical master prevent cost optimization from weakening final quality. PASS |
 | M51 Benchmark Lab | validates schemas/adapters/regressions | M04 defines corpus/witness contracts; M51 owns benchmark infrastructure/governance. PASS |
-| M52 HIVE Memory/RAG | semantic refs/slices useful for retrieval | HIVE remains derived context; cannot mutate canonical M04. PASS |
+| M52 PROJECT_CONTEXT Memory/RAG | semantic refs/slices useful for retrieval | PROJECT_CONTEXT remains derived context; cannot mutate canonical M04. PASS |
 | M53 Provenance/Rights | M04 stores granular policy/provenance refs | M53 owns lineage/rights/consent/C2PA decisions. PASS |
 | M54 Security | schemas/resources/adapters require trust | M54 owns RBAC/secrets/sandbox/restricted policy. M04 fail-closed refs/limits compatible. PASS |
 | M55 Media CAS/Storage | payload/resource/digest storage | M55 owns locations/tiers/GC/archive; M04 identity separated from location. PASS |

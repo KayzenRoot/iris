@@ -13,9 +13,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ORIGINAL_INDEX_SHA = "19c8ff6126748cb89e53108bdff8289322071970"
 LEGACY_PATHS = (
-    ".codex/config.toml", "docs/HIVE-INTEGRATION.md",
-    "scripts/hive-bootstrap.ps1", "scripts/hive_bootstrap.py",
-    "scripts/hive_mcp.py", "tests/test_hive_bootstrap.py", "tests/test_hive_mcp.py",
+    ".codex/config.toml", "docs/PROJECT_CONTEXT-INTEGRATION.md",
+    "scripts/project_context-bootstrap.ps1", "scripts/project_context_bootstrap.py",
+    "scripts/project_context_mcp.py", "tests/test_project_context_bootstrap.py", "tests/test_project_context_mcp.py",
 )
 ACTIVE_SOURCES = (
     "README.md", "AGENTS.md", "docs/project-brain/00-README-UPLOAD-ORDER.md",
@@ -46,7 +46,7 @@ class StandaloneIRISMigrationTests(unittest.TestCase):
     def test_02_manifest_has_no_external_runtime_pin(self):
         """Only the independently pinned GEF source release remains."""
         m = json.loads((ROOT / ".engineering/BOOTSTRAP-MANIFEST.json").read_text())
-        self.assertNotIn("hive", m)
+        self.assertNotIn("project_context", m)
         self.assertEqual(m["mode"], "STANDALONE_GIT_FIRST")
         self.assertEqual(m["contextSource"], "CANONICAL_GIT_PROJECT_BRAIN")
         self.assertEqual(m["externalContextRuntime"], "NONE_REQUIRED")
@@ -68,8 +68,8 @@ class StandaloneIRISMigrationTests(unittest.TestCase):
         w = (ROOT / ".github/workflows/governance.yml").read_text()
         self.assertIn("scripts/verify_context_lock.py", w)
         self.assertIn('python-version: "3.12"', w)
-        self.assertNotIn("scripts/hive_", w)
-        self.assertNotIn("hive-bootstrap", w)
+        self.assertNotIn("scripts/project_context_", w)
+        self.assertNotIn("project_context-bootstrap", w)
         self.assertIn("python -m unittest discover -s tests", w)
 
     def test_05_primary_docs_no_external_context_dependency(self):
@@ -132,7 +132,7 @@ class StandaloneIRISMigrationTests(unittest.TestCase):
                     with self.subTest(path=str(path.relative_to(ROOT))):
                         self.assertNotRegex(
                             path.read_text(),
-                            r"(?m)^\s*(?:from\s+scripts\.hive_|import\s+(?:scripts\.)?hive_)",
+                            r"(?m)^\s*(?:from\s+scripts\.project_context_|import\s+(?:scripts\.)?project_context_)",
                         )
 
     def test_12_operator_notes_do_not_claim_to_uninstall_pc(self):

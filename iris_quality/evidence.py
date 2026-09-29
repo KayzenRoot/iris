@@ -30,7 +30,7 @@ _WINDOWS_SEPARATOR = re.compile(r"^[^:]*\\")
 
 
 def require_relative_locator(value: Any, field: str) -> str:
-    """Evidence locators stay portable so payloads can later be stored in HIVE verbatim."""
+    """Evidence locators stay portable so payloads can later be stored in PROJECT_CONTEXT verbatim."""
 
     locator = require_text(value, field, maximum=1024)
     if _ABSOLUTE_LOCATOR.match(locator) or _WINDOWS_SEPARATOR.match(locator):

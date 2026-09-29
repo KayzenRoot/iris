@@ -103,7 +103,7 @@ M39 owns digital-human/persona production continuity.
 | M49 Self-Correction / Partial Repair | repair planner may propose trait-affecting changes | M49 can propose repair/mutation; M05 protected mutation admission remains explicit/policy-bound. PASS_WITH_PORT |
 | M50 Render Cascade / Cost-to-Quality | cheaper routes may threaten identity fidelity | cost optimization cannot weaken required identity traits or convert unknown into pass. PASS |
 | M51 Benchmark Lab | benchmarks identity drift/conformance | M51 owns benchmark infrastructure; M05 defines identity semantics/conformance obligations. PASS |
-| M52 HIVE Multimodal Memory / RAG | retrieves identity slices, refs, history/evidence | HIVE remains derived/read-only context; may retrieve/propose, never mutate canonical DNA. PASS_WITH_AUTHORITY_SHIELD |
+| M52 PROJECT_CONTEXT Multimodal Memory / RAG | retrieves identity slices, refs, history/evidence | PROJECT_CONTEXT remains derived/read-only context; may retrieve/propose, never mutate canonical DNA. PASS_WITH_AUTHORITY_SHIELD |
 | M53 Provenance / Rights / Consent / C2PA | DNA traits/packages reference rights/provenance | M53 is sole rights/license/consent/provenance authority; M05 carries versioned refs only. PASS_WITH_AUTHORITY_SHIELD |
 | M54 Security / Identity / Restricted Content | access identity, likeness protections and vaults overlap terminology | M54 owns security/access identity/restricted vaults; M05 owns semantic asset/persona identity. Sensitive evidence stays referenced/minimized. PASS_WITH_AUTHORITY_SHIELD |
 | M55 Media CAS / Storage / Archive | DNA packages/resources need storage | M55 owns location/CAS/tiering/GC/archive; M05 identity/package semantics are storage-independent. PASS |
@@ -133,7 +133,7 @@ M39 owns digital-human/persona production continuity.
 16. `CanonContentCampaignBrandPort` — M43-M46 domain identity links without ownership transfer.
 17. `LocalizationIdentityPreservationPort` — M47 cross-language adaptation obligations.
 18. `QualityRepairProposalPort` — M48-M51 evidence/proposals, no direct mutation.
-19. `HIVEMemoryIdentitySlicePort` — M52 derived context/minimum sufficient DNA.
+19. `ProjectMemoryIdentitySlicePort` — M52 derived context/minimum sufficient DNA.
 20. `RightsSecurityEvidencePort` — M53/M54 policy/vault refs.
 21. `StorageObservabilityAutomationPort` — M55-M57 location/telemetry/agent proposal boundaries.
 22. `APIExportRecoveryIdentityPort` — M58-M60 conformance/export/restore boundaries.

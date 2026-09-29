@@ -22,7 +22,7 @@ class TestM05AuthorityPorts(unittest.TestCase):
         self.assertEqual(PORT_BY_NAME["DigitalHumanPersonaBindingPort"].owner_modules, ("m39",))
         self.assertEqual(PORT_BY_NAME["VoiceMusicAudioDomainDNAPort"].owner_modules, ("m40", "m41", "m42"))
         self.assertEqual(PORT_BY_NAME["CanonContentCampaignBrandPort"].owner_modules, ("m43", "m44", "m45", "m46"))
-        self.assertEqual(PORT_BY_NAME["HIVEMemoryIdentitySlicePort"].owner_modules, ("m52",))
+        self.assertEqual(PORT_BY_NAME["ProjectMemoryIdentitySlicePort"].owner_modules, ("m52",))
         self.assertEqual(PORT_BY_NAME["RightsSecurityEvidencePort"].owner_modules, ("m53", "m54"))
         self.assertEqual(PORT_BY_NAME["StorageObservabilityAutomationPort"].owner_modules, ("m55", "m56", "m57"))
         self.assertEqual(PORT_BY_NAME["APIExportRecoveryIdentityPort"].owner_modules, ("m58", "m59", "m60"))

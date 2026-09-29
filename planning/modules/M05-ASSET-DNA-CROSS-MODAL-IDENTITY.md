@@ -325,7 +325,7 @@ A slice contains only:
 - relevant provenance/policy refs;
 - source revision fingerprint.
 
-This is designed for HIVE/agents/downstream modules without replaying all DNA history.
+This is designed for PROJECT_CONTEXT/agents/downstream modules without replaying all DNA history.
 
 ## 14. Provenance, rights and privacy boundary
 
@@ -380,7 +380,7 @@ No external standard becomes a mandatory M05 runtime dependency in S01.
 27. DNA projection declares consumed required/optional traits.
 28. unsupported mandatory projected identity traits cannot disappear silently.
 29. rights/privacy/provenance evidence is referenced with minimization; M05 does not seize M53/M54 authority.
-30. HIVE/agents may retrieve/propose identity context but cannot mutate canonical DNA directly.
+30. PROJECT_CONTEXT/agents may retrieve/propose identity context but cannot mutate canonical DNA directly.
 
 These are S01 planning invariants and may be consolidated or expanded by S02-S05 before final contract freeze.
 
@@ -632,7 +632,7 @@ A projection can expose a generic view without changing canonical family identit
 57. family-specific traits preserve S01 provenance/policy reachability.
 58. downstream provider scarcity cannot downgrade family-specific identity protections.
 59. family/profile changes participate in deterministic canonical fingerprint/change-surface evidence.
-60. HIVE/agents may propose family classification but cannot canonically reclassify DNA without authority.
+60. PROJECT_CONTEXT/agents may propose family classification but cannot canonically reclassify DNA without authority.
 
 These extend S01 invariants 1–30 and remain candidates until final contract freeze.
 
@@ -876,7 +876,7 @@ Unknown mandatory link families fail closed.
 87. CrossModalDNAGraph cannot duplicate M02 Production Graph ownership.
 88. CrossModalDNAGraph cannot duplicate M04 scene graph or M43 Canon Graph ownership.
 89. future domain DNA families use versioned owner/family refs and unknown mandatory families fail closed.
-90. HIVE/agents may retrieve/propose cross-modal links but cannot admit or rewrite canonical links directly.
+90. PROJECT_CONTEXT/agents may retrieve/propose cross-modal links but cannot admit or rewrite canonical links directly.
 
 These extend S01-S02 invariants 1–60 and remain candidates until final contract freeze.
 
@@ -1145,7 +1145,7 @@ M53 owns rights/consent/provenance policy.
 117. sensitive drift evidence may remain restricted references rather than canonical payload copies.
 118. M53/M54 retain rights/consent/provenance/security authority over protected identity evidence.
 119. drift/transition reports are deterministic and fingerprintable without embedding private evidence payloads.
-120. HIVE/agents may detect/propose drift or mutation but cannot directly admit protected canonical identity changes.
+120. PROJECT_CONTEXT/agents may detect/propose drift or mutation but cannot directly admit protected canonical identity changes.
 
 These extend S01-S03 invariants 1–90 and remain candidates until final contract freeze.
 
@@ -1404,7 +1404,7 @@ Rules:
 147. canonical reusable DNA package requires no arbitrary executable code.
 148. deprecation/retirement never rewrites historical package/DNA revisions.
 149. conformance report proves contract/schema conformance, not legal rights or semantic identity equivalence by itself.
-150. HIVE/agents may discover/package/propose compatibility but cannot directly admit imported canonical identity or protected mutations.
+150. PROJECT_CONTEXT/agents may discover/package/propose compatibility but cannot directly admit imported canonical identity or protected mutations.
 
 These extend S01-S04 invariants 1–120 and remain candidates until Final Technology Review and contract freeze.
 

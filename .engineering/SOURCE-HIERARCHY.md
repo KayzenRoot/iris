@@ -21,4 +21,4 @@ Status: `ACTIVE`
 
 Startup order: `Checkpoint -> Decisions -> Scope -> DoD -> Architecture -> Requirements -> other applicable sources`.
 
-Missing, stale or conflicting authoritative sources block progression. HIVE and GEF derived state never supersede canonical Git truth.
+Missing, stale or conflicting authoritative sources block progression. PROJECT_CONTEXT and GEF derived state never supersede canonical Git truth.

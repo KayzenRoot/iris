@@ -21,7 +21,7 @@ note, not a planning document: the normative wording stays in
 | `judging` | `SubjectRef`, `JudgeRequest`, `JudgeResult`, `Abstention`, `QualityJudge` and `AssetValidator` ports, `ValidationCheck`, `ValidatorOutcome`, `attach_contract_checks`, `numeric_spread` | evaluator authors |
 | `registry` | `TrustTier`, `ExtensionMetadata`, `EvaluatorDescriptor`, `EvaluatorRegistry`, `EvaluatorAuthority`, `DomainProfile`, `DomainProfileRegistry` | module authors |
 | `decision` | `DecisionEngine`, `QualityDecision`, `Blocker`, `DimensionOutcome`, `EffectiveFinding`, `merge_assessments` | callers |
-| `serialization` | typed envelopes, `dumps`/`loads`, `validate_payload` | storage, HIVE later |
+| `serialization` | typed envelopes, `dumps`/`loads`, `validate_payload` | storage, PROJECT_CONTEXT later |
 
 `examples/m01_synthetic_profiles.py` sits outside the package on purpose: domain
 vocabulary must never be reachable from `iris_quality/`.
@@ -196,7 +196,7 @@ kinds are enumerated in `serialization.SERIALIZABLE_TYPES`.
   are carried by `PromotionRule.requires_human_review`.
 - **Promotion rules must be contiguous** up to the requested class, which keeps the
   "stops at the first unmet rung" property from silently skipping a rung.
-- **Evidence locators must be relative** so a bundle can later be stored in HIVE
+- **Evidence locators must be relative** so a bundle can later be stored in PROJECT_CONTEXT
   verbatim and replayed from any checkout.
 - **`merge_assessments` is worst-case**, not average: strictest gate, weakest
   uncertainty, lowest confidence, median value, union of evidence, attributed to a
@@ -232,7 +232,7 @@ kinds are enumerated in `serialization.SERIALIZABLE_TYPES`.
 
 No inference, no pixel/mesh/scene access, no Blender or ComfyUI, no DreamSim/FLIP
 or model-provider calls, no CV segmentation, no game/web/logo engines, no UI, no
-distributed compute, no HIVE mutation, no M02 code. The three frozen profiles in
+distributed compute, no PROJECT_CONTEXT mutation, no M02 code. The three frozen profiles in
 `examples/` (plus the non-visual `profile.narration-audio` extension fixture) are
 contract fixtures with arithmetic stand-ins; the real evaluators that will replace
 them are delivered by their own modules through the ports above.

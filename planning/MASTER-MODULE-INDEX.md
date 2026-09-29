@@ -9,7 +9,7 @@ Total planned module sessions: `305`
 
 ## Governing intent
 
-IRIS 1.0 is planned as the complete first production version of Hive IRIS, not an MVP. Extreme output quality is a product invariant. Draft/preview lanes may trade quality for iteration speed, but a lower-quality draft never becomes a final master merely because it completed successfully.
+IRIS 1.0 is planned as the complete first production version of ProjectContext IRIS, not an MVP. Extreme output quality is a product invariant. Draft/preview lanes may trade quality for iteration speed, but a lower-quality draft never becomes a final master merely because it completed successfully.
 
 This index carries forward the useful UGAS V2 vision while treating IRIS as a new product. Each module will be discussed and frozen through its five sessions before implementation work for that module is admitted.
 
@@ -413,8 +413,8 @@ No module is implemented merely because it appears in this index.
 
 ## AREA J — MEMORY, PROVENANCE, SECURITY & DATA
 
-### M52 — HIVE Multimodal Memory & Creative RAG Integration
-- S01 — S01 IRIS↔HIVE project/context contract
+### M52 — PROJECT_CONTEXT Multimodal Memory & Creative RAG Integration
+- S01 — S01 IRIS↔PROJECT_CONTEXT project/context contract
 - S02 — S02 Asset/reference/image/audio/3D metadata retrieval
 - S03 — S03 Creator/project/character/production memory
 - S04 — S04 Minimum sufficient context, caching and token economy
@@ -474,7 +474,7 @@ No module is implemented merely because it appears in this index.
 ### M60 — Deployment, Recovery, System Integration & IRIS 1.0 Final Acceptance
 - S01 — S01 Local installation/update/uninstall and background services
 - S02 — S02 Backup, restore, migration and disaster recovery
-- S03 — S03 Full HIVE↔CORE↔IRIS integration validation
+- S03 — S03 Full PROJECT_CONTEXT↔CORE↔IRIS integration validation
 - S04 — S04 End-to-end production acceptance on 8 GB and higher hardware classes
 - S05 — S05 Security/performance/quality final audit, release freeze and IRIS 1.0 completion
 

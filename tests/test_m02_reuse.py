@@ -127,8 +127,8 @@ class ContextAndKeyAxes(unittest.TestCase):
         with self.assertRaises(SchemaValidationError):
             k.cache_context(
                 sources=(
-                    ContextSource(ref=ExternalRef(EntityKind.HIVE_CONTEXT, "brief.front"), ordinal=0),
-                    ContextSource(ref=ExternalRef(EntityKind.HIVE_CONTEXT, "brief.style"), ordinal=0),
+                    ContextSource(ref=ExternalRef(EntityKind.PROJECT_CONTEXT, "brief.front"), ordinal=0),
+                    ContextSource(ref=ExternalRef(EntityKind.PROJECT_CONTEXT, "brief.style"), ordinal=0),
                 )
             )
 

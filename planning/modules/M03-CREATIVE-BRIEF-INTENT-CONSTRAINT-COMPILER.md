@@ -35,7 +35,7 @@ M03 must preserve creative freedom rather than reducing every brief to rigid pro
 - provider prompts/workflows;
 - Blender/ComfyUI/model-specific parameters;
 - worker scheduling, VRAM planning or runtime placement;
-- HIVE as canonical truth.
+- PROJECT_CONTEXT as canonical truth.
 
 ### Inter-module law
 M02 references M03 brief/intent/constraint revisions. M03 may consume project/production references from M02, but it cannot redefine M02 identity or lifecycle. M01 remains the sole authority for quality semantics. M04 consumes M03 compiled execution intent rather than raw user prose.
@@ -91,7 +91,7 @@ Possible source classes:
 - voice transcript;
 - UI choice;
 - imported campaign/product metadata;
-- HIVE-derived context proposal;
+- PROJECT_CONTEXT-derived context proposal;
 - CORE/agent proposal.
 
 Rules:
@@ -313,7 +313,7 @@ Benefits:
 - fewer accidental prompt interactions;
 - easier explanation of what influenced an output.
 
-M52/HIVE later supplies retrieval mechanics. M03 defines the semantic slice contract only.
+M52/PROJECT_CONTEXT later supplies retrieval mechanics. M03 defines the semantic slice contract only.
 
 ## 11. Semantic fingerprint
 
@@ -1969,7 +1969,7 @@ If an upstream context fact changes:
 - they must be recomputed or explicitly retained under policy;
 - stale inference cannot continue masquerading as current truth.
 
-This is critical for M52/HIVE context updates.
+This is critical for M52/PROJECT_CONTEXT context updates.
 
 ## 24. Agent authority boundary
 
@@ -2082,7 +2082,7 @@ Future implementation/tests must prove at least:
 16. schema migration leaves source revision unchanged and emits a Migration Receipt;
 17. lossy mandatory migration blocks admission;
 18. restoration creates a new revision and uses current policy refs;
-19. changed HIVE-derived dependency marks affected inferred statements stale without changing user-explicit statements;
+19. changed PROJECT_CONTEXT-derived dependency marks affected inferred statements stale without changing user-explicit statements;
 20. Minimum Sufficient Conflict Slice excludes irrelevant project history;
 21. conflict resolution fingerprint becomes stale when authority policy changes;
 22. release-readiness report identifies unresolved blockers/expired overrides/stale mandatory semantics;

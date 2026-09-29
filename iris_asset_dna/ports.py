@@ -28,7 +28,7 @@ __all__ = [
     "CanonContentCampaignBrandPort",
     "LocalizationIdentityPreservationPort",
     "QualityRepairProposalPort",
-    "HIVEMemoryIdentitySlicePort",
+    "ProjectMemoryIdentitySlicePort",
     "RightsSecurityEvidencePort",
     "StorageObservabilityAutomationPort",
     "APIExportRecoveryIdentityPort",
@@ -166,9 +166,9 @@ class QualityRepairProposalPort(ExtensionRefPort):
 
 
 @dataclass(frozen=True)
-class HIVEMemoryIdentitySlicePort(ExtensionRefPort):
+class ProjectMemoryIdentitySlicePort(ExtensionRefPort):
     owner_modules: tuple[str, ...] = ("m52",)
-    semantic_scope: str = "HIVE consumes derived minimum-sufficient slices and cannot mutate canonical DNA."
+    semantic_scope: str = "PROJECT_CONTEXT consumes derived minimum-sufficient slices and cannot mutate canonical DNA."
 
 
 @dataclass(frozen=True)
@@ -208,7 +208,7 @@ PORT_TYPES = (
     CanonContentCampaignBrandPort,
     LocalizationIdentityPreservationPort,
     QualityRepairProposalPort,
-    HIVEMemoryIdentitySlicePort,
+    ProjectMemoryIdentitySlicePort,
     RightsSecurityEvidencePort,
     StorageObservabilityAutomationPort,
     APIExportRecoveryIdentityPort,

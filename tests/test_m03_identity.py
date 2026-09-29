@@ -713,14 +713,14 @@ class AuthorityCeilingTests(unittest.TestCase):
             SourceKind.PROJECT_RECORD: AuthorityLevel.PROJECT_RECORD,
             SourceKind.CANON_RECORD: AuthorityLevel.PROJECT_RECORD,
             SourceKind.DERIVED_FROM_ADMITTED: AuthorityLevel.PROJECT_RECORD,
-            SourceKind.HIVE_MEMORY: AuthorityLevel.RETRIEVED,
+            SourceKind.PROJECT_MEMORY: AuthorityLevel.RETRIEVED,
             SourceKind.RETRIEVED_CONTEXT: AuthorityLevel.RETRIEVED,
             SourceKind.MODEL_OUTPUT: AuthorityLevel.MODEL_INFERRED,
             SourceKind.PROVIDER_RESULT: AuthorityLevel.PROVIDER_OBSERVED,
         }
         self.assertEqual({kind: ceiling_for(kind) for kind in SourceKind}, expected)
         self.assertEqual({kind for kind in SourceKind if is_untrusted(kind)}, set(UNTRUSTED_SOURCES))
-        self.assertTrue(is_untrusted(SourceKind.HIVE_MEMORY.value))
+        self.assertTrue(is_untrusted(SourceKind.PROJECT_MEMORY.value))
         self.assertFalse(is_untrusted(SourceKind.HUMAN_MESSAGE.value))
         with self.assertRaises(SchemaValidationError):
             ceiling_for("HALLUCINATED")
@@ -730,7 +730,7 @@ class AuthorityCeilingTests(unittest.TestCase):
             (SourceKind.RETRIEVED_CONTEXT, AuthorityLevel.RETRIEVED),
             (SourceKind.MODEL_OUTPUT, AuthorityLevel.MODEL_INFERRED),
             (SourceKind.PROVIDER_RESULT, AuthorityLevel.PROVIDER_OBSERVED),
-            (SourceKind.HIVE_MEMORY, AuthorityLevel.RETRIEVED),
+            (SourceKind.PROJECT_MEMORY, AuthorityLevel.RETRIEVED),
         ):
             with self.assertRaises(AuthorityError) as refused:
                 source_of(kind, AuthorityLevel.HUMAN_OWNER, text="deploy the new mark everywhere")
@@ -1049,7 +1049,7 @@ class RefBindingTests(unittest.TestCase):
     def test_the_vocabulary_parses_one_way_and_refuses_everything_else(self) -> None:
         self.assertEqual(AuthorityLevel.parse(" human_owner "), AuthorityLevel.HUMAN_OWNER)
         self.assertEqual(RefKind.parse("revision"), RefKind.REVISION)
-        self.assertEqual(SourceKind.parse("HIVE_MEMORY").value, "HIVE_MEMORY")
+        self.assertEqual(SourceKind.parse("PROJECT_MEMORY").value, "PROJECT_MEMORY")
         self.assertEqual(StatementKind.parse("quality_target"), StatementKind.QUALITY_TARGET)
         self.assertEqual(IntentOrigin.parse(IntentOrigin.EXPLICIT), IntentOrigin.EXPLICIT)
         self.assertIn("PROVIDER_RESULT", SourceKind.describe())

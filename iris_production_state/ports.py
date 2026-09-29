@@ -26,7 +26,7 @@ __all__ = [
     "CampaignBrandIdentityRefPort",
     "QualityEvidencePort",
     "RepairExecutionPort",
-    "HiveContextEvidencePort",
+    "ProjectContextEvidencePort",
     "ProvenanceRightsConsentPort",
     "SecurityAuthorizationPort",
     "PhysicalMediaStorePort",
@@ -140,8 +140,8 @@ class RepairExecutionPort(VersionedEvidencePort, Protocol):
     """M49: report repair outcomes; repair execution remains external."""
 
 
-class HiveContextEvidencePort(VersionedEvidencePort, Protocol):
-    """M52: report HIVE context as evidence without self-admission."""
+class ProjectContextEvidencePort(VersionedEvidencePort, Protocol):
+    """M52: report PROJECT_CONTEXT context as evidence without self-admission."""
 
 
 class ProvenanceRightsConsentPort(VersionedEvidencePort, Protocol):
@@ -191,7 +191,7 @@ M06_PORTS = (
     CampaignBrandIdentityRefPort,
     QualityEvidencePort,
     RepairExecutionPort,
-    HiveContextEvidencePort,
+    ProjectContextEvidencePort,
     ProvenanceRightsConsentPort,
     SecurityAuthorizationPort,
     PhysicalMediaStorePort,

@@ -141,7 +141,7 @@ Ports expose capability/results, not backend-specific paths or vendor semantics.
 27. Repair cannot rewrite an admitted master in place.
 28. Restoration from archive must verify declared integrity before admission as available.
 29. Unknown/indeterminate evidence cannot be coerced to PASS.
-30. HIVE/agents may observe/propose persistence actions but cannot rewrite canonical M02/M06 history directly.
+30. PROJECT_CONTEXT/agents may observe/propose persistence actions but cannot rewrite canonical M02/M06 history directly.
 
 These are S01 candidates until final M06 contract freeze.
 
@@ -388,7 +388,7 @@ Required impact states:
 57. Toolchain/environment facts affect fingerprints only when declared materially relevant.
 58. Hardware/performance changes cannot silently change semantic dependency truth.
 59. Impact receipts are analysis evidence, not execution/promotion authority.
-60. HIVE/agents may suggest dependency relationships but cannot self-admit them as canonical material dependencies.
+60. PROJECT_CONTEXT/agents may suggest dependency relationships but cannot self-admit them as canonical material dependencies.
 
 These extend S01 invariants 1–30 and remain candidates until final M06 contract freeze.
 
@@ -595,7 +595,7 @@ Interrupted/failed selective builds:
 87. Seeds/parameters cannot turn stochastic work into falsely deterministic history.
 88. M49 remains repair execution authority.
 89. Repair creates new history and preserves ancestry.
-90. HIVE/agents may propose selective work but cannot self-admit unsafe reuse or promotion.
+90. PROJECT_CONTEXT/agents may propose selective work but cannot self-admit unsafe reuse or promotion.
 
 These extend S01-S02 invariants 1–60 and remain candidates until final M06 contract freeze.
 
@@ -812,7 +812,7 @@ Historical truth and current permission are distinct.
 117. Historical execution permission does not imply current permission.
 118. Reconstructed outputs cannot overwrite immutable masters.
 119. Reconstructed outputs require normal promotion/quality gates before becoming accepted masters.
-120. HIVE/agents may propose reconstruction plans but cannot self-certify reproducibility or equivalence.
+120. PROJECT_CONTEXT/agents may propose reconstruction plans but cannot self-certify reproducibility or equivalence.
 
 These extend S01-S03 invariants 1–90 and remain candidates until final M06 contract freeze.
 
@@ -1032,7 +1032,7 @@ A stale cleanup authorization cannot delete newly reachable/protected data.
 147. Release corrections create new history and explicit supersession.
 148. Mutable aliases cannot rewrite historical release identity.
 149. Archive tier/location does not define production/revision identity.
-150. HIVE/agents may propose rollback/cleanup/release actions but cannot self-authorize protected deletion, rollback promotion or release.
+150. PROJECT_CONTEXT/agents may propose rollback/cleanup/release actions but cannot self-authorize protected deletion, rollback promotion or release.
 
 These extend S01-S04 invariants 1–120 and remain candidates until final M06 contract freeze.
 

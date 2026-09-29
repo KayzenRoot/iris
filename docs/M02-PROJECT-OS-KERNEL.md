@@ -35,7 +35,7 @@ renderer, cloud, database or provider library, and holds no network call.
 | E | `archive` | `ArchiveTier`, `ArchiveManifest`, `seal_archive`, `ObjectProbe`, `audit_archive` → `IntegrityReport`, `restore_archive` → `RestorationReport`, `revive_archive`, `CleanupPlan`, `ArchiveLedger`/`ArchiveRegistry` | callers |
 | — | `ports` | the provider-neutral protocols and the opaque refs that cross them (`CapabilitySource`, `ProviderCompiler`, `DependencyObserver`, `MaterializationIngestor`, `RepairProvider`, `RightsProvenanceGate`, `ContextFingerprintSource`, `DeliveryProvider`, `PolicySource`, `IdentityAnchorSource`) plus `PortBoundary`/`describe_boundaries` | later modules |
 | — | `stores` | `ArtifactRepository`, `SnapshotRepository`, `ReceiptRepository` protocols and the deterministic `InMemoryArtifactStore`/`InMemoryReceiptStore` references | callers, repositories |
-| — | `serialization` | the versioned envelope (`ENVELOPE_KEYS`, `SERIALIZABLE_TYPES`), `dumps`/`loads`/`envelope`/`from_envelope`, `validate_payload` | storage, HIVE later |
+| — | `serialization` | the versioned envelope (`ENVELOPE_KEYS`, `SERIALIZABLE_TYPES`), `dumps`/`loads`/`envelope`/`from_envelope`, `validate_payload` | storage, PROJECT_CONTEXT later |
 
 `examples/m02_synthetic_profiles.py` and `tests/m02_kernel_support.py` sit
 outside the package on purpose: domain vocabulary must never be reachable from
@@ -202,7 +202,7 @@ core never names any identifier those fixtures introduce.
 No Blender, ComfyUI, DreamSim/FLIP, WebGPU or model-provider calls; no game,
 web, film, spokesperson or music engine; no CV or numeric library (no numpy, PIL,
 cv2, torch); no HTTP, database, object-store, cloud, container or Kubernetes SDK;
-no HIVE mutation; no M01 quality decision of its own; no UI. The five profiles in
+no PROJECT_CONTEXT mutation; no M01 quality decision of its own; no UI. The five profiles in
 `examples/` are fixtures with arithmetic stand-ins; the real providers that will
 replace them arrive in later modules through the ports above. This branch does not
 merge and does not start M03.

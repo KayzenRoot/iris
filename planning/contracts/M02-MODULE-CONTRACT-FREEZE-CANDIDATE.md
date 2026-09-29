@@ -106,7 +106,7 @@ Exact class names may adapt to repository conventions, but these semantics must 
 24. archive completeness is a manifest/evidence claim, not a filesystem location;
 25. current state is reconstructable from immutable receipts;
 26. duplicate transition/release commands are idempotent or detectably conflicting;
-27. HIVE is derived context, not canonical production state;
+27. PROJECT_CONTEXT is derived context, not canonical production state;
 28. later modules may implement extension ports but cannot redefine M02 semantics.
 
 ## 4. Domain neutrality
@@ -226,7 +226,7 @@ Property-based testing is preferred if already supported; otherwise exhaustive/t
 - production database/CAS implementation;
 - cloud/LAN distribution;
 - real provider KV cache;
-- real HIVE retrieval;
+- real PROJECT_CONTEXT retrieval;
 - real rights/legal engine;
 - actual C2PA signing;
 - actual publishing APIs;

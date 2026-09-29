@@ -341,7 +341,7 @@ These are references/evidence projections. M07 does not assume those downstream 
 27. Discovery snapshots are immutable and superseded only by new snapshots.
 28. Evidence digests prove observation payloads and never become hardware identity.
 29. M06 may treat hardware/runtime facts as reconstruction material only through explicit declared materiality.
-30. HIVE, agents and UI clients may request/observe discovery but cannot fabricate admitted hardware facts.
+30. PROJECT_CONTEXT, agents and UI clients may request/observe discovery but cannot fabricate admitted hardware facts.
 
 These are S01 candidates until final M07 contract freeze.
 
@@ -1058,7 +1058,7 @@ Any conformance media payload used later must be fixed, tiny, synthetic, bounded
 97. M07 cannot convert topology into M09 resource policy.
 98. M07 cannot convert topology into M10/M12 execution placement.
 99. 8 GB hardware retains full precision/media/topology representation without categorical downgrade.
-100. HIVE/UI/agents may consume S03 evidence but cannot manufacture or override admitted hardware truth.
+100. PROJECT_CONTEXT/UI/agents may consume S03 evidence but cannot manufacture or override admitted hardware truth.
 
 These remain candidates until final M07 contract freeze.
 
@@ -2419,11 +2419,11 @@ Needs stable GenomeId/fingerprints for comparative benchmark provenance.
 
 ## 128. Area J scan — M52-M55
 
-### M52 — HIVE Memory
+### M52 — PROJECT_CONTEXT Memory
 **DIRECT_CONSUMER / BOUNDARY_ONLY.**
 May index/retrieve redacted genome metadata and checkpoint references.
 
-**Requirement:** redacted views and stable IDs; HIVE cannot become source of current hardware truth without fresh M07 evidence.
+**Requirement:** redacted views and stable IDs; PROJECT_CONTEXT cannot become source of current hardware truth without fresh M07 evidence.
 
 ### M53 — Provenance/Rights/C2PA
 **DIRECT_CONSUMER.**
@@ -2539,7 +2539,7 @@ M60 requires reconstruction/import validation that can restore a stored genome/e
 226. Destination-device capability profiles remain outside M07 authority.
 227. Historical genome restoration cannot create a current-state claim.
 228. Recovery requires fresh discovery for current hardware truth.
-229. HIVE retrieval cannot override fresher admitted M07 evidence.
+229. PROJECT_CONTEXT retrieval cannot override fresher admitted M07 evidence.
 230. Agents/plugins cannot manufacture or strengthen M07 evidence.
 231. DCC/provider extensions remain namespaced and non-authoritative over canonical keys.
 232. M56 may aggregate telemetry but cannot invent missing M07 samples.

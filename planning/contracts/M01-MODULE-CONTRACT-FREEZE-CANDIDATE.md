@@ -20,7 +20,7 @@ FidelityContract; FidelityDimension; QualityClass; Defect; SemanticZone; Evidenc
 - store dimension-level evidence/confidence;
 - support domain profiles without hardcoding game/web/image assumptions;
 - produce deterministic decision records from identical normalized inputs;
-- expose machine-readable evidence suitable for later HIVE/provenance storage.
+- expose machine-readable evidence suitable for later PROJECT_CONTEXT/provenance storage.
 
 ## Explicitly deferred
 Actual DreamSim/FLIP/TOPIQ runtime integration; Blender/ComfyUI; computer vision segmentation; game validators; web rendering; logo/vector implementation; human UI; model training; distributed compute.
