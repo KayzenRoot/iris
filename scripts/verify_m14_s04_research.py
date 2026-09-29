@@ -23,6 +23,12 @@ def require(condition: bool, reason: str) -> None:
     if not condition:
         raise M14S04IntegrityError(reason)
 
+def dict_ids(items: object) -> list | None:
+    """Extract ordered IDs only from a list of dictionaries; otherwise fail closed."""
+    if type(items) is not list or not all(type(item) is dict for item in items):
+        return None
+    return [item.get("id") for item in items]
+
 def git_blob(data: bytes) -> str:
     """Compute Git's exact blob-object SHA1 from source bytes."""
     return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
@@ -133,24 +139,21 @@ def verify_packet(p: dict, root: Path = ROOT, *, verify_markdown: bool = True) -
                     "S05 — S05 Model drift, deprecation and lifecycle governance"):
         require(session in index, "active M14 session source drift: " + session)
     facets = p["facets"]
-    require(type(facets) is list and
-            [x.get("id") for x in facets] == ["CF01_COMPOSITE_TASK_BINDING","CF02_M07_RUNTIME_BINDING","CF03_M08_REPRESENTATIVE_EVIDENCE","CF04_KERNEL_BACKEND_OPERATORS","CF05_RESOURCE_RELIABILITY","CF06_CONFLICT_AND_FRESHNESS","CF07_RIGHTS_AND_ISOLATION","CF08_AUTHORITY_AND_FEEDBACK"],
+    require(dict_ids(facets) == ["CF01_COMPOSITE_TASK_BINDING","CF02_M07_RUNTIME_BINDING","CF03_M08_REPRESENTATIVE_EVIDENCE","CF04_KERNEL_BACKEND_OPERATORS","CF05_RESOURCE_RELIABILITY","CF06_CONFLICT_AND_FRESHNESS","CF07_RIGHTS_AND_ISOLATION","CF08_AUTHORITY_AND_FEEDBACK"],
             "eight original S04 research facets changed")
     for x in facets:
         require(type(x) is dict and set(x) == {"id","title","caveat","status"}
                 and x["status"] == "SOURCE_TAXONOMY_NOT_ADOPTED"
                 and len(x["caveat"]) >= 80, "unqualified compatibility facet adoption")
     states = p["states"]
-    require(type(states) is list and
-            [x.get("id") for x in states] == list(STATE_IDS),
+    require(dict_ids(states) == list(STATE_IDS),
             "five future evidence labels missing/reordered")
     for x in states:
         require(type(x) is dict and set(x) == {"id","status"}
                 and x["status"] == "VOCABULARY_ONLY_NO_REAL_COMPATIBILITY",
                 "unverified compatibility label promoted")
     alternatives = p["alternatives"]
-    require(type(alternatives) is list and
-            [x.get("id") for x in alternatives] == ["ALT01_FLAT_HARDWARE_TAG_MATRIX","ALT02_EXACT_TASK_HARDWARE_TUPLE","ALT03_VERSIONED_EVIDENCE_DAG","ALT04_FUTURE_SIGNED_AT_USE_RECEIPT"],
+    require(dict_ids(alternatives) == ["ALT01_FLAT_HARDWARE_TAG_MATRIX","ALT02_EXACT_TASK_HARDWARE_TUPLE","ALT03_VERSIONED_EVIDENCE_DAG","ALT04_FUTURE_SIGNED_AT_USE_RECEIPT"],
             "four research alternatives changed")
     for x in alternatives:
         require(type(x) is dict and set(x) == {"id","title","tradeoffs","selected","status"}
@@ -158,7 +161,7 @@ def verify_packet(p: dict, root: Path = ROOT, *, verify_markdown: bool = True) -
                 and len(x["tradeoffs"]) >= 100, "unapproved alternative selected or caveat omitted")
     qq = p["questions"]
     qids = [f"M14-S04-U{i:02d}" for i in range(1,23)]
-    require(type(qq) is list and [x.get("id") for x in qq] == qids,
+    require(dict_ids(qq) == qids,
             "22 new original owner questions missing/reordered")
     roles = {row[0] for row in SOURCE_ROWS}
     for x in qq:
@@ -172,8 +175,7 @@ def verify_packet(p: dict, root: Path = ROOT, *, verify_markdown: bool = True) -
                 and all(v in roles for v in x["sourceRoles"]),
                 "owner questions promoted or source roles forged")
     negatives = p["negativeScenarios"]
-    require(type(negatives) is list and
-            [x.get("id") for x in negatives] == [f"M14-S04-N{i:02d}" for i in range(1,19)],
+    require(dict_ids(negatives) == [f"M14-S04-N{i:02d}" for i in range(1,19)],
             "18 original future negative cases missing/reordered")
     for x in negatives:
         require(type(x) is dict and set(x) == {"id","trigger","questionIds",
