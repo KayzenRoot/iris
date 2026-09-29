@@ -2,7 +2,7 @@
 
 Status: `PRODUCT_ARCHITECTURE_EVOLVING`
 
-Git + Project Brain are authoritative. GEF governs lifecycle/evidence. HIVE supplies derived context/retrieval/memory/read-only MCP.
+Git and Project Brain are authoritative. GEF governs the engineering lifecycle and evidence. The current repository is standalone, requiring no external memory/retrieval runtime, local database or MCP service.
 
 ## Frozen authority layers
 
@@ -131,8 +131,8 @@ The M04 core must not require Blender/Maya/ComfyUI, provider/model SDKs, GPU/run
 
 ## Ecosystem boundary
 
-Target topology remains `HIVE <-> CORE <-> IRIS`, but CORE<->IRIS runtime contracts are not implemented/frozen.
+IRIS operates independently. A possible CORE↔IRIS integration remains a separately versioned future contract, not a present runtime dependency. Future M52 native memory/retrieval is only an index-level module candidate, not an installed service.
 
-HIVE remains a separate Docker/local-first runtime. GEF remains a separate source workspace/release. No HIVE backend/database or GEF package workspace is vendored into IRIS. Machine-local integration uses environment variables.
+GEF remains a separate optional source workspace/release with an exact pinned source commit. No outside context-service database, Docker stack or MCP server is needed to open, test, review or build the current IRIS semantic foundation.
 
 Provider, DCC, hardware, storage and delivery runtimes remain behind later versioned ports/contracts.

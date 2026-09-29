@@ -8,7 +8,7 @@ IRIS planning proceeds one module at a time. For the active module, all five ses
 ## Technology capture
 Every session must search for and evaluate:
 1. existing technologies that can improve quality, performance, reliability or production;
-2. reusable technology already proven in UGAS/HIVE/CORE;
+2. reusable technology independently proven in admitted IRIS modules or separately verified optional external projects;
 3. proprietary candidate technologies worth designing for IRIS.
 
 Every technology entry must contain:

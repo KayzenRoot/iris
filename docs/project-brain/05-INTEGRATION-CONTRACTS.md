@@ -2,12 +2,11 @@
 
 Status: `FOUNDATION_ACTIVE_M05_FROZEN_MAIN_VALIDATED`
 
-## HIVE v1.0.0
-Repository-contract integration includes canonical governance paths, registration/inspection/index/corpus sync client, read-only MCP launcher and project-scoped Codex config.
+## Standalone Git-first context (active)
 
-Stable tools: `project.list`, `project.status`, `context.build`, `context.search`, `memory.search`, `memory.get`, `checkpoint.read`.
+The canonical IRIS Project Brain in this repository and the exact Git tree supply all required startup context, decisions, requirements, historical evidence, immutable checkpoint mirrors, Context Locks and review state. The project's Codex configuration does not start or require an external context MCP server; Docker, a local database, or an external project registration are not preflight gates.
 
-HIVE remains derived context and never supersedes canonical Git/Project Brain truth. HIVE/agents may propose or derive M04 context but cannot mutate canonical M04 truth directly.
+M52 remains **future IRIS-native memory/retrieval planning only**. Its own offline source-admission, rights/consent, provenance, security and owner sign-off must precede any persistent retrieval implementation. Retrieved text has no automatic authority to rewrite protected M01–M09 facts.
 
 ## GEF v1.0.0
 Project governance/adoption profile is pinned to the stable release; GEF workspace source is not copied into IRIS.

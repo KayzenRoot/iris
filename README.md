@@ -1,12 +1,12 @@
-# Hive IRIS
+# IRIS
 
 **Intelligent Rendering & Immersive Synthesis**
 
-Hive IRIS is the governed visual and multimodal production engine in the Hive ecosystem. The [canonical checkpoint](docs/project-brain/13-CHECKPOINT.md) is the source of truth for the live project state; this README is only a public-facing snapshot.
+IRIS is an independent, Git-first, governed visual and multimodal production engine. No external memory service, locally installed database, Docker stack or mandatory MCP server is needed to open, test or review the repository. The [canonical checkpoint](docs/project-brain/13-CHECKPOINT.md) is the source of truth for the live project state; this README is only a public-facing snapshot.
 
 ## Verified repository snapshot (2026-09-28 UTC)
 
-- **Current source-exact protected Git state (2026-09-28 UTC):** [WO0051 PR #162](https://github.com/KayzenRoot/iris/pull/162) final reviewed head `b1c5dc3741b6760626fb9a12123528e2d4fcde17` passed [head Governance #36362338152](https://github.com/KayzenRoot/iris/actions/runs/36362338152) **4526/4526**; protected main `533da642fd227b898031228de5f99ea65c58781d` independently passed [exact-main Governance #36362432890](https://github.com/KayzenRoot/iris/actions/runs/36362432890) **4526/4526**, pinned IRIS/GEF/HIVE PASS. M13 five original research sessions and FTR are DOCUMENTARY_ONLY (96 original OPEN questions/74 future negative cases NOT_EXECUTED). M14–M60 47/47 original module headings and 235/235 planned sessions are INDEX_ONLY, NOT individually owner-approved executable compatibility. H01–H04 OPEN HIGH_FOR_FUTURE_FREEZE, B_FUTURE_OWNER_RECEIPT DIRECTION_ONLY, C01 UNADOPTED_NOT_FROZEN. Genuine M12/#128 M54/#145 M58/#146 M60/#147 independent source-owner contracts NOT_RECEIVED, M10/M11/M12/M13 runtime NOT_ADMITTED; all eight original governance issues OPEN.
+- **Current source-exact protected Git state (2026-09-28 UTC):** [WO0051 PR #162](https://github.com/KayzenRoot/iris/pull/162) final reviewed head `b1c5dc3741b6760626fb9a12123528e2d4fcde17` passed [head Governance #36362338152](https://github.com/KayzenRoot/iris/actions/runs/36362338152) **4526/4526**; protected main `533da642fd227b898031228de5f99ea65c58781d` independently passed [exact-main Governance #36362432890](https://github.com/KayzenRoot/iris/actions/runs/36362432890) **4526/4526**, historical GitHub Governance PASS. M13 five original research sessions and FTR are DOCUMENTARY_ONLY (96 original OPEN questions/74 future negative cases NOT_EXECUTED). M14–M60 47/47 original module headings and 235/235 planned sessions are INDEX_ONLY, NOT individually owner-approved executable compatibility. H01–H04 OPEN HIGH_FOR_FUTURE_FREEZE, B_FUTURE_OWNER_RECEIPT DIRECTION_ONLY, C01 UNADOPTED_NOT_FROZEN. Genuine M12/#128 M54/#145 M58/#146 M60/#147 independent source-owner contracts NOT_RECEIVED, M10/M11/M12/M13 runtime NOT_ADMITTED; all eight original governance issues OPEN.
 
 
 - **M01–M09:** implementation milestones completed and exact-main validated; M09 remains frozen as `m09-contract-v1.0`.
@@ -17,7 +17,7 @@ Hive IRIS is the governed visual and multimodal production engine in the Hive ec
 - **Historical WO0039 offline tool baseline (not current validation):** [IRIS-WO-0039 PR #149](https://github.com/KayzenRoot/iris/pull/149) merged as `be18231423651c5dbff584613fc46d3e0104107f`; separate [exact-main Governance #528](https://github.com/KayzenRoot/iris/actions/runs/36344935836) passed **4290/4290**, including 30 *offline synthetic* tests of untrusted H03 draft formatting. Actual M12/#128, M54/#145, M58/#146 and M60/#147 owner contracts are still unapproved; H01–H04 remain OPEN HIGH_FOR_FUTURE_FREEZE, C01 UNADOPTED_NOT_FROZEN, and M10/M11/M12 runtime NOT_ADMITTED. This does not execute future 80 M12, 12 H03-N or original HX/LV/C08/PO-C02 cases.
 - **Historical pre-B D01 baseline (not the latest repository validation):** [PR #139](https://github.com/KayzenRoot/iris/pull/139) on `main` commit `97a9fe1666b764278de1379eadd7eda7d04799fe`, [Governance #509](https://github.com/KayzenRoot/iris/actions/runs/36332401893) **PASS 4090/4090**. Its tests validate documentary integrity, not owner permissions or GPU/OS/network/cloud safety.
 - **GEF:** `v1.0.0` pinned to `866fe3af8cccc65c929aaf6a47a924401fa448b3`.
-- **HIVE product integration:** `v1.0.0` pinned to `a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf`.
+- **Standalone context:** canonical Git + Project Brain. The retired local external context integration is not an operational dependency. Current future module plan: [IRIS active index](planning/MASTER-MODULE-INDEX-CURRENT.md).
 
 Provider/DCC/media-generation runtime integration and the later M10/M11/M12 runtime are not admitted by these documentary milestones. Do not infer a contract freeze, resource grant, process permission or implementation acceptance from CI.
 

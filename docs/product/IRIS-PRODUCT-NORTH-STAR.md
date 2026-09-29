@@ -45,14 +45,9 @@ IRIS targets extreme final quality while using progressive fidelity for efficien
 7. **Production Graph** — dependency graph, variants, rebuilds and lineage.
 8. **Delivery Center** — game/web/social/media packaging and provenance.
 
-## HIVE / CORE / IRIS relationship
+## Standalone IRIS and optional future contracts
 
-- HIVE remembers and retrieves governed project/context knowledge.
-- CORE reasons, plans and coordinates cognitive work.
-- IRIS creates, evaluates, repairs and delivers multimodal production artifacts.
-
-Integration is contract-based and versioned. No system silently owns another system's canonical state.
-
+IRIS owns canonical local Project Brain context, production artifact creation, assessment, repair and delivery. No external memory runtime is installed or required. An eventual CORE integration or internal M52 memory/retrieval module requires a separately admitted, source-locked owner contract and independent validation. External agents or retrieved text never self-authorize edits to canonical Git production state.
 
 ## Persistent digital spokesperson direction
 

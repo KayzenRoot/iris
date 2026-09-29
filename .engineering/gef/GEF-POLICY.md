@@ -6,5 +6,5 @@
 4. Checkpoint promotion requires objective audit.
 5. HIGH/CRITICAL known defects block promotion.
 6. Prefer deterministic evidence over LLM inference.
-7. HIVE context is derived and cannot overwrite Git truth.
+7. Only actual canonical Git files and exact Git evidence determine project authority; no external memory service is required.
 8. Destructive operations require explicit authorization.

@@ -1,19 +1,18 @@
-# Hive IRIS - Project Overview
+# IRIS - Project Overview
 
 IRIS means **Intelligent Rendering & Immersive Synthesis**.
 
-IRIS is the visual and multimodal production engine of the Hive ecosystem: high-quality 2D, 2.5D and 3D assets, animation, VFX, image, video, audio and web/game production, including later Blender/ComfyUI/DCC integrations.
+IRIS is an independent visual and multimodal production engine: high-quality 2D, 2.5D and 3D assets, animation, VFX, image, video, audio and web/game production, including later Blender/ComfyUI/DCC integrations.
 
 Target roles:
-- **HIVE** = derived context, retrieval and memory;
-- **CORE** = cognition/orchestration when its runtime contracts are separately admitted;
+- **CORE** = optional future cognition/orchestration, only after its own runtime contracts are separately admitted;
 - **IRIS** = visual/multimodal creation, semantic production contracts and quality pipeline.
 
 ## Governed snapshot (2026-09-28 UTC)
 
 The [canonical checkpoint](13-CHECKPOINT.md), [Decisions Ledger](16-DECISIONS-LEDGER.md) and exact Git/CI evidence take precedence over this descriptive snapshot.
 
-- **Current source-exact protected Git state (2026-09-28 UTC):** [WO0051 PR #162](https://github.com/KayzenRoot/iris/pull/162) final reviewed head `b1c5dc3741b6760626fb9a12123528e2d4fcde17` passed [head Governance #36362338152](https://github.com/KayzenRoot/iris/actions/runs/36362338152) **4526/4526**; protected main `533da642fd227b898031228de5f99ea65c58781d` independently passed [exact-main Governance #36362432890](https://github.com/KayzenRoot/iris/actions/runs/36362432890) **4526/4526**, pinned IRIS/GEF/HIVE PASS. M13 five original research sessions and FTR are DOCUMENTARY_ONLY (96 original OPEN questions/74 future negative cases NOT_EXECUTED). M14–M60 47/47 original module headings and 235/235 planned sessions are INDEX_ONLY, NOT individually owner-approved executable compatibility. H01–H04 OPEN HIGH_FOR_FUTURE_FREEZE, B_FUTURE_OWNER_RECEIPT DIRECTION_ONLY, C01 UNADOPTED_NOT_FROZEN. Genuine M12/#128 M54/#145 M58/#146 M60/#147 independent source-owner contracts NOT_RECEIVED, M10/M11/M12/M13 runtime NOT_ADMITTED; all eight original governance issues OPEN.
+- **Current source-exact protected Git state (2026-09-28 UTC):** [WO0051 PR #162](https://github.com/KayzenRoot/iris/pull/162) final reviewed head `b1c5dc3741b6760626fb9a12123528e2d4fcde17` passed [head Governance #36362338152](https://github.com/KayzenRoot/iris/actions/runs/36362338152) **4526/4526**; protected main `533da642fd227b898031228de5f99ea65c58781d` independently passed [exact-main Governance #36362432890](https://github.com/KayzenRoot/iris/actions/runs/36362432890) **4526/4526**, historical independent GitHub Governance PASS. M13 five original research sessions and FTR are DOCUMENTARY_ONLY (96 original OPEN questions/74 future negative cases NOT_EXECUTED). M14–M60 47/47 original module headings and 235/235 planned sessions are INDEX_ONLY, NOT individually owner-approved executable compatibility. H01–H04 OPEN HIGH_FOR_FUTURE_FREEZE, B_FUTURE_OWNER_RECEIPT DIRECTION_ONLY, C01 UNADOPTED_NOT_FROZEN. Genuine M12/#128 M54/#145 M58/#146 M60/#147 independent source-owner contracts NOT_RECEIVED, M10/M11/M12/M13 runtime NOT_ADMITTED; all eight original governance issues OPEN.
 
 
 - M01–M09 implementations are completed, approved and exact-main validated; the M09 contract `m09-contract-v1.0` remains frozen.
@@ -31,3 +30,8 @@ The [canonical checkpoint](13-CHECKPOINT.md), [Decisions Ledger](16-DECISIONS-LE
 - Repository governance uses protected `main`. The canonical checkpoint, not this overview, establishes the next admitted increment.
 
 No provider/DCC/media-generation runtime is implied by the semantic kernels or M12 planning evidence. M04 remains provider-neutral/runtime-neutral; M16 owns concrete provider/workflow compilation when separately admitted.
+
+
+## Standalone architecture (user directive 2026-09-28)
+
+IRIS no longer depends on the retired external context engine, local Docker/database stack or a mandatory context MCP server. Current project context is loaded from exact Git + [canonical checkpoint](13-CHECKPOINT.md) and its governed Source Pack. GEF stays independently pinned and optional as a local source checkout. Historical release receipts above remain factual dated records; they are not current startup obligations. The [active future-module index](../../planning/MASTER-MODULE-INDEX-CURRENT.md) supersedes the source-locked historical M52/M60 headings without reinterpreting historical full-scan evidence. Existing H01–H04 and qualified-owner implementation gates remain blocked.

@@ -32,7 +32,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Compile bootstrap tooling
-        run: python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/hive_bootstrap.py scripts/hive_mcp.py scripts/verify_context_lock.py
+        run: python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/verify_context_lock.py
       - name: Verify exact PR Context Lock source fingerprints and changed-file scope
         if: github.event_name == 'pull_request'
         env:
