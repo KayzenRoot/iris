@@ -19,6 +19,7 @@ LINK_TARGET = "untrusted-canonical-source.md"
 class ContextLockRealGitModeTests(unittest.TestCase):
     @staticmethod
     def git(root: Path, *args: str, payload: bytes | None = None) -> str:
+        """Execute one deterministic real-Git fixture command with optional stdin."""
         result = subprocess.run(
             ["git", *args], cwd=root, input=payload, stdout=subprocess.PIPE,
             stderr=subprocess.PIPE, check=True,
@@ -27,6 +28,7 @@ class ContextLockRealGitModeTests(unittest.TestCase):
 
     def fixture(self, root: Path, *, source_mode: str = "100644",
                 lock_mode: str = "100644") -> tuple[str, str]:
+        """Create exact-base/head commits with chosen tracked Git file modes."""
         self.git(root, "init", "-q")
         self.git(root, "config", "user.email", "fixture@example.invalid")
         self.git(root, "config", "user.name", "Mode Fixture")
@@ -69,12 +71,14 @@ class ContextLockRealGitModeTests(unittest.TestCase):
         return base, self.git(root, "rev-parse", "HEAD")
 
     def test_01_all_regular_exact_git_sources_and_lock_pass(self):
+        """Ordinary 100644 originals and Context Lock remain accepted."""
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             base, head = self.fixture(root)
             self.assertEqual(verify_current_pr(root, base_sha=base, head_sha=head), [LOCK])
 
     def test_02_base_canonical_symlink_rejected_even_with_correct_git_blob_pin(self):
+        """A valid symlink blob SHA must not confer canonical source authority."""
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             base, head = self.fixture(root, source_mode="120000")
@@ -82,6 +86,7 @@ class ContextLockRealGitModeTests(unittest.TestCase):
                 verify_current_pr(root, base_sha=base, head_sha=head)
 
     def test_03_base_executable_canonical_document_rejected(self):
+        """A 100755 pinned original document fails closed on file mode."""
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             base, head = self.fixture(root, source_mode="100755")
@@ -89,6 +94,7 @@ class ContextLockRealGitModeTests(unittest.TestCase):
                 verify_current_pr(root, base_sha=base, head_sha=head)
 
     def test_04_head_executable_lock_rejected_before_json_parse(self):
+        """An executable changed lock is rejected before its JSON is read."""
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             base, head = self.fixture(root, lock_mode="100755")
@@ -96,6 +102,7 @@ class ContextLockRealGitModeTests(unittest.TestCase):
                 verify_current_pr(root, base_sha=base, head_sha=head)
 
     def test_05_head_symlink_lock_rejected_before_json_parse(self):
+        """A changed symlink lock is rejected before following its Git blob."""
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             base, head = self.fixture(root, lock_mode="120000")
@@ -103,6 +110,7 @@ class ContextLockRealGitModeTests(unittest.TestCase):
                 verify_current_pr(root, base_sha=base, head_sha=head)
 
     def test_06_pure_optional_mode_argument_rejects_executable(self):
+        """The pure optional mode map refuses non-regular original pins."""
         paths = sorted(MANDATORY_SOURCE_PATHS)
         pins = {path: f"{index + 1:040x}" for index, path in enumerate(paths)}
         lock = {
