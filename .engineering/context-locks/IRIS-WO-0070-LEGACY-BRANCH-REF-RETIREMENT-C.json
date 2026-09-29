@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0070",
+  "issue": 191,
+  "baseSha": "575b8bc46cbd3cc73f23efc2b76f4e82e5094443",
+  "baseTreeSha": "7ead28d54eb43214446e6b40856a84523addc149",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "575b8bc46cbd3cc73f23efc2b76f4e82e5094443",
+    "baseTreeSha": "7ead28d54eb43214446e6b40856a84523addc149",
+    "expected": 8,
+    "checked": 8,
+    "matched": 8,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "58a376a21752ac8018118d2a2580bd1dd0778103"
+    },
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "4406cab596c12e8cb5f68a2d22a5a2044cc68fd6"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "37c4457c96adcc5a11febf2e4143d4c91cd8a3ce"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "b083a0b5f335204965e32fa95908674660a4feb0"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "6bad352cd1bf541f68d636f5c4df589588d0589a"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "bde53b80151edf035c7a37a510a56713dbcdd162"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "5d9c598c142c34227c25297d956e0d43b370bbcd"
+    }
+  ],
+  "authorizedChangedFiles": [
+    ".engineering/context-locks/IRIS-WO-0070-LEGACY-BRANCH-REF-RETIREMENT-C.json"
+  ]
+}
