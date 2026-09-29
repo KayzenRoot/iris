@@ -40,7 +40,7 @@
   "sourceOnly": true,
   "localPcUninstalled": false,
   "ownerGatesUnchanged": true,
-  "expectedFocusedNewTests": 1,
+  "expectedFocusedNewTests": 3,
   "expectedFullSuite": "BASE_FULL_SUITE_PLUS_THREE_TESTS_NOT_PRECLAIMED",
   "ownHeadGovernance": "PENDING",
   "ownCodeRabbit": "PENDING",
