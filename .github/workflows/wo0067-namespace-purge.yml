@@ -82,7 +82,7 @@ jobs:
               path.rename(target)
               renamed += 1
 
-          token = re.compile(r"(?i)(?<![A-Za-z])hive(?![A-Za-z])|(?i)(?<![A-Za-z])hive(?=[A-Z])")
+          token = re.compile(r"(?<![A-Za-z])hive(?![A-Za-z])|(?<![A-Za-z])hive(?=[A-Z])", re.I)
           bad = []
           for path in root.rglob("*"):
               if not path.is_file() or any(part in skip_dirs for part in path.parts):
