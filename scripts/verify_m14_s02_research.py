@@ -36,13 +36,16 @@ class M14S02IntegrityError(ValueError):
     """Unqualified capability research was changed into unsupported authority."""
 
 def require(ok: bool, reason: str) -> None:
+    """Raise a typed integrity failure when a required condition is false."""
     if not ok:
         raise M14S02IntegrityError(reason)
 
 def git_blob(data: bytes) -> str:
+    """Compute the exact original Git blob SHA-1 for source bytes."""
     return hashlib.sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest()
 
 def unique_json_keys(pairs: list[tuple[str, object]]) -> dict:
+    """Reject duplicate packet keys before interpreting source authority."""
     out = {}
     for key, val in pairs:
         require(key not in out, "duplicate JSON key: " + key)
@@ -50,12 +53,14 @@ def unique_json_keys(pairs: list[tuple[str, object]]) -> dict:
     return out
 
 def read_json(root: Path = ROOT) -> dict:
+    """Read the local evidence packet and reject ambiguous JSON fields."""
     p = json.loads((root / PACKET).read_text(encoding="utf-8"),
                    object_pairs_hook=unique_json_keys)
     require(type(p) is dict, "evidence packet must be an object")
     return p
 
 def render_report(p: dict) -> str:
+    """Generate the deterministic human projection of M14 S02 research."""
     l = ["# M14 S02 | Capability Genome & Multimodal Task Taxonomy", "",
          "**NONBINDING SOURCE RESEARCH | IRIS-WO-0077 | issue #206 OPEN.**",
          "No qualified M14 Genome contract, verified vendor feature, legal permission, real benchmark, model install or provider execution is admitted.", "",
@@ -98,6 +103,7 @@ def render_report(p: dict) -> str:
     return "\n".join(l) + "\n"
 
 def verify_packet(p: dict, root: Path = ROOT, *, verify_markdown: bool = True) -> dict:
+    """Audit exact sources, unadmitted semantics and report parity."""
     fields = {"schemaVersion","workOrder","issue","module","session","sourceBaseSha",
               "sourceBaseTreeSha","status","ownerApproval","capabilitySchemaAdopted",
               "technologySelected","modelRegistryRuntime","realCapabilityReceipts",
@@ -217,6 +223,7 @@ def verify_packet(p: dict, root: Path = ROOT, *, verify_markdown: bool = True) -
             "futureNegativesUnexecuted":len(nn),"realOwnerReceipts":0}
 
 def verify_all(root: Path=ROOT) -> dict:
+    """Validate the current checked-in S02 machine and human reports."""
     return verify_packet(read_json(root),root,verify_markdown=True)
 
 if __name__=="__main__":
