@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "iris-post-cleanup-canonical-reconciliation-evidence-v1",
+  "workOrder": "IRIS-WO-0072",
+  "issue": 197,
+  "baseSha": "d557be081230fcc5b44655188ab6e68b5ae16146",
+  "baseTreeSha": "9f5c7d4d08d58f8cb5d765f714ad5a92e9a54471",
+  "criticalSourceCount": 24,
+  "sourceManifestAnchor": {
+    "path": ".engineering/context-locks/IRIS-WO-0071-RESIDUAL-CONTEXT-LITERAL-CLEANUP.json",
+    "gitBlobSha1": "bd8c8bcce7a2dfa6bd7d3347cb7b8345125b1ed9"
+  },
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0072-POST-CLEANUP-CANONICAL-RECONCILIATION.json",
+    ".engineering/evidence/IRIS-WO-0072.json",
+    ".engineering/work-orders/IRIS-WO-0072-POST-CLEANUP-CANONICAL-RECONCILIATION.md",
+    "README.md",
+    "docs/project-brain/01-PROJECT-OVERVIEW.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0072-POST-CLEANUP-CANONICAL-RECONCILIATION.md"
+  ],
+  "verifiedInheritedMain": {
+    "sha": "d557be081230fcc5b44655188ab6e68b5ae16146",
+    "treeSha": "9f5c7d4d08d58f8cb5d765f714ad5a92e9a54471",
+    "governanceRun": 36557928534,
+    "governanceJob": 109371484786,
+    "governance": "PASS",
+    "tests": "4680/4680",
+    "socketProjectReport": "SUCCESS",
+    "factualIssue190": "https://github.com/KayzenRoot/iris/issues/190#issuecomment-5888720696"
+  },
+  "proposedCurrentChanges": "Reconcile two canonical checkpoints, README, Overview and Backlog only; original owner/runtime STOPs remain.",
+  "authorTimeCandidate": {
+    "contextLock": "PENDING_CI",
+    "governance": "PENDING_CI",
+    "fullSuite": "PENDING_CI",
+    "externalReview": "PENDING",
+    "socket": "PENDING",
+    "protectedSquash": "PENDING",
+    "independentExactNewMain": "PENDING"
+  },
+  "dualCheckpointByteIdentical": true,
+  "originalOwnerIssuesOpen": [
+    82,
+    110,
+    112,
+    128,
+    145,
+    146,
+    147,
+    155
+  ],
+  "highGates": "H01-H04 OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "runtime": "M10-M13 NOT_ADMITTED",
+  "issue186": "OPEN",
+  "pr187": "CLOSED_UNMERGED",
+  "correctionDelta": {
+    "reason": "Exact-head Governance failed machine checkpoint nextStep mirror after prose checkpoint update; same-PR fix atomically mirrors the authoritative new nextStep in the original machine checkpoint and expands original-base source lock/diff allowlist to 24/24 and 10/10.",
+    "failedPriorHead": "6f0cc20075e0fdc8434d9a34cbe236c6d39112d9",
+    "failedPriorRun": 36559255250,
+    "failedPriorJob": 109375867860,
+    "currentCandidateChecks": "PENDING_REVALIDATION",
+    "priorContextLock": "PASS",
+    "priorSocket": "BOTH_SUCCESS"
+  },
+  "correctionDelta2": {
+    "reason": "Candidate Governance #36559395059 passed source Context Lock and standalone validation, but full 4680-test regression exposed 10 older owner-gate marker assertions lost by abridged NEXT STEP. Retain original complete still-valid original owner-gate snapshot within prefaced factual current standalone status, and mirror machine nextStep exactly. No test/validator bypass.",
+    "failedPriorHead": "2294b004305497841f302f013e729193e142c7b3",
+    "failedPriorRun": 36559395059,
+    "failedPriorJob": 109376328746,
+    "failures": 10,
+    "ownCorrectedCandidate": "PENDING_REVALIDATION"
+  }
+}
