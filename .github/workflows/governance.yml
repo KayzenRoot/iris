@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - iris-wo-0067-complete-hive-reference-retirement
 
 permissions:
   contents: read
@@ -51,3 +52,6 @@ jobs:
         run: python scripts/validate_governance.py
       - name: Test standalone IRIS and GEF source governance
         run: python -m unittest discover -s tests -p "test_*.py" -v
+      - name: Inventory retired context references (non-blocking during source migration)
+        continue-on-error: true # Remove this before PR review and final merge
+        run: python scripts/audit_retired_context.py
