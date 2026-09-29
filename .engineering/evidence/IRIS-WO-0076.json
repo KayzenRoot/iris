@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "iris-m14-s01-source-research-work-order-evidence-v1",
+  "workOrder": "IRIS-WO-0076",
+  "issue": 204,
+  "originalProtectedBaseSha": "5d864f7a37f14f7daccdd385aa2cba1d77cece39",
+  "originalBaseTreeSha": "0556959bba5f7bb897901e875d8663956ea55681",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "matched": 40,
+    "originalSourceModes": "ALL_100644",
+    "latestManifestAnchor": {
+      "path": ".engineering/context-locks/IRIS-WO-0075-WO0074-POSTMERGE-CHECKPOINT.json",
+      "gitBlobSha1": "d4257ee51c9f73aa3795105e32233bb4c559f7bd"
+    }
+  },
+  "authorizedChangedPaths": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0076-M14-S01-SOURCE-RESEARCH.json",
+    ".engineering/evidence/IRIS-WO-0076.json",
+    ".engineering/evidence/M14-S01-SOURCE-RESEARCH.json",
+    ".engineering/work-orders/IRIS-WO-0076-M14-S01-SOURCE-RESEARCH.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0076-M14-S01-SOURCE-RESEARCH.md",
+    "planning/research/M14-S01-MODEL-IDENTITY-LICENSE-PROVENANCE.md",
+    "scripts/verify_m14_s01_research.py",
+    "tests/test_m14_s01_research.py"
+  ],
+  "priorVerifiedWO0075": {
+    "pr": 203,
+    "finalHead": "1918edd2373a9b3535223aaed9eb4b1ed61250d3",
+    "headGovernance": 36564703938,
+    "headTests": "4688/4688",
+    "codeRabbit": "COMPLETED_ZERO_ACTIONABLE",
+    "mainSha": "5d864f7a37f14f7daccdd385aa2cba1d77cece39",
+    "newMainGovernance": 36565447006,
+    "newMainTests": "4688/4688",
+    "sameMainSocket": "SUCCESS",
+    "issue202": "CLOSED"
+  },
+  "ownM14S01": {
+    "status": "PROPOSED_SOURCE_RESEARCH_ONLY",
+    "sourceDocs": 9,
+    "componentClasses": 5,
+    "licenseFacets": 5,
+    "alternativesUnselected": 4,
+    "ownerQuestionsNewOpen": 16,
+    "futureNegativesNotExecuted": 12,
+    "integrityTestsNew": 24,
+    "targetFullTestCount": 4712,
+    "realOwnersSigned": 0,
+    "modelInstalls": 0,
+    "realBenchmarks": 0,
+    "runtimeAdmitted": false
+  },
+  "unmodifiedInherited": {
+    "m09B": "B_FUTURE_OWNER_RECEIPT_DIRECTION_ONLY",
+    "m09C01": "UNADOPTED_NOT_FROZEN",
+    "h01h02h03h04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+    "m10m11m12m13Runtime": "NOT_ADMITTED",
+    "m13OriginalQuestionsOpen": 96,
+    "m13OriginalFutureCasesNotExecuted": 74
+  },
+  "ownHeadCI": "PENDING",
+  "ownExternalReview": "PENDING",
+  "ownProtectedMerge": "PENDING",
+  "ownIndependentExactNewMain": "PENDING",
+  "conclusion": "AUTHOR_TIME_PROPOSED_ONLY"
+}
