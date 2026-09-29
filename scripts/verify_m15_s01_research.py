@@ -54,8 +54,20 @@ def render_report(p: dict) -> str:
     t+=json.dumps(p,ensure_ascii=False,indent=2)+"\n"+ "\x60\x60\x60\n"
     return t
 
+def exactly_typed(actual: object, expected: object) -> bool:
+    """Reject bool/int confusion and recursively detect altered canonical source values."""
+    if type(actual) is not type(expected):
+        return False
+    if isinstance(expected, dict):
+        return actual.keys() == expected.keys() and all(
+            exactly_typed(actual[key], value) for key, value in expected.items())
+    if isinstance(expected, list):
+        return len(actual) == len(expected) and all(
+            exactly_typed(x, y) for x, y in zip(actual, expected))
+    return actual == expected
+
 def verify(p: dict, root: Path=ROOT, *, check_human: bool=True) -> dict:
-    require(type(p) is dict and p==EXPECTED,
+    require(exactly_typed(p, EXPECTED),
             "M15 S01 immutable source, original owner, cases, selected models or STOP drift")
     require(len(p["sourceDocs"])==15 and len(p["affinityDimensions"])==6
             and len(p["alternatives"])==4 and len(p["questions"])==16
