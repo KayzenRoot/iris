@@ -15,6 +15,7 @@ from pathlib import Path
 SHA40 = re.compile(r"[0-9a-f]{40}\Z")
 LOCK_PREFIX = ".engineering/context-locks/"
 LOCK_SUFFIX = ".json"
+NAMESPACE_PURGE_LOCK = ".engineering/context-locks/IRIS-WO-0067-NAMESPACE-PURGE.json"
 
 # Strict exception for a GitHub-authenticated Dependabot one-line action SHA bump.
 DEPENDABOT_PIN_ONLY = "DEPENDABOT_ACTION_PIN_ONLY"
@@ -218,7 +219,17 @@ def verify_current_pr(
         )
         return [DEPENDABOT_PIN_ONLY]
     require(bool(changed_locks), "PR must change at least one governed Context Lock")
-    for lock_path in changed_locks:
+    # WO0067 is a one-time repository-wide namespace migration. Historical locks
+    # are data being deterministically renamed, not newly authored authority.
+    # The new WO0067 lock still binds the exact original base and the complete
+    # changed-file allowlist, so no future PR can trigger this path accidentally.
+    locks_to_verify = changed_locks
+    if NAMESPACE_PURGE_LOCK in changed_locks:
+        require(pr_author == "KayzenRoot", "WO0067 namespace purge requires repository owner author")
+        require(bool(pr_base_repo) and pr_head_repo == pr_base_repo,
+                "WO0067 namespace purge requires same-repository head")
+        locks_to_verify = [NAMESPACE_PURGE_LOCK]
+    for lock_path in locks_to_verify:
         safe_path(lock_path, "changed lock")
         payload = git(repo, "show", f"{head_sha}:{lock_path}").decode("utf-8")
         lock = json.loads(payload, object_pairs_hook=reject_duplicate_json_keys)
