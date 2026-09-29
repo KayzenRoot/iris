@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "iris-m14-s04-source-work-order-evidence-v0.1",
+  "workOrder": "IRIS-WO-0079",
+  "issue": 210,
+  "originalBaseSha": "88f61cbc8091cb9e353ad3d953085f907aef11c5",
+  "originalBaseTreeSha": "b0963f137ddf0ca7b7e2c70c21d5b41b361380df",
+  "originalSourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "criticalPins": 59,
+    "allOriginalSourceModes": "100644",
+    "latestOriginalManifestAnchorPath": ".engineering/context-locks/IRIS-WO-0078-M14-S03-EMPIRICAL-CARDS.json",
+    "latestOriginalManifestAnchorSha": "a2e512242cb219de0f802bdd08c18bdbe6d15010"
+  },
+  "authorizedChangedPaths": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0079-M14-S04-HARDWARE-RELIABILITY.json",
+    ".engineering/evidence/IRIS-WO-0079.json",
+    ".engineering/evidence/M14-S04-SOURCE-RESEARCH.json",
+    ".engineering/work-orders/IRIS-WO-0079-M14-S04-HARDWARE-RELIABILITY.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0079-M14-S04-HARDWARE-RELIABILITY.md",
+    "planning/research/M14-S04-HARDWARE-RELIABILITY-EVIDENCE.md",
+    "scripts/verify_m14_s04_research.py",
+    "tests/test_m14_s04_research.py"
+  ],
+  "previousVerifiedS03": {
+    "pr": 209,
+    "finalHead": "524ed96d5cc6da0ad2147a3f323040728ae32648",
+    "finalHeadGovernance": 36573067930,
+    "headTests": "4762/4762",
+    "codeRabbitFinalRun": "e3f290a2-8469-4983-bec9-f1e7b86b522e",
+    "codeRabbitFindings": 0,
+    "openThreads": 0,
+    "protectedMain": "88f61cbc8091cb9e353ad3d953085f907aef11c5",
+    "exactNewMainGovernance": 36574246350,
+    "newMainTests": "4762/4762",
+    "sameMainSocket": "SUCCESS",
+    "issue208": "CLOSED",
+    "parent204": "OPEN"
+  },
+  "proposedS04": {
+    "status": "SOURCE_RESEARCH_ONLY_NO_HARDWARE_QUALIFICATION",
+    "sourceRoles": 15,
+    "nonadoptedFacets": 8,
+    "stateLabelsVocabularyOnly": 5,
+    "alternativesUnselected": 4,
+    "newOwnerQuestionsOpen": 22,
+    "futureNegativeScenariosNotExecuted": 18,
+    "newSyntheticTests": 24,
+    "expectedFullTestSuite": 4786,
+    "actualGpuRuns": 0,
+    "approvedOwnerReceipts": 0
+  },
+  "inheritedOriginalStops": {
+    "s01": "16_OPEN_12_NOT_EXECUTED",
+    "s02": "18_OPEN_14_NOT_EXECUTED",
+    "s03": "20_OPEN_16_NOT_EXECUTED",
+    "m13": "96_OPEN_74_NOT_EXECUTED",
+    "originalEightOwnerIssues": "OPEN",
+    "h01h02h03h04": "HIGH_FOR_FUTURE_FREEZE",
+    "m09B": "DIRECTION_ONLY",
+    "m09C01": "UNADOPTED_NOT_FROZEN",
+    "m10m11m12m13NativeRuntime": "NOT_ADMITTED"
+  },
+  "ownExactHeadGovernance": "PENDING",
+  "ownSocketChecks": "PENDING",
+  "ownIndependentExternalReview": "PENDING",
+  "ownProtectedMerge": "PENDING",
+  "ownIndependentNewMain": "PENDING",
+  "conclusion": "AUTHOR_TIME_PROPOSED_ONLY"
+}
