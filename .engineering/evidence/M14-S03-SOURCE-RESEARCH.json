@@ -165,25 +165,29 @@
       "id": "ALT01",
       "title": "Vendor model card notes",
       "status": "RESEARCH_ONLY_UNSELECTED",
-      "selected": false
+      "selected": false,
+      "tradeoffs": "Simple discovery but lacks immutable package closure, original samples, exact M07 host/protocol and independently qualified legal or owner scope."
     },
     {
       "id": "ALT02",
       "title": "Typed per-task evidence table",
       "status": "RESEARCH_ONLY_UNSELECTED",
-      "selected": false
+      "selected": false,
+      "tradeoffs": "Typed missing-value semantics help comparison, but a table row cannot prove authentic sample provenance, contamination status or valid evaluator rights."
     },
     {
       "id": "ALT03",
       "title": "Versioned source-qualified evidence graph",
       "status": "RESEARCH_ONLY_UNSELECTED",
-      "selected": false
+      "selected": false,
+      "tradeoffs": "Exact model/task/M07/M08/M01 lineage and invalidation edges are expressive, but need real qualified schema owners, revocation handling and tenant redaction."
     },
     {
       "id": "ALT04",
       "title": "Future authenticated at-use measurement receipt",
       "status": "RESEARCH_ONLY_UNSELECTED",
-      "selected": false
+      "selected": false,
+      "tradeoffs": "A future current scoped owner receipt could bind real measurements, but requires independently verified issuer, representative M08 evidence and valid rights."
     }
   ],
   "questions": [
@@ -191,9 +195,9 @@
       "id": "M14-S03-U01",
       "question": "Which complete immutable composite package fingerprint must bind every future card and its dependent tokenizer and adapter revisions?",
       "sourceRoles": [
-        "INDEX",
-        "M08",
-        "S02"
+        "S01",
+        "S02",
+        "FCS"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
       "risk": "UNRATED",
@@ -204,9 +208,9 @@
       "id": "M14-S03-U02",
       "question": "Which exact task, input-output constraints and sampling population make future quality and latency records representative?",
       "sourceRoles": [
-        "INDEX",
+        "S02",
         "M08",
-        "S02"
+        "INDEX"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
       "risk": "UNRATED",
@@ -217,9 +221,9 @@
       "id": "M14-S03-U03",
       "question": "Which fixture provenance, consent and leakage evidence prevents overstating generalization from an unqualified sample set?",
       "sourceRoles": [
-        "INDEX",
-        "M08",
-        "S02"
+        "M01_CONTRACT",
+        "S02",
+        "FCS"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
       "risk": "UNRATED",
@@ -230,7 +234,7 @@
       "id": "M14-S03-U04",
       "question": "What exact M07 device, topology, driver and runtime snapshot must accompany each future model-specific benchmark record?",
       "sourceRoles": [
-        "INDEX",
+        "M07",
         "M08",
         "S02"
       ],
@@ -243,9 +247,9 @@
       "id": "M14-S03-U05",
       "question": "What independent M08 owner admission and bounded protocol receipt is needed before any future GPU or provider benchmark?",
       "sourceRoles": [
-        "INDEX",
+        "M07",
         "M08",
-        "S02"
+        "FCS"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
       "risk": "UNRATED",
@@ -256,8 +260,8 @@
       "id": "M14-S03-U06",
       "question": "Which declared metrics disambiguate cold start, warm latency, throughput, per-frame timing and peak VRAM without numerical shortcuts?",
       "sourceRoles": [
-        "INDEX",
         "M08",
+        "M09",
         "S02"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
@@ -269,8 +273,8 @@
       "id": "M14-S03-U07",
       "question": "Which clock, duration, units, raw sample count, warmup and aggregation rules must be preserved in each future model card?",
       "sourceRoles": [
-        "INDEX",
         "M08",
+        "M07",
         "S02"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
@@ -282,9 +286,9 @@
       "id": "M14-S03-U08",
       "question": "How can UNKNOWN telemetry, interference, cancellation and thermal abort retain explicit non-valid uncertainty and context?",
       "sourceRoles": [
-        "INDEX",
+        "M07",
         "M08",
-        "S02"
+        "M09"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
       "risk": "UNRATED",
@@ -295,9 +299,9 @@
       "id": "M14-S03-U09",
       "question": "Which allocation, shared memory, peak residency and OOM evidence remains separate from authority for an M09 resource lease?",
       "sourceRoles": [
-        "INDEX",
+        "M07",
         "M08",
-        "S02"
+        "M09"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
       "risk": "UNRATED",
@@ -308,9 +312,9 @@
       "id": "M14-S03-U10",
       "question": "Which versioned M01 evaluator, fidelity class, fatal defect checks and human review preserve independent final quality authority?",
       "sourceRoles": [
-        "INDEX",
-        "M08",
-        "S02"
+        "M01_CONTRACT",
+        "M01",
+        "M08"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
       "risk": "UNRATED",
@@ -321,7 +325,7 @@
       "id": "M14-S03-U11",
       "question": "What sample size, population bias and uncertainty provenance must precede any future reliability or confidence assertion?",
       "sourceRoles": [
-        "INDEX",
+        "M01",
         "M08",
         "S02"
       ],
@@ -334,9 +338,9 @@
       "id": "M14-S03-U12",
       "question": "Which prompt, fixture, seed and compiler-option provenance is required without admitting M13/M16 provider code execution?",
       "sourceRoles": [
-        "INDEX",
-        "M08",
-        "S02"
+        "S01",
+        "S02",
+        "FCS"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
       "risk": "UNRATED",
@@ -347,9 +351,9 @@
       "id": "M14-S03-U13",
       "question": "How are multimodal codecs, timestamps, spatial crops, audio persona and 3D topology matched before an equivalence claim?",
       "sourceRoles": [
-        "INDEX",
-        "M08",
-        "S02"
+        "S02",
+        "M01_CONTRACT",
+        "M08"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
       "risk": "UNRATED",
@@ -360,7 +364,7 @@
       "id": "M14-S03-U14",
       "question": "When are two real model-card observations incomparable because package, M07 runtime, protocol or population differs?",
       "sourceRoles": [
-        "INDEX",
+        "M07",
         "M08",
         "S02"
       ],
@@ -373,8 +377,8 @@
       "id": "M14-S03-U15",
       "question": "Which calibration, time-to-live, signed lineage, revocation and invalidation edges govern any future released card?",
       "sourceRoles": [
-        "INDEX",
         "M08",
+        "FCS",
         "S02"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
@@ -386,9 +390,9 @@
       "id": "M14-S03-U16",
       "question": "Which tenant-scoped model, dataset, performer and derivative rights require separate M18/M53/M54 owner evidence?",
       "sourceRoles": [
-        "INDEX",
-        "M08",
-        "S02"
+        "S01",
+        "FCS",
+        "D01"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
       "risk": "UNRATED",
@@ -399,9 +403,9 @@
       "id": "M14-S03-U17",
       "question": "How must immutable M02 master status and M01 hard quality veto remain separate from a fast preview performance figure?",
       "sourceRoles": [
-        "INDEX",
-        "M08",
-        "S02"
+        "M01_CONTRACT",
+        "M01",
+        "M08"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
       "risk": "UNRATED",
@@ -412,9 +416,9 @@
       "id": "M14-S03-U18",
       "question": "Which qualified future M10/M15 advisor can see tentative data without choosing rankings or actual placement and dispatch?",
       "sourceRoles": [
-        "INDEX",
-        "M08",
-        "S02"
+        "M09",
+        "M10",
+        "FCS"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
       "risk": "UNRATED",
@@ -425,8 +429,8 @@
       "id": "M14-S03-U19",
       "question": "How should warm caches, residency, batching and compilation hints be distinguished from live M09 grant and M11 ACK?",
       "sourceRoles": [
-        "INDEX",
         "M08",
+        "M09",
         "S02"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
@@ -438,9 +442,9 @@
       "id": "M14-S03-U20",
       "question": "What independent actual model-card owner issuer, authenticated scope, expiry and refresh proof must precede any real evidence label?",
       "sourceRoles": [
-        "INDEX",
         "M08",
-        "S02"
+        "D01",
+        "FCS"
       ],
       "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
       "risk": "UNRATED",
