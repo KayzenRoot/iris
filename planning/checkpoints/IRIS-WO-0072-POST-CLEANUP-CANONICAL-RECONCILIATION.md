@@ -9,3 +9,5 @@
 **NOT YET APPROVED:** This candidate's own exact-head Governance, completed independent review, same-head Socket, protected squash and independent exact-new-main Governance/Socket remain PENDING at authoring. Promote only after objective evidence and close issue #197 with factual receipt then.
 
 **Same-PR correction:** Original candidate #36559255250 failed on machine nextStep drift (its Context Lock passed). Add `.engineering/CHECKPOINT.json` as tenth authorized path/pin, mirror current canonical nextStep exactly and re-run Governance; no conditional validation bypass or premature approval.
+
+**CORRECTION DELTA 2 (same WO/PR):** CI #36559395059 confirmed the lock/validator passed but ten existing regression assertions require historical owner-gate precision in canonical NEXT STEP. Keep the verified new standalone preface and restore the complete original still-valid owner gate text as explicit historical verification, byte-identically across both human mirrors and machine JSON. This modifies no additional path, contract or test; full candidate CI and reviews must rerun.
