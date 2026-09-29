@@ -7,7 +7,7 @@ import unittest
 
 from scripts.verify_m14_ftr_audit import (
     ROOT, REPORT, REQUIRED, M14AuditIntegrityError, load, mock_positive_checkboxes,
-    no_duplicate_keys, render_report, verify,
+    no_duplicate_keys, render_report, verify, load_json,
 )
 
 class M14FTRIndependentDocumentaryAuditTests(unittest.TestCase):
@@ -115,6 +115,13 @@ class M14FTRIndependentDocumentaryAuditTests(unittest.TestCase):
         with self.assertRaises(M14AuditIntegrityError):self.check(p)
 
     def test_19_missing_and_non_utf8_immutable_source_refusal(self):
+        # A corrupt top-level audit JSON must use the same typed integrity error
+        # instead of leaking JSONDecodeError to callers.
+        with tempfile.TemporaryDirectory() as d:
+            malformed=Path(d)/"invalid-audit.json"
+            malformed.write_text('{"originalCaseRegister": [}',encoding="utf-8")
+            with self.assertRaisesRegex(M14AuditIntegrityError,"original source unreadable"):
+                load_json(malformed)
         with tempfile.TemporaryDirectory() as d:
             with self.assertRaisesRegex(M14AuditIntegrityError,"original FTR source missing"):
                 self.check(root=Path(d))
@@ -141,6 +148,12 @@ class M14FTRIndependentDocumentaryAuditTests(unittest.TestCase):
             with self.subTest(collection=coll):
                 p=self.fresh();p[coll]="corrupted"
                 with self.assertRaises(M14AuditIntegrityError):self.check(p)
+        # Each nested collection is validated before accessing row.get.
+        for collection in ("sourceSeams","gateAudit","unresolvedOriginalOwnerIssues"):
+            for bad in (None,"not a row",[],42):
+                with self.subTest(collection=collection,invalid_row=str(bad)):
+                    p=self.fresh();p[collection][0]=bad
+                    with self.assertRaises(M14AuditIntegrityError):self.check(p)
         p=self.fresh();p["stop"]="ALL PROOFS APPROVED"
         with self.assertRaises(M14AuditIntegrityError):self.check(p)
 

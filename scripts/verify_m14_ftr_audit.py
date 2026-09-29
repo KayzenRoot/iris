@@ -36,7 +36,7 @@ def no_duplicate_keys(pairs: list[tuple[str, object]]) -> dict:
 def load_json(path: Path) -> dict:
     try:
         p=json.loads(path.read_text(encoding="utf-8"),object_pairs_hook=no_duplicate_keys)
-    except (OSError,UnicodeDecodeError) as exc:
+    except (OSError,UnicodeDecodeError,json.JSONDecodeError) as exc:
         raise M14AuditIntegrityError("original source unreadable") from exc
     require(type(p) is dict,"original JSON must be an object")
     return p
@@ -197,7 +197,8 @@ def verify(p: dict, root: Path=ROOT, *, check_human: bool=True) -> dict:
         and all(x["status"]=="SOURCE_RESEARCH_ONLY_UNSELECTED" for x in old["families"]),
         "source technologies secretly selected")
     seamRows=p["sourceSeams"]
-    require(type(seamRows) is list and [x.get("id") for x in seamRows]==SEAM_IDS,
+    require(type(seamRows) is list and all(type(x) is dict for x in seamRows)
+        and [x.get("id") for x in seamRows]==SEAM_IDS,
         "seven original source seams missing")
     originals={s["session"]:set(s["negativeIds"]) for s in register}
     for row,original in zip(seamRows,old["seams"]):
@@ -210,6 +211,7 @@ def verify(p: dict, root: Path=ROOT, *, check_human: bool=True) -> dict:
             "original hypothetical case falsely executed/relinked")
     gateRows=p["gateAudit"]
     require(type(gateRows) is list and len(gateRows)==12
+        and all(type(x) is dict for x in gateRows)
         and [x.get("id") for x in gateRows]==list(REQUIRED),
         "12 original gate audit records missing/malformed")
     for row,oldGate in zip(gateRows,old["gates"]):
@@ -228,8 +230,8 @@ def verify(p: dict, root: Path=ROOT, *, check_human: bool=True) -> dict:
            and row["admission"] is False,
            "required proof issuer omitted or documentary route forged actual owner receipt")
     observed=p["unresolvedOriginalOwnerIssues"]
-    require(type(observed) is list and
-        [[x.get("issue"),x.get("originalOwnerScope")] for x in observed]==ISSUES
+    require(type(observed) is list and all(type(x) is dict for x in observed)
+        and [[x.get("issue"),x.get("originalOwnerScope")] for x in observed]==ISSUES
         and all(type(x) is dict and set(x)=={"issue","originalOwnerScope","status"}
           and x["status"]=="OPEN" for x in observed),
         "original owner issue falsely closed/approved")
