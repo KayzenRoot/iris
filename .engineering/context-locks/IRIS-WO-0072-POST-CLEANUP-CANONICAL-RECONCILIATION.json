@@ -8,9 +8,9 @@
     "algorithm": "Git blob SHA-1",
     "baseSha": "d557be081230fcc5b44655188ab6e68b5ae16146",
     "baseTreeSha": "9f5c7d4d08d58f8cb5d765f714ad5a92e9a54471",
-    "expected": 23,
-    "checked": 23,
-    "matched": 23,
+    "expected": 24,
+    "checked": 24,
+    "matched": 24,
     "mismatches": 0
   },
   "criticalSources": [
@@ -19,12 +19,12 @@
       "gitBlobSha1": "3b233199c3d64315a114babccec00aaf4bc4bdd3"
     },
     {
-      "path": ".engineering/CHECKPOINT.md",
-      "gitBlobSha1": "6bad352cd1bf541f68d636f5c4df589588d0589a"
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "63c5649f13b628f04143905cc67c63c028e6d57f"
     },
     {
-      "path": ".engineering/SOURCE-HIERARCHY.md",
-      "gitBlobSha1": "58a376a21752ac8018118d2a2580bd1dd0778103"
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "6bad352cd1bf541f68d636f5c4df589588d0589a"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0015-S04-CLOSEOUT.json",
@@ -51,12 +51,12 @@
       "gitBlobSha1": "7dbbff57fc0bd1c5f0c58dc572664ff9aea64a0c"
     },
     {
-      "path": "AGENTS.md",
-      "gitBlobSha1": "4406cab596c12e8cb5f68a2d22a5a2044cc68fd6"
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "58a376a21752ac8018118d2a2580bd1dd0778103"
     },
     {
-      "path": "README.md",
-      "gitBlobSha1": "455e4cbd93ac486e35c171b6800d04f3a7749f93"
+      "path": "AGENTS.md",
+      "gitBlobSha1": "4406cab596c12e8cb5f68a2d22a5a2044cc68fd6"
     },
     {
       "path": "docs/project-brain/01-PROJECT-OVERVIEW.md",
@@ -91,6 +91,10 @@
       "gitBlobSha1": "5d9c598c142c34227c25297d956e0d43b370bbcd"
     },
     {
+      "path": "README.md",
+      "gitBlobSha1": "455e4cbd93ac486e35c171b6800d04f3a7749f93"
+    },
+    {
       "path": "scripts/validate_governance.py",
       "gitBlobSha1": "de6dc4ba4f8ca5823a073d1d8aae022067207308"
     },
@@ -112,6 +116,7 @@
     "gitBlobSha1": "bd8c8bcce7a2dfa6bd7d3347cb7b8345125b1ed9"
   },
   "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
     ".engineering/CHECKPOINT.md",
     ".engineering/context-locks/IRIS-WO-0072-POST-CLEANUP-CANONICAL-RECONCILIATION.json",
     ".engineering/evidence/IRIS-WO-0072.json",
