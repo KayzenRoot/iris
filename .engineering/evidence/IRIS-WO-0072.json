@@ -64,5 +64,13 @@
     "currentCandidateChecks": "PENDING_REVALIDATION",
     "priorContextLock": "PASS",
     "priorSocket": "BOTH_SUCCESS"
+  },
+  "correctionDelta2": {
+    "reason": "Candidate Governance #36559395059 passed source Context Lock and standalone validation, but full 4680-test regression exposed 10 older owner-gate marker assertions lost by abridged NEXT STEP. Retain original complete still-valid original owner-gate snapshot within prefaced factual current standalone status, and mirror machine nextStep exactly. No test/validator bypass.",
+    "failedPriorHead": "2294b004305497841f302f013e729193e142c7b3",
+    "failedPriorRun": 36559395059,
+    "failedPriorJob": 109376328746,
+    "failures": 10,
+    "ownCorrectedCandidate": "PENDING_REVALIDATION"
   }
 }
