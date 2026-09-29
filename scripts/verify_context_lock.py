@@ -70,6 +70,35 @@ WO0083_EXACT_CHANGED_PATHS = frozenset({
 })
 
 
+# WO0084 independently fixed current-base scope: 72 original prior pins +
+# five exact original WO0083 assets. Only this new WO0084 is scoped here.
+WO0084_LOCK = ".engineering/context-locks/IRIS-WO-0084-M15-S01-SOURCE-RESEARCH.json"
+WO0084_BASE = "6d994ea63af49899ea4519b3b859223af569c5bf"
+WO0084_ADDITIONAL_SOURCE_PATHS = frozenset({
+    ".engineering/context-locks/IRIS-WO-0083-M14-INDEPENDENT-DOCUMENTARY-AUDIT.json",
+    ".engineering/evidence/M14-FTR-INDEPENDENT-DOCUMENTARY-AUDIT.json",
+    "planning/reviews/M14-FTR-INDEPENDENT-DOCUMENTARY-AUDIT.md",
+    "scripts/verify_m14_ftr_audit.py",
+    "tests/test_m14_ftr_audit.py",
+})
+WO0084_EXACT_CHANGED_PATHS = frozenset({
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0084-M15-S01-SOURCE-RESEARCH.json",
+    ".engineering/evidence/IRIS-WO-0084.json",
+    ".engineering/evidence/M15-S01-SOURCE-RESEARCH.json",
+    ".engineering/work-orders/IRIS-WO-0084-M15-S01-SOURCE-RESEARCH.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0084-M15-S01-SOURCE-RESEARCH.md",
+    "planning/research/M15-S01-TASK-MODEL-AFFINITY.md",
+    "planning/reviews/IRIS-WO-0084-BOUNDED-AUDIT-TARGET.md",
+    "scripts/verify_context_lock.py",
+    "scripts/verify_m15_s01_research.py",
+    "tests/test_m15_s01_research.py",
+})
+
+
 class ContextLockError(ValueError):
     """A PR lacks verifiable, internally consistent Git source/scope evidence."""
 
@@ -190,6 +219,20 @@ def verify_lock(
                 "WO0083: exact 14-path authorized allowlist membership mismatch")
         require(changed_paths == WO0083_EXACT_CHANGED_PATHS,
                 "WO0083: actual Git diff must exactly match 14 authorized paths")
+    if lock_path == WO0084_LOCK:
+        require(lock["workOrder"]=="IRIS-WO-0084" and lock["issue"]==220
+                and base_sha==WO0084_BASE,
+                "WO0084: original owner/scope/base authority mismatch")
+        require(isinstance(inherited_source_paths,set)
+                and len(inherited_source_paths)==72,
+                "WO0084: trusted previous original source inventory must be exactly 72")
+        expected_sources=inherited_source_paths|WO0084_ADDITIONAL_SOURCE_PATHS
+        require(len(expected_sources)==77 and source_paths==expected_sources,
+                "WO0084: fixed 77-original-source-path membership mismatch")
+        require(allowed_paths==WO0084_EXACT_CHANGED_PATHS,
+                "WO0084: fixed exact 14 authorized changed-path membership mismatch")
+        require(changed_paths==WO0084_EXACT_CHANGED_PATHS,
+                "WO0084: actual Git diff differs from immutable exact 14 changed paths")
     require(lock_path in changed_paths and lock_path in allowed_paths, "new lock must itself be a changed, authorized file")
     require(bool(changed_paths), "PR must contain changed files")
     for path in changed_paths:
