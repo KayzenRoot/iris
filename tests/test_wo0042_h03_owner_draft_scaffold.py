@@ -114,7 +114,7 @@ class WO0042BlankOwnerWorksheetTests(unittest.TestCase):
             with patch("sys.argv",["scaffold","--output-dir",str(output)]):
                 with redirect_stdout(stream):
                     status = main()
-            self.assertEqual(status,0)
+            self.assertEqual(status,0, stream.getvalue())
             result=json.loads(stream.getvalue())
             self.assertEqual(result["originalAssignments"],147)
             self.assertEqual(result["realOwnerAnswers"],0)

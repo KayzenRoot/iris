@@ -170,7 +170,7 @@ class H03OfflineBatchTriageTests(unittest.TestCase):
             with patch("sys.argv",["triage","--candidate",str(p)]):
                 with redirect_stdout(out):
                     code=main()
-            self.assertEqual(code,0)
+            self.assertEqual(code,0, out.getvalue())
             result=json.loads(out.getvalue())
             self.assertEqual(result["module"],"M54")
             self.assertNotIn("batchFormatStatus",result)
@@ -187,7 +187,7 @@ class H03OfflineBatchTriageTests(unittest.TestCase):
             with patch("sys.argv",args):
                 with redirect_stdout(out):
                     code=main()
-            self.assertEqual(code,0)
+            self.assertEqual(code,0, out.getvalue())
             result=json.loads(out.getvalue())
             self.assertEqual(result["receivedDraftModules"],["M12","M60"])
             self.assertEqual(result["missingDraftModules"],["M54","M58"])

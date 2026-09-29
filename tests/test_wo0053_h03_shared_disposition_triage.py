@@ -194,7 +194,7 @@ class SharedDraftDispositionTests(unittest.TestCase):
             output=StringIO()
             with patch("sys.argv",argv),redirect_stdout(output):
                 code=main()
-            self.assertEqual(code,0)
+            self.assertEqual(code,0, output.getvalue())
             report=json.loads(output.getvalue())
             self.assertEqual(report["sharedQuestionDispositionMismatchCount"],1)
             self.assertEqual(report["actualOwnerApprovals"],0)
