@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - main
-      - iris-wo-0067-standalone-source-cleanup
 
 permissions:
   contents: read
@@ -33,7 +32,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Compile bootstrap tooling
-        run: python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/verify_context_lock.py
+        run: python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/verify_context_lock.py scripts/audit_retired_context.py scripts/historical_git_snapshot.py
       - name: Verify exact PR Context Lock source fingerprints and changed-file scope
         if: github.event_name == 'pull_request'
         env:
@@ -49,43 +48,8 @@ jobs:
             --pr-author "$PR_AUTHOR_LOGIN" --pr-head-ref "$PR_HEAD_REF" \
             --pr-head-repo "$PR_HEAD_REPO" --pr-base-repo "$PR_BASE_REPO"
       - name: Validate IRIS governance
-        continue-on-error: true # TEMPORARY migration triage, must remove before PR
         run: python scripts/validate_governance.py
       - name: Test standalone IRIS and GEF source governance
         run: python -m unittest discover -s tests -p "test_*.py" -v
-      - name: Inventory retired context references (non-blocking during source migration)
-        continue-on-error: true # Remove this before PR review and final merge
+      - name: Verify zero retired external context references
         run: python scripts/audit_retired_context.py
-
-  one_time_source_migration:
-    name: One-time scoped standalone source transition
-    if: github.event_name == 'push' && github.ref == 'refs/heads/iris-wo-0067-standalone-source-cleanup'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout exact staging branch
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          ref: iris-wo-0067-standalone-source-cleanup
-          fetch-depth: 0
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
-        with:
-          python-version: "3.12"
-      - name: Apply one-time source transition
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [[ -f .engineering/standalone-transition-applied.json ]]; then
-            echo "Standalone source transition already applied; no-op."
-            exit 0
-          fi
-          python -m scripts.apply_standalone_transition
-          python -m scripts.apply_standalone_transition --apply
-          printf '%s\n' '{"originalMain":"95d58dd7a3b1275f4aaff4f147f2be852ecad588","status":"APPLIED_TO_STAGING_ONLY","scope":"current Git working tree","historicalGit":"PRESERVED"}' > .engineering/standalone-transition-applied.json
-          git add -A
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "refactor(wo0067): remove old external context names from current IRIS tree"
-          git push origin HEAD:iris-wo-0067-standalone-source-cleanup

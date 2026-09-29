@@ -6,6 +6,7 @@ an assertion that an external PROJECT_CONTEXT/M09/M11 integration has been execu
 from __future__ import annotations
 
 import argparse
+import base64
 import json
 import re
 import subprocess
@@ -132,6 +133,105 @@ def verify_lock(
     require(changed_paths <= allowed_paths, f"unauthorized PR diff paths: {sorted(changed_paths - allowed_paths)}")
 
 
+
+def decoded_source_path(encoded: object, label: str) -> str:
+    """Strict canonical UTF-8 base64 permits immutable retired-name evidence without leaking names into current source."""
+    require(isinstance(encoded, str) and bool(encoded), f"{label}: missing encoded path")
+    try:
+        raw = base64.b64decode(encoded, validate=True)
+        name = raw.decode("utf-8")
+    except (ValueError, UnicodeError) as exc:
+        raise ContextLockError(f"{label}: invalid encoded source path") from exc
+    require(base64.b64encode(raw).decode("ascii") == encoded, f"{label}: noncanonical encoding")
+    return safe_path(name, label)
+
+
+def verify_transition_lock(
+    lock: dict[str, object], *, base_sha: str, base_tree_sha: str,
+    base_blobs: dict[str, str], changed_paths: set[str], lock_path: str,
+    inherited_source_paths: set[str],
+) -> None:
+    """Exact-source, exact-diff version-two lock for a source-only transition."""
+    require(lock.get("schemaVersion") == "iris-context-lock-v2",
+            "source transition requires a version-two source lock")
+    require(isinstance(lock.get("workOrder"), str) and bool(lock["workOrder"]),
+            "missing work-order identity")
+    require(type(lock.get("issue")) is int and lock["issue"] > 0,
+            "positive issue number required")
+    require(check_sha(lock.get("baseSha"), "baseSha") == base_sha
+            and check_sha(lock.get("baseTreeSha"), "baseTreeSha") == base_tree_sha,
+            "source transition original baseline changed")
+    snapshot = lock.get("sourceSnapshot")
+    require(isinstance(snapshot, dict) and snapshot.get("algorithm") == "Git blob SHA-1",
+            "source transition requires genuine original Git source blobs")
+    source_rows = lock.get("criticalSources")
+    require(isinstance(source_rows, list) and bool(source_rows),
+            "source transition lacks original pinned sources")
+    sources: dict[str, str] = {}
+    for i, row in enumerate(source_rows):
+        require(isinstance(row, dict) and set(row) == {"pathBase64", "gitBlobSha1"},
+                f"source transition malformed source {i}")
+        path = decoded_source_path(row["pathBase64"], f"source {i}")
+        require(path not in sources, "duplicate original source path")
+        sha = check_sha(row["gitBlobSha1"], f"source {path}")
+        require(base_blobs.get(path) == sha, "original Git blob fingerprint mismatch: " + path)
+        sources[path] = sha
+    expected_sources = (changed_paths & base_blobs.keys()) | inherited_source_paths | MANDATORY_SOURCE_PATHS
+    require(set(sources) == expected_sources,
+            "source transition omitted or invented original source coverage")
+    require(all(type(snapshot.get(k)) is int and snapshot[k] == len(sources)
+                for k in ("expected", "checked", "matched"))
+            and snapshot.get("mismatches") == 0,
+            "source transition source coverage count mismatch")
+    require(snapshot.get("baseSha") == base_sha
+            and snapshot.get("baseTreeSha") == base_tree_sha,
+            "source transition source snapshot uses wrong original baseline")
+    allow = lock.get("authorizedChangedFilesBase64")
+    require(isinstance(allow, list) and bool(allow), "source transition diff allowlist missing")
+    paths = [decoded_source_path(row, "authorized path") for row in allow]
+    require(len(set(paths)) == len(paths), "source transition duplicate authorized path")
+    require(set(paths) == changed_paths, "source transition unauthorized or missing diff path")
+    require(lock_path in changed_paths and lock_path in paths,
+            "transition lock must itself be in actual exact diff")
+    anchor = lock.get("sourceManifestAnchor")
+    require(isinstance(anchor, dict) and set(anchor) == {"pathBase64", "gitBlobSha1"},
+            "source transition missing exact original-base anchor")
+    anchor_path = decoded_source_path(anchor["pathBase64"], "original anchor")
+    require(anchor_path == latest_original_base_lock_path(base_blobs)
+            and anchor_path in sources
+            and base_blobs.get(anchor_path) == check_sha(anchor["gitBlobSha1"], "anchor"),
+            "source transition original Context Lock anchor drift")
+
+
+def inherited_original_source_paths(original: dict[str, object], base_blobs: dict[str, str]) -> set[str]:
+    """Read the actual newest base lock without trusting an executor's claim."""
+    require(isinstance(original, dict), "original anchor is not a JSON object")
+    schema = original.get("schemaVersion")
+    require(schema in {"iris-context-lock-v1", "iris-context-lock-v2"},
+            "unsupported original-base source anchor schema")
+    rows = original.get("criticalSources")
+    require(isinstance(rows, list) and bool(rows), "missing original-base source rows")
+    inherited: set[str] = set()
+    for index, row in enumerate(rows):
+        require(isinstance(row, dict), "invalid original-base source")
+        path = safe_path(row.get("path"), f"inherited {index}") if schema.endswith("v1") else decoded_source_path(row.get("pathBase64"), f"inherited {index}")
+        sha = check_sha(row.get("gitBlobSha1"), "inherited original SHA")
+        require(path not in inherited, "duplicate inherited original path")
+        # Current files must remain exact. Retired files from a previous
+        # transition continue to exist under the prior immutable Git commit,
+        # so only extant paths are inherited into the new working-tree lock.
+        if path in base_blobs:
+            require(base_blobs[path] == sha, "inherited original source mismatch")
+            inherited.add(path)
+    require(MANDATORY_SOURCE_PATHS <= inherited, "original anchor lost mandatory authority sources")
+    snap = original.get("sourceSnapshot")
+    require(isinstance(snap, dict) and snap.get("mismatches") == 0
+            and snap.get("expected") == len(rows)
+            and snap.get("checked") == len(rows)
+            and snap.get("matched") == len(rows),
+            "original anchor source count evidence invalid")
+    return inherited
+
 def git(repo: Path, *args: str) -> bytes:
     command = ["git", *args]
     try:
@@ -209,7 +309,11 @@ def verify_current_pr(
     base_blobs = base_blob_map(repo, base_sha)
     changed_bytes = git(repo, "diff", "--name-only", "--no-renames", "-z", base_sha, head_sha)
     changed_paths = {item.decode("utf-8") for item in filter(None, changed_bytes.split(b"\x00"))}
-    changed_locks = sorted(path for path in changed_paths if path.startswith(LOCK_PREFIX) and path.endswith(LOCK_SUFFIX))
+    head_blobs = base_blob_map(repo, head_sha)
+    changed_locks = sorted(path for path in changed_paths
+                           if path.startswith(LOCK_PREFIX)
+                           and path.endswith(LOCK_SUFFIX)
+                           and path in head_blobs)
     if not changed_locks and pr_author == "dependabot[bot]":
         verify_dependabot_action_pin(
             repo, base_sha=base_sha, head_sha=head_sha, changed_paths=changed_paths,
@@ -223,6 +327,18 @@ def verify_current_pr(
         payload = git(repo, "show", f"{head_sha}:{lock_path}").decode("utf-8")
         lock = json.loads(payload, object_pairs_hook=reject_duplicate_json_keys)
         require(isinstance(lock, dict), "context lock JSON root must be an object")
+        if lock.get("schemaVersion") == "iris-context-lock-v2":
+            anchor_path = latest_original_base_lock_path(base_blobs)
+            original_raw = git(repo, "show", f"{base_sha}:{anchor_path}")
+            original = json.loads(original_raw.decode("utf-8"),
+                                  object_pairs_hook=reject_duplicate_json_keys)
+            inherited = inherited_original_source_paths(original, base_blobs)
+            verify_transition_lock(
+                lock, base_sha=base_sha, base_tree_sha=tree_sha,
+                base_blobs=base_blobs, changed_paths=changed_paths,
+                lock_path=lock_path, inherited_source_paths=inherited,
+            )
+            continue
         inherited_source_paths: set[str] | None = None
         anchor = lock.get("sourceManifestAnchor")
         if anchor is not None:

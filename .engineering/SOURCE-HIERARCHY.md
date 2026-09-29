@@ -15,7 +15,9 @@ Status: `ACTIVE`
 - INTEGRATION: `docs/project-brain/05-INTEGRATION-CONTRACTS.md`.
 - FUTURE_WORK: `docs/project-brain/14-BACKLOG.md`.
 - ACTIVE_MODULE_INDEX: `planning/MASTER-MODULE-INDEX-CURRENT.md` (post-retirement, non-executable future M52/M60 supersession; the older frozen index is historical audit evidence).
-- EXECUTION: active admitted Work Order under `.engineering/work-orders/`, when an execution increment is active.
+- EXECUTION: currently scoped source-only Work Order `.engineering/work-orders/IRIS-WO-0067-CURRENT-TREE-TRANSITION.md` and Git-verified source lock `.engineering/context-locks/IRIS-WO-0067-STANDALONE-CURRENT.json` once its separate PR validates; neither is an admission for native module runtime.
+- ORIGINAL_HISTORY: exact immutable Git commit `95d58dd7a3b1275f4aaff4f147f2be852ecad588` retains the original historical snapshots and full-suite baseline outside the current source working tree.
+- ABI_TRANSITION: `docs/IRIS-SOURCE-ABI-MIGRATION.md`; renamed public identifiers do not automatically migrate persisted historical payloads.
 - REVIEW_POLICY: `.engineering/REVIEW-AUTOFIX-POLICY.md`.
 - PROMPT_DELIVERY: `.engineering/PROMPT-DELIVERY-POLICY.md`.
 

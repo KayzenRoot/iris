@@ -2,7 +2,7 @@
 
 ## ADR-0001 - Historical project identity
 Status: `SUPERSEDED_BY_ADR_0047`
-The historical project name was **ProjectContext IRIS**, IRIS = **Intelligent Rendering & Immersive Synthesis**. The current standalone product name is **IRIS**, per ADR-0047.
+The earlier name and integration are retained **verbatim only in the original immutable Git baseline** `95d58dd7a3b1275f4aaff4f147f2be852ecad588`, without retroactive rewriting. The current standalone product name is **IRIS** per ADR-0047.
 
 ## ADR-0002 - New-project treatment
 Status: `APPROVED`
@@ -212,3 +212,8 @@ The operator explicitly removed the installed PROJECT_CONTEXT runtime from the I
 **Active future module replacement:** original M52 and M60 index headings/sessions were historical source-locked planning records, not adopted runtime contracts. The live, user-authorized replacement for their **future** planning titles/sessions is `planning/MASTER-MODULE-INDEX-CURRENT.md`. M52 becomes IRIS-native Memory & Creative RAG behind independent owner/security/privacy/storage admission; M60 validates independent IRIS and any separately approved CORE integration. No automatic memory service or current M52/M60 implementation is adopted. Keep the frozen original index unchanged to preserve original 47/47 and 235/235 source-exact historical FCS evidence.
 
 **Frozen semantic APIs:** no M03/M05/M06 wire/schema/port changes are authorized by infrastructure retirement alone. Historic vendor-named inert enum/port markers, if still present, never trigger any PROJECT_CONTEXT access or grant self-authority; they require a distinct versioned compatibility migration before removal. Historical original Git-blob Context Locks, authored evidence and archived review snapshots retain their original text; no rewriting old approvals or erasing audit provenance. Original eight owner issues remain OPEN, H01–H04 HIGH remain OPEN and M10–M13 runtime remains NOT_ADMITTED. Scope of IRIS-WO-0066 is retirement only.
+
+
+## ADR-0048 - Complete standalone IRIS current-tree source retirement
+Status: `USER_DIRECTED_SOURCE_ONLY_CANDIDATE_PENDING_PR_AND_NEW_MAIN`
+Scope [#190](https://github.com/KayzenRoot/iris/issues/190): remove every former external-context provider reference from current tracked Git filenames and text. Retire archived documents from the present worktree, but preserve exact original historical commits, all source object IDs and the original source-only 4675/4675 baseline at protected main `95d58dd7a3b1275f4aaff4f147f2be852ecad588`, tree `0412ab77db6159f7a9f3da6a66db3c5950845605`. The strict zero-match source auditor applies to every tracked pathname and content without confusing ordinary archive terms. Original owner answers and prior audit evidence may be read from verified original Git objects for reference, **not** admitted or rewritten as new approvals. Candidate M02/M03/M05/M06 current source interface names are neutralized, with no automatic conversion of persisted prior serialized payloads; [source-only ABI notice](../../IRIS-SOURCE-ABI-MIGRATION.md) governs future explicit versioned import/compatibility review. M52 stays future IRIS-native memory, not an installed runtime. No qualified M12/M54/M58/M60 owner signature, H01–H04 resolution, actual hardware/OS privilege or M10–M13 runtime admission is implied. A separate source-lock-v2 PR and independently green exact-new-main gates are required before this candidate can be declared completed.

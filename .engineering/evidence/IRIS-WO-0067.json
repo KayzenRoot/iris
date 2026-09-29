@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "iris-standalone-source-transition-evidence-v1",
+  "workOrder": "IRIS-WO-0067",
+  "issue": 190,
+  "userDirective": "COMPLETE_STANDALONE_CURRENT_GIT_TRACKED_TREE_WITH_ZERO_RETIRED_PROVIDER_REFERENCES",
+  "originalProtectedMain": "95d58dd7a3b1275f4aaff4f147f2be852ecad588",
+  "originalProtectedTree": "0412ab77db6159f7a9f3da6a66db3c5950845605",
+  "originalIndependentMainGovernanceRun": 36510323957,
+  "originalIndependentMainTests": 4675,
+  "originalExactMainSocketProjectReport": "SUCCESS",
+  "originalOwnerIssuesRemainOpen": [
+    82,
+    110,
+    112,
+    128,
+    145,
+    146,
+    147,
+    155
+  ],
+  "h01ToH04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "m10ToM13Runtime": "NOT_ADMITTED",
+  "historyPolicy": "ORIGINAL_GIT_COMMIT_AND_OBJECTS_IMMUTABLE",
+  "oldDocumentarySnapshot": "ONLY_VIA_IMMUTABLE_GIT_NOT_CURRENT_TREE",
+  "initialAffectedCurrentTrackedPaths": 266,
+  "stagingRemovedPriorHistoricFiles": 195,
+  "stagingSanitizedCurrentFiles": 70,
+  "stagingRenamedCurrentFiles": 1,
+  "retiredOriginalSnapshotBoundTestModulesFromCurrentWorkingTree": 16,
+  "originalFullSuiteBaseline": "4675_PASS_AT_ORIGINAL_EXACT_MAIN_NOT_CURRENT_MIGRATED_SUITE",
+  "sourceOnlyPublicIdentifierMigration": "CURRENT_NEUTRAL_M02_M03_M05_M06_NO_AUTO_PERSISTED_WIRE_CONVERSION",
+  "stagingKnownPassingCurrentSuite": {
+    "head": "cc63f282a3c9b2b92c14f2544a1a9932585adce3",
+    "run": 36512408340,
+    "tests": 4312,
+    "failed": 0,
+    "scannerMatchedTrackedPaths": 0
+  },
+  "newCurrentAbiTests": 4,
+  "newCurrentLockV2Tests": 8,
+  "sourceManifestAnchor": {
+    "path": "original newest baseline work order 0066 lock (in unchanged original Git commit)",
+    "gitBlobSha1": "abc9abf4195107db45809494fcfb309a1e85d233"
+  },
+  "ownFinalExactHeadGovernance": "PENDING",
+  "ownExternalReview": "PENDING",
+  "ownProtectedSquash": "PENDING",
+  "ownIndependentNewMainGovernance": "PENDING",
+  "ownIndependentNewMainSocket": "PENDING",
+  "localPcUninstallPerformed": false
+}

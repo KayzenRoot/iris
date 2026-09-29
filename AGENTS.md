@@ -14,6 +14,9 @@ IRIS uses canonical Git and its own Project Brain. There is **no required extern
 
 GEF v1.0.0 remains pinned to upstream `866fe3af8cccc65c929aaf6a47a924401fa448b3`. Its source checkout is optional unless a particular admitted task explicitly requires the local GEF preflight. Verdicts: `APPROVED`, `CORRECTION REQUIRED`, `BLOCKED`. No known HIGH/CRITICAL defect may be promoted.
 
+## Current-tree source retirement guard
+The user-directed source-only transition of issue #190 is independently governed. Current-tree text and filenames must pass the full tracked-tree zero-reference scan. Original historical source/audit packets stay in immutable Git baseline `95d58dd7a3b1275f4aaff4f147f2be852ecad588`; consult them using a source-verified original Git snapshot, never re-create rewritten historical approvals. The current neutral M02/M03/M05/M06 source names do not automatically convert persisted prior payloads. See `docs/IRIS-SOURCE-ABI-MIGRATION.md`. No installed external memory service is required.
+
 ## Source-efficient, deterministic preflight
 Read the canonical checkpoint, bounded decision/contract slices, affected code/tests and exact Git diff. Use original Git blobs, focused tests and CI outputs rather than a separately installed context service. Expand context only when source ambiguity, failing tests, named dependencies or a security/integrity gate requires it. A future M52 module may offer internally owned retrieval only after a separate owner-approved contract and implementation admission; no such service exists or is required today.
 
