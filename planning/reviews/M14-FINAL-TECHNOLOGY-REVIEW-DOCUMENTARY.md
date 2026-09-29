@@ -150,12 +150,12 @@ Missing actual evidence: Original M14/M18 issuer must qualify every weight/token
 Status: NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL.
 
 ### G02_LICENSE_TENANT_RIGHTS (S01)
-Original owner routes: M01, M03, M04, M08, M14, M16.
+Original owner routes: M01, M03, M04, M08, M14, M16, M53, M54.
 Missing actual evidence: Qualified M53/M54 original owner must issue current exact-version tenant rights and revocation proof.
 Status: NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL.
 
 ### G03_TYPED_TASK_QUALITY (S02)
-Original owner routes: M01, M02, M07, M08, M09, M14.
+Original owner routes: M01, M02, M07, M08, M09, M14, M03, M04.
 Missing actual evidence: M03/M04 original owner must accept typed IO and M01 must independently authorize fidelity for given task.
 Status: NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL.
 
@@ -165,22 +165,22 @@ Missing actual evidence: M08 original owner must actually run representative fix
 Status: NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL.
 
 ### G05_M07_HOST_RUNTIMES (S04)
-Original owner routes: M01, M02, M09, M11, M12, M14, M18, M53, M54, M60.
+Original owner routes: M01, M02, M09, M11, M12, M14, M18, M53, M54, M60, M07.
 Missing actual evidence: Original M07 owner must attest exact real GPU topology, driver, framework, precision, OS and operator.
 Status: NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL.
 
 ### G06_M09_LEASE_FENCING (S04)
-Original owner routes: M14, M18, M53, M54, M02.
+Original owner routes: M14, M18, M53, M54, M02, M09.
 Missing actual evidence: Original M09 owner must establish a real coherent current resource snapshot/lease and revocation epoch.
 Status: NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL.
 
 ### G07_M11_M12_EXECUTION_OWNERS (S04)
-Original owner routes: M01, M03, M04, M08, M14, M16.
+Original owner routes: M01, M03, M04, M08, M14, M16, M11, M12.
 Missing actual evidence: Original M11 and M12 qualified contracts must grant fenced worker/process and placement actions independently.
 Status: NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL.
 
 ### G08_BACKEND_SUPPLY_TRUST (S04)
-Original owner routes: M01, M02, M07, M08, M09, M14.
+Original owner routes: M01, M02, M07, M08, M09, M14, M13, M16, M18.
 Missing actual evidence: Qualified M13/M16/M18 native operators and supply chain must prove installed backend and supported inputs.
 Status: NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL.
 
@@ -195,12 +195,12 @@ Missing actual evidence: M02 owner must preserve immutable accepted master and r
 Status: NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL.
 
 ### G11_H01_H04_CROSS_OWNER_PROOF (S05)
-Original owner routes: M14, M18, M53, M54, M02.
+Original owner routes: M14, M18, M53, M54, M02, M09.
 Missing actual evidence: Qualified original H01–H04 and M09 owner B/C01 evidence must close current open HIGH blocker conditions.
 Status: NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL.
 
 ### G12_FINAL_M14_OWNER_AND_M60 (S05)
-Original owner routes: M01, M03, M04, M08, M14, M16.
+Original owner routes: M01, M03, M04, M08, M14, M16, M60.
 Missing actual evidence: Original M14 module owner, independent full review and M60 OS/runtime owner must issue actual contract grant separately.
 Status: NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL.
 

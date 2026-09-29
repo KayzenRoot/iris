@@ -104,6 +104,21 @@ class M14FTRDocumentaryTests(unittest.TestCase):
         p=self.fresh();p["gates"][0]["status"]="ORIGINAL_OWNER_APPROVED"
         with self.assertRaises(M14FTRIntegrityError):self.check(p)
 
+    def test_21b_every_gate_requires_actual_named_proof_issuers(self):
+        # Protect ALL twelve independent gate signatures, even if a broad
+        # ownerRoutes list is otherwise long enough to satisfy generic checks.
+        from scripts.verify_m14_ftr import REQUIRED_GATE_OWNERS
+        self.assertEqual(set(REQUIRED_GATE_OWNERS),{g["id"] for g in self.packet["gates"]})
+        for gate in self.packet["gates"]:
+            for required_owner in REQUIRED_GATE_OWNERS[gate["id"]]:
+                with self.subTest(gate=gate["id"],required_owner=required_owner):
+                    self.assertIn(required_owner,gate["ownerRoutes"])
+                    p=self.fresh()
+                    target=next(g for g in p["gates"] if g["id"]==gate["id"])
+                    target["ownerRoutes"].remove(required_owner)
+                    with self.assertRaises(M14FTRIntegrityError):
+                        self.check(p)
+
     def test_22_fake_owner_rights_measurements_and_runtime_refused(self):
         for field,value in (
            ("ownerApproval","APPROVED"),("independentTechnologyAdoption","APPROVED"),

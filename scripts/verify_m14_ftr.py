@@ -14,6 +14,55 @@ SESSION_SPECS = [["S01",".engineering/evidence/M14-S01-SOURCE-RESEARCH.json","10
 FAMILY_IDS = ["F01_COMPOSITE_MODEL_IDENTITY_RIGHTS","F02_TYPED_TASK_CAPABILITY_GENOME","F03_EMPIRICAL_QUALITY_LATENCY_VRAM_CARDS","F04_HARDWARE_COMPATIBILITY_AND_RELIABILITY","F05_LIFECYCLE_DRIFT_DEPRECATION_ROLLBACK"]
 SEAM_IDS = ["X01_COMPOSITE_TASK_DRIFT","X02_TASK_EMPIRICAL_POPULATION","X03_COMPOSITE_HARDWARE_KERNEL","X04_CARD_HOST_RESOURCE","X05_RIGHTS_LIFECYCLE_CACHE","X06_COMPATIBILITY_ROLLBACK","X07_LIFECYCLE_CARD_REVALIDATION"]
 GATE_IDS = ["G01_COMPOSITE_SUPPLY","G02_LICENSE_TENANT_RIGHTS","G03_TYPED_TASK_QUALITY","G04_REPRESENTATIVE_M08_CARD","G05_M07_HOST_RUNTIMES","G06_M09_LEASE_FENCING","G07_M11_M12_EXECUTION_OWNERS","G08_BACKEND_SUPPLY_TRUST","G09_VERSIONED_LIFECYCLE_REVOKE","G10_M02_MASTER_HISTORICAL_LINEAGE","G11_H01_H04_CROSS_OWNER_PROOF","G12_FINAL_M14_OWNER_AND_M60"]
+# Explicit required issuers, independently sourced from each original proof gate.
+# This is not computed from free-text descriptions and permits additional review routes.
+REQUIRED_GATE_OWNERS = {
+    "G01_COMPOSITE_SUPPLY": [
+        "M14",
+        "M18"
+    ],
+    "G02_LICENSE_TENANT_RIGHTS": [
+        "M53",
+        "M54"
+    ],
+    "G03_TYPED_TASK_QUALITY": [
+        "M01",
+        "M03",
+        "M04"
+    ],
+    "G04_REPRESENTATIVE_M08_CARD": [
+        "M08"
+    ],
+    "G05_M07_HOST_RUNTIMES": [
+        "M07"
+    ],
+    "G06_M09_LEASE_FENCING": [
+        "M09"
+    ],
+    "G07_M11_M12_EXECUTION_OWNERS": [
+        "M11",
+        "M12"
+    ],
+    "G08_BACKEND_SUPPLY_TRUST": [
+        "M13",
+        "M16",
+        "M18"
+    ],
+    "G09_VERSIONED_LIFECYCLE_REVOKE": [
+        "M14",
+        "M18"
+    ],
+    "G10_M02_MASTER_HISTORICAL_LINEAGE": [
+        "M02"
+    ],
+    "G11_H01_H04_CROSS_OWNER_PROOF": [
+        "M09"
+    ],
+    "G12_FINAL_M14_OWNER_AND_M60": [
+        "M14",
+        "M60"
+    ]
+}
 FLAG_KEYS = ("originalGitSource","originalQualifiedOwner","currentTenantRights",
     "currentM07Host","representativeM08Benchmarks","m09LiveLease")
 
@@ -242,6 +291,8 @@ def verify(p: dict, root: Path = ROOT, *, check_human: bool = True) -> dict:
           and len(x["missingActualEvidence"]) >= 100
           and type(x["ownerRoutes"]) is list and len(x["ownerRoutes"]) >= 4
           and all(type(i) is str for i in x["ownerRoutes"])
+          and len(set(x["ownerRoutes"])) == len(x["ownerRoutes"])
+          and set(REQUIRED_GATE_OWNERS[x["id"]]).issubset(x["ownerRoutes"])
           and x["status"] == "NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL",
           "unreceived original-owner proof was falsely certified")
     if check_human:
