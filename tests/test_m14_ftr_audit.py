@@ -171,7 +171,8 @@ class M14FTRIndependentDocumentaryAuditTests(unittest.TestCase):
         def check_scope(proposal, changed=None, additions=None):
             verify_lock(proposal,base_sha=self.packet["baseSha"],
                 base_tree_sha=self.packet["baseTreeSha"],base_blobs=(additions or base_blobs),
-                base_modes=base_modes,changed_paths=(WO0083_EXACT_CHANGED_PATHS if changed is None else changed),
+                base_modes={**base_modes, **{path:"100644" for path in (additions or {})}},
+                changed_paths=(WO0083_EXACT_CHANGED_PATHS if changed is None else changed),
                 lock_path=WO0083_LOCK,inherited_source_paths=inherited)
         self.assertEqual(len(inherited),67)
         self.assertEqual(len(WO0083_ADDITIONAL_SOURCE_PATHS),5)
