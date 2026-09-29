@@ -1,6 +1,6 @@
 {
   "schemaVersion": "iris-gef-source-bridge-v1",
-  "profile": "HIVE_NATIVE",
+  "profile": "GIT_NATIVE",
   "canonicalCheckpoint": "docs/project-brain/13-CHECKPOINT.md",
   "domains": {
     "PROJECT_STATE": "docs/project-brain/13-CHECKPOINT.md",
@@ -14,5 +14,5 @@
     "DEPLOYMENT": "docs/project-brain/12-LOCAL-DEPLOYMENT.md",
     "INTEGRATION": "docs/project-brain/05-INTEGRATION-CONTRACTS.md"
   },
-  "rule": "GEF bridge artifacts are derived views and never supersede mapped canonical Git sources."
+  "rule": "IRIS uses its own canonical Git and Project Brain sources. GEF derived views never supersede exact Git source truth; no external context service required."
 }

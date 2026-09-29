@@ -8,4 +8,4 @@
 6. `02-REQUIREMENTS.md`
 7. Other applicable security/test/deployment/integration sources.
 
-HIVE indexes these as derived context. Git remains canonical.
+Git and Project Brain are sufficient for canonical context and source loading. No external context index or MCP server is required.

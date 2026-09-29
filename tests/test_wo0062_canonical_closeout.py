@@ -34,7 +34,8 @@ class WO0062CanonicalCloseoutTests(unittest.TestCase):
 
     def test_03_next_step_keeps_original_owner_and_runtime_stops(self):
         next_step = self.machine["nextStep"]
-        for token in ("NEXT_REQUIRED_OWNER_GATE", "actual M09 owner disposition", "B_FUTURE_OWNER_RECEIPT", "DIRECTION_ONLY", "C01 UNADOPTED_NOT_FROZEN", "M11 86", "M12 110", "M13 96", "OPEN/UNRATED", "SPECIFIED_NOT_EXECUTED", "H01–H04 OPEN HIGH_FOR_FUTURE_FREEZE", "M12/#128", "M54/#145", "M58/#146", "M60/#147", "NOT_RECEIVED", "NOT_ADMITTED", "original issues #82/#110/#112/#128/#145/#146/#147/#155 remain OPEN", "OFFLINE", "source_not_current"):
+        # The retired external service no longer supplies current checkpoint status. The original WO0061 history is checked separately below.
+        for token in ("NEXT_REQUIRED_OWNER_GATE", "actual M09 owner disposition", "B_FUTURE_OWNER_RECEIPT", "DIRECTION_ONLY", "C01 UNADOPTED_NOT_FROZEN", "M11 86", "M12 110", "M13 96", "OPEN/UNRATED", "SPECIFIED_NOT_EXECUTED", "H01–H04 OPEN HIGH_FOR_FUTURE_FREEZE", "M12/#128", "M54/#145", "M58/#146", "M60/#147", "NOT_RECEIVED", "NOT_ADMITTED", "original issues #82/#110/#112/#128/#145/#146/#147/#155 remain OPEN", "RETIRED", "ADR-0047"):
             self.assertIn(token, next_step)
 
     def test_04_backlog_has_no_stale_active_wo0061(self):

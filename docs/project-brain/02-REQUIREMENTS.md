@@ -3,7 +3,7 @@
 Status: `PRODUCT_DISCOVERY_ACTIVE`
 
 ## Bootstrap requirements
-- BR-001 through BR-007 remain satisfied by IRIS-WO-0001.
+- BR-001 through BR-007 are historical foundation receipts from IRIS-WO-0001. Any old external-context requirement is superseded by the standalone Git-first architecture under IRIS-WO-0066; no external context runtime is a bootstrap requirement.
 
 ## Product requirements admitted for IRIS 1.0 discovery
 - PR-001: IRIS 1.0 SHALL be planned as a complete production version, not an MVP.
@@ -17,7 +17,7 @@ Status: `PRODUCT_DISCOVERY_ACTIVE`
 - PR-009: the operator SHALL be able to keep using the workstation by reserving configurable CPU/RAM/VRAM headroom.
 - PR-010: model/workflow decisions SHALL be based on empirical quality/hardware evidence and champion/challenger evaluation.
 - PR-011: all 30 useful UGAS V2 capability categories SHALL have explicit IRIS 1.0 ownership.
-- PR-012: HIVE SHALL supply derived context/retrieval/memory while Git/IRIS Project Brain remains canonical.
+- PR-012: Git and IRIS Project Brain SHALL provide sufficient current project context, immutable history and review evidence without an installed external memory/runtime service. Future native retrieval/M52 requires its own owner contract and implementation admission.
 - PR-013: CORE↔IRIS runtime contracts SHALL be planned before integration implementation.
 - PR-014: production dependencies/models/workflows SHALL use qualification, compatibility checks, provenance and rollback.
 - PR-015: media repair SHOULD target the smallest affected region/frame/asset graph whenever quality can be preserved.

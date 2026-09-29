@@ -9,7 +9,6 @@ Recommended side-by-side layout:
 ```text
 workspace/
   gef-bootstrap/
-  hive/
   iris/
 ```
 
@@ -21,6 +20,6 @@ npm --prefix ..\gef-bootstrap run validate
 python scripts/gef_preflight.py
 ```
 
-`GEF_REPO_PATH` may point to a different checkout. The IRIS preflight requires the exact v1.0.0 release commit and fails closed on drift.
+`GEF_REPO_PATH` may point to a different checkout. The IRIS verifies the exact v1.0.0 GEF source release when that optional checkout is explicitly used, and fails closed on drift. Repository Governance CI does not require a separate GEF checkout or any external context service.
 
 GEF authority in IRIS is represented by `.engineering/gef/*`, the Source Pack, Work Orders, Context Locks, Evidence Bundles and exact-head review lifecycle.

@@ -54,12 +54,12 @@ After an APPROVED review:
 - proceed to the next planning increment;
 - generate a new executor PDF only when the next implementation gate is actually reached.
 
-This policy is repository-canonical and applies to every ChatGPT conversation operating on Hive IRIS.
+This policy is repository-canonical and applies to every ChatGPT conversation operating on IRIS.
 
 
 ## Mandatory cross-chat enforcement
 
-This policy is mandatory for every current and future ChatGPT conversation operating on Hive IRIS.
+This policy is mandatory for every current and future ChatGPT conversation operating on IRIS.
 
 Before any Codex/Coder/Zcode correction prompt is produced, the reviewer MUST first classify each finding as `CHAT_FIXABLE` or `EXECUTOR_REQUIRED`.
 

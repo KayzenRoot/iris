@@ -14,6 +14,7 @@ Status: `ACTIVE`
 - DEPLOYMENT: `docs/project-brain/12-LOCAL-DEPLOYMENT.md`.
 - INTEGRATION: `docs/project-brain/05-INTEGRATION-CONTRACTS.md`.
 - FUTURE_WORK: `docs/project-brain/14-BACKLOG.md`.
+- ACTIVE_MODULE_INDEX: `planning/MASTER-MODULE-INDEX-CURRENT.md` (post-retirement, non-executable future M52/M60 supersession; the older frozen index is historical audit evidence).
 - EXECUTION: active admitted Work Order under `.engineering/work-orders/`, when an execution increment is active.
 - REVIEW_POLICY: `.engineering/REVIEW-AUTOFIX-POLICY.md`.
 - PROMPT_DELIVERY: `.engineering/PROMPT-DELIVERY-POLICY.md`.

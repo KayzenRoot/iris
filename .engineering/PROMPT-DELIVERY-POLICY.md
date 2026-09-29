@@ -5,7 +5,7 @@ Version: `1.0`
 
 ## Purpose
 
-Make executor-prompt delivery consistent across every current and future ChatGPT conversation operating on Hive IRIS.
+Make executor-prompt delivery consistent across every current and future ChatGPT conversation operating on IRIS.
 
 ## Mandatory rule
 
@@ -56,7 +56,7 @@ When a Work Order ID exists, include it in the PDF filename.
 
 ## Cross-chat enforcement
 
-This policy is repository-canonical and applies to **every current and future ChatGPT conversation operating on Hive IRIS**.
+This policy is repository-canonical and applies to **every current and future ChatGPT conversation operating on IRIS**.
 
 A new chat must read this policy through `.engineering/SOURCE-HIERARCHY.md` / `AGENTS.md` before choosing how to deliver an executor prompt.
 

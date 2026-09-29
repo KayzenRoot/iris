@@ -1,10 +1,10 @@
 {
   "schemaVersion": "iris-gef-project-profile-v1",
   "project": "KayzenRoot/iris",
-  "mode": "NEW_PROJECT",
+  "mode": "STANDALONE_GIT_FIRST",
   "gefVersion": "1.0.0",
   "gefReleaseCommit": "866fe3af8cccc65c929aaf6a47a924401fa448b3",
-  "profile": "HIVE_NATIVE",
+  "profile": "GIT_NATIVE",
   "assuranceDefault": "STANDARD",
   "sourceHierarchy": [
     "docs/project-brain/13-CHECKPOINT.md",

@@ -4,7 +4,7 @@ Status: `ACTIVE_DISCOVERY`
 
 ## Invariant
 
-IRIS exists to make the visual/multimodal output of the Hive ecosystem production-grade. A technically successful generation is not an accepted asset.
+IRIS exists to make visual/multimodal production outputs production-grade. A technically successful generation is not an accepted asset.
 
 ## Quality hierarchy
 

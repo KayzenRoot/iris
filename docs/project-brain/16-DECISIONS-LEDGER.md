@@ -1,8 +1,8 @@
 # IRIS Decisions Ledger
 
-## ADR-0001 - Project identity
-Status: `APPROVED`
-Project name is **Hive IRIS**, IRIS = **Intelligent Rendering & Immersive Synthesis**.
+## ADR-0001 - Historical project identity
+Status: `SUPERSEDED_BY_ADR_0047`
+The historical project name was **Hive IRIS**, IRIS = **Intelligent Rendering & Immersive Synthesis**. The current standalone product name is **IRIS**, per ADR-0047.
 
 ## ADR-0002 - New-project treatment
 Status: `APPROVED`
@@ -12,8 +12,8 @@ IRIS is a new V1. UGAS may later supply proven reusable components, but legacy d
 Status: `APPROVED`
 Use GEF Bootstrap v1.0.0 pinned to `866fe3af8cccc65c929aaf6a47a924401fa448b3`; do not vendor GEF.
 
-## ADR-0004 - HIVE integration
-Status: `APPROVED`
+## ADR-0004 - Historical HIVE integration (retired)
+Status: `SUPERSEDED_BY_ADR_0047`
 Use HIVE v1.0.0 pinned to `a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf` as external local-first context/retrieval/MCP; Git remains canonical.
 
 ## ADR-0005 - Product gate
@@ -201,3 +201,14 @@ PR #66's final head `8c1fe7ff4b3ad8da74194ee15d5466341b578025` passed exact-head
 ## ADR-0046 - M09 B future owner receipt direction
 Status: `APPROVED_FOR_DOCUMENTARY_DIRECTION_ONLY`
 Responsible owner's expressly ratified source: https://github.com/KayzenRoot/iris/issues/110#issuecomment-5857665032. On 2026-09-27, B_FUTURE_OWNER_RECEIPT is selected **only as the future planning direction** for a versioned, immutable, M09-issued/verifiable, exact-request, read-only evidence receipt for M09->M11. A and C were NOT_SELECTED; the existing absence-of-port/proof fail-closed policy is unchanged without adopting public C. The previous C01/C02 NONE/NOT_RECORDED source registers accurately describe their earlier Git snapshots. D01 is the separate current limited direction, not adoption or freeze of C01, a proven H02 atomic joint-cut, H01 authenticated M11 reverse liveness/ACK, other M02/M06/M12/M54/M58/M60 owner approvals, or OS/GPU/network/cloud/runtime action. All inherited C02-FR-H01..H04 remain OPEN HIGH_FOR_FUTURE_FREEZE, HX-01..12 and LV-01..06 are NOT_EXECUTED, M11 v0.2 NOT_FROZEN (86 original owner questions OPEN), M12 v0.1 PREPARED_FOR_OWNER_REVIEW_ONLY/NOT_FROZEN (110 OPEN questions, 80 future cases NOT_EXECUTED). M09 v1.0 FROZEN unchanged, C01 UNADOPTED_NOT_FROZEN, M10/M11/M12 implementation NOT_ADMITTED, and issues #82/#110/#112/#128 OPEN. Planning-only Work Order IRIS-WO-0033 may create source-bound candidate discussion and documentary tests; all freezes and implementation require separate gates.
+
+
+## ADR-0047 - IRIS standalone Git-first operation and external context retirement
+Status: `APPROVED_USER_DIRECTIVE_2026_09_28`
+The operator explicitly removed the installed HIVE runtime from the IRIS architecture. Effective immediately upon protected IRIS-WO-0066 merge, the **product is IRIS**, not a HIVE-dependent service. ADR-0001's former brand and ADR-0004's former external context integration are **superseded**, never valid for current startup, planning, governance, CI or executor preflight. The old release SHA and old audit receipts remain historical facts only.
+
+**Current authority:** exact Git tree → `docs/project-brain/13-CHECKPOINT.md` → Decisions → Scope → DoD → Architecture → Requirements → Work Order/Context Lock → objective CI/reviews. GEF remains a separately pinned optional engineering source package, not a runtime dependency. No mandatory external memory server/MCP client, installed local Docker stack, database, HIVE API, corpus/index sync or HIVE environment variable is permitted in current IRIS startup. Use only directly source-backed Git files, scoped working context and deterministic evidence.
+
+**Active future module replacement:** original M52 and M60 index headings/sessions were historical source-locked planning records, not adopted runtime contracts. The live, user-authorized replacement for their **future** planning titles/sessions is `planning/MASTER-MODULE-INDEX-CURRENT.md`. M52 becomes IRIS-native Memory & Creative RAG behind independent owner/security/privacy/storage admission; M60 validates independent IRIS and any separately approved CORE integration. No automatic memory service or current M52/M60 implementation is adopted. Keep the frozen original index unchanged to preserve original 47/47 and 235/235 source-exact historical FCS evidence.
+
+**Frozen semantic APIs:** no M03/M05/M06 wire/schema/port changes are authorized by infrastructure retirement alone. Historic vendor-named inert enum/port markers, if still present, never trigger any HIVE access or grant self-authority; they require a distinct versioned compatibility migration before removal. Historical original Git-blob Context Locks, authored evidence and archived review snapshots retain their original text; no rewriting old approvals or erasing audit provenance. Original eight owner issues remain OPEN, H01–H04 HIGH remain OPEN and M10–M13 runtime remains NOT_ADMITTED. Scope of IRIS-WO-0066 is retirement only.

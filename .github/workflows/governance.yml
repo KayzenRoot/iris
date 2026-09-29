@@ -32,7 +32,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Compile bootstrap tooling
-        run: python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/hive_bootstrap.py scripts/hive_mcp.py scripts/verify_context_lock.py
+        run: python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/verify_context_lock.py
       - name: Verify exact PR Context Lock source fingerprints and changed-file scope
         if: github.event_name == 'pull_request'
         env:
@@ -49,5 +49,5 @@ jobs:
             --pr-head-repo "$PR_HEAD_REPO" --pr-base-repo "$PR_BASE_REPO"
       - name: Validate IRIS governance
         run: python scripts/validate_governance.py
-      - name: Test GEF and HIVE bridges
+      - name: Test standalone IRIS and GEF source governance
         run: python -m unittest discover -s tests -p "test_*.py" -v

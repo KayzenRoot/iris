@@ -2,6 +2,9 @@
 
 Status: `M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED`
 
+## CURRENT STANDALONE ARCHITECTURE: IRIS-WO-0066 / #188
+User-directed 2026-09-28 retirement of external context installation. Active startup/CI/decisions now use exact Git, repository Project Brain and optional pinned GEF source only. No local context database/Docker or mandatory MCP. Historical predecessor evidence, releases, source-locked index and author-time approvals remain immutable audit snapshots, not active requirements. The current non-executable future module map is `planning/MASTER-MODULE-INDEX-CURRENT.md`; old source-locked `planning/MASTER-MODULE-INDEX.md` is preserved solely to reproduce prior M14–M60 FCS 47/47 and 235/235 proofs. M52 is future independently owner-gated IRIS-native context, not implementation/adoption. Separate scope #188 postmerge receipt verifies final status. Non-HIVE PR #187 is paused until this migration is independently green.
+
 ## ACTIVE SCOPED EXISTING-KERNEL MAINTENANCE, NO NEW AUTHORITY
 None recorded. WO0063 is factually VERIFIED below; no additional owner or runtime authority admitted.
 None recorded for completed WO0061 as an active maintenance item; it remains VERIFIED in the dedicated section below.
