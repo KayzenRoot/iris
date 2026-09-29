@@ -80,8 +80,8 @@ jobs:
             echo "Standalone source transition already applied; no-op."
             exit 0
           fi
-          python scripts/apply_standalone_transition.py
-          python scripts/apply_standalone_transition.py --apply
+          python -m scripts.apply_standalone_transition
+          python -m scripts.apply_standalone_transition --apply
           printf '%s\n' '{"originalMain":"95d58dd7a3b1275f4aaff4f147f2be852ecad588","status":"APPLIED_TO_STAGING_ONLY","scope":"current Git working tree","historicalGit":"PRESERVED"}' > .engineering/standalone-transition-applied.json
           git add -A
           git config user.name "github-actions[bot]"
