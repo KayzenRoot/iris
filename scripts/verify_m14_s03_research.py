@@ -162,7 +162,8 @@ def verify_packet(p: dict, root: Path = ROOT, *, verify_markdown: bool = True) -
             [f"ALT{i:02d}" for i in range(1,5)], "four alternative designs changed")
     for x in alts:
         require(type(x) is dict and set(x) == {"id","title","status","selected","tradeoffs"}
-                and x["selected"] is False and x["status"] == "RESEARCH_ONLY_UNSELECTED",
+                and x["selected"] is False and x["status"] == "RESEARCH_ONLY_UNSELECTED"
+                and type(x["tradeoffs"]) is str and len(x["tradeoffs"]) >= 100,
                 "unapproved empirical architecture selected")
     qq = p["questions"]
     qids = [f"M14-S03-U{i:02d}" for i in range(1,21)]
