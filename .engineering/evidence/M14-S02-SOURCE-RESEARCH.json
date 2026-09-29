@@ -1,0 +1,629 @@
+{
+  "schemaVersion": "iris-m14-s02-source-research-v0.1",
+  "workOrder": "IRIS-WO-0077",
+  "issue": 206,
+  "module": "M14",
+  "session": "S02",
+  "sourceBaseSha": "1cda2aa29e77474fa0e27c99d88646351cae69b7",
+  "sourceBaseTreeSha": "8c523de8b9422174ee33f563595becdbf5fbd28b",
+  "status": "SOURCE_RESEARCH_ONLY_NONBINDING",
+  "ownerApproval": "NONE",
+  "capabilitySchemaAdopted": false,
+  "technologySelected": false,
+  "modelRegistryRuntime": "NOT_ADMITTED",
+  "realCapabilityReceipts": 0,
+  "realEmpiricalMeasurements": 0,
+  "sourceDocs": [
+    {
+      "role": "INDEX",
+      "path": "planning/MASTER-MODULE-INDEX-CURRENT.md",
+      "gitBlobSha1": "02e6394cc7e75d5466ab22801b4cc7dbe66500be",
+      "exactNeedle": "S02 — S02 Capability Genome and task taxonomy"
+    },
+    {
+      "role": "FCS",
+      "path": "planning/reviews/M14-M60-FORWARD-COMPATIBILITY-SOURCE-SCAN.md",
+      "gitBlobSha1": "5bac62b5b1a07fb97e43ea5c76d20dc5419c2cec",
+      "exactNeedle": "### M14: Model Registry & Empirical Model Cards"
+    },
+    {
+      "role": "S01_PACKET",
+      "path": ".engineering/evidence/M14-S01-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "10fe325b3928e58797266ae4ba0b65c87cd532fc",
+      "exactNeedle": "\"module\": \"M14\""
+    },
+    {
+      "role": "S01_REPORT",
+      "path": "planning/research/M14-S01-MODEL-IDENTITY-LICENSE-PROVENANCE.md",
+      "gitBlobSha1": "f07ed63d30c53f38ff77b4f0fbd4934d44f9624d",
+      "exactNeedle": "Sixteen NEW OPEN/UNRATED M14 S01 owner questions"
+    },
+    {
+      "role": "M01",
+      "path": "docs/M01-QUALITY-KERNEL.md",
+      "gitBlobSha1": "df4f899ad414c47ad379f26fe1782edb6f43cf6f",
+      "exactNeedle": "m01-contract-v1.0"
+    },
+    {
+      "role": "M03",
+      "path": "planning/contracts/M03-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "bb640aaa1711e1c0b939769d579e887029bcbd17",
+      "exactNeedle": "m03-contract-v1.0"
+    },
+    {
+      "role": "M04",
+      "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "c84c6645a84e1fa41ace5e627411bf953fc77dc5",
+      "exactNeedle": "m04-contract-v1.0"
+    },
+    {
+      "role": "M08",
+      "path": "docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "461e0f332d9be2af694634bbdc8cf67e29d56393",
+      "exactNeedle": "M08 records empirical performance evidence"
+    },
+    {
+      "role": "M09",
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+      "exactNeedle": "M09 is the provider-neutral resource-state"
+    },
+    {
+      "role": "M10",
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828",
+      "exactNeedle": "Implementation authority: NOT ADMITTED"
+    },
+    {
+      "role": "M13S02",
+      "path": "planning/research/M13-S02-COMPILATION-ATTENTION-BACKENDS.md",
+      "gitBlobSha1": "c033ac4696ad4a188ca5605470bf9b29396eb3ad",
+      "exactNeedle": "UNSELECTED, UNINSTALLED, UNBENCHMARKED"
+    },
+    {
+      "role": "D01",
+      "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
+      "gitBlobSha1": "8877331a5004a3e816e4c42fb521ff3408bad08a",
+      "exactNeedle": "B_FUTURE_OWNER_RECEIPT"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "DIM01_INPUT_OUTPUT_SHAPES",
+      "title": "Typed task inputs, outputs and temporal or structured shape",
+      "caveat": "An advertised image/video/audio/3D label does not prove actual input/output type, exact M04 Scene IR operator or native provider compatibility.",
+      "pendingOwners": "M03/M04/M14/M16",
+      "status": "NONBINDING_CONCEPT_ONLY"
+    },
+    {
+      "id": "DIM02_SEMANTIC_TASK_OPERATION",
+      "title": "Intent, transformation and semantic constraints",
+      "caveat": "M03 creative intent and M04 IR remain canonical; vendor task declarations cannot alter accepted M02 production graph or waive M01 fidelity.",
+      "pendingOwners": "M01/M02/M03/M04/M14",
+      "status": "NONBINDING_CONCEPT_ONLY"
+    },
+    {
+      "id": "DIM03_COMPOSITE_MODEL_FEATURES",
+      "title": "S01 package closure and operator declarations",
+      "caveat": "A matching weight hash without tokenizer, adapter or qualified custom-code revision is not a complete model or qualified task capability.",
+      "pendingOwners": "M06/M14/M16/M18",
+      "status": "NONBINDING_CONCEPT_ONLY"
+    },
+    {
+      "id": "DIM04_EXECUTION_ENVELOPE_HINT",
+      "title": "Declared precision, backend, hardware and capacity requirements",
+      "caveat": "A self-reported VRAM number or local cache entry is not M07 hardware evidence, M08 benchmark, M09 joint grant or M11 worker authority.",
+      "pendingOwners": "M07/M08/M09/M10/M11/M12/M14",
+      "status": "NONBINDING_CONCEPT_ONLY"
+    },
+    {
+      "id": "DIM05_QUALITY_AND_RELIABILITY_CANDIDATE",
+      "title": "Task-specific quality, population and reliability claims",
+      "caveat": "A synthetic test or provider score does not establish M01 approval, M08 representative measurement or a numeric model ranking or threshold.",
+      "pendingOwners": "M01/M08/M14/M15",
+      "status": "NONBINDING_CONCEPT_ONLY"
+    },
+    {
+      "id": "DIM06_RIGHTS_TRUST_LIFECYCLE",
+      "title": "Per-tenant rights, issuer, validity, expiry and revocation caveats",
+      "caveat": "Unratified M18/M53/M54/M58/M60 contracts mean SPDX labels, copied model cards and signatures cannot grant use, storage or publication.",
+      "pendingOwners": "M14/M18/M53/M54/M58/M60",
+      "status": "NONBINDING_CONCEPT_ONLY"
+    }
+  ],
+  "taskFamilies": [
+    {
+      "id": "TASK01_TEXT",
+      "title": "Text generation, transforms and embeddings",
+      "unresolvedBoundary": "Tokenizer, rights and exact package closure not independently qualified",
+      "status": "CANDIDATE_TAXONOMY_NOT_RATIFIED"
+    },
+    {
+      "id": "TASK02_IMAGE",
+      "title": "Image creation, transformations and edits",
+      "unresolvedBoundary": "M01 quality and M04 image/spatial semantics not empirically qualified",
+      "status": "CANDIDATE_TAXONOMY_NOT_RATIFIED"
+    },
+    {
+      "id": "TASK03_VIDEO",
+      "title": "Video generation, conversion and temporal edits",
+      "unresolvedBoundary": "M04 frame cadence, time domain and cross-shot semantics remain unresolved",
+      "status": "CANDIDATE_TAXONOMY_NOT_RATIFIED"
+    },
+    {
+      "id": "TASK04_AUDIO",
+      "title": "Audio, speech and music generation or conversion",
+      "unresolvedBoundary": "Speaker/artist rights and temporal sample fidelity not source-qualified",
+      "status": "CANDIDATE_TAXONOMY_NOT_RATIFIED"
+    },
+    {
+      "id": "TASK05_3D",
+      "title": "3D geometry, materials and rigged-scene synthesis",
+      "unresolvedBoundary": "DCC geometry semantics, native plugins and M60 OS rights unresolved",
+      "status": "CANDIDATE_TAXONOMY_NOT_RATIFIED"
+    },
+    {
+      "id": "TASK06_MULTIMODAL_COMPOSITE",
+      "title": "Joint generation and transformation over multiple media",
+      "unresolvedBoundary": "Exact M02/M06 lineage and M04 mixed-media recomposition unavailable",
+      "status": "CANDIDATE_TAXONOMY_NOT_RATIFIED"
+    },
+    {
+      "id": "TASK07_STRUCTURED_CONTROL",
+      "title": "Schema-constrained extraction and structured scene planning",
+      "unresolvedBoundary": "Frozen M03/M04 typed semantics and future M16 compiler gaps remain",
+      "status": "CANDIDATE_TAXONOMY_NOT_RATIFIED"
+    }
+  ],
+  "evidenceStates": [
+    {
+      "id": "SELF_REPORTED",
+      "meaning": "An upstream/provider assertion unverified for current exact model revision",
+      "status": "VOCABULARY_ONLY_NO_ACTUAL_PROOF"
+    },
+    {
+      "id": "INFERRED",
+      "meaning": "An indirect or derived assertion with unqualified source authority",
+      "status": "VOCABULARY_ONLY_NO_ACTUAL_PROOF"
+    },
+    {
+      "id": "UNKNOWN",
+      "meaning": "Absent, contradictory, expired, revoked or unusable evidence",
+      "status": "VOCABULARY_ONLY_NO_ACTUAL_PROOF"
+    },
+    {
+      "id": "OWNER_VERIFIED",
+      "meaning": "Only vocabulary for a future authentic, bounded, current owner receipt",
+      "status": "VOCABULARY_ONLY_NO_ACTUAL_PROOF"
+    },
+    {
+      "id": "EMPIRICALLY_MEASURED",
+      "meaning": "Only vocabulary for future representative M08 exact hardware model evidence",
+      "status": "VOCABULARY_ONLY_NO_ACTUAL_PROOF"
+    }
+  ],
+  "alternatives": [
+    {
+      "id": "ALT01_UNTYPED_TASK_TAGS",
+      "title": "Flat provider task tags",
+      "tradeoffs": "Simple catalog lookup but ambiguous input/output, mutable labels and no authenticated operator, quality or owner scope.",
+      "status": "RESEARCH_ONLY_NOT_SELECTED",
+      "selected": false
+    },
+    {
+      "id": "ALT02_TYPED_IO_TASK_MATRIX",
+      "title": "Typed task and IO capability matrix",
+      "tradeoffs": "Separates candidate IO shape and unknown support but depends on qualified M03/M04 and S01 composite revision evidence.",
+      "status": "RESEARCH_ONLY_NOT_SELECTED",
+      "selected": false
+    },
+    {
+      "id": "ALT03_PROVENANCE_AWARE_CAPABILITY_GRAPH",
+      "title": "Versioned model/task/dependency graph",
+      "tradeoffs": "Expresses claim-level provenance and version conflicts but needs real M14/M16/M18 trust and complete redaction semantics.",
+      "status": "RESEARCH_ONLY_NOT_SELECTED",
+      "selected": false
+    },
+    {
+      "id": "ALT04_QUALIFIED_OWNER_RECEIPT",
+      "title": "Future authenticated at-use capability proof",
+      "tradeoffs": "Requires actual independent M14/M18/M53/M54/M60 owner rights and representative M08 evidence before any such receipt exists.",
+      "status": "RESEARCH_ONLY_NOT_SELECTED",
+      "selected": false
+    }
+  ],
+  "questions": [
+    {
+      "id": "M14-S02-U01",
+      "question": "How can M14 represent exact typed task IO without redefining M03 creative intent or M04 frozen multimodal intermediate representation?",
+      "originalOwners": "M14/M03/M04",
+      "sourceRoles": [
+        "INDEX",
+        "M03",
+        "M04"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U02",
+      "question": "Which tokenizer, weights, adapter and rights revision must qualify future self-reported text tasks and embeddings for a given tenant?",
+      "originalOwners": "M14/M18",
+      "sourceRoles": [
+        "S01_PACKET",
+        "S01_REPORT",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U03",
+      "question": "How does an image-generation task preserve M01 quality vetoes and M04 edit semantics across versions without claimed empirical proof?",
+      "originalOwners": "M14/M01/M04",
+      "sourceRoles": [
+        "M01",
+        "M04"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U04",
+      "question": "Which video frame cadence, temporal window and exact source revision are mere claims until representative M08 empirical tests exist?",
+      "originalOwners": "M14/M04/M08",
+      "sourceRoles": [
+        "M04",
+        "M08"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U05",
+      "question": "How may audio and speech claims represent future actual persona consent and source rights without inventing M53/M54 approval?",
+      "originalOwners": "M14/M53/M54",
+      "sourceRoles": [
+        "FCS",
+        "INDEX"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U06",
+      "question": "How can 3D task vocabulary represent geometry, rig and material support without claiming native DCC plugin or M60 process authority?",
+      "originalOwners": "M14/M04/M60",
+      "sourceRoles": [
+        "M04",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U07",
+      "question": "Which joint media IO contract preserves mandatory M02/M06 lineage, exact M04 semantics and M01 quality across partial output cases?",
+      "originalOwners": "M14/M01/M04/M06",
+      "sourceRoles": [
+        "M01",
+        "M04",
+        "S01_PACKET"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U08",
+      "question": "Which typed structured extraction or planning operation remains a claim until independent M16 compiler operator coverage is proven?",
+      "originalOwners": "M14/M03/M04/M16",
+      "sourceRoles": [
+        "M03",
+        "M04",
+        "INDEX"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U09",
+      "question": "How must self-reported, inferred and unknown task declarations be kept from promotion to owner-verified actual availability?",
+      "originalOwners": "M14/M18/M54",
+      "sourceRoles": [
+        "S01_PACKET",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U10",
+      "question": "What exact independent issuer, tenant, expiry and revocation source is required before an OWNER_VERIFIED capability may be represented?",
+      "originalOwners": "M14/M18/M54",
+      "sourceRoles": [
+        "S01_REPORT",
+        "D01",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U11",
+      "question": "Which representative M08 protocol and M07 hardware fingerprint would qualify actual future quality, latency and VRAM per revision?",
+      "originalOwners": "M14/M07/M08",
+      "sourceRoles": [
+        "M08",
+        "FCS",
+        "M13S02"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U12",
+      "question": "Which compiled backend, precision and attention-operator statements must stay hints until M13/M16/M17 owner qualification?",
+      "originalOwners": "M14/M13/M16/M17",
+      "sourceRoles": [
+        "M13S02",
+        "FCS",
+        "INDEX"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U13",
+      "question": "How can model availability and residency hints avoid granting M09 multi-member resource leases, M11 dispatch or M12 placement?",
+      "originalOwners": "M14/M09/M11/M12",
+      "sourceRoles": [
+        "M09",
+        "M10",
+        "D01"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U14",
+      "question": "What per-tenant and per-task rights and future M53/M54/M58 publication controls are necessary before a claimed ability is usable?",
+      "originalOwners": "M14/M53/M54/M58",
+      "sourceRoles": [
+        "S01_PACKET",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U15",
+      "question": "How should task deprecation and model revision changes invalidate stale Genome claims without rewriting accepted M02/M06 history?",
+      "originalOwners": "M14/M02/M06",
+      "sourceRoles": [
+        "S01_PACKET",
+        "FCS",
+        "INDEX"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U16",
+      "question": "Which explicit UNKNOWN and contradiction behavior blocks arbitrary numeric rankings based on nonrepresentative vendor and benchmark claims?",
+      "originalOwners": "M14/M01/M08",
+      "sourceRoles": [
+        "M01",
+        "M08",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U17",
+      "question": "Which negative tests must prevent old owner receipts replayed after tokenizer revision, tenant change or platform permission revocation?",
+      "originalOwners": "M14/M18/M54/M60",
+      "sourceRoles": [
+        "S01_PACKET",
+        "FCS",
+        "M08"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S02-U18",
+      "question": "How must future M10/M15 advisory routing consume real qualified Genome evidence without deciding executable M09/M11/M12 actions?",
+      "originalOwners": "M14/M10/M15",
+      "sourceRoles": [
+        "M10",
+        "M09",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    }
+  ],
+  "negativeScenarios": [
+    {
+      "id": "M14-S02-N01",
+      "trigger": "A copied text model card advertises embeddings but its tokenizer differs from the pinned model revision.",
+      "nonAuthorizingOracle": "NO_TASK_QUALIFICATION_OR_LOAD",
+      "questionIds": [
+        "M14-S02-U02"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S02-N02",
+      "trigger": "A generated-image vendor quality score omits the original M01 fidelity class, task population and independent M08 testing.",
+      "nonAuthorizingOracle": "NO_M01_QUALITY_ACCEPTANCE",
+      "questionIds": [
+        "M14-S02-U03",
+        "M14-S02-U11"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S02-N03",
+      "trigger": "A stale video capability tag hides a changed frame cadence and undefined exact M04 temporal output semantics.",
+      "nonAuthorizingOracle": "NO_TEMPORAL_COMPATIBILITY_INFERENCE",
+      "questionIds": [
+        "M14-S02-U04"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S02-N04",
+      "trigger": "An audio-generation claim includes another tenant's voice persona without verified consent or derivative usage rights.",
+      "nonAuthorizingOracle": "NO_VOICE_OR_PERSONA_RIGHTS_GRANT",
+      "questionIds": [
+        "M14-S02-U05",
+        "M14-S02-U14"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S02-N05",
+      "trigger": "A 3D task card lists an unknown native DCC plugin as installed while process rights and operator coverage are absent.",
+      "nonAuthorizingOracle": "NO_DCC_NATIVE_EXECUTION_OR_LOAD",
+      "questionIds": [
+        "M14-S02-U06",
+        "M14-S02-U12"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S02-N06",
+      "trigger": "A composite image-video-audio task returns only one media output while reporting full mandatory multimodal completion.",
+      "nonAuthorizingOracle": "NO_MIXED_MEDIA_SEMANTIC_ACCEPTANCE",
+      "questionIds": [
+        "M14-S02-U07"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S02-N07",
+      "trigger": "A structured model claims a provider operator that conflicts with frozen M03/M04 schemas and absent M16 compiler coverage.",
+      "nonAuthorizingOracle": "NO_UNQUALIFIED_OPERATOR_COMPATIBILITY",
+      "questionIds": [
+        "M14-S02-U08"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S02-N08",
+      "trigger": "A documentation-only SELF_REPORTED capability is promoted to OWNER_VERIFIED by a synthetic parser's successful test.",
+      "nonAuthorizingOracle": "NO_PROVENANCE_STATE_UPGRADE",
+      "questionIds": [
+        "M14-S02-U09",
+        "M14-S02-U10"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S02-N09",
+      "trigger": "A future signed-looking owner receipt has an untrusted issuer, stale key or expired revocation record at the point of use.",
+      "nonAuthorizingOracle": "NO_AUTHENTIC_OWNER_TRUST_INFERENCE",
+      "questionIds": [
+        "M14-S02-U10",
+        "M14-S02-U17"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S02-N10",
+      "trigger": "A benchmark from another GPU and stale package revision is relabeled EMPIRICALLY_MEASURED for current model-card VRAM.",
+      "nonAuthorizingOracle": "NO_REPRESENTATIVE_HARDWARE_FIT_CLAIM",
+      "questionIds": [
+        "M14-S02-U11"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S02-N11",
+      "trigger": "A backend declares attention operators supported but no actual M16/M17 trusted provider or custom-code validation exists.",
+      "nonAuthorizingOracle": "NO_BACKEND_OR_PROVIDER_ADOPTION",
+      "questionIds": [
+        "M14-S02-U12"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S02-N12",
+      "trigger": "A model cache reports warm GPU residency and an advisory planner projects a current owner-issued joint resource grant.",
+      "nonAuthorizingOracle": "NO_M09_GRANT_OR_WORKER_DISPATCH",
+      "questionIds": [
+        "M14-S02-U13",
+        "M14-S02-U18"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S02-N13",
+      "trigger": "A revoked tenant's capability receipt is replayed for another tenant and reused on a modified model package revision.",
+      "nonAuthorizingOracle": "NO_CROSS_TENANT_OR_REVOKED_CAPABILITY",
+      "questionIds": [
+        "M14-S02-U14",
+        "M14-S02-U17"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S02-N14",
+      "trigger": "A contradictory capability card is assigned a numerical winning risk rank for execution despite UNKNOWN and missing owner proof.",
+      "nonAuthorizingOracle": "NO_RANKING_OR_EXECUTION_FROM_UNKNOWN",
+      "questionIds": [
+        "M14-S02-U15",
+        "M14-S02-U16",
+        "M14-S02-U18"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    }
+  ],
+  "priorM14S01QuestionsOpen": 16,
+  "priorM14S01NegativeCasesNotExecuted": 12,
+  "originalM13QuestionsOpen": 96,
+  "originalM13NegativesNotExecuted": 74,
+  "ownerB": "B_FUTURE_OWNER_RECEIPT_DIRECTION_ONLY",
+  "m09C01": "UNADOPTED_NOT_FROZEN",
+  "h01h02h03h04": "ALL_OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "m10m11m12m13Runtime": "NOT_ADMITTED",
+  "stop": "M14 S02 Capability Genome is SOURCE_RESEARCH_ONLY. All eighteen new questions remain OPEN_UNRATED_PENDING_QUALIFIED_OWNER; fourteen future negatives are SPECIFIED_NOT_EXECUTED. No owner adoption, versioned capability contract, vendor/backend/operator/precision selection, current empirical model card, trust signature, legal rights, model download, native code or registry API. M09 B remains DIRECTION_ONLY; M09 C01 UNADOPTED_NOT_FROZEN and H01-H04 HIGH_FOR_FUTURE_FREEZE. M10-M13 runtime NOT_ADMITTED; no M14 GPU/OS/process/cloud/network/storage operation, public API or M11/M12 worker dispatch is admitted."
+}
