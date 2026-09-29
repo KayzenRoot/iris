@@ -1,0 +1,534 @@
+{
+  "schemaVersion": "iris-m14-s01-source-research-v0.1",
+  "workOrder": "IRIS-WO-0076",
+  "issue": 204,
+  "module": "M14",
+  "session": "S01",
+  "sourceBaseSha": "5d864f7a37f14f7daccdd385aa2cba1d77cece39",
+  "sourceBaseTreeSha": "0556959bba5f7bb897901e875d8663956ea55681",
+  "status": "SOURCE_RESEARCH_ONLY_NONBINDING",
+  "ownerApproval": "NONE",
+  "selectedTechnology": "NONE",
+  "versionedOwnerContract": "NOT_CREATED",
+  "modelRegistryRuntime": "NOT_ADMITTED",
+  "realLicenseApproval": "NONE",
+  "empiricalModelCards": "NONE_MEASURED",
+  "ownerB": "B_FUTURE_OWNER_RECEIPT_DIRECTION_ONLY",
+  "m09C01": "UNADOPTED_NOT_FROZEN",
+  "h01h02h03h04": "ALL_OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "m10m11m12m13Runtime": "NOT_ADMITTED",
+  "originalM13QuestionsOpen": 96,
+  "originalM13FutureCasesNotExecuted": 74,
+  "sourceDocs": [
+    {
+      "role": "INDEX",
+      "path": "planning/MASTER-MODULE-INDEX-CURRENT.md",
+      "gitBlobSha1": "02e6394cc7e75d5466ab22801b4cc7dbe66500be",
+      "exactNeedle": "### M14 — Model Registry & Empirical Model Cards"
+    },
+    {
+      "role": "FCS",
+      "path": "planning/reviews/M14-M60-FORWARD-COMPATIBILITY-SOURCE-SCAN.md",
+      "gitBlobSha1": "5bac62b5b1a07fb97e43ea5c76d20dc5419c2cec",
+      "exactNeedle": "### M14: Model Registry & Empirical Model Cards"
+    },
+    {
+      "role": "FTR",
+      "path": "planning/reviews/M13-FINAL-TECHNOLOGY-REVIEW-DOCUMENTARY.md",
+      "gitBlobSha1": "a704684ece3cd28969e93eb2eb56d5efb995ad55",
+      "exactNeedle": "96 NEW M13 open/UNRATED questions, 74 future real-world cases SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "role": "M02",
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
+      "exactNeedle": "cache/warm-state loss changes performance, not production truth;"
+    },
+    {
+      "role": "M06",
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
+      "exactNeedle": "Digest equality proves byte equality under the declared digest domain only."
+    },
+    {
+      "role": "M08",
+      "path": "docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "461e0f332d9be2af694634bbdc8cf67e29d56393",
+      "exactNeedle": "M08 records empirical performance evidence"
+    },
+    {
+      "role": "M09",
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+      "exactNeedle": "M09 is the provider-neutral resource-state"
+    },
+    {
+      "role": "M13S01",
+      "path": ".engineering/evidence/M13-S01-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0",
+      "exactNeedle": "\"module\": \"M13\""
+    },
+    {
+      "role": "D01",
+      "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
+      "gitBlobSha1": "8877331a5004a3e816e4c42fb521ff3408bad08a",
+      "exactNeedle": "B_FUTURE_OWNER_RECEIPT"
+    }
+  ],
+  "componentClasses": [
+    {
+      "id": "COMP01_UPSTREAM_REPOSITORY_REVISION",
+      "title": "Immutable upstream model repository identity, commit and advertised release label",
+      "boundary": "A mutable friendly name, branch or model-card field locates a candidate but is not a content-complete verified model revision.",
+      "pendingOwners": "M14/M18/M54",
+      "status": "SOURCE_TAXONOMY_UNADOPTED"
+    },
+    {
+      "id": "COMP02_WEIGHT_SHARDS_AND_INDEX",
+      "title": "Complete weight shard inventory, index and configuration content binding",
+      "boundary": "One shard or manifest digest is not a model package digest; absence or reordered shard index can alter the interpreted model.",
+      "pendingOwners": "M06/M14/M18",
+      "status": "SOURCE_TAXONOMY_UNADOPTED"
+    },
+    {
+      "id": "COMP03_TOKENIZER_AND_PROCESSOR",
+      "title": "Tokenizer, vocabulary, preprocessing and processor source identity",
+      "boundary": "Changed tokenizer or preprocessor can change semantic output with weight bytes unchanged; M06 evidence must bind an actual revision.",
+      "pendingOwners": "M06/M14/M16/M18",
+      "status": "SOURCE_TAXONOMY_UNADOPTED"
+    },
+    {
+      "id": "COMP04_ADAPTERS_AND_DEPENDENCIES",
+      "title": "LoRA/adapter/base-model closure and exact compatibility revisions",
+      "boundary": "Adapter and base-model aliases cannot imply compatibility, rights, safe loading or provenance; reference and dependency graph need proof.",
+      "pendingOwners": "M14/M18/M19/M54",
+      "status": "SOURCE_TAXONOMY_UNADOPTED"
+    },
+    {
+      "id": "COMP05_OPERATOR_CONFIG_AND_CUSTOM_CODE",
+      "title": "Config, scheduler/precision/operator declarations and any executable custom code",
+      "boundary": "Registry data must not import/execute arbitrary code or treat an upstream package metadata digest as supply-chain trust.",
+      "pendingOwners": "M14/M16/M17/M18/M60",
+      "status": "SOURCE_TAXONOMY_UNADOPTED"
+    }
+  ],
+  "licenseFacets": [
+    {
+      "id": "RIGHTS01_WEIGHTS",
+      "scope": "Weight-specific license and redistribution/commercial-use terms",
+      "ownerBoundary": "M18/M53",
+      "verification": "NOT_OWNER_VERIFIED",
+      "status": "RIGHTS_UNVERIFIED"
+    },
+    {
+      "id": "RIGHTS02_TOKENIZER_DATA",
+      "scope": "Tokenizer, vocabulary, processor data and training-data rights declarations",
+      "ownerBoundary": "M18/M53",
+      "verification": "NOT_OWNER_VERIFIED",
+      "status": "RIGHTS_UNVERIFIED"
+    },
+    {
+      "id": "RIGHTS03_ADAPTER_BASE",
+      "scope": "Adapter, base model and fine-tuned derivative compatibility terms",
+      "ownerBoundary": "M18/M19/M53",
+      "verification": "NOT_OWNER_VERIFIED",
+      "status": "RIGHTS_UNVERIFIED"
+    },
+    {
+      "id": "RIGHTS04_EXECUTABLE_DEPENDENCIES",
+      "scope": "Native libraries, custom nodes, code, transitive package and platform permission",
+      "ownerBoundary": "M16/M17/M18/M54/M60",
+      "verification": "NOT_OWNER_VERIFIED",
+      "status": "RIGHTS_UNVERIFIED"
+    },
+    {
+      "id": "RIGHTS05_OUTPUT_AND_PERSONA",
+      "scope": "Output obligations, consent, likeness/persona and tenant-specific rights",
+      "ownerBoundary": "M53/M54/M58",
+      "verification": "NOT_OWNER_VERIFIED",
+      "status": "RIGHTS_UNVERIFIED"
+    }
+  ],
+  "alternatives": [
+    {
+      "id": "ALT01_UPSTREAM_LABEL_ONLY",
+      "title": "Upstream tags/model-card-only reference",
+      "hypothesis": "May help discovery but mutable labels and self-reported license/capability cannot satisfy immutable identity or rights.",
+      "pendingOwners": "M14/M18",
+      "status": "RESEARCH_REFERENCE_NOT_DEPLOYABLE",
+      "selected": false
+    },
+    {
+      "id": "ALT02_PINNED_COMPOSITE_DIGEST",
+      "title": "Explicit commit and all-component digest manifest",
+      "hypothesis": "Potential reproducibility for bytes only; signature, authentic issuer, license, graph closure and operational rights remain absent.",
+      "pendingOwners": "M06/M14/M18",
+      "status": "RESEARCH_CANDIDATE_ONLY",
+      "selected": false
+    },
+    {
+      "id": "ALT03_ISSUER_QUALIFIED_SBOM",
+      "title": "Versioned signed source manifest/SBOM and bounded issuer verification",
+      "hypothesis": "Requires future qualified M18 supply and M54 authentic principal/tenant trust, M53 rights and lifecycle revocation.",
+      "pendingOwners": "M18/M53/M54",
+      "status": "RESEARCH_CANDIDATE_ONLY",
+      "selected": false
+    },
+    {
+      "id": "ALT04_OWNER_QUALIFIED_LOCAL_RECEIPT",
+      "title": "At-use owner-qualified local verification receipt bound to exact component graph",
+      "hypothesis": "Cannot be issued without original owner proof, current revocation, verified host M60 and hardware M07/M08 actual empirical evidence.",
+      "pendingOwners": "M07/M08/M14/M18/M53/M54/M60",
+      "status": "RESEARCH_CANDIDATE_ONLY",
+      "selected": false
+    }
+  ],
+  "questions": [
+    {
+      "id": "M14-S01-U01",
+      "question": "What exact immutable model repository/release/revision identifier and version boundary can M14 own without reassigning M02 production identity?",
+      "originalOwners": "M14/M02/M18",
+      "sourceRoles": [
+        "INDEX",
+        "M02",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U02",
+      "question": "Which complete weight-shard, index and config digest closure must an M14 record bind, including absent, duplicated and renamed shards?",
+      "originalOwners": "M14/M06/M18",
+      "sourceRoles": [
+        "M06",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U03",
+      "question": "What is the canonical tokenizer, vocabulary and processor identity and how must stale or foreign semantic processing be marked UNKNOWN?",
+      "originalOwners": "M14/M06/M16/M18",
+      "sourceRoles": [
+        "INDEX",
+        "M06"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U04",
+      "question": "How may adapter/LoRA/base-model revisions form an exact dependency graph, with incompatible or missing component refusal?",
+      "originalOwners": "M14/M18/M19",
+      "sourceRoles": [
+        "INDEX",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U05",
+      "question": "Which runtime-facing code/config declarations are safe metadata versus separately authorized custom-node execution under M18/M60?",
+      "originalOwners": "M14/M16/M17/M18/M60",
+      "sourceRoles": [
+        "INDEX",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U06",
+      "question": "How must per-component weight/tokenizer/adapter/license claims be expressed without treating a repository badge or SPDX label as legal approval?",
+      "originalOwners": "M14/M18/M53",
+      "sourceRoles": [
+        "INDEX",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U07",
+      "question": "Which signed issuer, key rotation, revocation and tenant-specific trust source can verify future model evidence without inventing M54 signoff?",
+      "originalOwners": "M14/M18/M54",
+      "sourceRoles": [
+        "FCS",
+        "D01"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U08",
+      "question": "What registry identity and lifetime must distinguish upstream candidate, mirrored bytes, verified local installation and runnable provider instance?",
+      "originalOwners": "M14/M18/M55/M60",
+      "sourceRoles": [
+        "INDEX",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U09",
+      "question": "Which M02/M06 accepted production/attempt/revision identifiers must accompany a future model revision without upgrading a cached alias to master?",
+      "originalOwners": "M14/M02/M06",
+      "sourceRoles": [
+        "M02",
+        "M06"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U10",
+      "question": "How are conflicting card/license/source claims, missing terms or revoked derivative permissions represented without allowing commercial output?",
+      "originalOwners": "M14/M18/M53/M54",
+      "sourceRoles": [
+        "FCS",
+        "M06"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U11",
+      "question": "Which source-qualified hardware fingerprint and M08 benchmark protocol are needed before any latency/VRAM/quality card is asserted?",
+      "originalOwners": "M14/M07/M08",
+      "sourceRoles": [
+        "M08",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U12",
+      "question": "When may M13 warm/model-cache hint cite M14 identity without proving model availability, M09 grant, M11 process rights or M12 placement?",
+      "originalOwners": "M13/M14/M09/M11/M12",
+      "sourceRoles": [
+        "M13S01",
+        "M09",
+        "D01"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U13",
+      "question": "What provenance and versioning must cover fine-tuned derivative training input, consent and revocation when M19/M53 owners are future only?",
+      "originalOwners": "M14/M19/M53/M54",
+      "sourceRoles": [
+        "INDEX",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U14",
+      "question": "How must namespace/tenant ownership and provenance prevent foreign-tenant references, inference and re-use across protected project boundaries?",
+      "originalOwners": "M14/M53/M54",
+      "sourceRoles": [
+        "FCS",
+        "M02"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U15",
+      "question": "Which signed actual owner decisions would permit any future registry endpoint, publisher or provider loading under M58/M60?",
+      "originalOwners": "M14/M18/M54/M58/M60",
+      "sourceRoles": [
+        "FCS",
+        "D01"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    },
+    {
+      "id": "M14-S01-U16",
+      "question": "How should changed license text, revoked source or stale card invalidate downstream M15 routing, M13 prefetch and previously generated derivatives?",
+      "originalOwners": "M14/M15/M18/M53/M54",
+      "sourceRoles": [
+        "INDEX",
+        "FCS",
+        "M13S01"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executableAuthority": "NONE"
+    }
+  ],
+  "negativeScenarios": [
+    {
+      "id": "M14-S01-N01",
+      "trigger": "A stable marketing tag resolves to a different upstream commit while a stale model card still names the old revision.",
+      "nonAuthorizingOracle": "REFUSE_IDENTITY_EQUIVALENCE_OR_LOAD",
+      "questionIds": [
+        "M14-S01-U01",
+        "M14-S01-U08"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S01-N02",
+      "trigger": "Only one shard digest matches but the index or a second weight shard is missing or replaced.",
+      "nonAuthorizingOracle": "NO_COMPOSITE_MODEL_ADOPTION",
+      "questionIds": [
+        "M14-S01-U02"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S01-N03",
+      "trigger": "Weights remain identical but a newer tokenizer/processor silently alters input semantics.",
+      "nonAuthorizingOracle": "REJECT_UNVERIFIED_SEMANTIC_COMPATIBILITY",
+      "questionIds": [
+        "M14-S01-U03",
+        "M14-S01-U09"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S01-N04",
+      "trigger": "A compatible-looking adapter names an unverifiable or conflicting base model revision.",
+      "nonAuthorizingOracle": "NO_ADAPTER_BASE_VERSION_PROMOTION",
+      "questionIds": [
+        "M14-S01-U04"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S01-N05",
+      "trigger": "A model package metadata field suggests importing remote custom Python code during registry discovery.",
+      "nonAuthorizingOracle": "NO_EXECUTION_OR_PROVIDER_ADMISSION",
+      "questionIds": [
+        "M14-S01-U05",
+        "M14-S01-U15"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S01-N06",
+      "trigger": "A repository badge claims permissive licensing while component terms are absent or incompatible.",
+      "nonAuthorizingOracle": "RIGHTS_UNKNOWN_NO_COMMERCIAL_GRANT",
+      "questionIds": [
+        "M14-S01-U06",
+        "M14-S01-U10"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S01-N07",
+      "trigger": "A signed-looking manifest has an unverified issuer or revoked signing material.",
+      "nonAuthorizingOracle": "NO_AUTHENTIC_PRINCIPAL_OR_TRUST_INFERENCE",
+      "questionIds": [
+        "M14-S01-U07"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S01-N08",
+      "trigger": "A copied local archive exists but no original-qualified manifest, storage rights or installed code proof is present.",
+      "nonAuthorizingOracle": "NO_LOCAL_PACKAGE_QUALIFICATION",
+      "questionIds": [
+        "M14-S01-U08"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S01-N09",
+      "trigger": "A prior accepted M02 master points to stale M06 result revisions while a cache aliases its model identifier.",
+      "nonAuthorizingOracle": "NO_ACCEPTED_MASTER_OR_REUSE_INFERENCE",
+      "questionIds": [
+        "M14-S01-U09"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S01-N10",
+      "trigger": "A model card reports zero latency and tiny VRAM from a nonrepresentative, unverified machine.",
+      "nonAuthorizingOracle": "NO_EMPIRICAL_PERFORMANCE_OR_GPU_FIT_CLAIM",
+      "questionIds": [
+        "M14-S01-U11"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S01-N11",
+      "trigger": "A cached warm-model hint is incorrectly interpreted as a live joint lease and worker dispatch permission.",
+      "nonAuthorizingOracle": "NO_M09_GRANT_OR_M11_DISPATCH",
+      "questionIds": [
+        "M14-S01-U12"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S01-N12",
+      "trigger": "A foreign tenant provides model metadata and a revoked license while a proposed public endpoint attempts to publish it.",
+      "nonAuthorizingOracle": "NO_CROSS_TENANT_PUBLICATION_OR_REUSE",
+      "questionIds": [
+        "M14-S01-U10",
+        "M14-S01-U14",
+        "M14-S01-U15",
+        "M14-S01-U16"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED"
+    }
+  ],
+  "externalReferences": [
+    {
+      "id": "SPDX_LICENSE_EXPRESSIONS",
+      "url": "https://spdx.github.io/spdx-spec/v3.0.1/annexes/spdx-license-expressions/",
+      "status": "REFERENCE_ONLY_NOT_ADOPTED_OR_LEGAL_PROOF"
+    },
+    {
+      "id": "HUGGINGFACE_MODEL_CARD_SCHEMA",
+      "url": "https://github.com/huggingface/hub-docs/blob/main/modelcard.md",
+      "status": "REFERENCE_ONLY_NOT_ADOPTED_OR_LEGAL_PROOF"
+    },
+    {
+      "id": "OCI_IMAGE_MANIFEST_REFERENCE",
+      "url": "https://specs.opencontainers.org/image-spec/manifest/",
+      "status": "REFERENCE_ONLY_NOT_ADOPTED_OR_LEGAL_PROOF"
+    }
+  ],
+  "stop": "All M14 S01 identities, component classes, license facets, versions and manifest options are NONBINDING planning only. M14 owner questions stay OPEN/UNRATED and future hostile cases SPECIFIED_NOT_EXECUTED. No source owner contract, SPDX legal permission, registry or package install, model download, native custom code, empirical benchmark, model eligibility, M09 grant, M11/M12 process dispatch, OS/GPU/storage/cloud/network rights or other M10-M13 runtime is ADMITTED. Qualified M14/M18/M53/M54/M60 owner gates and original H01-H04 remain separately blocked. M10-M13 native runtime remains NOT_ADMITTED."
+}

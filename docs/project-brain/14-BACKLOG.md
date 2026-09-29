@@ -1,5 +1,13 @@
 # IRIS Backlog
 
+## M14 S01 ORIGINAL SOURCE-ONLY RESEARCH ADMISSION (IRIS-WO-0076)
+
+**Current original protected baseline:** independently verified WO0075 [PR #203](https://github.com/KayzenRoot/iris/pull/203), `main` `5d864f7a37f14f7daccdd385aa2cba1d77cece39` / original tree `0556959bba5f7bb897901e875d8663956ea55681`; separate [new-main Governance #36565447006](https://github.com/KayzenRoot/iris/actions/runs/36565447006) **4688/4688** and same-main Socket Project Report SUCCESS; [#202 factual closeout](https://github.com/KayzenRoot/iris/issues/202#issuecomment-5889866025) CLOSED. Source-only M14 S01 [issue #204](https://github.com/KayzenRoot/iris/issues/204) is a NEW pending original-base Work Order, not an M14 owner freeze. Original active master index M14 has five sessions; M13 S01–S05, FTR and full FCS documented but M13 remains NOT_FROZEN.
+
+**New S01 proposed original research only:** five separately source-qualified model component identity classes (upstream revision, weights/index, tokenizer/processor, adapters/base closure, config/operator/custom code), five UNVERIFIED independent rights facets, four version/provenance strategies ALL UNSELECTED, 16 NEW M14 S01 OPEN/UNRATED owner questions and 12 future adversarial/ambiguity designs SPECIFIED_NOT_EXECUTED. Exact nine original source roles plus non-adopting external standards references. All actual owner/license/trust/OS rights and numerical model-card evidence absent; no model registry runtime, download or API.
+
+**Separate Work Order proof gate:** IRIS-WO-0076 author-time original SHA/mode Context Lock and exact changed-file allowlist, complete source-to-human projection and 24 synthetic-only integrity regressions, full exact-head Governance target >=4712, completed independent review, both Socket checks, protected squash and separate exact-new-main CI. **PENDING at proposal authoring**, no completion claim. Preserve M09 B direction-only, C01 unadopted, eight original owner issues, H01–H04 HIGH and M10–M13 runtime NOT_ADMITTED.
+
 Status: `M11_PLANNING_ACTIVE_M10_IMPLEMENTATION_NOT_ADMITTED`
 
 ## VERIFIED WO0073/0074 DOCUMENTARY AND GIT-MODE HARDENING CLOSEOUT
