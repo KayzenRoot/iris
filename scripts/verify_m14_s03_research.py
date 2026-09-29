@@ -161,7 +161,7 @@ def verify_packet(p: dict, root: Path = ROOT, *, verify_markdown: bool = True) -
     require(type(alts) is list and [x.get("id") for x in alts] ==
             [f"ALT{i:02d}" for i in range(1,5)], "four alternative designs changed")
     for x in alts:
-        require(type(x) is dict and set(x) == {"id","title","status","selected"}
+        require(type(x) is dict and set(x) == {"id","title","status","selected","tradeoffs"}
                 and x["selected"] is False and x["status"] == "RESEARCH_ONLY_UNSELECTED",
                 "unapproved empirical architecture selected")
     qq = p["questions"]
