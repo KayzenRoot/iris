@@ -47,11 +47,11 @@ jobs:
               ):
                   text = text.replace(old, new)
               text = re.sub(r"(?<![A-Za-z])HIVE(?![A-Za-z])", "IRIS", text)
-              text = re.sub(r"HIVE(?=[A-Z])", "IRIS", text)
+              text = re.sub(r"(?<![A-Za-z])HIVE(?=[A-Z])", "IRIS", text)
               text = re.sub(r"(?<![A-Za-z])Hive(?![A-Za-z])", "IRIS", text)
-              text = re.sub(r"Hive(?=[A-Z])", "Iris", text)
+              text = re.sub(r"(?<![A-Za-z])Hive(?=[A-Z])", "Iris", text)
               text = re.sub(r"(?<![A-Za-z])hive(?![A-Za-z])", "iris", text)
-              text = re.sub(r"hive(?=[A-Z])", "iris", text)
+              text = re.sub(r"(?<![A-Za-z])hive(?=[A-Z])", "iris", text)
               return text
 
           rewritten = 0
@@ -82,7 +82,7 @@ jobs:
               path.rename(target)
               renamed += 1
 
-          token = re.compile(r"(?i)(?<![A-Za-z])hive(?![A-Za-z])|(?i:hive)(?=[A-Z])")
+          token = re.compile(r"(?i)(?<![A-Za-z])hive(?![A-Za-z])|(?i)(?<![A-Za-z])hive(?=[A-Z])")
           bad = []
           for path in root.rglob("*"):
               if not path.is_file() or any(part in skip_dirs for part in path.parts):
