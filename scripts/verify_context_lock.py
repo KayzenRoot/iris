@@ -206,6 +206,15 @@ def verify_dependabot_action_pin(
     require(old_match.group(2) != new_match.group(2), "dependabot action SHA must actually change")
 
 
+def require_residual_cleanup_pair(changed_locks: list[str]) -> None:
+    """Historical renamed lock may change only with the exact residual-cleanup lock."""
+    if ORIGINAL_RENAMED_HISTORY_LOCK in changed_locks:
+        require(
+            RESIDUAL_CLEANUP_LOCK in changed_locks,
+            "historical lock may change only with residual cleanup lock",
+        )
+
+
 def verify_exact_historical_context_key_rename(original: bytes, current: bytes) -> None:
     """Pure one-time proof: only two legacy metadata keys may change, no values."""
     prior = original.decode("utf-8")
@@ -247,6 +256,7 @@ def verify_current_pr(
         )
         return [DEPENDABOT_PIN_ONLY]
     require(bool(changed_locks), "PR must change at least one governed Context Lock")
+    require_residual_cleanup_pair(changed_locks)
     # WO0067 is a one-time repository-wide namespace migration. Historical locks
     # are data being deterministically renamed, not newly authored authority.
     # The new WO0067 lock still binds the exact original base and the complete

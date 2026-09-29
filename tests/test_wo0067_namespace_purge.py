@@ -60,12 +60,19 @@ class NamespacePurgeTests(unittest.TestCase):
 
     def test_05_historical_key_change_refuses_other_modifications(self):
         """Additional mutation or mismatched owner evidence is never silently allowed."""
-        from scripts.verify_context_lock import ContextLockError, verify_exact_historical_context_key_rename
+        from scripts.verify_context_lock import (ContextLockError, ORIGINAL_RENAMED_HISTORY_LOCK, RESIDUAL_CLEANUP_LOCK, require_residual_cleanup_pair, verify_exact_historical_context_key_rename)
         alias = LEGACY_TOKEN.capitalize()
         original = ('{"pinned' + alias + 'Commit":"original","pinned' + alias + 'ProjectState":"READY"}').encode()
         with self.assertRaises(ContextLockError):
             verify_exact_historical_context_key_rename(
                 original, b'{"pinnedFormerContextCommit":"CHANGED","pinnedFormerContextProjectState":"READY"}')
+        with self.assertRaisesRegex(ContextLockError, "historical lock may change only with residual cleanup lock"):
+            require_residual_cleanup_pair([ORIGINAL_RENAMED_HISTORY_LOCK])
+        self.assertIsNone(
+            require_residual_cleanup_pair(
+                [ORIGINAL_RENAMED_HISTORY_LOCK, RESIDUAL_CLEANUP_LOCK]
+            )
+        )
 
 
 if __name__ == "__main__":
