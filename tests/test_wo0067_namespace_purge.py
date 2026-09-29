@@ -50,5 +50,23 @@ class NamespacePurgeTests(unittest.TestCase):
                 self.assertIsNone(LEGACY_PATTERN.search(neutral))
 
 
+    def test_04_historical_key_change_is_exact_and_value_preserving(self):
+        """Only two old metadata keys can change, never old source values or proofs."""
+        from scripts.verify_context_lock import verify_exact_historical_context_key_rename
+        alias = LEGACY_TOKEN.capitalize()
+        original = ('{"pinned' + alias + 'Commit":"original","pinned' + alias + 'ProjectState":"READY"}').encode()
+        current = b'{"pinnedFormerContextCommit":"original","pinnedFormerContextProjectState":"READY"}'
+        self.assertIsNone(verify_exact_historical_context_key_rename(original, current))
+
+    def test_05_historical_key_change_refuses_other_modifications(self):
+        """Additional mutation or mismatched owner evidence is never silently allowed."""
+        from scripts.verify_context_lock import ContextLockError, verify_exact_historical_context_key_rename
+        alias = LEGACY_TOKEN.capitalize()
+        original = ('{"pinned' + alias + 'Commit":"original","pinned' + alias + 'ProjectState":"READY"}').encode()
+        with self.assertRaises(ContextLockError):
+            verify_exact_historical_context_key_rename(
+                original, b'{"pinnedFormerContextCommit":"CHANGED","pinnedFormerContextProjectState":"READY"}')
+
+
 if __name__ == "__main__":
     unittest.main()

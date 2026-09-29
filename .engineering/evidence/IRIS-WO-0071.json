@@ -4,7 +4,7 @@
   "issue": 190,
   "baseSha": "6d0f6c6f4fe4ac254f13d690ddf19f7ce85b14a8",
   "baseTreeSha": "f731e9309e499b0ef31d827992208f3a289a54ed",
-  "originalPinnedSources": 13,
+  "originalPinnedSources": 17,
   "sourceAnchor": {
     "path": ".engineering/context-locks/IRIS-WO-0070-LEGACY-BRANCH-REF-RETIREMENT-C.json",
     "gitBlobSha1": "b2561fc2fea7817f932d335221180c997db54d53"
@@ -17,6 +17,7 @@
     ".engineering/evidence/IRIS-WO-0071.json",
     ".engineering/work-orders/IRIS-WO-0071-RESIDUAL-CONTEXT-CLEANUP.md",
     "planning/checkpoints/IRIS-WO-0071-RESIDUAL-CONTEXT-CLEANUP.md",
+    "scripts/verify_context_lock.py",
     "tests/test_wo0066_iris_retirement.py",
     "tests/test_wo0067_namespace_purge.py"
   ],
@@ -40,9 +41,13 @@
   "localPcUninstalled": false,
   "ownerGatesUnchanged": true,
   "expectedFocusedNewTests": 1,
-  "expectedFullSuite": "BASE_FULL_SUITE_PLUS_ONE_TEST_NOT_PRECLAIMED",
+  "expectedFullSuite": "BASE_FULL_SUITE_PLUS_THREE_TESTS_NOT_PRECLAIMED",
   "ownHeadGovernance": "PENDING",
   "ownCodeRabbit": "PENDING",
   "ownProtectedSquash": "PENDING",
-  "ownExactNewMain": "PENDING"
+  "ownExactNewMain": "PENDING",
+  "originalVerifierGitBlob": "252840437e31ead839ca020700b84f1a522586d4",
+  "oneTimeHistoricalLockGuard": "Strictly binds owner+same repo+exact original base SHA, permits ONLY exact two former vendor metadata key renames byte-for-byte and preserves original snapshot values; all other altered Context Locks remain independently validated.",
+  "newFocusedTests": 3,
+  "firstHeadGateFailure": "Original existing historic lock was incorrectly treated as newly authored PR authority; this exact-base metadata-only guard proves it is a harmless historical two-key rename and never grants new owner/runtime authority."
 }
