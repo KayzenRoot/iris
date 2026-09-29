@@ -100,7 +100,7 @@
     },
     {
       "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+      "gitBlobSha1": "4a5f384271504365701bdd685455d93984617f21"
     },
     {
       "path": "planning/contracts/M09-READ-ONLY-EVIDENCE-HANDOFF-CANDIDATE.md",
@@ -108,19 +108,19 @@
     },
     {
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+      "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b"
     },
     {
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+      "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037"
     },
     {
       "path": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
-      "gitBlobSha1": "1e5898f36b49e71f28eb18eb9582d48de60a58b4"
+      "gitBlobSha1": "17064850e8d3cb15685d26499b75177f19e45252"
     },
     {
       "path": "planning/compatibility/M09-HANDOFF-C02-FORWARD-COMPATIBILITY-SCAN.md",
-      "gitBlobSha1": "ab65953a29d30819133b7fedc7193f12cae8eb47"
+      "gitBlobSha1": "a292071036da0a3167e13832f9d1206cfdb75040"
     },
     {
       "path": "planning/reviews/M09-HANDOFF-C02-FREEZE-READINESS-REVIEW.md",
@@ -128,15 +128,15 @@
     },
     {
       "path": "planning/reviews/M11-C08-M09-SOURCE-READINESS-AND-C06-CORRECTION.md",
-      "gitBlobSha1": "c03655c2bb5b1006636f07c60659c960eb559d15"
+      "gitBlobSha1": "33bba6a844ee9d72429a2b89e05719dfb27ef96a"
     },
     {
       "path": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "gitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae"
+      "gitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740"
     },
     {
       "path": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "gitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392"
+      "gitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b"
     },
     {
       "path": "iris_resource_twin/recovery.py",
@@ -164,11 +164,11 @@
     },
     {
       "path": ".engineering/evidence/M11-C08-M09-READINESS-AND-CASE-SPLIT.json",
-      "gitBlobSha1": "bb184ea7373dd40b768cb54d6aa11f8656d26b33"
+      "gitBlobSha1": "4b589e5e4f2b017c32bd4cda8e5c22d3455a1686"
     },
     {
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+      "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220"
     },
     {
       "path": "AGENTS.md",

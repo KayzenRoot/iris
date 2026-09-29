@@ -52,11 +52,11 @@
     },
     {
       "path": "planning/contracts/M03-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "66616ac94f9e4d02b680e9dc4e4f8a8fce21d34a"
+      "sha": "bb640aaa1711e1c0b939769d579e887029bcbd17"
     },
     {
       "path": "planning/modules/M03-CREATIVE-BRIEF-INTENT-CONSTRAINT-COMPILER.md",
-      "sha": "05c3b82e8bae88d9a82fe1a2ddb1ef09f5729f8f"
+      "sha": "1a39ec00ebdb4fd1f40aad135e7712cf918a28d9"
     },
     {
       "path": "planning/reviews/M03-FINAL-TECHNOLOGY-REVIEW.md",
@@ -64,11 +64,11 @@
     },
     {
       "path": "planning/compatibility/M03-FORWARD-COMPATIBILITY-SCAN.md",
-      "sha": "9c05ca036d1465138bf652a6bce580e294810524"
+      "sha": "0fc4a84d607f3ef7342f5081c98be87de2921e46"
     },
     {
       "path": "planning/technology-registry/M03-TECHNOLOGIES.md",
-      "sha": "d6fea3f85327bd4e72d8075181f3774230921344"
+      "sha": "e0c31e3dc218b4647bc74cbba4591fad8d6520e8"
     },
     {
       "path": "iris_quality/contracts.py",
@@ -97,7 +97,7 @@
     "Scene/Character/Asset/Camera/Material IR implementation",
     "Hardware discovery/VRAM/worker scheduling",
     "Production database/CAS/distributed storage",
-    "Real HIVE retrieval or runtime mutation",
+    "Real IRIS retrieval or runtime mutation",
     "Rights/legal/C2PA/security/RBAC engine implementation",
     "Real image/video/3D/audio judges",
     "Actual publishing/export APIs",
@@ -109,7 +109,7 @@
       "version": "1.0.0",
       "sha": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
     },
-    "hive": {
+    "iris": {
       "version": "1.0.0",
       "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
     }

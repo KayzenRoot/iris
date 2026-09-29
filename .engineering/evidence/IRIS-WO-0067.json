@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "iris-namespace-purge-evidence-v1",
+  "workOrder": "IRIS-WO-0067",
+  "issue": 191,
+  "originalMain": "95d58dd7a3b1275f4aaff4f147f2be852ecad588",
+  "userDirective": "REMOVE_ALL_LEGACY_CONTEXT_PRODUCT_NAMESPACE_REFERENCES",
+  "transformedFilesReported": 265,
+  "renamedEntriesReported": 8,
+  "oneShotTransformRun": 36514407945,
+  "oneShotTransformJob": 109233393797,
+  "namespaceVerifier": "TOKEN_AWARE_NO_SUBSTRING_FALSE_POSITIVES",
+  "localExternalRuntimeRequired": false,
+  "ownerRuntimeGatesUnchanged": true,
+  "exactHeadGovernance": "PENDING_AFTER_FIXED_POINT",
+  "finalExternalReview": "PENDING",
+  "protectedMerge": "PENDING",
+  "exactNewMain": "PENDING",
+  "hashReconciliationRun": 36514906850,
+  "hashReconciliationJob": 109235277404,
+  "hashReconciliationIterations": 16,
+  "hashReferenceFileUpdates": 682,
+  "hashReconciliationCommit": "9a5c8214369ef9a9842e9c2b0143616867ddd586"
+}

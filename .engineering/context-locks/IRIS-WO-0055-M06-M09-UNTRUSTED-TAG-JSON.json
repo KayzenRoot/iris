@@ -73,7 +73,7 @@
     },
     {
       "path": "planning/modules/M06-PRODUCTION-STATE-VERSIONING-INCREMENTAL-MEDIA-BUILD.md",
-      "gitBlobSha1": "a888a60eb54037b82f3f6c3576d756f4f688123a"
+      "gitBlobSha1": "d0710219e3038e89b19e5936243bc5b392eb3c42"
     },
     {
       "path": "planning/modules/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
@@ -113,11 +113,11 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0054-M07-UNTRUSTED-TAG-TYPES.json",
-      "gitBlobSha1": "1ab7f67420442c8f625d480a422bb8dda8ea3c7a"
+      "gitBlobSha1": "610441f670648336891a2f8b91c2353ab61ced85"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0054.json",
-      "gitBlobSha1": "1c0e0b50934706a2b44a9ac62c2770f0cb66a3ef"
+      "gitBlobSha1": "49c72191aeb1ef010054bcac635d3eb60cb2aa7f"
     }
   ],
   "authorizedChangedFiles": [

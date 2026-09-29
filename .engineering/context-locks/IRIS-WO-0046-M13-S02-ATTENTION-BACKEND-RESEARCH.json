@@ -66,15 +66,15 @@
     },
     {
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+      "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220"
     },
     {
       "path": "planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md",
-      "gitBlobSha1": "7701c1e744d2b459d2f6bb4fa754352374fb67fd"
+      "gitBlobSha1": "6ef2485c557f5523871db34cd154b1da66699fde"
     },
     {
       "path": ".engineering/evidence/M13-S01-SOURCE-RESEARCH.json",
-      "gitBlobSha1": "ee65b960ca7e4f83f5419ec744f4c1f304edb6d7"
+      "gitBlobSha1": "5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0"
     },
     {
       "path": "scripts/verify_m13_s01_research.py",
@@ -86,15 +86,15 @@
     },
     {
       "path": "docs/M01-QUALITY-KERNEL.md",
-      "gitBlobSha1": "930af57944fa83c44745873c42eb3a7740972ee6"
+      "gitBlobSha1": "df4f899ad414c47ad379f26fe1782edb6f43cf6f"
     },
     {
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+      "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b"
     },
     {
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+      "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037"
     },
     {
       "path": "docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
@@ -114,7 +114,7 @@
     },
     {
       "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+      "gitBlobSha1": "4a5f384271504365701bdd685455d93984617f21"
     },
     {
       "path": "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
@@ -122,7 +122,7 @@
     },
     {
       "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
-      "gitBlobSha1": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb"
+      "gitBlobSha1": "8877331a5004a3e816e4c42fb521ff3408bad08a"
     }
   ],
   "authorizedChangedFiles": [

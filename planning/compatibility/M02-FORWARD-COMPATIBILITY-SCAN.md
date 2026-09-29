@@ -157,12 +157,12 @@ M02 owns:
 
 **Required port:** `RepairProvider`.
 
-## M52 — HIVE memory/context
+## M52 — IRIS memory/context
 
 M02 owns Context Fingerprint contract only.
 M52 owns actual retrieval, minimum sufficient context and stale-context invalidation.
 
-HIVE remains derived memory; it does not own project state.
+IRIS remains derived memory; it does not own project state.
 
 ## M53 — Rights / Provenance / Consent
 
@@ -237,7 +237,7 @@ These are contracts, not implementations.
 - branch = variant conflation: **avoided**;
 - stochastic = deterministic conflation: **avoided**;
 - duplicate M06 ownership: **bounded by explicit ownership rule**;
-- HIVE becoming canonical state: **avoided**;
+- IRIS becoming canonical state: **avoided**;
 - agent self-approval: **avoided**;
 - external publish blind retry: **avoided**;
 - persona identity drifting through ordinary variants: **guarded**.

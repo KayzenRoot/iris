@@ -59,7 +59,7 @@ Independently checked 26 distinct M11-I01..I26 candidate invariant identifiers a
 
 - M12–M60: 49/49 INDEX_ONLY and PENDING_OWNER_CONTRACT; severity/risk UNRATED because individual contracts are missing. Revisit each on its own canonical contract; do not mark zero overall HIGH/CRITICAL or block an inert semantic boundary merely because headings exist.
 - S04-U01..U21/S05-U01..U23: 44/44 still OPEN and verbatim in candidate C01. S01–S03 unresolved questions remain referenced in their original research files. No claim that all 44 require a new runtime policy now; resolve the M11-owned positive freeze-safety core and preserve others as explicit owner-dependent STOP conditions.
-- HIVE registered state was stale during scan; GEF/HIVE CI bridge success establishes only pinned-bridge test success, never current derived project authority.
+- IRIS registered state was stale during scan; GEF/IRIS CI bridge success establishes only pinned-bridge test success, never current derived project authority.
 
 ## 6. Minimal safe correction path
 

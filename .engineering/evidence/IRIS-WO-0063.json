@@ -9,7 +9,7 @@
   "inheritedBaseManifestPins": 22,
   "sourceManifestAnchor": {
     "path": ".engineering/context-locks/IRIS-WO-0062-WO0061-CANONICAL-CLOSEOUT.json",
-    "gitBlobSha1": "beffaca1a8cc2bf76eff067ccdfa5b8703de7e4b"
+    "gitBlobSha1": "4356b09d347af51cb4bb07745b27170a173f3131"
   },
   "authorizedChangedPaths": [
     ".engineering/CHECKPOINT.json",

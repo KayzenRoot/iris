@@ -22,7 +22,7 @@ This is a post-authoring documentation and scope audit for the S01 session propo
 - M06 operational revision/materialization and the future M11/M12 ExecutionAttemptPort remain authoritative; no mapping or payload semantics were invented.
 - M09 keeps resource truth and lease ownership; M10 stays advisory and cannot dispatch or control workers.
 - Windows Job Objects, Linux pidfds, Python subprocess, and systemd are described as PROPOSED candidates with platform-specific risks, not selected technologies.
-- IRIS bootstrap subprocess use is limited to one-shot tooling calls; UGAS/HIVE/CORE supervisor reuse remains unverified.
+- IRIS bootstrap subprocess use is limited to one-shot tooling calls; UGAS/IRIS/CORE supervisor reuse remains unverified.
 - S02–S05, M12–M60 missing owner-contract details, and the final M11 contract remain pending.
 - The exact proposal changes four documentation/evidence paths and changes no runtime, test, or script path.
 - No real process, worker, provider, resource reservation, or hardware measurement was involved.

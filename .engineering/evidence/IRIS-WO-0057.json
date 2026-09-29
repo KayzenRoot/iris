@@ -36,7 +36,7 @@
   "newLocalOfflineTests": 10,
   "fullSuiteExpected": 4598,
   "frozenContractOrSchemaChanged": false,
-  "hiveMcp": "UNAVAILABLE_CURRENT_EXECUTION_ENVIRONMENT",
+  "irisMcp": "UNAVAILABLE_CURRENT_EXECUTION_ENVIRONMENT",
   "actualOriginalQualifiedOwnerProof": false,
   "actualM08GpuOsEmpiricalEvidence": false,
   "nativeRuntime": "NOT_ADMITTED",

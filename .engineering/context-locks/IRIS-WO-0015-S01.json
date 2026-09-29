@@ -49,15 +49,15 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0013.json",
-      "gitBlobSha1": "279e4e3db9d5c5621cd1288174c926d0ebe91c88"
+      "gitBlobSha1": "6e95b8b924c653e8c121646ec2601aa6a5557b3a"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0014.json",
-      "gitBlobSha1": "098473531b7ca06a0a0588e5afb246f6ab0dccbf"
+      "gitBlobSha1": "913f0d03d7c7f0e81a67dd3567552ce53361678a"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0013.json",
-      "gitBlobSha1": "5b4479d95e677da62b57c882a82c75f8305597e8"
+      "gitBlobSha1": "6d59872c1076cc3600ca6b1f4487a7fb45f0ad1d"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0014.json",
@@ -77,7 +77,7 @@
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0014-M10-IMPLEMENTATION-PROPOSAL.md",
-      "gitBlobSha1": "afbb84ad59baa989a28ffdcae15c9fe1261ac60e"
+      "gitBlobSha1": "4e0d7aa1efe965ec1fdfca8fc6920ea21b63112d"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0014-M10-PREFLIGHT-CRITERIA.md",
@@ -89,7 +89,7 @@
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0015-PREFLIGHT-CRITERIA.md",
-      "gitBlobSha1": "8f05692cdbe085a46f31e159fb103331ac87daad"
+      "gitBlobSha1": "77045b65bfca4698a611ee6ab442ad43059f2044"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/work-order.yml",
@@ -105,11 +105,11 @@
     },
     {
       "path": "docs/M02-PROJECT-OS-KERNEL.md",
-      "gitBlobSha1": "3301fe6b185fc3315aeb28074834850edc176728"
+      "gitBlobSha1": "1f5c6b853a460654c918aead9c564c5c837c8b74"
     },
     {
       "path": "docs/M06-PRODUCTION-STATE-KERNEL.md",
-      "gitBlobSha1": "50c4fe85d03e4f8bb272c550d86f5f242d7a7a4b"
+      "gitBlobSha1": "34455d00abf026c5e52f5fb256247b860ceadc49"
     },
     {
       "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
@@ -173,31 +173,31 @@
     },
     {
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+      "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220"
     },
     {
       "path": "planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md",
-      "gitBlobSha1": "1e5898f36b49e71f28eb18eb9582d48de60a58b4"
+      "gitBlobSha1": "17064850e8d3cb15685d26499b75177f19e45252"
     },
     {
       "path": "planning/compatibility/M10-FORWARD-COMPATIBILITY-SCAN.md",
-      "gitBlobSha1": "0678e44b94f7a48c8f85b11d74ee7c119fdf40ca"
+      "gitBlobSha1": "ead8c3a1ee8d4d8cedbc76551a56dd204cad6cca"
     },
     {
       "path": "planning/contracts/M01-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "8120dbf2d95cc0fd85f31e772e0b60a7c40d6442"
+      "gitBlobSha1": "48e00ca6ec3da8a5185fa49ccad37f14b6a5926a"
     },
     {
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+      "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b"
     },
     {
       "path": "planning/contracts/M03-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "66616ac94f9e4d02b680e9dc4e4f8a8fce21d34a"
+      "gitBlobSha1": "bb640aaa1711e1c0b939769d579e887029bcbd17"
     },
     {
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+      "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037"
     },
     {
       "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
@@ -221,7 +221,7 @@
     },
     {
       "path": "planning/reviews/IRIS-WO-0014-M11-M60-OWNER-DEPENDENCY-REGISTER.md",
-      "gitBlobSha1": "9112422bdb6cc0b7a0309bc20366285a76921c98"
+      "gitBlobSha1": "47f26f587b0eaa2aaa20c458bd9e02b13a61939f"
     },
     {
       "path": "planning/reviews/M09-FINAL-TECHNOLOGY-REVIEW.md",
@@ -294,12 +294,12 @@
     ]
   },
   "internalReuse": {
-    "repositorySearch": "Narrow one-shot subprocess calls in scripts/hive_mcp.py and scripts/gef_preflight.py only; no supervisor reuse established.",
-    "UGAS_HIVE_CORE": "UNVERIFIED; no authoritative UGAS/CORE source and no HIVE MCP connector in active Work Mode."
+    "repositorySearch": "Narrow one-shot subprocess calls in scripts/iris_mcp.py and scripts/gef_preflight.py only; no supervisor reuse established.",
+    "UGAS_IRIS_CORE": "UNVERIFIED; no authoritative UGAS/CORE source and no IRIS MCP connector in active Work Mode."
   },
   "environment": {
-    "hiveMcpAvailable": false,
-    "hiveEvidence": "NOT_USED; unavailable in active Work Mode; no HIVE-derived claims; Git is canonical."
+    "irisMcpAvailable": false,
+    "irisEvidence": "NOT_USED; unavailable in active Work Mode; no IRIS-derived claims; Git is canonical."
   },
   "runtimeOrTestFilesAuthorized": false,
   "stopConditions": [

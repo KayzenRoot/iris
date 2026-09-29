@@ -27,25 +27,25 @@
     {
       "role": "INDEX",
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970",
+      "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "exactNeedle": "### M13 — Performance, Cache & Execution Efficiency"
     },
     {
       "role": "M01",
       "path": "docs/M01-QUALITY-KERNEL.md",
-      "gitBlobSha1": "930af57944fa83c44745873c42eb3a7740972ee6",
+      "gitBlobSha1": "df4f899ad414c47ad379f26fe1782edb6f43cf6f",
       "exactNeedle": "Frozen contract: `m01-contract-v1.0`"
     },
     {
       "role": "M02",
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+      "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
       "exactNeedle": "cache/warm-state loss changes performance, not production truth;"
     },
     {
       "role": "M06",
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+      "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
       "exactNeedle": "Digest equality proves byte equality under the declared digest domain only."
     },
     {
@@ -75,7 +75,7 @@
     {
       "role": "M11",
       "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48",
+      "gitBlobSha1": "4a5f384271504365701bdd685455d93984617f21",
       "exactNeedle": "Status: PROPOSED_C02_CORRECTION_NOT_FROZEN"
     },
     {
@@ -87,7 +87,7 @@
     {
       "role": "D01",
       "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
-      "gitBlobSha1": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb",
+      "gitBlobSha1": "8877331a5004a3e816e4c42fb521ff3408bad08a",
       "exactNeedle": "B_FUTURE_OWNER_RECEIPT"
     }
   ],

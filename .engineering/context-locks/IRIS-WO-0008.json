@@ -37,7 +37,7 @@
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0008-M04-MULTIMODAL-IR.md",
-      "sha": "83191fda606f5c7d6065bdf4079ea02ecd4bfe07"
+      "sha": "af173d90092cfb10bb4e8e196c2bc71536ca6516"
     },
     {
       "path": "docs/project-brain/02-REQUIREMENTS.md",
@@ -69,7 +69,7 @@
     },
     {
       "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "c4b39c03f86f7a8e112d22a25ca91169c02c5e4d"
+      "sha": "c84c6645a84e1fa41ace5e627411bf953fc77dc5"
     },
     {
       "path": "planning/modules/M04-MULTIMODAL-SCENE-IR.md",
@@ -81,7 +81,7 @@
     },
     {
       "path": "planning/compatibility/M04-FORWARD-COMPATIBILITY-SCAN.md",
-      "sha": "1a32387ad2bf338968cedfceea12d57e60bcb48e"
+      "sha": "b4234b2ce22928b471ec3439ac3bd5606f339448"
     },
     {
       "path": "planning/technology-registry/M04-TECHNOLOGIES.md",
@@ -97,7 +97,7 @@
     },
     {
       "path": "iris_intent/ports.py",
-      "sha": "c117889cfd9ed775360a453dafff7e6efa344967"
+      "sha": "421500df917d8c43c3f9f50f43923dd8958f669c"
     },
     {
       "path": "iris_intent/execution.py",

@@ -121,7 +121,7 @@
       "command": "python scripts/validate_governance.py",
       "result": "PASS",
       "gef": "v1.0.0 @ 866fe3af8cccc65c929aaf6a47a924401fa448b3",
-      "hive": "v1.0.0 @ a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
+      "iris": "v1.0.0 @ a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
       "requiredArtifacts": 35
     },
     "invariantSurfaceAndComponentValidator": {
@@ -264,7 +264,7 @@
     "The CPU reference path measures only allowlisted SHA-256 throughput/latency for exact caller-supplied fixture bytes. It does not discover hardware facts; exact non-synthetic M07 provenance remains caller/M07 authority.",
     "No GPU, video/image codec, 3D, audio, provider/model SDK, sustained CPU, provider workflow or device execution is available; those paths return UNSUPPORTED/UNAVAILABLE without simulated measurements.",
     "Persistence/CAS, production resource control, quality judges, rights/security engines and release decisions remain deferred by scope.",
-    "HIVE MCP did not have IRIS registered during preflight, so no IRIS-specific HIVE context evidence is claimed."
+    "IRIS MCP did not have IRIS registered during preflight, so no IRIS-specific IRIS context evidence is claimed."
   ],
   "checkpointDelta": {
     "status": "PROMOTED_IN_RECONCILIATION",

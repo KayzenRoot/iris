@@ -14,9 +14,9 @@ PINS={
     "iris_resource_twin/leases.py":"5757d15156d62ac8cc49a1763eba62b944af52d9",
     "iris_resource_twin/model.py":"e64228e6a58b787ee107da8e737dd640ad4dad56",
     "tests/m09_support.py":"63a0e77f623afdc350a602d9ffd2fc93b4f52fd8",
-    "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md":"a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
-    "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md":"18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
-    "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md":"41ab89727c7be14e35e2481aefbd97a0cb81cb48",
+    "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md":"a36fd73c03f06b7558f850a2ad515a0df37c243b",
+    "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md":"d6778684e0c34e55d05ddc06cf5aa47fe347c037",
+    "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md":"4a5f384271504365701bdd685455d93984617f21",
 }
 
 def read(path):

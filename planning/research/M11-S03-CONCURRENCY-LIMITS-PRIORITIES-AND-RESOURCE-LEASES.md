@@ -195,8 +195,8 @@ S01 proposed CAND-M11-001 (reference-only work/attempt/process association); S02
 ## Internal reuse
 
 - iris_resource_twin/leases.py proves that IRIS contains an in-process LeaseBook for M09 resource/lease semantics. It does not prove that the object can coordinate independent OS processes, multiple supervisors or remote hosts, and S03 does not extend it.
-- scripts/gef_preflight.py and scripts/hive_mcp.py contain narrow one-shot subprocess use; they do not prove a reusable worker fabric, queue, process-wide concurrency controller or lease coordinator.
-- UGAS, HIVE and CORE supervisor or resource-coordination reuse remains UNVERIFIED. The HIVE project is offline in this environment and its MCP checkpoint response was not current. No HIVE-derived statement is used.
+- scripts/gef_preflight.py and scripts/iris_mcp.py contain narrow one-shot subprocess use; they do not prove a reusable worker fabric, queue, process-wide concurrency controller or lease coordinator.
+- UGAS, IRIS and CORE supervisor or resource-coordination reuse remains UNVERIFIED. The IRIS project is offline in this environment and its MCP checkpoint response was not current. No IRIS-derived statement is used.
 
 ## Pending owner register
 
@@ -212,7 +212,7 @@ The exhaustive M11–M60 dependency register marks every individual owner contra
 | M16–M19 | Workflow/provider queue and runtime boundaries, acquisition/integrity, model/workload capabilities and related invalidation signals. |
 | M26 | Supported Blender/DCC version, background process and resource semantics, adapter boundary. |
 | M51 | Benchmark ownership, workload corpus, repeatability and acceptance of resource/fairness evidence. |
-| M52 | Any future HIVE context handoff; none is used as authority in this session. |
+| M52 | Any future IRIS context handoff; none is used as authority in this session. |
 | M54 | Principal, authentication/authorization, sandbox, environment, secret handling and trust in priority or lease references. |
 | M56 | Event and correlation identity, queue/worker telemetry, freshness, logging, redaction and retention. |
 | M57–M58 | Automation authorization/stop conditions and any public API/SDK/MCP projection. |

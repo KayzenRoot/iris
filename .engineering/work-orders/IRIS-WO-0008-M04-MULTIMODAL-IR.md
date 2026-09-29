@@ -185,7 +185,7 @@ No arbitrary token-saving percentage may be claimed without benchmark evidence.
 - video editing/compositing/encoding;
 - real M01/M48 quality judges;
 - rights/security engines;
-- HIVE retrieval implementation;
+- IRIS retrieval implementation;
 - publishing/export/delivery execution;
 - M05 or any later module implementation.
 
@@ -233,7 +233,7 @@ If a new dependency is genuinely required, STOP `BLOCKED_DEPENDENCY_DECISION`.
 - M06/M55 own persistence/storage locations.
 - M16 solely owns concrete provider/workflow compilation.
 - M28/M31/M36/M38/M40-M43/M48 retain their frozen domain-operation authorities.
-- HIVE/agents may propose/derive context but cannot directly mutate canonical M04 truth.
+- IRIS/agents may propose/derive context but cannot directly mutate canonical M04 truth.
 
 ### Closed runtime
 The semantic kernel MUST NOT perform:

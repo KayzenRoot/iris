@@ -35,7 +35,7 @@
   "newLocalOfflineTests": 22,
   "fullSuiteExpected": 4620,
   "frozenContractOrSchemaChanged": false,
-  "hiveMcp": "UNAVAILABLE_CURRENT_EXECUTION_ENVIRONMENT",
+  "irisMcp": "UNAVAILABLE_CURRENT_EXECUTION_ENVIRONMENT",
   "actualIndependentQualifiedOriginalOwnerProof": false,
   "nativeRuntime": "NOT_ADMITTED",
   "b": "DIRECTION_ONLY",

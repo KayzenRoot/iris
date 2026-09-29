@@ -19,11 +19,11 @@
   "criticalSources": [
     {
       "path": ".engineering/work-orders/IRIS-WO-0011-M07-HARDWARE-GENOME.md",
-      "sha": "36371c1289285e7802d381d19042f8e11353acdb"
+      "sha": "ec20f05f451bcfc80c9171f95fe2b0899d29541f"
     },
     {
       "path": "planning/modules/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
-      "sha": "d5006fef0643fc0c3c8a7a015d4288dda58b89ec"
+      "sha": "9306e4937ccfb433ff4a0392846aa215ffd6e2a0"
     },
     {
       "path": ".engineering/SOURCE-HIERARCHY.md",
@@ -98,7 +98,7 @@
   "reconciliation": {
     "reason": "CHAT_FIXABLE: Work Order was promoted after the original self-fingerprint was captured, and canonical checkpoint still described the already-completed planning reconciliation.",
     "staleExecutorFinding": "STALE_CONTEXT before product code; 10/11 fingerprints matched; Work Order self-fingerprint mismatched; checkpoint wording stale.",
-    "correctedWorkOrderSha": "36371c1289285e7802d381d19042f8e11353acdb",
+    "correctedWorkOrderSha": "ec20f05f451bcfc80c9171f95fe2b0899d29541f",
     "correctedCheckpointSha": "01d46e90cb90b1da9be9b0e16735acc80a832905",
     "priorAdmissionHead": "5ccd124072abbd0c919530eb07a8eda5eba7eca7",
     "priorAdmissionGovernance": {

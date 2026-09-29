@@ -29,7 +29,7 @@ Post-authoring review of the S04 proposal's merged evidence and the separate che
 - The Scope, Backlog, Work Order, M11 session map, S04 research record and evidence bundle agree on PR #92, both Governance gates, the proposed 77-source closeout binding and the S05 stop boundary.
 - M02, M06, M09 and frozen M10 authority is preserved. No process architecture, process-control rule, shell policy, executable policy, environment rule, M11 contract or implementation admission is selected. S04-U01 through S04-U21 remain unresolved.
 - M11 remains NOT_FROZEN; M11/M10 implementation remains NOT_ADMITTED; M10 contract m10-contract-v1.0 remains FROZEN; WO-0014 remains BLOCKED; Issue #82 remains open.
-- HIVE v1.0.0 is pinned at a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf. The IRIS HIVE context was on stale source head 2432cfe29a501e18a1cdf8a46adc49cd42fdfba0; checkpoint.read returned source_not_current and the attempted context.build request was rejected as invalid arguments. No HIVE-derived evidence is used.
+- IRIS v1.0.0 is pinned at a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf. The IRIS IRIS context was on stale source head 2432cfe29a501e18a1cdf8a46adc49cd42fdfba0; checkpoint.read returned source_not_current and the attempted context.build request was rejected as invalid arguments. No IRIS-derived evidence is used.
 - The changes are limited to documentation, checkpoint metadata, Context Lock and evidence. No runtime, test, script, validator or workflow path changed; no runtime or process operation occurred.
 
 ## Changed paths

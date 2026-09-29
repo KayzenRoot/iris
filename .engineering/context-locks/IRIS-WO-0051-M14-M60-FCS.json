@@ -66,23 +66,23 @@
     },
     {
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+      "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220"
     },
     {
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4"
+      "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b"
     },
     {
       "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "c4b39c03f86f7a8e112d22a25ca91169c02c5e4d"
+      "gitBlobSha1": "c84c6645a84e1fa41ace5e627411bf953fc77dc5"
     },
     {
       "path": "planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "97e8ed228b29c47911e3d3a0ed10ade91f76d723"
+      "gitBlobSha1": "025402c88e2aef606b8c14272a5034d604f7146d"
     },
     {
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+      "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037"
     },
     {
       "path": "planning/research/M02-S04-INCREMENTAL-BUILD-RESEARCH-2026-09-20.md",
@@ -90,7 +90,7 @@
     },
     {
       "path": "docs/M01-QUALITY-KERNEL.md",
-      "gitBlobSha1": "930af57944fa83c44745873c42eb3a7740972ee6"
+      "gitBlobSha1": "df4f899ad414c47ad379f26fe1782edb6f43cf6f"
     },
     {
       "path": "docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
@@ -110,7 +110,7 @@
     },
     {
       "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+      "gitBlobSha1": "4a5f384271504365701bdd685455d93984617f21"
     },
     {
       "path": "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
@@ -118,27 +118,27 @@
     },
     {
       "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
-      "gitBlobSha1": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb"
+      "gitBlobSha1": "8877331a5004a3e816e4c42fb521ff3408bad08a"
     },
     {
       "path": "planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md",
-      "gitBlobSha1": "7701c1e744d2b459d2f6bb4fa754352374fb67fd"
+      "gitBlobSha1": "6ef2485c557f5523871db34cd154b1da66699fde"
     },
     {
       "path": ".engineering/evidence/M13-S01-SOURCE-RESEARCH.json",
-      "gitBlobSha1": "ee65b960ca7e4f83f5419ec744f4c1f304edb6d7"
+      "gitBlobSha1": "5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0"
     },
     {
       "path": "planning/research/M13-S02-COMPILATION-ATTENTION-BACKENDS.md",
-      "gitBlobSha1": "33736cc40214af1ee25586d6c94789d8c0d95739"
+      "gitBlobSha1": "c033ac4696ad4a188ca5605470bf9b29396eb3ad"
     },
     {
       "path": ".engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json",
-      "gitBlobSha1": "2e94983865cf72aa6c5a63510b8a4b41586048c7"
+      "gitBlobSha1": "8ac11eaa91292a81d10de1d44ccd21b5e240a664"
     },
     {
       "path": "scripts/verify_m13_s02_research.py",
-      "gitBlobSha1": "587e61b31ee8b0010a3cb66786db15689d288b02"
+      "gitBlobSha1": "09eaaf4630010c53f9cf1ebca594beea5619df23"
     },
     {
       "path": "tests/test_m13_s02_research.py",
@@ -146,15 +146,15 @@
     },
     {
       "path": "planning/research/M13-S03-INTERMEDIATE-REUSE-GENERATION-DELTA.md",
-      "gitBlobSha1": "96a9952086300a1ae2d46195bd7dc6d50dea06ba"
+      "gitBlobSha1": "fd600eeca5cabd3e367fcbb27f12556830c93bf0"
     },
     {
       "path": ".engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json",
-      "gitBlobSha1": "16737ecbb836b1e0736f4851ce6e0b56b8916bea"
+      "gitBlobSha1": "fe0ea0d3a4b4229f79e19d023c255cc6a0cafdf1"
     },
     {
       "path": "scripts/verify_m13_s03_research.py",
-      "gitBlobSha1": "9c9954536c9064fe579be9be2703e3433bcc974c"
+      "gitBlobSha1": "113f5fcc1f62e39648d88bc408ce082259c1dc01"
     },
     {
       "path": "tests/test_m13_s03_research.py",
@@ -162,15 +162,15 @@
     },
     {
       "path": "planning/research/M13-S04-CPU-GPU-OVERLAP-IO-STORAGE.md",
-      "gitBlobSha1": "f7007adabee9bf15e845c157b6b0d35e37503197"
+      "gitBlobSha1": "cab009ad3e0a380b136f5af5cc902b09481be2a8"
     },
     {
       "path": ".engineering/evidence/M13-S04-OVERLAP-IO-RESEARCH.json",
-      "gitBlobSha1": "363dc19ed3536ad389a36fedbc5101d1d94bfb2d"
+      "gitBlobSha1": "b9b87ac36189c1cabd75989a07920752c23704fd"
     },
     {
       "path": "scripts/verify_m13_s04_research.py",
-      "gitBlobSha1": "9c7689c7a2d38333e789148f2b22d42af263e393"
+      "gitBlobSha1": "12a11e17adcf88f4cfad86d146d5bda13decfeeb"
     },
     {
       "path": "tests/test_m13_s04_research.py",
@@ -178,15 +178,15 @@
     },
     {
       "path": "planning/research/M13-S05-PERFORMANCE-BUDGETS-AND-REGRESSION.md",
-      "gitBlobSha1": "64def227f43bb7ca02ca495871e14d65835dad91"
+      "gitBlobSha1": "b1790dba2a2ccb1644c011d495ef512ede332227"
     },
     {
       "path": ".engineering/evidence/M13-S05-PERFORMANCE-GATES-RESEARCH.json",
-      "gitBlobSha1": "613138430a472367646586645eb5315face35d14"
+      "gitBlobSha1": "ff0cba2138ba1684917414501809dff4193fdd49"
     },
     {
       "path": "scripts/verify_m13_s05_research.py",
-      "gitBlobSha1": "9492d62b0b2c6f70f149ca0fc8f4450784b22633"
+      "gitBlobSha1": "fc274d165990cdb73439609923db650c65a44f2c"
     },
     {
       "path": "tests/test_m13_s05_research.py",
@@ -194,15 +194,15 @@
     },
     {
       "path": "planning/reviews/M13-FINAL-TECHNOLOGY-REVIEW-DOCUMENTARY.md",
-      "gitBlobSha1": "c37f46ee3a7b7c6420fd962df254d334e0ba137e"
+      "gitBlobSha1": "a704684ece3cd28969e93eb2eb56d5efb995ad55"
     },
     {
       "path": ".engineering/evidence/M13-FTR-DOCUMENTARY-RECONCILIATION.json",
-      "gitBlobSha1": "9b20be372c58bfbc6561963ad0e9c2a33461526d"
+      "gitBlobSha1": "c0150ad80ab44ef7aa3c0f593982cb2a74191545"
     },
     {
       "path": "scripts/verify_m13_ftr.py",
-      "gitBlobSha1": "b66ed0354297426ff101561e64dc43b4850cffe3"
+      "gitBlobSha1": "a033e92dda492973f3d580ae5166019f96a60a73"
     },
     {
       "path": "tests/test_m13_ftr_documentary.py",

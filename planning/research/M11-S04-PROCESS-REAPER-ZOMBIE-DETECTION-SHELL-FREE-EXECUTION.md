@@ -13,7 +13,7 @@ M10 contract: m10-contract-v1.0 (FROZEN)
 M10 implementation: NOT_ADMITTED
 IRIS-WO-0014 preflight: BLOCKED
 Research checked: 2026-09-26
-HIVE evidence: NOT_USED. HIVE v1.0.0 is pinned at a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf; the IRIS HIVE context was on stale source head 2432cfe29a501e18a1cdf8a46adc49cd42fdfba0. checkpoint.read returned source_not_current and the attempted context.build request was rejected as invalid arguments. No HIVE-derived evidence is used.
+IRIS evidence: NOT_USED. IRIS v1.0.0 is pinned at a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf; the IRIS IRIS context was on stale source head 2432cfe29a501e18a1cdf8a46adc49cd42fdfba0. checkpoint.read returned source_not_current and the attempted context.build request was rejected as invalid arguments. No IRIS-derived evidence is used.
 
 ## Purpose and scope
 
@@ -131,10 +131,10 @@ No proprietary candidate is added: the sources do not establish an IRIS-owned ca
 
 Read-only search at the pinned default-branch source found:
 
-- `scripts/hive_mcp.py` constructs a Docker Compose argv and invokes `subprocess.run(..., cwd=..., check=False)`. This is a narrow one-shot bridge command; it does not demonstrate a persistent supervisor, child registration, descendant tracking or a reaping contract. The command was not run.
+- `scripts/iris_mcp.py` constructs a Docker Compose argv and invokes `subprocess.run(..., cwd=..., check=False)`. This is a narrow one-shot bridge command; it does not demonstrate a persistent supervisor, child registration, descendant tracking or a reaping contract. The command was not run.
 - `scripts/gef_preflight.py` invokes `git rev-parse HEAD` through `subprocess.check_output` to verify a pinned checkout. This is a one-shot Git query, not process lifecycle management. The script was not run.
 - The M01/M02 domain-neutrality tests launch Python child interpreters with `sys.executable -c` and captured outputs; M02 also uses a temporary directory and explicit environment. These are existing test-fixture subprocesses, not IRIS workers. The user authorized only those isolated Python test/CI children for the suite.
-- Search results did not establish any IRIS-owned PID/handle registry, child-wait owner, descendant containment adapter, orphan-recovery loop, process-to-attempt mapping or process-control policy. HIVE/UGAS/CORE reuse remains unverified because the current HIVE source was stale and no usable HIVE-derived evidence was obtained.
+- Search results did not establish any IRIS-owned PID/handle registry, child-wait owner, descendant containment adapter, orphan-recovery loop, process-to-attempt mapping or process-control policy. IRIS/UGAS/CORE reuse remains unverified because the current IRIS source was stale and no usable IRIS-derived evidence was obtained.
 
 ## Existing IRIS-owned candidates
 
@@ -167,7 +167,7 @@ Read-only search at the pinned default-branch source found:
 | S04-U18 | How do process launch and observation hand off to M12 placement, remote orchestration and queue ownership? | M12 |
 | S04-U19 | Which Blender/DCC process wrappers, version support and application-startup evidence belong to M26? | M26 / M60 |
 | S04-U20 | Which cancellation, timeout, restart, retry, partial-result, recovery and workstation-coexistence questions remain for S05 or another owner? | S05 / M06 / M60 |
-| S04-U21 | Can HIVE/UGAS/CORE provide current, source-verifiable process-lifecycle evidence in a later planning session? | HIVE source owner; currently unresolved |
+| S04-U21 | Can IRIS/UGAS/CORE provide current, source-verifiable process-lifecycle evidence in a later planning session? | IRIS source owner; currently unresolved |
 
 ## Validation and gates
 

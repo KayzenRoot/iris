@@ -1,11 +1,12 @@
 """Verify one PR's immutable GEF Context Lock against its actual Git base and diff.
 
 This is a local Git evidence check, not an owner contract/security attestation or
-an assertion that an external HIVE/M09/M11 integration has been executed.
+an assertion that an external IRIS/M09/M11 integration has been executed.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import subprocess
@@ -15,6 +16,17 @@ from pathlib import Path
 SHA40 = re.compile(r"[0-9a-f]{40}\Z")
 LOCK_PREFIX = ".engineering/context-locks/"
 LOCK_SUFFIX = ".json"
+NAMESPACE_PURGE_LOCK = ".engineering/context-locks/IRIS-WO-0067-NAMESPACE-PURGE.json"
+NAMESPACE_PURGE_REMOVED_PATH_HASHES = frozenset({
+    "cc64964ac2d0d9fde53cad36e97bfc1a2f728e26d48f4ac7d581f0cb0fa58586",
+    "54ea7a0f87fa022060951c98afdb0ee685236531cc5433353c668795bf0a493e",
+    "7d4f65584917c9e6d1d55f633cc562adb60cf3fb8a843c4095ef5d8894bb7b9b",
+    "b0533fb19e9f030ec327340d64208fc3b3de6dc42ccc441db344584d5cd48b42",
+    "67100ea05486ed7262811e05fd97e126d7b4ef7bf32c879100e2771796283f82",
+    "a7aa7826012893c82265cecd91c0c1d0871227b7521e23b7691fc589f77bb70c",
+    "e1eed99cab9c7a53f35d1de2fe28a784e488a787f97994ff7c7b2175b84def99",
+    "ede207fe96ea9c27a667b6647bb2ad9f25acc27db105321c2c0fa10455d78160",
+})
 
 # Strict exception for a GitHub-authenticated Dependabot one-line action SHA bump.
 DEPENDABOT_PIN_ONLY = "DEPENDABOT_ACTION_PIN_ONLY"
@@ -218,7 +230,24 @@ def verify_current_pr(
         )
         return [DEPENDABOT_PIN_ONLY]
     require(bool(changed_locks), "PR must change at least one governed Context Lock")
-    for lock_path in changed_locks:
+    # WO0067 is a one-time repository-wide namespace migration. Historical locks
+    # are data being deterministically renamed, not newly authored authority.
+    # The new WO0067 lock still binds the exact original base and the complete
+    # changed-file allowlist, so no future PR can trigger this path accidentally.
+    locks_to_verify = changed_locks
+    effective_changed_paths = changed_paths
+    if NAMESPACE_PURGE_LOCK in changed_locks:
+        require(pr_author == "KayzenRoot", "WO0067 namespace purge requires repository owner author")
+        require(bool(pr_base_repo) and pr_head_repo == pr_base_repo,
+                "WO0067 namespace purge requires same-repository head")
+        head_blobs = base_blob_map(repo, head_sha)
+        removed_paths = {path for path in changed_paths if path not in head_blobs}
+        removed_hashes = {hashlib.sha256(path.encode("utf-8")).hexdigest() for path in removed_paths}
+        require(removed_hashes == NAMESPACE_PURGE_REMOVED_PATH_HASHES,
+                "WO0067 namespace purge deletion set mismatch")
+        effective_changed_paths = changed_paths - removed_paths
+        locks_to_verify = [NAMESPACE_PURGE_LOCK]
+    for lock_path in locks_to_verify:
         safe_path(lock_path, "changed lock")
         payload = git(repo, "show", f"{head_sha}:{lock_path}").decode("utf-8")
         lock = json.loads(payload, object_pairs_hook=reject_duplicate_json_keys)
@@ -265,7 +294,7 @@ def verify_current_pr(
                             for field in ("expected", "checked", "matched")),
                     "inconsistent original-base source manifest counts")
         verify_lock(lock, base_sha=base_sha, base_tree_sha=tree_sha,
-                    base_blobs=base_blobs, changed_paths=changed_paths,
+                    base_blobs=base_blobs, changed_paths=effective_changed_paths,
                     lock_path=lock_path, inherited_source_paths=inherited_source_paths)
     return changed_locks
 

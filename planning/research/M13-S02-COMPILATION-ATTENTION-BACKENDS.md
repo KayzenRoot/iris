@@ -8,19 +8,19 @@ All seven candidate families are **UNSELECTED, UNINSTALLED, UNBENCHMARKED**. An 
 
 Original exact source main: `ac26499c8753ddc7b96246b9d698d8bcfbe0561f`, tree `4847f9010aaca5ffac560228ee14fb52390cfa0b`. The original M13 S01 report is COMPLETE FOR DOCUMENTARY RESEARCH ONLY. Original M12 and H01–H04 owner gates remain blocked.
 
-- **INDEX**: [planning/MASTER-MODULE-INDEX.md](../../planning/MASTER-MODULE-INDEX.md), exact historical Git blob `19c8ff6126748cb89e53108bdff8289322071970`. Required original source anchor: `S02 — S02 Compilation, attention and backend selection`.
-- **S01_REPORT**: [planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md](../../planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md), exact historical Git blob `7701c1e744d2b459d2f6bb4fa754352374fb67fd`. Required original source anchor: `C04_COMPILED_BACKEND_ARTIFACT`.
-- **S01_PACKET**: [.engineering/evidence/M13-S01-SOURCE-RESEARCH.json](../../.engineering/evidence/M13-S01-SOURCE-RESEARCH.json), exact historical Git blob `ee65b960ca7e4f83f5419ec744f4c1f304edb6d7`. Required original source anchor: `UNADOPTED_CONCEPT_ONLY`.
-- **M01**: [docs/M01-QUALITY-KERNEL.md](../../docs/M01-QUALITY-KERNEL.md), exact historical Git blob `930af57944fa83c44745873c42eb3a7740972ee6`. Required original source anchor: `m01-contract-v1.0`.
-- **M02**: [planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md), exact historical Git blob `a85d80ab3bb5f4bdc9be915a59caa92569d66af4`. Required original source anchor: `FROZEN_APPROVED`.
-- **M06**: [planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md), exact historical Git blob `18b5303d1e36ef60de17b42dd9e2c371ecf4f191`. Required original source anchor: `Digest equality proves byte equality`.
+- **INDEX**: [planning/MASTER-MODULE-INDEX.md](../../planning/MASTER-MODULE-INDEX.md), exact historical Git blob `a60d19c86bddd3699498f7d1f248a00368e32220`. Required original source anchor: `S02 — S02 Compilation, attention and backend selection`.
+- **S01_REPORT**: [planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md](../../planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md), exact historical Git blob `6ef2485c557f5523871db34cd154b1da66699fde`. Required original source anchor: `C04_COMPILED_BACKEND_ARTIFACT`.
+- **S01_PACKET**: [.engineering/evidence/M13-S01-SOURCE-RESEARCH.json](../../.engineering/evidence/M13-S01-SOURCE-RESEARCH.json), exact historical Git blob `5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0`. Required original source anchor: `UNADOPTED_CONCEPT_ONLY`.
+- **M01**: [docs/M01-QUALITY-KERNEL.md](../../docs/M01-QUALITY-KERNEL.md), exact historical Git blob `df4f899ad414c47ad379f26fe1782edb6f43cf6f`. Required original source anchor: `m01-contract-v1.0`.
+- **M02**: [planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md), exact historical Git blob `a36fd73c03f06b7558f850a2ad515a0df37c243b`. Required original source anchor: `FROZEN_APPROVED`.
+- **M06**: [planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md), exact historical Git blob `d6778684e0c34e55d05ddc06cf5aa47fe347c037`. Required original source anchor: `Digest equality proves byte equality`.
 - **M07**: [docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md](../../docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md), exact historical Git blob `2a0b95dd3cc665e2206e454caef5858ef7fb61b0`. Required original source anchor: `M07 does not lower quality targets`.
 - **M08**: [docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md](../../docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md), exact historical Git blob `461e0f332d9be2af694634bbdc8cf67e29d56393`. Required original source anchor: `M08 records empirical performance evidence`.
 - **M09**: [docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md](../../docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md), exact historical Git blob `d12b4f48030c1a57b8e6228df39f35dac8c2b20a`. Required original source anchor: `M09 is the provider-neutral resource-state`.
 - **M10**: [planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md), exact historical Git blob `f69ec3e3eab24b47c0e31832d64d9ab9cce21828`. Required original source anchor: `Implementation authority: NOT ADMITTED`.
-- **M11**: [planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md), exact historical Git blob `41ab89727c7be14e35e2481aefbd97a0cb81cb48`. Required original source anchor: `NOT_FROZEN`.
+- **M11**: [planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md), exact historical Git blob `4a5f384271504365701bdd685455d93984617f21`. Required original source anchor: `NOT_FROZEN`.
 - **M12**: [planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md](../../planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md), exact historical Git blob `28b3802901349263100ceaaf80c0990513dbbded`. Required original source anchor: `PROPOSED_NOT_FROZEN`.
-- **D01**: [.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json](../../.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json), exact historical Git blob `30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb`. Required original source anchor: `B_FUTURE_OWNER_RECEIPT`.
+- **D01**: [.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json](../../.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json), exact historical Git blob `8877331a5004a3e816e4c42fb521ff3408bad08a`. Required original source anchor: `B_FUTURE_OWNER_RECEIPT`.
 
 ## Eight official external technology references, mutable and never installed evidence
 
@@ -326,37 +326,37 @@ Current B=`DIRECTION_ONLY`, C01=`UNADOPTED_NOT_FROZEN`, HIGH gates `H01_H02_H03_
     {
       "role": "INDEX",
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "sha": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sha": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "anchor": "S02 — S02 Compilation, attention and backend selection"
     },
     {
       "role": "S01_REPORT",
       "path": "planning/research/M13-S01-WARM-MODEL-CACHE-LOCALITY.md",
-      "sha": "7701c1e744d2b459d2f6bb4fa754352374fb67fd",
+      "sha": "6ef2485c557f5523871db34cd154b1da66699fde",
       "anchor": "C04_COMPILED_BACKEND_ARTIFACT"
     },
     {
       "role": "S01_PACKET",
       "path": ".engineering/evidence/M13-S01-SOURCE-RESEARCH.json",
-      "sha": "ee65b960ca7e4f83f5419ec744f4c1f304edb6d7",
+      "sha": "5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0",
       "anchor": "UNADOPTED_CONCEPT_ONLY"
     },
     {
       "role": "M01",
       "path": "docs/M01-QUALITY-KERNEL.md",
-      "sha": "930af57944fa83c44745873c42eb3a7740972ee6",
+      "sha": "df4f899ad414c47ad379f26fe1782edb6f43cf6f",
       "anchor": "m01-contract-v1.0"
     },
     {
       "role": "M02",
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+      "sha": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
       "anchor": "FROZEN_APPROVED"
     },
     {
       "role": "M06",
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+      "sha": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
       "anchor": "Digest equality proves byte equality"
     },
     {
@@ -386,7 +386,7 @@ Current B=`DIRECTION_ONLY`, C01=`UNADOPTED_NOT_FROZEN`, HIGH gates `H01_H02_H03_
     {
       "role": "M11",
       "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "41ab89727c7be14e35e2481aefbd97a0cb81cb48",
+      "sha": "4a5f384271504365701bdd685455d93984617f21",
       "anchor": "NOT_FROZEN"
     },
     {
@@ -398,7 +398,7 @@ Current B=`DIRECTION_ONLY`, C01=`UNADOPTED_NOT_FROZEN`, HIGH gates `H01_H02_H03_
     {
       "role": "D01",
       "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
-      "sha": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb",
+      "sha": "8877331a5004a3e816e4c42fb521ff3408bad08a",
       "anchor": "B_FUTURE_OWNER_RECEIPT"
     }
   ],

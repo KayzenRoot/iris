@@ -16,7 +16,7 @@
       "version": "1.0.0",
       "sha": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
     },
-    "hive": {
+    "iris": {
       "version": "1.0.0",
       "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
     }
@@ -32,7 +32,7 @@
       "requiredArtifacts": 35
     },
     {
-      "name": "gef_hive_bridge_unittests",
+      "name": "gef_iris_bridge_unittests",
       "result": "PASS",
       "passed": 8,
       "failed": 0
@@ -53,7 +53,7 @@
     "blockingMedium": 0
   },
   "limitations": [
-    "The user's workstation-local HIVE runtime was not executed from GitHub; repository tooling and contracts were validated instead."
+    "The user's workstation-local IRIS runtime was not executed from GitHub; repository tooling and contracts were validated instead."
   ],
   "checkpointDelta": "PROMOTE_BOOTSTRAP_APPROVED_PRODUCT_DISCOVERY_READY"
 }

@@ -501,8 +501,8 @@ def cache_context(**over: Any) -> ContextFingerprint:
 
     base: dict[str, Any] = dict(
         sources=(
-            ContextSource(ref=ref(EntityKind.HIVE_CONTEXT, "brief.front"), ordinal=0),
-            ContextSource(ref=ref(EntityKind.HIVE_CONTEXT, "brief.style"), ordinal=1),
+            ContextSource(ref=ref(EntityKind.IRIS_CONTEXT, "brief.front"), ordinal=0),
+            ContextSource(ref=ref(EntityKind.IRIS_CONTEXT, "brief.style"), ordinal=1),
         ),
         compiler=component_version("m02.context", "3.1.0"),
         model=component_version("provider.model", "2026-01"),

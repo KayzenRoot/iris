@@ -75,7 +75,7 @@
     },
     {
       "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "41ab89727c7be14e35e2481aefbd97a0cb81cb48"
+      "gitBlobSha1": "4a5f384271504365701bdd685455d93984617f21"
     },
     {
       "path": "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
@@ -83,7 +83,7 @@
     },
     {
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+      "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220"
     },
     {
       "path": "planning/reviews/M12-FINAL-TECHNOLOGY-REVIEW.md",
@@ -91,7 +91,7 @@
     },
     {
       "path": "planning/compatibility/M12-FORWARD-COMPATIBILITY-SCAN.md",
-      "gitBlobSha1": "cab0cde1233f6b86c58783ab64d328fc8b9bd9b4"
+      "gitBlobSha1": "c7a578b38307002242f784008fbc821216ce5682"
     },
     {
       "path": "scripts/verify_m12_planning_evidence.py",
@@ -111,7 +111,7 @@
     },
     {
       "path": "planning/research/M12-S01-WORKER-REGISTRY-AND-CAPABILITY-ADVERTISEMENTS.md",
-      "gitBlobSha1": "3d76f9a11b0056b9b7e595fa63624445ec50ba53"
+      "gitBlobSha1": "08cc2507e991fdcbdd6e81db009f676180c3ea62"
     },
     {
       "path": "planning/research/M12-S02-PLACEMENT-QUEUES-QUOTAS-PRIORITY.md",

@@ -17,7 +17,7 @@ Record S05 as COMPLETE_FOR_MODULE_PLANNING in the canonical checkpoint and Evide
 
 PR #95 exact head 77dccb7e350d51d66f8b5cc135566becf0537dcc passed Governance #418 (run 36257428623, job 108446767119; 3,940/3,940 tests), was protected squash-merged as 091361e71e2d55f05b2623163bd6f8c7234eb5b8, and exact-main Governance #419 (run 36258590273, job 108449958757) passed on tree d0ea17dde647eec2f73a64df2c6fa2d61bd8dcd1 with 3,940/3,940 tests in 16.258 seconds. Issue #82 remains open.
 
-Preserve the PR #95 proposal as historical evidence; record canonical S05 status as a separate event. Do not claim this reconciliation PR has already passed its own gates. HIVE MCP tools were unavailable in this review context; the prior closeout recorded HIVE_NOT_USED/STALE without derived evidence. Do not fabricate fresh HIVE status.
+Preserve the PR #95 proposal as historical evidence; record canonical S05 status as a separate event. Do not claim this reconciliation PR has already passed its own gates. IRIS MCP tools were unavailable in this review context; the prior closeout recorded IRIS_NOT_USED/STALE without derived evidence. Do not fabricate fresh IRIS status.
 
 ## SCOPE
 
@@ -74,11 +74,11 @@ Preserve the Evidence Bundle schema and append the promotion event. No runtime o
 
 ## TESTS / EVIDENCE
 
-Run git diff --check; parse JSON; verify checkpoint mirrors; recompute 83 fingerprints and exact paths; run the Governance validator and GEF/HIVE bridges; inspect exact-head logs and full tests. After squash merge, verify exact-main logs and test count. No runtime or benchmark tests.
+Run git diff --check; parse JSON; verify checkpoint mirrors; recompute 83 fingerprints and exact paths; run the Governance validator and GEF/IRIS bridges; inspect exact-head logs and full tests. After squash merge, verify exact-main logs and test count. No runtime or benchmark tests.
 
 ## DELIVERABLES / REVIEW FORMAT
 
-Report base/head/tree, branch and PR, path list, fingerprint results, review verdict and limits, exact-head run/job, merge SHA, exact-main run/job/tests, HIVE status, Evidence Bundle promotion event, checkpoint state, unresolved questions and next gate. Review summary in Brazilian Portuguese.
+Report base/head/tree, branch and PR, path list, fingerprint results, review verdict and limits, exact-head run/job, merge SHA, exact-main run/job/tests, IRIS status, Evidence Bundle promotion event, checkpoint state, unresolved questions and next gate. Review summary in Brazilian Portuguese.
 
 ## STOP CONDITION
 

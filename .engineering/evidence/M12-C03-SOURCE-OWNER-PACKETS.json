@@ -12,13 +12,13 @@
     {
       "role": "M02",
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+      "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
       "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
     },
     {
       "role": "M06",
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+      "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
       "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
     },
     {
@@ -115,13 +115,13 @@
         {
           "sourceRole": "M02",
           "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
           "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
         },
         {
           "sourceRole": "M06",
           "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
           "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
         }
       ],
@@ -177,7 +177,7 @@
         {
           "sourceRole": "M02",
           "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
           "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
         }
       ],
@@ -204,7 +204,7 @@
         {
           "sourceRole": "M02",
           "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
           "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
         }
       ],
@@ -302,7 +302,7 @@
         {
           "sourceRole": "M06",
           "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
           "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
         }
       ],
@@ -332,13 +332,13 @@
         {
           "sourceRole": "M02",
           "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
           "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
         },
         {
           "sourceRole": "M06",
           "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
           "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
         }
       ],
@@ -502,13 +502,13 @@
         {
           "sourceRole": "M02",
           "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
           "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
         },
         {
           "sourceRole": "M06",
           "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
           "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
         }
       ],
@@ -566,7 +566,7 @@
         {
           "sourceRole": "M06",
           "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
           "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
         }
       ],
@@ -596,13 +596,13 @@
         {
           "sourceRole": "M02",
           "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
           "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
         },
         {
           "sourceRole": "M06",
           "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
           "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
         }
       ],
@@ -631,13 +631,13 @@
         {
           "sourceRole": "M02",
           "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+          "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
           "exactNeedle": "semantic object ID != content/revision ID != attempt ID;"
         },
         {
           "sourceRole": "M06",
           "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-          "gitBlobSha1": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+          "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
           "exactNeedle": "M02 semantic identity != M02 revision/snapshot != M06 operational revision"
         }
       ],

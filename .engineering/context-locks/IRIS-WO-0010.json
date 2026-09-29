@@ -19,23 +19,23 @@
   "criticalSources": [
     {
       "path": ".engineering/work-orders/IRIS-WO-0010-M06-PRODUCTION-STATE.md",
-      "sha": "e3e04505f1263bd6933bb8e45e0beec8b64ddc2e"
+      "sha": "3ccb25e5f71747bc3037153337984cf4d2469c33"
     },
     {
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191"
+      "sha": "d6778684e0c34e55d05ddc06cf5aa47fe347c037"
     },
     {
       "path": "planning/reviews/M06-FINAL-TECHNOLOGY-REVIEW.md",
-      "sha": "9346eb4fe30dcc521d545a20526fa9feb2c9bfb9"
+      "sha": "f1f3112481f2fb3ed45e88434a2bd68e9cc6286b"
     },
     {
       "path": "planning/compatibility/M06-FORWARD-COMPATIBILITY-SCAN.md",
-      "sha": "119227ce1e42d66304c78680897d6c1253b3e5c2"
+      "sha": "831afe081f0ec4957f247171438864e757e87b91"
     },
     {
       "path": "planning/modules/M06-PRODUCTION-STATE-VERSIONING-INCREMENTAL-MEDIA-BUILD.md",
-      "sha": "a888a60eb54037b82f3f6c3576d756f4f688123a"
+      "sha": "d0710219e3038e89b19e5936243bc5b392eb3c42"
     },
     {
       "path": ".engineering/SOURCE-HIERARCHY.md",
@@ -111,13 +111,13 @@
   "reconciliation": {
     "reason": "CHAT_FIXABLE canonical-state reconciliation after executor preflight found stale Scope/Architecture/Checkpoint wording. Frozen m06-contract-v1.0 and implementation scope are unchanged; critical fingerprints are refreshed only for the corrected canonical documents and admitted Work Order.",
     "priorFingerprints": {
-      ".engineering/work-orders/IRIS-WO-0010-M06-PRODUCTION-STATE.md": "e3e04505f1263bd6933bb8e45e0beec8b64ddc2e",
+      ".engineering/work-orders/IRIS-WO-0010-M06-PRODUCTION-STATE.md": "3ccb25e5f71747bc3037153337984cf4d2469c33",
       "docs/project-brain/13-CHECKPOINT.md": "02d441f71f1293c41261d8ad8861d2f2347df742",
       "docs/project-brain/03-SCOPE.md": "4826a9aba9e4178abef5d7f38ecdb8b33bbf2706",
       "docs/project-brain/04-ARCHITECTURE.md": "84b089697338f32b703ab09b2ab80593fc099e0d"
     },
     "currentFingerprints": {
-      ".engineering/work-orders/IRIS-WO-0010-M06-PRODUCTION-STATE.md": "e3e04505f1263bd6933bb8e45e0beec8b64ddc2e",
+      ".engineering/work-orders/IRIS-WO-0010-M06-PRODUCTION-STATE.md": "3ccb25e5f71747bc3037153337984cf4d2469c33",
       "docs/project-brain/03-SCOPE.md": "111dce009c529dd1f9d975badcb36b8b2b0f90be",
       "docs/project-brain/04-ARCHITECTURE.md": "7a541390ecf9774478cc7bb7f8ae29d744a81893",
       "docs/project-brain/13-CHECKPOINT.md": "9764e14cac07dc5f8c345238e1a6de170e5a8707"

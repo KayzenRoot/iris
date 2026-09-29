@@ -75,7 +75,7 @@ These are contract tests, not real inference.
 - WebGL/WebGPU runtime;
 - UI/dashboard;
 - distributed compute;
-- HIVE runtime mutation;
+- IRIS runtime mutation;
 - M02 implementation.
 
 ## ARCHITECTURE RULES

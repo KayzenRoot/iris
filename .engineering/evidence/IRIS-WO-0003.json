@@ -140,7 +140,7 @@
       "name": "governance_validator",
       "command": "python scripts/validate_governance.py",
       "result": "PASS",
-      "output": "IRIS governance validation: PASS / GEF: v1.0.0 @ 866fe3af8cccc65c929aaf6a47a924401fa448b3 / HIVE: v1.0.0 @ a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf / Required artifacts: 35"
+      "output": "IRIS governance validation: PASS / GEF: v1.0.0 @ 866fe3af8cccc65c929aaf6a47a924401fa448b3 / IRIS: v1.0.0 @ a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf / Required artifacts: 35"
     },
     {
       "name": "gef_preflight",
@@ -576,12 +576,12 @@
       "detail": "That path does not exist in the frozen base. The canonical file is .engineering/SOURCE-HIERARCHY.md, which was read instead; the repository contract governed all decisions."
     },
     {
-      "item": "HIVE MCP flow could not be executed inside the session",
-      "detail": "The hive MCP tools are still not exposed in this Qoder session (mcp_list returns no hive entries; /mcp reload is pending on the user side), for CORRECTION-03 exactly as for the first run and both earlier corrections. health/status/search_knowledge/build_context/scan/diff/context_lock/memory_record/checkpoint were therefore not run, and native repository verifiers (validate_governance.py, gef_preflight.py, the unittest suite) plus Git and GitHub Actions evidence were used in their place, as permitted by the preference for deterministic Git/static/hash/test evidence. This is reported rather than worked around with fabricated HIVE evidence."
+      "item": "IRIS MCP flow could not be executed inside the session",
+      "detail": "The iris MCP tools are still not exposed in this Qoder session (mcp_list returns no iris entries; /mcp reload is pending on the user side), for CORRECTION-03 exactly as for the first run and both earlier corrections. health/status/search_knowledge/build_context/scan/diff/context_lock/memory_record/checkpoint were therefore not run, and native repository verifiers (validate_governance.py, gef_preflight.py, the unittest suite) plus Git and GitHub Actions evidence were used in their place, as permitted by the preference for deterministic Git/static/hash/test evidence. This is reported rather than worked around with fabricated IRIS evidence."
     },
     {
       "item": "Line endings kept as LF",
-      "detail": "The injected repository rule text mentions CRLF, but the frozen tree and the HIVE runtime require LF. No .gitattributes was introduced or committed."
+      "detail": "The injected repository rule text mentions CRLF, but the frozen tree and the IRIS runtime require LF. No .gitattributes was introduced or committed."
     },
     {
       "item": "scripts/gef_preflight.py needs GEF_REPO_PATH",

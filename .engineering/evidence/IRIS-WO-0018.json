@@ -64,7 +64,7 @@
   "M11": "m11-contract-candidate-v0.2 NOT_FROZEN",
   "M10M11Implementation": "NOT_ADMITTED",
   "processActions": "DISABLED",
-  "hiveLocalPreflight": "NOT_EXECUTED_GITHUB_CI_BRIDGES_REQUIRED",
+  "irisLocalPreflight": "NOT_EXECUTED_GITHUB_CI_BRIDGES_REQUIRED",
   "exactHeadGovernance": {
     "number": 469,
     "run": 36318722382,

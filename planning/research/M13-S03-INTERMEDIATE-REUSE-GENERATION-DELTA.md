@@ -6,17 +6,17 @@
 
 Exact main `63baffa4183149eb7476af6787b51e8a021c7d45`, base tree `c8c0feaaf99e09e802a4789ef97aa854f251264c`. M02 owns reuse-class admission, M06 operational materialization lineage, M04 multimodal IR, M05 persistent DNA, M01 quality, M53/M54 current rights and security and M55 physical storage. Existing M13 S01 and S02 are only source research, not approved backend/cache technology.
 
-- **INDEX**: [`planning/MASTER-MODULE-INDEX.md`](../../planning/MASTER-MODULE-INDEX.md); exact original Git blob `19c8ff6126748cb89e53108bdff8289322071970`; required anchor `S03 — S03 Intermediate reuse and generation delta cache`.
-- **M02**: [`planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `a85d80ab3bb5f4bdc9be915a59caa92569d66af4`; required anchor `semantic reuse requires explicit reuse class/admission`.
-- **M04**: [`planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `c4b39c03f86f7a8e112d22a25ca91169c02c5e4d`; required anchor `IRStructuralFingerprint`.
-- **M05**: [`planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `97e8ed228b29c47911e3d3a0ed10ade91f76d723`; required anchor `M53 rights/license/consent/provenance authority`.
-- **M06**: [`planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `18b5303d1e36ef60de17b42dd9e2c371ecf4f191`; required anchor `Digest equality proves byte equality under the declared digest domain only.`.
+- **INDEX**: [`planning/MASTER-MODULE-INDEX.md`](../../planning/MASTER-MODULE-INDEX.md); exact original Git blob `a60d19c86bddd3699498f7d1f248a00368e32220`; required anchor `S03 — S03 Intermediate reuse and generation delta cache`.
+- **M02**: [`planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `a36fd73c03f06b7558f850a2ad515a0df37c243b`; required anchor `semantic reuse requires explicit reuse class/admission`.
+- **M04**: [`planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `c84c6645a84e1fa41ace5e627411bf953fc77dc5`; required anchor `IRStructuralFingerprint`.
+- **M05**: [`planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `025402c88e2aef606b8c14272a5034d604f7146d`; required anchor `M53 rights/license/consent/provenance authority`.
+- **M06**: [`planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `d6778684e0c34e55d05ddc06cf5aa47fe347c037`; required anchor `Digest equality proves byte equality under the declared digest domain only.`.
 - **M02_RESEARCH**: [`planning/research/M02-S04-INCREMENTAL-BUILD-RESEARCH-2026-09-20.md`](../../planning/research/M02-S04-INCREMENTAL-BUILD-RESEARCH-2026-09-20.md); exact original Git blob `1e3979dfb258eb6bb4a96d56b85b003eebe1e98a`; required anchor `based on causal correctness and reuse-class admission`.
-- **S01**: [`.engineering/evidence/M13-S01-SOURCE-RESEARCH.json`](../../.engineering/evidence/M13-S01-SOURCE-RESEARCH.json); exact original Git blob `ee65b960ca7e4f83f5419ec744f4c1f304edb6d7`; required anchor `C05_INTERMEDIATE_AND_DELTA_REUSE`.
-- **S02**: [`.engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json`](../../.engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json); exact original Git blob `2e94983865cf72aa6c5a63510b8a4b41586048c7`; required anchor `SOURCE_ONLY_UNSELECTED_NONBINDING`.
-- **M01**: [`docs/M01-QUALITY-KERNEL.md`](../../docs/M01-QUALITY-KERNEL.md); exact original Git blob `930af57944fa83c44745873c42eb3a7740972ee6`; required anchor `m01-contract-v1.0`.
+- **S01**: [`.engineering/evidence/M13-S01-SOURCE-RESEARCH.json`](../../.engineering/evidence/M13-S01-SOURCE-RESEARCH.json); exact original Git blob `5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0`; required anchor `C05_INTERMEDIATE_AND_DELTA_REUSE`.
+- **S02**: [`.engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json`](../../.engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json); exact original Git blob `8ac11eaa91292a81d10de1d44ccd21b5e240a664`; required anchor `SOURCE_ONLY_UNSELECTED_NONBINDING`.
+- **M01**: [`docs/M01-QUALITY-KERNEL.md`](../../docs/M01-QUALITY-KERNEL.md); exact original Git blob `df4f899ad414c47ad379f26fe1782edb6f43cf6f`; required anchor `m01-contract-v1.0`.
 - **M09**: [`docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md`](../../docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md); exact original Git blob `d12b4f48030c1a57b8e6228df39f35dac8c2b20a`; required anchor `M09 is the provider-neutral resource-state`.
-- **D01**: [`.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json`](../../.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json); exact original Git blob `30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb`; required anchor `B_FUTURE_OWNER_RECEIPT`.
+- **D01**: [`.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json`](../../.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json); exact original Git blob `8877331a5004a3e816e4c42fb521ff3408bad08a`; required anchor `B_FUTURE_OWNER_RECEIPT`.
 
 ## Seven unadopted reuse concepts
 
@@ -346,31 +346,31 @@ A matching digest, stochastic seed, same visual appearance, cached KV prefix or 
     {
       "role": "INDEX",
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "sha": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sha": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "anchor": "S03 — S03 Intermediate reuse and generation delta cache"
     },
     {
       "role": "M02",
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+      "sha": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
       "anchor": "semantic reuse requires explicit reuse class/admission"
     },
     {
       "role": "M04",
       "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "c4b39c03f86f7a8e112d22a25ca91169c02c5e4d",
+      "sha": "c84c6645a84e1fa41ace5e627411bf953fc77dc5",
       "anchor": "IRStructuralFingerprint"
     },
     {
       "role": "M05",
       "path": "planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "97e8ed228b29c47911e3d3a0ed10ade91f76d723",
+      "sha": "025402c88e2aef606b8c14272a5034d604f7146d",
       "anchor": "M53 rights/license/consent/provenance authority"
     },
     {
       "role": "M06",
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+      "sha": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
       "anchor": "Digest equality proves byte equality under the declared digest domain only."
     },
     {
@@ -382,19 +382,19 @@ A matching digest, stochastic seed, same visual appearance, cached KV prefix or 
     {
       "role": "S01",
       "path": ".engineering/evidence/M13-S01-SOURCE-RESEARCH.json",
-      "sha": "ee65b960ca7e4f83f5419ec744f4c1f304edb6d7",
+      "sha": "5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0",
       "anchor": "C05_INTERMEDIATE_AND_DELTA_REUSE"
     },
     {
       "role": "S02",
       "path": ".engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json",
-      "sha": "2e94983865cf72aa6c5a63510b8a4b41586048c7",
+      "sha": "8ac11eaa91292a81d10de1d44ccd21b5e240a664",
       "anchor": "SOURCE_ONLY_UNSELECTED_NONBINDING"
     },
     {
       "role": "M01",
       "path": "docs/M01-QUALITY-KERNEL.md",
-      "sha": "930af57944fa83c44745873c42eb3a7740972ee6",
+      "sha": "df4f899ad414c47ad379f26fe1782edb6f43cf6f",
       "anchor": "m01-contract-v1.0"
     },
     {
@@ -406,7 +406,7 @@ A matching digest, stochastic seed, same visual appearance, cached KV prefix or 
     {
       "role": "D01",
       "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
-      "sha": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb",
+      "sha": "8877331a5004a3e816e4c42fb521ff3408bad08a",
       "anchor": "B_FUTURE_OWNER_RECEIPT"
     }
   ],

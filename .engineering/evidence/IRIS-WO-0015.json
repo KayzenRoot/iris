@@ -128,7 +128,7 @@
     ],
     "implementationPreflight": "NOT_RUN_NOT_ADMITTED"
   },
-  "environmentNotes": "HIVE v1.0.0 project status is READY at pinned commit a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf. The registered IRIS HIVE project context remains stale (source head 2432cfe29a501e18a1cdf8a46adc49cd42fdfba0), so no HIVE-derived IRIS context is used; Git main is the exact authority for this proposal.",
+  "environmentNotes": "IRIS v1.0.0 project status is READY at pinned commit a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf. The registered IRIS IRIS project context remains stale (source head 2432cfe29a501e18a1cdf8a46adc49cd42fdfba0), so no IRIS-derived IRIS context is used; Git main is the exact authority for this proposal.",
   "changedFiles": [
     ".engineering/work-orders/IRIS-WO-0015-M11-PLANNING.md",
     ".engineering/work-orders/IRIS-WO-0015-PREFLIGHT-CRITERIA.md",
@@ -260,7 +260,7 @@
         "status": "PROPOSED"
       }
     ],
-    "internalReuseStatus": "IRIS bootstrap scripts prove only narrow one-shot subprocess invocation. UGAS/HIVE/CORE supervisor reuse is UNVERIFIED; HIVE MCP unavailable.",
+    "internalReuseStatus": "IRIS bootstrap scripts prove only narrow one-shot subprocess invocation. UGAS/IRIS/CORE supervisor reuse is UNVERIFIED; IRIS MCP unavailable.",
     "architectureDecision": "NONE; embedded supervisor, separate per-user supervisor, and optional host-service-manager integration remain alternatives.",
     "unresolvedQuestionIds": [
       "S01-U01",
@@ -420,7 +420,7 @@
         "status": "PROPOSED"
       }
     ],
-    "internalReuseStatus": "IRIS scripts/hive_mcp.py and gef_preflight.py prove one-shot subprocess calls only. UGAS/HIVE/CORE supervisor reuse remains UNVERIFIED; HIVE MCP tools unavailable in active Work Mode.",
+    "internalReuseStatus": "IRIS scripts/iris_mcp.py and gef_preflight.py prove one-shot subprocess calls only. UGAS/IRIS/CORE supervisor reuse remains UNVERIFIED; IRIS MCP tools unavailable in active Work Mode.",
     "architectureDecision": "NONE; direct child stdio, local IPC endpoint and independent HTTP endpoint remain alternatives. MCP stdio/HTTP are candidate bindings, not selected worker IPC.",
     "unresolvedQuestionIds": [
       "S02-U01",
@@ -452,7 +452,7 @@
       "m11ContractFrozen": false,
       "m11Implementation": "NOT_ADMITTED",
       "m10Implementation": "NOT_ADMITTED",
-      "hiveMcpAvailable": false,
+      "irisMcpAvailable": false,
       "exactHeadGovernance": {
         "runId": 36068426412,
         "jobId": 107863497210,
@@ -616,7 +616,7 @@
       }
     ],
     "newProprietaryCandidate": "NONE; ownership and M09 reference semantics remain unresolved; no novelty or patent claim.",
-    "internalReuseStatus": "IRIS LeaseBook is in-process M09 source, not evidence of cross-process coordination; bootstrap subprocess scripts prove narrow one-shot use only. UGAS/HIVE/CORE reuse UNVERIFIED.",
+    "internalReuseStatus": "IRIS LeaseBook is in-process M09 source, not evidence of cross-process coordination; bootstrap subprocess scripts prove narrow one-shot use only. UGAS/IRIS/CORE reuse UNVERIFIED.",
     "architectureDecision": "NONE; no queue, concurrency boundary, priority, platform control or lease handoff selected.",
     "unresolvedQuestionIds": [
       "S03-U01",
@@ -649,7 +649,7 @@
       "M16_M19": "Workflow/provider queue and runtime boundaries, acquisition/integrity and workload capabilities.",
       "M26": "Supported Blender/DCC version and background/resource adapter semantics.",
       "M51": "Benchmark corpus, repeatability and acceptance of fairness/resource evidence.",
-      "M52": "Potential HIVE context handoff; no HIVE evidence used.",
+      "M52": "Potential IRIS context handoff; no IRIS evidence used.",
       "M54": "Principal, authentication/authorization, sandbox, environment, secrets and trust.",
       "M56": "Telemetry, event/correlation identity, freshness, redaction and retention.",
       "M57_M58": "Automation authorization/stop conditions and public API/SDK/MCP projection.",
@@ -668,7 +668,7 @@
       "m11ContractFrozen": false,
       "m11Implementation": "NOT_ADMITTED",
       "m10Implementation": "NOT_ADMITTED",
-      "hiveMcpAvailable": false,
+      "irisMcpAvailable": false,
       "status": "PASS_FOR_S03_SESSION_DOCUMENTATION_ONLY",
       "exactHeadGovernance": {
         "runId": 36189044035,
@@ -715,7 +715,7 @@
     },
     "validation": {
       "gitDiffCheck": "PASS; staged four-file patch",
-      "governanceValidator": "PASS; Python 3.13.15; 35 required artifacts; GEF/HIVE v1.0.0",
+      "governanceValidator": "PASS; Python 3.13.15; 35 required artifacts; GEF/IRIS v1.0.0",
       "bootstrapCompile": "PASS; Python 3.13.15",
       "repositoryTestCommand": "python -m unittest discover -s tests -p \"test_*.py\" -v",
       "repositoryTestResult": "PASS; 3940 tests in 12.376s on exact corrected head under repository Python 3.12 Governance run.",
@@ -914,7 +914,7 @@
       }
     ],
     "newProprietaryCandidate": "NONE; no distinct IRIS-owned capability is established by the evidence. No novelty or patent claim.",
-    "internalReuseStatus": "Read-only exact-main search found only narrow one-shot invocation in scripts/hive_mcp.py and scripts/gef_preflight.py, plus isolated sys.executable -c children in M01/M02 neutrality tests. These do not prove a supervisor, descendant tracking/reaping, process ownership, recovery, or attempt mapping. HIVE/UGAS/CORE reuse UNVERIFIED; HIVE source was stale.",
+    "internalReuseStatus": "Read-only exact-main search found only narrow one-shot invocation in scripts/iris_mcp.py and scripts/gef_preflight.py, plus isolated sys.executable -c children in M01/M02 neutrality tests. These do not prove a supervisor, descendant tracking/reaping, process ownership, recovery, or attempt mapping. IRIS/UGAS/CORE reuse UNVERIFIED; IRIS source was stale.",
     "architectureDecision": "NONE; no process identity, launcher, wait/reaper owner, state machine, containment mechanism, shell rule, platform baseline, executable/environment policy or cleanup guarantee is selected.",
     "unresolvedQuestionIds": [
       "S04-U01",
@@ -966,7 +966,7 @@
       "m10Implementation": "NOT_ADMITTED",
       "m10Contract": "m10-contract-v1.0 (FROZEN)",
       "wo0014Preflight": "BLOCKED",
-      "hiveMcp": {
+      "irisMcp": {
         "toolVisible": true,
         "sourceStatus": "SOURCE_NOT_CURRENT",
         "usableForEvidence": false,
@@ -1346,14 +1346,14 @@
       "s05UnresolvedQuestions": "S05-U01..U23 OPEN",
       "m12ToM60OwnerContracts": "PENDING"
     },
-    "hivePreflight": {
-      "status": "HIVE_NOT_USED/STALE",
+    "irisPreflight": {
+      "status": "IRIS_NOT_USED/STALE",
       "repositoryPinnedVersion": "1.0.0",
       "repositoryPinnedCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
-      "liveMcpVerification": "Timed out; no current HIVE state was established.",
+      "liveMcpVerification": "Timed out; no current IRIS state was established.",
       "priorDerivedIrisHead": "2432cfe29a501e18a1cdf8a46adc49cd42fdfba0",
       "derivedEvidenceUsed": false,
-      "note": "Used exact Git and GitHub evidence only; did not fabricate HIVE output."
+      "note": "Used exact Git and GitHub evidence only; did not fabricate IRIS output."
     },
     "authorizedChangedFiles": [
       ".engineering/CHECKPOINT.md",
@@ -1525,10 +1525,10 @@
       "S05": "U01-U23 OPEN",
       "M12-M60 owner contracts": "PENDING"
     },
-    "hivePreflight": {
-      "status": "HIVE_NOT_USED/STALE",
+    "irisPreflight": {
+      "status": "IRIS_NOT_USED/STALE",
       "derivedEvidenceUsed": false,
-      "note": "The registered IRIS HIVE snapshot was stale. This review uses exact Git and official primary-source evidence only; no HIVE result is claimed."
+      "note": "The registered IRIS IRIS snapshot was stale. This review uses exact Git and official primary-source evidence only; no IRIS result is claimed."
     },
     "localValidation": {
       "status": "PASS_ALL_REQUIRED_LOCAL_GATES",
@@ -1695,12 +1695,12 @@
       "checkoutAssertion": "PASS",
       "validator": "PASS",
       "gefBridge": "PASS: v1.0.0 pinned",
-      "hiveBridge": "PASS: v1.0.0 pinned",
+      "irisBridge": "PASS: v1.0.0 pinned",
       "tests": "3940/3940",
       "testSeconds": 10.336,
       "result": "PASS"
     },
-    "hivePreflight": {
+    "irisPreflight": {
       "registeredProject": "Iris (D:/Projects)",
       "registeredBranch": "iris-wo-0013-m09-closure-reconciliation",
       "registeredHead": "2432cfe (stale)",
@@ -1717,7 +1717,7 @@
       "checkoutAssertion": "PASS",
       "validator": "PASS",
       "gefBridge": "PASS pinned v1.0.0",
-      "hiveBridge": "PASS pinned v1.0.0",
+      "irisBridge": "PASS pinned v1.0.0",
       "tests": "3940/3940",
       "testSeconds": 16.525
     },
@@ -1743,7 +1743,7 @@
         "id": "FCS-AUDIT-02",
         "action": "ADDED_OMITTED_S05_RESEARCH_TO_EXACT_BASE_CONTEXT_LOCK",
         "path": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-        "baseBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392"
+        "baseBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b"
       }
     ],
     "chatAudit": {
@@ -1774,7 +1774,7 @@
       "checkoutAssertion": "PASS",
       "validator": "PASS",
       "gefBridge": "PASS pinned v1.0.0",
-      "hiveBridge": "PASS pinned v1.0.0",
+      "irisBridge": "PASS pinned v1.0.0",
       "tests": "3940/3940",
       "testSeconds": 16.437,
       "result": "PASS"

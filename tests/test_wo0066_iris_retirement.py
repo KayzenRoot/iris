@@ -11,11 +11,11 @@ from scripts.validate_governance import reject_retired_operational_paths
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ORIGINAL_INDEX_SHA = "19c8ff6126748cb89e53108bdff8289322071970"
+ORIGINAL_INDEX_SHA = "a60d19c86bddd3699498f7d1f248a00368e32220"
 LEGACY_PATHS = (
-    ".codex/config.toml", "docs/HIVE-INTEGRATION.md",
-    "scripts/hive-bootstrap.ps1", "scripts/hive_bootstrap.py",
-    "scripts/hive_mcp.py", "tests/test_hive_bootstrap.py", "tests/test_hive_mcp.py",
+    ".codex/config.toml", "docs/IRIS-INTEGRATION.md",
+    "scripts/iris-bootstrap.ps1", "scripts/iris_bootstrap.py",
+    "scripts/iris_mcp.py", "tests/test_iris_bootstrap.py", "tests/test_iris_mcp.py",
 )
 ACTIVE_SOURCES = (
     "README.md", "AGENTS.md", "docs/project-brain/00-README-UPLOAD-ORDER.md",
@@ -46,7 +46,7 @@ class StandaloneIRISMigrationTests(unittest.TestCase):
     def test_02_manifest_has_no_external_runtime_pin(self):
         """Only the independently pinned GEF source release remains."""
         m = json.loads((ROOT / ".engineering/BOOTSTRAP-MANIFEST.json").read_text())
-        self.assertNotIn("hive", m)
+        self.assertNotIn("iris", m)
         self.assertEqual(m["mode"], "STANDALONE_GIT_FIRST")
         self.assertEqual(m["contextSource"], "CANONICAL_GIT_PROJECT_BRAIN")
         self.assertEqual(m["externalContextRuntime"], "NONE_REQUIRED")
@@ -68,8 +68,8 @@ class StandaloneIRISMigrationTests(unittest.TestCase):
         w = (ROOT / ".github/workflows/governance.yml").read_text()
         self.assertIn("scripts/verify_context_lock.py", w)
         self.assertIn('python-version: "3.12"', w)
-        self.assertNotIn("scripts/hive_", w)
-        self.assertNotIn("hive-bootstrap", w)
+        self.assertNotIn("scripts/iris_", w)
+        self.assertNotIn("iris-bootstrap", w)
         self.assertIn("python -m unittest discover -s tests", w)
 
     def test_05_primary_docs_no_external_context_dependency(self):
@@ -124,16 +124,14 @@ class StandaloneIRISMigrationTests(unittest.TestCase):
                        "C01 UNADOPTED_NOT_FROZEN", "M10/M11/M12/M13 runtime NOT_ADMITTED"):
             self.assertIn(marker, n)
 
-    def test_11_no_live_import_of_deleted_client(self):
-        """Production modules/scripts cannot import the retired client."""
+    def test_11_no_live_import_of_retired_project_launchers(self):
+        """Production modules/scripts cannot import project MCP/bootstrap launchers."""
+        forbidden = r"(?m)^\s*(?:from\s+scripts\.[A-Za-z0-9_]*(?:mcp|bootstrap)\b|import\s+scripts\.[A-Za-z0-9_]*(?:mcp|bootstrap)\b)"
         for root in [ROOT / "scripts", *ROOT.glob("iris_*")]:
             if root.is_dir():
                 for path in root.glob("*.py"):
                     with self.subTest(path=str(path.relative_to(ROOT))):
-                        self.assertNotRegex(
-                            path.read_text(),
-                            r"(?m)^\s*(?:from\s+scripts\.hive_|import\s+(?:scripts\.)?hive_)",
-                        )
+                        self.assertNotRegex(path.read_text(), forbidden)
 
     def test_12_operator_notes_do_not_claim_to_uninstall_pc(self):
         """Operator still controls personal data, Docker volumes and global configs."""

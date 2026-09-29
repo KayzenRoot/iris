@@ -33,7 +33,7 @@
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0009-M05-ASSET-DNA.md",
-      "sha": "0ef805660a3ac8f65bccee81661dbc0dec78fddf"
+      "sha": "2b7f992a83368fc6ce2d28619ad822ab64c8d1a2"
     },
     {
       "path": "docs/project-brain/02-REQUIREMENTS.md",
@@ -69,23 +69,23 @@
     },
     {
       "path": "planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "97e8ed228b29c47911e3d3a0ed10ade91f76d723"
+      "sha": "025402c88e2aef606b8c14272a5034d604f7146d"
     },
     {
       "path": "planning/reviews/M05-INDEPENDENT-PLANNING-AUDIT.md",
-      "sha": "fd3c9196109116796929722ac020e957313d7291"
+      "sha": "77f01b76542c66892d9aba80843aff09253a347b"
     },
     {
       "path": "planning/reviews/M05-FINAL-TECHNOLOGY-REVIEW.md",
-      "sha": "f3d8e2bb74972cd3be9aa9080e933216ed3506d6"
+      "sha": "89cae3efd6f8a4dc06d3442ec75f4a38e90a4663"
     },
     {
       "path": "planning/compatibility/M05-FORWARD-COMPATIBILITY-SCAN.md",
-      "sha": "ade9cd7662ce0b777c633bcf07db98fa510809c5"
+      "sha": "54b8bd470cb979eb32220120e978d21056973143"
     },
     {
       "path": "planning/modules/M05-ASSET-DNA-CROSS-MODAL-IDENTITY.md",
-      "sha": "22160605cd8f8d90b18418b316653adcd4d9b30e"
+      "sha": "452e25f1c9f85d1303120b8c89e6046d1e5b5ea6"
     },
     {
       "path": "planning/technology-registry/M05-TECHNOLOGIES.md",
@@ -101,7 +101,7 @@
     },
     {
       "path": "iris_intent/ports.py",
-      "sha": "c117889cfd9ed775360a453dafff7e6efa344967"
+      "sha": "421500df917d8c43c3f9f50f43923dd8958f669c"
     },
     {
       "path": "iris_multimodal_ir/__init__.py",
@@ -150,7 +150,7 @@
   "reconciliation": {
     "reason": "Admission promotion changed the Work Order from ADMISSION_CANDIDATE to ADMITTED_FOR_EXECUTION; the Context Lock critical-source fingerprint is reconciled to the admitted Work Order blob without changing the frozen M05 contract or implementation scope.",
     "staleFingerprint": "5350b562a0887d43e4cfca8c6bfaf47dcb791cbb",
-    "admittedWorkOrderFingerprint": "0ef805660a3ac8f65bccee81661dbc0dec78fddf",
+    "admittedWorkOrderFingerprint": "2b7f992a83368fc6ce2d28619ad822ab64c8d1a2",
     "sourcePromotionHead": "1d41b295b4367052c0abeba71766518af29e2223"
   }
 }

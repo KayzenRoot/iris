@@ -1,6 +1,6 @@
 # IRIS-WO-0041 — one-pass four-owner OFFLINE untrusted draft triage hardening
 
-**Source and admission:** exact main `c3d10ab9dd5a9bb247ae6d0672b3516d1af5efae`, tree `d7f6d1e07cf0b722b1f43497327460287ec9f5a4` independently green [Governance #532](https://github.com/KayzenRoot/iris/actions/runs/36345958912), 4295/4295 tests, IRIS/GEF/HIVE PASS. Issue #110 still tracks the original cross-owner H01–H04 HIGH gates. Current four owner inboxes #128/#145/#146/#147 remain OPEN and unassigned; their GitHub issue comments have **no genuine signed source contracts**. Owner-selected B is DIRECTION_ONLY and C01 is UNADOPTED_NOT_FROZEN.
+**Source and admission:** exact main `c3d10ab9dd5a9bb247ae6d0672b3516d1af5efae`, tree `d7f6d1e07cf0b722b1f43497327460287ec9f5a4` independently green [Governance #532](https://github.com/KayzenRoot/iris/actions/runs/36345958912), 4295/4295 tests, IRIS/GEF/IRIS PASS. Issue #110 still tracks the original cross-owner H01–H04 HIGH gates. Current four owner inboxes #128/#145/#146/#147 remain OPEN and unassigned; their GitHub issue comments have **no genuine signed source contracts**. Owner-selected B is DIRECTION_ONLY and C01 is UNADOPTED_NOT_FROZEN.
 
 ## Objective and admitted change
 
@@ -14,4 +14,4 @@ Changed path allowlist is strictly 9/9: `.engineering/context-locks/IRIS-WO-0041
 
 ## Review, evidence and STOP
 
-PR requires exact base pin validation, 9/9 path diff, exact-head Governance full suite 4313/4313, IRIS validator and pinned GEF/HIVE; bounded same-assistant audit is NOT an actual independent qualified security/OS or cross-owner review. Guarded squash only of the reviewed green head, then separately verify exact-main Governance; issue #110 receives factual checkpoint only after evidence. STOP at genuine independent M12/#128, M54/#145, M58/#146, M60/#147 owner-issued scope decisions; four fully formatted synthetic drafts never close H03 or authorize runtime.
+PR requires exact base pin validation, 9/9 path diff, exact-head Governance full suite 4313/4313, IRIS validator and pinned GEF/IRIS; bounded same-assistant audit is NOT an actual independent qualified security/OS or cross-owner review. Guarded squash only of the reviewed green head, then separately verify exact-main Governance; issue #110 receives factual checkpoint only after evidence. STOP at genuine independent M12/#128, M54/#145, M58/#146, M60/#147 owner-issued scope decisions; four fully formatted synthetic drafts never close H03 or authorize runtime.

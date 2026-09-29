@@ -18,7 +18,7 @@ a digest checked before decoding, and the kind map is derived from the package i
 cannot be forgotten on the wire (§13).
 
 *The neighbours keep their own namespaces.* Refs into M01/M02 are citations M03 receives, never
-identities M03 mints; HIVE memory is derived context (§5.40); a provider observation can report a
+identities M03 mints; IRIS memory is derived context (§5.40); a provider observation can report a
 gap but cannot carry a statement, a constraint or an authority (§5.42); and wanting something
 published is not the authority to publish it (§5.41). Branch, variant and rollback topology stay
 with M02, and no store here claims to know which revision is in force (§5.39).
@@ -1081,7 +1081,7 @@ class OpaqueRefBoundaryTests(unittest.TestCase):
                 with self.assertRaises(SchemaValidationError):
                     SemanticRef(kind=RefKind.SOURCE.value, ref_id=ident)
         with self.assertRaises(SchemaValidationError):
-            SemanticRef(kind="HIVE_WORKSPACE", ref_id="workspace.iris")
+            SemanticRef(kind="IRIS_WORKSPACE", ref_id="workspace.iris")
         with self.assertRaises(SchemaValidationError):
             SemanticRef(kind=RefKind.SOURCE.value, ref_id="src.1", content_digest="zz" * 32)
         with self.assertRaises(SchemaValidationError):
@@ -1137,26 +1137,26 @@ class OpaqueRefBoundaryTests(unittest.TestCase):
         self.assertIn("claim the wrong scope", str(caught.exception))
         self.assertEqual(CreativeBriefIdentity(brief_id="brief.plain", label="Iris").references, ())
 
-    def test_hive_memory_is_derived_context_and_cannot_self_promote(self) -> None:
-        """Invariant 40: HIVE is input, never canonical intent state."""
+    def test_iris_memory_is_derived_context_and_cannot_self_promote(self) -> None:
+        """Invariant 40: IRIS is input, never canonical intent state."""
 
-        self.assertIn(SourceKind.HIVE_MEMORY, UNTRUSTED_SOURCES)
-        self.assertTrue(is_untrusted(SourceKind.HIVE_MEMORY.value))
-        self.assertIs(ceiling_for(SourceKind.HIVE_MEMORY.value), AuthorityLevel.RETRIEVED)
+        self.assertIn(SourceKind.IRIS_MEMORY, UNTRUSTED_SOURCES)
+        self.assertTrue(is_untrusted(SourceKind.IRIS_MEMORY.value))
+        self.assertIs(ceiling_for(SourceKind.IRIS_MEMORY.value), AuthorityLevel.RETRIEVED)
 
         def remembered(kind: str, authority: str) -> RawInputRef:
             return RawInputRef(
-                source_id="src.hive",
+                source_id="src.iris",
                 kind=kind,
                 authority=authority,
-                content_digest=S.digest("src.hive"),
+                content_digest=S.digest("src.iris"),
             )
 
-        allowed = remembered(SourceKind.HIVE_MEMORY.value, AuthorityLevel.RETRIEVED.value)
+        allowed = remembered(SourceKind.IRIS_MEMORY.value, AuthorityLevel.RETRIEVED.value)
         self.assertTrue(allowed.untrusted)
         self.assertIs(allowed.authority_level, AuthorityLevel.RETRIEVED)
         with self.assertRaises(AuthorityError) as caught:
-            remembered(SourceKind.HIVE_MEMORY.value, AuthorityLevel.HUMAN_OWNER.value)
+            remembered(SourceKind.IRIS_MEMORY.value, AuthorityLevel.HUMAN_OWNER.value)
         self.assertIn("Raising it takes an admitted revision", str(caught.exception))
         self.assertIs(ceiling_for(SourceKind.MODEL_OUTPUT.value), AuthorityLevel.MODEL_INFERRED)
         with self.assertRaises(AuthorityError):

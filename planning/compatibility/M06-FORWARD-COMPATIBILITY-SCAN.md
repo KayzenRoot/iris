@@ -47,7 +47,7 @@ No later module requires M06 to create a competing semantic production lifecycle
 | M49 Self-Correction | consumes repair candidates/frontiers | M49 owns defect localization/repair execution; M06 records new history/ancestry | PASS_WITH_AUTHORITY_SHIELD |
 | M50 Cost/Quality Optimization | selects cascade/escalation | cost optimization cannot weaken required M06 correctness/reproducibility | PASS |
 | M51 Benchmark/Evals | regression evidence may invalidate reuse/release | benchmark authority remains M51; M06 consumes evidence refs | PASS_WITH_PORT |
-| M52 HIVE Memory/RAG | retrieval/context may propose dependencies/state | retrieved/stale context cannot self-admit canonical dependency or revision truth | PASS_WITH_AUTHORITY_SHIELD |
+| M52 IRIS Memory/RAG | retrieval/context may propose dependencies/state | retrieved/stale context cannot self-admit canonical dependency or revision truth | PASS_WITH_AUTHORITY_SHIELD |
 | M53 Provenance/Rights/Consent | lineage, license, consent constrain reconstruction/release/cleanup | M53 is authority; M06 preserves exact refs and current-policy gate | PASS_WITH_AUTHORITY_SHIELD |
 | M54 Security | controls restricted resources and current authorization | historical permission never bypasses current M54 policy | PASS_WITH_AUTHORITY_SHIELD |
 | M55 Media CAS/Storage/Archive | stores bytes/manifests, tiers, dedup, GC, archive/recovery | M06 owns operational semantics/eligibility; M55 owns physical CAS/storage/delete/archive execution | PASS_WITH_AUTHORITY_SHIELD |
@@ -71,7 +71,7 @@ The frozen M06 contract must leave provider-neutral, versioned extension points 
 8. `CampaignBrandIdentityRefPort` → M45/M46.
 9. `QualityEvidencePort` → M01/M24/M48/M51.
 10. `RepairExecutionPort` → M49.
-11. `HiveContextEvidencePort` → M52.
+11. `IrisContextEvidencePort` → M52.
 12. `ProvenanceRightsConsentPort` → M53.
 13. `SecurityAuthorizationPort` → M54.
 14. `PhysicalMediaStorePort` → M55.
@@ -102,7 +102,7 @@ M06 may require and preserve quality evidence but cannot issue M01/M48 quality j
 M06 records/consumes exact authority refs; M53/M54 decide rights/consent/security authorization.
 
 ### Automation shield
-HIVE/M52 and agents/M57 may retrieve, observe and propose. They cannot silently mutate canonical M06 truth or authorize protected actions.
+IRIS/M52 and agents/M57 may retrieve, observe and propose. They cannot silently mutate canonical M06 truth or authorize protected actions.
 
 ## Forward risks deliberately deferred
 
@@ -114,7 +114,7 @@ The following implementation depth belongs later and must not be pulled into the
 - DCC/provider-specific materialization;
 - media/domain evaluators;
 - repair engines;
-- HIVE retrieval internals;
+- IRIS retrieval internals;
 - provenance ledger internals;
 - security/RBAC/vault internals;
 - physical CAS/storage/GC/archive;

@@ -59,8 +59,8 @@
     "governanceConclusion": "success",
     "baselineTests": 2527,
     "requiredArtifacts": 35,
-    "hiveMcpOrCliAvailable": false,
-    "contextDisposition": "HIVE-derived context could not be retrieved. Canonical checkpoint, repository sources, exact Git bindings and deterministic code/test evidence were used; no HIVE evidence was fabricated."
+    "irisMcpOrCliAvailable": false,
+    "contextDisposition": "IRIS-derived context could not be retrieved. Canonical checkpoint, repository sources, exact Git bindings and deterministic code/test evidence were used; no IRIS evidence was fabricated."
   },
   "baseline": {
     "baseSha": "58e4201f1d76d261e9e213b7aab91ae8734188a5",
@@ -308,7 +308,7 @@
       "command": "python scripts/validate_governance.py",
       "result": "PASS",
       "gef": "v1.0.0 @ 866fe3af8cccc65c929aaf6a47a924401fa448b3",
-      "hive": "v1.0.0 @ a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
+      "iris": "v1.0.0 @ a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
       "requiredArtifacts": 35
     },
     "whitespace": "git diff --cached --check PASS before implementation commit",
@@ -384,7 +384,7 @@
     "No real provider/DCC integration, external media payload loading, rendering, generation, GPU scheduling or quality judging is implemented or claimed.",
     "No performance/token-savings benchmark is claimed; seven profiles are synthetic structural/serialization checks only.",
     "M05 DNA contents/drift, persistence/CAS/database, rights/security engines, editorial/Canon authority and publishing/export remain with their owning future modules.",
-    "HIVE MCP/CLI was unavailable during preflight; repository-canonical sources and deterministic local/GitHub evidence were used."
+    "IRIS MCP/CLI was unavailable during preflight; repository-canonical sources and deterministic local/GitHub evidence were used."
   ],
   "proposedCheckpointDelta": {
     "status": "APPLIED_BY_POST_MERGE_RECONCILIATION",

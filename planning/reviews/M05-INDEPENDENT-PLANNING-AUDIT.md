@@ -61,7 +61,7 @@ PASS:
 - M45 remains Campaign DNA / Creative Genome / advertising authority.
 - M46 remains BrandDNA / Brand & IP authority.
 - M48/M01 retain quality judgment; M05 drift states are not quality grades.
-- M52 HIVE remains derived/read-only context for canonical identity.
+- M52 IRIS remains derived/read-only context for canonical identity.
 - M53 retains rights/license/consent/provenance authority.
 - M54 retains security/access/restricted-content/restricted-evidence authority.
 - M58 retains API/SDK/MCP/plugin-lifecycle exposure authority.

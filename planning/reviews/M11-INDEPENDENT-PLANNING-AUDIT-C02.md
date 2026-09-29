@@ -13,7 +13,7 @@ Esta revisão ocorreu em tarefa separada da execução C02. O resultado foi publ
 ## Estado e evidência exatos
 
 - PR #104 estava OPEN e UNMERGED no momento da revisão; base 6006be5af8f58ac6eec00df030fffab2d1d121ab; head f3d53b0e21f6c64a22d3d7e9a71dd5d1436a92f4.
-- Governance #441, run 36286063222 / job 108526953203: PASS no head exato, 3.940/3.940 testes. O log confirma checkout exato, validator IRIS PASS e bridges GEF/HIVE v1.0.0 fixados.
+- Governance #441, run 36286063222 / job 108526953203: PASS no head exato, 3.940/3.940 testes. O log confirma checkout exato, validator IRIS PASS e bridges GEF/IRIS v1.0.0 fixados.
 - Context Lock C02: 32/32 fingerprints Git blob do base coincidem. O diff contém exatamente os 10 caminhos autorizados.
 - Comparação literal dos arquivos de pesquisa S04 e S05: 21 + 23 = 44/44 perguntas idênticas, IDs únicos e estado OPEN.
 - Ações reais permanecem DISABLED. Não há evidência de runtime, OS safety, IPC, processo ou sucesso operacional.

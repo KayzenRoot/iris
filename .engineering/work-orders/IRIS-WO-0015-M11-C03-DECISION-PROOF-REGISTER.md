@@ -20,4 +20,4 @@ Allowlisted 9 paths:
 
 Acceptance: 35/35 exact-base critical-source Git blob fingerprints; S01/S02/S03/S04/S05 cardinalities 10/12/20/21/23; IDs unique; all OPEN; S04/S05 source text same as candidate; eight PO-C02-01..08 carried as SPECIFIED_NOT_EXECUTED; checkpoint mirrors equal and JSON valid. Governance exact-head PASS. Separate bounded review prior to guarded protected squash merge and exact-main validation.
 
-STOP CONDITION: leave proposal PR OPEN after exact-head Governance. M11 v0.2 NOT_FROZEN; M10/M11 implementation NOT_ADMITTED; M12–M60 contracts pending/unrated; callable process actions DISABLED; Issue #82 OPEN. Do not start runtime, freeze, merge without review, or replace Git source with stale HIVE context.
+STOP CONDITION: leave proposal PR OPEN after exact-head Governance. M11 v0.2 NOT_FROZEN; M10/M11 implementation NOT_ADMITTED; M12–M60 contracts pending/unrated; callable process actions DISABLED; Issue #82 OPEN. Do not start runtime, freeze, merge without review, or replace Git source with stale IRIS context.

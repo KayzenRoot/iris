@@ -44,31 +44,31 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0060-WO0059-CANONICAL-CLOSEOUT.json",
-      "gitBlobSha1": "bcaac073054e67272507e7174da3c67cd7affea6"
+      "gitBlobSha1": "ed7b53ec5a0485086d9857688f7f811e9819bfda"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0061-M04-DEEP-JSON-REFUSAL.json",
-      "gitBlobSha1": "87222419cb6685b93bdb2f08fcb792bda266a972"
+      "gitBlobSha1": "e3f5478185313c02bbc64c5dea75c5dae856cdbb"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0062-WO0061-CANONICAL-CLOSEOUT.json",
-      "gitBlobSha1": "beffaca1a8cc2bf76eff067ccdfa5b8703de7e4b"
+      "gitBlobSha1": "4356b09d347af51cb4bb07745b27170a173f3131"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0063-SOURCE-MANIFEST-ANCHOR.json",
-      "gitBlobSha1": "1367455541ddf567ec55a17318f812afeb1b29c2"
+      "gitBlobSha1": "7d29a7faedfc193e1eb2bceab9220c674aec38ac"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0064-WO0063-CANONICAL-CLOSEOUT.json",
-      "gitBlobSha1": "1e0788cb1643ab71e60a91be77232faf9b63c364"
+      "gitBlobSha1": "77de09270ef0e4bbcd079dcb9dc0e4a61e358817"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0060.json",
-      "gitBlobSha1": "3c8f594619d2c35194fb000eb95bc93d3c6865a2"
+      "gitBlobSha1": "54edd6811eaf0028bd1b9334a20316b35a7fee96"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0061.json",
-      "gitBlobSha1": "4613a13f10304c4eb16c6198a4ac0bb9af7dfc60"
+      "gitBlobSha1": "dff405c84d0fc4e160f2998e3d9b7527dc497568"
     },
     {
       "path": ".engineering/gef/GEF-ADOPTION.md",
@@ -88,11 +88,11 @@
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0060-WO0059-CANONICAL-CLOSEOUT.md",
-      "gitBlobSha1": "007d98b653f3a770b35b13c4b23ab69f93368554"
+      "gitBlobSha1": "6abe664caad8e27a58b38a2cc40d0c44f583d6c6"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0061-M04-DEEP-JSON-REFUSAL.md",
-      "gitBlobSha1": "8fb19fc016e71090e5cd54dfd5e1d7da0850798e"
+      "gitBlobSha1": "2d0087a14b5621ad2db76746f0e0dc82db0ca5b7"
     },
     {
       "path": ".github/workflows/governance.yml",
@@ -111,7 +111,7 @@
       "gitBlobSha1": "4f6693873c09bb48712b5f7797e0a15de7223cdf"
     },
     {
-      "path": "docs/HIVE-INTEGRATION.md",
+      "path": "docs/IRIS-INTEGRATION.md",
       "gitBlobSha1": "9072537a722ecea7edc0ea2ce1223da8b4deb165"
     },
     {
@@ -176,26 +176,26 @@
     },
     {
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+      "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220"
     },
     {
       "path": "planning/checkpoints/IRIS-WO-0061-M04-DEEP-JSON-REFUSAL.md",
-      "gitBlobSha1": "6f3e5d3d6081925b977cfa662eb6f5e20c22c441"
+      "gitBlobSha1": "2c04459eae5b2673fddd3f10d636f1b6c266646a"
     },
     {
       "path": "scripts/README.md",
       "gitBlobSha1": "809871ace7cf9ad0b25f945b8eb2dfb35564f9fe"
     },
     {
-      "path": "scripts/hive-bootstrap.ps1",
+      "path": "scripts/iris-bootstrap.ps1",
       "gitBlobSha1": "6a43d9698525996a4d8782e5a74f8f37c59038db"
     },
     {
-      "path": "scripts/hive_bootstrap.py",
+      "path": "scripts/iris_bootstrap.py",
       "gitBlobSha1": "8c7780e34bcd2404bccdc4c4ffa7bed1ff1c6973"
     },
     {
-      "path": "scripts/hive_mcp.py",
+      "path": "scripts/iris_mcp.py",
       "gitBlobSha1": "0ad9cd173c29b8aedf60ee0f3b5d928112d23a0a"
     },
     {
@@ -204,18 +204,18 @@
     },
     {
       "path": "scripts/verify_context_lock.py",
-      "gitBlobSha1": "6818ddd264aabc0c2530973d20315ef1f3145f6b"
+      "gitBlobSha1": "252840437e31ead839ca020700b84f1a522586d4"
     },
     {
       "path": "tests/test_context_lock_verifier.py",
       "gitBlobSha1": "05addbe3153d749d0201331665bcee212784c702"
     },
     {
-      "path": "tests/test_hive_bootstrap.py",
+      "path": "tests/test_iris_bootstrap.py",
       "gitBlobSha1": "68e0f3b8bcabd4d8c3e3ff779a39aaf76059e139"
     },
     {
-      "path": "tests/test_hive_mcp.py",
+      "path": "tests/test_iris_mcp.py",
       "gitBlobSha1": "f94facd0e8c174037d959bd42f03e3d3de7bcc9b"
     },
     {
@@ -233,7 +233,7 @@
   ],
   "sourceManifestAnchor": {
     "path": ".engineering/context-locks/IRIS-WO-0064-WO0063-CANONICAL-CLOSEOUT.json",
-    "gitBlobSha1": "1e0788cb1643ab71e60a91be77232faf9b63c364"
+    "gitBlobSha1": "77de09270ef0e4bbcd079dcb9dc0e4a61e358817"
   },
   "authorizedChangedFiles": [
     ".codex/config.toml",
@@ -243,18 +243,18 @@
     ".engineering/PROMPT-DELIVERY-POLICY.md",
     ".engineering/REVIEW-AUTOFIX-POLICY.md",
     ".engineering/SOURCE-HIERARCHY.md",
-    ".engineering/context-locks/IRIS-WO-0066-RETIRE-HIVE-STANDALONE.json",
+    ".engineering/context-locks/IRIS-WO-0066-STANDALONE-CONTEXT-MIGRATION.json",
     ".engineering/evidence/IRIS-WO-0066.json",
     ".engineering/gef/GEF-ADOPTION.md",
     ".engineering/gef/GEF-POLICY.md",
     ".engineering/gef/GEF-PROJECT-PROFILE.json",
     ".engineering/gef/GEF-SOURCE-BRIDGE.json",
-    ".engineering/work-orders/IRIS-WO-0066-RETIRE-HIVE-STANDALONE.md",
+    ".engineering/work-orders/IRIS-WO-0066-STANDALONE-CONTEXT-MIGRATION.md",
     ".github/workflows/governance.yml",
     "AGENTS.md",
     "README.md",
     "docs/GEF-INTEGRATION.md",
-    "docs/HIVE-INTEGRATION.md",
+    "docs/IRIS-INTEGRATION.md",
     "docs/IRIS-STANDALONE-OPERATOR-NOTES.md",
     "docs/product/IRIS-PRODUCT-NORTH-STAR.md",
     "docs/project-brain/00-README-UPLOAD-ORDER.md",
@@ -271,15 +271,15 @@
     "docs/project-brain/15-DEFINITION-OF-DONE.md",
     "docs/project-brain/16-DECISIONS-LEDGER.md",
     "planning/MASTER-MODULE-INDEX-CURRENT.md",
-    "planning/checkpoints/IRIS-WO-0066-RETIRE-HIVE-STANDALONE.md",
+    "planning/checkpoints/IRIS-WO-0066-STANDALONE-CONTEXT-MIGRATION.md",
     "scripts/README.md",
-    "scripts/hive-bootstrap.ps1",
-    "scripts/hive_bootstrap.py",
-    "scripts/hive_mcp.py",
+    "scripts/iris-bootstrap.ps1",
+    "scripts/iris_bootstrap.py",
+    "scripts/iris_mcp.py",
     "scripts/validate_governance.py",
-    "tests/test_hive_bootstrap.py",
-    "tests/test_hive_mcp.py",
+    "tests/test_iris_bootstrap.py",
+    "tests/test_iris_mcp.py",
     "tests/test_wo0062_canonical_closeout.py",
-    "tests/test_wo0066_hive_retirement.py"
+    "tests/test_wo0066_iris_retirement.py"
   ]
 }

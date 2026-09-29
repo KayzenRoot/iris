@@ -8,31 +8,31 @@ Exact original protected main `a0a8058758b13ae554da64e21a11b2762305eea5`, source
 
 ### S01: IRIS-WO-0045
 
-Exact original source packet [.engineering/evidence/M13-S01-SOURCE-RESEARCH.json](../../.engineering/evidence/M13-S01-SOURCE-RESEARCH.json), Git blob `ee65b960ca7e4f83f5419ec744f4c1f304edb6d7`, original status `SOURCE_RESEARCH_ONLY_NONBINDING`. Original questions 18, all OPEN/UNRATED; future real integration designs 12, ALL SPECIFIED_NOT_EXECUTED.
+Exact original source packet [.engineering/evidence/M13-S01-SOURCE-RESEARCH.json](../../.engineering/evidence/M13-S01-SOURCE-RESEARCH.json), Git blob `5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0`, original status `SOURCE_RESEARCH_ONLY_NONBINDING`. Original questions 18, all OPEN/UNRATED; future real integration designs 12, ALL SPECIFIED_NOT_EXECUTED.
 Original question IDs: `M13-S01-U01`, `M13-S01-U02`, `M13-S01-U03`, `M13-S01-U04`, `M13-S01-U05`, `M13-S01-U06`, `M13-S01-U07`, `M13-S01-U08`, `M13-S01-U09`, `M13-S01-U10`, `M13-S01-U11`, `M13-S01-U12`, `M13-S01-U13`, `M13-S01-U14`, `M13-S01-U15`, `M13-S01-U16`, `M13-S01-U17`, `M13-S01-U18`.
 Original future scenario IDs: `CWS-01`, `CWS-02`, `CWS-03`, `CWS-04`, `CWS-05`, `CWS-06`, `CWS-07`, `CWS-08`, `CWS-09`, `CWS-10`, `CWS-11`, `CWS-12`.
 
 ### S02: IRIS-WO-0046
 
-Exact original source packet [.engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json](../../.engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json), Git blob `2e94983865cf72aa6c5a63510b8a4b41586048c7`, original status `SOURCE_ONLY_UNSELECTED_NONBINDING`. Original questions 18, all OPEN/UNRATED; future real integration designs 14, ALL SPECIFIED_NOT_EXECUTED.
+Exact original source packet [.engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json](../../.engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json), Git blob `8ac11eaa91292a81d10de1d44ccd21b5e240a664`, original status `SOURCE_ONLY_UNSELECTED_NONBINDING`. Original questions 18, all OPEN/UNRATED; future real integration designs 14, ALL SPECIFIED_NOT_EXECUTED.
 Original question IDs: `M13-S02-U01`, `M13-S02-U02`, `M13-S02-U03`, `M13-S02-U04`, `M13-S02-U05`, `M13-S02-U06`, `M13-S02-U07`, `M13-S02-U08`, `M13-S02-U09`, `M13-S02-U10`, `M13-S02-U11`, `M13-S02-U12`, `M13-S02-U13`, `M13-S02-U14`, `M13-S02-U15`, `M13-S02-U16`, `M13-S02-U17`, `M13-S02-U18`.
 Original future scenario IDs: `CBA-01`, `CBA-02`, `CBA-03`, `CBA-04`, `CBA-05`, `CBA-06`, `CBA-07`, `CBA-08`, `CBA-09`, `CBA-10`, `CBA-11`, `CBA-12`, `CBA-13`, `CBA-14`.
 
 ### S03: IRIS-WO-0047
 
-Exact original source packet [.engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json](../../.engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json), Git blob `16737ecbb836b1e0736f4851ce6e0b56b8916bea`, original status `SOURCE_ONLY_NONBINDING`. Original questions 20, all OPEN/UNRATED; future real integration designs 16, ALL SPECIFIED_NOT_EXECUTED.
+Exact original source packet [.engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json](../../.engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json), Git blob `fe0ea0d3a4b4229f79e19d023c255cc6a0cafdf1`, original status `SOURCE_ONLY_NONBINDING`. Original questions 20, all OPEN/UNRATED; future real integration designs 16, ALL SPECIFIED_NOT_EXECUTED.
 Original question IDs: `M13-S03-U01`, `M13-S03-U02`, `M13-S03-U03`, `M13-S03-U04`, `M13-S03-U05`, `M13-S03-U06`, `M13-S03-U07`, `M13-S03-U08`, `M13-S03-U09`, `M13-S03-U10`, `M13-S03-U11`, `M13-S03-U12`, `M13-S03-U13`, `M13-S03-U14`, `M13-S03-U15`, `M13-S03-U16`, `M13-S03-U17`, `M13-S03-U18`, `M13-S03-U19`, `M13-S03-U20`.
 Original future scenario IDs: `DCS-01`, `DCS-02`, `DCS-03`, `DCS-04`, `DCS-05`, `DCS-06`, `DCS-07`, `DCS-08`, `DCS-09`, `DCS-10`, `DCS-11`, `DCS-12`, `DCS-13`, `DCS-14`, `DCS-15`, `DCS-16`.
 
 ### S04: IRIS-WO-0048
 
-Exact original source packet [.engineering/evidence/M13-S04-OVERLAP-IO-RESEARCH.json](../../.engineering/evidence/M13-S04-OVERLAP-IO-RESEARCH.json), Git blob `363dc19ed3536ad389a36fedbc5101d1d94bfb2d`, original status `SOURCE_ONLY_NO_HARDWARE_OR_IO_RUNTIME`. Original questions 20, all OPEN/UNRATED; future real integration designs 16, ALL SPECIFIED_NOT_EXECUTED.
+Exact original source packet [.engineering/evidence/M13-S04-OVERLAP-IO-RESEARCH.json](../../.engineering/evidence/M13-S04-OVERLAP-IO-RESEARCH.json), Git blob `b9b87ac36189c1cabd75989a07920752c23704fd`, original status `SOURCE_ONLY_NO_HARDWARE_OR_IO_RUNTIME`. Original questions 20, all OPEN/UNRATED; future real integration designs 16, ALL SPECIFIED_NOT_EXECUTED.
 Original question IDs: `M13-S04-U01`, `M13-S04-U02`, `M13-S04-U03`, `M13-S04-U04`, `M13-S04-U05`, `M13-S04-U06`, `M13-S04-U07`, `M13-S04-U08`, `M13-S04-U09`, `M13-S04-U10`, `M13-S04-U11`, `M13-S04-U12`, `M13-S04-U13`, `M13-S04-U14`, `M13-S04-U15`, `M13-S04-U16`, `M13-S04-U17`, `M13-S04-U18`, `M13-S04-U19`, `M13-S04-U20`.
 Original future scenario IDs: `M13-S04-N01`, `M13-S04-N02`, `M13-S04-N03`, `M13-S04-N04`, `M13-S04-N05`, `M13-S04-N06`, `M13-S04-N07`, `M13-S04-N08`, `M13-S04-N09`, `M13-S04-N10`, `M13-S04-N11`, `M13-S04-N12`, `M13-S04-N13`, `M13-S04-N14`, `M13-S04-N15`, `M13-S04-N16`.
 
 ### S05: IRIS-WO-0049
 
-Exact original source packet [.engineering/evidence/M13-S05-PERFORMANCE-GATES-RESEARCH.json](../../.engineering/evidence/M13-S05-PERFORMANCE-GATES-RESEARCH.json), Git blob `613138430a472367646586645eb5315face35d14`, original status `SOURCE_ONLY_FIFTH_SESSION_NOT_MODULE_FREEZE`. Original questions 20, all OPEN/UNRATED; future real integration designs 16, ALL SPECIFIED_NOT_EXECUTED.
+Exact original source packet [.engineering/evidence/M13-S05-PERFORMANCE-GATES-RESEARCH.json](../../.engineering/evidence/M13-S05-PERFORMANCE-GATES-RESEARCH.json), Git blob `ff0cba2138ba1684917414501809dff4193fdd49`, original status `SOURCE_ONLY_FIFTH_SESSION_NOT_MODULE_FREEZE`. Original questions 20, all OPEN/UNRATED; future real integration designs 16, ALL SPECIFIED_NOT_EXECUTED.
 Original question IDs: `M13-S05-U01`, `M13-S05-U02`, `M13-S05-U03`, `M13-S05-U04`, `M13-S05-U05`, `M13-S05-U06`, `M13-S05-U07`, `M13-S05-U08`, `M13-S05-U09`, `M13-S05-U10`, `M13-S05-U11`, `M13-S05-U12`, `M13-S05-U13`, `M13-S05-U14`, `M13-S05-U15`, `M13-S05-U16`, `M13-S05-U17`, `M13-S05-U18`, `M13-S05-U19`, `M13-S05-U20`.
 Original future scenario IDs: `M13-S05-N01`, `M13-S05-N02`, `M13-S05-N03`, `M13-S05-N04`, `M13-S05-N05`, `M13-S05-N06`, `M13-S05-N07`, `M13-S05-N08`, `M13-S05-N09`, `M13-S05-N10`, `M13-S05-N11`, `M13-S05-N12`, `M13-S05-N13`, `M13-S05-N14`, `M13-S05-N15`, `M13-S05-N16`.
 
@@ -201,7 +201,7 @@ These are exactly the 47 titles in the original [`planning/MASTER-MODULE-INDEX.m
 - `M49` Self-Correction, Partial Repair & Minimal Regeneration: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
 - `M50` Render Cascade & Cost-to-Quality Optimization: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
 - `M51` Benchmark Lab, Evals & Regression Corpus: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
-- `M52` HIVE Multimodal Memory & Creative RAG Integration: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
+- `M52` IRIS Multimodal Memory & Creative RAG Integration: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
 - `M53` Provenance, Rights, Consent & C2PA: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
 - `M54` Security, Identity & Restricted Content: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
 - `M55` Media CAS, Storage, Cache & Archive Fabric: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
@@ -243,13 +243,13 @@ The four original H01–H04 live gates still block actual process ownership, all
   "h03FourOwnerAssignments": "147_ASSIGNMENTS_91_UNIQUE_ORIGINAL",
   "sourceMasterIndex": {
     "path": "planning/MASTER-MODULE-INDEX.md",
-    "sha": "19c8ff6126748cb89e53108bdff8289322071970"
+    "sha": "a60d19c86bddd3699498f7d1f248a00368e32220"
   },
   "sessions": [
     {
       "id": "S01",
       "sourcePath": ".engineering/evidence/M13-S01-SOURCE-RESEARCH.json",
-      "gitBlobSha1": "ee65b960ca7e4f83f5419ec744f4c1f304edb6d7",
+      "gitBlobSha1": "5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0",
       "sourceSchema": "iris-m13-s01-source-research-v0.1",
       "originalWorkOrder": "IRIS-WO-0045",
       "sourceStatus": "SOURCE_RESEARCH_ONLY_NONBINDING",
@@ -293,7 +293,7 @@ The four original H01–H04 live gates still block actual process ownership, all
     {
       "id": "S02",
       "sourcePath": ".engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json",
-      "gitBlobSha1": "2e94983865cf72aa6c5a63510b8a4b41586048c7",
+      "gitBlobSha1": "8ac11eaa91292a81d10de1d44ccd21b5e240a664",
       "sourceSchema": "iris-m13-s02-source-research-v0.1",
       "originalWorkOrder": "IRIS-WO-0046",
       "sourceStatus": "SOURCE_ONLY_UNSELECTED_NONBINDING",
@@ -339,7 +339,7 @@ The four original H01–H04 live gates still block actual process ownership, all
     {
       "id": "S03",
       "sourcePath": ".engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json",
-      "gitBlobSha1": "16737ecbb836b1e0736f4851ce6e0b56b8916bea",
+      "gitBlobSha1": "fe0ea0d3a4b4229f79e19d023c255cc6a0cafdf1",
       "sourceSchema": "iris-m13-s03-research-v0.1",
       "originalWorkOrder": "IRIS-WO-0047",
       "sourceStatus": "SOURCE_ONLY_NONBINDING",
@@ -389,7 +389,7 @@ The four original H01–H04 live gates still block actual process ownership, all
     {
       "id": "S04",
       "sourcePath": ".engineering/evidence/M13-S04-OVERLAP-IO-RESEARCH.json",
-      "gitBlobSha1": "363dc19ed3536ad389a36fedbc5101d1d94bfb2d",
+      "gitBlobSha1": "b9b87ac36189c1cabd75989a07920752c23704fd",
       "sourceSchema": "iris-m13-s04-source-research-v0.1",
       "originalWorkOrder": "IRIS-WO-0048",
       "sourceStatus": "SOURCE_ONLY_NO_HARDWARE_OR_IO_RUNTIME",
@@ -439,7 +439,7 @@ The four original H01–H04 live gates still block actual process ownership, all
     {
       "id": "S05",
       "sourcePath": ".engineering/evidence/M13-S05-PERFORMANCE-GATES-RESEARCH.json",
-      "gitBlobSha1": "613138430a472367646586645eb5315face35d14",
+      "gitBlobSha1": "ff0cba2138ba1684917414501809dff4193fdd49",
       "sourceSchema": "iris-m13-s05-performance-budgets-v0.1",
       "originalWorkOrder": "IRIS-WO-0049",
       "sourceStatus": "SOURCE_ONLY_FIFTH_SESSION_NOT_MODULE_FREEZE",
@@ -1017,7 +1017,7 @@ The four original H01–H04 live gates still block actual process ownership, all
     },
     {
       "id": "M52",
-      "canonicalTitle": "HIVE Multimodal Memory & Creative RAG Integration",
+      "canonicalTitle": "IRIS Multimodal Memory & Creative RAG Integration",
       "source": "MASTER_MODULE_INDEX_HEADING_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT"
     },
     {

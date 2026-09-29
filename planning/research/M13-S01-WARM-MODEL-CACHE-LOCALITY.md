@@ -11,17 +11,17 @@ Historical exact source main: `2dbb91495804338f46aad9716f36e10409c64935`, tree `
 
 ### 11 immutable exact historical source inputs
 
-- **INDEX**: [`planning/MASTER-MODULE-INDEX.md`](../../planning/MASTER-MODULE-INDEX.md); original Git blob `19c8ff6126748cb89e53108bdff8289322071970`; required source anchor: `### M13 — Performance, Cache & Execution Efficiency`.
-- **M01**: [`docs/M01-QUALITY-KERNEL.md`](../../docs/M01-QUALITY-KERNEL.md); original Git blob `930af57944fa83c44745873c42eb3a7740972ee6`; required source anchor: `Frozen contract: `m01-contract-v1.0``.
-- **M02**: [`planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md); original Git blob `a85d80ab3bb5f4bdc9be915a59caa92569d66af4`; required source anchor: `cache/warm-state loss changes performance, not production truth;`.
-- **M06**: [`planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md); original Git blob `18b5303d1e36ef60de17b42dd9e2c371ecf4f191`; required source anchor: `Digest equality proves byte equality under the declared digest domain only.`.
+- **INDEX**: [`planning/MASTER-MODULE-INDEX.md`](../../planning/MASTER-MODULE-INDEX.md); original Git blob `a60d19c86bddd3699498f7d1f248a00368e32220`; required source anchor: `### M13 — Performance, Cache & Execution Efficiency`.
+- **M01**: [`docs/M01-QUALITY-KERNEL.md`](../../docs/M01-QUALITY-KERNEL.md); original Git blob `df4f899ad414c47ad379f26fe1782edb6f43cf6f`; required source anchor: `Frozen contract: `m01-contract-v1.0``.
+- **M02**: [`planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md); original Git blob `a36fd73c03f06b7558f850a2ad515a0df37c243b`; required source anchor: `cache/warm-state loss changes performance, not production truth;`.
+- **M06**: [`planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md); original Git blob `d6778684e0c34e55d05ddc06cf5aa47fe347c037`; required source anchor: `Digest equality proves byte equality under the declared digest domain only.`.
 - **M07**: [`docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md`](../../docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md); original Git blob `2a0b95dd3cc665e2206e454caef5858ef7fb61b0`; required source anchor: `M07 does not lower quality targets`.
 - **M08**: [`docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md`](../../docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md); original Git blob `461e0f332d9be2af694634bbdc8cf67e29d56393`; required source anchor: `M08 records empirical performance evidence`.
 - **M09**: [`docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md`](../../docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md); original Git blob `d12b4f48030c1a57b8e6228df39f35dac8c2b20a`; required source anchor: `M09 is the provider-neutral resource-state`.
 - **M10**: [`planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md); original Git blob `f69ec3e3eab24b47c0e31832d64d9ab9cce21828`; required source anchor: `Implementation authority: NOT ADMITTED`.
-- **M11**: [`planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md); original Git blob `41ab89727c7be14e35e2481aefbd97a0cb81cb48`; required source anchor: `Status: PROPOSED_C02_CORRECTION_NOT_FROZEN`.
+- **M11**: [`planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md); original Git blob `4a5f384271504365701bdd685455d93984617f21`; required source anchor: `Status: PROPOSED_C02_CORRECTION_NOT_FROZEN`.
 - **M12**: [`planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md); original Git blob `28b3802901349263100ceaaf80c0990513dbbded`; required source anchor: `Status: PROPOSED_NOT_FROZEN`.
-- **D01**: [`.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json`](../../.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json); original Git blob `30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb`; required source anchor: `B_FUTURE_OWNER_RECEIPT`.
+- **D01**: [`.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json`](../../.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json); original Git blob `8877331a5004a3e816e4c42fb521ff3408bad08a`; required source anchor: `B_FUTURE_OWNER_RECEIPT`.
 
 ## 2. Five cache classes, none adopted
 

@@ -125,7 +125,7 @@ Critical non-negotiable themes:
 11. cleanup requires positive non-reachability proof.
 12. release closure is immutable and cannot self-promote.
 13. M01/M05/M49/M53/M54/M59 authorities remain external where defined.
-14. HIVE/agents may propose/observe but cannot self-admit protected canonical mutations, reuse, deletion, promotion or release.
+14. IRIS/agents may propose/observe but cannot self-admit protected canonical mutations, reuse, deletion, promotion or release.
 
 ## Required implementation proof profile
 

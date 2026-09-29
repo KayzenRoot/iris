@@ -4,7 +4,7 @@ Status: PROPOSED_FOR_SEPARATE_AUDIT | Work Order IRIS-WO-0015 | Issue #82 OPEN
 Exact base: `33f9eb934db8a262a7ba705f5667f832c4abdca4` / tree `4c15513bae0f5e2312617de5beeb8cc4f9e43ba2`
 
 ## C07 exact-main receipt
-PR #111 reviewed head `8a0a262e63f3cf16402b94d0ff95ee405a7b0f84` passed Governance #453 (run 36313068016 / job 108602579873; 3,940/3,940). Protected squash-merged as `33f9eb934db8a262a7ba705f5667f832c4abdca4` (this exact tree) and passed exact-main Governance #454 (run 36313136323 / job 108602764257; 3,940/3,940). C07 preserved Issue #110 OPEN and no M09 owner reply. This C08 begins from the exact resulting Git-canonical base, not stale derived HIVE data.
+PR #111 reviewed head `8a0a262e63f3cf16402b94d0ff95ee405a7b0f84` passed Governance #453 (run 36313068016 / job 108602579873; 3,940/3,940). Protected squash-merged as `33f9eb934db8a262a7ba705f5667f832c4abdca4` (this exact tree) and passed exact-main Governance #454 (run 36313136323 / job 108602764257; 3,940/3,940). C07 preserved Issue #110 OPEN and no M09 owner reply. This C08 begins from the exact resulting Git-canonical base, not stale derived IRIS data.
 
 ## Source facts: what M09 v1.0 does and does not prove
 - `iris_resource_twin/__init__.py` publicly exports typed in-process Python API 1.0.0, not a versioned, authenticated, per-request M09-to-M11 proof port.

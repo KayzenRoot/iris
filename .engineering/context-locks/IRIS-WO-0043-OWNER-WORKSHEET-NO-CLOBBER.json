@@ -66,7 +66,7 @@
     },
     {
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "gitBlobSha1": "19c8ff6126748cb89e53108bdff8289322071970"
+      "gitBlobSha1": "a60d19c86bddd3699498f7d1f248a00368e32220"
     },
     {
       "path": ".engineering/evidence/M09-H03-FOUR-OWNER-SOURCE-PACKETS.json",
@@ -78,11 +78,11 @@
     },
     {
       "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
-      "gitBlobSha1": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb"
+      "gitBlobSha1": "8877331a5004a3e816e4c42fb521ff3408bad08a"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0042-H03-OWNER-DRAFT-SCAFFOLD.json",
-      "gitBlobSha1": "960b592daccaa477245d7edfb953a24b608c6c29"
+      "gitBlobSha1": "b6e75674513d5a8bbe8140aa8d6354e850af4ecb"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0042.json",
@@ -90,7 +90,7 @@
     },
     {
       "path": "scripts/verify_m09_h03_owner_routes.py",
-      "gitBlobSha1": "311ecd211d1e94f157abf6695affd45dfa2376e2"
+      "gitBlobSha1": "cd9ead4b7af42c243315650c5a76d6eda8bdaa53"
     },
     {
       "path": "scripts/scaffold_m09_h03_owner_drafts.py",

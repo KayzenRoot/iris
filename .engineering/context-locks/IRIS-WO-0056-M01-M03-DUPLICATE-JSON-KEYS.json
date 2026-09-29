@@ -77,11 +77,11 @@
     },
     {
       "path": "planning/modules/M02-PROJECT-OS-PRODUCTION-GRAPH.md",
-      "gitBlobSha1": "3167e2ee8be597a7e33d9083a151c8cbcb462c7f"
+      "gitBlobSha1": "d7d57921abf9edce173a9dc590233e9354f94862"
     },
     {
       "path": "planning/modules/M03-CREATIVE-BRIEF-INTENT-CONSTRAINT-COMPILER.md",
-      "gitBlobSha1": "05c3b82e8bae88d9a82fe1a2ddb1ef09f5729f8f"
+      "gitBlobSha1": "1a39ec00ebdb4fd1f40aad135e7712cf918a28d9"
     },
     {
       "path": "iris_quality/serialization.py",
@@ -113,11 +113,11 @@
     },
     {
       "path": "tests/test_m02_serialization.py",
-      "gitBlobSha1": "0683ef06c60d59fbde4976b49461498e82f882ab"
+      "gitBlobSha1": "b99964a66ef0126737075e89c1ee38d3e22e95be"
     },
     {
       "path": "tests/test_m03_transport.py",
-      "gitBlobSha1": "77680df0646b6a165306e614bcb085e921fcffec"
+      "gitBlobSha1": "eb83fcb1468d9a2a181cf4e6c27015d778794c2c"
     },
     {
       "path": "tests/m01_kernel_support.py",
@@ -125,7 +125,7 @@
     },
     {
       "path": "tests/m02_kernel_support.py",
-      "gitBlobSha1": "04b80c7848a6eec7a0cb7c5bfdf81e95c72b0c7e"
+      "gitBlobSha1": "d2af1ded5ca99cf5af1c21a64c570ecbd7a88481"
     },
     {
       "path": "tests/m03_kernel_support.py",
@@ -133,11 +133,11 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0055-M06-M09-UNTRUSTED-TAG-JSON.json",
-      "gitBlobSha1": "230203a7ff3e9e4af0cba6a96382c8d56bd792c1"
+      "gitBlobSha1": "aa9b062de6aef55be7c0c8ac1a05b8b56f6fa213"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0055.json",
-      "gitBlobSha1": "23f3252653f3e4737cff225620139d499672d86e"
+      "gitBlobSha1": "8019165e53c5026c4dc9ab37e3f6dab77c039990"
     }
   ],
   "authorizedChangedFiles": [

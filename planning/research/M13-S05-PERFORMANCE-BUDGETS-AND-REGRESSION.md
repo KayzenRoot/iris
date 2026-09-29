@@ -8,21 +8,21 @@ Performance is evidence-gated, not inferred from upstream hardware marketing or 
 
 Exact protected source main `e4c8821fdc504fe398ec72b287dc13ed0e24f442`, tree `958140fc1207f480cc0da67037184eceb6865a8c`. Four previous S01–S04 sessions are original SOURCE_ONLY research and their unanswered questions/unexecuted negative designs remain intact.
 
-- **INDEX**: [`planning/MASTER-MODULE-INDEX.md`](../../planning/MASTER-MODULE-INDEX.md); exact original Git blob `19c8ff6126748cb89e53108bdff8289322071970`; required literal `S05 — S05 Performance budgets, profiling and anti-regression gates`.
-- **M01**: [`docs/M01-QUALITY-KERNEL.md`](../../docs/M01-QUALITY-KERNEL.md); exact original Git blob `930af57944fa83c44745873c42eb3a7740972ee6`; required literal `m01-contract-v1.0`.
-- **M02**: [`planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `a85d80ab3bb5f4bdc9be915a59caa92569d66af4`; required literal `semantic reuse requires explicit reuse class/admission`.
-- **M06**: [`planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `18b5303d1e36ef60de17b42dd9e2c371ecf4f191`; required literal `Digest equality proves byte equality under the declared digest domain only.`.
+- **INDEX**: [`planning/MASTER-MODULE-INDEX.md`](../../planning/MASTER-MODULE-INDEX.md); exact original Git blob `a60d19c86bddd3699498f7d1f248a00368e32220`; required literal `S05 — S05 Performance budgets, profiling and anti-regression gates`.
+- **M01**: [`docs/M01-QUALITY-KERNEL.md`](../../docs/M01-QUALITY-KERNEL.md); exact original Git blob `df4f899ad414c47ad379f26fe1782edb6f43cf6f`; required literal `m01-contract-v1.0`.
+- **M02**: [`planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `a36fd73c03f06b7558f850a2ad515a0df37c243b`; required literal `semantic reuse requires explicit reuse class/admission`.
+- **M06**: [`planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `d6778684e0c34e55d05ddc06cf5aa47fe347c037`; required literal `Digest equality proves byte equality under the declared digest domain only.`.
 - **M07**: [`docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md`](../../docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md); exact original Git blob `2a0b95dd3cc665e2206e454caef5858ef7fb61b0`; required literal `M07 does not lower quality targets`.
 - **M08**: [`docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md`](../../docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md); exact original Git blob `461e0f332d9be2af694634bbdc8cf67e29d56393`; required literal `UNKNOWN_TELEMETRY`.
 - **M09**: [`docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md`](../../docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md); exact original Git blob `d12b4f48030c1a57b8e6228df39f35dac8c2b20a`; required literal `m09-contract-v1.0`.
 - **M10**: [`planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `f69ec3e3eab24b47c0e31832d64d9ab9cce21828`; required literal `Implementation authority: NOT ADMITTED`.
-- **M11**: [`planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `41ab89727c7be14e35e2481aefbd97a0cb81cb48`; required literal `PROPOSED_C02_CORRECTION_NOT_FROZEN`.
+- **M11**: [`planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `4a5f384271504365701bdd685455d93984617f21`; required literal `PROPOSED_C02_CORRECTION_NOT_FROZEN`.
 - **M12**: [`planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md`](../../planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md); exact original Git blob `28b3802901349263100ceaaf80c0990513dbbded`; required literal `Implementation authority: NOT_ADMITTED`.
-- **S01**: [`.engineering/evidence/M13-S01-SOURCE-RESEARCH.json`](../../.engineering/evidence/M13-S01-SOURCE-RESEARCH.json); exact original Git blob `ee65b960ca7e4f83f5419ec744f4c1f304edb6d7`; required literal `SOURCE_RESEARCH_ONLY_NONBINDING`.
-- **S02**: [`.engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json`](../../.engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json); exact original Git blob `2e94983865cf72aa6c5a63510b8a4b41586048c7`; required literal `SOURCE_ONLY_UNSELECTED_NONBINDING`.
-- **S03**: [`.engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json`](../../.engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json); exact original Git blob `16737ecbb836b1e0736f4851ce6e0b56b8916bea`; required literal `SOURCE_ONLY_NONBINDING`.
-- **S04**: [`.engineering/evidence/M13-S04-OVERLAP-IO-RESEARCH.json`](../../.engineering/evidence/M13-S04-OVERLAP-IO-RESEARCH.json); exact original Git blob `363dc19ed3536ad389a36fedbc5101d1d94bfb2d`; required literal `SOURCE_ONLY_NO_HARDWARE_OR_IO_RUNTIME`.
-- **D01**: [`.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json`](../../.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json); exact original Git blob `30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb`; required literal `B_FUTURE_OWNER_RECEIPT`.
+- **S01**: [`.engineering/evidence/M13-S01-SOURCE-RESEARCH.json`](../../.engineering/evidence/M13-S01-SOURCE-RESEARCH.json); exact original Git blob `5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0`; required literal `SOURCE_RESEARCH_ONLY_NONBINDING`.
+- **S02**: [`.engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json`](../../.engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json); exact original Git blob `8ac11eaa91292a81d10de1d44ccd21b5e240a664`; required literal `SOURCE_ONLY_UNSELECTED_NONBINDING`.
+- **S03**: [`.engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json`](../../.engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json); exact original Git blob `fe0ea0d3a4b4229f79e19d023c255cc6a0cafdf1`; required literal `SOURCE_ONLY_NONBINDING`.
+- **S04**: [`.engineering/evidence/M13-S04-OVERLAP-IO-RESEARCH.json`](../../.engineering/evidence/M13-S04-OVERLAP-IO-RESEARCH.json); exact original Git blob `b9b87ac36189c1cabd75989a07920752c23704fd`; required literal `SOURCE_ONLY_NO_HARDWARE_OR_IO_RUNTIME`.
+- **D01**: [`.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json`](../../.engineering/evidence/M09-B-OWNER-DIRECTION-D01.json); exact original Git blob `8877331a5004a3e816e4c42fb521ff3408bad08a`; required literal `B_FUTURE_OWNER_RECEIPT`.
 
 ## II. Three publicly documented profiling references, MUTABLE only
 
@@ -369,25 +369,25 @@ After S05 source-only CI/merge, independently source-lock a separate M13 Final T
     {
       "role": "INDEX",
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "sha": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sha": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "anchor": "S05 — S05 Performance budgets, profiling and anti-regression gates"
     },
     {
       "role": "M01",
       "path": "docs/M01-QUALITY-KERNEL.md",
-      "sha": "930af57944fa83c44745873c42eb3a7740972ee6",
+      "sha": "df4f899ad414c47ad379f26fe1782edb6f43cf6f",
       "anchor": "m01-contract-v1.0"
     },
     {
       "role": "M02",
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+      "sha": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
       "anchor": "semantic reuse requires explicit reuse class/admission"
     },
     {
       "role": "M06",
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+      "sha": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
       "anchor": "Digest equality proves byte equality under the declared digest domain only."
     },
     {
@@ -417,7 +417,7 @@ After S05 source-only CI/merge, independently source-lock a separate M13 Final T
     {
       "role": "M11",
       "path": "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "41ab89727c7be14e35e2481aefbd97a0cb81cb48",
+      "sha": "4a5f384271504365701bdd685455d93984617f21",
       "anchor": "PROPOSED_C02_CORRECTION_NOT_FROZEN"
     },
     {
@@ -429,31 +429,31 @@ After S05 source-only CI/merge, independently source-lock a separate M13 Final T
     {
       "role": "S01",
       "path": ".engineering/evidence/M13-S01-SOURCE-RESEARCH.json",
-      "sha": "ee65b960ca7e4f83f5419ec744f4c1f304edb6d7",
+      "sha": "5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0",
       "anchor": "SOURCE_RESEARCH_ONLY_NONBINDING"
     },
     {
       "role": "S02",
       "path": ".engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json",
-      "sha": "2e94983865cf72aa6c5a63510b8a4b41586048c7",
+      "sha": "8ac11eaa91292a81d10de1d44ccd21b5e240a664",
       "anchor": "SOURCE_ONLY_UNSELECTED_NONBINDING"
     },
     {
       "role": "S03",
       "path": ".engineering/evidence/M13-S03-DELTA-REUSE-RESEARCH.json",
-      "sha": "16737ecbb836b1e0736f4851ce6e0b56b8916bea",
+      "sha": "fe0ea0d3a4b4229f79e19d023c255cc6a0cafdf1",
       "anchor": "SOURCE_ONLY_NONBINDING"
     },
     {
       "role": "S04",
       "path": ".engineering/evidence/M13-S04-OVERLAP-IO-RESEARCH.json",
-      "sha": "363dc19ed3536ad389a36fedbc5101d1d94bfb2d",
+      "sha": "b9b87ac36189c1cabd75989a07920752c23704fd",
       "anchor": "SOURCE_ONLY_NO_HARDWARE_OR_IO_RUNTIME"
     },
     {
       "role": "D01",
       "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
-      "sha": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb",
+      "sha": "8877331a5004a3e816e4c42fb521ff3408bad08a",
       "anchor": "B_FUTURE_OWNER_RECEIPT"
     }
   ],

@@ -25,7 +25,7 @@
       "result": "PASS"
     },
     {
-      "name": "gef_hive_bridge_unittests",
+      "name": "gef_iris_bridge_unittests",
       "result": "PASS",
       "passed": 8,
       "failed": 0

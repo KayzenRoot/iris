@@ -103,7 +103,7 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0019-DEPENDABOT-ACTION-PIN-GATE.json",
-      "gitBlobSha1": "18753c7e14f788f19529235cfecf89395db05cad"
+      "gitBlobSha1": "69522425deedcd8c1b2d69710abcedef68a0e891"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0019.json",
@@ -111,7 +111,7 @@
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0018.json",
-      "gitBlobSha1": "8afb471b18f3325376929db2334563c3be953abd"
+      "gitBlobSha1": "ba7bfd5994979f1df774fcb82f71c6266bbed0e1"
     },
     {
       "path": ".engineering/PROMPT-DELIVERY-POLICY.md",
@@ -161,5 +161,5 @@
   "exactHeadGovernance": {
     "status": "REQUIRED_ON_FINAL_PR_HEAD"
   },
-  "stopCondition": "No bot PR #16 merge before own exact-head CI. Do not change any frozen module contract, product runtime, process controls, GEF/HIVE pins or approved historical sources."
+  "stopCondition": "No bot PR #16 merge before own exact-head CI. Do not change any frozen module contract, product runtime, process controls, GEF/IRIS pins or approved historical sources."
 }

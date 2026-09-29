@@ -121,7 +121,7 @@ Rule: candidate proprietary technologies MUST NOT be described as novel/patentab
 **Purpose:** make the system learn project-specific quality expectations without silently changing canonical standards.
 **How it works:** stores approved/rejected examples, reviewer reasons, judge disagreements and defect fingerprints as versioned evidence. Retrieval proposes calibration/context; it cannot overwrite Fidelity Contracts.
 **Benefit:** recurring characters/brands/projects become more consistent over time.
-**Dependencies:** M52 HIVE, M51 benchmarks, provenance.
+**Dependencies:** M52 IRIS, M51 benchmarks, provenance.
 **Risk:** preference drift and feedback loops.
 **Proof:** blind human A/B evaluation with/without retrieved quality memory.
 **Status:** PROPOSED.

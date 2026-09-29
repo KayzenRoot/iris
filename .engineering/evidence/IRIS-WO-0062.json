@@ -43,7 +43,7 @@
   "originalWO0061EvidenceMutated": false,
   "originalOwnerProofReceived": false,
   "actualPhysicalOrRuntimeAction": false,
-  "hiveMcp": "IRIS_PROJECT_OFFLINE_CHECKPOINT_SOURCE_NOT_CURRENT",
+  "irisMcp": "IRIS_PROJECT_OFFLINE_CHECKPOINT_SOURCE_NOT_CURRENT",
   "ownHeadCI": "PENDING",
   "ownExternalReviews": "PENDING",
   "ownProtectedMerge": "PENDING",

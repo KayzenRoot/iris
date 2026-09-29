@@ -22,7 +22,7 @@ Complete the S01–S05 M11 Final Technology Review from the exact current main b
 
 - [x] Revalidated repository, account, Issue #82 OPEN, exact base ancestry, branch availability, and no remote branch/PR collision.
 - [x] Recomputed the prior 83 critical-source Git blob fingerprints at the exact base: 83/83 matched; no missing path or mismatch.
-- [x] Preserved HIVE as derived context: registered IRIS snapshot is stale and unused; no HIVE result is claimed.
+- [x] Preserved IRIS as derived context: registered IRIS snapshot is stale and unused; no IRIS result is claimed.
 - [x] Re-read canonical owner boundaries for M02, M06, M09, and M10; M12–M60 individual contracts remain PENDING.
 - [x] Re-read all five S01–S05 studies and the complete C01 execution prompt.
 - [x] Revalidated official primary technology sources, recorded source versions/revisions/access dates, and compared available source history/release information with 2026-09-24.
@@ -77,7 +77,7 @@ Do not run compatibility scans, audits, benchmarks, process/IPC operations, prov
 5. Run the repository-required tests specified by the Work Order/Governance gate.
 6. Recheck main ancestry, Issue #82, PR/branch availability, authority sources, and exact-bound source fingerprints immediately before publication. If main advances, re-read sources and rebind only if the new descendant base remains authorized and all fingerprints match.
 7. Commit and push without rewriting history. Create a PR to main with “Refs #82”.
-8. At the final PR head, verify repository identity, exact head SHA, required Governance result, repository validator, GEF/HIVE bridges, and full 3,940-test suite. Do not substitute main-branch CI for PR-head CI.
+8. At the final PR head, verify repository identity, exact head SHA, required Governance result, repository validator, GEF/IRIS bridges, and full 3,940-test suite. Do not substitute main-branch CI for PR-head CI.
 9. Leave the PR open and unmerged. The next planning gate is the Forward Compatibility Scan in a separate increment.
 
 ## 8. Stop conditions

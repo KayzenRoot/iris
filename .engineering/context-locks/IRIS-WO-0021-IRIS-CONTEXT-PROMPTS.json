@@ -1,10 +1,10 @@
 {
   "schemaVersion": "iris-context-lock-v1",
   "workOrder": "IRIS-WO-0021",
-  "increment": "PUBLISHED_HIVE_V103_CONTEXT_FIRST_PROMPT_GUIDANCE_ONLY",
+  "increment": "PUBLISHED_IRIS_V103_CONTEXT_FIRST_PROMPT_GUIDANCE_ONLY",
   "issue": 126,
   "repository": "KayzenRoot/iris",
-  "branch": "iris-wo-0021-hive-v103-context-guidance-20260927",
+  "branch": "iris-wo-0021-iris-v103-context-guidance-20260927",
   "baseRef": "main",
   "baseSha": "a186fe2d6c659c3e410a16eccd42f3b82166428e",
   "baseTreeSha": "1ace7ea201487593f4bd6b1358c9c6df3d79d77b",
@@ -82,7 +82,7 @@
       "gitBlobSha1": "f27bf06af4418762b3e667928877f5f1d7e59a06"
     },
     {
-      "path": "docs/HIVE-INTEGRATION.md",
+      "path": "docs/IRIS-INTEGRATION.md",
       "gitBlobSha1": "9072537a722ecea7edc0ea2ce1223da8b4deb165"
     },
     {
@@ -111,11 +111,11 @@
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0020-CHECKOUT-V701-PIN.md",
-      "gitBlobSha1": "ff329b335b4b4fe238de1795c7058d4459c5411f"
+      "gitBlobSha1": "e129a8cdbf91dfc40fee96824446c4455ed69413"
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0020-CHECKOUT-V701-PIN.json",
-      "gitBlobSha1": "2ff497a90aee28b6e951cc5814e2b79d4bd34b08"
+      "gitBlobSha1": "7ac21a2a32d937c26651265a388f6083bb1a9784"
     },
     {
       "path": ".engineering/evidence/IRIS-WO-0020.json",
@@ -134,11 +134,11 @@
       "gitBlobSha1": "e86bc1e25a4d85e7cac64bfcba86e23993f96351"
     },
     {
-      "path": "scripts/hive_bootstrap.py",
+      "path": "scripts/iris_bootstrap.py",
       "gitBlobSha1": "8c7780e34bcd2404bccdc4c4ffa7bed1ff1c6973"
     },
     {
-      "path": "scripts/hive_mcp.py",
+      "path": "scripts/iris_mcp.py",
       "gitBlobSha1": "0ad9cd173c29b8aedf60ee0f3b5d928112d23a0a"
     },
     {
@@ -155,7 +155,7 @@
     },
     {
       "path": "planning/reviews/IRIS-WO-0020-CHECKOUT-V701-PIN-AUDIT.md",
-      "gitBlobSha1": "23184c722b2fa3b7e15340929128546f2562406c"
+      "gitBlobSha1": "c66026864c0d9de27a88b24b7a264a25bc35b557"
     }
   ],
   "authorizedChangedFiles": [
@@ -166,12 +166,12 @@
     "docs/project-brain/14-BACKLOG.md",
     ".engineering/evidence/IRIS-WO-0020.json",
     ".engineering/evidence/IRIS-WO-0021.json",
-    ".engineering/context-locks/IRIS-WO-0021-HIVE-CONTEXT-PROMPTS.json",
-    ".engineering/work-orders/IRIS-WO-0021-HIVE-CONTEXT-PROMPTS.md",
-    "planning/reviews/IRIS-WO-0021-HIVE-CONTEXT-PROMPTS-AUDIT.md"
+    ".engineering/context-locks/IRIS-WO-0021-IRIS-CONTEXT-PROMPTS.json",
+    ".engineering/work-orders/IRIS-WO-0021-IRIS-CONTEXT-PROMPTS.md",
+    "planning/reviews/IRIS-WO-0021-IRIS-CONTEXT-PROMPTS-AUDIT.md"
   ],
   "externalReference": {
-    "repository": "KayzenRoot/hive",
+    "repository": "KayzenRoot/iris",
     "releasedTag": "v1.0.3",
     "annotatedTagSha": "f0db3464debcde75d78e6b321e8a27b0404d02a6",
     "commit": "52bd3dab54dd4f16264072e198ed1fc23168f7fa",
@@ -185,5 +185,5 @@
   "exactHeadGovernance": {
     "status": "REQUIRED"
   },
-  "stopCondition": "No live HIVE installation claimed, no runtime pin modifications, no HIVE DB/context writes, no new M09/M11 owner contract admissions. Separate review before merge; supersede old PR #91 only after exact-main."
+  "stopCondition": "No live IRIS installation claimed, no runtime pin modifications, no IRIS DB/context writes, no new M09/M11 owner contract admissions. Separate review before merge; supersede old PR #91 only after exact-main."
 }

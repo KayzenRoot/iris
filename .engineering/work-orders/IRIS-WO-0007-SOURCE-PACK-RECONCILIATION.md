@@ -65,7 +65,7 @@ The canonical checkpoint already records M01-M03 as implemented/merged and M04 p
 - M04 consumes M03 admitted semantic intent rather than redefining it.
 - M04 cannot duplicate M01 quality decision authority or M02 execution/project authority.
 - Concrete provider/workflow compilation remains future M16 ownership unless later approved planning changes that boundary.
-- HIVE remains derived context; Git/Project Brain remain canonical.
+- IRIS remains derived context; Git/Project Brain remain canonical.
 
 ## CONSTRAINTS
 

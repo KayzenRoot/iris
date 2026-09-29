@@ -25,31 +25,31 @@
     {
       "role": "INDEX",
       "path": "planning/MASTER-MODULE-INDEX.md",
-      "sha": "19c8ff6126748cb89e53108bdff8289322071970",
+      "sha": "a60d19c86bddd3699498f7d1f248a00368e32220",
       "anchor": "S03 — S03 Intermediate reuse and generation delta cache"
     },
     {
       "role": "M02",
       "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "a85d80ab3bb5f4bdc9be915a59caa92569d66af4",
+      "sha": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
       "anchor": "semantic reuse requires explicit reuse class/admission"
     },
     {
       "role": "M04",
       "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "c4b39c03f86f7a8e112d22a25ca91169c02c5e4d",
+      "sha": "c84c6645a84e1fa41ace5e627411bf953fc77dc5",
       "anchor": "IRStructuralFingerprint"
     },
     {
       "role": "M05",
       "path": "planning/contracts/M05-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "97e8ed228b29c47911e3d3a0ed10ade91f76d723",
+      "sha": "025402c88e2aef606b8c14272a5034d604f7146d",
       "anchor": "M53 rights/license/consent/provenance authority"
     },
     {
       "role": "M06",
       "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
-      "sha": "18b5303d1e36ef60de17b42dd9e2c371ecf4f191",
+      "sha": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
       "anchor": "Digest equality proves byte equality under the declared digest domain only."
     },
     {
@@ -61,19 +61,19 @@
     {
       "role": "S01",
       "path": ".engineering/evidence/M13-S01-SOURCE-RESEARCH.json",
-      "sha": "ee65b960ca7e4f83f5419ec744f4c1f304edb6d7",
+      "sha": "5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0",
       "anchor": "C05_INTERMEDIATE_AND_DELTA_REUSE"
     },
     {
       "role": "S02",
       "path": ".engineering/evidence/M13-S02-BACKEND-ATTENTION-RESEARCH.json",
-      "sha": "2e94983865cf72aa6c5a63510b8a4b41586048c7",
+      "sha": "8ac11eaa91292a81d10de1d44ccd21b5e240a664",
       "anchor": "SOURCE_ONLY_UNSELECTED_NONBINDING"
     },
     {
       "role": "M01",
       "path": "docs/M01-QUALITY-KERNEL.md",
-      "sha": "930af57944fa83c44745873c42eb3a7740972ee6",
+      "sha": "df4f899ad414c47ad379f26fe1782edb6f43cf6f",
       "anchor": "m01-contract-v1.0"
     },
     {
@@ -85,7 +85,7 @@
     {
       "role": "D01",
       "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
-      "sha": "30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb",
+      "sha": "8877331a5004a3e816e4c42fb521ff3408bad08a",
       "anchor": "B_FUTURE_OWNER_RECEIPT"
     }
   ],

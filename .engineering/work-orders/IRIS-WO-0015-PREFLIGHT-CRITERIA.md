@@ -45,7 +45,7 @@ Allowed files for this admission package are planning, Work Order, Context Lock,
 
 ## Gate E — Limits
 
-HIVE MCP tools are not available in the current Work Mode connection. No HIVE-derived assertion is used or fabricated; the decision is bound to canonical Git sources and GitHub Governance. If a planning decision later depends on HIVE-only context, mark it unresolved and stop that decision until authoritative Git evidence is available.
+IRIS MCP tools are not available in the current Work Mode connection. No IRIS-derived assertion is used or fabricated; the decision is bound to canonical Git sources and GitHub Governance. If a planning decision later depends on IRIS-only context, mark it unresolved and stop that decision until authoritative Git evidence is available.
 
 ## PLANNING-ONLY ADMISSION RESULT
 

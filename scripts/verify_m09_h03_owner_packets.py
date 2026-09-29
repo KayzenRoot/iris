@@ -25,14 +25,14 @@ SOURCE_TIERS=("PROPOSED_NONFROZEN_M12_CANDIDATE",)+("MASTER_INDEX_ONLY_NO_MODULE
 GATE_IDS=tuple(f"C02-FR-H0{i}" for i in range(1,5))
 H03_NEGS=tuple(f"H03-N{i:02d}" for i in range(1,13))
 SOURCE_HASHES={
-"planning/MASTER-MODULE-INDEX.md":"19c8ff6126748cb89e53108bdff8289322071970",
+"planning/MASTER-MODULE-INDEX.md":"a60d19c86bddd3699498f7d1f248a00368e32220",
 "planning/contracts/M12-MODULE-CONTRACT-FREEZE-CANDIDATE.md":"28b3802901349263100ceaaf80c0990513dbbded",
 INTAKE:"75c8ecea8e59a0931afc1c6558a0265cff7ac919",
 ORIGINAL:"3a78744de4db70222a74ce25f00c0ef022583c77",
 C02:"935abe4323618ac6d583e3bd8acc827d5fe80d2c",
-D01:"30cc56a2dd34a8c45cfb96f0a900cafbdd2717bb",
+D01:"8877331a5004a3e816e4c42fb521ff3408bad08a",
 "planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md":
-"41ab89727c7be14e35e2481aefbd97a0cb81cb48",
+"4a5f384271504365701bdd685455d93984617f21",
 }
 FIELDS=("id","session","source","originalQuestion","exactOwnerLabel",
         "originalIntakeLane","ownerDecisionStatus","risk","executableAuthority")

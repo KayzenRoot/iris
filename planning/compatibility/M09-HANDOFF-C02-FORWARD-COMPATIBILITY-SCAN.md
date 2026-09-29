@@ -11,7 +11,7 @@ The existing `iris_resource_twin/recovery.py` already defines **in-process typed
 
 ## Complete FC-09-01..14 additive-compatibility matrix
 
-Original normative source: `planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md`, Git blob `1e5898f36b49e71f28eb18eb9582d48de60a58b4`. Existing M09 canonical doc says FC-09-01..14 are exercised by frozen invariant proofs 501–514. This C02 scan tests whether a **new** M09→M11 evidence interface would violate or depend on them; it does not rerun implementation proofs.
+Original normative source: `planning/compatibility/M09-FORWARD-COMPATIBILITY-SCAN.md`, Git blob `17064850e8d3cb15685d26499b75177f19e45252`. Existing M09 canonical doc says FC-09-01..14 are exercised by frozen invariant proofs 501–514. This C02 scan tests whether a **new** M09→M11 evidence interface would violate or depend on them; it does not rerun implementation proofs.
 
 | FC | Normative intersecting boundary | Owner(s) | C02 result |
 | --- | --- | --- | --- |

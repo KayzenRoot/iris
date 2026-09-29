@@ -9,7 +9,7 @@
   "inheritedBaseManifestPins": 25,
   "sourceManifestAnchor": {
     "path": ".engineering/context-locks/IRIS-WO-0063-SOURCE-MANIFEST-ANCHOR.json",
-    "gitBlobSha1": "1367455541ddf567ec55a17318f812afeb1b29c2"
+    "gitBlobSha1": "7d29a7faedfc193e1eb2bceab9220c674aec38ac"
   },
   "authorizedChangedPaths": [
     ".engineering/CHECKPOINT.json",

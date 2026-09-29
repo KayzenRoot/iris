@@ -1040,7 +1040,7 @@
         "DeliveryProjectionCompatibilityPort",
         "DigitalHumanPersonaBindingPort",
         "GeometryAppearanceIdentityPort",
-        "HIVEMemoryIdentitySlicePort",
+        "IRISMemoryIdentitySlicePort",
         "HardwareExecutionConstraintRef",
         "ImageReferenceIdentityEvidencePort",
         "LocalizationIdentityPreservationPort",
@@ -1173,7 +1173,7 @@
       "result": "PASS",
       "evidence": [
         "iris_asset_dna/context.py::MinimumSufficientDNASlice",
-        "iris_asset_dna/ports.py::HIVEMemoryIdentitySlicePort"
+        "iris_asset_dna/ports.py::IRISMemoryIdentitySlicePort"
       ]
     },
     "M53": {
@@ -1320,7 +1320,7 @@
         "version": "v1.0.0",
         "sha": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
       },
-      "hive": {
+      "iris": {
         "version": "v1.0.0",
         "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
       }
@@ -1428,7 +1428,7 @@
     ]
   },
   "risksAndDeferredPorts": [
-    "HIVE project.list returned seven projects and did not include IRIS; the bounded result does not establish global absence, and no HIVE resolution evidence is claimed.",
+    "IRIS project.list returned seven projects and did not include IRIS; the bounded result does not establish global absence, and no IRIS resolution evidence is claimed.",
     "All 22 extension/ref ports are semantic contracts only; downstream module implementations remain deferred.",
     "No benchmark was run and no context-efficiency or token-savings claim is made.",
     "No biometric authentication, provider/DCC runtime, persistence/CAS/database backend, marketplace commerce, media generation, legal-rights engine, security engine or quality judge is in M05 core scope.",
@@ -1466,11 +1466,11 @@
     "evidenceFile": ".engineering/evidence/IRIS-WO-0009.json",
     "historyRewritten": false
   },
-  "hivePreflight": {
+  "irisPreflight": {
     "bridgeVersion": "v1.0.0",
     "governanceValidation": "PASS",
     "projectLookup": "project.list returned seven projects; IRIS was not present in that bounded result set",
-    "disposition": "No HIVE project-resolution evidence was fabricated; canonical repository sources and static Git/test evidence were used."
+    "disposition": "No IRIS project-resolution evidence was fabricated; canonical repository sources and static Git/test evidence were used."
   },
   "dependencyAndImportSurface": {
     "runtimeDependenciesAdded": 0,

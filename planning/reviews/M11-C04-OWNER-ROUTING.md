@@ -16,7 +16,7 @@ The machine-readable `.engineering/evidence/M11-C04-OWNER-ROUTING.json` preserve
 | M11-led blocked by missing future owner contracts | 17 | M11 may draft only non-executable interface questions; cannot settle external permission/policy. |
 | M11 documentation proposable with available-owner review | 4 | M11 may draft safe evidence/refusal semantics; M02/M06/M09 decisions still require their source-backed acceptance. |
 | External-owner decision required | 63 | Proposed primary authority outside M11 must resolve its own semantics through proper module governance. |
-| Source-reuse verification | 2 | S01-U09 and S04-U21 require current source-proven provenance; unverified UGAS/HIVE/CORE material grants no authority. |
+| Source-reuse verification | 2 | S01-U09 and S04-U21 require current source-proven provenance; unverified UGAS/IRIS/CORE material grants no authority. |
 | **Total** | **86** | 86/86 OPEN and UNRATED; no decision selected. |
 
 Proposed primary routing counts (not a priority ranking): M11 23, M60 15, M54 9, M09 11, M06 7, M56 5, M02 6, M12 8, M26 2. The future-owner-dependent occurrences across all records are: M60 31, M12 23, M54 20, M56 11, M26 6, M58 5, M55 4, M53 1. Counts overlap intentionally when several contracts govern a single question.

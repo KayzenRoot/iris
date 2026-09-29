@@ -25,8 +25,8 @@ PINS = (
 (C02,"935abe4323618ac6d583e3bd8acc827d5fe80d2c"),
 (C01,"3236ff8146c71da247208b0896e4e37573123fa8"),
 ("planning/research/M11-C09-REVERSE-LIVENESS-OWNER-RESEARCH.md","de97d44a49b9c8483aa6d5a051a0b42f97f5a3cc"),
-("planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md","a85d80ab3bb5f4bdc9be915a59caa92569d66af4"),
-("planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md","18b5303d1e36ef60de17b42dd9e2c371ecf4f191"),
+("planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md","a36fd73c03f06b7558f850a2ad515a0df37c243b"),
+("planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md","d6778684e0c34e55d05ddc06cf5aa47fe347c037"),
 (ROUTING,"75c8ecea8e59a0931afc1c6558a0265cff7ac919"),
 )
 ROLES=("M09 owner issuance","Exact owner context","Owner joint cut",

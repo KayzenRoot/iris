@@ -99,11 +99,11 @@
     },
     {
       "path": ".engineering/context-locks/IRIS-WO-0018-PR-CONTEXT-LOCK-VERIFICATION.json",
-      "gitBlobSha1": "13e27d1263cf098148d39b45889f65a3cdc68438"
+      "gitBlobSha1": "0aad8d573670a9b11ef0934229579933f8b99553"
     },
     {
       "path": ".engineering/work-orders/IRIS-WO-0018-PR-CONTEXT-LOCK-VERIFICATION.md",
-      "gitBlobSha1": "60554d8ee7cd6d2b0546388c3c867876c7cce9ee"
+      "gitBlobSha1": "955b0469d2ab1da183e74f496fbaefb5b8877566"
     },
     {
       "path": "planning/reviews/IRIS-WO-0018-PR-CONTEXT-LOCK-AUDIT-TARGET.md",

@@ -14,7 +14,7 @@
 
 This review follows the repository source hierarchy and C01 Work Order. The exact base is the protected merge commit from PR #96. The earlier S05 context lock supplied 83 critical source paths; all 83 Git blob fingerprints were recomputed at this base and matched the working tree with zero missing paths and zero mismatches before edits. Issue #82 was verified open. The active branch was clean and the proposed remote branch and PR did not exist.
 
-The attached C01 PDF is task input, not an authority override. Canonical Git/project-brain sources govern. HIVE's registered IRIS snapshot was stale and was not used as canonical evidence. No HIVE result is claimed.
+The attached C01 PDF is task input, not an authority override. Canonical Git/project-brain sources govern. IRIS's registered IRIS snapshot was stale and was not used as canonical evidence. No IRIS result is claimed.
 
 - **ACCEPT** — sufficient evidence to retain the item in the M11 contract-candidate evidence set as a reference, limitation, architecture comparator, or owner-boundary question. It does not select or mandate use.
 - **SUPERSEDE** — remove an existing candidate from its current role and name the narrower, better-supported replacement boundary. This does not design that boundary's schema.
@@ -401,7 +401,7 @@ The following are accepted as distinct terminology/evidence layers for future co
 
 ## 6. Internal reuse and candidate cross-check
 
-The repository scan found no production process supervisor, reaper, worker IPC, cancellation/recovery engine, or M09 cross-process lease coordinator at the exact base. The available HIVE/GEF clients are narrow one-shot governance/MCP tooling and are not evidence of worker-lifecycle reuse. Test fixtures are not product behavior. **Verdict for reuse as process-lifecycle precedent: REJECT** — no candidate is sufficiently evidenced as a production lifecycle precedent. Revisit only if a current, canonical source proves such reuse and its authority/behavior.
+The repository scan found no production process supervisor, reaper, worker IPC, cancellation/recovery engine, or M09 cross-process lease coordinator at the exact base. The available IRIS/GEF clients are narrow one-shot governance/MCP tooling and are not evidence of worker-lifecycle reuse. Test fixtures are not product behavior. **Verdict for reuse as process-lifecycle precedent: REJECT** — no candidate is sufficiently evidenced as a production lifecycle precedent. Revisit only if a current, canonical source proves such reuse and its authority/behavior.
 
 Cross-check of the five study inventories and all headings found 28/28 distinct technology IDs and two IRIS-candidate records dispositioned exactly once, with repeated Windows/PID-reference technologies grouped without dropping a session or scope. All explicit architecture/topology/headroom/queue/fairness/workstation alternatives are included above. No S01–S05 question is closed by this review.
 

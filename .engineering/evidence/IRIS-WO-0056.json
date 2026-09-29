@@ -36,7 +36,7 @@
   "newLocalOfflineTests": 12,
   "fullSuiteExpected": 4588,
   "frozenContractOrSchemaChanged": false,
-  "hiveMcp": "UNAVAILABLE_CURRENT_EXECUTION_ENVIRONMENT",
+  "irisMcp": "UNAVAILABLE_CURRENT_EXECUTION_ENVIRONMENT",
   "actualIndependentOriginalOwnerApproval": false,
   "realOsGpuProbeExecuted": false,
   "nativeRuntime": "NOT_ADMITTED",

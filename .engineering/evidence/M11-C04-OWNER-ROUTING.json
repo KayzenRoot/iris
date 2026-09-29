@@ -5,7 +5,7 @@
   "baseSha": "3df76a21f113959b01127c05d20eb7abe5a5a269",
   "baseTreeSha": "730993accc15c20d9669645f2cc68a9b0abd539a",
   "sourceRegisterPath": ".engineering/evidence/M11-C03-DECISION-PROOF-REGISTER.json",
-  "sourceRegisterGitBlobSha1": "7b901e45770441a3a44f88a3ff8a83fecb480ccd",
+  "sourceRegisterGitBlobSha1": "df6e94d9e218df8cde98c2bb1c7f9da2ef7434cd",
   "status": "PROPOSED_ROUTING_ONLY_ALL_86_OPEN",
   "limitations": [
     "No owner adjudications or policy choices",
@@ -55,7 +55,7 @@
     {
       "id": "S01-U01",
       "originalSource": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
-      "sourceGitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5",
+      "sourceGitBlobSha1": "c186e73ad5088711b636ca6ced6b68ebe9643de2",
       "question": "Is the supervisor embedded, a separate per-user service, or optionally hosted by an OS service manager? What should happen on UI exit, user logout, reboot, upgrade, and shutdown?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -76,7 +76,7 @@
     {
       "id": "S01-U02",
       "originalSource": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
-      "sourceGitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5",
+      "sourceGitBlobSha1": "c186e73ad5088711b636ca6ced6b68ebe9643de2",
       "question": "How does M11's logical job refer to M02 work/plan identity and M06's ExecutionAttemptPort without creating or duplicating attempt authority? What are the cardinality and restart rules?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -94,7 +94,7 @@
     {
       "id": "S01-U03",
       "originalSource": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
-      "sourceGitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5",
+      "sourceGitBlobSha1": "c186e73ad5088711b636ca6ced6b68ebe9643de2",
       "question": "Which operating systems and minimum versions are supported, and what containment/reference primitive is required on each?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [],
@@ -111,7 +111,7 @@
     {
       "id": "S01-U04",
       "originalSource": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
-      "sourceGitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5",
+      "sourceGitBlobSha1": "c186e73ad5088711b636ca6ced6b68ebe9643de2",
       "question": "Does one job own one worker, a tree of child processes, or a sequence of worker invocations? Can descendants detach or escape the chosen scope?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -132,7 +132,7 @@
     {
       "id": "S01-U05",
       "originalSource": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
-      "sourceGitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5",
+      "sourceGitBlobSha1": "c186e73ad5088711b636ca6ced6b68ebe9643de2",
       "question": "What durable registry or evidence allows a restarted supervisor to distinguish live, exited, reaped, unknown, or foreign processes?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -152,7 +152,7 @@
     {
       "id": "S01-U06",
       "originalSource": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
-      "sourceGitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5",
+      "sourceGitBlobSha1": "c186e73ad5088711b636ca6ced6b68ebe9643de2",
       "question": "Which authentication, permission and trust rules apply to control and inspection of the supervisor?",
       "proposedPrimaryOwner": "M54",
       "coordinationCandidates": [],
@@ -169,7 +169,7 @@
     {
       "id": "S01-U07",
       "originalSource": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
-      "sourceGitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5",
+      "sourceGitBlobSha1": "c186e73ad5088711b636ca6ced6b68ebe9643de2",
       "question": "How do M09 leases/headroom and M12 placement relate to job admission and lifetime without M11 asserting resource truth?",
       "proposedPrimaryOwner": "M09",
       "coordinationCandidates": [
@@ -189,7 +189,7 @@
     {
       "id": "S01-U08",
       "originalSource": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
-      "sourceGitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5",
+      "sourceGitBlobSha1": "c186e73ad5088711b636ca6ced6b68ebe9643de2",
       "question": "What is M11's process observation/evidence handoff to M06's ExecutionAttemptPort, including unknown/incomplete result behavior?",
       "proposedPrimaryOwner": "M06",
       "coordinationCandidates": [
@@ -206,8 +206,8 @@
     {
       "id": "S01-U09",
       "originalSource": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
-      "sourceGitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5",
-      "question": "Which M11 concerns rely on unavailable UGAS/HIVE/CORE materials, and what authoritative evidence would prove reuse?",
+      "sourceGitBlobSha1": "c186e73ad5088711b636ca6ced6b68ebe9643de2",
+      "question": "Which M11 concerns rely on unavailable UGAS/IRIS/CORE materials, and what authoritative evidence would prove reuse?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [],
       "triageLane": "SOURCE_REUSE_VERIFICATION",
@@ -221,7 +221,7 @@
     {
       "id": "S01-U10",
       "originalSource": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
-      "sourceGitBlobSha1": "9484477798a34c273d3c0bcf9e9fe5358a6a05d5",
+      "sourceGitBlobSha1": "c186e73ad5088711b636ca6ced6b68ebe9643de2",
       "question": "Which M56 observation/audit details are owner-defined and which remain pending?",
       "proposedPrimaryOwner": "M56",
       "coordinationCandidates": [
@@ -240,7 +240,7 @@
     {
       "id": "S02-U01",
       "originalSource": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "sourceGitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e",
+      "sourceGitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422",
       "question": "Which owner-issued request, if any, can cause an M11 supervisor to create a process? Preserve M10's prohibition and M02/M12 authority.",
       "proposedPrimaryOwner": "M02",
       "coordinationCandidates": [
@@ -262,7 +262,7 @@
     {
       "id": "S02-U02",
       "originalSource": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "sourceGitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e",
+      "sourceGitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422",
       "question": "Is a worker tied to the launching supervisor's lifetime, or can it detach and be rediscovered? Coordinate with S01 and M12/M60.",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -283,7 +283,7 @@
     {
       "id": "S02-U03",
       "originalSource": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "sourceGitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e",
+      "sourceGitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422",
       "question": "What evidence constitutes readiness and registration, and who owns the protocol/version negotiation?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -304,7 +304,7 @@
     {
       "id": "S02-U04",
       "originalSource": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "sourceGitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e",
+      "sourceGitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422",
       "question": "How are M02 identity and plan references bound to M06 ExecutionAttemptPort evidence without choosing mapping/cardinality?",
       "proposedPrimaryOwner": "M02",
       "coordinationCandidates": [
@@ -322,7 +322,7 @@
     {
       "id": "S02-U05",
       "originalSource": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "sourceGitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e",
+      "sourceGitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422",
       "question": "Which principals may launch, connect, inspect or send control messages; how are multiple users and logon sessions isolated under M54?",
       "proposedPrimaryOwner": "M54",
       "coordinationCandidates": [
@@ -341,7 +341,7 @@
     {
       "id": "S02-U06",
       "originalSource": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "sourceGitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e",
+      "sourceGitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422",
       "question": "What executable, Blender version, scene/script trust, environment variables and inherited handles are permitted under M26/M54?",
       "proposedPrimaryOwner": "M54",
       "coordinationCandidates": [
@@ -363,7 +363,7 @@
     {
       "id": "S02-U07",
       "originalSource": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "sourceGitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e",
+      "sourceGitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422",
       "question": "Which framing, size limits, backpressure, stdout/stderr and log redaction rules are needed for each transport?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -386,7 +386,7 @@
     {
       "id": "S02-U08",
       "originalSource": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "sourceGitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e",
+      "sourceGitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422",
       "question": "How are duplicate, replayed, stale, out-of-order or post-restart registrations handled? Carry into S04/S05 without inventing semantics.",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -407,7 +407,7 @@
     {
       "id": "S02-U09",
       "originalSource": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "sourceGitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e",
+      "sourceGitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422",
       "question": "How does protocol-request cancellation relate to M11 process/job cancellation? The transport specification does not decide process lifecycle; carry into S05.",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -427,7 +427,7 @@
     {
       "id": "S02-U10",
       "originalSource": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "sourceGitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e",
+      "sourceGitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422",
       "question": "Which local/remote endpoint and placement responsibilities belong to M12?",
       "proposedPrimaryOwner": "M12",
       "coordinationCandidates": [],
@@ -444,7 +444,7 @@
     {
       "id": "S02-U11",
       "originalSource": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "sourceGitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e",
+      "sourceGitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422",
       "question": "Which health, progress, event and retention fields belong to M56?",
       "proposedPrimaryOwner": "M56",
       "coordinationCandidates": [],
@@ -461,7 +461,7 @@
     {
       "id": "S02-U12",
       "originalSource": "planning/research/M11-S02-HEADLESS-BACKGROUND-WORKER-STARTUP-AND-IPC.md",
-      "sourceGitBlobSha1": "a7d1e10b217213b31422112b29fa632b8da6e71e",
+      "sourceGitBlobSha1": "515ff3ce4c6375ae5ca08d42ad2fb34e0f322422",
       "question": "Which OS and Blender release matrix is supported, and what setup/recovery is owned by M60?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [
@@ -481,7 +481,7 @@
     {
       "id": "S03-U01",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "Does concurrency count queued work, admitted work, an M02 workload, an M06 attempt, a provider operation, a process, or a process tree?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -502,7 +502,7 @@
     {
       "id": "S03-U02",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "Is a limit local to one event loop, one supervisor, one workstation, a pool, or a remote aggregate, and which owner coordinates it?",
       "proposedPrimaryOwner": "M12",
       "coordinationCandidates": [
@@ -521,7 +521,7 @@
     {
       "id": "S03-U03",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "What M02 work/plan reference is preserved, and which owner controls the relationship between that identity and queue/admission state?",
       "proposedPrimaryOwner": "M02",
       "coordinationCandidates": [
@@ -538,7 +538,7 @@
     {
       "id": "S03-U04",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "What is the M06 attempt relationship and cardinality for retries, overlapping attempts and process descendants?",
       "proposedPrimaryOwner": "M06",
       "coordinationCandidates": [
@@ -555,7 +555,7 @@
     {
       "id": "S03-U05",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "What opaque M09 claim/lease/grant reference, if any, can M11 receive without owning its schema or mutation?",
       "proposedPrimaryOwner": "M09",
       "coordinationCandidates": [
@@ -572,7 +572,7 @@
     {
       "id": "S03-U06",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "Who defines resource reference freshness, epoch/version, expiry, revocation and stale/conflict behavior?",
       "proposedPrimaryOwner": "M09",
       "coordinationCandidates": [],
@@ -587,7 +587,7 @@
     {
       "id": "S03-U07",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "How are M09 grant/deny outcomes distinguished from observed CPU/RAM/VRAM feasibility and from a free process slot?",
       "proposedPrimaryOwner": "M09",
       "coordinationCandidates": [
@@ -604,7 +604,7 @@
     {
       "id": "S03-U08",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "What caller-visible state is required when resource evidence is unknown, stale, conflicting, denied or unsupported?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -621,7 +621,7 @@
     {
       "id": "S03-U09",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "What happens when a bounded queue has no capacity: wait, reject, defer or another owner-defined response, and who owns cancellation/timeouts?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -640,7 +640,7 @@
     {
       "id": "S03-U10",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "Which priority concepts exist, who may assert them, and how are M10 advisory output and any operator urgency kept non-authoritative until an owner decides?",
       "proposedPrimaryOwner": "M12",
       "coordinationCandidates": [
@@ -662,7 +662,7 @@
     {
       "id": "S03-U11",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "What ordering, tie handling and priority provenance are required, if any?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -681,7 +681,7 @@
     {
       "id": "S03-U12",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "Which fairness or starvation guarantee is required across workload classes and tenants, if any?",
       "proposedPrimaryOwner": "M12",
       "coordinationCandidates": [
@@ -700,7 +700,7 @@
     {
       "id": "S03-U13",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "Are aging, weighted service or separate queues acceptable, and who owns their policy and proof?",
       "proposedPrimaryOwner": "M12",
       "coordinationCandidates": [
@@ -719,7 +719,7 @@
     {
       "id": "S03-U14",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "How is resource priority inversion treated, and is preemption permitted after M09/M12/S05 define interruption, partial output and cleanup semantics?",
       "proposedPrimaryOwner": "M09",
       "coordinationCandidates": [
@@ -740,7 +740,7 @@
     {
       "id": "S03-U15",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "Is PR-009 headroom operator-configured, evidence-driven or something else, and which owner controls configuration and enforcement?",
       "proposedPrimaryOwner": "M09",
       "coordinationCandidates": [],
@@ -755,7 +755,7 @@
     {
       "id": "S03-U16",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "Which CPU, RAM and VRAM measurements and uncertainty/freshness semantics are authoritative?",
       "proposedPrimaryOwner": "M09",
       "coordinationCandidates": [
@@ -774,7 +774,7 @@
     {
       "id": "S03-U17",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "Which OS process/job controls are supported by each M60-approved platform and what does unsupported or failed setup mean?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [],
@@ -791,7 +791,7 @@
     {
       "id": "S03-U18",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "What evidence and responsiveness target represent coexistence with interactive workstation use?",
       "proposedPrimaryOwner": "M09",
       "coordinationCandidates": [
@@ -813,7 +813,7 @@
     {
       "id": "S03-U19",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "Which M12 owner coordinates multiple supervisors, GPUs, LAN/remote hosts, quotas and placement?",
       "proposedPrimaryOwner": "M12",
       "coordinationCandidates": [],
@@ -830,7 +830,7 @@
     {
       "id": "S03-U20",
       "originalSource": "planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md",
-      "sourceGitBlobSha1": "9973ec5eff3a31899099eed16302a0a48f064933",
+      "sourceGitBlobSha1": "77ddaeb9da4c4dfec183469a4b0123b89b557d92",
       "question": "Which M54 trust and authorization rules protect queue/priority/lease references, and what queue/worker evidence belongs to M56?",
       "proposedPrimaryOwner": "M54",
       "coordinationCandidates": [
@@ -852,7 +852,7 @@
     {
       "id": "S04-U01",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "Which owner-issued identity can bind a process to a semantic job without replacing M02 work identity or ExecutionPlan?",
       "proposedPrimaryOwner": "M02",
       "coordinationCandidates": [
@@ -869,7 +869,7 @@
     {
       "id": "S04-U02",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "How, if at all, does a process reference map to M06's operational attempt and evidence?",
       "proposedPrimaryOwner": "M06",
       "coordinationCandidates": [
@@ -886,7 +886,7 @@
     {
       "id": "S04-U03",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "Which component may create, observe, wait for, collect, reap or clean up each direct child?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -907,7 +907,7 @@
     {
       "id": "S04-U04",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "Which state is OS process evidence versus M06 attempt outcome, and how are unknown or contradictory results represented?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -924,7 +924,7 @@
     {
       "id": "S04-U05",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "What child relationship grants wait/reap rights, and who inherits that duty when a parent exits?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [
@@ -945,7 +945,7 @@
     {
       "id": "S04-U06",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "How are Linux orphan reparenting and optional subreaper behavior handled without assuming the original parent retains ownership?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [],
@@ -962,7 +962,7 @@
     {
       "id": "S04-U07",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "Which identity remains safe when a numeric PID or parent PID is stale or reused?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [
@@ -981,7 +981,7 @@
     {
       "id": "S04-U08",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "Which descendant mechanisms are supported, and what happens when a child escapes a POSIX group or breaks away from a Windows Job Object?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [],
@@ -998,7 +998,7 @@
     {
       "id": "S04-U09",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "How do existing host jobs, nesting restrictions, privileges and handle inheritance affect a Windows deployment?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [],
@@ -1015,7 +1015,7 @@
     {
       "id": "S04-U10",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "Which OS/kernel versions and launch mechanisms are supported and tested?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [],
@@ -1032,7 +1032,7 @@
     {
       "id": "S04-U11",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "Which wait/open/assignment errors are evidence of failure, permission denial or an unknown state, including ECHILD and stale references?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [
@@ -1051,7 +1051,7 @@
     {
       "id": "S04-U12",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "What evidence is emitted for launch error, child exit status, signal termination, incomplete initialization and partial output?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -1071,7 +1071,7 @@
     {
       "id": "S04-U13",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "What argument boundary is accepted for shell-free execution, and how are Windows batch files treated?",
       "proposedPrimaryOwner": "M54",
       "coordinationCandidates": [
@@ -1092,7 +1092,7 @@
     {
       "id": "S04-U14",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "Who authorizes the executable and validates its path, search order, working directory, file replacement and target-specific argument parsing?",
       "proposedPrimaryOwner": "M54",
       "coordinationCandidates": [
@@ -1112,7 +1112,7 @@
     {
       "id": "S04-U15",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "Which environment variables are inherited, replaced, redacted or excluded, and how are secrets protected?",
       "proposedPrimaryOwner": "M54",
       "coordinationCandidates": [
@@ -1132,7 +1132,7 @@
     {
       "id": "S04-U16",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "Which correlation IDs, freshness, redaction and retention rules apply to process-lifecycle evidence?",
       "proposedPrimaryOwner": "M56",
       "coordinationCandidates": [
@@ -1153,7 +1153,7 @@
     {
       "id": "S04-U17",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "What platform-support and acceptance evidence must M60 require for descendant observation or cleanup claims?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [],
@@ -1170,7 +1170,7 @@
     {
       "id": "S04-U18",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "How do process launch and observation hand off to M12 placement, remote orchestration and queue ownership?",
       "proposedPrimaryOwner": "M12",
       "coordinationCandidates": [
@@ -1189,7 +1189,7 @@
     {
       "id": "S04-U19",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "Which Blender/DCC process wrappers, version support and application-startup evidence belong to M26?",
       "proposedPrimaryOwner": "M26",
       "coordinationCandidates": [],
@@ -1206,7 +1206,7 @@
     {
       "id": "S04-U20",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
       "question": "Which cancellation, timeout, restart, retry, partial-result, recovery and workstation-coexistence questions remain for S05 or another owner?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -1229,8 +1229,8 @@
     {
       "id": "S04-U21",
       "originalSource": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "sourceGitBlobSha1": "3d9e42c3edaae4e98e33e37ee19a0caccb891aae",
-      "question": "Can HIVE/UGAS/CORE provide current, source-verifiable process-lifecycle evidence in a later planning session?",
+      "sourceGitBlobSha1": "f42cee6a6ca05fb50743611ba817fca4fc74a740",
+      "question": "Can IRIS/UGAS/CORE provide current, source-verifiable process-lifecycle evidence in a later planning session?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [],
       "triageLane": "SOURCE_REUSE_VERIFICATION",
@@ -1244,7 +1244,7 @@
     {
       "id": "S05-U01",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "Who may request cancellation, through which authenticated control surface, and what authorization evidence accompanies it?",
       "proposedPrimaryOwner": "M54",
       "coordinationCandidates": [
@@ -1265,7 +1265,7 @@
     {
       "id": "S05-U02",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "Which cancellation scopes exist (queue, coroutine, attempt, direct child, process group, worker, host), and who owns their propagation?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -1288,7 +1288,7 @@
     {
       "id": "S05-U03",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "How are cancellation intent, request acceptance, signal delivery, process exit, attempt outcome, and materialization acceptance represented distinctly?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -1305,7 +1305,7 @@
     {
       "id": "S05-U04",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "Which deadline scopes are needed (queue wait, startup, handshake, runtime, shutdown, recovery), and who defines each clock and deadline owner?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -1327,7 +1327,7 @@
     {
       "id": "S05-U05",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "How do monotonic deadlines interact with suspend/resume, wall-clock evidence, remote hosts, and event timestamps?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [
@@ -1346,7 +1346,7 @@
     {
       "id": "S05-U06",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "Is any graceful-to-forceful interruption sequence permitted, and what owner, permission, delay, and proof gate would authorize each step?",
       "proposedPrimaryOwner": "M54",
       "coordinationCandidates": [
@@ -1367,7 +1367,7 @@
     {
       "id": "S05-U07",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "Which terminal, partial, unknown, unsupported, denied, timed-out, cancelled, crashed, or still-running outcomes are required at each owner boundary?",
       "proposedPrimaryOwner": "M11",
       "coordinationCandidates": [
@@ -1388,7 +1388,7 @@
     {
       "id": "S05-U08",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "Which partial outputs remain temporary, committed, reusable, invalid, quarantined, or recoverable after cancellation or crash?",
       "proposedPrimaryOwner": "M06",
       "coordinationCandidates": [
@@ -1409,7 +1409,7 @@
     {
       "id": "S05-U09",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "Which source of truth survives supervisor crash, service restart, OS restart, or machine power loss?",
       "proposedPrimaryOwner": "M06",
       "coordinationCandidates": [
@@ -1429,7 +1429,7 @@
     {
       "id": "S05-U10",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "If a journal is permitted, what are its owner, durability, atomicity, schema evolution, corruption and retention contract?",
       "proposedPrimaryOwner": "M06",
       "coordinationCandidates": [
@@ -1450,7 +1450,7 @@
     {
       "id": "S05-U11",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "How does restart reconciliation prevent duplicate launch, replayed external side effect, duplicate commitment, or false completion?",
       "proposedPrimaryOwner": "M02",
       "coordinationCandidates": [
@@ -1472,7 +1472,7 @@
     {
       "id": "S05-U12",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "What is the safe outcome if the durable record says running while the OS reference is absent, reused, inaccessible, or ambiguous?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [
@@ -1492,7 +1492,7 @@
     {
       "id": "S05-U13",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "What owner reconciles M09 leases, residency and capacity if a child survives after supervisor loss or cancellation?",
       "proposedPrimaryOwner": "M09",
       "coordinationCandidates": [
@@ -1509,7 +1509,7 @@
     {
       "id": "S05-U14",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "Who may reclaim or delete temporary/partial output, and what M06/M55 reachability/retention evidence is required first?",
       "proposedPrimaryOwner": "M06",
       "coordinationCandidates": [
@@ -1528,7 +1528,7 @@
     {
       "id": "S05-U15",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "What operator CPU/RAM/VRAM headroom dimensions, units, freshness, and priority rules are supported by M09?",
       "proposedPrimaryOwner": "M09",
       "coordinationCandidates": [],
@@ -1543,7 +1543,7 @@
     {
       "id": "S05-U16",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "How do worker operations coexist with interactive DCC/GUI sessions, and which process discovery or operator controls are permitted?",
       "proposedPrimaryOwner": "M26",
       "coordinationCandidates": [
@@ -1566,7 +1566,7 @@
     {
       "id": "S05-U17",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "What user-visible control, notice, override, and audit behavior is required for cancellation and unknown recovery state?",
       "proposedPrimaryOwner": "M56",
       "coordinationCandidates": [
@@ -1589,7 +1589,7 @@
     {
       "id": "S05-U18",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "What correlation, freshness, redaction, retention, and provenance bind cancellation/recovery evidence to an attempt?",
       "proposedPrimaryOwner": "M56",
       "coordinationCandidates": [
@@ -1611,7 +1611,7 @@
     {
       "id": "S05-U19",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "What OS, kernel, Python, service-host and deployment matrix is supported, and what capability proof is required per platform?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [],
@@ -1628,7 +1628,7 @@
     {
       "id": "S05-U20",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "How do local cancellation, remote placement, queue ownership, and agent/operator disconnects hand off across M12?",
       "proposedPrimaryOwner": "M12",
       "coordinationCandidates": [],
@@ -1645,7 +1645,7 @@
     {
       "id": "S05-U21",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "Which retry/restart/backoff limits, if any, are permitted, and which effects must be proven idempotent first?",
       "proposedPrimaryOwner": "M02",
       "coordinationCandidates": [
@@ -1666,7 +1666,7 @@
     {
       "id": "S05-U22",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "How is the process/reference/wait right from S04 kept valid across cancellation, parent exit, supervisor replacement and PID reuse?",
       "proposedPrimaryOwner": "M60",
       "coordinationCandidates": [
@@ -1687,7 +1687,7 @@
     {
       "id": "S05-U23",
       "originalSource": "planning/research/M11-S05-CANCELLATION-TIMEOUT-CRASH-RECOVERY-WORKSTATION-COEXISTENCE.md",
-      "sourceGitBlobSha1": "7dcda38b05b8304ddf5f166fc35cb92de2417392",
+      "sourceGitBlobSha1": "8db6f8f96dced081441b8af9b5a4719f7847706b",
       "question": "What proves a workstation remains within safe headroom and responsive without turning sampled or stale telemetry into a grant?",
       "proposedPrimaryOwner": "M09",
       "coordinationCandidates": [

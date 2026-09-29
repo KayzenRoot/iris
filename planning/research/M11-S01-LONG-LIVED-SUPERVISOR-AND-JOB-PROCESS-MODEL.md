@@ -114,9 +114,9 @@ Each entry follows the Slow Planning Protocol. PROPOSED records a candidate for 
 
 ## Internal reuse review
 
-The IRIS default-branch search found narrow standard-library subprocess invocations in scripts/hive_mcp.py and scripts/gef_preflight.py. They run a helper command or Git query; the available sources do not establish a long-lived worker supervisor, job registry, process-tree containment policy, restart recovery, or M02/M06 execution-attempt handoff. Treat them as evidence that one-shot subprocess invocation exists in repository tooling only, not as proven supervisor reuse.
+The IRIS default-branch search found narrow standard-library subprocess invocations in scripts/iris_mcp.py and scripts/gef_preflight.py. They run a helper command or Git query; the available sources do not establish a long-lived worker supervisor, job registry, process-tree containment policy, restart recovery, or M02/M06 execution-attempt handoff. Treat them as evidence that one-shot subprocess invocation exists in repository tooling only, not as proven supervisor reuse.
 
-No UGAS or CORE supervisor source was available in this repository/connection. HIVE MCP was not exposed in the active Work Mode connection. Therefore no UGAS/HIVE/CORE supervisor reuse is marked PROVEN or ACCEPTED. This is an evidence limitation, not evidence that no such implementation exists elsewhere. Revisit only when authoritative source material is accessible.
+No UGAS or CORE supervisor source was available in this repository/connection. IRIS MCP was not exposed in the active Work Mode connection. Therefore no UGAS/IRIS/CORE supervisor reuse is marked PROVEN or ACCEPTED. This is an evidence limitation, not evidence that no such implementation exists elsewhere. Revisit only when authoritative source material is accessible.
 
 ## Session questions carried forward
 
@@ -130,7 +130,7 @@ No UGAS or CORE supervisor source was available in this repository/connection. H
 | S01-U06 | Which authentication, permission and trust rules apply to control and inspection of the supervisor? | M11 S02 and M54 contract when available |
 | S01-U07 | How do M09 leases/headroom and M12 placement relate to job admission and lifetime without M11 asserting resource truth? | M11 S03; M09 frozen contract; M12 contract pending |
 | S01-U08 | What is M11's process observation/evidence handoff to M06's ExecutionAttemptPort, including unknown/incomplete result behavior? | M06/M11 contract handoff |
-| S01-U09 | Which M11 concerns rely on unavailable UGAS/HIVE/CORE materials, and what authoritative evidence would prove reuse? | M11 technology discovery |
+| S01-U09 | Which M11 concerns rely on unavailable UGAS/IRIS/CORE materials, and what authoritative evidence would prove reuse? | M11 technology discovery |
 | S01-U10 | Which M56 observation/audit details are owner-defined and which remain pending? | Revisit against M56 contract when available |
 
 Cancellation, timeout and escalation policy remain for S05; reaper/zombie semantics and shell-free command rules remain for S04; IPC and authentication remain for S02; concurrency, fairness, leases and headroom remain for S03. No session question authorizes a runtime action.
@@ -152,7 +152,7 @@ This closeout records research and planning evidence. It does not select a techn
 - Owner sources checked: frozen M02, M06, M09 and M10 contracts; M11 admission scaffold; M11–M60 owner-dependency register and M10 compatibility scan.
 - Technology evidence: official Python 3.12 documentation, Microsoft Learn, Linux man-pages, and systemd's control-group interface documentation, accessed 2026-09-24.
 - Governance validation and repository tests are performed on the exact PR head by the repository workflow. This planning session itself did not run runtime tests or any process operation.
-- HIVE MCP unavailable; no HIVE-derived evidence is asserted.
+- IRIS MCP unavailable; no IRIS-derived evidence is asserted.
 
 ## References
 
