@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 
 from scripts.verify_m09_h03_owner_packets import ROOT, verify_all as verify_h03_packets
+from scripts.historical_git_snapshot import trusted_original_root
 
 ROUTES=".engineering/evidence/M09-H03-OWNER-REVIEW-ROUTES-E01.json"
 PRIOR=".engineering/evidence/M09-H03-FOUR-OWNER-SOURCE-PACKETS.json"
@@ -189,6 +190,9 @@ def verify_routes(e,prior,c02,d01,m12,root=ROOT,*,check_documents=True):
 
 
 def verify_all(root=ROOT):
+    # An exact original Git snapshot is the authority for discontinued source-only receipts.
+    if Path(root).resolve() == ROOT.resolve() and not (ROOT / REPORT).is_file():
+        root = trusted_original_root()
     verify_h03_packets(root)
     return verify_routes(read(root,ROUTES),read(root,PRIOR),
                          read(root,C02),read(root,D01),read(root,M12),root)

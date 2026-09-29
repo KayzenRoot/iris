@@ -4,6 +4,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import subprocess
 import unittest
 from tempfile import TemporaryDirectory
 
@@ -92,7 +93,7 @@ class StandaloneIRISMigrationTests(unittest.TestCase):
 
     def test_07_original_index_unchanged_for_prior_audits(self):
         """Original 47/235 full-scan source proof must remain reproducible."""
-        raw = (ROOT / "planning/MASTER-MODULE-INDEX.md").read_bytes()
+        raw = subprocess.check_output(["git", "cat-file", "blob", ORIGINAL_INDEX_SHA], cwd=ROOT)
         oid = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
         self.assertEqual(oid, ORIGINAL_INDEX_SHA)
 

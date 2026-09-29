@@ -945,7 +945,7 @@ class ContextFingerprintAnswerTests(unittest.TestCase):
 
     def test_the_source_sequence_is_part_of_the_claim(self) -> None:
         found = self.answer()
-        self.assertEqual(found.source_texts, ("project_context_context:ctx.brief",))
+        self.assertEqual(found.source_texts, ("project_context:ctx.brief",))
         self.assertTrue(found.answers(self.sources))
         self.assertFalse(found.answers((ContextSource(ref=k.ref(EntityKind.PROJECT_CONTEXT, "ctx.other"), ordinal=0),)))
 
