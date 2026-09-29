@@ -5,6 +5,9 @@ import hashlib
 import json
 import re
 import unittest
+from tempfile import TemporaryDirectory
+
+from scripts.validate_governance import reject_retired_operational_paths
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -139,6 +142,24 @@ class StandaloneIRISMigrationTests(unittest.TestCase):
         self.assertIn("Back up", s)
         self.assertIn("Do not remove Docker volumes", s)
         self.assertIn("python scripts/validate_governance.py", s)
+
+
+    def test_13_any_reintroduced_project_mcp_config_is_rejected(self):
+        """A vendor-neutral or even empty project MCP file may not bypass retirement."""
+        with TemporaryDirectory() as temp:
+            root = Path(temp)
+            conf = root / ".codex/config.toml"
+            conf.parent.mkdir(parents=True)
+            for content in ("", "[mcp_servers.other]\ncommand = 'anything'\n"):
+                with self.subTest(content=content):
+                    conf.write_text(content, encoding="utf-8")
+                    with self.assertRaisesRegex(SystemExit, "retired external integration path still present"):
+                        reject_retired_operational_paths(root)
+
+    def test_14_empty_standalone_tree_needs_no_external_context(self):
+        """The dependency guard accepts a clean, standalone repository tree."""
+        with TemporaryDirectory() as temp:
+            self.assertIsNone(reject_retired_operational_paths(Path(temp)))
 
 
 if __name__ == "__main__":

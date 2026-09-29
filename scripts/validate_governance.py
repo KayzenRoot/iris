@@ -59,6 +59,16 @@ def validate_checkpoint_consistency(canonical_bytes: bytes, bridge_bytes: bytes,
             fail(f"machine checkpoint drift for {field}")
 
 
+def reject_retired_operational_paths(root: Path) -> None:
+    """Fail closed if any retired context launcher, project MCP config or test reappears."""
+    for retired in (".codex/config.toml", "scripts/hive_bootstrap.py",
+                    "scripts/hive-bootstrap.ps1", "scripts/hive_mcp.py",
+                    "docs/HIVE-INTEGRATION.md", "tests/test_hive_bootstrap.py",
+                    "tests/test_hive_mcp.py"):
+        if (root / retired).exists():
+            fail(f"retired external integration path still present: {retired}")
+
+
 def main() -> None:
     for relative in REQUIRED:
         if not (ROOT / relative).is_file():
@@ -81,13 +91,7 @@ def main() -> None:
         fail("standalone IRIS manifest mode mismatch")
     if "hive" in manifest or manifest.get("externalContextRuntime") != "NONE_REQUIRED":
         fail("external context dependency must not be configured")
-    for retired in ("scripts/hive_bootstrap.py", "scripts/hive-bootstrap.ps1",
-                    "scripts/hive_mcp.py", "docs/HIVE-INTEGRATION.md",
-                    "tests/test_hive_bootstrap.py", "tests/test_hive_mcp.py"):
-        if (ROOT / retired).exists(): fail(f"retired external integration path still present: {retired}")
-    codex = ROOT / ".codex/config.toml"
-    if codex.exists() and any(t in codex.read_text(encoding="utf-8").lower() for t in ("hive", "hive_repo_path")):
-        fail("removed project MCP server must not be reconfigured")
+    reject_retired_operational_paths(ROOT)
 
     source = json.loads((ROOT / ".engineering/gef/GEF-SOURCE-BRIDGE.json").read_text(encoding="utf-8"))
     if source.get("canonicalCheckpoint") != "docs/project-brain/13-CHECKPOINT.md": fail("source bridge checkpoint mismatch")
