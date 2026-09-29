@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0073",
+  "issue": 199,
+  "baseSha": "e75e259f884ea05cda0e4cdf4329d042867ba9e8",
+  "baseTreeSha": "e7454e1dc08efdf2d5a613d26237f813a2fb1209",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "e75e259f884ea05cda0e4cdf4329d042867ba9e8",
+    "baseTreeSha": "e7454e1dc08efdf2d5a613d26237f813a2fb1209",
+    "expected": 25,
+    "checked": 25,
+    "matched": 25,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/BOOTSTRAP-MANIFEST.json",
+      "gitBlobSha1": "3b233199c3d64315a114babccec00aaf4bc4bdd3"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "ddf7ad4f66433523bd2883b8e63267daef83ebea"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "aded8bf3f5371820455966428e6fc961a0a58af1"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "58a376a21752ac8018118d2a2580bd1dd0778103"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S04-CLOSEOUT.json",
+      "gitBlobSha1": "e5471dfc92c70e89e90d2ebf1a45415579250799"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0070-LEGACY-BRANCH-REF-RETIREMENT-C.json",
+      "gitBlobSha1": "b2561fc2fea7817f932d335221180c997db54d53"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0071-RESIDUAL-CONTEXT-LITERAL-CLEANUP.json",
+      "gitBlobSha1": "bd8c8bcce7a2dfa6bd7d3347cb7b8345125b1ed9"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0072-POST-CLEANUP-CANONICAL-RECONCILIATION.json",
+      "gitBlobSha1": "ae25d4aed61e85b116ce3fd5746a0679ff73608e"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0009.json",
+      "gitBlobSha1": "4af67150add393920b5ff9d8c014d4d23bf68f87"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0028.json",
+      "gitBlobSha1": "cc11f49a901bfd9038619f5f87dee165364712de"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0071.json",
+      "gitBlobSha1": "7dbbff57fc0bd1c5f0c58dc572664ff9aea64a0c"
+    },
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "4406cab596c12e8cb5f68a2d22a5a2044cc68fd6"
+    },
+    {
+      "path": "README.md",
+      "gitBlobSha1": "377ea283449b7ea1b7f1288b2a158c7412c1feab"
+    },
+    {
+      "path": "docs/project-brain/01-PROJECT-OVERVIEW.md",
+      "gitBlobSha1": "8e4a56e2aff11e0859b29c23b08dfdc76fec3c91"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "37c4457c96adcc5a11febf2e4143d4c91cd8a3ce"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "b083a0b5f335204965e32fa95908674660a4feb0"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "aded8bf3f5371820455966428e6fc961a0a58af1"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "8f20dfa54d6321052f60ab7ae86fefb97342e259"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "bde53b80151edf035c7a37a510a56713dbcdd162"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "5d9c598c142c34227c25297d956e0d43b370bbcd"
+    },
+    {
+      "path": "scripts/validate_governance.py",
+      "gitBlobSha1": "de6dc4ba4f8ca5823a073d1d8aae022067207308"
+    },
+    {
+      "path": "scripts/verify_context_lock.py",
+      "gitBlobSha1": "38682e994fbdcfeceae29f6923dc25a995dc8517"
+    },
+    {
+      "path": "tests/test_wo0066_iris_retirement.py",
+      "gitBlobSha1": "3fae61bb6aa34105dfec77362ac236e621d47194"
+    },
+    {
+      "path": "tests/test_wo0067_namespace_purge.py",
+      "gitBlobSha1": "e498377d27a1f3f23e6d1edf9d01b8451e8e4693"
+    }
+  ],
+  "sourceManifestAnchor": {
+    "path": ".engineering/context-locks/IRIS-WO-0072-POST-CLEANUP-CANONICAL-RECONCILIATION.json",
+    "gitBlobSha1": "ae25d4aed61e85b116ce3fd5746a0679ff73608e"
+  },
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0073-WO0072-POSTMERGE-CHECKPOINT.json",
+    ".engineering/evidence/IRIS-WO-0073.json",
+    ".engineering/work-orders/IRIS-WO-0073-WO0072-POSTMERGE-CHECKPOINT.md",
+    "README.md",
+    "docs/project-brain/01-PROJECT-OVERVIEW.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0073-WO0072-POSTMERGE-CHECKPOINT.md"
+  ]
+}
