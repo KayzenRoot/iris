@@ -209,6 +209,22 @@ class M14S04SourceResearchTests(unittest.TestCase):
                     p[field] = malformed
                     with self.assertRaises(M14S04IntegrityError):
                         self.audit(p)
+        nested_cases = (
+            ("facets", "title", None),
+            ("facets", "caveat", None),
+            ("alternatives", "title", None),
+            ("alternatives", "tradeoffs", None),
+            ("questions", "question", None),
+            ("questions", "sourceRoles", [{}, "INDEX"]),
+            ("negativeScenarios", "trigger", None),
+            ("negativeScenarios", "questionIds", [{}]),
+        )
+        for field, subfield, malformed in nested_cases:
+            with self.subTest(field=field, subfield=subfield):
+                p = self.copy()
+                p[field][0][subfield] = malformed
+                with self.assertRaises(M14S04IntegrityError):
+                    self.audit(p)
 
 
 if __name__ == "__main__":
