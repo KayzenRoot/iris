@@ -105,7 +105,7 @@
       "id": "FAC03",
       "title": "M07 original hardware and runtime",
       "status": "NONBINDING_UNADOPTED",
-      "boundary": "A copied device name is not an exact hardware runtime binding."
+      "boundary": "A copied device name is not exact source-qualified hardware, driver, topology or runtime evidence."
     },
     {
       "id": "FAC04",
@@ -129,7 +129,7 @@
       "id": "FAC07",
       "title": "Independent M01 quality evaluation",
       "status": "NONBINDING_UNADOPTED",
-      "boundary": "A fast result cannot replace M01 fidelity gates or human review."
+      "boundary": "A faster result cannot bypass M01 fatal defects, required human review or the accepted M02 master."
     },
     {
       "id": "FAC08",
