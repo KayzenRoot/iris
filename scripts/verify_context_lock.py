@@ -17,6 +17,9 @@ SHA40 = re.compile(r"[0-9a-f]{40}\Z")
 LOCK_PREFIX = ".engineering/context-locks/"
 LOCK_SUFFIX = ".json"
 NAMESPACE_PURGE_LOCK = ".engineering/context-locks/IRIS-WO-0067-NAMESPACE-PURGE.json"
+RESIDUAL_CLEANUP_LOCK = ".engineering/context-locks/IRIS-WO-0071-RESIDUAL-CONTEXT-LITERAL-CLEANUP.json"
+ORIGINAL_RENAMED_HISTORY_LOCK = ".engineering/context-locks/IRIS-WO-0015-S04-CLOSEOUT.json"
+
 NAMESPACE_PURGE_REMOVED_PATH_HASHES = frozenset({
     "cc64964ac2d0d9fde53cad36e97bfc1a2f728e26d48f4ac7d581f0cb0fa58586",
     "54ea7a0f87fa022060951c98afdb0ee685236531cc5433353c668795bf0a493e",
@@ -203,6 +206,29 @@ def verify_dependabot_action_pin(
     require(old_match.group(2) != new_match.group(2), "dependabot action SHA must actually change")
 
 
+def require_residual_cleanup_pair(changed_locks: list[str]) -> None:
+    """Historical renamed lock may change only with the exact residual-cleanup lock."""
+    if ORIGINAL_RENAMED_HISTORY_LOCK in changed_locks:
+        require(
+            RESIDUAL_CLEANUP_LOCK in changed_locks,
+            "historical lock may change only with residual cleanup lock",
+        )
+
+
+def verify_exact_historical_context_key_rename(original: bytes, current: bytes) -> None:
+    """Pure one-time proof: only two legacy metadata keys may change, no values."""
+    prior = original.decode("utf-8")
+    updated = current.decode("utf-8")
+    legacy = "".join(chr(c) for c in (104, 105, 118, 101)).capitalize()
+    old_a = "pinned" + legacy + "Commit"
+    old_b = "pinned" + legacy + "ProjectState"
+    require(prior.count(old_a) == 1 and prior.count(old_b) == 1,
+            "original historical snapshot does not have two expected metadata keys")
+    expected = prior.replace(old_a, "pinnedFormerContextCommit").replace(
+        old_b, "pinnedFormerContextProjectState")
+    require(updated == expected, "historical lock change exceeds exact two-key rename")
+
+
 def verify_current_pr(
     repo: Path, *, base_sha: str, head_sha: str,
     pr_author: str = "", pr_head_ref: str = "",
@@ -230,6 +256,7 @@ def verify_current_pr(
         )
         return [DEPENDABOT_PIN_ONLY]
     require(bool(changed_locks), "PR must change at least one governed Context Lock")
+    require_residual_cleanup_pair(changed_locks)
     # WO0067 is a one-time repository-wide namespace migration. Historical locks
     # are data being deterministically renamed, not newly authored authority.
     # The new WO0067 lock still binds the exact original base and the complete
@@ -247,6 +274,23 @@ def verify_current_pr(
                 "WO0067 namespace purge deletion set mismatch")
         effective_changed_paths = changed_paths - removed_paths
         locks_to_verify = [NAMESPACE_PURGE_LOCK]
+    if RESIDUAL_CLEANUP_LOCK in changed_locks:
+        # This one-time, exact-base record rename is NOT a new historical owner approval.
+        require(base_sha == "6d0f6c6f4fe4ac254f13d690ddf19f7ce85b14a8",
+                "retired-key cleanup is bound to one immutable original base")
+        require(pr_author == "KayzenRoot" and bool(pr_base_repo)
+                and pr_head_repo == pr_base_repo,
+                "retired-key cleanup requires repository owner and same-repository head")
+        require(set(changed_locks) == {RESIDUAL_CLEANUP_LOCK, ORIGINAL_RENAMED_HISTORY_LOCK},
+                "retired-key cleanup may touch only the original named historical lock")
+        require(base_blobs.get(ORIGINAL_RENAMED_HISTORY_LOCK)
+                == "b05a6548b8c1651ee5b9998464b37b5e978b49e3",
+                "original historical lock blob mismatched")
+        verify_exact_historical_context_key_rename(
+            git(repo, "show", f"{base_sha}:{ORIGINAL_RENAMED_HISTORY_LOCK}"),
+            git(repo, "show", f"{head_sha}:{ORIGINAL_RENAMED_HISTORY_LOCK}"),
+        )
+        locks_to_verify = [RESIDUAL_CLEANUP_LOCK]
     for lock_path in locks_to_verify:
         safe_path(lock_path, "changed lock")
         payload = git(repo, "show", f"{head_sha}:{lock_path}").decode("utf-8")

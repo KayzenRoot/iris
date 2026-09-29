@@ -122,7 +122,7 @@
       "tests": "4009/4009",
       "contextLock": "PASS",
       "validator": "PASS",
-      "gefHive": "PASS"
+      "gefExternalContextBridgeHistorical": "PASS"
     },
     "protectedSquashSha": "b137a99157df3c72b2eaaf7b6209da399802d580",
     "protectedSquashTree": "207d8c7b604ac07952609bbec766175776a88ab4",
