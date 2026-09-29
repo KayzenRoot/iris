@@ -1,0 +1,878 @@
+{
+  "schemaVersion": "iris-m14-ftr-documentary-source-v0.1",
+  "workOrder": "IRIS-WO-0082",
+  "issue": 216,
+  "module": "M14",
+  "sourceBaseSha": "041c926d2aebcd2e5879e2842c9f6b41e692253f",
+  "sourceBaseTreeSha": "eb378b34fa418fbec139f0e7d39934f48b409854",
+  "status": "SOURCE_ONLY_FINAL_TECHNOLOGY_REVIEW_NOT_ADOPTION",
+  "fiveSessions": "COMPLETED_DOCUMENTARY_RESEARCH_ONLY",
+  "ownerApproval": "NONE",
+  "independentTechnologyAdoption": "NOT_RECEIVED",
+  "moduleContract": "NOT_FROZEN",
+  "selectedTechnology": "NONE",
+  "realRightsApprovals": 0,
+  "realModelMeasurements": 0,
+  "realLifecycleEvents": 0,
+  "registryRuntime": "NOT_ADMITTED",
+  "originalM13QuestionsOpen": 96,
+  "originalM13FutureNegativesNotExecuted": 74,
+  "ownerB": "B_FUTURE_OWNER_RECEIPT_DIRECTION_ONLY",
+  "m09C01": "UNADOPTED_NOT_FROZEN",
+  "highs": "H01_H02_H03_H04_OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "nativeRuntime": "NOT_ADMITTED",
+  "sourceDocs": [
+    {
+      "role": "INDEX",
+      "path": "planning/MASTER-MODULE-INDEX-CURRENT.md",
+      "exactNeedle": "### M14 — Model Registry & Empirical Model Cards",
+      "gitBlobSha1": "02e6394cc7e75d5466ab22801b4cc7dbe66500be"
+    },
+    {
+      "role": "FCS",
+      "path": "planning/reviews/M14-M60-FORWARD-COMPATIBILITY-SOURCE-SCAN.md",
+      "exactNeedle": "### M14: Model Registry & Empirical Model Cards",
+      "gitBlobSha1": "5bac62b5b1a07fb97e43ea5c76d20dc5419c2cec"
+    },
+    {
+      "role": "M13_FTR",
+      "path": "planning/reviews/M13-FINAL-TECHNOLOGY-REVIEW-DOCUMENTARY.md",
+      "exactNeedle": "M13 | Final Technology Review",
+      "gitBlobSha1": "a704684ece3cd28969e93eb2eb56d5efb995ad55"
+    },
+    {
+      "role": "M01_NORM",
+      "path": "planning/contracts/M01-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "exactNeedle": "FROZEN_APPROVED",
+      "gitBlobSha1": "48e00ca6ec3da8a5185fa49ccad37f14b6a5926a"
+    },
+    {
+      "role": "M02_NORM",
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "exactNeedle": "FROZEN_APPROVED",
+      "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b"
+    },
+    {
+      "role": "S01",
+      "path": ".engineering/evidence/M14-S01-SOURCE-RESEARCH.json",
+      "exactNeedle": "\"session\": \"S01\"",
+      "gitBlobSha1": "10fe325b3928e58797266ae4ba0b65c87cd532fc"
+    },
+    {
+      "role": "S02",
+      "path": ".engineering/evidence/M14-S02-SOURCE-RESEARCH.json",
+      "exactNeedle": "\"session\": \"S02\"",
+      "gitBlobSha1": "d3ac994e130bc54c566449dc0d6efc19a0ca2698"
+    },
+    {
+      "role": "S03",
+      "path": ".engineering/evidence/M14-S03-SOURCE-RESEARCH.json",
+      "exactNeedle": "\"session\": \"S03\"",
+      "gitBlobSha1": "cf49ed6140976a14dbd0ac469bb79ed0091e624d"
+    },
+    {
+      "role": "S04",
+      "path": ".engineering/evidence/M14-S04-SOURCE-RESEARCH.json",
+      "exactNeedle": "\"session\": \"S04\"",
+      "gitBlobSha1": "4d3de9e837c9a4988e1f31a6d6f06aae0261c277"
+    },
+    {
+      "role": "S05",
+      "path": ".engineering/evidence/M14-S05-SOURCE-RESEARCH.json",
+      "exactNeedle": "\"session\": \"S05\"",
+      "gitBlobSha1": "f8f98a3dcdf7a5276d66a40115b60b0cc1f67c70"
+    },
+    {
+      "role": "S01_REPORT",
+      "path": "planning/research/M14-S01-MODEL-IDENTITY-LICENSE-PROVENANCE.md",
+      "exactNeedle": "M14 S01",
+      "gitBlobSha1": "f07ed63d30c53f38ff77b4f0fbd4934d44f9624d"
+    },
+    {
+      "role": "S02_REPORT",
+      "path": "planning/research/M14-S02-CAPABILITY-GENOME-TASK-TAXONOMY.md",
+      "exactNeedle": "M14 S02",
+      "gitBlobSha1": "9799f5169522f0cb44b8049e4f4e9215bf19f0e4"
+    },
+    {
+      "role": "S03_REPORT",
+      "path": "planning/research/M14-S03-EMPIRICAL-CARD-EVIDENCE-DESIGN.md",
+      "exactNeedle": "M14 S03",
+      "gitBlobSha1": "9ba713ad3762696feb91b2e3e1aeefc06579dc38"
+    },
+    {
+      "role": "S04_REPORT",
+      "path": "planning/research/M14-S04-HARDWARE-RELIABILITY-EVIDENCE.md",
+      "exactNeedle": "M14 S04",
+      "gitBlobSha1": "5dfa91c53c91f2f0edf214c8f50e053d31194d01"
+    },
+    {
+      "role": "S05_REPORT",
+      "path": "planning/research/M14-S05-MODEL-LIFECYCLE-EVIDENCE.md",
+      "exactNeedle": "M14 S05",
+      "gitBlobSha1": "afed4dc542dc096cf930193fbc4684df4fb764ff"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "S01",
+      "sourcePath": ".engineering/evidence/M14-S01-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "10fe325b3928e58797266ae4ba0b65c87cd532fc",
+      "schema": "iris-m14-s01-source-research-v0.1",
+      "originalWorkOrder": "IRIS-WO-0076",
+      "originalIssue": 204,
+      "originalStatus": "SOURCE_RESEARCH_ONLY_NONBINDING",
+      "ownerQuestions": [
+        "M14-S01-U01",
+        "M14-S01-U02",
+        "M14-S01-U03",
+        "M14-S01-U04",
+        "M14-S01-U05",
+        "M14-S01-U06",
+        "M14-S01-U07",
+        "M14-S01-U08",
+        "M14-S01-U09",
+        "M14-S01-U10",
+        "M14-S01-U11",
+        "M14-S01-U12",
+        "M14-S01-U13",
+        "M14-S01-U14",
+        "M14-S01-U15",
+        "M14-S01-U16"
+      ],
+      "futureNegativeIds": [
+        "M14-S01-N01",
+        "M14-S01-N02",
+        "M14-S01-N03",
+        "M14-S01-N04",
+        "M14-S01-N05",
+        "M14-S01-N06",
+        "M14-S01-N07",
+        "M14-S01-N08",
+        "M14-S01-N09",
+        "M14-S01-N10",
+        "M14-S01-N11",
+        "M14-S01-N12"
+      ],
+      "originalAlternatives": [
+        "ALT01_UPSTREAM_LABEL_ONLY",
+        "ALT02_PINNED_COMPOSITE_DIGEST",
+        "ALT03_ISSUER_QUALIFIED_SBOM",
+        "ALT04_OWNER_QUALIFIED_LOCAL_RECEIPT"
+      ],
+      "questionsStatus": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "negativeStatus": "SPECIFIED_NOT_EXECUTED",
+      "technologyStatus": "ALL_UNSELECTED"
+    },
+    {
+      "id": "S02",
+      "sourcePath": ".engineering/evidence/M14-S02-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "d3ac994e130bc54c566449dc0d6efc19a0ca2698",
+      "schema": "iris-m14-s02-source-research-v0.1",
+      "originalWorkOrder": "IRIS-WO-0077",
+      "originalIssue": 206,
+      "originalStatus": "SOURCE_RESEARCH_ONLY_NONBINDING",
+      "ownerQuestions": [
+        "M14-S02-U01",
+        "M14-S02-U02",
+        "M14-S02-U03",
+        "M14-S02-U04",
+        "M14-S02-U05",
+        "M14-S02-U06",
+        "M14-S02-U07",
+        "M14-S02-U08",
+        "M14-S02-U09",
+        "M14-S02-U10",
+        "M14-S02-U11",
+        "M14-S02-U12",
+        "M14-S02-U13",
+        "M14-S02-U14",
+        "M14-S02-U15",
+        "M14-S02-U16",
+        "M14-S02-U17",
+        "M14-S02-U18"
+      ],
+      "futureNegativeIds": [
+        "M14-S02-N01",
+        "M14-S02-N02",
+        "M14-S02-N03",
+        "M14-S02-N04",
+        "M14-S02-N05",
+        "M14-S02-N06",
+        "M14-S02-N07",
+        "M14-S02-N08",
+        "M14-S02-N09",
+        "M14-S02-N10",
+        "M14-S02-N11",
+        "M14-S02-N12",
+        "M14-S02-N13",
+        "M14-S02-N14"
+      ],
+      "originalAlternatives": [
+        "ALT01_UNTYPED_TASK_TAGS",
+        "ALT02_TYPED_IO_TASK_MATRIX",
+        "ALT03_PROVENANCE_AWARE_CAPABILITY_GRAPH",
+        "ALT04_QUALIFIED_OWNER_RECEIPT"
+      ],
+      "questionsStatus": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "negativeStatus": "SPECIFIED_NOT_EXECUTED",
+      "technologyStatus": "ALL_UNSELECTED"
+    },
+    {
+      "id": "S03",
+      "sourcePath": ".engineering/evidence/M14-S03-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "cf49ed6140976a14dbd0ac469bb79ed0091e624d",
+      "schema": "iris-m14-s03-source-research-v0.1",
+      "originalWorkOrder": "IRIS-WO-0078",
+      "originalIssue": 208,
+      "originalStatus": "SOURCE_ONLY_NO_REAL_MEASUREMENTS",
+      "ownerQuestions": [
+        "M14-S03-U01",
+        "M14-S03-U02",
+        "M14-S03-U03",
+        "M14-S03-U04",
+        "M14-S03-U05",
+        "M14-S03-U06",
+        "M14-S03-U07",
+        "M14-S03-U08",
+        "M14-S03-U09",
+        "M14-S03-U10",
+        "M14-S03-U11",
+        "M14-S03-U12",
+        "M14-S03-U13",
+        "M14-S03-U14",
+        "M14-S03-U15",
+        "M14-S03-U16",
+        "M14-S03-U17",
+        "M14-S03-U18",
+        "M14-S03-U19",
+        "M14-S03-U20"
+      ],
+      "futureNegativeIds": [
+        "M14-S03-N01",
+        "M14-S03-N02",
+        "M14-S03-N03",
+        "M14-S03-N04",
+        "M14-S03-N05",
+        "M14-S03-N06",
+        "M14-S03-N07",
+        "M14-S03-N08",
+        "M14-S03-N09",
+        "M14-S03-N10",
+        "M14-S03-N11",
+        "M14-S03-N12",
+        "M14-S03-N13",
+        "M14-S03-N14",
+        "M14-S03-N15",
+        "M14-S03-N16"
+      ],
+      "originalAlternatives": [
+        "ALT01",
+        "ALT02",
+        "ALT03",
+        "ALT04"
+      ],
+      "questionsStatus": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "negativeStatus": "SPECIFIED_NOT_EXECUTED",
+      "technologyStatus": "ALL_UNSELECTED"
+    },
+    {
+      "id": "S04",
+      "sourcePath": ".engineering/evidence/M14-S04-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "4d3de9e837c9a4988e1f31a6d6f06aae0261c277",
+      "schema": "iris-m14-s04-source-research-v0.1",
+      "originalWorkOrder": "IRIS-WO-0079",
+      "originalIssue": 210,
+      "originalStatus": "SOURCE_RESEARCH_ONLY_NO_HARDWARE_QUALIFICATION",
+      "ownerQuestions": [
+        "M14-S04-U01",
+        "M14-S04-U02",
+        "M14-S04-U03",
+        "M14-S04-U04",
+        "M14-S04-U05",
+        "M14-S04-U06",
+        "M14-S04-U07",
+        "M14-S04-U08",
+        "M14-S04-U09",
+        "M14-S04-U10",
+        "M14-S04-U11",
+        "M14-S04-U12",
+        "M14-S04-U13",
+        "M14-S04-U14",
+        "M14-S04-U15",
+        "M14-S04-U16",
+        "M14-S04-U17",
+        "M14-S04-U18",
+        "M14-S04-U19",
+        "M14-S04-U20",
+        "M14-S04-U21",
+        "M14-S04-U22"
+      ],
+      "futureNegativeIds": [
+        "M14-S04-N01",
+        "M14-S04-N02",
+        "M14-S04-N03",
+        "M14-S04-N04",
+        "M14-S04-N05",
+        "M14-S04-N06",
+        "M14-S04-N07",
+        "M14-S04-N08",
+        "M14-S04-N09",
+        "M14-S04-N10",
+        "M14-S04-N11",
+        "M14-S04-N12",
+        "M14-S04-N13",
+        "M14-S04-N14",
+        "M14-S04-N15",
+        "M14-S04-N16",
+        "M14-S04-N17",
+        "M14-S04-N18"
+      ],
+      "originalAlternatives": [
+        "ALT01_FLAT_HARDWARE_TAG_MATRIX",
+        "ALT02_EXACT_TASK_HARDWARE_TUPLE",
+        "ALT03_VERSIONED_EVIDENCE_DAG",
+        "ALT04_FUTURE_SIGNED_AT_USE_RECEIPT"
+      ],
+      "questionsStatus": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "negativeStatus": "SPECIFIED_NOT_EXECUTED",
+      "technologyStatus": "ALL_UNSELECTED"
+    },
+    {
+      "id": "S05",
+      "sourcePath": ".engineering/evidence/M14-S05-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "f8f98a3dcdf7a5276d66a40115b60b0cc1f67c70",
+      "schema": "iris-m14-s05-source-research-v0.1",
+      "originalWorkOrder": "IRIS-WO-0080",
+      "originalIssue": 212,
+      "originalStatus": "SOURCE_RESEARCH_ONLY_NO_LIFECYCLE_QUALIFICATION",
+      "ownerQuestions": [
+        "M14-S05-U01",
+        "M14-S05-U02",
+        "M14-S05-U03",
+        "M14-S05-U04",
+        "M14-S05-U05",
+        "M14-S05-U06",
+        "M14-S05-U07",
+        "M14-S05-U08",
+        "M14-S05-U09",
+        "M14-S05-U10",
+        "M14-S05-U11",
+        "M14-S05-U12",
+        "M14-S05-U13",
+        "M14-S05-U14",
+        "M14-S05-U15",
+        "M14-S05-U16",
+        "M14-S05-U17",
+        "M14-S05-U18",
+        "M14-S05-U19",
+        "M14-S05-U20",
+        "M14-S05-U21",
+        "M14-S05-U22",
+        "M14-S05-U23",
+        "M14-S05-U24"
+      ],
+      "futureNegativeIds": [
+        "M14-S05-N01",
+        "M14-S05-N02",
+        "M14-S05-N03",
+        "M14-S05-N04",
+        "M14-S05-N05",
+        "M14-S05-N06",
+        "M14-S05-N07",
+        "M14-S05-N08",
+        "M14-S05-N09",
+        "M14-S05-N10",
+        "M14-S05-N11",
+        "M14-S05-N12",
+        "M14-S05-N13",
+        "M14-S05-N14",
+        "M14-S05-N15",
+        "M14-S05-N16",
+        "M14-S05-N17",
+        "M14-S05-N18",
+        "M14-S05-N19",
+        "M14-S05-N20"
+      ],
+      "originalAlternatives": [
+        "ALT01_MUTABLE_CURRENT_POINTER",
+        "ALT02_IMMUTABLE_VERSION_STATE_LEDGER",
+        "ALT03_SOURCE_QUALIFIED_DEPENDENCY_DAG",
+        "ALT04_SIGNED_AT_USE_LIFECYCLE_RECEIPT"
+      ],
+      "questionsStatus": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "negativeStatus": "SPECIFIED_NOT_EXECUTED",
+      "technologyStatus": "ALL_UNSELECTED"
+    }
+  ],
+  "families": [
+    {
+      "id": "F01_COMPOSITE_MODEL_IDENTITY_RIGHTS",
+      "session": "S01",
+      "scope": "Versioned immutable composite release, tokenizer/adapters/config and separately qualified component-specific tenant rights",
+      "limitations": "Single vendor tags or one weight digest omit tokenizer/adapters/custom code and do not prove component licenses, supplier trust or tenant rights.",
+      "originalOwnerRoutes": [
+        "M14",
+        "M18",
+        "M53",
+        "M54",
+        "M02"
+      ],
+      "missingActualEvidence": "Owner issued complete original supply-chain manifest, current independently qualified license/tenant receipts, immutable M02 historical references and revocation policy.",
+      "status": "SOURCE_RESEARCH_ONLY_UNSELECTED"
+    },
+    {
+      "id": "F02_TYPED_TASK_CAPABILITY_GENOME",
+      "session": "S02",
+      "scope": "Source-bound typed task/IO features and model identity to M03/M04 modality intent boundaries",
+      "limitations": "Vendor labels cannot establish frozen typed IO, fidelity, evaluator, tokenizer or observed provider execution compatibility.",
+      "originalOwnerRoutes": [
+        "M01",
+        "M03",
+        "M04",
+        "M08",
+        "M14",
+        "M16"
+      ],
+      "missingActualEvidence": "Original qualified typed task contract with real M01 quality veto and M08 representative source/fixture/evaluator protocol proof.",
+      "status": "SOURCE_RESEARCH_ONLY_UNSELECTED"
+    },
+    {
+      "id": "F03_EMPIRICAL_QUALITY_LATENCY_VRAM_CARDS",
+      "session": "S03",
+      "scope": "Versioned qualified future representative quality/latency/VRAM cards per exact composite model, task and evaluator",
+      "limitations": "Synthetic cards contain no representative GPU, cold/warm latency, energy/thermal reliability, peak VRAM or real M08 protocol.",
+      "originalOwnerRoutes": [
+        "M01",
+        "M02",
+        "M07",
+        "M08",
+        "M09",
+        "M14"
+      ],
+      "missingActualEvidence": "Current M08 original measured quality/performance envelope, M01 independent acceptance, hardware driver evidence and M09 current grant.",
+      "status": "SOURCE_RESEARCH_ONLY_UNSELECTED"
+    },
+    {
+      "id": "F04_HARDWARE_COMPATIBILITY_AND_RELIABILITY",
+      "session": "S04",
+      "scope": "Original M07 actual GPU/runtime/backend/operator/precision compatibility and independent M08 reliability evidence",
+      "limitations": "Marketing supported-GPU labels and hypothetical M13 kernels cannot establish current driver, real host fit, trusted supply or owner permission.",
+      "originalOwnerRoutes": [
+        "M01",
+        "M07",
+        "M08",
+        "M09",
+        "M13",
+        "M14",
+        "M18",
+        "M60"
+      ],
+      "missingActualEvidence": "Actual installed/trusted host and runtime/precision/operator tuple, repeatable real M08 workload and peak memory, M09 coherent lease.",
+      "status": "SOURCE_RESEARCH_ONLY_UNSELECTED"
+    },
+    {
+      "id": "F05_LIFECYCLE_DRIFT_DEPRECATION_ROLLBACK",
+      "session": "S05",
+      "scope": "Immutable qualified composite lifecycle lineage, explicit reviewable stale/revoked/deprecation and rollback transitions",
+      "limitations": "Mutable latest pointers or synthetic lifecycle state labels cannot safely trigger rollback, deletion or cross-tenant warm instance migration.",
+      "originalOwnerRoutes": [
+        "M01",
+        "M02",
+        "M09",
+        "M11",
+        "M12",
+        "M14",
+        "M18",
+        "M53",
+        "M54",
+        "M60"
+      ],
+      "missingActualEvidence": "Original independently approved M14 lifecycle state/tenant rights/trust and M02 immutable historic accepted master, M01 veto, actual M60 physical authorization.",
+      "status": "SOURCE_RESEARCH_ONLY_UNSELECTED"
+    }
+  ],
+  "seams": [
+    {
+      "id": "X01_COMPOSITE_TASK_DRIFT",
+      "joins": [
+        "S01",
+        "S02"
+      ],
+      "originalNegativeIds": [
+        "M14-S01-N01",
+        "M14-S02-N01"
+      ],
+      "hazard": "A changed tokenizer retains copied task labels, silently reuses earlier IO approvals and tenant rights.",
+      "ownerRoutes": [
+        "M14",
+        "M18",
+        "M53",
+        "M54",
+        "M02",
+        "M01",
+        "M03",
+        "M04",
+        "M08",
+        "M16"
+      ],
+      "mustBlock": "NO_UNQUALIFIED_ACTUAL_MODEL_OR_RUNTIME_GRANT",
+      "executed": false
+    },
+    {
+      "id": "X02_TASK_EMPIRICAL_POPULATION",
+      "joins": [
+        "S02",
+        "S03"
+      ],
+      "originalNegativeIds": [
+        "M14-S02-N02",
+        "M14-S03-N02"
+      ],
+      "hazard": "An extended typed IO task inherits an unrelated S03 quality/evaluator population and stale latency.",
+      "ownerRoutes": [
+        "M01",
+        "M03",
+        "M04",
+        "M08",
+        "M14",
+        "M16",
+        "M02",
+        "M07",
+        "M09"
+      ],
+      "mustBlock": "NO_UNQUALIFIED_ACTUAL_MODEL_OR_RUNTIME_GRANT",
+      "executed": false
+    },
+    {
+      "id": "X03_COMPOSITE_HARDWARE_KERNEL",
+      "joins": [
+        "S01",
+        "S04"
+      ],
+      "originalNegativeIds": [
+        "M14-S01-N03",
+        "M14-S04-N03"
+      ],
+      "hazard": "A composite adapter changes while compiled kernels and old device support labels remain cached.",
+      "ownerRoutes": [
+        "M14",
+        "M18",
+        "M53",
+        "M54",
+        "M02",
+        "M01",
+        "M07",
+        "M08",
+        "M09",
+        "M13",
+        "M60"
+      ],
+      "mustBlock": "NO_UNQUALIFIED_ACTUAL_MODEL_OR_RUNTIME_GRANT",
+      "executed": false
+    },
+    {
+      "id": "X04_CARD_HOST_RESOURCE",
+      "joins": [
+        "S03",
+        "S04"
+      ],
+      "originalNegativeIds": [
+        "M14-S03-N04",
+        "M14-S04-N04"
+      ],
+      "hazard": "A speculative synthetic card VRAM metric is misconstrued as an active M09 lease for M12 physical placement.",
+      "ownerRoutes": [
+        "M01",
+        "M02",
+        "M07",
+        "M08",
+        "M09",
+        "M14",
+        "M13",
+        "M18",
+        "M60"
+      ],
+      "mustBlock": "NO_UNQUALIFIED_ACTUAL_MODEL_OR_RUNTIME_GRANT",
+      "executed": false
+    },
+    {
+      "id": "X05_RIGHTS_LIFECYCLE_CACHE",
+      "joins": [
+        "S01",
+        "S05"
+      ],
+      "originalNegativeIds": [
+        "M14-S01-N05",
+        "M14-S05-N05"
+      ],
+      "hazard": "One tenant's revoked rights are carried into a still-warm cache belonging to another tenant.",
+      "ownerRoutes": [
+        "M14",
+        "M18",
+        "M53",
+        "M54",
+        "M02",
+        "M01",
+        "M09",
+        "M11",
+        "M12",
+        "M60"
+      ],
+      "mustBlock": "NO_UNQUALIFIED_ACTUAL_MODEL_OR_RUNTIME_GRANT",
+      "executed": false
+    },
+    {
+      "id": "X06_COMPATIBILITY_ROLLBACK",
+      "joins": [
+        "S04",
+        "S05"
+      ],
+      "originalNegativeIds": [
+        "M14-S04-N06",
+        "M14-S05-N06"
+      ],
+      "hazard": "A driver/backend revision silently selects previously compatible but now untrusted deprecated model binaries.",
+      "ownerRoutes": [
+        "M01",
+        "M07",
+        "M08",
+        "M09",
+        "M13",
+        "M14",
+        "M18",
+        "M60",
+        "M02",
+        "M11",
+        "M12",
+        "M53",
+        "M54"
+      ],
+      "mustBlock": "NO_UNQUALIFIED_ACTUAL_MODEL_OR_RUNTIME_GRANT",
+      "executed": false
+    },
+    {
+      "id": "X07_LIFECYCLE_CARD_REVALIDATION",
+      "joins": [
+        "S03",
+        "S05"
+      ],
+      "originalNegativeIds": [
+        "M14-S03-N07",
+        "M14-S05-N07"
+      ],
+      "hazard": "After dataset and model drift a routing layer silently uses an invalidated quality card.",
+      "ownerRoutes": [
+        "M01",
+        "M02",
+        "M07",
+        "M08",
+        "M09",
+        "M14",
+        "M11",
+        "M12",
+        "M18",
+        "M53",
+        "M54",
+        "M60"
+      ],
+      "mustBlock": "NO_UNQUALIFIED_ACTUAL_MODEL_OR_RUNTIME_GRANT",
+      "executed": false
+    }
+  ],
+  "gates": [
+    {
+      "id": "G01_COMPOSITE_SUPPLY",
+      "source": "S01",
+      "missingActualEvidence": "Original M14/M18 issuer must qualify every weight/tokenizer/adapter/config/custom-code component, not marketing alias.",
+      "ownerRoutes": [
+        "M14",
+        "M18",
+        "M53",
+        "M54",
+        "M02"
+      ],
+      "status": "NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL"
+    },
+    {
+      "id": "G02_LICENSE_TENANT_RIGHTS",
+      "source": "S01",
+      "missingActualEvidence": "Qualified M53/M54 original owner must issue current exact-version tenant rights and revocation proof.",
+      "ownerRoutes": [
+        "M01",
+        "M03",
+        "M04",
+        "M08",
+        "M14",
+        "M16",
+        "M53",
+        "M54"
+      ],
+      "status": "NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL"
+    },
+    {
+      "id": "G03_TYPED_TASK_QUALITY",
+      "source": "S02",
+      "missingActualEvidence": "M03/M04 original owner must accept typed IO and M01 must independently authorize fidelity for given task.",
+      "ownerRoutes": [
+        "M01",
+        "M02",
+        "M07",
+        "M08",
+        "M09",
+        "M14",
+        "M03",
+        "M04"
+      ],
+      "status": "NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL"
+    },
+    {
+      "id": "G04_REPRESENTATIVE_M08_CARD",
+      "source": "S03",
+      "missingActualEvidence": "M08 original owner must actually run representative fixture quality/latency/VRAM and publish immutable protocol.",
+      "ownerRoutes": [
+        "M01",
+        "M07",
+        "M08",
+        "M09",
+        "M13",
+        "M14",
+        "M18",
+        "M60"
+      ],
+      "status": "NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL"
+    },
+    {
+      "id": "G05_M07_HOST_RUNTIMES",
+      "source": "S04",
+      "missingActualEvidence": "Original M07 owner must attest exact real GPU topology, driver, framework, precision, OS and operator.",
+      "ownerRoutes": [
+        "M01",
+        "M02",
+        "M09",
+        "M11",
+        "M12",
+        "M14",
+        "M18",
+        "M53",
+        "M54",
+        "M60",
+        "M07"
+      ],
+      "status": "NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL"
+    },
+    {
+      "id": "G06_M09_LEASE_FENCING",
+      "source": "S04",
+      "missingActualEvidence": "Original M09 owner must establish a real coherent current resource snapshot/lease and revocation epoch.",
+      "ownerRoutes": [
+        "M14",
+        "M18",
+        "M53",
+        "M54",
+        "M02",
+        "M09"
+      ],
+      "status": "NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL"
+    },
+    {
+      "id": "G07_M11_M12_EXECUTION_OWNERS",
+      "source": "S04",
+      "missingActualEvidence": "Original M11 and M12 qualified contracts must grant fenced worker/process and placement actions independently.",
+      "ownerRoutes": [
+        "M01",
+        "M03",
+        "M04",
+        "M08",
+        "M14",
+        "M16",
+        "M11",
+        "M12"
+      ],
+      "status": "NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL"
+    },
+    {
+      "id": "G08_BACKEND_SUPPLY_TRUST",
+      "source": "S04",
+      "missingActualEvidence": "Qualified M13/M16/M18 native operators and supply chain must prove installed backend and supported inputs.",
+      "ownerRoutes": [
+        "M01",
+        "M02",
+        "M07",
+        "M08",
+        "M09",
+        "M14",
+        "M13",
+        "M16",
+        "M18"
+      ],
+      "status": "NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL"
+    },
+    {
+      "id": "G09_VERSIONED_LIFECYCLE_REVOKE",
+      "source": "S05",
+      "missingActualEvidence": "Qualified current tenant-specific owner must issue authenticated revocation with safe warm/compiled cache handling.",
+      "ownerRoutes": [
+        "M01",
+        "M07",
+        "M08",
+        "M09",
+        "M13",
+        "M14",
+        "M18",
+        "M60"
+      ],
+      "status": "NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL"
+    },
+    {
+      "id": "G10_M02_MASTER_HISTORICAL_LINEAGE",
+      "source": "S05",
+      "missingActualEvidence": "M02 owner must preserve immutable accepted master and release/archive causality during upgrades and rollbacks.",
+      "ownerRoutes": [
+        "M01",
+        "M02",
+        "M09",
+        "M11",
+        "M12",
+        "M14",
+        "M18",
+        "M53",
+        "M54",
+        "M60"
+      ],
+      "status": "NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL"
+    },
+    {
+      "id": "G11_H01_H04_CROSS_OWNER_PROOF",
+      "source": "S05",
+      "missingActualEvidence": "Qualified original H01–H04 and M09 owner B/C01 evidence must close current open HIGH blocker conditions.",
+      "ownerRoutes": [
+        "M14",
+        "M18",
+        "M53",
+        "M54",
+        "M02",
+        "M09"
+      ],
+      "status": "NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL"
+    },
+    {
+      "id": "G12_FINAL_M14_OWNER_AND_M60",
+      "source": "S05",
+      "missingActualEvidence": "Original M14 module owner, independent full review and M60 OS/runtime owner must issue actual contract grant separately.",
+      "ownerRoutes": [
+        "M01",
+        "M03",
+        "M04",
+        "M08",
+        "M14",
+        "M16",
+        "M60"
+      ],
+      "status": "NOT_RECEIVED_NO_RUNTIME_OR_OWNER_APPROVAL"
+    }
+  ],
+  "originalOwnerQuestionsOpen": 100,
+  "originalNegativeDesignsNotExecuted": 80,
+  "stop": "SOURCE_ONLY_NOT_APPROVED: all original M14 S01–S05 100 owner questions remain OPEN/UNRATED and all original 80 hypothetical future negative designs remain SPECIFIED_NOT_EXECUTED; 20 original alternatives and five documentary technology families remain UNSELECTED. Historical M13 96 original OPEN/UNRATED questions and 74 NOT_EXECUTED future negatives also remain unchanged. M14 original qualified module owner, independent genuine technology adoption and current model/component/tenant commercial rights NOT_RECEIVED. No actual model download, provider test, representative GPU/OS measurements, lifecycle transition/revocation, physical process action, backend/registry deployment or current lease. M01 quality veto/M02 immutable accepted masters separate. Eight original owner issues #82/#110/#112/#128/#145/#146/#147/#155 OPEN, H01–H04 HIGH_FOR_FUTURE_FREEZE, M09 B DIRECTION_ONLY/C01 UNADOPTED_NOT_FROZEN and M10–M13 runtime NOT_ADMITTED. Later M15/M16/M18/M53/M54/M60 owner-specific contracts required."
+}
