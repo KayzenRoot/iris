@@ -224,7 +224,7 @@ _BOUNDARY_OWNERS: Mapping[ExtensionBoundary, str] = MappingProxyType({
     ExtensionBoundary.QUALITY_PROFILE: "M01",
     ExtensionBoundary.PROVIDER_CAPABILITY: "M02/M30",
     ExtensionBoundary.CANON_STORY: "M20/M21",
-    ExtensionBoundary.CONTEXT_DEPENDENCY: "M40/HIVE",
+    ExtensionBoundary.CONTEXT_DEPENDENCY: "M40/IRIS",
     ExtensionBoundary.PROVENANCE_RIGHTS: "M53",
     ExtensionBoundary.SECURITY_AUTHORITY: "M54",
     ExtensionBoundary.DELIVERY_DESTINATION: "M59",

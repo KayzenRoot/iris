@@ -108,5 +108,5 @@
     "planning/reviews/IRIS-WO-0029-PUBLIC-STATUS-AUDIT-TARGET.md",
     "tests/test_public_status_docs.py"
   ],
-  "stopCondition": "Only public status repair and historical PR135 receipt; 5 new tests, own exact-head Context Lock/validator/GEF/HIVE/full suite, bounded review, guarded squash and exact-main PASS. Four OPEN issues, four HIGHs, M09 A/B/C NONE_SELECTED, M11/M12 NOT_FROZEN and runtime NOT_ADMITTED preserved."
+  "stopCondition": "Only public status repair and historical PR135 receipt; 5 new tests, own exact-head Context Lock/validator/GEF/IRIS/full suite, bounded review, guarded squash and exact-main PASS. Four OPEN issues, four HIGHs, M09 A/B/C NONE_SELECTED, M11/M12 NOT_FROZEN and runtime NOT_ADMITTED preserved."
 }

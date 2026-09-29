@@ -253,8 +253,8 @@
     "M12": "Placement/orchestration handoff remains pending its own canonical contract."
   },
   "environment": {
-    "hiveMcpAvailable": false,
-    "hiveEvidence": "NOT_USED; connector unavailable in this Work Mode; no HIVE-derived claims; Git is canonical."
+    "irisMcpAvailable": false,
+    "irisEvidence": "NOT_USED; connector unavailable in this Work Mode; no IRIS-derived claims; Git is canonical."
   },
   "runtimeOrTestFilesAuthorized": false,
   "stopConditions": [

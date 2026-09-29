@@ -16,7 +16,7 @@ This increment is checkpoint/evidence closeout only. It does not freeze M11, adm
 
 ## AUTHORITY AND PREFLIGHT
 
-Follow .engineering/SOURCE-HIERARCHY.md and the startup order: checkpoint, Decisions Ledger, Scope, Definition of Done, Architecture, Requirements, then this Work Order and Context Lock. Git main at the exact base above is canonical. Use the C02 audit report and exact-main Governance receipts as evidence. Derived HIVE state does not replace Git evidence.
+Follow .engineering/SOURCE-HIERARCHY.md and the startup order: checkpoint, Decisions Ledger, Scope, Definition of Done, Architecture, Requirements, then this Work Order and Context Lock. Git main at the exact base above is canonical. Use the C02 audit report and exact-main Governance receipts as evidence. Derived IRIS state does not replace Git evidence.
 
 ## SCOPE
 
@@ -45,7 +45,7 @@ The exact allowlist is:
 - Context Lock fingerprints are 32 unique Git blob SHA-1 values recomputed at this exact base, all matching.
 - Only the eight allowlisted paths change.
 - Checkpoint mirrors and Evidence Bundle are valid and consistent; the audit report distinguishes candidate progress from freeze and implementation.
-- git diff --check and repository Governance validation pass; final PR-head Governance checks the exact final SHA and pinned GEF/HIVE bridges.
+- git diff --check and repository Governance validation pass; final PR-head Governance checks the exact final SHA and pinned GEF/IRIS bridges.
 - No other module or implementation increment is opened.
 
 ## STOP CONDITION

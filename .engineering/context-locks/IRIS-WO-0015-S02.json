@@ -279,7 +279,7 @@
       "gitBlobSha1": "657fdbb0c89e5cdd97c426fd3639112d5c9b24dd"
     },
     {
-      "path": "scripts/hive_mcp.py",
+      "path": "scripts/iris_mcp.py",
       "gitBlobSha1": "0ad9cd173c29b8aedf60ee0f3b5d928112d23a0a"
     },
     {
@@ -347,12 +347,12 @@
     ]
   },
   "internalReuse": {
-    "repositorySearch": "scripts/hive_mcp.py and scripts/gef_preflight.py contain narrow one-shot subprocess calls only; no long-lived supervisor, registration protocol or worker IPC was established.",
-    "UGAS_HIVE_CORE": "UNVERIFIED; no authoritative UGAS/CORE source and no HIVE MCP tools in active Work Mode."
+    "repositorySearch": "scripts/iris_mcp.py and scripts/gef_preflight.py contain narrow one-shot subprocess calls only; no long-lived supervisor, registration protocol or worker IPC was established.",
+    "UGAS_IRIS_CORE": "UNVERIFIED; no authoritative UGAS/CORE source and no IRIS MCP tools in active Work Mode."
   },
   "environment": {
-    "hiveMcpAvailable": false,
-    "hiveEvidence": "NOT_USED; unavailable in active Work Mode; no HIVE-derived claims; Git is canonical."
+    "irisMcpAvailable": false,
+    "irisEvidence": "NOT_USED; unavailable in active Work Mode; no IRIS-derived claims; Git is canonical."
   },
   "runtimeOrTestFilesAuthorized": false,
   "stopConditions": [

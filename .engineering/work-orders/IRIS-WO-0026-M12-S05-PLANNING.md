@@ -2,7 +2,7 @@
 
 Status: ADMITTED_NON_EXECUTABLE_S05_REFERENCE_RESEARCH_ONLY | Issue #128 | Risk ELEVATED_CROSS_OWNER_RECOVERY_BOUNDARIES
 Exact Git base `278d3c2905237dfb90a1d0db60cc5db54b834811`, tree `030650da12d2ac36d5bf162c0f61b1578de8a291`; exact-main Governance #491 run 36326583542/job 108640404616 PASS 3979/3979.
-Read AGENTS and source order Checkpoint -> Decisions -> Scope -> DoD -> Architecture -> Requirements -> Security and this Work Order. Own Context Lock must pin all listed exact-base SHA-1s including eight authority roots and exact 12 diff paths. Current HIVE source guidance does not prove any live HIVE v1.0.3 environment. Product/runtime HIVE v1.0.0 remains pinned.
+Read AGENTS and source order Checkpoint -> Decisions -> Scope -> DoD -> Architecture -> Requirements -> Security and this Work Order. Own Context Lock must pin all listed exact-base SHA-1s including eight authority roots and exact 12 diff paths. Current IRIS source guidance does not prove any live IRIS v1.0.3 environment. Product/runtime IRIS v1.0.0 remains pinned.
 
 ## Authorized scope
 
@@ -26,4 +26,4 @@ S05 must compare six nonselected future recovery/preemption/cost/quality approac
 
 ## Gates and STOP
 
-No actual retry engine, preemption/kill/reap, process spawn, GPU observation, LAN/cloud/provider/API use, media export, cost billing, priority default, M09 handoff A/B/C adoption, frozen module amendment or new M12 runtime. M09 v1.0 remains FROZEN 83/15/514, M11 v0.2 NOT_FROZEN with 86 questions OPEN, four H01–H04 HIGH_FOR_FUTURE_FREEZE remain OPEN. Document-only S05 completion needs its exact-head source lock/full 3979 tests/validator/GEF/HIVE CI, separately scoped audit zero NEW HIGH/CRITICAL, guarded protected squash only final audited head and full exact-main PASS. Issue #128 remains OPEN for FTR/FCS/versioned owner contract/freeze-readiness/implementation, and #82/#110/#112 remain OPEN. No hardware/OS fault injection can be inferred from CI passing a documentary PR.
+No actual retry engine, preemption/kill/reap, process spawn, GPU observation, LAN/cloud/provider/API use, media export, cost billing, priority default, M09 handoff A/B/C adoption, frozen module amendment or new M12 runtime. M09 v1.0 remains FROZEN 83/15/514, M11 v0.2 NOT_FROZEN with 86 questions OPEN, four H01–H04 HIGH_FOR_FUTURE_FREEZE remain OPEN. Document-only S05 completion needs its exact-head source lock/full 3979 tests/validator/GEF/IRIS CI, separately scoped audit zero NEW HIGH/CRITICAL, guarded protected squash only final audited head and full exact-main PASS. Issue #128 remains OPEN for FTR/FCS/versioned owner contract/freeze-readiness/implementation, and #82/#110/#112 remain OPEN. No hardware/OS fault injection can be inferred from CI passing a documentary PR.

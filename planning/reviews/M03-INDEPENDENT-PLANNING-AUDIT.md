@@ -30,7 +30,7 @@ PASS:
 - M02 remains project/production/graph/branch/build/release authority.
 - M03 Execution Intent remains distinct from M02 ExecutionPlan.
 - M04+ domain/provider/runtime ownership remains deferred through opaque refs/ports.
-- HIVE remains derived context, not canonical semantic truth.
+- IRIS remains derived context, not canonical semantic truth.
 - agents/providers cannot self-promote authority or mutate frozen M03 state.
 - hardware/provider limitations cannot silently downgrade final QualityClass.
 

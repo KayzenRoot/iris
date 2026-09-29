@@ -162,11 +162,11 @@
       "gitBlobSha1": "75f11735681996e4217d4df1f5cc5036458fc312"
     },
     {
-      "path": ".engineering/context-locks/IRIS-WO-0021-HIVE-CONTEXT-PROMPTS.json",
+      "path": ".engineering/context-locks/IRIS-WO-0021-IRIS-CONTEXT-PROMPTS.json",
       "gitBlobSha1": "2ebbbfc7d6efbac9ba3f0a6b00fa567c7e99a280"
     },
     {
-      "path": ".engineering/work-orders/IRIS-WO-0021-HIVE-CONTEXT-PROMPTS.md",
+      "path": ".engineering/work-orders/IRIS-WO-0021-IRIS-CONTEXT-PROMPTS.md",
       "gitBlobSha1": "efced39203d8f7bdc23db4430544b1f37f65d313"
     },
     {

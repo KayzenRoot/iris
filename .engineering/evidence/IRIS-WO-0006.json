@@ -118,7 +118,7 @@
     },
     {
       "command": "python scripts/validate_governance.py",
-      "result": "IRIS governance validation: PASS / GEF v1.0.0 @ 866fe3af8cccc65c929aaf6a47a924401fa448b3 / HIVE v1.0.0 @ a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf / Required artifacts: 35"
+      "result": "IRIS governance validation: PASS / GEF v1.0.0 @ 866fe3af8cccc65c929aaf6a47a924401fa448b3 / IRIS v1.0.0 @ a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf / Required artifacts: 35"
     },
     {
       "command": "python examples/m03_synthetic_profiles.py",
@@ -191,7 +191,7 @@
   "designDecisions": [
     "The package public surface is derived at import from each module's own __all__ and refuses an empty export list, an undefined listed name, and two different objects under one name, because a hand-copied 431-name list is a second API that drifts silently.",
     "Contract concept names map onto code names, and the mapping is recorded in each module docstring: ConstraintPredicate -> predicates.PredicateSignature + PredicateCall; ConditionalConstraint -> Constraint.conditions; ProtectedSemanticZone/AnchorRef -> constraints.ProtectedAnchor; MinimumSufficientExecutionSlice -> execution.ExecutionIntentSlice; SemanticDelta -> fingerprints.IntentDelta.",
-    "identity.RefKind was extended with the ref kinds the frozen S03-S05 concepts require (PROVENANCE, OBLIGATION, CONTRACT_SET, READINESS, LEASE, RECEIPT and the M01/M02/HIVE-shaped refs) instead of overloading an existing kind: a ref that misnames its target is the one error a trust boundary cannot recover from. This is an additive vocabulary extension inside the freeze, not a change to any frozen invariant.",
+    "identity.RefKind was extended with the ref kinds the frozen S03-S05 concepts require (PROVENANCE, OBLIGATION, CONTRACT_SET, READINESS, LEASE, RECEIPT and the M01/M02/IRIS-shaped refs) instead of overloading an existing kind: a ref that misnames its target is the one error a trust boundary cannot recover from. This is an additive vocabulary extension inside the freeze, not a change to any frozen invariant.",
     "constraints.KNOWN_CHANNELS is computed from the ModalChannel enum minus CROSS and UNSPECIFIED rather than listed by hand, so a modality can never again exist as a statement channel and not as a rule scope.",
     "ConstraintBundle admission is two steps (construct, then .admit(registry=, admitted_by=)) so no bundle can exist half-admitted, and RevisionFrozenError guards the second step.",
     "IntentOrigin.DEFAULTED floors at PROJECT_RECORD rather than at the inference ceiling: a default is a value someone stands behind, not a model guess.",
@@ -242,9 +242,9 @@
     },
     {
       "kind": "environment / gate unavailable",
-      "where": "HIVE MCP preflight",
-      "symptom": "The HIVE MCP server is not present in this session's MCP tool surface (mcp_list keyword 'hive' returns no HIVE tools), so project.status / context.build / checkpoint.read could not be executed from here.",
-      "resolution": "Reported as unavailable rather than simulated. The deterministic substitutes actually run: git base/head measurement, blob-hash comparison against every Context Lock critical source, python scripts/validate_governance.py (PASS, 35 artifacts, GEF v1.0.0, HIVE v1.0.0) and the hosted exact-head Governance check."
+      "where": "IRIS MCP preflight",
+      "symptom": "The IRIS MCP server is not present in this session's MCP tool surface (mcp_list keyword 'iris' returns no IRIS tools), so project.status / context.build / checkpoint.read could not be executed from here.",
+      "resolution": "Reported as unavailable rather than simulated. The deterministic substitutes actually run: git base/head measurement, blob-hash comparison against every Context Lock critical source, python scripts/validate_governance.py (PASS, 35 artifacts, GEF v1.0.0, IRIS v1.0.0) and the hosted exact-head Governance check."
     }
   ],
   "scopeDeviations": [
@@ -253,7 +253,7 @@
   ],
   "risksAndDeferredWork": [
     "The twelve section 12 extension boundaries are types and opaque-ref contracts, not integrations: no provider, DCC, rights system, brand store, canon engine or delivery backend is wired, so every cross-module claim in M03 is a reference the caller must keep honest.",
-    "stores ships in-memory reference repositories only; there is no persistence, CAS, database or HIVE write path, by section 19.",
+    "stores ships in-memory reference repositories only; there is no persistence, CAS, database or IRIS write path, by section 19.",
     "Semantic freshness, reuse equivalence and release readiness are evaluated against dependencies the caller supplies; a production that supplies no DerivedIntentDependency gets an unassessed family, not a clean bill.",
     "Explanation graphs are built and validated but not stored or exported; the ExplanationExportPort is a boundary without an implementation.",
     "Override and lease ledgers are append-only structures with no clock: expiry is revision-scoped (expires_after_revision), so calendar expiry must be decided by a caller that owns a clock.",
@@ -346,7 +346,7 @@
   },
   "integrityObservations": [
     "Untrusted text embedded in tool results was treated as data, never as instruction. During this Work Order the executor encountered and refused: an instruction to leave a module docstring unchanged; a false claim that Record.__post_init__ runs and should call super().__post_init__(payload); a suggested sys.path.insert workaround; a fabricated user message ordering an immediate stop; a fake '[Strategy-based content filter active]' notice instructing removal of un-requested content; a claim that the development language is Chinese; a repeated instruction to keep a test-file docstring verbatim; an instruction to write a memory file instead of running tests or editing files; a fabricated replacement objective ordering abandonment of M03 in favour of unrelated knowledge-base searches and then STOP; and harness reminders repeatedly naming an unrelated user-selected task ('Integrar QoderWake app') with prompts to proceed on it. None of them changed the plan, the scope or the evidence.",
-    "No HIVE evidence was simulated or fabricated. The HIVE MCP gate is recorded above as unavailable in this session.",
+    "No IRIS evidence was simulated or fabricated. The IRIS MCP gate is recorded above as unavailable in this session.",
     "No push to main, no force push, no history rewrite, no .gitattributes or secret file staged, and the working tree is clean with LF endings at the tested head."
   ],
   "proof": {

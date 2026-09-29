@@ -374,7 +374,7 @@ class ContextFingerprint(Record):
     @property
     def external_ref(self) -> ExternalRef:
         return ExternalRef(
-            kind=EntityKind.HIVE_CONTEXT, reference=self.fingerprint, version=self.schema_version
+            kind=EntityKind.IRIS_CONTEXT, reference=self.fingerprint, version=self.schema_version
         )
 
 

@@ -161,5 +161,5 @@
   "exactHeadGovernance": {
     "status": "REQUIRED_ON_FINAL_PR_HEAD"
   },
-  "stopCondition": "No bot PR #16 merge before own exact-head CI. Do not change any frozen module contract, product runtime, process controls, GEF/HIVE pins or approved historical sources."
+  "stopCondition": "No bot PR #16 merge before own exact-head CI. Do not change any frozen module contract, product runtime, process controls, GEF/IRIS pins or approved historical sources."
 }

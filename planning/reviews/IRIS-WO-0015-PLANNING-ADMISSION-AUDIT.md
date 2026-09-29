@@ -35,7 +35,7 @@ This post-authoring audit covers the M11 planning-admission proposal diff, its W
 
 ## Limitations
 
-HIVE MCP was not exposed in the current Work Mode connection. No HIVE-derived facts were asserted. This documentation proposal relies on pinned canonical Git sources and the repository's exact-head Governance gate. Any M11 decision that needs HIVE-only context remains unresolved until authoritative Git evidence is available.
+IRIS MCP was not exposed in the current Work Mode connection. No IRIS-derived facts were asserted. This documentation proposal relies on pinned canonical Git sources and the repository's exact-head Governance gate. Any M11 decision that needs IRIS-only context remains unresolved until authoritative Git evidence is available.
 
 ## Gate result
 

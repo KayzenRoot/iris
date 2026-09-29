@@ -193,7 +193,7 @@ The Final Technology Review maps all 150 exactly once into these 25 families.
 27. DNA projection declares consumed required/optional traits.
 28. unsupported mandatory projected identity traits cannot disappear silently.
 29. rights/privacy/provenance evidence is referenced with minimization; M05 does not seize M53/M54 authority.
-30. HIVE/agents may retrieve/propose identity context but cannot mutate canonical DNA directly.
+30. IRIS/agents may retrieve/propose identity context but cannot mutate canonical DNA directly.
 
 ### Domain family identity — 31..60
 
@@ -226,7 +226,7 @@ The Final Technology Review maps all 150 exactly once into these 25 families.
 57. family-specific traits preserve S01 provenance/policy reachability.
 58. downstream provider scarcity cannot downgrade family-specific identity protections.
 59. family/profile changes participate in deterministic canonical fingerprint/change-surface evidence.
-60. HIVE/agents may propose family classification but cannot canonically reclassify DNA without authority.
+60. IRIS/agents may propose family classification but cannot canonically reclassify DNA without authority.
 
 ### Cross-modal identity links — 61..90
 
@@ -259,7 +259,7 @@ The Final Technology Review maps all 150 exactly once into these 25 families.
 87. CrossModalDNAGraph cannot duplicate M02 Production Graph ownership.
 88. CrossModalDNAGraph cannot duplicate M04 scene graph or M43 Canon Graph ownership.
 89. future domain DNA families use versioned owner/family refs and unknown mandatory families fail closed.
-90. HIVE/agents may retrieve/propose cross-modal links but cannot admit or rewrite canonical links directly.
+90. IRIS/agents may retrieve/propose cross-modal links but cannot admit or rewrite canonical links directly.
 
 ### Drift / mutation / continuity — 91..120
 
@@ -292,7 +292,7 @@ The Final Technology Review maps all 150 exactly once into these 25 families.
 117. sensitive drift evidence may remain restricted references rather than canonical payload copies.
 118. M53/M54 retain rights/consent/provenance/security authority over protected identity evidence.
 119. drift/transition reports are deterministic and fingerprintable without embedding private evidence payloads.
-120. HIVE/agents may detect/propose drift or mutation but cannot directly admit protected canonical identity changes.
+120. IRIS/agents may detect/propose drift or mutation but cannot directly admit protected canonical identity changes.
 
 ### Compatibility / packaging / import — 121..150
 
@@ -325,7 +325,7 @@ The Final Technology Review maps all 150 exactly once into these 25 families.
 147. canonical reusable DNA package requires no arbitrary executable code.
 148. deprecation/retirement never rewrites historical package/DNA revisions.
 149. conformance report proves contract/schema conformance, not legal rights or semantic identity equivalence by itself.
-150. HIVE/agents may discover/package/propose compatibility but cannot directly admit imported canonical identity or protected mutations.
+150. IRIS/agents may discover/package/propose compatibility but cannot directly admit imported canonical identity or protected mutations.
 
 ## 6. Identity substrate contract
 
@@ -595,7 +595,7 @@ M05 must expose versioned boundaries sufficient for:
 16. `CanonContentCampaignBrandPort` — M43-M46 domain identity links without ownership transfer.
 17. `LocalizationIdentityPreservationPort` — M47 cross-language adaptation obligations.
 18. `QualityRepairProposalPort` — M48-M51 evidence/proposals, no direct mutation.
-19. `HIVEMemoryIdentitySlicePort` — M52 derived context/minimum sufficient DNA.
+19. `IRISMemoryIdentitySlicePort` — M52 derived context/minimum sufficient DNA.
 20. `RightsSecurityEvidencePort` — M53/M54 policy/vault refs.
 21. `StorageObservabilityAutomationPort` — M55-M57 location/telemetry/agent proposal boundaries.
 22. `APIExportRecoveryIdentityPort` — M58-M60 conformance/export/restore boundaries.
@@ -804,7 +804,7 @@ Later implementation must prove at minimum:
 - lifecycle deprecation does not rewrite history.
 
 ### Authority / closed runtime
-- no direct canonical mutation from HIVE/agents/providers;
+- no direct canonical mutation from IRIS/agents/providers;
 - M39 persona continuity binds to M05 root;
 - M02/M06/M55 ownership shields enforced;
 - no provider/DCC/cloud/database/network/shell requirement in core.
@@ -829,7 +829,7 @@ Later implementation must prove at minimum:
 - marketplace payments/storefront/ranking/commerce settlement;
 - API/plugin platform;
 - publishing/export runtime;
-- HIVE retrieval implementation.
+- IRIS retrieval implementation.
 
 ## 27. Evidence obligations for implementation executor
 

@@ -37,7 +37,7 @@ Admission proof:
 - M55 owns physical bytes, CAS, cache tiers, archive storage, physical deletion and storage recovery.
 - M59 owns publishing/delivery.
 - M60 owns system recovery/final acceptance.
-- HIVE/agents may retrieve/propose but cannot directly rewrite canonical production truth.
+- IRIS/agents may retrieve/propose but cannot directly rewrite canonical production truth.
 
 ## REQUIRED SOURCES
 
@@ -92,7 +92,7 @@ Implement the 25 frozen families:
 Preserve the exact **150** frozen invariants from the contract. Do not paraphrase them into weaker implementation rules.
 
 Expose all **20** frozen extension/ref ports:
-HardwareMaterialityEvidencePort; ExecutionAttemptPort; CacheReuseEvidencePort; ModelRevisionEvidencePort; WorkflowRevisionEvidencePort; DomainMaterializationEvidencePort; NarrativeCanonRefPort; CampaignBrandIdentityRefPort; QualityEvidencePort; RepairExecutionPort; HiveContextEvidencePort; ProvenanceRightsConsentPort; SecurityAuthorizationPort; PhysicalMediaStorePort; PhysicalDeletionArchivePort; ObservabilityProjectionPort; AgentProposalPort; ExternalContractPort; PublishingDeliveryPort; SystemRecoveryEvidencePort.
+HardwareMaterialityEvidencePort; ExecutionAttemptPort; CacheReuseEvidencePort; ModelRevisionEvidencePort; WorkflowRevisionEvidencePort; DomainMaterializationEvidencePort; NarrativeCanonRefPort; CampaignBrandIdentityRefPort; QualityEvidencePort; RepairExecutionPort; IrisContextEvidencePort; ProvenanceRightsConsentPort; SecurityAuthorizationPort; PhysicalMediaStorePort; PhysicalDeletionArchivePort; ObservabilityProjectionPort; AgentProposalPort; ExternalContractPort; PublishingDeliveryPort; SystemRecoveryEvidencePort.
 
 ## CORE SEMANTICS
 

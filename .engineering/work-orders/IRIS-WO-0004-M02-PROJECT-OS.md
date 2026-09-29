@@ -92,7 +92,7 @@ Implement:
 - context-fingerprint contract and opaque cache/provider compatibility refs;
 - incremental/full truth semantics.
 
-Do not implement real KV cache, GPU cache, model residency or HIVE retrieval.
+Do not implement real KV cache, GPU cache, model residency or IRIS retrieval.
 
 ### E. Production lifecycle, promotion and archive
 Implement:
@@ -145,7 +145,7 @@ Expose provider-neutral contracts/opaque references sufficient for later:
 - repair provider;
 - Artifact/Snapshot/Receipt stores;
 - rights/provenance gate provider;
-- HIVE/context fingerprint source;
+- IRIS/context fingerprint source;
 - delivery/publishing provider.
 
 Do not implement those providers now.
@@ -222,7 +222,7 @@ Especially:
 - archive is evidence/retention state, not a folder;
 - current state is replayable from receipts;
 - duplicate commands are idempotent or conflicting;
-- HIVE is derived context.
+- IRIS is derived context.
 
 ## ARCHITECTURE RULES
 

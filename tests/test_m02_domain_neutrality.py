@@ -104,7 +104,7 @@ FORBIDDEN_ROOTS = (
     "docker",
     "kubernetes",
     # governance and agent runtimes the kernel must not call into
-    "hive",
+    "iris",
     "mcp",
 )
 

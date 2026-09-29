@@ -54,7 +54,7 @@ Prove that the frozen-intent M09 resource contracts can serve future IRIS module
 | M49 Self-Correction | May request replan/offload/resource alternatives; repair planning remains M49. |
 | M50 Render Cascade | May use M09 feasibility/cost evidence; M50 owns draft/master cascade and cost-to-quality allocation. |
 | M51 Benchmark Lab | May benchmark M09 behavior and regressions; M51 owns broader benchmark corpus/release gates, while M08 remains capability-envelope authority. |
-| M52 HIVE Memory | May store/retrieve resource evidence/context; M52 owns memory/RAG semantics and stale-context policy. |
+| M52 IRIS Memory | May store/retrieve resource evidence/context; M52 owns memory/RAG semantics and stale-context policy. |
 | M53 Provenance/Rights | M09 exports resource lineage refs; M53 owns rights/consent/C2PA policy. |
 | M54 Security | M09 mutations consume authorization/security constraints; M54 owns RBAC/secrets/sandbox/restricted-content policy. |
 | M55 Media CAS/Storage | M09 uses capability refs and cleanup eligibility; M55 owns physical storage, tiers, CAS, cache, GC/delete/archive. |

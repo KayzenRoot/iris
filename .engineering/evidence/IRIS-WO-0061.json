@@ -43,7 +43,7 @@
   "frozenTransportSchemaVersionOrCanonicalBytesChanged": false,
   "actualIndependentQualifiedOwnerProof": false,
   "actualEmpiricalGpuOsMeasurements": false,
-  "hiveMcp": "UNAVAILABLE_CURRENT_ENVIRONMENT",
+  "irisMcp": "UNAVAILABLE_CURRENT_ENVIRONMENT",
   "ownHeadCI": "PENDING",
   "ownExternalReviews": "PENDING",
   "ownProtectedMerge": "PENDING",

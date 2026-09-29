@@ -66,7 +66,7 @@
     },
     {
       "command": "python scripts/validate_governance.py",
-      "result": "IRIS governance validation: PASS (GEF v1.0.0, HIVE v1.0.0, 35 required artifacts)"
+      "result": "IRIS governance validation: PASS (GEF v1.0.0, IRIS v1.0.0, 35 required artifacts)"
     },
     {
       "command": "ruff check iris_project_os tests/test_m02_*.py tests/m02_kernel_support.py examples/m02_synthetic_profiles.py",
@@ -112,7 +112,7 @@
     "M01 test files carry 15 pre-existing F401 unused imports (committed before this WO); left untouched as out of scope and not gated by CI."
   ],
   "proof": {
-    "noProviderSdkLeakage": "tests/test_m02_domain_neutrality.py ImportBoundaryTests + DomainVocabularyTests: every iris_project_os import is stdlib or iris_quality; none of ~70 forbidden roots (blender/bpy/comfyui/torch/numpy/PIL/cv2/requests/httpx/boto3/sqlalchemy/redis/mcp/hive/...) is imported; no socket/subprocess/os.system touchpoint; a cold import with sockets monkeypatched to raise completes and reports 399 exports from a temp cwd where examples cannot resolve.",
+    "noProviderSdkLeakage": "tests/test_m02_domain_neutrality.py ImportBoundaryTests + DomainVocabularyTests: every iris_project_os import is stdlib or iris_quality; none of ~70 forbidden roots (blender/bpy/comfyui/torch/numpy/PIL/cv2/requests/httpx/boto3/sqlalchemy/redis/mcp/iris/...) is imported; no socket/subprocess/os.system touchpoint; a cold import with sockets monkeypatched to raise completes and reports 399 exports from a temp cwd where examples cannot resolve.",
     "m01RemainsQualityAuthority": "QualityAuthorityTests: the kernel imports only iris_quality.{contracts,decision,errors,versions}; never the judging machinery (dimensions/evidence/judging/registry/zones); never names DecisionEngine/EvaluatorRegistry/JudgeRequest/DomainProfile/DimensionRegistry/SemanticZone; iris_project_os.versions.QualityClass is iris_quality.contracts.QualityClass (same object); a VALIDATED M02 claim names an M01 decision by reference and closure_obligations reports the gap when none is bound.",
     "fiveSyntheticProfiles": "tests/test_m02_profiles.py drives profile.logo-web, profile.game-asset, profile.film-sequence, profile.spokesperson and profile.voice-music (examples/m02_synthetic_profiles.py) through the graph, identity, branch/variant/snapshot, diff/merge/rollback, build/reuse, lifecycle/promotion and archive/retention families — 82 methods, all against the one shared kernel. Neutrality test proves the core names none of these profiles' identifiers.",
     "exactHeadGovernance": "base 59ee339c27750522106d0d2aa5a525f07f613702 -> review-corrected code head 4f6f3530d869742afc690c010a05280331f6be4c on PR #12. Governance run 35584434087 / job 106284371007 checked out that exact SHA, validate_governance PASS (35 required artifacts), and Ran 1805 tests / OK."

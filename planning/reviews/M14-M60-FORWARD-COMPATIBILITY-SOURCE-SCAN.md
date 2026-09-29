@@ -53,9 +53,9 @@ Indexed modules: M16, M17, M18, M26, M31, M32, M33, M34, M35, M54, M60.
 An official Blender/Maya/CUDA/WebGPU tool or signed-looking plugin name is not a local sandbox, native code trust, installed-version compatibility, GPU license or OS execution permission.
 **SOURCE_ONLY_NOT_EXECUTED; FUTURE_REAL_OWNER_AND_INTEGRATION_PROOF_MISSING.**
 
-### I10_HIVE_CONTEXT_REUSE
+### I10_IRIS_CONTEXT_REUSE
 Indexed modules: M43, M44, M45, M46, M48, M52, M53, M54, M55, M57.
-Historical HIVE memory or cross-project context is not current production truth, owner-authorized semantic cache reuse, human review approval or tenant/current-rights permission.
+Historical IRIS memory or cross-project context is not current production truth, owner-authorized semantic cache reuse, human review approval or tenant/current-rights permission.
 **SOURCE_ONLY_NOT_EXECUTED; FUTURE_REAL_OWNER_AND_INTEGRATION_PROOF_MISSING.**
 
 ## All 47 modules: original five-session scope, specific M13 compatibility limit and proof route
@@ -516,16 +516,16 @@ Potential failure to prove: A cross-hardware benchmark corpus may mix synthetic 
 Actual independent source owner/empirical evidence needed before compatibility approval: Real M51/M01/M07/M08/M24/M48/M56 owners must qualify exact benchmark fixtures, model/hardware/software/driver scope, real M08 validity and independent release gates.
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
-### M52: HIVE Multimodal Memory & Creative RAG Integration
+### M52: IRIS Multimodal Memory & Creative RAG Integration
 Original area: **AREA J — MEMORY, PROVENANCE, SECURITY & DATA**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
-- S01 — S01 IRIS↔HIVE project/context contract
+- S01 — S01 IRIS↔IRIS project/context contract
 - S02 — S02 Asset/reference/image/audio/3D metadata retrieval
 - S03 — S03 Creator/project/character/production memory
 - S04 — S04 Minimum sufficient context, caching and token economy
 - S05 — S05 Provenance-aware retrieval, checkpoint handoff and stale-context invalidation
 M13 research family intersections: F01_WARM_MODEL_LOCALITY, F03_PARTIAL_REUSE_DELTA.
-Potential failure to prove: HIVE contextual retrieval/cache may expose stale or cross-project subject media or mistakenly grant semantic reuse authority to historic memories.
-Actual independent source owner/empirical evidence needed before compatibility approval: Real M52/HIVE/M02/M06/M53/M54 owners must source exact project/tenant consent scope, immutable revision, minimal retrieved context and freshness/revocation evidence.
+Potential failure to prove: IRIS contextual retrieval/cache may expose stale or cross-project subject media or mistakenly grant semantic reuse authority to historic memories.
+Actual independent source owner/empirical evidence needed before compatibility approval: Real M52/IRIS/M02/M06/M53/M54 owners must source exact project/tenant consent scope, immutable revision, minimal retrieved context and freshness/revocation evidence.
 **INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT; owner NOT_RECEIVED; no technology selected; DOCUMENTARY_DESIGN_NOT_EXECUTED; runtime authority NONE.**
 
 ### M53: Provenance, Rights, Consent & C2PA
@@ -616,7 +616,7 @@ Actual independent source owner/empirical evidence needed before compatibility a
 Original area: **AREA K — CONTROL CENTER, AUTONOMY, APIs & RELEASE**. Source index Git blob: `19c8ff6126748cb89e53108bdff8289322071970`. Exact original five source-only planned sub-sessions:
 - S01 — S01 Local installation/update/uninstall and background services
 - S02 — S02 Backup, restore, migration and disaster recovery
-- S03 — S03 Full HIVE↔CORE↔IRIS integration validation
+- S03 — S03 Full IRIS↔CORE↔IRIS integration validation
 - S04 — S04 End-to-end production acceptance on 8 GB and higher hardware classes
 - S05 — S05 Security/performance/quality final audit, release freeze and IRIS 1.0 completion
 M13 research family intersections: F01_WARM_MODEL_LOCALITY, F02_COMPILATION_BACKENDS, F03_PARTIAL_REUSE_DELTA, F04_OVERLAP_AND_IO, F05_EMPIRICAL_PERFORMANCE_GATES.
@@ -1653,10 +1653,10 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
     },
     {
       "id": "M52",
-      "title": "HIVE Multimodal Memory & Creative RAG Integration",
+      "title": "IRIS Multimodal Memory & Creative RAG Integration",
       "area": "AREA J — MEMORY, PROVENANCE, SECURITY & DATA",
       "originalSessions": [
-        "S01 — S01 IRIS↔HIVE project/context contract",
+        "S01 — S01 IRIS↔IRIS project/context contract",
         "S02 — S02 Asset/reference/image/audio/3D metadata retrieval",
         "S03 — S03 Creator/project/character/production memory",
         "S04 — S04 Minimum sufficient context, caching and token economy",
@@ -1669,8 +1669,8 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA"
       ],
-      "plausibleFailure": "HIVE contextual retrieval/cache may expose stale or cross-project subject media or mistakenly grant semantic reuse authority to historic memories.",
-      "requiredFutureActualOwnerProof": "Real M52/HIVE/M02/M06/M53/M54 owners must source exact project/tenant consent scope, immutable revision, minimal retrieved context and freshness/revocation evidence.",
+      "plausibleFailure": "IRIS contextual retrieval/cache may expose stale or cross-project subject media or mistakenly grant semantic reuse authority to historic memories.",
+      "requiredFutureActualOwnerProof": "Real M52/IRIS/M02/M06/M53/M54 owners must source exact project/tenant consent scope, immutable revision, minimal retrieved context and freshness/revocation evidence.",
       "currentOwnModuleSourceContract": "INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT",
       "futureNegativeStatus": "DOCUMENTARY_DESIGN_NOT_EXECUTED",
       "ownerApproval": "NOT_RECEIVED",
@@ -1873,7 +1873,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       "originalSessions": [
         "S01 — S01 Local installation/update/uninstall and background services",
         "S02 — S02 Backup, restore, migration and disaster recovery",
-        "S03 — S03 Full HIVE↔CORE↔IRIS integration validation",
+        "S03 — S03 Full IRIS↔CORE↔IRIS integration validation",
         "S04 — S04 End-to-end production acceptance on 8 GB and higher hardware classes",
         "S05 — S05 Security/performance/quality final audit, release freeze and IRIS 1.0 completion"
       ],
@@ -2069,7 +2069,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
       "status": "SOURCE_ONLY_NOT_EXECUTED"
     },
     {
-      "id": "I10_HIVE_CONTEXT_REUSE",
+      "id": "I10_IRIS_CONTEXT_REUSE",
       "indexModuleIds": [
         "M43",
         "M44",
@@ -2082,7 +2082,7 @@ All 47 module contracts are index-level hypotheses here, with original exact 235
         "M55",
         "M57"
       ],
-      "hypotheticalFailureBoundary": "Historical HIVE memory or cross-project context is not current production truth, owner-authorized semantic cache reuse, human review approval or tenant/current-rights permission.",
+      "hypotheticalFailureBoundary": "Historical IRIS memory or cross-project context is not current production truth, owner-authorized semantic cache reuse, human review approval or tenant/current-rights permission.",
       "evidence": "FUTURE_REAL_OWNER_AND_INTEGRATION_PROOF_MISSING",
       "status": "SOURCE_ONLY_NOT_EXECUTED"
     }

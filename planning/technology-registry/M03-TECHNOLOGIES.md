@@ -212,7 +212,7 @@ No candidate is frozen or claimed novel yet. S02-S05 may merge, supersede or rej
 
 ## IRIS-ICX-035 — Constraint Admission Shield
 **Purpose:** reject imperative text from untrusted/retrieved sources unless an authorized source explicitly admits it as a rule.
-**Benefit:** prompt-injection/context-poisoning resistance for future HIVE/web/reference integrations.
+**Benefit:** prompt-injection/context-poisoning resistance for future IRIS/web/reference integrations.
 **Status:** PROPOSED_S02.
 
 ## IRIS-ICX-036 — Immutable Constraint Pack
@@ -477,7 +477,7 @@ Continue planning with `IRIS-ICX-055..072`. No S04 candidate is frozen or claime
 
 ## IRIS-ICX-084 — Derived Intent Dependency Ledger
 **Purpose:** bind inferred/derived statements to the exact context facts that produced them.
-**Benefit:** HIVE/context changes invalidate only affected inference, not user-explicit truth.
+**Benefit:** IRIS/context changes invalidate only affected inference, not user-explicit truth.
 **Status:** PROPOSED_S05.
 
 ## IRIS-ICX-085 — Semantic Migration Receipt

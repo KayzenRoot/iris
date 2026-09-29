@@ -13,7 +13,7 @@ M10 contract: m10-contract-v1.0 (FROZEN)
 M10 implementation: NOT_ADMITTED
 IRIS-WO-0014 preflight: BLOCKED
 Research checked: 2026-09-26
-HIVE evidence: NOT_USED for IRIS. The registered IRIS HIVE context was stale; exact Git sources are used. HIVE v1.0.0 project status was READY at pinned commit a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf.
+IRIS evidence: NOT_USED for IRIS. The registered IRIS IRIS context was stale; exact Git sources are used. IRIS v1.0.0 project status was READY at pinned commit a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf.
 
 ## Objective and scope
 
@@ -177,7 +177,7 @@ No headroom number, CPU/RAM/VRAM formula, priority, preemption, throttle, worklo
 | Retry/recovery replays a non-idempotent external side effect | A new attempt is not evidence that an earlier effect did not occur. | Preserve M02 side-effect fences and M06 attempt history; M11 does not authorize replay or deduplication semantics. |
 ## Repository reuse and existing M11 candidates
 
-Read-only exact-base search found no production M11 supervisor, process cancellation/recovery coordinator, worker journal, process-to-attempt registry, timeout service, or workstation headroom governor. `iris_microbenchmark/execution.py` has a bounded, synchronous M08 CPU-reference `CancellationToken` and `time.perf_counter_ns()` checks; its module contract restricts it to admitted CPU-reference probes, starts no threads/processes, and is not a worker/process lifecycle implementation. M08 cancellation behavior therefore cannot be reused as an M11 contract. Existing subprocess use in `scripts/hive_mcp.py` and `scripts/gef_preflight.py` remains narrow one-shot command execution; M01/M02 subprocesses are isolated test fixtures. No child or worker was run during this review.
+Read-only exact-base search found no production M11 supervisor, process cancellation/recovery coordinator, worker journal, process-to-attempt registry, timeout service, or workstation headroom governor. `iris_microbenchmark/execution.py` has a bounded, synchronous M08 CPU-reference `CancellationToken` and `time.perf_counter_ns()` checks; its module contract restricts it to admitted CPU-reference probes, starts no threads/processes, and is not a worker/process lifecycle implementation. M08 cancellation behavior therefore cannot be reused as an M11 contract. Existing subprocess use in `scripts/iris_mcp.py` and `scripts/gef_preflight.py` remains narrow one-shot command execution; M01/M02 subprocesses are isolated test fixtures. No child or worker was run during this review.
 
 - CAND-M11-001 — Reference-only work/attempt/process association: PROPOSED_UNCHANGED; S05 defines no fields or mapping.
 - CAND-M11-002 — Reference-preserving startup and registration envelope: PROPOSED_UNCHANGED; S05 defines no registration order or durable journal.

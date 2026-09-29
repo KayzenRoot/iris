@@ -79,7 +79,7 @@ M43-M47 are primarily INDIRECT_CONSUMER/MINIMAL. Narrative, channel, campaign, b
 
 ## 10. Area J — M52-M55
 
-- M52 HIVE Memory: may store/retrieve M08 references and stale-context signals, but cannot redefine empirical truth. PASS.
+- M52 IRIS Memory: may store/retrieve M08 references and stale-context signals, but cannot redefine empirical truth. PASS.
 - M53 Provenance/Rights/C2PA: M08 evidence needs exportable provenance linkage without M08 owning media-rights policy. **PASS_WITH_FINDING.**
 - M54 Security: benchmark adapters/fixtures/execution require capability/permission boundaries; M08 protocol authorization must be compatible with later security policy. **PASS_WITH_FINDING.**
 - M55 Media CAS: may physically store/delete benchmark artifacts according to retention policy; M08 owns logical lineage, not physical retention. PASS.

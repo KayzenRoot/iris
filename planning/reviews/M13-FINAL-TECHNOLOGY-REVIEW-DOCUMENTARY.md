@@ -201,7 +201,7 @@ These are exactly the 47 titles in the original [`planning/MASTER-MODULE-INDEX.m
 - `M49` Self-Correction, Partial Repair & Minimal Regeneration: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
 - `M50` Render Cascade & Cost-to-Quality Optimization: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
 - `M51` Benchmark Lab, Evals & Regression Corpus: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
-- `M52` HIVE Multimodal Memory & Creative RAG Integration: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
+- `M52` IRIS Multimodal Memory & Creative RAG Integration: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
 - `M53` Provenance, Rights, Consent & C2PA: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
 - `M54` Security, Identity & Restricted Content: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
 - `M55` Media CAS, Storage, Cache & Archive Fabric: INDEX ONLY, NO OWN APPROVED MODULE CONTRACT IN THIS FTR.
@@ -1017,7 +1017,7 @@ The four original H01–H04 live gates still block actual process ownership, all
     },
     {
       "id": "M52",
-      "canonicalTitle": "HIVE Multimodal Memory & Creative RAG Integration",
+      "canonicalTitle": "IRIS Multimodal Memory & Creative RAG Integration",
       "source": "MASTER_MODULE_INDEX_HEADING_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT"
     },
     {

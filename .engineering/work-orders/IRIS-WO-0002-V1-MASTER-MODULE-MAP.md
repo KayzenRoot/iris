@@ -40,7 +40,7 @@ Authorized base: `f41c85f64f764400cc600eb52d98cadd0f78a49e`. IRIS-WO-0001 comple
 - no-MVP and extreme-quality rules are canonical;
 - 8 GB VRAM class is a first-class supported target;
 - background/headless execution is a first-class architecture requirement;
-- Git remains authoritative; HIVE context remains derived.
+- Git remains authoritative; IRIS context remains derived.
 
 ## ACCEPTANCE CRITERIA
 - Master Module Index contains exactly 61 modules and 305 sessions.

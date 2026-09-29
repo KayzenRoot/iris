@@ -2,7 +2,7 @@
 
 ## ADR-0001 - Historical project identity
 Status: `SUPERSEDED_BY_ADR_0047`
-The historical project name was **Hive IRIS**, IRIS = **Intelligent Rendering & Immersive Synthesis**. The current standalone product name is **IRIS**, per ADR-0047.
+The historical project name was **IRIS IRIS**, IRIS = **Intelligent Rendering & Immersive Synthesis**. The current standalone product name is **IRIS**, per ADR-0047.
 
 ## ADR-0002 - New-project treatment
 Status: `APPROVED`
@@ -12,9 +12,9 @@ IRIS is a new V1. UGAS may later supply proven reusable components, but legacy d
 Status: `APPROVED`
 Use GEF Bootstrap v1.0.0 pinned to `866fe3af8cccc65c929aaf6a47a924401fa448b3`; do not vendor GEF.
 
-## ADR-0004 - Historical HIVE integration (retired)
+## ADR-0004 - Historical IRIS integration (retired)
 Status: `SUPERSEDED_BY_ADR_0047`
-Use HIVE v1.0.0 pinned to `a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf` as external local-first context/retrieval/MCP; Git remains canonical.
+Use IRIS v1.0.0 pinned to `a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf` as external local-first context/retrieval/MCP; Git remains canonical.
 
 ## ADR-0005 - Product gate
 Status: `APPROVED`
@@ -86,7 +86,7 @@ M03 semantic conflicts are explicit versioned objects. Recency, specificity or m
 
 ## ADR-0020 - M03 contract freezes semantic compilation, not provider execution
 Status: `APPROVED`
-The M03 freeze covers immutable Creative Brief/Intent/Constraint semantics, compilation into M01 Fidelity Contract references/objects, provider-neutral Execution Intent, explainability, conflicts/overrides and semantic revision/freshness. It explicitly excludes provider prompts/workflows, M02 ExecutionPlan/worker execution, M04 Scene IR internals, domain DNA engines, real judges, HIVE retrieval, rights/security engines, persistence and publishing.
+The M03 freeze covers immutable Creative Brief/Intent/Constraint semantics, compilation into M01 Fidelity Contract references/objects, provider-neutral Execution Intent, explainability, conflicts/overrides and semantic revision/freshness. It explicitly excludes provider prompts/workflows, M02 ExecutionPlan/worker execution, M04 Scene IR internals, domain DNA engines, real judges, IRIS retrieval, rights/security engines, persistence and publishing.
 
 
 ## ADR-0021 - M04 owns provider-neutral structured production IR
@@ -205,10 +205,10 @@ Responsible owner's expressly ratified source: https://github.com/KayzenRoot/iri
 
 ## ADR-0047 - IRIS standalone Git-first operation and external context retirement
 Status: `APPROVED_USER_DIRECTIVE_2026_09_28`
-The operator explicitly removed the installed HIVE runtime from the IRIS architecture. Effective immediately upon protected IRIS-WO-0066 merge, the **product is IRIS**, not a HIVE-dependent service. ADR-0001's former brand and ADR-0004's former external context integration are **superseded**, never valid for current startup, planning, governance, CI or executor preflight. The old release SHA and old audit receipts remain historical facts only.
+The operator explicitly removed the installed IRIS runtime from the IRIS architecture. Effective immediately upon protected IRIS-WO-0066 merge, the **product is IRIS**, not a IRIS-dependent service. ADR-0001's former brand and ADR-0004's former external context integration are **superseded**, never valid for current startup, planning, governance, CI or executor preflight. The old release SHA and old audit receipts remain historical facts only.
 
-**Current authority:** exact Git tree → `docs/project-brain/13-CHECKPOINT.md` → Decisions → Scope → DoD → Architecture → Requirements → Work Order/Context Lock → objective CI/reviews. GEF remains a separately pinned optional engineering source package, not a runtime dependency. No mandatory external memory server/MCP client, installed local Docker stack, database, HIVE API, corpus/index sync or HIVE environment variable is permitted in current IRIS startup. Use only directly source-backed Git files, scoped working context and deterministic evidence.
+**Current authority:** exact Git tree → `docs/project-brain/13-CHECKPOINT.md` → Decisions → Scope → DoD → Architecture → Requirements → Work Order/Context Lock → objective CI/reviews. GEF remains a separately pinned optional engineering source package, not a runtime dependency. No mandatory external memory server/MCP client, installed local Docker stack, database, IRIS API, corpus/index sync or IRIS environment variable is permitted in current IRIS startup. Use only directly source-backed Git files, scoped working context and deterministic evidence.
 
 **Active future module replacement:** original M52 and M60 index headings/sessions were historical source-locked planning records, not adopted runtime contracts. The live, user-authorized replacement for their **future** planning titles/sessions is `planning/MASTER-MODULE-INDEX-CURRENT.md`. M52 becomes IRIS-native Memory & Creative RAG behind independent owner/security/privacy/storage admission; M60 validates independent IRIS and any separately approved CORE integration. No automatic memory service or current M52/M60 implementation is adopted. Keep the frozen original index unchanged to preserve original 47/47 and 235/235 source-exact historical FCS evidence.
 
-**Frozen semantic APIs:** no M03/M05/M06 wire/schema/port changes are authorized by infrastructure retirement alone. Historic vendor-named inert enum/port markers, if still present, never trigger any HIVE access or grant self-authority; they require a distinct versioned compatibility migration before removal. Historical original Git-blob Context Locks, authored evidence and archived review snapshots retain their original text; no rewriting old approvals or erasing audit provenance. Original eight owner issues remain OPEN, H01–H04 HIGH remain OPEN and M10–M13 runtime remains NOT_ADMITTED. Scope of IRIS-WO-0066 is retirement only.
+**Frozen semantic APIs:** no M03/M05/M06 wire/schema/port changes are authorized by infrastructure retirement alone. Historic vendor-named inert enum/port markers, if still present, never trigger any IRIS access or grant self-authority; they require a distinct versioned compatibility migration before removal. Historical original Git-blob Context Locks, authored evidence and archived review snapshots retain their original text; no rewriting old approvals or erasing audit provenance. Original eight owner issues remain OPEN, H01–H04 HIGH remain OPEN and M10–M13 runtime remains NOT_ADMITTED. Scope of IRIS-WO-0066 is retirement only.

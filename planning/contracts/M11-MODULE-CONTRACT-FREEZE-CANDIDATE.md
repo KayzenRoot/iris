@@ -59,7 +59,7 @@ M11 proposes only a scoped OS worker/process association and lifecycle-evidence 
 | M11-I18 | OS process exit cannot certify M01 quality, M53 rights, M55 deletion, M59 publishing or M60 final acceptance. |
 | M11-I19 | Authorization requires the future M54 owner contract; an OS handle or process ID is not an authenticated security principal. |
 | M11-I20 | M06/M56 handoffs must preserve provenance, freshness, uncertainties and owner-defined permission-filtered telemetry without invented public serialization. |
-| M11-I21 | An unavailable HIVE derived context never supersedes the exact Git checkpoint or immutable source/CI evidence. |
+| M11-I21 | An unavailable IRIS derived context never supersedes the exact Git checkpoint or immutable source/CI evidence. |
 | M11-I22 | No process/action is authorized by this document or by passing doc-only CI; future implementation requires a separate Work Order and exact preflight. |
 | M11-I23 | Revisit every M12–M60 index-only handoff after the corresponding canonical owner contract exists; absent details remain PENDING and risk UNRATED. |
 | M11-I24 | Each unresolved S04/S05 question remains OPEN until a source-backed owner disposition is reviewed; generic fail-closed constraints do not answer it. |
@@ -105,7 +105,7 @@ The 44 original questions below remain OPEN. They are recorded without inventing
 | S04-U18 | How do process launch and observation hand off to M12 placement, remote orchestration and queue ownership? | M12 |
 | S04-U19 | Which Blender/DCC process wrappers, version support and application-startup evidence belong to M26? | M26 / M60 |
 | S04-U20 | Which cancellation, timeout, restart, retry, partial-result, recovery and workstation-coexistence questions remain for S05 or another owner? | S05 / M06 / M60 |
-| S04-U21 | Can HIVE/UGAS/CORE provide current, source-verifiable process-lifecycle evidence in a later planning session? | HIVE source owner; currently unresolved |
+| S04-U21 | Can IRIS/UGAS/CORE provide current, source-verifiable process-lifecycle evidence in a later planning session? | IRIS source owner; currently unresolved |
 
 ### S05 unresolved (23/23)
 
@@ -139,7 +139,7 @@ The 44 original questions below remain OPEN. They are recorded without inventing
 
 Audit all 26 invariant proposals against M02/M06/M09/M10 frozen/available sources and S01-S05 session evidence. Explicitly grade unresolved S04/S05 owner/security/process authority decisions and the 49 index-only future-owner interfaces without scoring them as compatible. Challenge PID reuse, process breakaway, foreign-process control, duplicate launch/recovery, inherited secrets, stale M09 resource references, timeout-as-exit, exit-as-M06-success and M10 advice-as-dispatch. Require evidence-driven classification of each unresolved question. Missing M54/M60 security/platform authority blocks any implied callable process-control interface.
 
-CI validation in this documentation increment proves repository consistency only: exact 94-source fingerprint lock, exact file allowlist, checkpoint mirrors, JSON syntax, governance validator, pinned GEF/HIVE bridges and the existing 3,940 tests. Real-process, OS, GPU or recovery validation requires separate admitted implementation and M51/M54/M60 proof plan.
+CI validation in this documentation increment proves repository consistency only: exact 94-source fingerprint lock, exact file allowlist, checkpoint mirrors, JSON syntax, governance validator, pinned GEF/IRIS bridges and the existing 3,940 tests. Real-process, OS, GPU or recovery validation requires separate admitted implementation and M51/M54/M60 proof plan.
 
 ## 8. Disposition
 

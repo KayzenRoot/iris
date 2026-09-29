@@ -46,7 +46,7 @@ The literal invariant inventory is sourced from `planning/modules/M06-PRODUCTION
 | M16 | Sole concrete provider/workflow compiler. M06 exposes versioned workflow-evidence ports only. |
 | M53/M54/M55 | Current provenance/rights, security authorization, and physical storage/deletion remain external authorities. M06 records their exact receipts. |
 
-All 20 M06 ports are versioned protocols returning requests, status, and evidence references. They do not authorize state transitions. Their domains cover hardware materiality, execution attempts, cache reuse, model/workflow revisions, domain materializations, narrative and campaign identity, quality evidence, repair outcomes, HIVE context, rights/consent, security, media storage and deletion/archive, observability, agent proposals, external contracts, publishing delivery, and system recovery. The interfaces do not implement those systems.
+All 20 M06 ports are versioned protocols returning requests, status, and evidence references. They do not authorize state transitions. Their domains cover hardware materiality, execution attempts, cache reuse, model/workflow revisions, domain materializations, narrative and campaign identity, quality evidence, repair outcomes, IRIS context, rights/consent, security, media storage and deletion/archive, observability, agent proposals, external contracts, publishing delivery, and system recovery. The interfaces do not implement those systems.
 
 ## Serialization, migration, and semantic round trip
 

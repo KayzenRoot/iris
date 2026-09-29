@@ -179,7 +179,7 @@ class EntityKind(Labeled):
     PROVIDER = "PROVIDER"
     ENVIRONMENT = "ENVIRONMENT"
     DESTINATION = "DESTINATION"
-    HIVE_CONTEXT = "HIVE_CONTEXT"
+    IRIS_CONTEXT = "IRIS_CONTEXT"
     RIGHTS = "RIGHTS"
     PROVENANCE = "PROVENANCE"
     CACHE_KEY = "CACHE_KEY"
@@ -305,7 +305,7 @@ class ProjectEnvelope(Record):
     domain_profile_refs: tuple[ExternalRef, ...] = ()
     canonical_policy_refs: tuple[ExternalRef, ...] = ()
     aliases: tuple[str, ...] = ()
-    hive_namespace: Any = None
+    iris_namespace: Any = None
     created_at_ms: int = 0
     contract_version: str = CONTRACT_VERSION
     metadata: tuple[tuple[str, Any], ...] = ()
@@ -325,8 +325,8 @@ class ProjectEnvelope(Record):
         object.__setattr__(self, "domain_profile_refs", _freeze_refs(self.domain_profile_refs, "domain_profile_refs", maximum=64))
         object.__setattr__(self, "canonical_policy_refs", _freeze_refs(self.canonical_policy_refs, "canonical_policy_refs", maximum=64))
         object.__setattr__(self, "aliases", _freeze_aliases(self.aliases, "aliases"))
-        if self.hive_namespace is not None:
-            object.__setattr__(self, "hive_namespace", require_identifier(self.hive_namespace, "hive_namespace"))
+        if self.iris_namespace is not None:
+            object.__setattr__(self, "iris_namespace", require_identifier(self.iris_namespace, "iris_namespace"))
         object.__setattr__(self, "created_at_ms", require_millis(self.created_at_ms, "created_at_ms"))
         require_supported_version("contract", self.contract_version, SUPPORTED_CONTRACT_VERSIONS)
         object.__setattr__(self, "metadata", require_metadata(self.metadata, "metadata", maximum_keys=MAX_METADATA_KEYS))

@@ -22,8 +22,8 @@ This is a post-authoring documentation and scope audit for the S02 session propo
 - M06 operational revision/materialization and its ExecutionAttemptPort boundary remain unchanged; attempt mapping and payload are still unresolved.
 - M09 retains resource truth and lease ownership. M10 remains advisory and cannot dispatch or control workers.
 - Blender background mode, Python subprocess APIs, MCP stdio/Streamable HTTP, Unix domain sockets and Windows named pipes are documented as PROPOSED candidates. No transport, handshake, permission model or startup authority was selected.
-- The repository reuse finding was corrected against the exact source: scripts/hive_mcp.py resolves a checkout from HIVE_REPO_PATH or an adjacent directory and invokes a one-shot Docker Compose command; scripts/gef_preflight.py performs a one-shot Git query. No supervisor reuse was claimed.
-- HIVE MCP was unavailable in the active Work Mode connection; no HIVE-derived evidence was claimed.
+- The repository reuse finding was corrected against the exact source: scripts/iris_mcp.py resolves a checkout from IRIS_REPO_PATH or an adjacent directory and invokes a one-shot Docker Compose command; scripts/gef_preflight.py performs a one-shot Git query. No supervisor reuse was claimed.
+- IRIS MCP was unavailable in the active Work Mode connection; no IRIS-derived evidence was claimed.
 - M12–M60 individual contract details remain pending where their canonical owner contracts are absent. The module index and M10 scan are treated as candidate context only.
 - The proposal changes four planning/evidence paths and does not change runtime, tests, scripts, providers, DCC code or process-control paths.
 - No real process, worker, Blender instance, IPC endpoint, provider or resource reservation was operated. No hardware benchmark was run.

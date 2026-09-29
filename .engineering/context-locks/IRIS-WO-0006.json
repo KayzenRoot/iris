@@ -97,7 +97,7 @@
     "Scene/Character/Asset/Camera/Material IR implementation",
     "Hardware discovery/VRAM/worker scheduling",
     "Production database/CAS/distributed storage",
-    "Real HIVE retrieval or runtime mutation",
+    "Real IRIS retrieval or runtime mutation",
     "Rights/legal/C2PA/security/RBAC engine implementation",
     "Real image/video/3D/audio judges",
     "Actual publishing/export APIs",
@@ -109,7 +109,7 @@
       "version": "1.0.0",
       "sha": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
     },
-    "hive": {
+    "iris": {
       "version": "1.0.0",
       "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
     }

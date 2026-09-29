@@ -183,7 +183,7 @@ Do not add package ecosystems without an actual package manifest.
 ## TESTS
 
 Required:
-- `python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/hive_bootstrap.py scripts/hive_mcp.py`
+- `python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/iris_bootstrap.py scripts/iris_mcp.py`
 - `python scripts/validate_governance.py`
 - `python -m unittest discover -s tests -p "test_*.py"`
 - `gh pr checks <PR> --watch` or equivalent deterministic wait until completion;

@@ -336,7 +336,7 @@
       "gitBlobSha1": "657fdbb0c89e5cdd97c426fd3639112d5c9b24dd"
     },
     {
-      "path": "scripts/hive_mcp.py",
+      "path": "scripts/iris_mcp.py",
       "gitBlobSha1": "0ad9cd173c29b8aedf60ee0f3b5d928112d23a0a"
     },
     {
@@ -405,8 +405,8 @@
     "S04-U21"
   ],
   "architectureDecision": "NONE; S04 selects no process identity, launcher, wait/reaper owner, state machine, containment mechanism, shell rule, executable/environment policy, platform baseline or cleanup guarantee.",
-  "internalReuse": "The S04 read-only search found only narrow one-shot subprocess invocations in scripts/hive_mcp.py and scripts/gef_preflight.py and isolated Python child processes in existing tests; no IRIS supervisor, descendant-reaping contract, or process-to-attempt mapping was established. HIVE-derived context was not used because the Iris checkpoint source was stale.",
-  "hivePreflight": {
+  "internalReuse": "The S04 read-only search found only narrow one-shot subprocess invocations in scripts/iris_mcp.py and scripts/gef_preflight.py and isolated Python child processes in existing tests; no IRIS supervisor, descendant-reaping contract, or process-to-attempt mapping was established. IRIS-derived context was not used because the Iris checkpoint source was stale.",
+  "irisPreflight": {
     "pinnedHiveCommit": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf",
     "pinnedHiveProjectState": "READY_CLEAN",
     "irisProjectState": "READY_CLEAN_AT_STALE_HEAD_2432cfe29a501e18a1cdf8a46adc49cd42fdfba0",

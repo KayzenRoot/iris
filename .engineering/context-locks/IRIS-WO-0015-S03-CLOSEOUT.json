@@ -308,7 +308,7 @@
       "gitBlobSha1": "657fdbb0c89e5cdd97c426fd3639112d5c9b24dd"
     },
     {
-      "path": "scripts/hive_mcp.py",
+      "path": "scripts/iris_mcp.py",
       "gitBlobSha1": "0ad9cd173c29b8aedf60ee0f3b5d928112d23a0a"
     },
     {
@@ -379,12 +379,12 @@
   },
   "internalReuse": {
     "repositorySearch": "IRIS scripts demonstrate only narrow one-shot subprocess calls; iris_resource_twin/leases.py is in-process LeaseBook/resource model, not proven cross-process coordinator or worker scheduler.",
-    "UGAS_HIVE_CORE": "UNVERIFIED; no HIVE MCP evidence was available in this environment."
+    "UGAS_IRIS_CORE": "UNVERIFIED; no IRIS MCP evidence was available in this environment."
   },
   "environment": {
-    "hiveMcpAvailable": false,
-    "hiveProjectStatus": "OFFLINE",
-    "hiveEvidence": "NOT_USED; no HIVE-derived claims; canonical Git/docs and primary external documentation used."
+    "irisMcpAvailable": false,
+    "irisProjectStatus": "OFFLINE",
+    "irisEvidence": "NOT_USED; no IRIS-derived claims; canonical Git/docs and primary external documentation used."
   },
   "runtimeOrTestFilesAuthorized": false,
   "stopConditions": [

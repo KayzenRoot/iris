@@ -294,8 +294,8 @@
     "M12": "Placement/orchestration interface remains pending its canonical owner contract."
   },
   "environment": {
-    "hiveMcpAvailable": false,
-    "hiveEvidence": "NOT_USED; unavailable in active Work Mode; no HIVE-derived claims; Git is canonical."
+    "irisMcpAvailable": false,
+    "irisEvidence": "NOT_USED; unavailable in active Work Mode; no IRIS-derived claims; Git is canonical."
   },
   "runtimeOrTestFilesAuthorized": false,
   "stopConditions": [

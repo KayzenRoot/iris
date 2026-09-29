@@ -1,7 +1,7 @@
 """Verify one PR's immutable GEF Context Lock against its actual Git base and diff.
 
 This is a local Git evidence check, not an owner contract/security attestation or
-an assertion that an external HIVE/M09/M11 integration has been executed.
+an assertion that an external IRIS/M09/M11 integration has been executed.
 """
 from __future__ import annotations
 

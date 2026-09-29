@@ -69,7 +69,7 @@ These are *future* oracles for separately admitted implementations. S01 performs
 - `planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md`: M10 advice only, no dispatch/reservation.
 - `planning/modules/M11-BACKGROUND-WORKER-FABRIC-PROCESS-LIFECYCLE.md`, `planning/contracts/M11-MODULE-CONTRACT-FREEZE-CANDIDATE.md`: non-executable M11 future supervisor/OS roles; v0.2 NOT_FROZEN.
 - `planning/research/M11-S03-CONCURRENCY-LIMITS-PRIORITIES-AND-RESOURCE-LEASES.md`, `planning/research/M11-C09-REVERSE-LIVENESS-OWNER-RESEARCH.md`, `.engineering/evidence/M09-HANDOFF-C02-DEPENDENCY-MATRIX.json`: actual #110 remains unresolved, four H01–H04 future-freeze HIGHs and unexecuted liveness/handoff proofs.
-- `docs/project-brain/16-DECISIONS-LEDGER.md` and `.engineering/SOURCE-HIERARCHY.md`: exact frozen-owner status and hierarchy; HIVE context is derived, Git source wins.
+- `docs/project-brain/16-DECISIONS-LEDGER.md` and `.engineering/SOURCE-HIERARCHY.md`: exact frozen-owner status and hierarchy; IRIS context is derived, Git source wins.
 
 ## 7. Explicit owner questions, 18 open/unrated
 

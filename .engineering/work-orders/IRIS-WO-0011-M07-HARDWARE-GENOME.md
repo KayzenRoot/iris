@@ -40,7 +40,7 @@ Admission proof:
 - M55 owns physical retention/deletion/tiering.
 - M56 owns telemetry aggregation/history/dashboard/alerts.
 - M01/M24/M48 own output-quality semantics.
-- HIVE/agents/plugins may request/read/propose but cannot manufacture, strengthen or overwrite admitted M07 truth.
+- IRIS/agents/plugins may request/read/propose but cannot manufacture, strengthen or overwrite admitted M07 truth.
 
 ## REQUIRED SOURCES
 

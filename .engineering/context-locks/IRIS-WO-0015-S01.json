@@ -294,12 +294,12 @@
     ]
   },
   "internalReuse": {
-    "repositorySearch": "Narrow one-shot subprocess calls in scripts/hive_mcp.py and scripts/gef_preflight.py only; no supervisor reuse established.",
-    "UGAS_HIVE_CORE": "UNVERIFIED; no authoritative UGAS/CORE source and no HIVE MCP connector in active Work Mode."
+    "repositorySearch": "Narrow one-shot subprocess calls in scripts/iris_mcp.py and scripts/gef_preflight.py only; no supervisor reuse established.",
+    "UGAS_IRIS_CORE": "UNVERIFIED; no authoritative UGAS/CORE source and no IRIS MCP connector in active Work Mode."
   },
   "environment": {
-    "hiveMcpAvailable": false,
-    "hiveEvidence": "NOT_USED; unavailable in active Work Mode; no HIVE-derived claims; Git is canonical."
+    "irisMcpAvailable": false,
+    "irisEvidence": "NOT_USED; unavailable in active Work Mode; no IRIS-derived claims; Git is canonical."
   },
   "runtimeOrTestFilesAuthorized": false,
   "stopConditions": [

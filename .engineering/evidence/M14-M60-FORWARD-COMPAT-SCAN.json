@@ -1018,10 +1018,10 @@
     },
     {
       "id": "M52",
-      "title": "HIVE Multimodal Memory & Creative RAG Integration",
+      "title": "IRIS Multimodal Memory & Creative RAG Integration",
       "area": "AREA J — MEMORY, PROVENANCE, SECURITY & DATA",
       "originalSessions": [
-        "S01 — S01 IRIS↔HIVE project/context contract",
+        "S01 — S01 IRIS↔IRIS project/context contract",
         "S02 — S02 Asset/reference/image/audio/3D metadata retrieval",
         "S03 — S03 Creator/project/character/production memory",
         "S04 — S04 Minimum sufficient context, caching and token economy",
@@ -1034,8 +1034,8 @@
         "F01_WARM_MODEL_LOCALITY",
         "F03_PARTIAL_REUSE_DELTA"
       ],
-      "plausibleFailure": "HIVE contextual retrieval/cache may expose stale or cross-project subject media or mistakenly grant semantic reuse authority to historic memories.",
-      "requiredFutureActualOwnerProof": "Real M52/HIVE/M02/M06/M53/M54 owners must source exact project/tenant consent scope, immutable revision, minimal retrieved context and freshness/revocation evidence.",
+      "plausibleFailure": "IRIS contextual retrieval/cache may expose stale or cross-project subject media or mistakenly grant semantic reuse authority to historic memories.",
+      "requiredFutureActualOwnerProof": "Real M52/IRIS/M02/M06/M53/M54 owners must source exact project/tenant consent scope, immutable revision, minimal retrieved context and freshness/revocation evidence.",
       "currentOwnModuleSourceContract": "INDEX_ONLY_NO_APPROVED_OWN_MODULE_CONTRACT",
       "futureNegativeStatus": "DOCUMENTARY_DESIGN_NOT_EXECUTED",
       "ownerApproval": "NOT_RECEIVED",
@@ -1238,7 +1238,7 @@
       "originalSessions": [
         "S01 — S01 Local installation/update/uninstall and background services",
         "S02 — S02 Backup, restore, migration and disaster recovery",
-        "S03 — S03 Full HIVE↔CORE↔IRIS integration validation",
+        "S03 — S03 Full IRIS↔CORE↔IRIS integration validation",
         "S04 — S04 End-to-end production acceptance on 8 GB and higher hardware classes",
         "S05 — S05 Security/performance/quality final audit, release freeze and IRIS 1.0 completion"
       ],
@@ -1434,7 +1434,7 @@
       "status": "SOURCE_ONLY_NOT_EXECUTED"
     },
     {
-      "id": "I10_HIVE_CONTEXT_REUSE",
+      "id": "I10_IRIS_CONTEXT_REUSE",
       "indexModuleIds": [
         "M43",
         "M44",
@@ -1447,7 +1447,7 @@
         "M55",
         "M57"
       ],
-      "hypotheticalFailureBoundary": "Historical HIVE memory or cross-project context is not current production truth, owner-authorized semantic cache reuse, human review approval or tenant/current-rights permission.",
+      "hypotheticalFailureBoundary": "Historical IRIS memory or cross-project context is not current production truth, owner-authorized semantic cache reuse, human review approval or tenant/current-rights permission.",
       "evidence": "FUTURE_REAL_OWNER_AND_INTEGRATION_PROOF_MISSING",
       "status": "SOURCE_ONLY_NOT_EXECUTED"
     }

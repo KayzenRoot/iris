@@ -87,7 +87,7 @@
     "M03 and every later module implementation",
     "Real Blender/ComfyUI/DCC/model/provider execution",
     "Production database/CAS/distributed storage",
-    "Real HIVE retrieval or runtime mutation",
+    "Real IRIS retrieval or runtime mutation",
     "Real KV/prefix cache implementation",
     "Rights/legal policy engine or C2PA signing",
     "Publishing API/external release provider implementation",
@@ -99,7 +99,7 @@
       "version": "1.0.0",
       "sha": "866fe3af8cccc65c929aaf6a47a924401fa448b3"
     },
-    "hive": {
+    "iris": {
       "version": "1.0.0",
       "sha": "a53b5b9fcf55c32a5696180fb1b1ef80ccd1edcf"
     }

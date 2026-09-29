@@ -11,7 +11,7 @@ Risk: ELEVATED
 Promote the corrected, protected-merged and exact-main validated M11 FCS C01 receipts into the canonical checkpoint and Evidence Bundle. Rebind the Context Lock to the exact new main and identify the separate next planning gate. No contract candidate is authored here.
 
 ## CONTEXT / SOURCE ORDER
-Read exact Git state, .engineering/SOURCE-HIERARCHY.md, canonical checkpoint and decisions, Scope, DoD, Architecture, Requirements, the M11 S01-S05 research, FTR, scan, Issue #82 and relevant owner contracts. This closeout's 92 source fingerprints bind the exact base. HIVE's registered checkout was stale during the prior scan; no current derived HIVE state is asserted. GEF/HIVE pinned bridge CI receipts are not current HIVE project-state proofs.
+Read exact Git state, .engineering/SOURCE-HIERARCHY.md, canonical checkpoint and decisions, Scope, DoD, Architecture, Requirements, the M11 S01-S05 research, FTR, scan, Issue #82 and relevant owner contracts. This closeout's 92 source fingerprints bind the exact base. IRIS's registered checkout was stale during the prior scan; no current derived IRIS state is asserted. GEF/IRIS pinned bridge CI receipts are not current IRIS project-state proofs.
 
 ## VERIFIED UPSTREAM RECEIPTS
 - PR #99 corrected head: `9571b24b0a22c1d48e5ccf48d8cb1e9fda31c164`.
@@ -41,7 +41,7 @@ Documentation, Context Lock, Evidence Bundle, checkpoint mirrors, planning Work 
 ## ACCEPTANCE CRITERIA / TESTS
 - Verify live main exact base/tree and Issue #82 OPEN. Verify 92/92 Git blob SHA-1 values, unique paths, zero omissions, exact allowlist, scan 30/30 and 49/49, and previous 89/89 lock's source repairs.
 - Verify JSON parsing and checkpoint nextStep byte equality between machine JSON and both Markdown mirrors; two Markdown checkpoint files byte identical.
-- Run `git diff --check`, governance validator, pinned GEF preflight and full 3,940-test suite where executable; GitHub Governance must prove exact PR head, validate bootstrap, governance, GEF/HIVE bridges and tests. Verify zero HIGH/CRITICAL bounded closeout findings and no authority escalation.
+- Run `git diff --check`, governance validator, pinned GEF preflight and full 3,940-test suite where executable; GitHub Governance must prove exact PR head, validate bootstrap, governance, GEF/IRIS bridges and tests. Verify zero HIGH/CRITICAL bounded closeout findings and no authority escalation.
 - Protected squash merge with expected reviewed head; exact-main Governance must pass on resulting merge SHA/tree. Do not claim full promotion beforehand.
 
 ## DELIVERABLES / REVIEW FORMAT

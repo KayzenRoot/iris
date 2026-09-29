@@ -2,7 +2,7 @@
 
 **Admitted scope:** offline source-bound **UNTRUSTED_DRAFT_FORMAT_ONLY**, no owner/freeze review or real implementation. Existing owner inboxes [M12 #128](https://github.com/KayzenRoot/iris/issues/128), [M54 #145](https://github.com/KayzenRoot/iris/issues/145), [M58 #146](https://github.com/KayzenRoot/iris/issues/146), [M60 #147](https://github.com/KayzenRoot/iris/issues/147) were live checked OPEN, without actual reviewed owner responses. All four H01–H04 inherited HIGH freeze blockers OPEN. User-ratified B_FUTURE_OWNER_RECEIPT only future documentary M09→M11 direction; original C01 remains UNADOPTED_NOT_FROZEN.
 
-**Exact source base:** main `47a1a41096ebb3153e7e5918edeedb58a0706154`, tree `af5ddf3fa2de211a3c1bf3d48df7fd801d27793c`, preceding WO0038 [protected PR #148](https://github.com/KayzenRoot/iris/pull/148), [exact-main Governance #526](https://github.com/KayzenRoot/iris/actions/runs/36343355054) run 36343355054/job 108687618373 PASS **4260/4260**, GEF/HIVE pinned bridges PASS.
+**Exact source base:** main `47a1a41096ebb3153e7e5918edeedb58a0706154`, tree `af5ddf3fa2de211a3c1bf3d48df7fd801d27793c`, preceding WO0038 [protected PR #148](https://github.com/KayzenRoot/iris/pull/148), [exact-main Governance #526](https://github.com/KayzenRoot/iris/actions/runs/36343355054) run 36343355054/job 108687618373 PASS **4260/4260**, GEF/IRIS pinned bridges PASS.
 
 ## New substantive work
 
@@ -28,7 +28,7 @@ Do not modify prior M09 frozen v1.0, original future HX/LV/C08/PO-C02/M12 eviden
 
 ## DoD, audit and protected merge
 
-Exact-head full suite target **4290/4290** (4260 baseline+30 genuinely new local synthetic triage tests), Context Lock 24/24, changed paths 10/10, IRIS governance and pinned GEF/HIVE PASS. Separate bounded same-assistant exact-head test/code safety review with no fabricated independent security/actual owner signoff and no new HIGH/CRITICAL in scoped offline diff. Protected squash at exact reviewed green HEAD and independently confirm exact-main full CI. Update original issues #82/#110/#112/#128 and owner #145/#146/#147 with factual test-only receipt; preserve OPEN state.
+Exact-head full suite target **4290/4290** (4260 baseline+30 genuinely new local synthetic triage tests), Context Lock 24/24, changed paths 10/10, IRIS governance and pinned GEF/IRIS PASS. Separate bounded same-assistant exact-head test/code safety review with no fabricated independent security/actual owner signoff and no new HIGH/CRITICAL in scoped offline diff. Protected squash at exact reviewed green HEAD and independently confirm exact-main full CI. Update original issues #82/#110/#112/#128 and owner #145/#146/#147 with factual test-only receipt; preserve OPEN state.
 
 ## Immutable STOP
 

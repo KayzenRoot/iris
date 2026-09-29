@@ -222,7 +222,7 @@ This exact-once property is mandatory for the freeze candidate.
 13. M43 owns narrative Canon.
 14. M45 owns Campaign DNA / Creative Genome and advertising.
 15. M46 owns BrandDNA / Brand & IP.
-16. M52 owns HIVE multimodal memory/retrieval integration.
+16. M52 owns IRIS multimodal memory/retrieval integration.
 17. M53 owns provenance/rights/license/consent/C2PA authority.
 18. M54 owns security/restricted-content/permission/sandbox authority.
 19. M55 owns storage/CAS/cache/archive.

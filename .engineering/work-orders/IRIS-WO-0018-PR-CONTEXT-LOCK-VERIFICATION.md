@@ -5,7 +5,7 @@ Exact source base `407078499027253703ee09ec986832095d355b0f` / tree `b1c4d9db004
 Scope: GitHub PR Context Lock verifier and negative/positive deterministic test harness only. No owner-contract or module runtime admission.
 
 ## SOURCE HIERARCHY AND PREFLIGHT
-Canonical Git Checkpoint → Decisions → Scope → DoD → Architecture → Requirements → Security → Work Order. Context Lock pins 30/30 exact-base Git blob SHA-1s. Existing `.github/workflows/governance.yml` executes validator and suite but does not check source lock hashes or actual PR changed scope automatically. Confirm complete tree and authorized issue #120 before authoring. GitHub-only provenance cannot assert external live HIVE context; existing HIVE/GEF CI bridges remain mandatory.
+Canonical Git Checkpoint → Decisions → Scope → DoD → Architecture → Requirements → Security → Work Order. Context Lock pins 30/30 exact-base Git blob SHA-1s. Existing `.github/workflows/governance.yml` executes validator and suite but does not check source lock hashes or actual PR changed scope automatically. Confirm complete tree and authorized issue #120 before authoring. GitHub-only provenance cannot assert external live IRIS context; existing IRIS/GEF CI bridges remain mandatory.
 
 ## AUTHORIZED CHANGE AND STRICT 12-PATH ALLOWLIST
 - `scripts/verify_context_lock.py`

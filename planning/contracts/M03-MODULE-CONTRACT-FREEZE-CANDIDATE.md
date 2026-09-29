@@ -14,7 +14,7 @@ Freeze the provider-neutral semantic compiler that turns human/project creative 
 - conflict/override/versioning evidence;
 - semantic fingerprints/deltas/slices.
 
-M03 is **not** a media generator, prompt store, quality judge, Production Graph owner, Scene IR, provider workflow compiler, worker scheduler, rights/security authority, HIVE state owner or publishing provider.
+M03 is **not** a media generator, prompt store, quality judge, Production Graph owner, Scene IR, provider workflow compiler, worker scheduler, rights/security authority, IRIS state owner or publishing provider.
 
 ## 2. Upstream authority dependencies
 
@@ -190,7 +190,7 @@ Detailed design-history identifiers `IRIS-ICX-001..090` remain non-normative sup
 37. migrations never rewrite old revisions;
 38. stale derived/inferred statements cannot continue as current truth after their dependencies change;
 39. M02 remains authority for branch/variant/rollback topology;
-40. HIVE remains derived context, never canonical intent state;
+40. IRIS remains derived context, never canonical intent state;
 41. publishing/delivery desire is not side-effect authorization;
 42. provider observations/results cannot mutate canonical M03 state directly;
 43. every compiled object is version-pinned and fingerprinted;
@@ -475,7 +475,7 @@ Run the same core with synthetic fixtures for the six domains in §6 with no dom
 - Asset/Persona/Voice/Music/Brand DNA implementation;
 - narrative Canon engine;
 - real image/video/3D/audio evaluators;
-- HIVE retrieval implementation;
+- IRIS retrieval implementation;
 - universal media provenance/C2PA;
 - security/RBAC engine;
 - storage/CAS/database;

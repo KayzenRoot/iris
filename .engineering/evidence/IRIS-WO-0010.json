@@ -212,7 +212,7 @@
       "result": "PASS",
       "requiredArtifacts": 35,
       "gefVersion": "v1.0.0",
-      "hiveVersion": "v1.0.0"
+      "irisVersion": "v1.0.0"
     },
     "staticBoundaries": "PASS; test_m06_serialization_security.py checks forbidden imports, no eval/exec, strict reference versions, and bounded inputs.",
     "exactHeadHostedGovernance": {

@@ -152,9 +152,9 @@ Every item follows the Slow Planning Protocol. PROPOSED records a candidate for 
 
 ## Internal reuse review
 
-The exact-base repository contains limited one-shot subprocess use in scripts/hive_mcp.py and scripts/gef_preflight.py. The HIVE bridge resolves a checkout through HIVE_REPO_PATH or an adjacent directory, then runs a Docker Compose command through subprocess.run; GEF preflight uses subprocess.check_output for a Git query. These utilities do not prove a long-lived supervisor, worker registration, IPC framing, process-tree containment, restart recovery, process ownership, or an M02/M06 attempt handoff. They are evidence of narrow command invocation only.
+The exact-base repository contains limited one-shot subprocess use in scripts/iris_mcp.py and scripts/gef_preflight.py. The IRIS bridge resolves a checkout through IRIS_REPO_PATH or an adjacent directory, then runs a Docker Compose command through subprocess.run; GEF preflight uses subprocess.check_output for a Git query. These utilities do not prove a long-lived supervisor, worker registration, IPC framing, process-tree containment, restart recovery, process ownership, or an M02/M06 attempt handoff. They are evidence of narrow command invocation only.
 
-No UGAS or CORE supervisor source was available in this repository/connection. HIVE MCP tools were not exposed in the active Work Mode connection. Therefore no HIVE-derived claim or UGAS/HIVE/CORE supervisor reuse is marked PROVEN or ACCEPTED. This is an evidence limit, not evidence that no such implementation exists elsewhere. No HIVE command or process was launched for this session.
+No UGAS or CORE supervisor source was available in this repository/connection. IRIS MCP tools were not exposed in the active Work Mode connection. Therefore no IRIS-derived claim or UGAS/IRIS/CORE supervisor reuse is marked PROVEN or ACCEPTED. This is an evidence limit, not evidence that no such implementation exists elsewhere. No IRIS command or process was launched for this session.
 
 ## Pending M12–M60 owner-contract details
 
@@ -196,14 +196,14 @@ PR #87 exact head 78893daec68aabe3bb23836a4429017f13e97f30 passed exact-head Gov
 - Source base and repository tree were pinned to exact main 5c9ac035e10e5485a0b8449e59622eaa1374cb6e; the Context Lock records Git blob SHA-1 fingerprints.
 - Available M02, M06, M09 and frozen M10 source boundaries were read. M12–M60 owner-contract absence was checked in the repository tree.
 - Official technology documentation was checked on 2026-09-24. Sources are listed below.
-- HIVE MCP was unavailable; Git is the canonical record and no HIVE evidence was fabricated.
+- IRIS MCP was unavailable; Git is the canonical record and no IRIS evidence was fabricated.
 - No worker/process, Blender, IPC endpoint, provider, resource reservation or benchmark was operated.
 
 ## References
 
 ### Canonical repository sources at the planning base
 
-- AGENTS.md and .engineering/SOURCE-HIERARCHY.md — startup source order and HIVE evidence rules.
+- AGENTS.md and .engineering/SOURCE-HIERARCHY.md — startup source order and IRIS evidence rules.
 - docs/project-brain/02-REQUIREMENTS.md — PR-005, PR-006, PR-008 and PR-009.
 - docs/project-brain/07-RUNTIME-EXECUTION-PRINCIPLES.md — background-first and process-discipline objectives.
 - docs/project-brain/10-SECURITY-GOVERNANCE.md — untrusted DCC inputs and future sandbox boundary.

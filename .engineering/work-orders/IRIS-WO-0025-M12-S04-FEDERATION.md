@@ -5,7 +5,7 @@ Exact main `d94f19de4a7b5ed8e248ea41239bc53df90a58b1`, tree `963d02cf2083e44f1f7
 
 ## Authority, evidence and objective
 
-Follow AGENTS and canonical Checkpoint → Decisions → Scope → DoD → Architecture → Requirements → Security. The Context Lock binds exact-base Git SHA-1s for all listed sources, including eight mandatory roots, and 12 authorized paths; verification is CI required. HIVE published v1.0.3 contextual source is not a live handshake or approved runtime update, pinned IRIS HIVE v1.0.0 unchanged.
+Follow AGENTS and canonical Checkpoint → Decisions → Scope → DoD → Architecture → Requirements → Security. The Context Lock binds exact-base Git SHA-1s for all listed sources, including eight mandatory roots, and 12 authorized paths; verification is CI required. IRIS published v1.0.3 contextual source is not a live handshake or approved runtime update, pinned IRIS IRIS v1.0.0 unchanged.
 
 Prior IRIS-WO-0024 S03 PR #131 exact-head #488 and exact-main #489 PASS 3979/3979, protected main `d94f19de4a7b5ed8e248ea41239bc53df90a58b1`; reconcile source/evidence/checkpoint within this substantive S04 research without claiming the 16 future MG tests executed. S01–S03 are COMPLETE_FOR_REFERENCE_PLANNING_ONLY, not product contracts.
 
@@ -28,4 +28,4 @@ Deliver M12 S04 non-executable reference study contrasting six unselected approa
 
 ## Acceptance and STOP
 
-No product/runtime implementation, worker registration, hardware probes, LAN/cloud connection, payment, personal media upload, trust protocol choice, secrets, positive M09 grant, owner A/B/C selection or M11 process action. M09 v1.0 frozen 83/15/514, M11 v0.2 NOT_FROZEN 86 unresolved, H01–H04 OPEN HIGH_FOR_FUTURE_FREEZE and #82/#110/#112 OPEN. Checkpoint Markdown mirrors byte-identical, machine JSON nextStep equals canonical. PR exact-head 3979-test CI/Context Lock/validator/GEF/HIVE PASS, separate bounded audit with zero NEW HIGH/CRITICAL in this doc-only diff, protected guarded squash on same head, then exact-main full CI. After verified main, S04 COMPLETE_FOR_REFERENCE_PLANNING_ONLY only; issue #128 stays OPEN for S05, later FTR/FCS and independent M12 owner/freeze gates.
+No product/runtime implementation, worker registration, hardware probes, LAN/cloud connection, payment, personal media upload, trust protocol choice, secrets, positive M09 grant, owner A/B/C selection or M11 process action. M09 v1.0 frozen 83/15/514, M11 v0.2 NOT_FROZEN 86 unresolved, H01–H04 OPEN HIGH_FOR_FUTURE_FREEZE and #82/#110/#112 OPEN. Checkpoint Markdown mirrors byte-identical, machine JSON nextStep equals canonical. PR exact-head 3979-test CI/Context Lock/validator/GEF/IRIS PASS, separate bounded audit with zero NEW HIGH/CRITICAL in this doc-only diff, protected guarded squash on same head, then exact-main full CI. After verified main, S04 COMPLETE_FOR_REFERENCE_PLANNING_ONLY only; issue #128 stays OPEN for S05, later FTR/FCS and independent M12 owner/freeze gates.

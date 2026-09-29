@@ -104,7 +104,7 @@
     {
       "id": "S01-U09",
       "source": "planning/research/M11-S01-LONG-LIVED-SUPERVISOR-AND-JOB-PROCESS-MODEL.md",
-      "question": "Which M11 concerns rely on unavailable UGAS/HIVE/CORE materials, and what authoritative evidence would prove reuse?",
+      "question": "Which M11 concerns rely on unavailable UGAS/IRIS/CORE materials, and what authoritative evidence would prove reuse?",
       "status": "OPEN",
       "risk": "UNRATED",
       "ownerDecision": "PENDING"
@@ -536,7 +536,7 @@
     {
       "id": "S04-U21",
       "source": "planning/research/M11-S04-PROCESS-REAPER-ZOMBIE-DETECTION-SHELL-FREE-EXECUTION.md",
-      "question": "Can HIVE/UGAS/CORE provide current, source-verifiable process-lifecycle evidence in a later planning session?",
+      "question": "Can IRIS/UGAS/CORE provide current, source-verifiable process-lifecycle evidence in a later planning session?",
       "status": "OPEN",
       "risk": "UNRATED",
       "ownerDecision": "PENDING"

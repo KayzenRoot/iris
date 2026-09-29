@@ -98,5 +98,5 @@
     "planning/checkpoints/IRIS-WO-0040-CANONICAL-RECONCILIATION.md",
     "tests/test_wo0040_canonical_closeout.py"
   ],
-  "stopCondition": "Only reconcile already confirmed WO0039 PR149, head #527 and exact-main #528; 5 new deterministic doc tests, exact source pins, strict changed path allowlist, governance/pinned GEF/HIVE and bounded review before protected merge. Do NOT change M09 frozen runtime, M11/M12 candidates, original C01 history or approved decisions; H01-H04 OPEN HIGH and genuine M12/M54/M58/M60 source-backed owners still missing. No runtime/process/OS/GPU/network/cloud/API/placement admission."
+  "stopCondition": "Only reconcile already confirmed WO0039 PR149, head #527 and exact-main #528; 5 new deterministic doc tests, exact source pins, strict changed path allowlist, governance/pinned GEF/IRIS and bounded review before protected merge. Do NOT change M09 frozen runtime, M11/M12 candidates, original C01 history or approved decisions; H01-H04 OPEN HIGH and genuine M12/M54/M58/M60 source-backed owners still missing. No runtime/process/OS/GPU/network/cloud/API/placement admission."
 }

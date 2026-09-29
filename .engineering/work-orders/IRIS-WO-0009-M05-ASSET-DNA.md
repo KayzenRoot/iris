@@ -218,7 +218,7 @@ Expose provider-neutral/versioned semantic boundaries for:
 16. CanonContentCampaignBrandPort
 17. LocalizationIdentityPreservationPort
 18. QualityRepairProposalPort
-19. HIVEMemoryIdentitySlicePort
+19. IRISMemoryIdentitySlicePort
 20. RightsSecurityEvidencePort
 21. StorageObservabilityAutomationPort
 22. APIExportRecoveryIdentityPort
@@ -248,7 +248,7 @@ These are ports/contracts only. Do not implement downstream modules.
 - marketplace payments/pricing/ranking/storefront/tax settlement;
 - API/plugin platform runtime;
 - publishing/export runtime;
-- HIVE retrieval implementation;
+- IRIS retrieval implementation;
 - M06+ implementation merely to satisfy ports;
 - semantic changes to `m05-contract-v1.0`.
 
@@ -315,7 +315,7 @@ If a new dependency is genuinely required, STOP `BLOCKED_DEPENDENCY_DECISION`.
 - M58 owns API/SDK/MCP/plugin lifecycle.
 - M59 owns concrete export/publishing/delivery.
 - M60 owns deployment/recovery/final system acceptance.
-- HIVE/agents may retrieve/propose but cannot directly mutate canonical M05 truth.
+- IRIS/agents may retrieve/propose but cannot directly mutate canonical M05 truth.
 
 ### Closed runtime
 

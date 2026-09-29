@@ -47,7 +47,7 @@
       "severity": "MEDIUM",
       "classification": "CHAT_FIXABLE",
       "status": "CORRECTED",
-      "finding": "Source Hierarchy still said BOOTSTRAP_ACTIVE and root README still advertised BOOTSTRAP_GEF_HIVE as current state."
+      "finding": "Source Hierarchy still said BOOTSTRAP_ACTIVE and root README still advertised BOOTSTRAP_GEF_IRIS as current state."
     }
   ],
   "m00PlanningDebt": {

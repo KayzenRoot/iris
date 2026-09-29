@@ -84,7 +84,7 @@
       "gitBlobSha1": "c172771126bca32b34f3a76f060dc574f68094f2"
     },
     {
-      "path": "tests/test_hive_bootstrap.py",
+      "path": "tests/test_iris_bootstrap.py",
       "gitBlobSha1": "68e0f3b8bcabd4d8c3e3ff779a39aaf76059e139"
     },
     {

@@ -925,7 +925,7 @@ class RightsRulingTests(unittest.TestCase):
 
 
 class ContextFingerprintAnswerTests(unittest.TestCase):
-    sources = (ContextSource(ref=k.ref(EntityKind.HIVE_CONTEXT, "ctx.brief"), ordinal=0),)
+    sources = (ContextSource(ref=k.ref(EntityKind.IRIS_CONTEXT, "ctx.brief"), ordinal=0),)
 
     def answer(self, **over: Any) -> ContextFingerprintAnswer:
         over.setdefault("sources", self.sources)
@@ -945,13 +945,13 @@ class ContextFingerprintAnswerTests(unittest.TestCase):
 
     def test_the_source_sequence_is_part_of_the_claim(self) -> None:
         found = self.answer()
-        self.assertEqual(found.source_texts, ("hive_context:ctx.brief",))
+        self.assertEqual(found.source_texts, ("iris_context:ctx.brief",))
         self.assertTrue(found.answers(self.sources))
-        self.assertFalse(found.answers((ContextSource(ref=k.ref(EntityKind.HIVE_CONTEXT, "ctx.other"), ordinal=0),)))
+        self.assertFalse(found.answers((ContextSource(ref=k.ref(EntityKind.IRIS_CONTEXT, "ctx.other"), ordinal=0),)))
 
     def test_ordering_matters_because_prefix_reuse_does(self) -> None:
-        first = ContextSource(ref=k.ref(EntityKind.HIVE_CONTEXT, "ctx.brief"), ordinal=0)
-        second = ContextSource(ref=k.ref(EntityKind.HIVE_CONTEXT, "ctx.style"), ordinal=1)
+        first = ContextSource(ref=k.ref(EntityKind.IRIS_CONTEXT, "ctx.brief"), ordinal=0)
+        second = ContextSource(ref=k.ref(EntityKind.IRIS_CONTEXT, "ctx.style"), ordinal=1)
         found = self.answer(sources=(first, second))
         self.assertTrue(found.answers((first, second)))
         self.assertFalse(found.answers((second, first)))
@@ -966,7 +966,7 @@ class ContextFingerprintAnswerTests(unittest.TestCase):
 
     def test_sources_are_bounded(self) -> None:
         with self.assertRaises(SchemaValidationError):
-            self.answer(sources=tuple(ContextSource(ref=k.ref(EntityKind.HIVE_CONTEXT, f"ctx.{index}")) for index in range(200)))
+            self.answer(sources=tuple(ContextSource(ref=k.ref(EntityKind.IRIS_CONTEXT, f"ctx.{index}")) for index in range(200)))
 
 
 class DeliveryStatusTests(unittest.TestCase):
@@ -1069,7 +1069,7 @@ class PortDomainNeutralityTests(unittest.TestCase):
             offer(),
             RepairPlan(frontier_graph_id="graph.test", offers=(offer(),), uncovered=("deliver.web",)),
             RightsRuling(asked=refs("asset.a"), permitted=refs("asset.a")),
-            ContextFingerprintAnswer(sources=(ContextSource(ref=k.ref(EntityKind.HIVE_CONTEXT, "ctx.brief")),), fingerprint=k.digest("context"), compiler=TOOL),
+            ContextFingerprintAnswer(sources=(ContextSource(ref=k.ref(EntityKind.IRIS_CONTEXT, "ctx.brief")),), fingerprint=k.digest("context"), compiler=TOOL),
             DeliveryStatus(destination=k.ref(EntityKind.DESTINATION, "dest.cdn"), package_ref=k.ref(EntityKind.ARTIFACT, "pkg"), state="STILL_UNKNOWN"),
         )
         for value in values:

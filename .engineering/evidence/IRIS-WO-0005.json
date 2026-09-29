@@ -177,7 +177,7 @@
       "result": "Governance pass (required + green on the Work Order PR head)"
     },
     {
-      "cmd": "python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/hive_bootstrap.py scripts/hive_mcp.py",
+      "cmd": "python -m py_compile scripts/validate_governance.py scripts/gef_preflight.py scripts/iris_bootstrap.py scripts/iris_mcp.py",
       "result": "OK"
     },
     {
@@ -293,8 +293,8 @@
       "secret scanning enabled with push protection enabled"
     ],
     "validation": {
-      "pyCompile": "OK for validate_governance.py, gef_preflight.py, hive_bootstrap.py, hive_mcp.py",
-      "governanceScript": "Required artifacts: 35, GEF v1.0.0, HIVE v1.0.0",
+      "pyCompile": "OK for validate_governance.py, gef_preflight.py, iris_bootstrap.py, iris_mcp.py",
+      "governanceScript": "Required artifacts: 35, GEF v1.0.0, IRIS v1.0.0",
       "unitTests": "Ran 1805 tests OK (0 failures, 0 errors)",
       "rulesetCheck": "gh ruleset check --default -R KayzenRoot/iris -> rules including required_status_checks context Governance apply to branch main from ruleset 23766624",
       "requiredChecks": "gh pr checks 14 -R KayzenRoot/iris --required -> Governance pass (run 35600314448 / job 106334599267) at reviewed head 34646299d1b4b2c17ea49568901992e63df0856a; the evidence commit only changes this JSON file and exact-head Governance is re-observed after push",

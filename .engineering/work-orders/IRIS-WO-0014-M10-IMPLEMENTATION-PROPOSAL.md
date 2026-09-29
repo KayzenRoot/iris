@@ -113,7 +113,7 @@ If any critical fingerprint differs, mark the Context Lock STALE and rebuild/reb
 ### Proposal validation
 
 - No product test suite is claimed for this document-only proposal.
-- Require exact-head Governance; it validates repository checkpoint/source consistency and configured GEF/HIVE bridge checks.
+- Require exact-head Governance; it validates repository checkpoint/source consistency and configured GEF/IRIS bridge checks.
 - Verify five-file inventory, JSON validity, 47 fingerprints, 50 owner rows, no runtime/test changes, and unchanged frozen M10 contract.
 
 ### Future admitted implementation

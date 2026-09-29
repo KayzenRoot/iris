@@ -211,7 +211,7 @@ The future kernel must expose 20 provider-neutral versioned boundaries:
 8. CampaignBrandIdentityRefPort — M45/M46
 9. QualityEvidencePort — M01/M24/M48/M51
 10. RepairExecutionPort — M49
-11. HiveContextEvidencePort — M52
+11. IrisContextEvidencePort — M52
 12. ProvenanceRightsConsentPort — M53
 13. SecurityAuthorizationPort — M54
 14. PhysicalMediaStorePort — M55
@@ -256,7 +256,7 @@ Fail closed for:
 - current-policy bypass through historical receipts;
 - failed deletion recorded as success;
 - reconstructed output silently replacing immutable master;
-- HIVE/agent/provider self-admission of protected canonical changes.
+- IRIS/agent/provider self-admission of protected canonical changes.
 
 ## 16. Domain-neutral targets
 
@@ -328,7 +328,7 @@ A later bounded Work Order must record:
 - provider/DCC execution;
 - domain media generation/evaluation;
 - repair execution;
-- HIVE retrieval internals;
+- IRIS retrieval internals;
 - provenance/rights/consent engine;
 - security/RBAC/vault engine;
 - physical CAS/storage/tiering/GC/archive;
@@ -391,7 +391,7 @@ The exact candidate head must pass governance and independent audit before promo
 - Reviewed freeze-candidate head: `c23037ef0ebf606e5bc8a39e5217d84fc860df3d`
 - Reviewed Governance: `35863883262 / 107190498132` — PASS
 - Governance exact-candidate checkout/assertion: PASS
-- GEF/HIVE bridge tests: PASS
+- GEF/IRIS bridge tests: PASS
 - Planning diff at reviewed head: 4 files, planning-only
 - Hard invariants: `150/150`, unique, no gaps
 - Technology families: `25/25`
