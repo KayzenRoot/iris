@@ -103,8 +103,6 @@ class M14FTRDocumentaryTests(unittest.TestCase):
     def test_21_forged_qualified_owner_gate_refused(self):
         p=self.fresh();p["gates"][0]["status"]="ORIGINAL_OWNER_APPROVED"
         with self.assertRaises(M14FTRIntegrityError):self.check(p)
-
-    def test_21b_every_gate_requires_actual_named_proof_issuers(self):
         # Protect ALL twelve independent gate signatures, even if a broad
         # ownerRoutes list is otherwise long enough to satisfy generic checks.
         from scripts.verify_m14_ftr import REQUIRED_GATE_OWNERS
