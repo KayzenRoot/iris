@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "iris-wo0073-postmerge-closeout-evidence-v1",
+  "workOrder": "IRIS-WO-0073",
+  "issue": 199,
+  "baseSha": "e75e259f884ea05cda0e4cdf4329d042867ba9e8",
+  "baseTreeSha": "e7454e1dc08efdf2d5a613d26237f813a2fb1209",
+  "sourcePins": 25,
+  "changedPaths": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0073-WO0072-POSTMERGE-CHECKPOINT.json",
+    ".engineering/evidence/IRIS-WO-0073.json",
+    ".engineering/work-orders/IRIS-WO-0073-WO0072-POSTMERGE-CHECKPOINT.md",
+    "README.md",
+    "docs/project-brain/01-PROJECT-OVERVIEW.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0073-WO0072-POSTMERGE-CHECKPOINT.md"
+  ],
+  "priorVerifiedWO0072": {
+    "pr": 198,
+    "finalHead": "0495ea3250a393be9511ed07921cb4472bfdfd7d",
+    "headGovernance": 36559575000,
+    "headTests": "4680/4680",
+    "headSocket": "BOTH_SUCCESS",
+    "codeRabbit": "COMPLETE_ZERO_ACTIONABLE",
+    "protectedMain": "e75e259f884ea05cda0e4cdf4329d042867ba9e8",
+    "newMainGovernance": 36560096295,
+    "newMainTests": "4680/4680",
+    "newMainSocket": "SUCCESS",
+    "issue197": "CLOSED"
+  },
+  "machineNextStepMirrored": true,
+  "humanCheckpointMirrorsIdentical": true,
+  "ownerAndRuntimeGates": "UNCHANGED",
+  "ownCandidate": {
+    "contextLock": "PENDING",
+    "governance": "PENDING",
+    "fullTests": "PENDING",
+    "independentReview": "PENDING",
+    "socket": "PENDING",
+    "protectedMerge": "PENDING",
+    "independentNewMain": "PENDING"
+  }
+}
