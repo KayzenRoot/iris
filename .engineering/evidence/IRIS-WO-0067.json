@@ -11,8 +11,13 @@
   "namespaceVerifier": "TOKEN_AWARE_NO_SUBSTRING_FALSE_POSITIVES",
   "localExternalRuntimeRequired": false,
   "ownerRuntimeGatesUnchanged": true,
-  "exactHeadGovernance": "PENDING",
+  "exactHeadGovernance": "PENDING_AFTER_FIXED_POINT",
   "finalExternalReview": "PENDING",
   "protectedMerge": "PENDING",
-  "exactNewMain": "PENDING"
+  "exactNewMain": "PENDING",
+  "hashReconciliationRun": 36514906850,
+  "hashReconciliationJob": 109235277404,
+  "hashReconciliationIterations": 16,
+  "hashReferenceFileUpdates": 682,
+  "hashReconciliationCommit": "9a5c8214369ef9a9842e9c2b0143616867ddd586"
 }
