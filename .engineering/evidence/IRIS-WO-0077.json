@@ -49,11 +49,12 @@
     "unselectedAlternatives": 4,
     "newOwnerQuestionsOpen": 18,
     "newFutureNegativesNotExecuted": 14,
-    "deterministicNewTests": 24,
-    "fullSuiteTarget": 4736,
+    "deterministicNewTests": 26,
+    "fullSuiteTarget": 4738,
     "ownerApproval": false,
     "modelRegistryAdmitted": false,
-    "empiricalEvidenceCollected": false
+    "empiricalEvidenceCollected": false,
+    "correctiveReview": "M14S02IntegrityError for missing/invalid-UTF8 pinned source, preserve OSError/UnicodeDecodeError as __cause__; two new negative tests, all touched function docstrings"
   },
   "originalOwnerStops": {
     "m14S01QuestionsOpen": 16,
