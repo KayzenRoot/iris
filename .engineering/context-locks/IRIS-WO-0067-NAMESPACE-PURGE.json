@@ -403,6 +403,7 @@
     "tests/test_m04_invariants.py",
     "tests/test_m05_authority_ports.py",
     "tests/test_m09_h04_source_integrity.py",
-    "tests/test_wo0066_iris_retirement.py"
+    "tests/test_wo0066_iris_retirement.py",
+    "tests/test_wo0067_namespace_purge.py"
   ]
 }
