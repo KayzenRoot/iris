@@ -66,10 +66,10 @@ A future QUALIFIED_EMPIRICAL_FUTURE label has zero instances here and confers no
 
 ## 4. Four future architecture alternatives, NONE selected
 
-- ALT01: Vendor model card notes; RESEARCH_ONLY_UNSELECTED; selected=False.
-- ALT02: Typed per-task evidence table; RESEARCH_ONLY_UNSELECTED; selected=False.
-- ALT03: Versioned source-qualified evidence graph; RESEARCH_ONLY_UNSELECTED; selected=False.
-- ALT04: Future authenticated at-use measurement receipt; RESEARCH_ONLY_UNSELECTED; selected=False.
+- ALT01: Vendor model card notes; RESEARCH_ONLY_UNSELECTED; selected=False; tradeoffs: Simple discovery but lacks immutable package closure, original samples, exact M07 host/protocol and independently qualified legal or owner scope..
+- ALT02: Typed per-task evidence table; RESEARCH_ONLY_UNSELECTED; selected=False; tradeoffs: Typed missing-value semantics help comparison, but a table row cannot prove authentic sample provenance, contamination status or valid evaluator rights..
+- ALT03: Versioned source-qualified evidence graph; RESEARCH_ONLY_UNSELECTED; selected=False; tradeoffs: Exact model/task/M07/M08/M01 lineage and invalidation edges are expressive, but need real qualified schema owners, revocation handling and tenant redaction..
+- ALT04: Future authenticated at-use measurement receipt; RESEARCH_ONLY_UNSELECTED; selected=False; tradeoffs: A future current scoped owner receipt could bind real measurements, but requires independently verified issuer, representative M08 evidence and valid rights..
 
 ## 5. Twenty NEW OPEN/UNRATED S03 owner questions
 
@@ -77,121 +77,121 @@ A future QUALIFIED_EMPIRICAL_FUTURE label has zero instances here and confers no
 
 Which complete immutable composite package fingerprint must bind every future card and its dependent tokenizer and adapter revisions?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: S01, S02, FCS. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U02
 
 Which exact task, input-output constraints and sampling population make future quality and latency records representative?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: S02, M08, INDEX. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U03
 
 Which fixture provenance, consent and leakage evidence prevents overstating generalization from an unqualified sample set?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M01_CONTRACT, S02, FCS. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U04
 
 What exact M07 device, topology, driver and runtime snapshot must accompany each future model-specific benchmark record?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M07, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U05
 
 What independent M08 owner admission and bounded protocol receipt is needed before any future GPU or provider benchmark?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M07, M08, FCS. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U06
 
 Which declared metrics disambiguate cold start, warm latency, throughput, per-frame timing and peak VRAM without numerical shortcuts?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M08, M09, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U07
 
 Which clock, duration, units, raw sample count, warmup and aggregation rules must be preserved in each future model card?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M08, M07, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U08
 
 How can UNKNOWN telemetry, interference, cancellation and thermal abort retain explicit non-valid uncertainty and context?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M07, M08, M09. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U09
 
 Which allocation, shared memory, peak residency and OOM evidence remains separate from authority for an M09 resource lease?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M07, M08, M09. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U10
 
 Which versioned M01 evaluator, fidelity class, fatal defect checks and human review preserve independent final quality authority?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M01_CONTRACT, M01, M08. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U11
 
 What sample size, population bias and uncertainty provenance must precede any future reliability or confidence assertion?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M01, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U12
 
 Which prompt, fixture, seed and compiler-option provenance is required without admitting M13/M16 provider code execution?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: S01, S02, FCS. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U13
 
 How are multimodal codecs, timestamps, spatial crops, audio persona and 3D topology matched before an equivalence claim?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: S02, M01_CONTRACT, M08. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U14
 
 When are two real model-card observations incomparable because package, M07 runtime, protocol or population differs?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M07, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U15
 
 Which calibration, time-to-live, signed lineage, revocation and invalidation edges govern any future released card?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M08, FCS, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U16
 
 Which tenant-scoped model, dataset, performer and derivative rights require separate M18/M53/M54 owner evidence?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: S01, FCS, D01. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U17
 
 How must immutable M02 master status and M01 hard quality veto remain separate from a fast preview performance figure?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M01_CONTRACT, M01, M08. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U18
 
 Which qualified future M10/M15 advisor can see tentative data without choosing rankings or actual placement and dispatch?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M09, M10, FCS. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U19
 
 How should warm caches, residency, batching and compilation hints be distinguished from live M09 grant and M11 ACK?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M08, M09, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ### M14-S03-U20
 
 What independent actual model-card owner issuer, authenticated scope, expiry and refresh proof must precede any real evidence label?
 
-- Source roles: INDEX, M08, S02. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
+- Source roles: M08, D01, FCS. OPEN_UNRATED_PENDING_QUALIFIED_OWNER; risk UNRATED; owner answer None; authority NONE.
 
 ## 6. Sixteen future negative designs, NOT_EXECUTED
 
