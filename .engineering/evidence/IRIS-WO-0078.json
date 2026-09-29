@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "iris-m14-s03-source-work-order-evidence-v0.1",
+  "workOrder": "IRIS-WO-0078",
+  "issue": 208,
+  "originalBaseSha": "90eacaac4ead5c1c0858c60f2a5ef40400bd51ad",
+  "originalTreeSha": "c3694c28d4b751a40d15d0165ce4e2a6e6c82f30",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "pinCount": 53,
+    "allOriginalModes": "100644",
+    "latestOriginalAnchorPath": ".engineering/context-locks/IRIS-WO-0077-M14-S02-CAPABILITY-GENOME.json",
+    "latestOriginalAnchorSha": "7e993e9bd686464e44eac9de375d752384ebe6b4"
+  },
+  "authorizedChangedPaths": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0078-M14-S03-EMPIRICAL-CARDS.json",
+    ".engineering/evidence/IRIS-WO-0078.json",
+    ".engineering/evidence/M14-S03-SOURCE-RESEARCH.json",
+    ".engineering/work-orders/IRIS-WO-0078-M14-S03-EMPIRICAL-CARDS.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0078-M14-S03-EMPIRICAL-CARDS.md",
+    "planning/research/M14-S03-EMPIRICAL-CARD-EVIDENCE-DESIGN.md",
+    "scripts/verify_m14_s03_research.py",
+    "tests/test_m14_s03_research.py"
+  ],
+  "priorS02": {
+    "pr": 207,
+    "finalHead": "e24aa33c855676e0de8787a0f3e18acd881a9b1d",
+    "headGov": 36570717416,
+    "headTests": "4738/4738",
+    "codeRabbitLastRun": "bfc5c214-d025-466b-bb18-4460b8dcee28",
+    "allThreadsResolved": true,
+    "protectedMainSha": "90eacaac4ead5c1c0858c60f2a5ef40400bd51ad",
+    "newMainGov": 36570999597,
+    "newMainTests": "4738/4738",
+    "sameMainSocket": "SUCCESS",
+    "issue206": "CLOSED"
+  },
+  "newS03": {
+    "status": "PROPOSED_SOURCE_ONLY_NO_MEASUREMENTS",
+    "facets": 8,
+    "futureEvidenceLabelsOnly": 5,
+    "unselectedAlternatives": 4,
+    "ownerQuestionsOpen": 20,
+    "futureNegativeCasesNotExecuted": 16,
+    "newSyntheticTests": 24,
+    "fullSuiteTarget": 4762,
+    "realMeasurements": 0,
+    "realOwnerSignatures": 0,
+    "modelCardAdopted": false
+  },
+  "inheritedStops": {
+    "S01": "16_OPEN_12_NOT_EXECUTED",
+    "S02": "18_OPEN_14_NOT_EXECUTED",
+    "M13": "96_OPEN_74_NOT_EXECUTED",
+    "originalOwnerIssues": "8_OPEN",
+    "H01H04": "HIGH_FOR_FUTURE_FREEZE",
+    "M09B": "DIRECTION_ONLY",
+    "M09C01": "UNADOPTED_NOT_FROZEN",
+    "M10M13Runtime": "NOT_ADMITTED"
+  },
+  "ownHeadCI": "PENDING",
+  "ownExternalReview": "PENDING",
+  "ownProtectedMerge": "PENDING",
+  "ownIndependentNewMain": "PENDING",
+  "conclusion": "AUTHOR_TIME_PROPOSED_ONLY"
+}

@@ -1,0 +1,612 @@
+{
+  "schemaVersion": "iris-m14-s03-source-research-v0.1",
+  "workOrder": "IRIS-WO-0078",
+  "issue": 208,
+  "module": "M14",
+  "session": "S03",
+  "sourceBaseSha": "90eacaac4ead5c1c0858c60f2a5ef40400bd51ad",
+  "sourceBaseTreeSha": "c3694c28d4b751a40d15d0165ce4e2a6e6c82f30",
+  "status": "SOURCE_ONLY_NO_REAL_MEASUREMENTS",
+  "ownerApproval": "NONE",
+  "schemaAdopted": false,
+  "realMeasurements": 0,
+  "realQualityScores": 0,
+  "realLatencySamples": 0,
+  "realVramObservations": 0,
+  "runtime": "NOT_ADMITTED",
+  "sourceDocs": [
+    {
+      "role": "INDEX",
+      "path": "planning/MASTER-MODULE-INDEX-CURRENT.md",
+      "gitBlobSha1": "02e6394cc7e75d5466ab22801b4cc7dbe66500be",
+      "exactNeedle": "S03 — S03 Empirical quality/latency/VRAM model cards"
+    },
+    {
+      "role": "FCS",
+      "path": "planning/reviews/M14-M60-FORWARD-COMPATIBILITY-SOURCE-SCAN.md",
+      "gitBlobSha1": "5bac62b5b1a07fb97e43ea5c76d20dc5419c2cec",
+      "exactNeedle": "S03 — S03 Empirical quality/latency/VRAM model cards"
+    },
+    {
+      "role": "S01",
+      "path": ".engineering/evidence/M14-S01-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "10fe325b3928e58797266ae4ba0b65c87cd532fc",
+      "exactNeedle": "\"session\": \"S01\""
+    },
+    {
+      "role": "S02",
+      "path": ".engineering/evidence/M14-S02-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "d3ac994e130bc54c566449dc0d6efc19a0ca2698",
+      "exactNeedle": "\"session\": \"S02\""
+    },
+    {
+      "role": "S02_REPORT",
+      "path": "planning/research/M14-S02-CAPABILITY-GENOME-TASK-TAXONOMY.md",
+      "gitBlobSha1": "9799f5169522f0cb44b8049e4f4e9215bf19f0e4",
+      "exactNeedle": "Fourteen future hostile cases, NOT EXECUTED"
+    },
+    {
+      "role": "M01_CONTRACT",
+      "path": "planning/contracts/M01-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "48e00ca6ec3da8a5185fa49ccad37f14b6a5926a",
+      "exactNeedle": "FROZEN_APPROVED"
+    },
+    {
+      "role": "M01",
+      "path": "docs/M01-QUALITY-KERNEL.md",
+      "gitBlobSha1": "df4f899ad414c47ad379f26fe1782edb6f43cf6f",
+      "exactNeedle": "m01-contract-v1.0"
+    },
+    {
+      "role": "M07",
+      "path": "docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "gitBlobSha1": "2a0b95dd3cc665e2206e454caef5858ef7fb61b0",
+      "exactNeedle": "M07 does not lower quality targets"
+    },
+    {
+      "role": "M08",
+      "path": "docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "461e0f332d9be2af694634bbdc8cf67e29d56393",
+      "exactNeedle": "M08 records empirical performance evidence"
+    },
+    {
+      "role": "M09",
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+      "exactNeedle": "M09 is the provider-neutral resource-state"
+    },
+    {
+      "role": "M10",
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828",
+      "exactNeedle": "Implementation authority: NOT ADMITTED"
+    },
+    {
+      "role": "D01",
+      "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
+      "gitBlobSha1": "8877331a5004a3e816e4c42fb521ff3408bad08a",
+      "exactNeedle": "B_FUTURE_OWNER_RECEIPT"
+    }
+  ],
+  "facets": [
+    {
+      "id": "FAC01",
+      "title": "Composite model package identity",
+      "status": "NONBINDING_UNADOPTED",
+      "boundary": "A weight-only digest cannot prove tokenizer, adapter or code closure."
+    },
+    {
+      "id": "FAC02",
+      "title": "Exact task and evaluation fixtures",
+      "status": "NONBINDING_UNADOPTED",
+      "boundary": "Different task populations or leaked data cannot be compared as equal."
+    },
+    {
+      "id": "FAC03",
+      "title": "M07 original hardware and runtime",
+      "status": "NONBINDING_UNADOPTED",
+      "boundary": "A copied device name is not exact source-qualified hardware, driver, topology or runtime evidence."
+    },
+    {
+      "id": "FAC04",
+      "title": "M08 bounded protocol and admission",
+      "status": "NONBINDING_UNADOPTED",
+      "boundary": "A designed protocol does not constitute authorized benchmark execution."
+    },
+    {
+      "id": "FAC05",
+      "title": "Original samples with units and timing",
+      "status": "NONBINDING_UNADOPTED",
+      "boundary": "Reported latency or VRAM without raw provenance cannot establish measurement."
+    },
+    {
+      "id": "FAC06",
+      "title": "Contamination, abort and uncertainty",
+      "status": "NONBINDING_UNADOPTED",
+      "boundary": "Unknown telemetry or interruption must not become valid confidence."
+    },
+    {
+      "id": "FAC07",
+      "title": "Independent M01 quality evaluation",
+      "status": "NONBINDING_UNADOPTED",
+      "boundary": "A faster result cannot bypass M01 fatal defects, required human review or the accepted M02 master."
+    },
+    {
+      "id": "FAC08",
+      "title": "Freshness, invalidation and tenant rights",
+      "status": "NONBINDING_UNADOPTED",
+      "boundary": "An expired card or a license label cannot establish current tenant rights."
+    }
+  ],
+  "states": [
+    {
+      "id": "CLAIM_ONLY",
+      "status": "VOCABULARY_ONLY_NO_ACTUAL_RECORD"
+    },
+    {
+      "id": "PROTOCOL_DEFINED_ONLY",
+      "status": "VOCABULARY_ONLY_NO_ACTUAL_RECORD"
+    },
+    {
+      "id": "RAW_OBSERVATION_UNQUALIFIED",
+      "status": "VOCABULARY_ONLY_NO_ACTUAL_RECORD"
+    },
+    {
+      "id": "QUALIFIED_EMPIRICAL_FUTURE",
+      "status": "VOCABULARY_ONLY_NO_ACTUAL_RECORD"
+    },
+    {
+      "id": "STALE_OR_INVALIDATED",
+      "status": "VOCABULARY_ONLY_NO_ACTUAL_RECORD"
+    }
+  ],
+  "alternatives": [
+    {
+      "id": "ALT01",
+      "title": "Vendor model card notes",
+      "status": "RESEARCH_ONLY_UNSELECTED",
+      "selected": false,
+      "tradeoffs": "Simple discovery but lacks immutable package closure, original samples, exact M07 host/protocol and independently qualified legal or owner scope."
+    },
+    {
+      "id": "ALT02",
+      "title": "Typed per-task evidence table",
+      "status": "RESEARCH_ONLY_UNSELECTED",
+      "selected": false,
+      "tradeoffs": "Typed missing-value semantics help comparison, but a table row cannot prove authentic sample provenance, contamination status or valid evaluator rights."
+    },
+    {
+      "id": "ALT03",
+      "title": "Versioned source-qualified evidence graph",
+      "status": "RESEARCH_ONLY_UNSELECTED",
+      "selected": false,
+      "tradeoffs": "Exact model/task/M07/M08/M01 lineage and invalidation edges are expressive, but need real qualified schema owners, revocation handling and tenant redaction."
+    },
+    {
+      "id": "ALT04",
+      "title": "Future authenticated at-use measurement receipt",
+      "status": "RESEARCH_ONLY_UNSELECTED",
+      "selected": false,
+      "tradeoffs": "A future current scoped owner receipt could bind real measurements, but requires independently verified issuer, representative M08 evidence and valid rights."
+    }
+  ],
+  "questions": [
+    {
+      "id": "M14-S03-U01",
+      "question": "Which complete immutable composite package fingerprint must bind every future card and its dependent tokenizer and adapter revisions?",
+      "sourceRoles": [
+        "S01",
+        "S02",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U02",
+      "question": "Which exact task, input-output constraints and sampling population make future quality and latency records representative?",
+      "sourceRoles": [
+        "S02",
+        "M08",
+        "INDEX"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U03",
+      "question": "Which fixture provenance, consent and leakage evidence prevents overstating generalization from an unqualified sample set?",
+      "sourceRoles": [
+        "M01_CONTRACT",
+        "S02",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U04",
+      "question": "What exact M07 device, topology, driver and runtime snapshot must accompany each future model-specific benchmark record?",
+      "sourceRoles": [
+        "M07",
+        "M08",
+        "S02"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U05",
+      "question": "What independent M08 owner admission and bounded protocol receipt is needed before any future GPU or provider benchmark?",
+      "sourceRoles": [
+        "M07",
+        "M08",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U06",
+      "question": "Which declared metrics disambiguate cold start, warm latency, throughput, per-frame timing and peak VRAM without numerical shortcuts?",
+      "sourceRoles": [
+        "M08",
+        "M09",
+        "S02"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U07",
+      "question": "Which clock, duration, units, raw sample count, warmup and aggregation rules must be preserved in each future model card?",
+      "sourceRoles": [
+        "M08",
+        "M07",
+        "S02"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U08",
+      "question": "How can UNKNOWN telemetry, interference, cancellation and thermal abort retain explicit non-valid uncertainty and context?",
+      "sourceRoles": [
+        "M07",
+        "M08",
+        "M09"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U09",
+      "question": "Which allocation, shared memory, peak residency and OOM evidence remains separate from authority for an M09 resource lease?",
+      "sourceRoles": [
+        "M07",
+        "M08",
+        "M09"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U10",
+      "question": "Which versioned M01 evaluator, fidelity class, fatal defect checks and human review preserve independent final quality authority?",
+      "sourceRoles": [
+        "M01_CONTRACT",
+        "M01",
+        "M08"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U11",
+      "question": "What sample size, population bias and uncertainty provenance must precede any future reliability or confidence assertion?",
+      "sourceRoles": [
+        "M01",
+        "M08",
+        "S02"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U12",
+      "question": "Which prompt, fixture, seed and compiler-option provenance is required without admitting M13/M16 provider code execution?",
+      "sourceRoles": [
+        "S01",
+        "S02",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U13",
+      "question": "How are multimodal codecs, timestamps, spatial crops, audio persona and 3D topology matched before an equivalence claim?",
+      "sourceRoles": [
+        "S02",
+        "M01_CONTRACT",
+        "M08"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U14",
+      "question": "When are two real model-card observations incomparable because package, M07 runtime, protocol or population differs?",
+      "sourceRoles": [
+        "M07",
+        "M08",
+        "S02"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U15",
+      "question": "Which calibration, time-to-live, signed lineage, revocation and invalidation edges govern any future released card?",
+      "sourceRoles": [
+        "M08",
+        "FCS",
+        "S02"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U16",
+      "question": "Which tenant-scoped model, dataset, performer and derivative rights require separate M18/M53/M54 owner evidence?",
+      "sourceRoles": [
+        "S01",
+        "FCS",
+        "D01"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U17",
+      "question": "How must immutable M02 master status and M01 hard quality veto remain separate from a fast preview performance figure?",
+      "sourceRoles": [
+        "M01_CONTRACT",
+        "M01",
+        "M08"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U18",
+      "question": "Which qualified future M10/M15 advisor can see tentative data without choosing rankings or actual placement and dispatch?",
+      "sourceRoles": [
+        "M09",
+        "M10",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U19",
+      "question": "How should warm caches, residency, batching and compilation hints be distinguished from live M09 grant and M11 ACK?",
+      "sourceRoles": [
+        "M08",
+        "M09",
+        "S02"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    },
+    {
+      "id": "M14-S03-U20",
+      "question": "What independent actual model-card owner issuer, authenticated scope, expiry and refresh proof must precede any real evidence label?",
+      "sourceRoles": [
+        "M08",
+        "D01",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "authority": "NONE"
+    }
+  ],
+  "negativeScenarios": [
+    {
+      "id": "M14-S03-N01",
+      "trigger": "Changed weight shards share the old label while tokenizer and adapter revisions differ from the recorded evidence.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U01"
+      ]
+    },
+    {
+      "id": "M14-S03-N02",
+      "trigger": "A vendor image-quality claim is copied from another task population with different input crops and prompts.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U02"
+      ]
+    },
+    {
+      "id": "M14-S03-N03",
+      "trigger": "A leaked benchmark fixture is reused as independent evaluation evidence despite training population overlap.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U03"
+      ]
+    },
+    {
+      "id": "M14-S03-N04",
+      "trigger": "A benchmark card drops its exact M07 driver and runtime binding while asserting current hardware equivalence.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U04"
+      ]
+    },
+    {
+      "id": "M14-S03-N05",
+      "trigger": "A protocol draft is marked as a completed authorized GPU test without actual M08 admission or raw results.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U05"
+      ]
+    },
+    {
+      "id": "M14-S03-N06",
+      "trigger": "Cold-start latency is substituted for warm-cache throughput and misrepresented as end-to-end task latency.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U06"
+      ]
+    },
+    {
+      "id": "M14-S03-N07",
+      "trigger": "Synthetic timing values are aggregated into a precise quantile without actual raw samples or clock provenance.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U07"
+      ]
+    },
+    {
+      "id": "M14-S03-N08",
+      "trigger": "Interrupted and thermally contaminated runs with unknown telemetry are marked fully valid and comparable.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U08"
+      ]
+    },
+    {
+      "id": "M14-S03-N09",
+      "trigger": "A device-memory allocation number is treated as a live complete M09 lease and safe multi-model placement.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U09"
+      ]
+    },
+    {
+      "id": "M14-S03-N10",
+      "trigger": "High reported throughput bypasses an unresolved fatal M01 fidelity defect and missing actual human review.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U10"
+      ]
+    },
+    {
+      "id": "M14-S03-N11",
+      "trigger": "A tiny biased synthetic population is assigned unjustified confidence as a production-wide reliability fact.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U11"
+      ]
+    },
+    {
+      "id": "M14-S03-N12",
+      "trigger": "An untrusted compiled provider hint is mistaken for an actual measured M13/M16 backend execution receipt.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U12"
+      ]
+    },
+    {
+      "id": "M14-S03-N13",
+      "trigger": "A video-plus-audio task is compared with a text-only fixture and different temporal or spatial contracts.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U13"
+      ]
+    },
+    {
+      "id": "M14-S03-N14",
+      "trigger": "Latency and VRAM winners are selected across non-equivalent GPUs, runtime revisions and evaluation tasks.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U14"
+      ]
+    },
+    {
+      "id": "M14-S03-N15",
+      "trigger": "Revoked sources and expired calibration remain marked current and drive future model-card publication.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U15"
+      ]
+    },
+    {
+      "id": "M14-S03-N16",
+      "trigger": "A foreign tenant publishes protected fixture data using a stale source permission and a copied model card.",
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "oracle": "NO_UNQUALIFIED_EVIDENCE_OR_RUNTIME_GRANT",
+      "questionIds": [
+        "M14-S03-U16"
+      ]
+    }
+  ],
+  "previousS01QuestionsOpen": 16,
+  "previousS01FutureCases": 12,
+  "previousS02QuestionsOpen": 18,
+  "previousS02FutureCases": 14,
+  "previousM13QuestionsOpen": 96,
+  "previousM13FutureCases": 74,
+  "ownerB": "DIRECTION_ONLY",
+  "m09C01": "UNADOPTED_NOT_FROZEN",
+  "h01h02h03h04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "m10m11m12m13Runtime": "NOT_ADMITTED",
+  "stop": "All 20 M14 S03 questions OPEN_UNRATED_PENDING_QUALIFIED_OWNER, 16 future negative scenarios SPECIFIED_NOT_EXECUTED. This packet contains ZERO empirical benchmark samples and ZERO current performance proof, model rights, provider selection or native execution authority. M01 quality and M02 accepted-master retain independent decision rights. M09 B DIRECTION_ONLY, C01 UNADOPTED_NOT_FROZEN, H01-H04 HIGH_FOR_FUTURE_FREEZE, M10-M13 runtime NOT_ADMITTED. M14 registry and model-card schema remain NOT_ADMITTED."
+}
