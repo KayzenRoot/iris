@@ -1,5 +1,13 @@
 # IRIS Backlog
 
+## M14 S04 SOURCE-ONLY HARDWARE COMPATIBILITY & RELIABILITY (IRIS-WO-0079)
+
+**Independently verified previous S03:** [reviewed PR #209](https://github.com/KayzenRoot/iris/pull/209), original protected main `88f61cbc8091cb9e353ad3d953085f907aef11c5` / tree `b0963f137ddf0ca7b7e2c70c21d5b41b361380df`; separate [new-main Governance #36574246350](https://github.com/KayzenRoot/iris/actions/runs/36574246350) **4762/4762** and same-main Socket SUCCESS; [#208 factual receipt](https://github.com/KayzenRoot/iris/issues/208#issuecomment-5891148170) CLOSED. Parent M14 #204 OPEN. Original S01 16/12, S02 18/14, S03 20/16 questions/negatives still owner-unanswered / NOT_EXECUTED.
+
+**New dedicated [issue #210](https://github.com/KayzenRoot/iris/issues/210):** eight nonbinding source-qualified model/task/M07/M08/backend/resource/rights/quality reliability facets, five future evidence-state vocabularies WITHOUT actual proof, four alternatives ALL UNSELECTED, 22 NEW S04 OPEN/UNRATED source-anchored owner questions and 18 proposed future hostile designs SPECIFIED_NOT_EXECUTED. Fresh original-base Git SHA/mode Context Lock, strict exact changed-path allowlist, machine/human projection and 24 synthetic-only offline regressions (full Governance target **4786**). Own external review, head CI and exact-new-main merge/CI PENDING at proposal authoring.
+
+**STOP:** no actual measured GPU or native provider run, real VRAM/thermal compatibility, current model rights/tenant approval, public API or M09/M11/M12 execution grant. Eight original cross-owner issues remain OPEN, H01–H04 HIGH, M09 B direction-only/C01 unadopted and M10–M13 runtime NOT_ADMITTED. M01 fidelity veto and M02 master authority remain separate.
+
 ## M14 S03 SOURCE-ONLY EMPIRICAL MODEL-CARD DESIGN (IRIS-WO-0078)
 
 **Verified previous S02:** reviewed [PR #207](https://github.com/KayzenRoot/iris/pull/207) protected main `90eacaac4ead5c1c0858c60f2a5ef40400bd51ad` / tree `c3694c28d4b751a40d15d0165ce4e2a6e6c82f30`; [independent new-main Governance #36570999597](https://github.com/KayzenRoot/iris/actions/runs/36570999597) **4738/4738** and same-main Socket SUCCESS. Dedicated [issue #206 factual closeout](https://github.com/KayzenRoot/iris/issues/206#issuecomment-5890700128) CLOSED; parent #204 OPEN. S01 16/12 and S02 18/14 original questions/future cases remain unresolved/unexecuted.

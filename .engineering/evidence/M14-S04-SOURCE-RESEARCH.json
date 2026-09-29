@@ -1,0 +1,691 @@
+{
+  "schemaVersion": "iris-m14-s04-source-research-v0.1",
+  "workOrder": "IRIS-WO-0079",
+  "issue": 210,
+  "module": "M14",
+  "session": "S04",
+  "sourceBaseSha": "88f61cbc8091cb9e353ad3d953085f907aef11c5",
+  "sourceBaseTreeSha": "b0963f137ddf0ca7b7e2c70c21d5b41b361380df",
+  "status": "SOURCE_RESEARCH_ONLY_NO_HARDWARE_QUALIFICATION",
+  "ownerApproval": "NONE",
+  "hardwareContractAdopted": false,
+  "backendSelected": false,
+  "realGpuBenchmarks": 0,
+  "realHardwareCompatibilityReceipts": 0,
+  "realProviderTests": 0,
+  "realM09Leases": 0,
+  "nativeRuntime": "NOT_ADMITTED",
+  "sourceDocs": [
+    {
+      "role": "INDEX",
+      "path": "planning/MASTER-MODULE-INDEX-CURRENT.md",
+      "gitBlobSha1": "02e6394cc7e75d5466ab22801b4cc7dbe66500be",
+      "exactNeedle": "S04 — S04 Hardware compatibility and reliability evidence"
+    },
+    {
+      "role": "FCS",
+      "path": "planning/reviews/M14-M60-FORWARD-COMPATIBILITY-SOURCE-SCAN.md",
+      "gitBlobSha1": "5bac62b5b1a07fb97e43ea5c76d20dc5419c2cec",
+      "exactNeedle": "S04 — S04 Hardware compatibility and reliability evidence"
+    },
+    {
+      "role": "S01",
+      "path": ".engineering/evidence/M14-S01-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "10fe325b3928e58797266ae4ba0b65c87cd532fc",
+      "exactNeedle": "\"session\": \"S01\""
+    },
+    {
+      "role": "S02",
+      "path": ".engineering/evidence/M14-S02-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "d3ac994e130bc54c566449dc0d6efc19a0ca2698",
+      "exactNeedle": "\"session\": \"S02\""
+    },
+    {
+      "role": "S03",
+      "path": ".engineering/evidence/M14-S03-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "cf49ed6140976a14dbd0ac469bb79ed0091e624d",
+      "exactNeedle": "\"session\": \"S03\""
+    },
+    {
+      "role": "S03_REPORT",
+      "path": "planning/research/M14-S03-EMPIRICAL-CARD-EVIDENCE-DESIGN.md",
+      "gitBlobSha1": "9ba713ad3762696feb91b2e3e1aeefc06579dc38",
+      "exactNeedle": "Twenty NEW OPEN/UNRATED S03 owner questions"
+    },
+    {
+      "role": "M01_NORM",
+      "path": "planning/contracts/M01-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "48e00ca6ec3da8a5185fa49ccad37f14b6a5926a",
+      "exactNeedle": "FROZEN_APPROVED"
+    },
+    {
+      "role": "M07",
+      "path": "docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "gitBlobSha1": "2a0b95dd3cc665e2206e454caef5858ef7fb61b0",
+      "exactNeedle": "M07 does not lower quality targets"
+    },
+    {
+      "role": "M07_NORM",
+      "path": "planning/modules/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "gitBlobSha1": "9306e4937ccfb433ff4a0392846aa215ffd6e2a0",
+      "exactNeedle": "M07 does **not** benchmark performance"
+    },
+    {
+      "role": "M08",
+      "path": "docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "461e0f332d9be2af694634bbdc8cf67e29d56393",
+      "exactNeedle": "M08 records empirical performance evidence"
+    },
+    {
+      "role": "M08_NORM",
+      "path": "planning/modules/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "804387a28c318fc82f53e51651f279d76895095c",
+      "exactNeedle": "M08 is the empirical performance-characterization authority"
+    },
+    {
+      "role": "M09",
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+      "exactNeedle": "M09 is the provider-neutral resource-state"
+    },
+    {
+      "role": "M10",
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828",
+      "exactNeedle": "Implementation authority: NOT ADMITTED"
+    },
+    {
+      "role": "M13_S04",
+      "path": "planning/research/M13-S04-CPU-GPU-OVERLAP-IO-STORAGE.md",
+      "gitBlobSha1": "cab009ad3e0a380b136f5af5cc902b09481be2a8",
+      "exactNeedle": "SOURCE-ONLY RESEARCH; NO RUNTIME"
+    },
+    {
+      "role": "D01",
+      "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
+      "gitBlobSha1": "8877331a5004a3e816e4c42fb521ff3408bad08a",
+      "exactNeedle": "B_FUTURE_OWNER_RECEIPT"
+    }
+  ],
+  "facets": [
+    {
+      "id": "CF01_COMPOSITE_TASK_BINDING",
+      "title": "Exact S01 composite package and S02 typed task compatibility",
+      "caveat": "A model label without exact weights, tokenizer, adapters and task input/output constraints is not verified support.",
+      "status": "SOURCE_TAXONOMY_NOT_ADOPTED"
+    },
+    {
+      "id": "CF02_M07_RUNTIME_BINDING",
+      "title": "M07 observed device topology, framework, driver and precision exposure",
+      "caveat": "Self-reported GPU model names or cached device descriptions are not verified exact current runtime evidence.",
+      "status": "SOURCE_TAXONOMY_NOT_ADOPTED"
+    },
+    {
+      "id": "CF03_M08_REPRESENTATIVE_EVIDENCE",
+      "title": "Actual future M08 bounded protocol, fixture, correctness and qualification",
+      "caveat": "A prospective protocol or synthetic CPU hash result is not an independent provider/GPU model compatibility benchmark.",
+      "status": "SOURCE_TAXONOMY_NOT_ADOPTED"
+    },
+    {
+      "id": "CF04_KERNEL_BACKEND_OPERATORS",
+      "title": "Candidate precision, compiled graph, attention kernels and provider operator availability",
+      "caveat": "Claimed backend/precision support cannot authorize installing or importing unreviewed M13/M16/M17 custom code.",
+      "status": "SOURCE_TAXONOMY_NOT_ADOPTED"
+    },
+    {
+      "id": "CF05_RESOURCE_RELIABILITY",
+      "title": "Future VRAM peaks, fragmentation, thermal state, sustained tests and I/O load",
+      "caveat": "One burst sample or a claimed model fit must not become a current M09 complete-member lease or OOM guarantee.",
+      "status": "SOURCE_TAXONOMY_NOT_ADOPTED"
+    },
+    {
+      "id": "CF06_CONFLICT_AND_FRESHNESS",
+      "title": "Evidence conflicts, staleness, drift, aborts, unknown telemetry and revoked facts",
+      "caveat": "Stale device/runtime identity and UNKNOWN hardware readings remain non-positive qualification evidence.",
+      "status": "SOURCE_TAXONOMY_NOT_ADOPTED"
+    },
+    {
+      "id": "CF07_RIGHTS_AND_ISOLATION",
+      "title": "Tenant-scoped package rights, trusted operators, OS permissions and revocation",
+      "caveat": "Model or hardware compatibility never grants commercial use, foreign tenant access, network calls or process rights.",
+      "status": "SOURCE_TAXONOMY_NOT_ADOPTED"
+    },
+    {
+      "id": "CF08_AUTHORITY_AND_FEEDBACK",
+      "title": "Separate M01 acceptance, M02 master, M09 lease and M11/M12 dispatch gates",
+      "caveat": "Quality veto, production approval, live resource grants and worker ACK are independent gates outside M14.",
+      "status": "SOURCE_TAXONOMY_NOT_ADOPTED"
+    }
+  ],
+  "states": [
+    {
+      "id": "VENDOR_DECLARED_UNVERIFIED",
+      "status": "VOCABULARY_ONLY_NO_REAL_COMPATIBILITY"
+    },
+    {
+      "id": "SOURCE_QUALIFIED_DECLARATION_ONLY",
+      "status": "VOCABULARY_ONLY_NO_REAL_COMPATIBILITY"
+    },
+    {
+      "id": "UNKNOWN_OR_CONFLICTED",
+      "status": "VOCABULARY_ONLY_NO_REAL_COMPATIBILITY"
+    },
+    {
+      "id": "FUTURE_REPRESENTATIVE_MEASUREMENT",
+      "status": "VOCABULARY_ONLY_NO_REAL_COMPATIBILITY"
+    },
+    {
+      "id": "FUTURE_OWNER_QUALIFIED_AT_USE",
+      "status": "VOCABULARY_ONLY_NO_REAL_COMPATIBILITY"
+    }
+  ],
+  "alternatives": [
+    {
+      "id": "ALT01_FLAT_HARDWARE_TAG_MATRIX",
+      "title": "Vendor GPU and model tag matrix",
+      "tradeoffs": "Cheap discovery only: mutable GPU names and package aliases omit exact firmware, driver, typed task, permissions and invalidation.",
+      "selected": false,
+      "status": "RESEARCH_ONLY_NOT_SELECTED"
+    },
+    {
+      "id": "ALT02_EXACT_TASK_HARDWARE_TUPLE",
+      "title": "Typed model-package, task, M07 snapshot and protocol tuple",
+      "tradeoffs": "Explicit comparison boundaries but still unverified until a real qualified owner, exact M08 result and per-tenant rights exist.",
+      "selected": false,
+      "status": "RESEARCH_ONLY_NOT_SELECTED"
+    },
+    {
+      "id": "ALT03_VERSIONED_EVIDENCE_DAG",
+      "title": "Revisioned model/task/device/backend evidence and invalidation graph",
+      "tradeoffs": "Better conflict and revocation lineage but needs independent signed issuers and transparent M07/M08 semantics, not a guessed score.",
+      "selected": false,
+      "status": "RESEARCH_ONLY_NOT_SELECTED"
+    },
+    {
+      "id": "ALT04_FUTURE_SIGNED_AT_USE_RECEIPT",
+      "title": "Future qualified at-use hardware-compatibility evidence receipt",
+      "tradeoffs": "Cannot exist here without actual M08 representative measurement, independent M14/M18/M54 approval and M09/M11/M12 authority separation.",
+      "selected": false,
+      "status": "RESEARCH_ONLY_NOT_SELECTED"
+    }
+  ],
+  "questions": [
+    {
+      "id": "M14-S04-U01",
+      "question": "How must exact S01 package closure and typed S02 task dimensions jointly identify the subject of a future hardware support claim?",
+      "sourceRoles": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U02",
+      "question": "What precise M07 hardware identity, device topology, current driver, runtime and normalized precision facts must be present before a model can be tested?",
+      "sourceRoles": [
+        "M07",
+        "M07_NORM",
+        "M08"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U03",
+      "question": "Which hardware capability declarations are merely self-reported rather than confirmed by independent capable and correctly scoped M07 probes?",
+      "sourceRoles": [
+        "M07",
+        "M07_NORM"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U04",
+      "question": "How should a future real M08 protocol bind exact model task/fixture, M07 host, safety budget and authenticated permission to measure?",
+      "sourceRoles": [
+        "M08",
+        "M08_NORM",
+        "S03"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U05",
+      "question": "Which actual model correctness and M01 fidelity evidence must precede any future accuracy or speed comparison for a target workload?",
+      "sourceRoles": [
+        "M01_NORM",
+        "M08",
+        "S03"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U06",
+      "question": "What declared FP8/FP16/BF16 precision representations, accumulation and operator compatibility require separate conformance evidence?",
+      "sourceRoles": [
+        "M07",
+        "M13_S04",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U07",
+      "question": "How can compiled attention kernels, graph breaks and custom operators remain unsupported claims until separate M13/M16/M18 trust owners qualify them?",
+      "sourceRoles": [
+        "M13_S04",
+        "FCS",
+        "S03"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U08",
+      "question": "Which initial and peak VRAM allocations, host fallback and fragmentation data are required before calling an exact workload memory-compatible?",
+      "sourceRoles": [
+        "M08",
+        "M09",
+        "S03"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U09",
+      "question": "How can unknown thermal telemetry, abort, repeated resets and competing-process interference prevent false sustained-reliability claims?",
+      "sourceRoles": [
+        "M07",
+        "M08",
+        "M13_S04"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U10",
+      "question": "What is the owner-approved distinction between one supported burst, a repeated representative run and production reliability for each workload?",
+      "sourceRoles": [
+        "M08",
+        "M08_NORM",
+        "S03"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U11",
+      "question": "Which storage, I/O, transfer and CPU/GPU overlap measurements may be described without authorizing a runtime scheduler or file-system access?",
+      "sourceRoles": [
+        "M13_S04",
+        "M08",
+        "M09"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U12",
+      "question": "What package/environment incompatibilities require an INCOMPARABLE result rather than a numeric score or silent default provider fallback?",
+      "sourceRoles": [
+        "S01",
+        "M07",
+        "S03"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U13",
+      "question": "How should differing M07 runtime versions, firmware, driver and device revisions revoke inherited historical compatibility labels?",
+      "sourceRoles": [
+        "M07",
+        "M07_NORM",
+        "S03"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U14",
+      "question": "Which exact evidence clock, provenance, freshness, conflict and withdrawal markers must fail closed before any real qualification is published?",
+      "sourceRoles": [
+        "M07",
+        "M08",
+        "S03"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U15",
+      "question": "How must an M09 lease, member set, owner receipt and lifecycle event remain separate from a declared model memory-fit hint?",
+      "sourceRoles": [
+        "M09",
+        "D01",
+        "M10"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U16",
+      "question": "What independent M11 process-owner ACK, M12 attempt fence and M60 OS authority is required beyond future M14 hardware evidence?",
+      "sourceRoles": [
+        "M10",
+        "FCS",
+        "D01"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U17",
+      "question": "Which rights, tenant scope, executable package trust and revoked license facts are required before even a physically compatible model may be used?",
+      "sourceRoles": [
+        "FCS",
+        "S01",
+        "D01"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U18",
+      "question": "How should M01 unresolved fatal quality defects and the accepted M02 master prevent an empirically faster model from being silently promoted?",
+      "sourceRoles": [
+        "M01_NORM",
+        "S03",
+        "FCS"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U19",
+      "question": "Which low-VRAM/CPU-only fallback declarations must be distinguished from representative empirical support and actual platform permissions?",
+      "sourceRoles": [
+        "M07",
+        "M08",
+        "S02"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U20",
+      "question": "How do multi-device topology, peer accessibility and driver interoperability affect uncertainty without claiming cross-device production support?",
+      "sourceRoles": [
+        "M07",
+        "M07_NORM",
+        "M08"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U21",
+      "question": "Which original source-owner attestation and independent M18/M54 supply/rights review must precede a real M14 hardware qualification receipt?",
+      "sourceRoles": [
+        "FCS",
+        "S03",
+        "D01"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    },
+    {
+      "id": "M14-S04-U22",
+      "question": "Which future S05 invalidation and drift conditions should retire a once-qualified host/model binding while preserving historical source provenance?",
+      "sourceRoles": [
+        "INDEX",
+        "S03",
+        "M08"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null,
+      "executionAuthority": "NONE"
+    }
+  ],
+  "negativeScenarios": [
+    {
+      "id": "M14-S04-N01",
+      "trigger": "Vendor declares a GPU model supported, but the current M07 runtime has conflicting driver and missing framework exposure.",
+      "questionIds": [
+        "M14-S04-U02",
+        "M14-S04-U03"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N02",
+      "trigger": "One model alias is pinned while its tokenizer or adapter changes and old hardware compatibility results are reused.",
+      "questionIds": [
+        "M14-S04-U01",
+        "M14-S04-U12"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N03",
+      "trigger": "A source-only M08 protocol is promoted to a real GPU model qualification without actual probe or permission receipts.",
+      "questionIds": [
+        "M14-S04-U04"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N04",
+      "trigger": "A CPU hash microbenchmark is used to assert GPU diffusion performance and a new typed image workflow's compatibility.",
+      "questionIds": [
+        "M14-S04-U04",
+        "M14-S04-U05"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N05",
+      "trigger": "A vendor FP8 badge is accepted while the actual host arithmetic format, conversion and accumulation evidence is unknown.",
+      "questionIds": [
+        "M14-S04-U06"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N06",
+      "trigger": "A compiled attention backend imports an untrusted extension while M13/M16/M18 owners and native execution rights are absent.",
+      "questionIds": [
+        "M14-S04-U07",
+        "M14-S04-U17"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N07",
+      "trigger": "A single short low-VRAM generation run is treated as stable sustained use despite unknown fragmentation and memory peaks.",
+      "questionIds": [
+        "M14-S04-U08",
+        "M14-S04-U10"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N08",
+      "trigger": "Unknown thermal readings and aborted runs are relabeled as valid representative sustained reliability measurements.",
+      "questionIds": [
+        "M14-S04-U09",
+        "M14-S04-U10"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N09",
+      "trigger": "A speculative CPU/GPU overlap design is treated as authorization for storage operations, IO scheduling and worker processes.",
+      "questionIds": [
+        "M14-S04-U11",
+        "M14-S04-U16"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N10",
+      "trigger": "An incompatible firmware/runtime revision is silently mapped to a different benchmark and ranked by numerical speed.",
+      "questionIds": [
+        "M14-S04-U12",
+        "M14-S04-U13"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N11",
+      "trigger": "A stale compatibility receipt remains positive after original device evidence expiry, revocation or conflicting topology.",
+      "questionIds": [
+        "M14-S04-U13",
+        "M14-S04-U14"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N12",
+      "trigger": "A model task's measured memory hint is converted into a live M09 all-member resource lease with no actual owner approval.",
+      "questionIds": [
+        "M14-S04-U08",
+        "M14-S04-U15"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N13",
+      "trigger": "A purported model-card hardware PASS is used to launch an M11 worker despite absent M12 attempt fence and OS grant.",
+      "questionIds": [
+        "M14-S04-U15",
+        "M14-S04-U16"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N14",
+      "trigger": "A foreign tenant reuses another tenant's qualified model evidence and rights after their source permission expires.",
+      "questionIds": [
+        "M14-S04-U17"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N15",
+      "trigger": "A faster provider result suppresses a documented fatal M01 defect and overwrites the previously accepted M02 master.",
+      "questionIds": [
+        "M14-S04-U05",
+        "M14-S04-U18"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N16",
+      "trigger": "A text-only CPU result is presented as representative support for a low-VRAM temporal video workload on an unseen GPU.",
+      "questionIds": [
+        "M14-S04-U04",
+        "M14-S04-U19"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N17",
+      "trigger": "A multi-GPU peer-access hint claims complete tested interoperability when only one directional link had fresh evidence.",
+      "questionIds": [
+        "M14-S04-U02",
+        "M14-S04-U20"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "M14-S04-N18",
+      "trigger": "A previously source-qualified package and device label survives original signature revocation and S05 model drift.",
+      "questionIds": [
+        "M14-S04-U21",
+        "M14-S04-U22"
+      ],
+      "nonAuthorizingOracle": "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    }
+  ],
+  "priorS01QuestionsOpen": 16,
+  "priorS01FutureCases": 12,
+  "priorS02QuestionsOpen": 18,
+  "priorS02FutureCases": 14,
+  "priorS03QuestionsOpen": 20,
+  "priorS03FutureCases": 16,
+  "priorM13QuestionsOpen": 96,
+  "priorM13FutureCases": 74,
+  "ownerB": "B_FUTURE_OWNER_RECEIPT_DIRECTION_ONLY",
+  "m09C01": "UNADOPTED_NOT_FROZEN",
+  "highs": "ALL_OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "m10m11m12m13Runtime": "NOT_ADMITTED",
+  "stop": "M14 S04 is SOURCE_RESEARCH_ONLY: 22 NEW questions remain OPEN_UNRATED_PENDING_QUALIFIED_OWNER, eighteen future negative designs SPECIFIED_NOT_EXECUTED; ZERO real GPU provider benchmarks, verified hardware fit, owner/rights receipts, native model registry runtime, live M09 lease or M11/M12 dispatch. All eight research facets UNADOPTED, five state names VOCABULARY_ONLY and four representation alternatives UNSELECTED. M01 quality and M02 accepted master unchanged. M09 B DIRECTION_ONLY, C01 UNADOPTED_NOT_FROZEN, H01-H04 HIGH_FOR_FUTURE_FREEZE; M10-M13 runtime NOT_ADMITTED. No actual GPU/OS/process/storage/network/cloud probe or deployment admitted."
+}
