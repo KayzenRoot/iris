@@ -124,16 +124,14 @@ class StandaloneIRISMigrationTests(unittest.TestCase):
                        "C01 UNADOPTED_NOT_FROZEN", "M10/M11/M12/M13 runtime NOT_ADMITTED"):
             self.assertIn(marker, n)
 
-    def test_11_no_live_import_of_deleted_client(self):
-        """Production modules/scripts cannot import the retired client."""
+    def test_11_no_live_import_of_retired_project_launchers(self):
+        """Production modules/scripts cannot import project MCP/bootstrap launchers."""
+        forbidden = r"(?m)^\s*(?:from\s+scripts\.[A-Za-z0-9_]*(?:mcp|bootstrap)\b|import\s+scripts\.[A-Za-z0-9_]*(?:mcp|bootstrap)\b)"
         for root in [ROOT / "scripts", *ROOT.glob("iris_*")]:
             if root.is_dir():
                 for path in root.glob("*.py"):
                     with self.subTest(path=str(path.relative_to(ROOT))):
-                        self.assertNotRegex(
-                            path.read_text(),
-                            r"(?m)^\s*(?:from\s+scripts\.iris_|import\s+(?:scripts\.)?iris_)",
-                        )
+                        self.assertNotRegex(path.read_text(), forbidden)
 
     def test_12_operator_notes_do_not_claim_to_uninstall_pc(self):
         """Operator still controls personal data, Docker volumes and global configs."""
