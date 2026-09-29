@@ -1,5 +1,13 @@
 # IRIS Backlog
 
+## M14 S02 CAPABILITY GENOME / TASK TAXONOMY (IRIS-WO-0077 SOURCE ONLY)
+
+**Original independent main:** `1cda2aa29e77474fa0e27c99d88646351cae69b7` / tree `8c523de8b9422174ee33f563595becdbf5fbd28b` after reviewed [WO0076 PR #205](https://github.com/KayzenRoot/iris/pull/205); separate [Governance #36568101157](https://github.com/KayzenRoot/iris/actions/runs/36568101157) **4712/4712** and same-main Socket SUCCESS. S01 [factual #204 receipt](https://github.com/KayzenRoot/iris/issues/204#issuecomment-5890295975) complete SOURCE_ONLY; original 16 S01 questions OPEN/UNRATED and 12 future negative cases NOT_EXECUTED.
+
+**New admission [M14 S02 issue #206](https://github.com/KayzenRoot/iris/issues/206):** six conceptual source-only Genome dimensions; seven provisional text/image/video/audio/3D/composite/structured task families; five evidence labels (including only future vocabulary OWNER_VERIFIED and EMPIRICALLY_MEASURED, no actual receipts), four research strategies ALL UNSELECTED; eighteen NEW S02 original questions OPEN/UNRATED and fourteen future adversarial cases SPECIFIED_NOT_EXECUTED. Exact original source SHA+mode Context Lock, strict diff, byte-matching human machine projections and 24 synthetic-only tests target full **4736**. Own independent head CI/review/protected merge/separate new-main CI PENDING at source authoring.
+
+**STOP:** no task ranking, model download/installation, vendor/operator selection, actual empirical benchmark, legal right, executable registry or API, GPU/OS/network/process/storage action. Eight original owner issues remain OPEN; H01–H04 HIGH, B direction only, C01 unadopted, M10–M13 runtime NOT_ADMITTED; M13 96/74 unchanged.
+
 ## M14 S01 ORIGINAL SOURCE-ONLY RESEARCH ADMISSION (IRIS-WO-0076)
 
 **Current original protected baseline:** independently verified WO0075 [PR #203](https://github.com/KayzenRoot/iris/pull/203), `main` `5d864f7a37f14f7daccdd385aa2cba1d77cece39` / original tree `0556959bba5f7bb897901e875d8663956ea55681`; separate [new-main Governance #36565447006](https://github.com/KayzenRoot/iris/actions/runs/36565447006) **4688/4688** and same-main Socket Project Report SUCCESS; [#202 factual closeout](https://github.com/KayzenRoot/iris/issues/202#issuecomment-5889866025) CLOSED. Source-only M14 S01 [issue #204](https://github.com/KayzenRoot/iris/issues/204) is a NEW pending original-base Work Order, not an M14 owner freeze. Original active master index M14 has five sessions; M13 S01–S05, FTR and full FCS documented but M13 remains NOT_FROZEN.
