@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "iris-offline-maintenance-evidence-v1",
+  "workOrder": "IRIS-WO-0074",
+  "issue": 186,
+  "originalProtectedBaseSha": "f5b267a6d8522a531129ca35a874feda377c61b3",
+  "baseTreeSha": "bd456adf95e6a452cc8fb42b7722687204c495f7",
+  "latestOriginalManifestAnchor": {
+    "path": ".engineering/context-locks/IRIS-WO-0073-WO0072-POSTMERGE-CHECKPOINT.json",
+    "gitBlobSha1": "64db523ee483c3aa8a3b376a928b76f1b0c36ff9"
+  },
+  "originalSourcePins": 29,
+  "allPinnedSourcesOriginalMode": "100644",
+  "authorizedChangedPaths": [
+    ".engineering/context-locks/IRIS-WO-0074-CONTEXT-LOCK-GIT-MODE-GUARD.json",
+    ".engineering/evidence/IRIS-WO-0074.json",
+    ".engineering/work-orders/IRIS-WO-0074-CONTEXT-LOCK-GIT-MODE-GUARD.md",
+    "planning/checkpoints/IRIS-WO-0074-CONTEXT-LOCK-GIT-MODE-GUARD.md",
+    "scripts/verify_context_lock.py",
+    "tests/test_wo0074_context_lock_git_modes.py"
+  ],
+  "fullSuiteBaselineBeforeChanges": "4680/4680",
+  "baselineGovernanceRun": 36561065944,
+  "baselineSocketProjectReport": "SUCCESS",
+  "oldUnmergedPR": 187,
+  "focusedNewOfflineTests": 8,
+  "targetFullSuite": 4688,
+  "defectClass": "NONREGULAR_GIT_MODE_PREVENTIVE_FAIL_CLOSED",
+  "codeScope": "exact original-base 100644 source and latest anchor, exact HEAD 100644 changed Context Lock before JSON parsing",
+  "ownHeadCI": "PENDING",
+  "ownExternalReview": "PENDING",
+  "ownProtectedMerge": "PENDING",
+  "ownIndependentExactMain": "PENDING",
+  "originalOwnerProofReceived": false,
+  "actualPhysicalOrRuntimeAction": false,
+  "nativeRuntime": "NOT_ADMITTED",
+  "conclusion": "PROPOSED_ONLY"
+}
