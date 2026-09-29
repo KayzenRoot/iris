@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "iris-m14-s02-documentary-work-order-evidence-v0.1",
+  "workOrder": "IRIS-WO-0077",
+  "issue": 206,
+  "originalBaseSha": "1cda2aa29e77474fa0e27c99d88646351cae69b7",
+  "originalBaseTreeSha": "8c523de8b9422174ee33f563595becdbf5fbd28b",
+  "originalSourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "expected": 48,
+    "checked": 48,
+    "matched": 48,
+    "originalModes": "ALL_100644",
+    "latestOriginalAnchorPath": ".engineering/context-locks/IRIS-WO-0076-M14-S01-SOURCE-RESEARCH.json",
+    "latestOriginalAnchorBlobSha": "8478034c2664570070495e6ef7303eca131d44d6"
+  },
+  "authorizedChangedPaths": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0077-M14-S02-CAPABILITY-GENOME.json",
+    ".engineering/evidence/IRIS-WO-0077.json",
+    ".engineering/evidence/M14-S02-SOURCE-RESEARCH.json",
+    ".engineering/work-orders/IRIS-WO-0077-M14-S02-CAPABILITY-GENOME.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0077-M14-S02-CAPABILITY-GENOME.md",
+    "planning/research/M14-S02-CAPABILITY-GENOME-TASK-TAXONOMY.md",
+    "scripts/verify_m14_s02_research.py",
+    "tests/test_m14_s02_research.py"
+  ],
+  "priorM14S01": {
+    "pr": 205,
+    "finalCandidate": "6e364c197c7ef4df8f0b2b52a6e6c7a74182c1e5",
+    "headGovernance": 36566981849,
+    "headTests": "4712/4712",
+    "codeRabbitRun": "3fd61bc5-5512-4c00-ace5-8f3cc27de5ba",
+    "codeRabbit": "COMPLETE_ZERO_ACTIONABLE",
+    "mainSha": "1cda2aa29e77474fa0e27c99d88646351cae69b7",
+    "mainGovernance": 36568101157,
+    "mainTests": "4712/4712",
+    "mainSocket": "SUCCESS",
+    "issue204": "S01_FACTUAL_RECEIPT_PARENT_OPEN"
+  },
+  "newM14S02": {
+    "status": "PROPOSED_SOURCE_RESEARCH_ONLY",
+    "sourceRoles": 12,
+    "nonbindingDimensions": 6,
+    "provisionalTaskFamilies": 7,
+    "evidenceStateVocabularyOnly": 5,
+    "unselectedAlternatives": 4,
+    "newOwnerQuestionsOpen": 18,
+    "newFutureNegativesNotExecuted": 14,
+    "deterministicNewTests": 24,
+    "fullSuiteTarget": 4736,
+    "ownerApproval": false,
+    "modelRegistryAdmitted": false,
+    "empiricalEvidenceCollected": false
+  },
+  "originalOwnerStops": {
+    "m14S01QuestionsOpen": 16,
+    "m14S01FutureCasesNotExecuted": 12,
+    "m13QuestionsOpen": 96,
+    "m13FutureCasesNotExecuted": 74,
+    "m09B": "DIRECTION_ONLY",
+    "m09C01": "UNADOPTED_NOT_FROZEN",
+    "h01h02h03h04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+    "m10m11m12m13Runtime": "NOT_ADMITTED"
+  },
+  "ownHeadCI": "PENDING",
+  "ownIndependentExternalReview": "PENDING",
+  "ownProtectedMerge": "PENDING",
+  "ownExactNewMainCI": "PENDING",
+  "conclusion": "AUTHOR_TIME_PROPOSED_SOURCE_ONLY"
+}
