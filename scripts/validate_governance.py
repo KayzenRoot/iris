@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,7 +15,6 @@ REQUIRED = (
     ".engineering/gef/GEF-PROJECT-PROFILE.json", ".engineering/gef/GEF-SOURCE-BRIDGE.json",
     ".engineering/gef/GEF-POLICY.md", ".engineering/gef/GEF-EXECUTION-PROTOCOL.md",
     ".engineering/gef/GEF-REVIEW-PROTOCOL.md", ".engineering/gef/GEF-EVIDENCE-SPEC.md",
-    ".engineering/context-locks/IRIS-WO-0001.json", ".engineering/evidence/IRIS-WO-0001.json",
     "docs/project-brain/00-README-UPLOAD-ORDER.md", "docs/project-brain/01-PROJECT-OVERVIEW.md",
     "docs/project-brain/02-REQUIREMENTS.md", "docs/project-brain/03-SCOPE.md",
     "docs/project-brain/04-ARCHITECTURE.md", "docs/project-brain/05-INTEGRATION-CONTRACTS.md",
@@ -99,6 +100,11 @@ def main() -> None:
     required_domains = {"PROJECT_STATE":"docs/project-brain/13-CHECKPOINT.md","DECISION":"docs/project-brain/16-DECISIONS-LEDGER.md","SCOPE":"docs/project-brain/03-SCOPE.md","COMPLETION":"docs/project-brain/15-DEFINITION-OF-DONE.md","ARCHITECTURE":"docs/project-brain/04-ARCHITECTURE.md","REQUIREMENT":"docs/project-brain/02-REQUIREMENTS.md","SECURITY":"docs/project-brain/10-SECURITY-GOVERNANCE.md","VALIDATION":"docs/project-brain/11-TEST-BENCHMARK-PLAN.md","DEPLOYMENT":"docs/project-brain/12-LOCAL-DEPLOYMENT.md","INTEGRATION":"docs/project-brain/05-INTEGRATION-CONTRACTS.md"}
     for domain, relative in required_domains.items():
         if source.get("domains", {}).get(domain) != relative: fail(f"source bridge mismatch: {domain}")
+
+    result = subprocess.run([sys.executable, str(ROOT / "scripts/audit_retired_context.py")],
+                            cwd=ROOT, capture_output=True, text=True, check=False)
+    if result.returncode:
+        fail("retired external context source-tree scan failed: " + result.stdout[-8000:])
 
     print("IRIS governance validation: PASS")
     print(f"GEF: v1.0.0 @ {GEF_SHA}")
