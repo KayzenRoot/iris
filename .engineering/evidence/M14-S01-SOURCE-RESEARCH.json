@@ -530,5 +530,5 @@
       "status": "REFERENCE_ONLY_NOT_ADOPTED_OR_LEGAL_PROOF"
     }
   ],
-  "stop": "All M14 S01 identities, component classes, license facets, versions and manifest options are NONBINDING planning only. M14 owner questions stay OPEN/UNRATED and future hostile cases SPECIFIED_NOT_EXECUTED. No source owner contract, SPDX legal permission, registry or package install, model download, native custom code, empirical benchmark, model eligibility, M09 grant, M11/M12 process dispatch, OS/GPU/storage/cloud/network rights or other M10-M13 runtime is ADMITTED. Qualified M14/M18/M53/M54/M60 owner gates and original H01-H04 remain separately blocked."
+  "stop": "All M14 S01 identities, component classes, license facets, versions and manifest options are NONBINDING planning only. M14 owner questions stay OPEN/UNRATED and future hostile cases SPECIFIED_NOT_EXECUTED. No source owner contract, SPDX legal permission, registry or package install, model download, native custom code, empirical benchmark, model eligibility, M09 grant, M11/M12 process dispatch, OS/GPU/storage/cloud/network rights or other M10-M13 runtime is ADMITTED. Qualified M14/M18/M53/M54/M60 owner gates and original H01-H04 remain separately blocked. M10-M13 native runtime remains NOT_ADMITTED."
 }
