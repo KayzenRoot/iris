@@ -120,12 +120,19 @@ class M14S03SourceResearchTests(unittest.TestCase):
         with self.assertRaises(M14S03IntegrityError):
             self.audit(p)
 
-    def test_16_design_alternative_cannot_be_selected_implicitly(self):
-        """Check design alternative cannot be selected implicitly."""
-        p = self.copy()
-        p["alternatives"][3]["selected"] = True
-        with self.assertRaises(M14S03IntegrityError):
-            self.audit(p)
+    def test_16_alternative_selection_or_truncated_tradeoffs_rejected(self):
+        """Reject a selected, missing or truncated research alternative caveat."""
+        for mode in ("selected", "missing", "truncated"):
+            with self.subTest(mode=mode):
+                p = self.copy()
+                if mode == "selected":
+                    p["alternatives"][3]["selected"] = True
+                elif mode == "missing":
+                    del p["alternatives"][3]["tradeoffs"]
+                else:
+                    p["alternatives"][3]["tradeoffs"] = "Too brief."
+                with self.assertRaises(M14S03IntegrityError):
+                    self.audit(p)
 
     def test_17_missing_new_open_owner_question_is_rejected(self):
         """Check missing new open owner question is rejected."""
