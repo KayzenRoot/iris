@@ -49,5 +49,5 @@ jobs:
             --pr-head-repo "$PR_HEAD_REPO" --pr-base-repo "$PR_BASE_REPO"
       - name: Validate IRIS governance
         run: python scripts/validate_governance.py
-      - name: Test GEF and HIVE bridges
+      - name: Test standalone IRIS and GEF source governance
         run: python -m unittest discover -s tests -p "test_*.py" -v

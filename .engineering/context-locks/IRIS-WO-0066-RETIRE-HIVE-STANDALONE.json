@@ -8,9 +8,9 @@
     "algorithm": "Git blob SHA-1",
     "baseSha": "2285cb16ebc6f28d909880e72611c2bbca4388e3",
     "baseTreeSha": "033f9583e5e7cdaa74388693ed8ea1deb25d9b69",
-    "expected": 53,
-    "checked": 53,
-    "matched": 53,
+    "expected": 54,
+    "checked": 54,
+    "matched": 54,
     "mismatches": 0
   },
   "criticalSources": [
@@ -225,6 +225,10 @@
     {
       "path": "tests/test_wo0061_m04_deep_json_refusal.py",
       "gitBlobSha1": "d6f2e67e87d09e2429be6e805a048f3c07dfb386"
+    },
+    {
+      "path": "tests/test_wo0062_canonical_closeout.py",
+      "gitBlobSha1": "ed5cbd54aa17e7e2d55129a5d2766b092731c288"
     }
   ],
   "sourceManifestAnchor": {
@@ -275,6 +279,7 @@
     "scripts/validate_governance.py",
     "tests/test_hive_bootstrap.py",
     "tests/test_hive_mcp.py",
+    "tests/test_wo0062_canonical_closeout.py",
     "tests/test_wo0066_hive_retirement.py"
   ]
 }

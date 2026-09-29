@@ -4,7 +4,7 @@
   "issue": 188,
   "originalMain": "2285cb16ebc6f28d909880e72611c2bbca4388e3",
   "originalTree": "033f9583e5e7cdaa74388693ed8ea1deb25d9b69",
-  "originalSourcePins": 53,
+  "originalSourcePins": 54,
   "priorInheritedPins": 26,
   "sourceAnchor": {
     "path": ".engineering/context-locks/IRIS-WO-0064-WO0063-CANONICAL-CLOSEOUT.json",
@@ -54,6 +54,7 @@
     "scripts/validate_governance.py",
     "tests/test_hive_bootstrap.py",
     "tests/test_hive_mcp.py",
+    "tests/test_wo0062_canonical_closeout.py",
     "tests/test_wo0066_hive_retirement.py"
   ],
   "deletedOperationalPaths": [
@@ -88,5 +89,6 @@
   "ownHeadGovernance": "PENDING",
   "ownExternalReview": "PENDING",
   "ownProtectedMerge": "PENDING",
-  "ownIndependentMain": "PENDING"
+  "ownIndependentMain": "PENDING",
+  "retiredStaleCheckpointRegressionUpdated": "tests/test_wo0062_canonical_closeout.py preserves all original owner/WO0061 history expectations and replaces obsolete external runtime OFFLINE/source_not_current current-state assertions with ADR-0047 RETIRED"
 }
