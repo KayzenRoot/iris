@@ -58,7 +58,7 @@ class ContextLockRealGitModeTests(unittest.TestCase):
             if anchor_mode == "100755":
                 self.git(root, "update-index", "--chmod=+x", anchor_path)
             elif anchor_mode == "120000":
-                oid = self.git(root, "hash-object", "-w", "--stdin", payload=b"other-base-lock.json")
+                oid = self.git(root, "hash-object", "-w", "--stdin", payload=json.dumps(original).encode("utf-8"))
                 self.git(root, "update-index", "--add", "--cacheinfo", f"120000,{oid},{anchor_path}")
         if source_mode == "100755":
             self.git(root, "update-index", "--chmod=+x", AUTHORITY)
