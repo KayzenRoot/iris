@@ -133,9 +133,13 @@ def verify_packet(p: dict, root: Path = ROOT, *, verify_markdown: bool = True) -
         require(type(actual) is dict and actual == {
                     "role":role,"path":path,"gitBlobSha1":sha,"exactNeedle":needle},
                 "source role or original SHA/anchor altered: "+role)
-        raw=(root / path).read_bytes()
-        require(git_blob(raw)==sha and needle in raw.decode("utf-8"),
-                "original source Git SHA or exact text needle drift: "+role)
+        try:
+            raw = (root / path).read_bytes()
+            source_text = raw.decode("utf-8")
+        except (OSError, UnicodeDecodeError) as exc:
+            raise M14S02IntegrityError("original source unreadable: " + role) from exc
+        require(git_blob(raw) == sha and needle in source_text,
+                "original source Git SHA or exact text needle drift: " + role)
     index=(root / SOURCES[0][1]).read_text(encoding="utf-8")
     for s in ("S01 — S01 Model identity, versions, hashes, license and provenance",
               "S02 — S02 Capability Genome and task taxonomy",
