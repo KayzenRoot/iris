@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "iris-evidence-bundle-v1",
+  "workOrder": "IRIS-WO-0064",
+  "issue": 184,
+  "status": "AUTHOR_TIME_PROPOSED_OWN_HEAD_CI_REVIEW_PROTECTED_MERGE_EXACT_MAIN_PENDING",
+  "originalBaseSha": "6bb811bb4bf747903f3f8b754eca6e076947262b",
+  "originalBaseTreeSha": "619cabc4487112af98c63a552f86d18ad2490b7f",
+  "originalSourcePins": 26,
+  "inheritedBaseManifestPins": 25,
+  "sourceManifestAnchor": {
+    "path": ".engineering/context-locks/IRIS-WO-0063-SOURCE-MANIFEST-ANCHOR.json",
+    "gitBlobSha1": "1367455541ddf567ec55a17318f812afeb1b29c2"
+  },
+  "authorizedChangedPaths": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0064-WO0063-CANONICAL-CLOSEOUT.json",
+    ".engineering/evidence/IRIS-WO-0064.json",
+    ".engineering/work-orders/IRIS-WO-0064-WO0063-CANONICAL-CLOSEOUT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0064-WO0063-CANONICAL-CLOSEOUT.md",
+    "tests/test_wo0064_canonical_closeout.py"
+  ],
+  "newOfflineConsistencyTests": 6,
+  "fullSuiteTarget": 4667,
+  "previousActuallyGreen": {
+    "workOrder": "IRIS-WO-0063",
+    "pr": 183,
+    "reviewedHead": "9cf00a7fb598f849c89915eb6ca8c86d13035585",
+    "headGovernanceRun": 36480957370,
+    "headFullSuite": "4661/4661",
+    "protectedMainSha": "6bb811bb4bf747903f3f8b754eca6e076947262b",
+    "protectedMainTree": "619cabc4487112af98c63a552f86d18ad2490b7f",
+    "independentMainGovernanceRun": 36482361141,
+    "independentMainFullSuite": "4661/4661",
+    "sameMainSocket": "SUCCESS",
+    "issue182Receipt": 5878378278,
+    "allFourPriorThreadsResolved": true,
+    "finalGreptileRereviewClaimed": false
+  },
+  "ownHeadCI": "PENDING",
+  "ownExternalReviews": "PENDING",
+  "ownProtectedMerge": "PENDING",
+  "ownIndependentExactMain": "PENDING",
+  "originalOwnerProofReceived": false,
+  "actualPhysicalOrRuntimeAction": false,
+  "b": "DIRECTION_ONLY",
+  "c01": "UNADOPTED_NOT_FROZEN",
+  "h01h02h03h04": "OPEN_HIGH_FOR_FUTURE_FREEZE",
+  "nativeRuntime": "NOT_ADMITTED",
+  "checkpointDelta": "Prior verified WO0063 only; own WO0064 proposed status recorded solely in its independent Work Order/Evidence pending factual postmerge issue receipt, avoiding a recursive checkpoint closeout."
+}
