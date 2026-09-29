@@ -25,7 +25,8 @@
     "planning/reviews/M14-FTR-INDEPENDENT-DOCUMENTARY-AUDIT.md",
     "planning/reviews/IRIS-WO-0083-BOUNDED-AUDIT-TARGET.md",
     "scripts/verify_m14_ftr_audit.py",
-    "tests/test_m14_ftr_audit.py"
+    "tests/test_m14_ftr_audit.py",
+    "scripts/verify_context_lock.py"
   ],
   "priorFullyVerifiedWO0082": {
     "pr": 217,

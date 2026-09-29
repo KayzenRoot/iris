@@ -4,6 +4,12 @@ from copy import deepcopy
 from pathlib import Path
 import tempfile
 import unittest
+import json
+
+from scripts.verify_context_lock import (
+    ContextLockError, WO0083_LOCK, WO0083_ADDITIONAL_SOURCE_PATHS,
+    WO0083_EXACT_CHANGED_PATHS, verify_lock,
+)
 
 from scripts.verify_m14_ftr_audit import (
     ROOT, REPORT, REQUIRED, M14AuditIntegrityError, load, mock_positive_checkboxes,
@@ -154,6 +160,42 @@ class M14FTRIndependentDocumentaryAuditTests(unittest.TestCase):
                 with self.subTest(collection=collection,invalid_row=str(bad)):
                     p=self.fresh();p[collection][0]=bad
                     with self.assertRaises(M14AuditIntegrityError):self.check(p)
+        # Independent WO0083 fixed-membership regression. The original 67
+        # paths come from the immutable previously pinned actual Git manifest,
+        # never the submitted lock itself. All 14 changes come from code literals.
+        original=json.loads((ROOT/self.packet["sourceFTR"]["originalManifestPath"]).read_text(encoding="utf-8"))
+        submitted=json.loads((ROOT/WO0083_LOCK).read_text(encoding="utf-8"))
+        inherited={row["path"] for row in original["criticalSources"]}
+        base_blobs={row["path"]:row["gitBlobSha1"] for row in submitted["criticalSources"]}
+        base_modes={path:"100644" for path in base_blobs}
+        def check_scope(proposal, changed=None, additions=None):
+            verify_lock(proposal,base_sha=self.packet["baseSha"],
+                base_tree_sha=self.packet["baseTreeSha"],base_blobs=(additions or base_blobs),
+                base_modes=base_modes,changed_paths=(WO0083_EXACT_CHANGED_PATHS if changed is None else changed),
+                lock_path=WO0083_LOCK,inherited_source_paths=inherited)
+        self.assertEqual(len(inherited),67)
+        self.assertEqual(len(WO0083_ADDITIONAL_SOURCE_PATHS),5)
+        self.assertEqual(len(WO0083_EXACT_CHANGED_PATHS),14)
+        check_scope(submitted)
+        old_added=".engineering/evidence/M14-FTR-DOCUMENTARY-RECONCILIATION.json"
+        fake=".engineering/evidence/FORGED-M14-FTR.json"
+        forged=deepcopy(submitted)
+        row=next(row for row in forged["criticalSources"] if row["path"]==old_added)
+        row["path"]=fake
+        with self.assertRaisesRegex(ContextLockError,"immutable original 72 source-path membership"):
+            check_scope(forged,additions={**base_blobs,fake:row["gitBlobSha1"]})
+        expanded=deepcopy(submitted)
+        extra="docs/out-of-scope-owner-approval.md"
+        expanded["authorizedChangedFiles"].append(extra)
+        with self.assertRaisesRegex(ContextLockError,"exact 14-path authorized allowlist"):
+            check_scope(expanded,changed=set(WO0083_EXACT_CHANGED_PATHS)|{extra})
+        narrowed=deepcopy(submitted)
+        missing="planning/reviews/IRIS-WO-0083-BOUNDED-AUDIT-TARGET.md"
+        narrowed["authorizedChangedFiles"].remove(missing)
+        with self.assertRaisesRegex(ContextLockError,"exact 14-path authorized allowlist"):
+            check_scope(narrowed,changed=set(WO0083_EXACT_CHANGED_PATHS)-{missing})
+        with self.assertRaisesRegex(ContextLockError,"actual Git diff must exactly match"):
+            check_scope(submitted,changed=set(WO0083_EXACT_CHANGED_PATHS)-{missing})
         p=self.fresh();p["stop"]="ALL PROOFS APPROVED"
         with self.assertRaises(M14AuditIntegrityError):self.check(p)
 
