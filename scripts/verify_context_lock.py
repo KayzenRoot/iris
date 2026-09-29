@@ -70,6 +70,7 @@ def verify_lock(
     changed_paths: set[str],
     lock_path: str,
     inherited_source_paths: set[str] | None = None,
+    base_modes: dict[str, str] | None = None,
 ) -> None:
     """Pure, testable validation; optionally preserve the prior base-locked source set."""
     safe_path(lock_path, "lock")
@@ -95,6 +96,9 @@ def verify_lock(
         source_paths.add(path)
         expected = check_sha(row.get("gitBlobSha1"), f"source {path}")
         require(base_blobs.get(path) == expected, f"source Git blob mismatch or absent at base: {path}")
+        if base_modes is not None:
+            require(base_modes.get(path) == "100644",
+                    f"pinned critical source must have regular non-executable Git mode 100644: {path}")
     missing = sorted(MANDATORY_SOURCE_PATHS - source_paths)
     require(not missing, f"missing canonical mandatory sources: {missing}")
     anchor = lock.get("sourceManifestAnchor")
@@ -140,15 +144,18 @@ def git(repo: Path, *args: str) -> bytes:
         raise ContextLockError(f"local Git evidence unavailable for {args[0]}") from exc
 
 
-def base_blob_map(repo: Path, base_sha: str) -> dict[str, str]:
-    """Read Git object IDs without trusting workspace files or loose JSON claims."""
+def base_blob_map(repo: Path, base_sha: str, *, modes_out: dict[str, str] | None = None) -> dict[str, str]:
+    """Read exact Git blob IDs and optional modes without trusting workspace files."""
     raw = git(repo, "ls-tree", "-r", "-z", base_sha)
     result: dict[str, str] = {}
     for entry in filter(None, raw.split(b"\x00")):
         header, path_bytes = entry.split(b"\t", 1)
         mode, kind, sha_bytes = header.split(b" ", 2)
         if kind == b"blob":
-            result[path_bytes.decode("utf-8")] = sha_bytes.decode("ascii")
+            path = path_bytes.decode("utf-8")
+            result[path] = sha_bytes.decode("ascii")
+            if modes_out is not None:
+                modes_out[path] = mode.decode("ascii")
     return result
 
 
@@ -206,7 +213,8 @@ def verify_current_pr(
     merge_base = git(repo, "merge-base", base_sha, head_sha).decode("ascii").strip()
     require(merge_base == base_sha, "PR head is not based on its declared base; rebase required")
     tree_sha = git(repo, "rev-parse", f"{base_sha}^{{tree}}").decode("ascii").strip()
-    base_blobs = base_blob_map(repo, base_sha)
+    base_modes: dict[str, str] = {}
+    base_blobs = base_blob_map(repo, base_sha, modes_out=base_modes)
     changed_bytes = git(repo, "diff", "--name-only", "--no-renames", "-z", base_sha, head_sha)
     changed_paths = {item.decode("utf-8") for item in filter(None, changed_bytes.split(b"\x00"))}
     changed_locks = sorted(path for path in changed_paths if path.startswith(LOCK_PREFIX) and path.endswith(LOCK_SUFFIX))
@@ -220,6 +228,10 @@ def verify_current_pr(
     require(bool(changed_locks), "PR must change at least one governed Context Lock")
     for lock_path in changed_locks:
         safe_path(lock_path, "changed lock")
+        head_tree_rows = [row for row in git(repo, "ls-tree", "-z", head_sha, "--", lock_path).split(b"\x00") if row]
+        require(len(head_tree_rows) == 1 and
+                head_tree_rows[0].split(b"\t", 1)[0].startswith(b"100644 blob "),
+                f"changed Context Lock must have regular non-executable Git mode 100644: {lock_path}")
         payload = git(repo, "show", f"{head_sha}:{lock_path}").decode("utf-8")
         lock = json.loads(payload, object_pairs_hook=reject_duplicate_json_keys)
         require(isinstance(lock, dict), "context lock JSON root must be an object")
@@ -266,7 +278,8 @@ def verify_current_pr(
                     "inconsistent original-base source manifest counts")
         verify_lock(lock, base_sha=base_sha, base_tree_sha=tree_sha,
                     base_blobs=base_blobs, changed_paths=changed_paths,
-                    lock_path=lock_path, inherited_source_paths=inherited_source_paths)
+                    lock_path=lock_path, inherited_source_paths=inherited_source_paths,
+                    base_modes=base_modes)
     return changed_locks
 
 
