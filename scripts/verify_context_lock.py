@@ -39,6 +39,37 @@ BOT_PIN_LINE = re.compile(r"        uses: actions/(checkout|setup-python)@([0-9a
 MANDATORY_SOURCE_PATHS = frozenset(['AGENTS.md','.engineering/SOURCE-HIERARCHY.md','docs/project-brain/13-CHECKPOINT.md','docs/project-brain/16-DECISIONS-LEDGER.md','docs/project-brain/03-SCOPE.md','docs/project-brain/15-DEFINITION-OF-DONE.md','docs/project-brain/04-ARCHITECTURE.md','docs/project-brain/02-REQUIREMENTS.md'])
 
 
+# Independently specified WO0083 scope. The 67 inherited paths are read from the
+# trusted ORIGINAL WO0082 Context Lock in the actual PR base Git tree, never
+# from this submitted lock. These five extras and all 14 changed paths are
+# fixed code literals so self-reported counts/substitutions cannot approve a PR.
+WO0083_LOCK = ".engineering/context-locks/IRIS-WO-0083-M14-INDEPENDENT-DOCUMENTARY-AUDIT.json"
+WO0083_BASE = "65bab6a909726f5533bcd394b0ae6b1d309a3517"
+WO0083_ADDITIONAL_SOURCE_PATHS = frozenset({
+    ".engineering/context-locks/IRIS-WO-0082-M14-FTR.json",
+    ".engineering/evidence/M14-FTR-DOCUMENTARY-RECONCILIATION.json",
+    "planning/reviews/M14-FINAL-TECHNOLOGY-REVIEW-DOCUMENTARY.md",
+    "scripts/verify_m14_ftr.py",
+    "tests/test_m14_ftr_documentary.py",
+})
+WO0083_EXACT_CHANGED_PATHS = frozenset({
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0083-M14-INDEPENDENT-DOCUMENTARY-AUDIT.json",
+    ".engineering/evidence/IRIS-WO-0083.json",
+    ".engineering/evidence/M14-FTR-INDEPENDENT-DOCUMENTARY-AUDIT.json",
+    ".engineering/work-orders/IRIS-WO-0083-M14-INDEPENDENT-DOCUMENTARY-AUDIT.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0083-M14-INDEPENDENT-DOCUMENTARY-AUDIT.md",
+    "planning/reviews/M14-FTR-INDEPENDENT-DOCUMENTARY-AUDIT.md",
+    "planning/reviews/IRIS-WO-0083-BOUNDED-AUDIT-TARGET.md",
+    "scripts/verify_m14_ftr_audit.py",
+    "tests/test_m14_ftr_audit.py",
+    "scripts/verify_context_lock.py",
+})
+
+
 class ContextLockError(ValueError):
     """A PR lacks verifiable, internally consistent Git source/scope evidence."""
 
@@ -144,6 +175,21 @@ def verify_lock(
         path = safe_path(value, f"allowlist {index}")
         require(path not in allowed_paths, f"duplicate authorized path: {path}")
         allowed_paths.add(path)
+    if lock_path == WO0083_LOCK:
+        # Only this one originally reviewed source-audit increment is subject
+        # to its immutable 72-source/14-change contract; future WOs are not.
+        require(lock["workOrder"] == "IRIS-WO-0083" and lock["issue"] == 218
+                and base_sha == WO0083_BASE, "WO0083: original source audit authority mismatch")
+        require(isinstance(inherited_source_paths, set)
+                and len(inherited_source_paths) == 67,
+                "WO0083: trusted prior original source manifest must contain exactly 67 paths")
+        expected_sources = inherited_source_paths | WO0083_ADDITIONAL_SOURCE_PATHS
+        require(len(expected_sources) == 72 and source_paths == expected_sources,
+                "WO0083: immutable original 72 source-path membership mismatch")
+        require(allowed_paths == WO0083_EXACT_CHANGED_PATHS,
+                "WO0083: exact 14-path authorized allowlist membership mismatch")
+        require(changed_paths == WO0083_EXACT_CHANGED_PATHS,
+                "WO0083: actual Git diff must exactly match 14 authorized paths")
     require(lock_path in changed_paths and lock_path in allowed_paths, "new lock must itself be a changed, authorized file")
     require(bool(changed_paths), "PR must contain changed files")
     for path in changed_paths:
