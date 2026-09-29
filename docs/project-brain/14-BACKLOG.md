@@ -1,5 +1,13 @@
 # IRIS Backlog
 
+## M14 S03 SOURCE-ONLY EMPIRICAL MODEL-CARD DESIGN (IRIS-WO-0078)
+
+**Verified previous S02:** reviewed [PR #207](https://github.com/KayzenRoot/iris/pull/207) protected main `90eacaac4ead5c1c0858c60f2a5ef40400bd51ad` / tree `c3694c28d4b751a40d15d0165ce4e2a6e6c82f30`; [independent new-main Governance #36570999597](https://github.com/KayzenRoot/iris/actions/runs/36570999597) **4738/4738** and same-main Socket SUCCESS. Dedicated [issue #206 factual closeout](https://github.com/KayzenRoot/iris/issues/206#issuecomment-5890700128) CLOSED; parent #204 OPEN. S01 16/12 and S02 18/14 original questions/future cases remain unresolved/unexecuted.
+
+**New proposed [S03 issue #208](https://github.com/KayzenRoot/iris/issues/208):** eight nonbinding exact package/task/M07/M08/raw/uncertainty/M01/rights facets, five future evidence labels VOCABULARY ONLY, four alternatives UNSELECTED, **20 NEW OPEN/UNRATED owner questions** and **16 proposed future negative cases SPECIFIED_NOT_EXECUTED**. Source-locked original Git fingerprints, exact human report projection and 24 new synthetic verifier regressions; expected full suite **4762**. OWN head CI, independent external review, protected merge and independent new-main tests are PENDING at authoring. No actual model samples, numerical quality/latency/VRAM results, qualified owner contract, GPU benchmark, legal rights or native runtime.
+
+**STOP:** original owner issues #82/#110/#112/#128/#145/#146/#147/#155 OPEN, H01–H04 HIGH, M09 B direction-only/C01 unadopted, M10–M13 runtime NOT_ADMITTED. M01 quality and M02 master authority unchanged.
+
 ## M14 S02 CAPABILITY GENOME / TASK TAXONOMY (IRIS-WO-0077 SOURCE ONLY)
 
 **Original independent main:** `1cda2aa29e77474fa0e27c99d88646351cae69b7` / tree `8c523de8b9422174ee33f563595becdbf5fbd28b` after reviewed [WO0076 PR #205](https://github.com/KayzenRoot/iris/pull/205); separate [Governance #36568101157](https://github.com/KayzenRoot/iris/actions/runs/36568101157) **4712/4712** and same-main Socket SUCCESS. S01 [factual #204 receipt](https://github.com/KayzenRoot/iris/issues/204#issuecomment-5890295975) complete SOURCE_ONLY; original 16 S01 questions OPEN/UNRATED and 12 future negative cases NOT_EXECUTED.
