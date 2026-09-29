@@ -1,4 +1,4 @@
-"""WO0077: 24 strictly synthetic S02 source/owner/evidence Genome tests."""
+"""WO0077: 26 strictly synthetic S02 source/owner/evidence Genome tests."""
 from __future__ import annotations
 
 from copy import deepcopy
