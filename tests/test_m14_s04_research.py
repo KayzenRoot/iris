@@ -202,6 +202,13 @@ class M14S04SourceResearchTests(unittest.TestCase):
             self.audit(p,markdown=True)
         with self.assertRaisesRegex(M14S04IntegrityError,"duplicate JSON key"):
             unique_json_keys([("ownerApproval","NONE"),("ownerApproval","APPROVED")])
+        for field in ("facets", "states", "alternatives", "questions", "negativeScenarios"):
+            for malformed in (["not a dictionary"], {"id": "not a list"}):
+                with self.subTest(field=field, malformed=type(malformed).__name__):
+                    p = self.copy()
+                    p[field] = malformed
+                    with self.assertRaises(M14S04IntegrityError):
+                        self.audit(p)
 
 
 if __name__ == "__main__":
