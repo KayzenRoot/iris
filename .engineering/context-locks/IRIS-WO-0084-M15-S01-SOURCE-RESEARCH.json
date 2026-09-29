@@ -1,0 +1,346 @@
+{
+  "schemaVersion": "iris-context-lock-v1",
+  "workOrder": "IRIS-WO-0084",
+  "issue": 220,
+  "baseSha": "6d994ea63af49899ea4519b3b859223af569c5bf",
+  "baseTreeSha": "f66b1ff1bdcbf69a21ebbc454bc43caa5e8487b4",
+  "sourceSnapshot": {
+    "algorithm": "Git blob SHA-1",
+    "baseSha": "6d994ea63af49899ea4519b3b859223af569c5bf",
+    "baseTreeSha": "f66b1ff1bdcbf69a21ebbc454bc43caa5e8487b4",
+    "expected": 77,
+    "checked": 77,
+    "matched": 77,
+    "mismatches": 0
+  },
+  "criticalSources": [
+    {
+      "path": ".engineering/BOOTSTRAP-MANIFEST.json",
+      "gitBlobSha1": "3b233199c3d64315a114babccec00aaf4bc4bdd3"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.json",
+      "gitBlobSha1": "baf781622c701982dbc1efd57b166b01bba432ef"
+    },
+    {
+      "path": ".engineering/CHECKPOINT.md",
+      "gitBlobSha1": "5e2c2a8fd6b3b63e30cfc6204215236b4ea0ec09"
+    },
+    {
+      "path": ".engineering/SOURCE-HIERARCHY.md",
+      "gitBlobSha1": "58a376a21752ac8018118d2a2580bd1dd0778103"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S04-CLOSEOUT.json",
+      "gitBlobSha1": "e5471dfc92c70e89e90d2ebf1a45415579250799"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0070-LEGACY-BRANCH-REF-RETIREMENT-C.json",
+      "gitBlobSha1": "b2561fc2fea7817f932d335221180c997db54d53"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0071-RESIDUAL-CONTEXT-LITERAL-CLEANUP.json",
+      "gitBlobSha1": "bd8c8bcce7a2dfa6bd7d3347cb7b8345125b1ed9"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0072-POST-CLEANUP-CANONICAL-RECONCILIATION.json",
+      "gitBlobSha1": "ae25d4aed61e85b116ce3fd5746a0679ff73608e"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0073-WO0072-POSTMERGE-CHECKPOINT.json",
+      "gitBlobSha1": "64db523ee483c3aa8a3b376a928b76f1b0c36ff9"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0074-CONTEXT-LOCK-GIT-MODE-GUARD.json",
+      "gitBlobSha1": "57f347348185b31f108a19836065a38935804436"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0075-WO0074-POSTMERGE-CHECKPOINT.json",
+      "gitBlobSha1": "d4257ee51c9f73aa3795105e32233bb4c559f7bd"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0076-M14-S01-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "8478034c2664570070495e6ef7303eca131d44d6"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0077-M14-S02-CAPABILITY-GENOME.json",
+      "gitBlobSha1": "7e993e9bd686464e44eac9de375d752384ebe6b4"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0078-M14-S03-EMPIRICAL-CARDS.json",
+      "gitBlobSha1": "a2e512242cb219de0f802bdd08c18bdbe6d15010"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0079-M14-S04-HARDWARE-RELIABILITY.json",
+      "gitBlobSha1": "04b0021671ef4eccec4fc9de168106515dd7cad0"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0080-M14-S05-MODEL-LIFECYCLE.json",
+      "gitBlobSha1": "418c857de994b8bb6f35e776ac9f66d75f7a6db0"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0081-M14-S05-CANONICAL-RECONCILIATION.json",
+      "gitBlobSha1": "25fc127a9347f582b89c2635bb278161c9eb27f9"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0082-M14-FTR.json",
+      "gitBlobSha1": "a983966efb3d6f74427b375a77e194684704bdf2"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0083-M14-INDEPENDENT-DOCUMENTARY-AUDIT.json",
+      "gitBlobSha1": "d4f3319275cb80031405a51fc5bb343311a2e542"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0009.json",
+      "gitBlobSha1": "4af67150add393920b5ff9d8c014d4d23bf68f87"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0028.json",
+      "gitBlobSha1": "cc11f49a901bfd9038619f5f87dee165364712de"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0071.json",
+      "gitBlobSha1": "7dbbff57fc0bd1c5f0c58dc572664ff9aea64a0c"
+    },
+    {
+      "path": ".engineering/evidence/M09-B-OWNER-DIRECTION-D01.json",
+      "gitBlobSha1": "8877331a5004a3e816e4c42fb521ff3408bad08a"
+    },
+    {
+      "path": ".engineering/evidence/M13-S01-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "5fe1b1ec36ce1e49a0810f553825c9d71b2af3e0"
+    },
+    {
+      "path": ".engineering/evidence/M14-FTR-DOCUMENTARY-RECONCILIATION.json",
+      "gitBlobSha1": "ab418d8cfbb593fbf21ce09447b8af8b4a39474b"
+    },
+    {
+      "path": ".engineering/evidence/M14-FTR-INDEPENDENT-DOCUMENTARY-AUDIT.json",
+      "gitBlobSha1": "83b188385bcec14f9b0309cda67ca24c64d568ff"
+    },
+    {
+      "path": ".engineering/evidence/M14-S01-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "10fe325b3928e58797266ae4ba0b65c87cd532fc"
+    },
+    {
+      "path": ".engineering/evidence/M14-S02-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "d3ac994e130bc54c566449dc0d6efc19a0ca2698"
+    },
+    {
+      "path": ".engineering/evidence/M14-S03-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "cf49ed6140976a14dbd0ac469bb79ed0091e624d"
+    },
+    {
+      "path": ".engineering/evidence/M14-S04-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "4d3de9e837c9a4988e1f31a6d6f06aae0261c277"
+    },
+    {
+      "path": ".engineering/evidence/M14-S05-SOURCE-RESEARCH.json",
+      "gitBlobSha1": "f8f98a3dcdf7a5276d66a40115b60b0cc1f67c70"
+    },
+    {
+      "path": ".github/workflows/governance.yml",
+      "gitBlobSha1": "f340d5783dc7b04c56d887be96a0c92d0e0e6eb9"
+    },
+    {
+      "path": "AGENTS.md",
+      "gitBlobSha1": "4406cab596c12e8cb5f68a2d22a5a2044cc68fd6"
+    },
+    {
+      "path": "README.md",
+      "gitBlobSha1": "85da8115ae7a26f7dbb5d5d31033c83acb26c174"
+    },
+    {
+      "path": "docs/M01-QUALITY-KERNEL.md",
+      "gitBlobSha1": "df4f899ad414c47ad379f26fe1782edb6f43cf6f"
+    },
+    {
+      "path": "docs/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "gitBlobSha1": "2a0b95dd3cc665e2206e454caef5858ef7fb61b0"
+    },
+    {
+      "path": "docs/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "461e0f332d9be2af694634bbdc8cf67e29d56393"
+    },
+    {
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a"
+    },
+    {
+      "path": "docs/project-brain/01-PROJECT-OVERVIEW.md",
+      "gitBlobSha1": "cb6c43d9276dbb303c34ebdb32ad64e0a8a65fd4"
+    },
+    {
+      "path": "docs/project-brain/02-REQUIREMENTS.md",
+      "gitBlobSha1": "37c4457c96adcc5a11febf2e4143d4c91cd8a3ce"
+    },
+    {
+      "path": "docs/project-brain/03-SCOPE.md",
+      "gitBlobSha1": "2d3a6c6ef058923c1714b734c9a17d0da3b7f1c3"
+    },
+    {
+      "path": "docs/project-brain/04-ARCHITECTURE.md",
+      "gitBlobSha1": "b083a0b5f335204965e32fa95908674660a4feb0"
+    },
+    {
+      "path": "docs/project-brain/13-CHECKPOINT.md",
+      "gitBlobSha1": "5e2c2a8fd6b3b63e30cfc6204215236b4ea0ec09"
+    },
+    {
+      "path": "docs/project-brain/14-BACKLOG.md",
+      "gitBlobSha1": "23a5cd0f606534e01218051cae5e1cdbeb2ed7e9"
+    },
+    {
+      "path": "docs/project-brain/15-DEFINITION-OF-DONE.md",
+      "gitBlobSha1": "bde53b80151edf035c7a37a510a56713dbcdd162"
+    },
+    {
+      "path": "docs/project-brain/16-DECISIONS-LEDGER.md",
+      "gitBlobSha1": "5d9c598c142c34227c25297d956e0d43b370bbcd"
+    },
+    {
+      "path": "planning/MASTER-MODULE-INDEX-CURRENT.md",
+      "gitBlobSha1": "02e6394cc7e75d5466ab22801b4cc7dbe66500be"
+    },
+    {
+      "path": "planning/contracts/M01-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "48e00ca6ec3da8a5185fa49ccad37f14b6a5926a"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b"
+    },
+    {
+      "path": "planning/contracts/M03-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "bb640aaa1711e1c0b939769d579e887029bcbd17"
+    },
+    {
+      "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "c84c6645a84e1fa41ace5e627411bf953fc77dc5"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037"
+    },
+    {
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828"
+    },
+    {
+      "path": "planning/modules/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "gitBlobSha1": "9306e4937ccfb433ff4a0392846aa215ffd6e2a0"
+    },
+    {
+      "path": "planning/modules/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "804387a28c318fc82f53e51651f279d76895095c"
+    },
+    {
+      "path": "planning/research/M02-S05-LIFECYCLE-PROMOTION-ARCHIVE-RESEARCH-2026-09-20.md",
+      "gitBlobSha1": "92cbd58dd7c65f31c1a89c30024dfc5cf004f3cf"
+    },
+    {
+      "path": "planning/research/M13-S02-COMPILATION-ATTENTION-BACKENDS.md",
+      "gitBlobSha1": "c033ac4696ad4a188ca5605470bf9b29396eb3ad"
+    },
+    {
+      "path": "planning/research/M13-S04-CPU-GPU-OVERLAP-IO-STORAGE.md",
+      "gitBlobSha1": "cab009ad3e0a380b136f5af5cc902b09481be2a8"
+    },
+    {
+      "path": "planning/research/M14-S01-MODEL-IDENTITY-LICENSE-PROVENANCE.md",
+      "gitBlobSha1": "f07ed63d30c53f38ff77b4f0fbd4934d44f9624d"
+    },
+    {
+      "path": "planning/research/M14-S02-CAPABILITY-GENOME-TASK-TAXONOMY.md",
+      "gitBlobSha1": "9799f5169522f0cb44b8049e4f4e9215bf19f0e4"
+    },
+    {
+      "path": "planning/research/M14-S03-EMPIRICAL-CARD-EVIDENCE-DESIGN.md",
+      "gitBlobSha1": "9ba713ad3762696feb91b2e3e1aeefc06579dc38"
+    },
+    {
+      "path": "planning/research/M14-S04-HARDWARE-RELIABILITY-EVIDENCE.md",
+      "gitBlobSha1": "5dfa91c53c91f2f0edf214c8f50e053d31194d01"
+    },
+    {
+      "path": "planning/research/M14-S05-MODEL-LIFECYCLE-EVIDENCE.md",
+      "gitBlobSha1": "afed4dc542dc096cf930193fbc4684df4fb764ff"
+    },
+    {
+      "path": "planning/reviews/M13-FINAL-TECHNOLOGY-REVIEW-DOCUMENTARY.md",
+      "gitBlobSha1": "a704684ece3cd28969e93eb2eb56d5efb995ad55"
+    },
+    {
+      "path": "planning/reviews/M14-FINAL-TECHNOLOGY-REVIEW-DOCUMENTARY.md",
+      "gitBlobSha1": "3b2c5d4a36d48d5bbd2281eebd5130e42ba8b8ef"
+    },
+    {
+      "path": "planning/reviews/M14-FTR-INDEPENDENT-DOCUMENTARY-AUDIT.md",
+      "gitBlobSha1": "b65f15ddc9ee541153553f4ba0c9a8af2cb4e1e7"
+    },
+    {
+      "path": "planning/reviews/M14-M60-FORWARD-COMPATIBILITY-SOURCE-SCAN.md",
+      "gitBlobSha1": "5bac62b5b1a07fb97e43ea5c76d20dc5419c2cec"
+    },
+    {
+      "path": "scripts/validate_governance.py",
+      "gitBlobSha1": "de6dc4ba4f8ca5823a073d1d8aae022067207308"
+    },
+    {
+      "path": "scripts/verify_context_lock.py",
+      "gitBlobSha1": "ef76a9494edaa3c73be6aead89bd48499f484f72"
+    },
+    {
+      "path": "scripts/verify_m14_ftr.py",
+      "gitBlobSha1": "0f4a0e46d036f5d31af8edaf10d02387b9e1704d"
+    },
+    {
+      "path": "scripts/verify_m14_ftr_audit.py",
+      "gitBlobSha1": "c182aac5a2f9750f5b43f0d5f607035e1c0ec304"
+    },
+    {
+      "path": "tests/test_context_lock_verifier.py",
+      "gitBlobSha1": "05addbe3153d749d0201331665bcee212784c702"
+    },
+    {
+      "path": "tests/test_m14_ftr_audit.py",
+      "gitBlobSha1": "07b2cf81b0da56a9004c2dbc431224d26bf72ae1"
+    },
+    {
+      "path": "tests/test_m14_ftr_documentary.py",
+      "gitBlobSha1": "cd1b9667241767b6661eddedf8da5282c3338d9f"
+    },
+    {
+      "path": "tests/test_wo0063_source_manifest_anchor.py",
+      "gitBlobSha1": "298c306dd63c43bd6fc22924b44617e2d39a7e26"
+    },
+    {
+      "path": "tests/test_wo0066_iris_retirement.py",
+      "gitBlobSha1": "3fae61bb6aa34105dfec77362ac236e621d47194"
+    },
+    {
+      "path": "tests/test_wo0067_namespace_purge.py",
+      "gitBlobSha1": "e498377d27a1f3f23e6d1edf9d01b8451e8e4693"
+    }
+  ],
+  "sourceManifestAnchor": {
+    "path": ".engineering/context-locks/IRIS-WO-0083-M14-INDEPENDENT-DOCUMENTARY-AUDIT.json",
+    "gitBlobSha1": "d4f3319275cb80031405a51fc5bb343311a2e542"
+  },
+  "authorizedChangedFiles": [
+    ".engineering/CHECKPOINT.json",
+    ".engineering/CHECKPOINT.md",
+    ".engineering/context-locks/IRIS-WO-0084-M15-S01-SOURCE-RESEARCH.json",
+    ".engineering/evidence/IRIS-WO-0084.json",
+    ".engineering/evidence/M15-S01-SOURCE-RESEARCH.json",
+    ".engineering/work-orders/IRIS-WO-0084-M15-S01-SOURCE-RESEARCH.md",
+    "docs/project-brain/13-CHECKPOINT.md",
+    "docs/project-brain/14-BACKLOG.md",
+    "planning/checkpoints/IRIS-WO-0084-M15-S01-SOURCE-RESEARCH.md",
+    "planning/research/M15-S01-TASK-MODEL-AFFINITY.md",
+    "planning/reviews/IRIS-WO-0084-BOUNDED-AUDIT-TARGET.md",
+    "scripts/verify_context_lock.py",
+    "scripts/verify_m15_s01_research.py",
+    "tests/test_m15_s01_research.py"
+  ]
+}

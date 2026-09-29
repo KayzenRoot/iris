@@ -1,0 +1,484 @@
+{
+  "schemaVersion": "iris-m15-s01-source-research-v0.1",
+  "workOrder": "IRIS-WO-0084",
+  "issue": 220,
+  "module": "M15",
+  "session": "S01",
+  "sessionName": "Task-model affinity graph",
+  "sourceBaseSha": "6d994ea63af49899ea4519b3b859223af569c5bf",
+  "sourceBaseTreeSha": "f66b1ff1bdcbf69a21ebbc454bc43caa5e8487b4",
+  "status": "SOURCE_RESEARCH_ONLY_NONBINDING",
+  "qualifiedOriginalOwner": "NOT_RECEIVED",
+  "ownerContract": "NOT_FROZEN",
+  "technologySelected": "NONE",
+  "modelRankSelected": "NONE",
+  "modelRuntime": "NOT_ADMITTED",
+  "actualTenantLicenseRights": "NOT_RECEIVED",
+  "realHostBenchmarks": 0,
+  "executedNegativeCases": 0,
+  "approvedOriginalOwnerProofGates": 0,
+  "originalM14OwnerQuestionsOpen": 100,
+  "originalM14HypotheticalCasesNotExecuted": 80,
+  "originalM13OwnerQuestionsOpen": 96,
+  "originalM13FutureCasesNotExecuted": 74,
+  "m09B": "DIRECTION_ONLY",
+  "m09C01": "UNADOPTED_NOT_FROZEN",
+  "h01h02h03h04": "HIGH_FOR_FUTURE_FREEZE",
+  "m10": "ADVISORY_ONLY",
+  "m11m12m13": "NATIVE_RUNTIME_NOT_ADMITTED",
+  "sourceDocs": [
+    {
+      "path": "planning/MASTER-MODULE-INDEX-CURRENT.md",
+      "gitBlobSha1": "02e6394cc7e75d5466ab22801b4cc7dbe66500be",
+      "exactNeedle": "### M15 — Multi-Model Director & Champion/Challenger Routing"
+    },
+    {
+      "path": "planning/reviews/M14-M60-FORWARD-COMPATIBILITY-SOURCE-SCAN.md",
+      "gitBlobSha1": "5bac62b5b1a07fb97e43ea5c76d20dc5419c2cec",
+      "exactNeedle": "### M15: Multi-Model Director & Champion/Challenger Routing"
+    },
+    {
+      "path": ".engineering/evidence/M14-FTR-INDEPENDENT-DOCUMENTARY-AUDIT.json",
+      "gitBlobSha1": "83b188385bcec14f9b0309cda67ca24c64d568ff",
+      "exactNeedle": "\"originalM14OpenOwnerQuestions\": 100"
+    },
+    {
+      "path": ".engineering/evidence/M14-FTR-DOCUMENTARY-RECONCILIATION.json",
+      "gitBlobSha1": "ab418d8cfbb593fbf21ce09447b8af8b4a39474b",
+      "exactNeedle": "\"moduleContract\": \"NOT_FROZEN\""
+    },
+    {
+      "path": "planning/contracts/M01-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "48e00ca6ec3da8a5185fa49ccad37f14b6a5926a",
+      "exactNeedle": "# M01 — Module Contract Freeze Candidate"
+    },
+    {
+      "path": "planning/contracts/M02-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "a36fd73c03f06b7558f850a2ad515a0df37c243b",
+      "exactNeedle": "# M02 — Module Contract Freeze Candidate"
+    },
+    {
+      "path": "planning/contracts/M03-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "bb640aaa1711e1c0b939769d579e887029bcbd17",
+      "exactNeedle": "# M03 — Module Contract Freeze Candidate"
+    },
+    {
+      "path": "planning/contracts/M04-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "c84c6645a84e1fa41ace5e627411bf953fc77dc5",
+      "exactNeedle": "# M04 Module Contract Freeze Candidate — Multimodal IR / Scene IR"
+    },
+    {
+      "path": "planning/contracts/M06-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "d6778684e0c34e55d05ddc06cf5aa47fe347c037",
+      "exactNeedle": "# M06 Module Contract Freeze Candidate — Production State, Versioning & Incremental Media Build"
+    },
+    {
+      "path": "planning/contracts/M10-MODULE-CONTRACT-FREEZE-CANDIDATE.md",
+      "gitBlobSha1": "f69ec3e3eab24b47c0e31832d64d9ab9cce21828",
+      "exactNeedle": "# M10 Module Contract Freeze Candidate"
+    },
+    {
+      "path": "planning/modules/M07-HARDWARE-GENOME-RUNTIME-DISCOVERY.md",
+      "gitBlobSha1": "9306e4937ccfb433ff4a0392846aa215ffd6e2a0",
+      "exactNeedle": "# M07 — Hardware Genome & Runtime Discovery"
+    },
+    {
+      "path": "planning/modules/M08-MICROBENCHMARK-LAB-CAPABILITY-ENVELOPE.md",
+      "gitBlobSha1": "804387a28c318fc82f53e51651f279d76895095c",
+      "exactNeedle": "# M08 — Microbenchmark Lab & Capability Envelope"
+    },
+    {
+      "path": "docs/M09-RESOURCE-DIGITAL-TWIN-DYNAMIC-VRAM-GOVERNOR.md",
+      "gitBlobSha1": "d12b4f48030c1a57b8e6228df39f35dac8c2b20a",
+      "exactNeedle": "# M09 Resource Digital Twin & Dynamic VRAM Governor"
+    },
+    {
+      "path": "planning/research/M14-S01-MODEL-IDENTITY-LICENSE-PROVENANCE.md",
+      "gitBlobSha1": "f07ed63d30c53f38ff77b4f0fbd4934d44f9624d",
+      "exactNeedle": "# M14 S01 | Model Identity, Version, Hash, License & Provenance"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0083-M14-INDEPENDENT-DOCUMENTARY-AUDIT.json",
+      "gitBlobSha1": "d4f3319275cb80031405a51fc5bb343311a2e542",
+      "exactNeedle": "\"workOrder\": \"IRIS-WO-0083\""
+    }
+  ],
+  "affinityDimensions": [
+    {
+      "id": "D01_TYPED_TASK",
+      "concept": "M03/M04 original typed task and IR compatibility",
+      "currentQualifiedObservation": "NOT_RECEIVED",
+      "routingGranted": false
+    },
+    {
+      "id": "D02_COMPOSITE_MODEL",
+      "concept": "M14/M18 actual original-owner immutable composite identity and supply",
+      "currentQualifiedObservation": "NOT_RECEIVED",
+      "routingGranted": false
+    },
+    {
+      "id": "D03_TENANT_RIGHTS",
+      "concept": "M53/M54 exact tenant/license/consent issuer and revocation",
+      "currentQualifiedObservation": "NOT_RECEIVED",
+      "routingGranted": false
+    },
+    {
+      "id": "D04_INDEPENDENT_FIDELITY",
+      "concept": "M01 hard veto and immutable accepted M02/M06 master/attempt",
+      "currentQualifiedObservation": "NOT_RECEIVED",
+      "routingGranted": false
+    },
+    {
+      "id": "D05_REPRESENTATIVE_EMPIRICAL",
+      "concept": "M08 real representative task/quality/latency/VRAM observation and original M07 host",
+      "currentQualifiedObservation": "NOT_RECEIVED",
+      "routingGranted": false
+    },
+    {
+      "id": "D06_PHYSICAL_RESOURCE",
+      "concept": "M09 actual fencing/lease, M10 advisory-only, original M11/M12/M60 no inferred process grant",
+      "currentQualifiedObservation": "NOT_RECEIVED",
+      "routingGranted": false
+    }
+  ],
+  "alternatives": [
+    {
+      "id": "A01_TYPED_SOURCE_GRAPH",
+      "concept": "Typed source-only bipartite task↔immutable composite release evidence edges; no numeric rank or routing",
+      "selected": false,
+      "status": "SOURCE_RESEARCH_ONLY_UNSELECTED"
+    },
+    {
+      "id": "A02_UNMEASURED_AFFINITY_VECTOR",
+      "concept": "Contextual affinity dimensions and UNKNOWN values; explicitly no measured score",
+      "selected": false,
+      "status": "SOURCE_RESEARCH_ONLY_UNSELECTED"
+    },
+    {
+      "id": "A03_TENANT_BOUND_EVIDENCE_LEDGER",
+      "concept": "Tenant-scoped versioned source edges and independent rights/quality veto before future eligibility",
+      "selected": false,
+      "status": "SOURCE_RESEARCH_ONLY_UNSELECTED"
+    },
+    {
+      "id": "A04_DEFER_ONLY_ORIGINAL_OWNER",
+      "concept": "Defer-only no-route ledger while any qualified original owner, tenant rights or measurement is missing",
+      "selected": false,
+      "status": "SOURCE_RESEARCH_ONLY_UNSELECTED"
+    }
+  ],
+  "questions": [
+    {
+      "id": "M15-S01-Q01",
+      "question": "Qualified M15 decision owner and authenticated independent reviewer for source-only task-affinity graph",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M54"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q02",
+      "question": "Canonical versioned typed M03 task intent and authority to prevent coercion to an unrelated model task",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M03"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q03",
+      "question": "M04 scene/media IR input-output signature and invalid or contradictory modality rejection",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M04"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q04",
+      "question": "Immutable M14 composite model identity, components, M18 provider/supply source and revocation freshness",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M14",
+        "M18"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q05",
+      "question": "Current exact tenant/provider usage and derivative/license rights with M53/M54 qualified issuer",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M53",
+        "M54"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q06",
+      "question": "Independent M01 hard quality veto, sample cohort and exact original production acceptance envelope",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M01"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q07",
+      "question": "M02 immutable accepted master and M06 attempt/lineage identity segregation from advisory candidates",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M02",
+        "M06"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q08",
+      "question": "Actual M07 host/driver/precision/native runtime observation for a qualified candidate model",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M07"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q09",
+      "question": "Representative independently approved M08 empirical task population, latency/VRAM/quality protocol and result",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M08",
+        "M01"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q10",
+      "question": "Authentic M09 coherent snapshot and fencing-aware positive lease, H01-H04 decision owner source",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M09"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q11",
+      "question": "M10 advisory-only feasibility/cost fields with explicit uncertain provenance and nonexecuting semantics",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M10"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q12",
+      "question": "M11 worker process identity and M12 placement owner admission separated from model-affinity descriptions",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M11",
+        "M12"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q13",
+      "question": "M13 genuine qualified backend and M16/M18 external supply trust independent of apparent model tags",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M13",
+        "M16",
+        "M18"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q14",
+      "question": "M54 authenticated identity, M58 exposure/redaction and per-tenant boundary for sensitive model evaluation",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M54",
+        "M58"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q15",
+      "question": "M60 OS/process rights for any future real discovery/evaluation without claiming current authorization",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M60"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    },
+    {
+      "id": "M15-S01-Q16",
+      "question": "Independent current M14 lifecycle/rights revocation and explicit DEFER/UNKNOWN/no-route ledger rollback",
+      "requiredOriginalIssuers": [
+        "M15",
+        "M14",
+        "M02",
+        "M18"
+      ],
+      "status": "OPEN_UNRATED_PENDING_QUALIFIED_OWNER",
+      "risk": "UNRATED",
+      "ownerAnswer": null
+    }
+  ],
+  "negativeScenarios": [
+    {
+      "id": "M15-S01-N01",
+      "name": "FORGED_ALIAS_RELEASE",
+      "scenario": "Unauthenticated model alias/weights hint misidentified as approved immutable composite M14 release",
+      "relatedOriginalQuestionIds": [
+        "M15-S01-Q04"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "executed": false
+    },
+    {
+      "id": "M15-S01-N02",
+      "name": "MISSING_TENANT_LICENSE",
+      "scenario": "Source-only model card promoted to provider call without actual M53/M54 current tenant/license receipt",
+      "relatedOriginalQuestionIds": [
+        "M15-S01-Q05"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "executed": false
+    },
+    {
+      "id": "M15-S01-N03",
+      "name": "TASK_MODALITY_MISMATCH",
+      "scenario": "Untyped task/name match routes a model that does not support typed M03/M04 task and IR",
+      "relatedOriginalQuestionIds": [
+        "M15-S01-Q02",
+        "M15-S01-Q03"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "executed": false
+    },
+    {
+      "id": "M15-S01-N04",
+      "name": "M01_VETO_BYPASS",
+      "scenario": "Positive synthetic cost or availability bypasses independent original M01 hard fidelity veto",
+      "relatedOriginalQuestionIds": [
+        "M15-S01-Q06"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "executed": false
+    },
+    {
+      "id": "M15-S01-N05",
+      "name": "MASTER_REPLACEMENT",
+      "scenario": "Affinity score silently overwrites immutable accepted M02 master or reuses M06 attempt identity",
+      "relatedOriginalQuestionIds": [
+        "M15-S01-Q07"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "executed": false
+    },
+    {
+      "id": "M15-S01-N06",
+      "name": "STALE_BENCHMARK_COHORT",
+      "scenario": "Old M08 result from a different task host or representative population is treated as current observed quality",
+      "relatedOriginalQuestionIds": [
+        "M15-S01-Q09"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "executed": false
+    },
+    {
+      "id": "M15-S01-N07",
+      "name": "HOST_CAPABILITY_LIE",
+      "scenario": "Self-reported GPU capacity/precision driver treated as qualified M07 physical observation",
+      "relatedOriginalQuestionIds": [
+        "M15-S01-Q08"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "executed": false
+    },
+    {
+      "id": "M15-S01-N08",
+      "name": "FENCED_LEASE_REPLAY",
+      "scenario": "Previously valid M09 device lease replay accepted after epoch/tenant/holder revocation",
+      "relatedOriginalQuestionIds": [
+        "M15-S01-Q10"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "executed": false
+    },
+    {
+      "id": "M15-S01-N09",
+      "name": "ADVISORY_TO_EXECUTION",
+      "scenario": "M10 ADVISORY_ONLY candidate price or graph edge silently invokes a native worker/model/route",
+      "relatedOriginalQuestionIds": [
+        "M15-S01-Q11"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "executed": false
+    },
+    {
+      "id": "M15-S01-N10",
+      "name": "UNOWNED_WORKER_PLACEMENT",
+      "scenario": "Model affinity infers M11/M12 trusted process launch or GPU placement without qualified OS owner",
+      "relatedOriginalQuestionIds": [
+        "M15-S01-Q12",
+        "M15-S01-Q15"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "executed": false
+    },
+    {
+      "id": "M15-S01-N11",
+      "name": "BACKEND_REVOCATION",
+      "scenario": "Stale M13/M16/M18 backend or M14 vendor recall retains positive routing eligibility",
+      "relatedOriginalQuestionIds": [
+        "M15-S01-Q13",
+        "M15-S01-Q16"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "executed": false
+    },
+    {
+      "id": "M15-S01-N12",
+      "name": "CROSS_TENANT_LEAK",
+      "scenario": "Candidate evidence/weights, payload or historical acceptance from one tenant is reused by another",
+      "relatedOriginalQuestionIds": [
+        "M15-S01-Q14"
+      ],
+      "status": "SPECIFIED_NOT_EXECUTED",
+      "executed": false
+    }
+  ],
+  "stop": "M15 S01 is SOURCE_RESEARCH_ONLY_NONBINDING. All 16 newly authored S01 owner questions remain OPEN_UNRATED_PENDING_QUALIFIED_OWNER with no authenticated original M15 module owner or independent M14 owner/rights approval. All 12 future hostile designs are SPECIFIED_NOT_EXECUTED with zero real host/provider/GPU/model/OS observations; four conceptual affinity alternatives remain UNSELECTED, six dimensions unmeasured. M01 independent hard fidelity veto and immutable accepted M02 master/M06 attempts, M03/M04 typed tasks, M07/M08 actual host/benchmarks, M09 genuine leases, M10 ADVISORY_ONLY, M11/M12/M13 native runtime NOT_ADMITTED, M14 original model/license rights NOT_RECEIVED, M53/M54 tenant approval and M60 OS authority each retain separate owner gates. Original M14 100 OPEN owner questions and 80 unexecuted negatives, original M13 96/74 unresolved/unexecuted; original cross-owner eight issues and H01-H04 HIGH_FOR_FUTURE_FREEZE, M09 B DIRECTION_ONLY/C01 UNADOPTED_NOT_FROZEN remain. No actual technology/model selection, real affinity score, candidate routing, process placement, network API, commercial licensing, runtime registry, native execution, model/contract freeze or independent owner approval can be inferred from source-only reports, automated unit tests or external bot review."
+}
