@@ -1,0 +1,114 @@
+name: WO0067 Deep Namespace Purge
+
+on:
+  push:
+    branches:
+      - iris-wo-0067-purge-hive-namespace-20260928
+
+permissions:
+  contents: write
+
+jobs:
+  purge:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: iris-wo-0067-purge-hive-namespace-20260928
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Rewrite legacy namespace and filenames
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path(".")
+          skip_dirs = {".git", ".venv", "node_modules", "__pycache__"}
+          special = (
+              ("IRIS-WO-0066-RETIRE-HIVE-STANDALONE", "IRIS-WO-0066-STANDALONE-CONTEXT-MIGRATION"),
+              ("IRIS-WO-0001-GEF-HIVE-BOOTSTRAP", "IRIS-WO-0001-GEF-STANDALONE-BOOTSTRAP"),
+              ("IRIS-WO-0021-HIVE-CONTEXT-PROMPTS", "IRIS-WO-0021-IRIS-CONTEXT-PROMPTS"),
+          )
+
+          def clean(text: str) -> str:
+              for old, new in special:
+                  text = text.replace(old, new)
+              for old, new in (
+                  ("HIVE_CONTEXT", "IRIS_CONTEXT"), ("HIVE_MEMORY", "IRIS_MEMORY"),
+                  ("HIVE_WORKSPACE", "IRIS_WORKSPACE"), ("HiveContext", "IrisContext"),
+                  ("HiveMemory", "IrisMemory"), ("HiveWorkspace", "IrisWorkspace"),
+                  ("hive_context", "iris_context"), ("hive_memory", "iris_memory"),
+                  ("hive_workspace", "iris_workspace"),
+              ):
+                  text = text.replace(old, new)
+              text = re.sub(r"(?<![A-Za-z])HIVE(?![A-Za-z])", "IRIS", text)
+              text = re.sub(r"HIVE(?=[A-Z])", "IRIS", text)
+              text = re.sub(r"(?<![A-Za-z])Hive(?![A-Za-z])", "IRIS", text)
+              text = re.sub(r"Hive(?=[A-Z])", "Iris", text)
+              text = re.sub(r"(?<![A-Za-z])hive(?![A-Za-z])", "iris", text)
+              text = re.sub(r"hive(?=[A-Z])", "iris", text)
+              return text
+
+          rewritten = 0
+          for path in root.rglob("*"):
+              if not path.is_file() or any(part in skip_dirs for part in path.parts):
+                  continue
+              try:
+                  text = path.read_text(encoding="utf-8")
+              except (UnicodeDecodeError, OSError):
+                  continue
+              changed = clean(text)
+              if changed != text:
+                  path.write_text(changed, encoding="utf-8")
+                  rewritten += 1
+
+          renamed = 0
+          candidates = sorted(
+              [p for p in root.rglob("*") if not any(part in skip_dirs for part in p.parts)],
+              key=lambda p: len(p.parts), reverse=True,
+          )
+          for path in candidates:
+              new_name = clean(path.name)
+              if new_name == path.name:
+                  continue
+              target = path.with_name(new_name)
+              if target.exists():
+                  raise SystemExit(f"rename collision: {path} -> {target}")
+              path.rename(target)
+              renamed += 1
+
+          token = re.compile(r"(?i)(?<![A-Za-z])hive(?![A-Za-z])|(?i:hive)(?=[A-Z])")
+          bad = []
+          for path in root.rglob("*"):
+              if not path.is_file() or any(part in skip_dirs for part in path.parts):
+                  continue
+              if token.search(str(path)):
+                  bad.append(f"path:{path}")
+              try:
+                  text = path.read_text(encoding="utf-8")
+              except (UnicodeDecodeError, OSError):
+                  continue
+              if token.search(text):
+                  bad.append(f"content:{path}")
+          if bad:
+              raise SystemExit("legacy namespace remained:\n" + "\n".join(bad[:100]))
+
+          print(f"rewritten_files={rewritten} renamed_entries={renamed}")
+          PY
+      - name: Remove one-shot workflow
+        run: rm -f .github/workflows/wo0067-namespace-purge.yml
+      - name: Commit transformed repository
+        shell: bash
+        run: |
+          git config user.name "KayzenRoot Automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git status --short
+          git diff --cached --quiet && exit 0
+          git commit -m "refactor(wo0067): purge legacy context namespace repository-wide"
+          git push origin HEAD:iris-wo-0067-purge-hive-namespace-20260928
