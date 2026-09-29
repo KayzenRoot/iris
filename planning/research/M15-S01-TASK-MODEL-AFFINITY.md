@@ -1,6 +1,6 @@
 # M15 S01 | Task-model affinity graph, original-source documentary research
 
-**IRIS-WO-0084 / #220: SOURCE_RESEARCH_ONLY_NONBINDING.** Original protected base `6d994ea63af49899ea4519b3b859223af569c5bf` / complete original Git tree `f66b1ff1bdcbf69a21ebbc454bc43caa5e8487b4`. No qualified M15/M14 owner contract, current model/license/tenant/host proof, real empirical benchmark, scored candidate, worker/OS launch or physical routing admitted.
+**IRIS-WO-0084 / #221: SOURCE_RESEARCH_ONLY_NONBINDING.** Original protected base `6d994ea63af49899ea4519b3b859223af569c5bf` / complete original Git tree `f66b1ff1bdcbf69a21ebbc454bc43caa5e8487b4`. No qualified M15/M14 owner contract, current model/license/tenant/host proof, real empirical benchmark, scored candidate, worker/OS launch or physical routing admitted.
 
 ## Fifteen immutable original source roles
 
@@ -80,7 +80,7 @@ M15 S01 is SOURCE_RESEARCH_ONLY_NONBINDING. All 16 newly authored S01 owner ques
 {
   "schemaVersion": "iris-m15-s01-source-research-v0.1",
   "workOrder": "IRIS-WO-0084",
-  "issue": 220,
+  "issue": 221,
   "module": "M15",
   "session": "S01",
   "sessionName": "Task-model affinity graph",

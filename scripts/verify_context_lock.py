@@ -220,7 +220,7 @@ def verify_lock(
         require(changed_paths == WO0083_EXACT_CHANGED_PATHS,
                 "WO0083: actual Git diff must exactly match 14 authorized paths")
     if lock_path == WO0084_LOCK:
-        require(lock["workOrder"]=="IRIS-WO-0084" and lock["issue"]==220
+        require(lock["workOrder"]=="IRIS-WO-0084" and lock["issue"]==221
                 and base_sha==WO0084_BASE,
                 "WO0084: original owner/scope/base authority mismatch")
         require(isinstance(inherited_source_paths,set)
