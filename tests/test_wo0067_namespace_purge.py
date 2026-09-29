@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 LEGACY_TOKEN = "".join(chr(v) for v in (104, 105, 118, 101))
 LEGACY_PATTERN = re.compile(
-    rf"(?i)(?<![A-Za-z]){re.escape(LEGACY_TOKEN)}(?![a-z])"
+    rf"(?i:(?<![A-Za-z]){re.escape(LEGACY_TOKEN)}(?![a-z]))"
     rf"|(?<=[a-z]){re.escape(LEGACY_TOKEN.capitalize())}(?![a-z])"
 )
 
