@@ -72,7 +72,7 @@ def render_report(p: dict) -> str:
         rows.append(f'- {x["id"]}: {x["status"]}.')
     rows.extend(["", "## 4. Four future architecture alternatives, NONE selected", ""])
     for x in p["alternatives"]:
-        rows.append(f'- {x["id"]}: {x["title"]}; {x["status"]}; selected={x["selected"]}.')
+        rows.append(f'- {x["id"]}: {x["title"]}; {x["status"]}; selected={x["selected"]}; tradeoffs: {x["tradeoffs"]}.')
     rows.extend(["", "## 5. Twenty NEW OPEN/UNRATED S03 owner questions", ""])
     for x in p["questions"]:
         rows.extend([f'### {x["id"]}', "", x["question"], "",
