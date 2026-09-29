@@ -144,7 +144,8 @@ def verify_packet(p: dict, root: Path = ROOT, *, verify_markdown: bool = True) -
     for x in facets:
         require(type(x) is dict and set(x) == {"id","title","caveat","status"}
                 and x["status"] == "SOURCE_TAXONOMY_NOT_ADOPTED"
-                and len(x["caveat"]) >= 80, "unqualified compatibility facet adoption")
+                and type(x["title"]) is str and bool(x["title"])
+                and type(x["caveat"]) is str and len(x["caveat"]) >= 80, "unqualified compatibility facet adoption")
     states = p["states"]
     require(dict_ids(states) == list(STATE_IDS),
             "five future evidence labels missing/reordered")
@@ -158,7 +159,8 @@ def verify_packet(p: dict, root: Path = ROOT, *, verify_markdown: bool = True) -
     for x in alternatives:
         require(type(x) is dict and set(x) == {"id","title","tradeoffs","selected","status"}
                 and x["selected"] is False and x["status"] == "RESEARCH_ONLY_NOT_SELECTED"
-                and len(x["tradeoffs"]) >= 100, "unapproved alternative selected or caveat omitted")
+                and type(x["title"]) is str and bool(x["title"])
+                and type(x["tradeoffs"]) is str and len(x["tradeoffs"]) >= 100, "unapproved alternative selected or caveat omitted")
     qq = p["questions"]
     qids = [f"M14-S04-U{i:02d}" for i in range(1,23)]
     require(dict_ids(qq) == qids,
@@ -169,8 +171,10 @@ def verify_packet(p: dict, root: Path = ROOT, *, verify_markdown: bool = True) -
                 "risk","ownerAnswer","executionAuthority"}
                 and x["status"] == "OPEN_UNRATED_PENDING_QUALIFIED_OWNER"
                 and x["risk"] == "UNRATED" and x["ownerAnswer"] is None
-                and x["executionAuthority"] == "NONE" and len(x["question"]) >= 85
+                and x["executionAuthority"] == "NONE"
+                and type(x["question"]) is str and len(x["question"]) >= 85
                 and type(x["sourceRoles"]) is list and len(x["sourceRoles"]) >= 2
+                and all(type(v) is str for v in x["sourceRoles"])
                 and len(set(x["sourceRoles"])) == len(x["sourceRoles"])
                 and all(v in roles for v in x["sourceRoles"]),
                 "owner questions promoted or source roles forged")
@@ -182,8 +186,9 @@ def verify_packet(p: dict, root: Path = ROOT, *, verify_markdown: bool = True) -
                 "nonAuthorizingOracle","status"}
                 and x["status"] == "SPECIFIED_NOT_EXECUTED"
                 and x["nonAuthorizingOracle"] == "NO_CURRENT_COMPATIBILITY_OR_RUNTIME_PERMISSION"
-                and len(x["trigger"]) >= 80 and type(x["questionIds"]) is list
-                and len(x["questionIds"]) >= 1
+                and type(x["trigger"]) is str and len(x["trigger"]) >= 80
+                and type(x["questionIds"]) is list and len(x["questionIds"]) >= 1
+                and all(type(v) is str for v in x["questionIds"])
                 and len(set(x["questionIds"])) == len(x["questionIds"])
                 and all(v in qids for v in x["questionIds"]),
                 "future design falsely executed or nonlocal owner question referenced")
