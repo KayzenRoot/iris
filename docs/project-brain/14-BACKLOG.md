@@ -1,5 +1,11 @@
 # IRIS Backlog
 
+## M14 S05 SOURCE-ONLY MODEL DRIFT, DEPRECATION & LIFECYCLE (IRIS-WO-0080)
+
+Verified prior S04 [PR #211](https://github.com/KayzenRoot/iris/pull/211), original now-protected source main `ca48f1f90b389f910c58c9cad6358961b6d3611b` / tree `43d0ce341ed1a2ce67cdb35e4a4be8f627e21df4`, separate [new-main Governance #36578646295](https://github.com/KayzenRoot/iris/actions/runs/36578646295) **4786/4786** and same-main Socket SUCCESS; [#210 factual closeout](https://github.com/KayzenRoot/iris/issues/210#issuecomment-5891759477) CLOSED. Parent M14 #204 stays OPEN. New dedicated [#212](https://github.com/KayzenRoot/iris/issues/212): 8 source-qualified NONADOPTED lifecycle evidence facets, 5 hypothetical labels VOCABULARY_ONLY, 4 UNSELECTED alternatives, 24 NEW owner questions OPEN/UNRATED and 20 hostile designs SPECIFIED_NOT_EXECUTED. Strict 63/63 full original Git SHA1/mode source lock, 20 original source roles and 12/12 changed-path allowlist. Own code, owner and review/merge/new-main gates PENDING at authoring; 24 new synthetic-only integrity tests proposed (full **4810**).
+
+**STOP:** no current model drift observation, model-card/rights approval, signed registry transition, GPU/OS/process/network/storage/provider action, rollback, native implementation or contract freeze. Original S01 16/12, S02 18/14, S03 20/16, S04 22/18, M13 96/74 remain unresolved/unexecuted. All eight original cross-owner issues, H01-H04 HIGH, M09 B DIRECTION_ONLY/C01 UNADOPTED and M10-M13 runtime NOT_ADMITTED remain unchanged.
+
 ## M14 S04 SOURCE-ONLY HARDWARE COMPATIBILITY & RELIABILITY (IRIS-WO-0079)
 
 **Independently verified previous S03:** [reviewed PR #209](https://github.com/KayzenRoot/iris/pull/209), original protected main `88f61cbc8091cb9e353ad3d953085f907aef11c5` / tree `b0963f137ddf0ca7b7e2c70c21d5b41b361380df`; separate [new-main Governance #36574246350](https://github.com/KayzenRoot/iris/actions/runs/36574246350) **4762/4762** and same-main Socket SUCCESS; [#208 factual receipt](https://github.com/KayzenRoot/iris/issues/208#issuecomment-5891148170) CLOSED. Parent M14 #204 OPEN. Original S01 16/12, S02 18/14, S03 20/16 questions/negatives still owner-unanswered / NOT_EXECUTED.
