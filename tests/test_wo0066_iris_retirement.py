@@ -11,6 +11,7 @@ from scripts.validate_governance import reject_retired_operational_paths
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+RETIRED_VENDOR_TOKEN = "".join(chr(v) for v in (104, 105, 118, 101))
 ORIGINAL_INDEX_SHA = "a60d19c86bddd3699498f7d1f248a00368e32220"
 LEGACY_PATHS = (
     ".codex/config.toml", "docs/IRIS-INTEGRATION.md",
@@ -76,7 +77,7 @@ class StandaloneIRISMigrationTests(unittest.TestCase):
         """Live README, source guidance and architecture have no vendor preflight."""
         for name in ACTIVE_SOURCES:
             with self.subTest(path=name):
-                self.assertNotRegex((ROOT / name).read_text(), r"(?i)\bhive\b")
+                self.assertNotRegex((ROOT / name).read_text(), rf"(?i)\b{RETIRED_VENDOR_TOKEN}\b")
         self.assertIn("no required external context runtime",
                       (ROOT / "AGENTS.md").read_text())
 
@@ -87,7 +88,7 @@ class StandaloneIRISMigrationTests(unittest.TestCase):
         self.assertEqual(len(re.findall(r"^- S0[1-5] — ", s, re.M)), 305)
         self.assertIn("### M52 — IRIS-Native Multimodal Memory", s)
         self.assertIn("S03 Standalone IRIS integration validation", s)
-        self.assertNotRegex(s, r"(?i)\bhive\b")
+        self.assertNotRegex(s, rf"(?i)\b{RETIRED_VENDOR_TOKEN}\b")
         self.assertIn("future planning only", s)
 
     def test_07_original_index_unchanged_for_prior_audits(self):

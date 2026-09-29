@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "iris-residual-context-literal-cleanup-v1",
+  "workOrder": "IRIS-WO-0071",
+  "issue": 190,
+  "baseSha": "6d0f6c6f4fe4ac254f13d690ddf19f7ce85b14a8",
+  "baseTreeSha": "f731e9309e499b0ef31d827992208f3a289a54ed",
+  "originalPinnedSources": 13,
+  "sourceAnchor": {
+    "path": ".engineering/context-locks/IRIS-WO-0070-LEGACY-BRANCH-REF-RETIREMENT-C.json",
+    "gitBlobSha1": "b2561fc2fea7817f932d335221180c997db54d53"
+  },
+  "strictChangedPaths": [
+    ".engineering/context-locks/IRIS-WO-0015-S04-CLOSEOUT.json",
+    ".engineering/context-locks/IRIS-WO-0071-RESIDUAL-CONTEXT-LITERAL-CLEANUP.json",
+    ".engineering/evidence/IRIS-WO-0009.json",
+    ".engineering/evidence/IRIS-WO-0028.json",
+    ".engineering/evidence/IRIS-WO-0071.json",
+    ".engineering/work-orders/IRIS-WO-0071-RESIDUAL-CONTEXT-CLEANUP.md",
+    "planning/checkpoints/IRIS-WO-0071-RESIDUAL-CONTEXT-CLEANUP.md",
+    "tests/test_wo0066_iris_retirement.py",
+    "tests/test_wo0067_namespace_purge.py"
+  ],
+  "verifiedResidualSearch": "GitHub default-branch code search: 77 returned results; 4 live file matches apart from unrelated archive terminology; 3 historic metadata and one regression test",
+  "historicalAuditApproach": "The original literal-bearing files remain in immutable prior Git commits/blobs. Current-tree key labels are normalized with values unchanged. Do not rewrite existing historic Context Lock source pins to fake original contents.",
+  "changedHistoricalData": [
+    {
+      "path": ".engineering/evidence/IRIS-WO-0028.json",
+      "originalBaseGitBlob": "40df893c5dccf2eef2f4013dc02a558e0fd8701f"
+    },
+    {
+      "path": ".engineering/evidence/IRIS-WO-0009.json",
+      "originalBaseGitBlob": "8dfe3fd48899b2174d7dd008a5ffc9958b559214"
+    },
+    {
+      "path": ".engineering/context-locks/IRIS-WO-0015-S04-CLOSEOUT.json",
+      "originalBaseGitBlob": "b05a6548b8c1651ee5b9998464b37b5e978b49e3"
+    }
+  ],
+  "sourceOnly": true,
+  "localPcUninstalled": false,
+  "ownerGatesUnchanged": true,
+  "expectedFocusedNewTests": 1,
+  "expectedFullSuite": "BASE_FULL_SUITE_PLUS_ONE_TEST_NOT_PRECLAIMED",
+  "ownHeadGovernance": "PENDING",
+  "ownCodeRabbit": "PENDING",
+  "ownProtectedSquash": "PENDING",
+  "ownExactNewMain": "PENDING"
+}

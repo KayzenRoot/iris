@@ -1563,7 +1563,7 @@
     "conclusion": "success",
     "candidateAssertion": "PASS",
     "governanceValidation": "PASS",
-    "gefHiveBridgeTests": "PASS",
+    "gefExternalContextBridgeTestsHistorical": "PASS",
     "independentAudit": "APPROVED",
     "highCriticalFindings": 0
   },

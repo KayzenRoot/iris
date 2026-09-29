@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LEGACY_TOKEN = "".join(chr(v) for v in (104, 105, 118, 101))
 LEGACY_PATTERN = re.compile(
     rf"(?i)(?<![A-Za-z]){re.escape(LEGACY_TOKEN)}(?![a-z])"
+    rf"|(?<=[a-z]){re.escape(LEGACY_TOKEN.capitalize())}(?![a-z])"
 )
 
 
@@ -35,6 +36,18 @@ class NamespacePurgeTests(unittest.TestCase):
             if LEGACY_PATTERN.search(body):
                 offenders.append(path.relative_to(ROOT).as_posix())
         self.assertEqual(offenders, [])
+
+    def test_03_former_vendor_classifier_detects_embedded_identifiers(self):
+        """Reject embedded CamelCase names, but not unrelated archive terminology."""
+        alias = LEGACY_TOKEN.capitalize()
+        for candidate in ("gef" + alias + "BridgeTests",
+                          "pinned" + alias + "Commit",
+                          LEGACY_TOKEN.upper() + "_MEMORY"):
+            with self.subTest(candidate=candidate):
+                self.assertIsNotNone(LEGACY_PATTERN.search(candidate))
+        for neutral in ("archive", "ARCHIVE_REPRODUCIBLE", "catalogue"):
+            with self.subTest(neutral=neutral):
+                self.assertIsNone(LEGACY_PATTERN.search(neutral))
 
 
 if __name__ == "__main__":
